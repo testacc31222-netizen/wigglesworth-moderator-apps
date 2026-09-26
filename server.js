@@ -22,7 +22,9 @@ app.use(helmet({
   crossOriginEmbedderPolicy: false,
 }));
 app.use(express.json({ limit: '200kb' }));
-app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1h' }));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1h', setHeaders(res, filePath) {
+  if (filePath.endsWith('index.html') || filePath.endsWith('app.js')) res.set('Cache-Control', 'no-store');
+} }));
 
 // --- rate limits (anti-spam / anti-brute-force) ---
 const general = rateLimit({ windowMs: 60 * 1000, max: 120 });
