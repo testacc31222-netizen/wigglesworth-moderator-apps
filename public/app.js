@@ -36,7 +36,7 @@ function applyConfig(){
   $('topText').innerHTML = rich(config.topText);
   $('bottomText').innerHTML = rich(config.bottomText);
   const ap = document.querySelector('#approvedCard h3');
-  if(ap) ap.textContent = '✅ ' + (config.approvedTitle || 'Approved Moderators');
+  if(ap) ap.textContent = (config.approvedTitle || 'New moderators');
   renderForm(); renderApprovedPublic(); renderDecor();
   if(unlocked) showEditor(false);
 }
@@ -95,8 +95,8 @@ async function checkStatus(){
     if(!r.ok) throw 0;
     const s = await r.json();
     const cls = s.status||'pending';
-    const icon = cls==='approved'?'✅':cls==='denied'?'❌':'⏳';
-    box.innerHTML = `<div class="status-box ${cls}">${icon} <b>${esc(s.appId)}</b> — <span class="status ${cls}">${cls.toUpperCase()}</span><br><span class="hint">Submitted: ${esc(s.date||'')}</span>${s.adminNote?'<br><br>📝 <b>Staff note:</b><br>'+esc(s.adminNote):''}</div>`;
+    const word = cls==='approved'?'Accepted':cls==='denied'?'Not accepted':'Under review';
+    box.innerHTML = `<div class="status-box ${cls}"><b>${esc(s.appId)}</b> — <span class="status ${cls}">${word}</span><br><span class="hint">Submitted: ${esc(s.date||'')}</span>${s.adminNote?'<br><br><b>Note from staff:</b><br>'+esc(s.adminNote):''}</div>`;
   }catch{
     box.innerHTML = '<div class="status-box pending">❓ No application found for <b>'+esc(id)+'</b></div>';
   }
@@ -108,7 +108,7 @@ async function renderApprovedPublic(){
     const arr = await r.json();
     if(!arr.length){ card.style.display='none'; return; }
     card.style.display='block'; list.innerHTML='';
-    arr.forEach(s=>{ const d=document.createElement('div'); d.textContent='✅ '+(s.username||s.appId)+' — '+s.appId; list.appendChild(d); });
+    arr.forEach(s=>{ const d=document.createElement('div'); d.textContent=(s.username||s.appId)+' · '+s.appId; list.appendChild(d); });
   }catch{ card.style.display='none'; }
 }
 
@@ -348,7 +348,7 @@ function renderDecorList(){
   w.innerHTML='';
   config.decor.forEach(d=>{
     const div=document.createElement('div'); div.className='decor-item';
-    const title=d.kind==='text'?('📝 '+(d.text||'text').slice(0,24)):('🖼️ Image');
+    const title=d.kind==='text'?(d.text||'text').slice(0,24):'Picture';
     div.innerHTML=`<b>${esc(title)}</b> ${selectedDecor===d.id?'(selected — drag it on page)':''}<br>
       <span class="hint">Size</span><input type="range" min="30" max="600" value="${d.w||160}" oninput="decorSet(${d.id},'w',+this.value)">
       <span class="hint">Rotate: <span id="rv_${d.id}">${d.r||0}</span>°</span><input type="range" min="-180" max="180" value="${d.r||0}" oninput="decorSet(${d.id},'r',+this.value);document.getElementById('rv_${d.id}').textContent=this.value">
