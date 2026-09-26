@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Moderator Application</title>
+<style>
+:root{
+  --accent:#6366f1; --accent2:#a855f7; --accent-glow:rgba(99,102,241,.45);
+  --bg:#080a12; --card:rgba(20,24,38,.82); --card-solid:#151a2b;
+  --text:#f1f3fb; --muted:#9aa3bf; --border:rgba(255,255,255,.09);
+  --input:#0d1120; --radius:22px;
+  --shadow:0 20px 60px rgba(0,0,0,.5), 0 2px 0 rgba(255,255,255,.06) inset;
+}
+*{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+::selection{background:var(--accent);color:#fff}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--text);min-height:100vh;display:flex;justify-content:center;
+  padding:32px 18px 60px;background:var(--bg);
+  background-image:radial-gradient(1000px 500px at 15% -5%,rgba(99,102,241,.22),transparent 60%),
+  radial-gradient(900px 500px at 90% 10%,rgba(168,85,247,.18),transparent 60%),
+  radial-gradient(700px 600px at 50% 110%,rgba(34,197,94,.08),transparent 60%);
+  background-attachment:fixed;background-size:cover;background-position:center;
+}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:26px 26px;
+  mask-image:radial-gradient(700px 500px at 50% 0%,black,transparent 75%);}
+.bg-orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:float 12s ease-in-out infinite alternate}
+.o1{width:420px;height:420px;left:-120px;top:-100px;background:#4f46e5}
+.o2{width:380px;height:380px;right:-100px;top:5%;background:#7c3aed;animation-delay:-4s}
+.o3{width:300px;height:300px;left:30%;bottom:-120px;background:#06b6d4;opacity:.25}
+@keyframes float{to{transform:translateY(30px) translateX(20px) scale(1.05)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.container{width:100%;max-width:780px;position:relative;z-index:2}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02)) , var(--card);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:30px 28px;box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;
+  animation:fadeUp .5s ease both;position:relative;
+}
+.card::before{content:"";position:absolute;top:0;left:24px;right:24px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent)}
+h1{margin:0 0 6px;font-size:34px;line-height:1.05;font-weight:900;letter-spacing:-.8px;
+  background:linear-gradient(180deg,#fff 30%,#b9c0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{letter-spacing:-.3px}h3{letter-spacing:-.2px}
+.subtitle{color:var(--muted);margin:6px 0 8px;font-size:15px;line-height:1.5}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:12px;font-weight:800;
+  padding:8px 14px;border-radius:999px;letter-spacing:.8px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 8px 24px var(--accent-glow),0 1px 0 rgba(255,255,255,.3) inset;
+  border:1px solid rgba(255,255,255,.2)}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.announce{
+  color:#fff;border-radius:16px;padding:13px 16px;font-weight:700;font-size:14px;margin-bottom:16px;
+  background:linear-gradient(135deg,rgba(99,102,241,.95),rgba(168,85,247,.95));
+  border:1px solid rgba(255,255,255,.25);box-shadow:0 12px 32px var(--accent-glow);
+  display:flex;gap:10px;align-items:center;animation:fadeUp .4s ease both}
+label{display:block;font-weight:700;margin:18px 0 8px;font-size:13px;letter-spacing:.2px;color:#d6dbee}
+label span.req{color:#fb7185;margin-left:4px}
+input,textarea,select{
+  width:100%;padding:13px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.1);
+  background:var(--input);color:var(--text);font-size:15px;outline:none;transition:.2s}
+input::placeholder,textarea::placeholder{color:#5d6785}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-glow);background:#0f152b}
+textarea{min-height:96px;resize:vertical;line-height:1.5}
+button{cursor:pointer;font-family:inherit}
+.btn-primary{
+  width:100%;margin-top:24px;padding:16px;border:0;border-radius:16px;color:white;font-size:16px;font-weight:900;letter-spacing:.2px;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);
+  box-shadow:0 14px 34px var(--accent-glow),0 1px 0 rgba(255,255,255,.35) inset;
+  transition:.2s}
+.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 18px 44px var(--accent-glow)}
+.btn-primary:active{transform:translateY(0) scale(.99)}
+.btn-small{
+  background:rgba(255,255,255,.06);color:var(--text);border:1px solid rgba(255,255,255,.12);
+  padding:9px 15px;border-radius:12px;font-size:13px;font-weight:700;transition:.2s;backdrop-filter:blur(8px)}
+.btn-small:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+.btn-approve{background:linear-gradient(135deg,#22c55e,#16a34a);color:#04120a;border:0;padding:8px 13px;border-radius:10px;font-weight:900}
+.btn-deny{background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;border:0;padding:8px 13px;border-radius:10px;font-weight:900}
+.btn-pending{background:linear-gradient(135deg,#facc15,#eab308);color:#221a00;border:0;padding:8px 13px;border-radius:10px;font-weight:900}
+.btn-approve:hover,.btn-deny:hover,.btn-pending:hover{filter:brightness(1.1)}
+#success{display:none;text-align:center;padding:24px 10px}
+#success h2{background:linear-gradient(180deg,#fff,#86efac);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rules{
+  background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.08);border-left:4px solid var(--accent);
+  border-radius:14px;padding:15px 17px;color:#b9c0d8;font-size:14px;margin:16px 0;white-space:pre-wrap;line-height:1.65}
+.rich{font-size:15px;line-height:1.7;margin:14px 0;color:#d6dbee}
+.rich b{color:#fff}.rich a{color:#a5b4fc}
+.rich img{max-width:100%;border-radius:16px;margin:10px 0;border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.banner{width:calc(100% + 56px);margin:-30px -28px 18px -28px;max-height:250px;object-fit:cover;display:block;
+  mask-image:linear-gradient(180deg,black 70%,transparent);-webkit-mask-image:linear-gradient(180deg,black 70%,transparent)}
+.logo-row{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.logo-row img{width:64px;height:64px;border-radius:20px;object-fit:cover;border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 10px 28px rgba(0,0,0,.5),0 0 0 4px rgba(99,102,241,.25)}
+.modal-back{display:none;position:fixed;inset:0;background:rgba(3,5,12,.7);backdrop-filter:blur(10px);justify-content:center;align-items:center;padding:16px;z-index:50}
+.modal{background:linear-gradient(180deg,#1d2340,#121627);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:26px;width:100%;max-width:440px;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:fadeUp .25s ease both}
+.row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.row button{flex:1;padding:12px;border-radius:12px;border:0;font-weight:800;min-width:120px}
+.btn-cancel{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.12)!important}
+.btn-confirm{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 8px 22px var(--accent-glow)}
+#editor{display:none;border-color:rgba(168,85,247,.35);box-shadow:0 20px 60px rgba(124,58,237,.25),0 20px 60px rgba(0,0,0,.5)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0;padding:8px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.08);border-radius:16px}
+.tabs button{background:transparent;color:var(--muted);border:0;padding:9px 14px;border-radius:12px;font-size:13px;font-weight:800;transition:.2s}
+.tabs button:hover{color:#fff;background:rgba(255,255,255,.06)}
+.tabs button.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 6px 18px var(--accent-glow)}
+.tabpane{display:none}.tabpane.active{display:block;animation:fadeUp .3s ease both}
+.q-item,.decor-item{background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:14px;margin:12px 0}
+.q-item:focus-within{border-color:var(--accent)}
+.img-preview{max-width:100%;max-height:180px;border-radius:14px;margin-top:10px;display:block;border:1px solid rgba(255,255,255,.12)}
+.submission{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:14px;margin:12px 0;font-size:13.5px;line-height:1.6}
+.status{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-weight:900;font-size:11px;letter-spacing:.6px}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.status.pending{background:rgba(234,179,8,.15);color:#fde047;border:1px solid rgba(234,179,8,.35)}
+.status.approved{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.4)}
+.status.denied{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(239,68,68,.4)}
+.status-box{border-radius:16px;padding:16px;margin-top:14px;font-size:15px;line-height:1.6;backdrop-filter:blur(8px)}
+.status-box.approved{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.45)}
+.status-box.denied{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.45)}
+.status-box.pending{background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.4)}
+.hint{font-size:12.5px;color:var(--muted);line-height:1.5}
+.error{color:#fda4af;font-size:13px;margin-top:8px;min-height:18px}
+.appid{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:22px;font-weight:900;letter-spacing:2px;
+  background:rgba(99,102,241,.1);border:1px dashed rgba(165,180,252,.7);border-radius:14px;padding:14px;margin:14px 0;color:#c7d2fe}
+.approved-list{display:grid;gap:10px}
+.approved-list div{background:linear-gradient(135deg,rgba(34,197,94,.2),rgba(34,197,94,.06));border:1px solid rgba(34,197,94,.35);padding:11px 14px;border-radius:14px;font-size:14px;font-weight:700}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+input[type=color]{height:48px;padding:6px;cursor:pointer}
+input[type=range]{accent-color:var(--accent);height:28px}
+input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:#2e3658;border-radius:99px}::-webkit-scrollbar-track{background:transparent}
+#stickerLayer{position:fixed;inset:0;z-index:5;pointer-events:none;overflow:hidden}
+.sticker{position:absolute;pointer-events:none;user-select:none;line-height:1.2;filter:drop-shadow(0 12px 24px rgba(0,0,0,.5))}
+.sticker.editable{pointer-events:auto;cursor:move;touch-action:none;border:2px dashed var(--accent);border-radius:12px}
+.sticker.editable.selected{border-style:solid;box-shadow:0 0 0 4px var(--accent-glow);background:rgba(99,102,241,.08)}
+.sticker img{width:100%;height:auto;display:block;border-radius:10px;pointer-events:none}
+.sticker .txt{white-space:pre-wrap;pointer-events:none;font-weight:900;text-shadow:0 3px 14px rgba(0,0,0,.7);letter-spacing:-.3px}
+.decor-item input[type=range]{padding:0}
+@media(max-width:560px){.card{padding:22px 18px}h1{font-size:27px}body{padding:18px 12px 50px}}
+</style>
+</head>
+<body>
+<div id="stickerLayer"></div>
+<div class="bg-orbs"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
+<div class="container">
+  <div class="topbar">
+    <div class="badge">MODERATOR APPLICATIONS ONLY</div>
+    <button class="btn-small" onclick="openCodeModal()">⚙ Edit</button>
+  </div>
+
+  <div id="announceBar" class="announce" style="display:none"></div>
+
+  <div class="card">
+    <img id="bannerImg" class="banner" style="display:none" alt="">
+    <div class="logo-row">
+      <img id="logoImg" style="display:none" alt="">
+      <div>
+        <h1 id="appTitle">Moderator Application</h1>
+        <p class="subtitle" id="appSubtitle"></p>
+      </div>
+    </div>
+    <div class="rich" id="topText"></div>
+    <div class="rules" id="appRules"></div>
+    <form id="modForm" onsubmit="return submitApp(event)"></form>
+    <div id="success">
+      <h2>✅ Application Submitted</h2>
+      <p id="successMsg"></p>
+      <div class="hint">Save your Application ID to check your status later:</div>
+      <div class="appid" id="newAppId">—</div>
+      <div class="row">
+        <button class="btn-small" onclick="copyAppId()">Copy ID</button>
+        <button class="btn-small" onclick="resetForm()">New application</button>
+      </div>
+    </div>
+    <div class="rich" id="bottomText"></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0">🔍 Check Application Status</h3>
+    <p class="hint">Enter your Application ID (you got it after submitting). Applicants can see here if they were approved.</p>
+    <div class="row">
+      <input id="statusInput" placeholder="e.g. MOD-A1B2C3" style="flex:3">
+      <button class="btn-confirm" onclick="checkStatus()" style="flex:1">Check</button>
+    </div>
+    <div id="statusResult"></div>
+  </div>
+
+  <div class="card" id="approvedCard" style="display:none">
+    <h3 style="margin:0">✅ Approved Moderators</h3>
+    <div class="approved-list" id="approvedList" style="margin-top:10px"></div>
+  </div>
+
+  <div class="card" id="editor">
+    <h2 style="margin:0">Editor Mode</h2>
+    <p class="hint">Unlocked with edit code. Shared live - edits and applications sync on phone + computer instantly.</p>
+    <div class="tabs">
+      <button data-tab="general" class="active" onclick="switchTab('general',this)">General</button>
+      <button data-tab="design" onclick="switchTab('design',this)">Design & Pictures</button>
+      <button data-tab="decor" onclick="switchTab('decor',this)">Drag & Decor ✨</button>
+      <button data-tab="texts" onclick="switchTab('texts',this)">Texts</button>
+      <button data-tab="questions" onclick="switchTab('questions',this)">Questions</button>
+      <button data-tab="apps" onclick="switchTab('apps',this)">Applications</button>
+    </div>
+
+    <div id="tab-general" class="tabpane active">
+      <label>Page Title</label><input id="e_title">
+      <label>Subtitle</label><input id="e_subtitle">
+      <label>Announcement bar (leave empty to hide)</label><input id="e_announce" placeholder="e.g. Applications OPEN for March!">
+      <label>Success Message</label><textarea id="e_success"></textarea>
+      <label>Edit Code — used to unlock this editor</label>
+      <input id="e_code" type="password" placeholder="Set a private edit code">
+      <div class="row"><button class="btn-small" onclick="toggleCode()">Show / Hide code</button></div>
+      <label><input type="checkbox" id="e_showApproved" style="width:auto"> Show public Approved list</label>
+      <label>Approved list title</label><input id="e_approvedTitle" placeholder="Approved Moderators">
+    </div>
+
+    <div id="tab-design" class="tabpane">
+      <label>Accent Color</label><input id="e_accent" type="color">
+      <label>Background Color</label><input id="e_bg" type="color">
+      <label>Banner Image (top of form)</label>
+      <input id="e_bannerUrl" placeholder="Paste image URL…">
+      <input type="file" id="e_bannerFile" accept="image/*">
+      <img id="p_banner" class="img-preview" style="display:none">
+      <div class="row"><button class="btn-small" onclick="clearImg('bannerImage')">Remove banner</button></div>
+      <label>Logo Image (circle next to title)</label>
+      <input id="e_logoUrl" placeholder="Paste image URL…">
+      <input type="file" id="e_logoFile" accept="image/*">
+      <img id="p_logo" class="img-preview" style="display:none">
+      <div class="row"><button class="btn-small" onclick="clearImg('logoImage')">Remove logo</button></div>
+      <label>Background Image (page behind)</label>
+      <input id="e_bgUrl" placeholder="Paste image URL…">
+      <input type="file" id="e_bgFile" accept="image/*">
+      <img id="p_bg" class="img-preview" style="display:none">
+      <div class="row"><button class="btn-small" onclick="clearImg('backgroundImage')">Remove background</button></div>
+      <p class="hint">Tip: you can upload from your PC (stored as data in browser) or paste any image link.</p>
+    </div>
+
+    <div id="tab-decor" class="tabpane">
+      <p class="hint">Add pictures or text that float anywhere — even on the right side. Unlock the editor, then <b>drag them directly on the page</b> to move. Use size + rotate sliders for styling. Hit Save All Changes to keep.</p>
+      <div class="row">
+        <button class="btn-small" onclick="document.getElementById('e_decorFile').click()">+ Add Picture (upload)</button>
+        <button class="btn-small" onclick="addTextSticker()">+ Add Text</button>
+      </div>
+      <input type="file" id="e_decorFile" accept="image/*" style="display:none">
+      <div class="row">
+        <input id="e_decorUrl" placeholder="Paste image link then press Add" style="flex:3">
+        <button class="btn-small" onclick="addUrlSticker()" style="flex:1">Add URL</button>
+      </div>
+      <div id="decorList"></div>
+    </div>
+
+    <div id="tab-texts" class="tabpane">
+      <label>Rules / Info box (one per line)</label><textarea id="e_rules" rows="4"></textarea>
+      <label>Top Text — shown ABOVE the form (HTML allowed: &lt;b&gt; &lt;i&gt; &lt;a&gt; &lt;img&gt; &lt;br&gt;)</label>
+      <textarea id="e_top" rows="5" placeholder="Welcome! Write anything here… You can paste an &lt;img src=...&gt; tag too."></textarea>
+      <label>Bottom Text — shown BELOW the form</label>
+      <textarea id="e_bottom" rows="5" placeholder="Contact info, Discord link, extra notes…"></textarea>
+      <label>Add picture into text</label>
+      <input type="file" id="e_inlineFile" accept="image/*">
+      <div class="row">
+        <button class="btn-small" onclick="insertInline('top')">Insert into Top Text</button>
+        <button class="btn-small" onclick="insertInline('bottom')">Insert into Bottom Text</button>
+      </div>
+      <img id="p_inline" class="img-preview" style="display:none">
+      <p class="hint">Upload a picture, then click Insert. It adds an &lt;img&gt; tag where everyone will see it.</p>
+    </div>
+
+    <div id="tab-questions" class="tabpane">
+      <div id="qEditor"></div>
+      <button class="btn-small" onclick="addQuestion()">+ Add Question</button>
+    </div>
+
+    <div id="tab-apps" class="tabpane">
+      <div class="toolbar">
+        <input id="appSearch" placeholder="Search ID / username…" oninput="renderSubs()" style="flex:2">
+        <select id="appFilter" onchange="renderSubs()" style="flex:1"><option value="">All</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="denied">Denied</option></select>
+      </div>
+      <div class="toolbar">
+        <button class="btn-small" onclick="exportCSV()">Export CSV</button>
+        <button class="btn-small" onclick="clearSubs()">Clear All</button>
+      </div>
+      <h3>Submissions (<span id="subCount">0</span>)</h3>
+      <div id="subs"></div>
+    </div>
+
+    <div class="row">
+      <button class="btn-confirm" onclick="saveConfig()">💾 Save All Changes</button>
+      <button class="btn-cancel" onclick="resetConfig()">Reset Default</button>
+    </div>
+    <div class="row">
+      <button class="btn-cancel" onclick="lockEditor()">Lock Editor</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-back" id="codeModal">
+  <div class="modal">
+    <h2>Enter Edit Code</h2>
+    <p class="hint">Editing is restricted to staff.</p>
+    <input id="codeInput" type="password" placeholder="Enter edit code" autocomplete="off">
+    <div class="error" id="codeError"></div>
+    <div class="row">
+      <button class="btn-cancel" onclick="closeCodeModal()">Cancel</button>
+      <button class="btn-confirm" onclick="checkCode()">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

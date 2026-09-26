@@ -1,0 +1,14 @@
+{
+  "name": "moderator-site",
+  "version": "1.0.0",
+  "description": "Moderator applications — works on phone + computer with shared backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "helmet": "^8.0.0",
+    "express-rate-limit": "^7.2.0"
+  }
+}
