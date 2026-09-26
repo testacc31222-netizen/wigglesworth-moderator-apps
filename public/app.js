@@ -1,4 +1,5 @@
 let config = null;
+let currentTypeId = null;
 let unlocked = sessionStorage.getItem('mod_edit_code') ? true : false;
 let editCode = sessionStorage.getItem('mod_edit_code') || '';
 let selectedDecor = null;
@@ -10,23 +11,24 @@ const $ = id => document.getElementById(id);
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function rich(t){ if(!t) return ''; return t.replace(/\n/g,'<br>'); }
 function headers(){ return { 'Content-Type':'application/json', 'x-edit-code': editCode }; }
+function curType(){ return (config.applicationTypes||[]).find(t=>t.id===currentTypeId) || config.applicationTypes[0]; }
+function typeName(id){ const t=(config.applicationTypes||[]).find(x=>x.id===id); return t?t.name:id; }
 
 async function fetchConfig(){
   const r = await fetch('/api/config');
   config = await r.json();
   if(!Array.isArray(config.decor)) config.decor = [];
+  if(!Array.isArray(config.applicationTypes) || !config.applicationTypes.length) location.reload();
+  if(!currentTypeId || !config.applicationTypes.some(t=>t.id===currentTypeId)) currentTypeId = config.applicationTypes[0].id;
   applyConfig();
 }
 function applyConfig(){
-  document.documentElement.style.setProperty('--accent', config.accent);
-  document.body.style.backgroundColor = config.bg || '#080a12';
-  document.body.style.backgroundImage = config.backgroundImage ? `url("${config.backgroundImage}")` : 'none';
   $('appTitle').textContent = config.title;
   document.title = config.title;
-  $('appSubtitle').textContent = config.subtitle;
+  $('appSubtitle').textContent = config.subtitle || '';
   $('appRules').textContent = config.rules || '';
   $('appRules').style.display = config.rules ? 'block' : 'none';
-  $('successMsg').textContent = config.successMessage;
+  $('bottomText').innerHTML = rich(config.bottomText);
   const ab = $('announceBar');
   if(config.announcement){ ab.style.display='block'; ab.textContent = config.announcement; } else ab.style.display='none';
   const bi = $('bannerImg');
@@ -34,16 +36,43 @@ function applyConfig(){
   const li = $('logoImg');
   if(config.logoImage){ li.src = config.logoImage; li.style.display='block'; } else li.style.display='none';
   $('topText').innerHTML = rich(config.topText);
-  $('bottomText').innerHTML = rich(config.bottomText);
-  const ap = document.querySelector('#approvedCard h3');
-  if(ap) ap.textContent = (config.approvedTitle || 'New moderators');
-  renderForm(); renderApprovedPublic(); renderDecor();
+  renderTypeCards(); renderApprovedPublic(); renderDecor();
+  if (curType() && $('applyCard').style.display === 'block') fillRoleHeader(curType());
   if(unlocked) showEditor(false);
 }
+function renderTypeCards(){
+  const w = $('roleCards'); w.innerHTML = '';
+  config.applicationTypes.forEach(t=>{
+    const b = document.createElement('button');
+    b.className = 'role-card'; b.onclick = ()=>pickType(t.id);
+    b.innerHTML = `<span class="tick">${esc(t.prefix||'APP')}</span><span><h4>${esc(t.name)} Applications</h4><p>${esc(t.blurb||'')}</p></span><span class="go">→</span>`;
+    w.appendChild(b);
+  });
+}
+function toggleApplyMenu(){
+  const m = $('roleMenu');
+  m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  if (m.style.display === 'block') renderTypeCards();
+}
+function pickType(id){
+  currentTypeId = id;
+  const t = curType();
+  $('roleMenu').style.display = 'none';
+  $('applyCard').style.display = 'block';
+  fillRoleHeader(t); renderForm();
+  $('applyCard').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+function fillRoleHeader(t){
+  $('roleKicker').textContent = (t.name || 'Application').toUpperCase() + ' APPLICATION';
+  $('roleName').textContent = t.name + ' Application';
+  $('roleIntro').textContent = t.intro || '';
+  $('successMsg').textContent = t.successMessage || '';
+}
 function renderForm(){
+  const t = curType();
   const f = $('modForm'); f.innerHTML=''; f.style.display='block';
   $('success').style.display='none';
-  config.questions.forEach(q=>{
+  t.questions.forEach(q=>{
     const lab = document.createElement('label');
     lab.innerHTML = esc(q.label) + (q.required ? ' <span class="req">*</span>' : '');
     f.appendChild(lab);
@@ -59,31 +88,37 @@ function renderForm(){
     f.appendChild(el);
   });
   const b=document.createElement('button');
-  b.className='btn-primary'; b.type='submit'; b.textContent='Submit Moderator Application';
+  b.className='btn-primary'; b.type='submit'; b.textContent='Submit '+t.name+' Application';
   f.appendChild(b);
 }
 async function submitApp(e){
   e.preventDefault();
+  const t = curType();
   const answers = {};
-  for(const q of config.questions){
+  for(const q of t.questions){
     const el = $('f_'+q.id);
     const v = (el.value||'').trim();
     if(q.required && !v){ alert('Please fill: '+q.label); el.focus(); return false; }
-    if((q.id==='why'||q.id==='scenario') && v.length<20){ alert(q.label+' is too short. Give more detail.'); el.focus(); return false; }
+    if((q.id==='why'||q.id==='scenario'||q.id==='bugscenario') && v.length<20){ alert(q.label+' is too short. Give more detail.'); el.focus(); return false; }
     answers[q.id]=v;
   }
   try{
-    const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(answers)});
+    const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t.id,answers})});
     const j = await r.json();
     if(!r.ok) throw new Error(j.error||'Submit failed');
     $('modForm').style.display='none';
     $('success').style.display='block';
+    $('successMsg').textContent = t.successMessage || '';
     $('newAppId').textContent = j.appId;
     renderApprovedPublic();
   }catch(err){ alert(err.message); }
   return false;
 }
-function resetForm(){ renderForm(); }
+function resetForm(){
+  $('applyCard').style.display='none';
+  $('roleMenu').style.display='block'; renderTypeCards();
+  document.getElementById('apply').scrollIntoView({ behavior:'smooth' });
+}
 function copyAppId(){ const t=$('newAppId').textContent; navigator.clipboard?.writeText(t); alert('Copied: '+t); }
 
 async function checkStatus(){
@@ -96,20 +131,31 @@ async function checkStatus(){
     const s = await r.json();
     const cls = s.status||'pending';
     const word = cls==='approved'?'Accepted':cls==='denied'?'Not accepted':'Under review';
-    box.innerHTML = `<div class="status-box ${cls}"><b>${esc(s.appId)}</b> — <span class="status ${cls}">${word}</span><br><span class="hint">Submitted: ${esc(s.date||'')}</span>${s.adminNote?'<br><br><b>Note from staff:</b><br>'+esc(s.adminNote):''}</div>`;
+    box.innerHTML = `<div class="status-box ${cls}"><b>${esc(s.appId)}</b> · ${esc(s.typeName||'')}<br><span class="status ${cls}">${word}</span><br><span class="hint">Submitted: ${esc(s.date||'')}</span>${s.adminNote?'<br><br><b>Note from staff:</b><br>'+esc(s.adminNote):''}</div>`;
   }catch{
-    box.innerHTML = '<div class="status-box pending">❓ No application found for <b>'+esc(id)+'</b></div>';
+    box.innerHTML = '<div class="status-box pending">No application found for <b>'+esc(id)+'</b></div>';
   }
 }
 async function renderApprovedPublic(){
-  const card=$('approvedCard'), list=$('approvedList');
+  const wrap=$('accepted'), list=$('approvedList');
+  const sel=$('acceptedFilter');
+  const keep = sel.value;
+  sel.innerHTML='<option value="">All roles</option>';
+  config.applicationTypes.forEach(t=>{ if(t.showApproved){ const o=document.createElement('option'); o.value=t.id; o.textContent=t.name; sel.appendChild(o); } });
+  sel.value = keep;
+  $('acceptedTitle').textContent = config.approvedTitle || 'New team members';
   try{
     const r = await fetch('/api/approved');
-    const arr = await r.json();
-    if(!arr.length){ card.style.display='none'; return; }
-    card.style.display='block'; list.innerHTML='';
-    arr.forEach(s=>{ const d=document.createElement('div'); d.textContent=(s.username||s.appId)+' · '+s.appId; list.appendChild(d); });
-  }catch{ card.style.display='none'; }
+    let arr = await r.json();
+    if(sel.value) arr = arr.filter(s=>s.type===sel.value);
+    if(!config.showApproved || !arr.length){ wrap.style.display='none'; return; }
+    wrap.style.display='block'; list.innerHTML='';
+    let lastType = null;
+    arr.forEach(s=>{
+      if(s.type!==lastType){ lastType=s.type; const h=document.createElement('div'); h.className='hint'; h.style.margin='8px 0 2px'; h.textContent=typeName(s.type); list.appendChild(h); }
+      const d=document.createElement('div'); d.textContent=s.username+' · '+s.appId; list.appendChild(d);
+    });
+  }catch{ wrap.style.display='none'; }
 }
 
 // ---- editor auth ----
@@ -145,13 +191,12 @@ function syncImgPreviews(){
 function showEditor(refetch=true){
   $('editor').style.display='block';
   $('e_title').value=config.title;
-  $('e_subtitle').value=config.subtitle;
+  $('e_subtitle').value=config.subtitle||'';
   $('e_announce').value=config.announcement||'';
-  $('e_success').value=config.successMessage;
   $('e_code').value=editCode;
-  $('e_showApproved').checked=!!config.showApproved;
+  $('e_showApproved').checked=config.showApproved!==false;
   $('e_approvedTitle').value=config.approvedTitle||'';
-  $('e_accent').value=config.accent;
+  $('e_accent').value=config.accent||'#6cb8f0';
   $('e_bg').value=config.bg||'#080a12';
   $('e_bannerUrl').value=config.bannerImage?.startsWith('data:')?'':(config.bannerImage||'');
   $('e_logoUrl').value=config.logoImage?.startsWith('data:')?'':(config.logoImage||'');
@@ -159,27 +204,52 @@ function showEditor(refetch=true){
   $('e_rules').value=config.rules||'';
   $('e_top').value=config.topText||'';
   $('e_bottom').value=config.bottomText||'';
-  syncImgPreviews(); renderQEditor(); renderDecor(); renderDecorList();
+  syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderDecor(); renderDecorList();
+  syncAppTypeFilter();
   if(refetch) renderSubs();
 }
 function lockEditor(){ unlocked=false; editCode=''; sessionStorage.removeItem('mod_edit_code'); selectedDecor=null; $('editor').style.display='none'; renderDecor(); }
-function renderQEditor(){
-  const w=$('qEditor'); w.innerHTML='';
-  config.questions.forEach((q,i)=>{
-    const d=document.createElement('div'); d.className='q-item';
-    d.innerHTML=`<strong>Q${i+1}</strong>
-      <div class="row"><button class="btn-small" onclick="moveQ(${i},-1)">↑</button><button class="btn-small" onclick="moveQ(${i},1)">↓</button><button class="btn-small" onclick="delQ(${i})">Delete</button></div>
-      <label>Question text</label><input value="${esc(q.label)}" oninput="config.questions[${i}].label=this.value">
-      <div class="row"><select onchange="config.questions[${i}].type=this.value">${['text','number','textarea','select'].map(t=>`<option ${q.type===t?'selected':''} value="${t}">${t}</option>`).join('')}</select>
-      <input placeholder="Placeholder help text" value="${esc(q.placeholder||'')}" oninput="config.questions[${i}].placeholder=this.value"></div>
-      <label>Options (for dropdown only, comma separated)</label><input value="${esc(q.options||'')}" oninput="config.questions[${i}].options=this.value">
-      <label style="font-size:13px"><input type="checkbox" ${q.required?'checked':''} style="width:auto" onchange="config.questions[${i}].required=this.checked"> Required</label>`;
+function edType(i){ return config.applicationTypes[i]; }
+function renderTypeEditor(){
+  const w=$('typeEditor'); w.innerHTML='';
+  config.applicationTypes.forEach((t,i)=>{
+    const d=document.createElement('div'); d.className='type-item';
+    d.innerHTML=`<b>${esc(t.name)}</b> <span class="hint">id: ${esc(t.id)} · prefix: ${esc(t.prefix)}</span>
+      <label>Role name</label><input value="${esc(t.name)}" oninput="edType(${i}).name=this.value">
+      <label>Dropdown blurb</label><input value="${esc(t.blurb||'')}" oninput="edType(${i}).blurb=this.value">
+      <div class="row"><span style="flex:1"><label>ID prefix (on application IDs)</label><input value="${esc(t.prefix||'')}" oninput="edType(${i}).prefix=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,4)"></span></div>
+      <label>Intro (above the form)</label><textarea rows="2" oninput="edType(${i}).intro=this.value">${esc(t.intro||'')}</textarea>
+      <label>Success message</label><textarea rows="2" oninput="edType(${i}).successMessage=this.value">${esc(t.successMessage||'')}</textarea>
+      <label style="font-size:13px"><input type="checkbox" ${t.showApproved!==false?'checked':''} style="width:auto" onchange="edType(${i}).showApproved=this.checked"> Show in public Accepted list</label>`;
     w.appendChild(d);
   });
 }
-function addQuestion(){ config.questions.push({id:'q'+Date.now(),label:'New Question',type:'text',placeholder:'',required:true,options:''}); renderQEditor(); }
-function delQ(i){ if(!confirm('Delete this question?')) return; config.questions.splice(i,1); renderQEditor(); }
-function moveQ(i,dir){ const j=i+dir; if(j<0||j>=config.questions.length) return; const t=config.questions[i]; config.questions[i]=config.questions[j]; config.questions[j]=t; renderQEditor(); }
+function syncQType(){
+  const s=$('e_qtype'); const keep=s.value;
+  s.innerHTML='';
+  config.applicationTypes.forEach(t=>{ const o=document.createElement('option'); o.value=t.id; o.textContent=t.name; s.appendChild(o); });
+  s.value = config.applicationTypes.some(t=>t.id===keep) ? keep : config.applicationTypes[0].id;
+}
+function qType(){ return config.applicationTypes.find(t=>t.id===$('e_qtype').value) || config.applicationTypes[0]; }
+function renderQEditor(){
+  const t=qType();
+  const w=$('qEditor'); w.innerHTML='';
+  t.questions.forEach((q,i)=>{
+    const d=document.createElement('div'); d.className='q-item';
+    const ti=config.applicationTypes.indexOf(t);
+    d.innerHTML=`<strong>Q${i+1}</strong>
+      <div class="row"><button class="btn-small" onclick="moveQ(${i},-1)">↑</button><button class="btn-small" onclick="moveQ(${i},1)">↓</button><button class="btn-small" onclick="delQ(${i})">Delete</button></div>
+      <label>Question text</label><input value="${esc(q.label)}" oninput="config.applicationTypes[${ti}].questions[${i}].label=this.value">
+      <div class="row"><select onchange="config.applicationTypes[${ti}].questions[${i}].type=this.value">${['text','number','textarea','select'].map(x=>`<option ${q.type===x?'selected':''} value="${x}">${x}</option>`).join('')}</select>
+      <input placeholder="Placeholder help text" value="${esc(q.placeholder||'')}" oninput="config.applicationTypes[${ti}].questions[${i}].placeholder=this.value"></div>
+      <label>Options (for dropdown only, comma separated)</label><input value="${esc(q.options||'')}" oninput="config.applicationTypes[${ti}].questions[${i}].options=this.value">
+      <label style="font-size:13px"><input type="checkbox" ${q.required?'checked':''} style="width:auto" onchange="config.applicationTypes[${ti}].questions[${i}].required=this.checked"> Required</label>`;
+    w.appendChild(d);
+  });
+}
+function addQuestion(){ qType().questions.push({id:'q'+Date.now(),label:'New Question',type:'text',placeholder:'',required:true,options:''}); renderQEditor(); }
+function delQ(i){ if(!confirm('Delete this question?')) return; qType().questions.splice(i,1); renderQEditor(); }
+function moveQ(i,dir){ const qs=qType().questions; const j=i+dir; if(j<0||j>=qs.length) return; const t2=qs[i]; qs[i]=qs[j]; qs[j]=t2; renderQEditor(); }
 function insertInline(where){
   if(!inlineDataUrl){ alert('Upload a picture first.'); return; }
   const tag=`<br><img src="${inlineDataUrl}" style="max-width:100%;border-radius:12px;"><br>`;
@@ -188,10 +258,9 @@ function insertInline(where){
   alert('Inserted! Hit Save All Changes to publish.');
 }
 async function saveConfig(){
-  config.title=$('e_title').value||'Moderator Application';
+  config.title=$('e_title').value||'Wigglesworth — Join the Team';
   config.subtitle=$('e_subtitle').value;
   config.announcement=$('e_announce').value;
-  config.successMessage=$('e_success').value;
   config.showApproved=$('e_showApproved').checked;
   config.approvedTitle=$('e_approvedTitle').value;
   config.accent=$('e_accent').value;
@@ -207,6 +276,7 @@ async function saveConfig(){
   config.editCode=nc;
   const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
   if(r.status===401){ alert('Edit code changed or wrong — unlock again.'); lockEditor(); return; }
+  if(!r.ok){ alert('Save failed.'); return; }
   editCode = nc; sessionStorage.setItem('mod_edit_code', nc);
   applyConfig(); alert('Saved! Visible on phone + computer instantly.');
 }
@@ -215,29 +285,39 @@ async function resetConfig(){
   await fetch('/api/admin/reset',{method:'POST',headers:headers()});
   await fetchConfig();
 }
-
-// ---- submissions (admin) ----
+function syncAppTypeFilter(){
+  const s=$('appTypeFilter'); const keep=s.value;
+  s.innerHTML='<option value="">All roles</option>';
+  config.applicationTypes.forEach(t=>{ const o=document.createElement('option'); o.value=t.id; o.textContent=t.name; s.appendChild(o); });
+  s.value=keep;
+}
 async function renderSubs(){
   const q=($('appSearch').value||'').toLowerCase();
-  const f=$('appFilter').value;
+  const f=$('appFilter').value, tf=$('appTypeFilter').value;
   const r = await fetch('/api/admin/applications',{headers:{'x-edit-code':editCode}});
   if(r.status===401){ $('subs').innerHTML='<p class="hint">Wrong code — lock and unlock again.</p>'; return; }
   let subs = await r.json();
   adminCache = subs;
   $('subCount').textContent=subs.length;
   const w=$('subs'); w.innerHTML = subs.length?'':'<p class="hint">No submissions yet.</p>';
+  const qmap = {};
+  config.applicationTypes.forEach(t=>t.questions.forEach(x=>{ qmap[t.id+':'+x.id]=x.label; }));
   subs.filter(s=>{
     if(f && s.status!==f) return false;
+    if(tf && s.type!==tf) return false;
     if(q && !JSON.stringify(s).toLowerCase().includes(q)) return false;
     return true;
   }).forEach(s=>{
     const d=document.createElement('div'); d.className='submission';
-    let html=`<b>${esc(s.appId||'')}</b> <span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span><br><span class="hint">${esc(s.date||'')}</span><br><br>`;
-    config.questions.forEach(qq=>{ html+=`<b>${esc(qq.label)}:</b> ${esc(s[qq.id]||'-')}<br>`; });
+    let html=`<b>${esc(s.appId||'')}</b> <span class="hint">${esc(typeName(s.type))}</span> <span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span><br><span class="hint">${esc(s.date||'')}</span><br><br>`;
+    Object.keys(s).forEach(k=>{
+      if(['appId','type','date','status','adminNote'].includes(k)) return;
+      html+=`<b>${esc(qmap[s.type+':'+k]||k)}:</b> ${esc(s[k]||'-')}<br>`;
+    });
     html+=`<label>Staff note (seen by applicant):</label><input value="${esc(s.adminNote||'')}" id="note_${esc(s.appId)}" placeholder="e.g. Great app, welcome!">`;
     d.innerHTML=html;
     const bar=document.createElement('div'); bar.className='row';
-    const mk=(t,cls,fn)=>{ const b=document.createElement('button'); b.className=cls; b.textContent=t; b.onclick=fn; return b; };
+    const mk=(t3,cls,fn)=>{ const b=document.createElement('button'); b.className=cls; b.textContent=t3; b.onclick=fn; return b; };
     bar.append(
       mk('Approve','btn-approve',()=>setStatus(s.appId,'approved')),
       mk('Deny','btn-deny',()=>setStatus(s.appId,'denied')),
@@ -269,11 +349,12 @@ async function clearSubs(){
 }
 function exportCSV(){
   if(!adminCache.length){ alert('No submissions (unlock editor first)'); return; }
-  const headers=['appId','date','status','adminNote',...config.questions.map(q=>q.id)];
-  const rows=[headers.join(',')].concat(adminCache.map(s=>headers.map(h=>`"${(s[h]||'').toString().replace(/"/g,'""')}"`).join(',')));
+  const keySet=['appId','type','date','status','adminNote'];
+  adminCache.forEach(s=>Object.keys(s).forEach(k=>{ if(!keySet.includes(k)) keySet.push(k); }));
+  const rows=[keySet.join(',')].concat(adminCache.map(s=>keySet.map(h=>`"${(s[h]||'').toString().replace(/"/g,'""')}"`).join(',')));
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([rows.join('\n')],{type:'text/csv'}));
-  a.download='moderator-applications.csv'; a.click();
+  a.download='wigglesworth-applications.csv'; a.click();
 }
 
 // ---- floating decor ----
@@ -326,8 +407,7 @@ async function onDragEnd(){
   await saveDecorQuiet();
 }
 async function saveDecorQuiet(){
-  const payload = {...config, editCode: editCode || config.editCode};
-  await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(payload)});
+  await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
 }
 function addUrlSticker(){
   const v=$('e_decorUrl').value.trim();
@@ -337,14 +417,14 @@ function addUrlSticker(){
   renderDecor();
 }
 function addTextSticker(){
-  const t=prompt('Text for floating sticker:','MOD TEAM!')||'Hello!';
+  const t=prompt('Text for floating sticker:','Wigglesworth!')||'Hello!';
   config.decor.push({id:Date.now(),kind:'text',text:t,color:'#ffffff',fontSize:32,x:70,y:30,w:220,r:-8,o:1,z:5});
   renderDecor();
 }
 function delDecor(id){ if(!confirm('Remove this decor?')) return; config.decor=config.decor.filter(d=>d.id!==id); if(selectedDecor===id) selectedDecor=null; renderDecor(); }
 function renderDecorList(){
   const w=$('decorList'); if(!w) return;
-  if(!config.decor.length){ w.innerHTML='<p class="hint">No floating items yet. Add one above, then drag it to the right side or anywhere.</p>'; return; }
+  if(!config.decor.length){ w.innerHTML='<p class="hint">No floating items yet.</p>'; return; }
   w.innerHTML='';
   config.decor.forEach(d=>{
     const div=document.createElement('div'); div.className='decor-item';
@@ -362,10 +442,10 @@ function decorSet(id,k,v){ const d=config.decor.find(x=>x.id===id); if(!d) retur
 function decorText(id,v){ const d=config.decor.find(x=>x.id===id); if(!d) return; d.text=v; renderDecor(); clearTimeout(window.__dt); window.__dt=setTimeout(saveDecorQuiet,600); }
 function decorFront(id){ const d=config.decor.find(x=>x.id===id); if(!d) return; const m=Math.max(5,...config.decor.map(x=>x.z||5)); d.z=m+1; renderDecor(); }
 
-// wire file inputs after DOM
 window.addEventListener('DOMContentLoaded', ()=>{
   fetchConfig();
   $('codeInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkCode(); });
+  $('statusInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkStatus(); });
   ['e_bannerFile','e_logoFile','e_bgFile','e_inlineFile'].forEach(id=>{
     $(id)?.addEventListener('change',e=>{
       const f=e.target.files[0]; if(!f) return;

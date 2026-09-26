@@ -132,6 +132,26 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 .decor-item input[type=range]{padding:0}
 @media(max-width:560px){.card{padding:22px 18px}h1{font-size:30px}}
 
+.wordmark{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:19px;letter-spacing:.4px;color:var(--text)}
+.wordmark span{color:var(--amber);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:2px;margin-left:8px;border:1px solid var(--amber-deep);border-radius:5px;padding:2px 7px;vertical-align:2px}
+.nav{display:flex;gap:18px}
+.nav a{color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:600}
+.nav a:hover{color:var(--amber)}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:2.4px;color:var(--amber);margin-bottom:10px}
+.hero-actions{margin-top:6px}
+.role-menu{margin-top:6px;border-top:1px dashed var(--line);padding-top:16px}
+#roleCards{display:grid;gap:10px}
+.role-card{display:flex;gap:14px;align-items:center;text-align:left;width:100%;background:rgba(0,0,0,.28);border:1px solid var(--line-soft);border-radius:10px;padding:15px 17px;color:var(--text);transition:.15s}
+.role-card:hover{border-color:var(--amber);transform:translateX(3px)}
+.role-card .tick{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;font-weight:700;letter-spacing:1.5px;color:#0c1a26;background:var(--amber);border-radius:6px;padding:5px 9px;white-space:nowrap}
+.role-card h4{margin:0 0 3px;font-family:Fraunces,Georgia,serif;font-size:19px}
+.role-card p{margin:0;color:var(--muted);font-size:13.5px}
+.role-card .go{margin-left:auto;color:var(--amber);font-size:20px;font-weight:800}
+.role-kicker{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:2.2px;color:var(--amber)}
+#roleName{font-size:30px}
+.type-item{background:rgba(0,0,0,.28);border:1px solid var(--line-soft);border-radius:10px;padding:14px;margin:12px 0}
+@media(max-width:560px){.nav{display:none}#roleName{font-size:25px}}
+
 </style>
 </head>
 <body>
@@ -139,40 +159,59 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 <div class="bg-orbs"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
 <div class="container">
   <div class="topbar">
-    <div class="badge">MODERATOR APPLICATIONS ONLY</div>
-    <button class="btn-small" onclick="openCodeModal()">⚙ Edit</button>
+    <div class="wordmark">Wigglesworth<span>staff</span></div>
+    <nav class="nav">
+      <a href="#apply">Roles</a>
+      <a href="#status">Decision</a>
+      <a href="#accepted">Accepted</a>
+    </nav>
+    <button class="btn-small" onclick="openCodeModal()">Edit</button>
   </div>
 
   <div id="announceBar" class="announce" style="display:none"></div>
 
-  <div class="card">
+  <div class="card hero">
     <img id="bannerImg" class="banner" style="display:none" alt="">
     <div class="logo-row">
       <img id="logoImg" style="display:none" alt="">
       <div>
-        <h1 id="appTitle">Moderator Application</h1>
+        <div class="eyebrow">Staff applications</div>
+        <h1 id="appTitle">Wigglesworth — Join the Team</h1>
         <p class="subtitle" id="appSubtitle"></p>
       </div>
     </div>
     <div class="rich" id="topText"></div>
+    <div class="hero-actions">
+      <button class="btn-primary" id="applyBtn" onclick="toggleApplyMenu()" style="margin-top:8px">Fill an application</button>
+      <p class="hint" style="text-align:center">Pick a role — one honest application per role.</p>
+    </div>
+    <div id="roleMenu" class="role-menu" style="display:none">
+      <div id="roleCards"></div>
+    </div>
+  </div>
+
+  <div class="card" id="applyCard" style="display:none">
+    <div class="role-kicker" id="roleKicker">Application</div>
+    <h2 id="roleName" style="margin:4px 0 6px"></h2>
+    <p class="subtitle" id="roleIntro"></p>
     <div class="rules" id="appRules"></div>
     <form id="modForm" onsubmit="return submitApp(event)"></form>
     <div id="success">
       <h2>Application received</h2>
       <p id="successMsg"></p>
-      <div class="hint">Save your Application ID to check your status later:</div>
+      <div class="hint">Save your Application ID to check your decision later:</div>
       <div class="appid" id="newAppId">—</div>
       <div class="row">
         <button class="btn-small" onclick="copyAppId()">Copy ID</button>
-        <button class="btn-small" onclick="resetForm()">New application</button>
+        <button class="btn-small" onclick="resetForm()">Back to roles</button>
       </div>
     </div>
     <div class="rich" id="bottomText"></div>
   </div>
 
-  <div class="card">
+  <div class="card" id="status">
     <h3 style="margin:0">Check your decision</h3>
-    <p class="hint">Enter your Application ID (you got it after submitting). Applicants can see here if they were approved.</p>
+    <p class="hint">Enter your Application ID (you got it after submitting). Works for every role.</p>
     <div class="row">
       <input id="statusInput" placeholder="e.g. MOD-A1B2C3" style="flex:3">
       <button class="btn-confirm" onclick="checkStatus()" style="flex:1">Check</button>
@@ -180,8 +219,11 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
     <div id="statusResult"></div>
   </div>
 
-  <div class="card" id="approvedCard" style="display:none">
-    <h3 style="margin:0">New moderators</h3>
+  <div class="card" id="accepted" style="display:none">
+    <div class="row" style="margin-top:0;align-items:center">
+      <h3 style="margin:0;flex:3" id="acceptedTitle">New team members</h3>
+      <select id="acceptedFilter" onchange="renderApprovedPublic()" style="flex:1;min-width:140px"><option value="">All roles</option></select>
+    </div>
     <div class="approved-list" id="approvedList" style="margin-top:10px"></div>
   </div>
 
@@ -192,34 +234,39 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
     <p class="hint">Unlocked with edit code. Shared live - edits and applications sync on phone + computer instantly.</p>
     <div class="tabs">
       <button data-tab="general" class="active" onclick="switchTab('general',this)">General</button>
+      <button data-tab="roles" onclick="switchTab('roles',this)">Roles</button>
       <button data-tab="design" onclick="switchTab('design',this)">Design & Pictures</button>
-      <button data-tab="decor" onclick="switchTab('decor',this)">Drag & Decor ✨</button>
+      <button data-tab="decor" onclick="switchTab('decor',this)">Drag & Decor</button>
       <button data-tab="texts" onclick="switchTab('texts',this)">Texts</button>
       <button data-tab="questions" onclick="switchTab('questions',this)">Questions</button>
       <button data-tab="apps" onclick="switchTab('apps',this)">Applications</button>
     </div>
 
     <div id="tab-general" class="tabpane active">
-      <label>Page Title</label><input id="e_title">
+      <label>Site Title</label><input id="e_title">
       <label>Subtitle</label><input id="e_subtitle">
       <label>Announcement bar (leave empty to hide)</label><input id="e_announce" placeholder="e.g. Applications OPEN for March!">
-      <label>Success Message</label><textarea id="e_success"></textarea>
       <label>Edit Code — used to unlock this editor</label>
       <input id="e_code" type="password" placeholder="Set a private edit code">
       <div class="row"><button class="btn-small" onclick="toggleCode()">Show / Hide code</button></div>
-      <label><input type="checkbox" id="e_showApproved" style="width:auto"> Show public Approved list</label>
-      <label>Approved list title</label><input id="e_approvedTitle" placeholder="Approved Moderators">
+      <label><input type="checkbox" id="e_showApproved" style="width:auto"> Show public Accepted list</label>
+      <label>Accepted list title</label><input id="e_approvedTitle" placeholder="New team members">
+    </div>
+
+    <div id="tab-roles" class="tabpane">
+      <p class="hint">The three application tracks. Names and blurbs appear in the dropdown every applicant sees.</p>
+      <div id="typeEditor"></div>
     </div>
 
     <div id="tab-design" class="tabpane">
       <label>Accent Color</label><input id="e_accent" type="color">
       <label>Background Color</label><input id="e_bg" type="color">
-      <label>Banner Image (top of form)</label>
+      <label>Banner Image (top of page)</label>
       <input id="e_bannerUrl" placeholder="Paste image URL…">
       <input type="file" id="e_bannerFile" accept="image/*">
       <img id="p_banner" class="img-preview" style="display:none">
       <div class="row"><button class="btn-small" onclick="clearImg('bannerImage')">Remove banner</button></div>
-      <label>Logo Image (circle next to title)</label>
+      <label>Logo Image (next to title)</label>
       <input id="e_logoUrl" placeholder="Paste image URL…">
       <input type="file" id="e_logoFile" accept="image/*">
       <img id="p_logo" class="img-preview" style="display:none">
@@ -229,11 +276,11 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
       <input type="file" id="e_bgFile" accept="image/*">
       <img id="p_bg" class="img-preview" style="display:none">
       <div class="row"><button class="btn-small" onclick="clearImg('backgroundImage')">Remove background</button></div>
-      <p class="hint">Tip: you can upload from your PC (stored as data in browser) or paste any image link.</p>
+      <p class="hint">Tip: you can upload from your PC or paste any image link.</p>
     </div>
 
     <div id="tab-decor" class="tabpane">
-      <p class="hint">Add pictures or text that float anywhere — even on the right side. Unlock the editor, then <b>drag them directly on the page</b> to move. Use size + rotate sliders for styling. Hit Save All Changes to keep.</p>
+      <p class="hint">Add pictures or text that float anywhere. Unlock the editor, then <b>drag them directly on the page</b> to move. Hit Save All Changes to keep.</p>
       <div class="row">
         <button class="btn-small" onclick="document.getElementById('e_decorFile').click()">+ Add Picture (upload)</button>
         <button class="btn-small" onclick="addTextSticker()">+ Add Text</button>
@@ -248,10 +295,10 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 
     <div id="tab-texts" class="tabpane">
       <label>Rules / Info box (one per line)</label><textarea id="e_rules" rows="4"></textarea>
-      <label>Top Text — shown ABOVE the form (HTML allowed: &lt;b&gt; &lt;i&gt; &lt;a&gt; &lt;img&gt; &lt;br&gt;)</label>
-      <textarea id="e_top" rows="5" placeholder="Welcome! Write anything here… You can paste an &lt;img src=...&gt; tag too."></textarea>
-      <label>Bottom Text — shown BELOW the form</label>
-      <textarea id="e_bottom" rows="5" placeholder="Contact info, Discord link, extra notes…"></textarea>
+      <label>Top Text — shown in the hero (HTML allowed)</label>
+      <textarea id="e_top" rows="4" placeholder="A line above the apply button…"></textarea>
+      <label>Bottom Text — shown below the form</label>
+      <textarea id="e_bottom" rows="4" placeholder="Contact info, Discord link, extra notes…"></textarea>
       <label>Add picture into text</label>
       <input type="file" id="e_inlineFile" accept="image/*">
       <div class="row">
@@ -259,10 +306,12 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
         <button class="btn-small" onclick="insertInline('bottom')">Insert into Bottom Text</button>
       </div>
       <img id="p_inline" class="img-preview" style="display:none">
-      <p class="hint">Upload a picture, then click Insert. It adds an &lt;img&gt; tag where everyone will see it.</p>
+      <p class="hint">Upload a picture, then click Insert.</p>
     </div>
 
     <div id="tab-questions" class="tabpane">
+      <label>Editing questions for</label>
+      <select id="e_qtype" onchange="renderQEditor()"></select>
       <div id="qEditor"></div>
       <button class="btn-small" onclick="addQuestion()">+ Add Question</button>
     </div>
@@ -270,6 +319,7 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
     <div id="tab-apps" class="tabpane">
       <div class="toolbar">
         <input id="appSearch" placeholder="Search ID / username…" oninput="renderSubs()" style="flex:2">
+        <select id="appTypeFilter" onchange="renderSubs()" style="flex:1"><option value="">All roles</option></select>
         <select id="appFilter" onchange="renderSubs()" style="flex:1"><option value="">All</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="denied">Denied</option></select>
       </div>
       <div class="toolbar">
