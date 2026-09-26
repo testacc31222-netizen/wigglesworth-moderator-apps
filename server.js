@@ -36,7 +36,7 @@ const DEFAULT_CONFIG = {
   subtitle: "Strictly for future moderators. Other applications will be ignored.",
   announcement: "Applications are OPEN ✅",
   rules: "• Must be 13+\n• Moderator applications ONLY here\n• Be honest — lying = instant deny\n• Spamming applications = blacklist",
-  accent: "#e5384f", bg: "#080a12",
+  accent: "#6cb8f0", bg: "#080a12",
   editCode: "MOD123",
   successMessage: "Thanks! Your moderator application was received. Save your Application ID and check your status below.",
   showApproved: true, approvedTitle: "Approved Moderators",
