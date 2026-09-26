@@ -10,7 +10,7 @@
 
 <style>
 :root{
-  --amber:#e5a83b; --amber-deep:#b97a1c; --ink:#14160f;
+  --amber:#e5384f; --amber-deep:#8f1d31; --ink:#14160f;
   --bg:#12140f; --card:#1b1e17; --line:#31362b; --line-soft:#262b21;
   --text:#ede6d3; --muted:#a49c85; --faint:#6f6a58;
   --red:#d95f4b; --green:#8fbf6a; --yellow:#e5c53b;
@@ -28,7 +28,7 @@ body{
     linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
   background-size:34px 34px;background-attachment:fixed;background-position:center;
 }
-::selection{background:var(--amber);color:#1a1408}
+::selection{background:var(--amber);color:#ffffff}
 .bg-orbs{display:none}
 .container{width:100%;max-width:720px;position:relative;z-index:2}
 .card{
@@ -46,23 +46,23 @@ h3{font-family:Fraunces,Georgia,serif;letter-spacing:0}
   display:inline-flex;align-items:center;gap:9px;color:var(--amber);
   font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;font-weight:700;
   padding:8px 13px;border:1px solid var(--amber-deep);border-radius:6px;letter-spacing:1.6px;
-  background:rgba(229,168,59,.08)}
+  background:rgba(229,56,79,.08)}
 .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber)}
 .announce{
-  color:#1a1408;border-radius:10px;padding:12px 16px;font-weight:700;font-size:14px;margin-bottom:16px;
-  background:var(--amber);border:1px solid #8a5c14;box-shadow:4px 4px 0 rgba(0,0,0,.4)}
+  color:#ffffff;border-radius:10px;padding:12px 16px;font-weight:700;font-size:14px;margin-bottom:16px;
+  background:var(--amber);border:1px solid #6e1424;box-shadow:4px 4px 0 rgba(0,0,0,.4)}
 label{display:block;font-weight:700;margin:20px 0 7px;font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-family:"IBM Plex Mono",ui-monospace,monospace}
 label span.req{color:var(--red);margin-left:4px}
 input,textarea,select{
   width:100%;padding:12px 13px;border-radius:8px;border:1px solid var(--line);
   background:#10130d;color:var(--text);font-size:15px;outline:none;transition:border-color .15s}
 input::placeholder,textarea::placeholder{color:var(--faint)}
-input:focus,textarea:focus,select:focus{border-color:var(--amber);box-shadow:0 0 0 2px rgba(229,168,59,.25)}
+input:focus,textarea:focus,select:focus{border-color:var(--amber);box-shadow:0 0 0 2px rgba(229,56,79,.25)}
 textarea{min-height:96px;resize:vertical;line-height:1.55}
 button{cursor:pointer;font-family:inherit}
 .btn-primary{
-  width:100%;margin-top:24px;padding:15px;border:1px solid #8a5c14;border-radius:9px;
-  color:#1a1408;font-size:16px;font-weight:800;letter-spacing:.2px;background:var(--amber);
+  width:100%;margin-top:24px;padding:15px;border:1px solid #6e1424;border-radius:9px;
+  color:#ffffff;font-size:16px;font-weight:800;letter-spacing:.2px;background:var(--amber);
   box-shadow:4px 4px 0 rgba(0,0,0,.45);transition:transform .12s}
 .btn-primary:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 rgba(0,0,0,.45);filter:brightness(1.05)}
 .btn-primary:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(0,0,0,.45)}
@@ -76,7 +76,7 @@ button{cursor:pointer;font-family:inherit}
 .btn-approve:hover,.btn-deny:hover,.btn-pending:hover{filter:brightness(1.12)}
 #success{display:none;text-align:center;padding:24px 10px}
 .rules{
-  background:rgba(229,168,59,.06);border:1px dashed var(--amber-deep);
+  background:rgba(229,56,79,.06);border:1px dashed var(--amber-deep);
   border-radius:10px;padding:15px 17px;color:#cfc7ac;font-size:14px;margin:16px 0;white-space:pre-wrap;line-height:1.7}
 .rich{font-size:15px;line-height:1.7;margin:14px 0;color:#d8d1ba}
 .rich b{color:#fff}.rich a{color:var(--amber)}
@@ -89,7 +89,7 @@ button{cursor:pointer;font-family:inherit}
 .row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .row button{flex:1;padding:12px;border-radius:9px;font-weight:700;min-width:120px}
 .btn-cancel{background:transparent;color:var(--text);border:1px solid var(--line)!important}
-.btn-confirm{background:var(--amber);color:#1a1408;border:1px solid #8a5c14}
+.btn-confirm{background:var(--amber);color:#ffffff;border:1px solid #6e1424}
 #editor{display:none}
 #editor h2::after{content:"";display:block;width:48px;height:3px;background:var(--amber);margin-top:8px}
 .tabs{display:flex;gap:2px;flex-wrap:wrap;margin:14px 0;border-bottom:2px solid var(--line);padding:0}
@@ -113,7 +113,7 @@ button{cursor:pointer;font-family:inherit}
 .hint{font-size:12.5px;color:var(--muted);line-height:1.55}
 .error{color:var(--red);font-size:13px;margin-top:8px;min-height:18px}
 .appid{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:21px;font-weight:700;letter-spacing:2px;
-  background:rgba(229,168,59,.07);border:1.5px dashed var(--amber-deep);border-radius:10px;padding:14px;margin:14px 0;color:var(--amber)}
+  background:rgba(229,56,79,.07);border:1.5px dashed var(--amber-deep);border-radius:10px;padding:14px;margin:14px 0;color:var(--amber)}
 .approved-list{display:grid;gap:10px}
 .approved-list div{background:rgba(143,191,106,.06);border:1px solid #38482e;border-left:5px solid var(--green);padding:11px 14px;border-radius:8px;font-size:14px}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
@@ -126,7 +126,7 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 #stickerLayer{position:fixed;inset:0;z-index:5;pointer-events:none;overflow:hidden}
 .sticker{position:absolute;pointer-events:none;user-select:none;line-height:1.2;filter:drop-shadow(0 10px 20px rgba(0,0,0,.5))}
 .sticker.editable{pointer-events:auto;cursor:move;touch-action:none;border:2px dashed var(--amber);border-radius:10px}
-.sticker.editable.selected{border-style:solid;box-shadow:0 0 0 3px rgba(229,168,59,.3);background:rgba(229,168,59,.07)}
+.sticker.editable.selected{border-style:solid;box-shadow:0 0 0 3px rgba(229,56,79,.3);background:rgba(229,56,79,.07)}
 .sticker img{width:100%;height:auto;display:block;border-radius:8px;pointer-events:none}
 .sticker .txt{white-space:pre-wrap;pointer-events:none;font-weight:900;text-shadow:0 3px 12px rgba(0,0,0,.7)}
 .decor-item input[type=range]{padding:0}
