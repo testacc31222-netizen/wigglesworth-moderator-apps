@@ -120,7 +120,8 @@ function openCodeModal(){
 }
 function closeCodeModal(){ $('codeModal').style.display='none'; }
 async function checkCode(){
-  const v = $('codeInput').value;
+  const v = $('codeInput').value.trim();
+  if(!v){ $('codeError').textContent='Enter the code.'; return; }
   try{
     const r = await fetch('/api/admin/applications',{headers:{'x-edit-code':v}});
     if(!r.ok) throw 0;
