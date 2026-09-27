@@ -10,12 +10,22 @@ app.disable('x-powered-by');
 app.set('trust proxy', 1);
 
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || '127.0.0.1';
+// HOST must be an IP or plain hostname — anything else falls back safely
+// instead of crashing the deploy (e.g. a token pasted in the wrong field).
+const RAW_HOST = process.env.HOST || '127.0.0.1';
+const HOST = /^(\d{1,3}\.){3}\d{1,3}$|^(localhost|[a-zA-Z0-9]([a-zA-Z0-9.-]*[a-zA-Z0-9])?)$/.test(RAW_HOST) && RAW_HOST.length < 64
+  ? RAW_HOST : '0.0.0.0';
+if (HOST !== RAW_HOST) console.error('Bad HOST env value, falling back to 0.0.0.0');
 const DATA_FILE = path.join(__dirname, 'data.live.json');
 // Free Render wipes local files on sleep/restart, so every save is mirrored
 // into the GitHub repo itself (needs GITHUB_TOKEN + GITHUB_REPO env vars).
 const GH_TOKEN = process.env.GITHUB_TOKEN || '';
-const GH_REPO = process.env.GITHUB_REPO || 'testacc31222-netizen/wigglesworth-moderator-apps';
+// Must look like owner/repo — anything else disables sync instead of
+// firing API calls at a garbage address (e.g. values swapped by accident).
+const RAW_REPO = process.env.GITHUB_REPO || 'testacc31222-netizen/wigglesworth-moderator-apps';
+const GH_REPO = /^[\w.-]+\/[\w.-]+$/.test(RAW_REPO)
+  ? RAW_REPO : 'testacc31222-netizen/wigglesworth-moderator-apps';
+if (GH_REPO !== RAW_REPO) console.error('Bad GITHUB_REPO value, using default repo');
 const GH_BRANCH = process.env.GITHUB_BRANCH || 'main';
 const GH_PATH = 'data.live.json';
 
