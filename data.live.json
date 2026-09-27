@@ -254,5 +254,22 @@
       }
     ]
   },
-  "submissions": []
+  "submissions": [
+    {
+      "appId": "CC-YASNF9",
+      "type": "creator",
+      "date": "2026-09-27T22:42:40.276Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "hi fern",
+      "discord": "hi fern",
+      "age": "32423",
+      "why": "hi fernhi fernhi fernhi fernhi fernhi fernhi fernhi fernhi fern",
+      "platform": "YouTube",
+      "channel": "hi fern",
+      "schedule": "hi fern",
+      "style": "hi fernhi fernhi fernhi fernhi fernhi fernhi fernhi fern",
+      "strikes": "hi fern"
+    }
+  ]
 }
