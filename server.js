@@ -351,6 +351,29 @@ app.post('/api/admin/reset', adminLimit, (req, res) => {
   res.json(publicConfig(db));
 });
 
+app.get('/api/admin/backup', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  res.set('Cache-Control', 'no-store');
+  res.json({ version: 1, exportedAt: new Date().toISOString(), config: db.config, submissions: db.submissions });
+});
+
+app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  const b = req.body || {};
+  if (!b.config || !Array.isArray(b.config.applicationTypes) || !Array.isArray(b.submissions)) {
+    return res.status(400).json({ error: 'Bad backup file' });
+  }
+  const keepCode = db.config.editCode;
+  db.config = b.config;
+  if (ENV_EDIT_CODE) db.config.editCode = keepCode;
+  if (!db.config.editCode) db.config.editCode = keepCode;
+  db.submissions = b.submissions.filter(s => s && typeof s.appId === 'string').slice(-5000);
+  saveDB(db);
+  res.json({ ok: true, submissions: db.submissions.length });
+});
+
 app.get('/health', (req, res) => res.json({ ok: true }));
 
 app.listen(PORT, HOST, () => {

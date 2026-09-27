@@ -346,6 +346,9 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
       </div>
       <div class="toolbar">
         <button class="btn-small" onclick="exportCSV()">Export CSV</button>
+        <button class="btn-small" onclick="backupAll()">Backup</button>
+        <button class="btn-small" onclick="document.getElementById('restoreFile').click()">Restore</button>
+        <input type="file" id="restoreFile" accept=".json" style="display:none">
         <button class="btn-small" onclick="clearSubs()">Clear All</button>
       </div>
       <h3>Submissions (<span id="subCount">0</span>)</h3>

@@ -293,7 +293,9 @@ async function saveConfig(){
   if(r.status===401){ alert('Edit code changed or wrong — unlock again.'); lockEditor(); return; }
   if(!r.ok){ alert('Save failed.'); return; }
   editCode = nc; sessionStorage.setItem('mod_edit_code', nc);
-  applyConfig(); alert('Saved! Visible on phone + computer instantly.');
+  await fetchConfig();
+  const check = config.applicationTypes.map(t=>t.id+':'+(t.open!==false?'open':'closed')).join(', ');
+  alert('Saved and verified live! (' + check + ')');
 }
 async function resetConfig(){
   if(!confirm('Reset to default?')) return;
@@ -361,6 +363,14 @@ async function clearSubs(){
   if(!confirm('Delete ALL submissions?')) return;
   await fetch('/api/admin/applications',{method:'DELETE',headers:{'x-edit-code':editCode}});
   renderSubs(); renderApprovedPublic();
+}
+async function backupAll(){
+  const r = await fetch('/api/admin/backup',{headers:{'x-edit-code':editCode}});
+  if(!r.ok){ alert('Backup failed — unlock again.'); return; }
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([await r.text()],{type:'application/json'}));
+  a.download='wigglesworth-backup-'+new Date().toISOString().slice(0,10)+'.json'; a.click();
+  alert('Backup downloaded. Keep it — one click restores everything if the free host ever wipes.');
 }
 function exportCSV(){
   if(!adminCache.length){ alert('No submissions (unlock editor first)'); return; }
@@ -476,6 +486,21 @@ window.addEventListener('DOMContentLoaded', ()=>{
   $('e_decorFile')?.addEventListener('change',e=>{
     const f=e.target.files[0]; if(!f) return;
     fileToDataUrl(f,url=>{ config.decor.push({id:Date.now(),kind:'img',src:url,x:65,y:25,w:200,r:0,o:1,z:5}); e.target.value=''; renderDecor(); alert('Added! Now drag it anywhere.'); });
+  });
+  $('restoreFile')?.addEventListener('change',e=>{
+    const f=e.target.files[0]; if(!f) return;
+    const rd=new FileReader();
+    rd.onload=async ()=>{
+      try{
+        const r=await fetch('/api/admin/restore',{method:'POST',headers:headers(),body:rd.result});
+        const j=await r.json();
+        if(!r.ok) throw new Error(j.error||'Restore failed');
+        e.target.value='';
+        await fetchConfig();
+        alert('Restored! '+j.submissions+' applications back.');
+      }catch(err){ alert(err.message); }
+    };
+    rd.readAsText(f);
   });
   ['e_bannerUrl','e_logoUrl','e_bgUrl'].forEach(id=>{
     $(id)?.addEventListener('input',e=>{
