@@ -22,9 +22,18 @@ async function fetchConfig(){
   if(!currentTypeId || !config.applicationTypes.some(t=>t.id===currentTypeId))
     currentTypeId = config.applicationTypes.some(t=>t.id==='moderator') ? 'moderator' : config.applicationTypes[0].id;
   applyConfig();
-  if($('applyCard').style.display !== 'block') pickType(currentTypeId, true);
+  if($('applyCard').style.display !== 'block'){
+    if(!curType() || curType().open === false)
+      currentTypeId = (config.applicationTypes.find(t=>t.open!==false) || config.applicationTypes[0]).id;
+    pickType(currentTypeId, true);
+  }
 }
 function applyConfig(){
+  document.documentElement.style.setProperty('--amber', config.accent || '#6cb8f0');
+  document.body.style.backgroundColor = config.bg || '';
+  document.body.style.backgroundImage = config.backgroundImage ? `url("${config.backgroundImage}")` : '';
+  document.body.style.backgroundSize = config.backgroundImage ? 'cover' : '';
+  document.body.style.backgroundAttachment = 'fixed';
   $('appTitle').textContent = config.title;
   document.title = config.title;
   $('appSubtitle').textContent = config.subtitle || '';
@@ -46,8 +55,10 @@ function renderTypeCards(){
   const w = $('roleCards'); w.innerHTML = '';
   config.applicationTypes.forEach(t=>{
     const b = document.createElement('button');
+    const closed = t.open === false;
     b.className = 'role-card'; b.onclick = ()=>pickType(t.id);
-    b.innerHTML = `<span class="tick">${esc(t.prefix||'APP')}</span><span><h4>${esc(t.name)} Applications</h4><p>${esc(t.blurb||'')}</p></span><span class="go">→</span>`;
+    b.innerHTML = `<span class="tick">${closed ? 'Closed' : esc(t.prefix||'APP')}</span><span><h4>${esc(t.name)} Applications</h4><p>${closed ? 'Not accepting applications right now.' : esc(t.blurb||'')}</p></span><span class="go">→</span>`;
+    if(closed) b.style.opacity = '.55';
     w.appendChild(b);
   });
 }
@@ -59,6 +70,7 @@ function toggleApplyMenu(){
 function pickType(id, noScroll){
   currentTypeId = id;
   const t = curType();
+  if(t.open === false){ alert(t.name + ' applications are currently closed.'); return; }
   $('roleMenu').style.display = 'none';
   $('applyCard').style.display = 'block';
   fillRoleHeader(t); renderForm();
@@ -222,7 +234,8 @@ function renderTypeEditor(){
       <div class="row"><span style="flex:1"><label>ID prefix (on application IDs)</label><input value="${esc(t.prefix||'')}" oninput="edType(${i}).prefix=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,4)"></span></div>
       <label>Intro (above the form)</label><textarea rows="2" oninput="edType(${i}).intro=this.value">${esc(t.intro||'')}</textarea>
       <label>Success message</label><textarea rows="2" oninput="edType(${i}).successMessage=this.value">${esc(t.successMessage||'')}</textarea>
-      <label style="font-size:13px"><input type="checkbox" ${t.showApproved!==false?'checked':''} style="width:auto" onchange="edType(${i}).showApproved=this.checked"> Show in public Accepted list</label>`;
+      <label style="font-size:13px"><input type="checkbox" ${t.showApproved!==false?'checked':''} style="width:auto" onchange="edType(${i}).showApproved=this.checked"> Show in public Accepted list</label>
+      <label style="font-size:13px"><input type="checkbox" ${t.open!==false?'checked':''} style="width:auto" onchange="edType(${i}).open=this.checked"> Accepting applications (untick to close this role)</label>`;
     w.appendChild(d);
   });
 }

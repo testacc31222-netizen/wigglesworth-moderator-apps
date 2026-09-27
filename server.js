@@ -39,6 +39,7 @@ const DEFAULT_TYPES = [
     intro: 'Moderators keep the community safe and welcoming. Only apply here if that is the role you want.',
     successMessage: 'Thanks! Your moderator application was received. Save your Application ID and check your decision below.',
     showApproved: true,
+    open: true,
     questions: [
       Q('username', 'In-game Username', 'text', 'Your username', true),
       Q('discord', 'Discord Username', 'text', 'Your Discord name', true),
@@ -56,6 +57,7 @@ const DEFAULT_TYPES = [
     intro: 'Creators represent Wigglesworth on their channels. Apply here with your best work.',
     successMessage: 'Thanks! Your creator application was received. Save your Application ID and check your decision below.',
     showApproved: true,
+    open: true,
     questions: [
       Q('username', 'In-game Username', 'text', 'Your username', true),
       Q('discord', 'Discord Username', 'text', 'Your Discord name', true),
@@ -74,6 +76,7 @@ const DEFAULT_TYPES = [
     intro: 'Developers ship real things for players. Show us what you have built.',
     successMessage: 'Thanks! Your developer application was received. Save your Application ID and check your decision below.',
     showApproved: true,
+    open: true,
     questions: [
       Q('username', 'In-game Username', 'text', 'Your username', true),
       Q('discord', 'Discord Username', 'text', 'Your Discord name', true),
@@ -93,7 +96,7 @@ const DEFAULT_CONFIG = {
   subtitle: 'Three ways in. Pick the role that fits you and send one honest application.',
   announcement: 'Applications are OPEN',
   rules: '• Must be 13+\n• One role per application — pick the closest fit\n• Be honest — lying = instant deny\n• Spamming applications = blacklist',
-  accent: '#6cb8f0', bg: '#080a12',
+  accent: '#6cb8f0', bg: '#0e1218',
   editCode: 'MOD123',
   showApproved: true, approvedTitle: 'New team members',
   bannerImage: '', logoImage: '', backgroundImage: '',
@@ -128,6 +131,10 @@ function loadDB() {
     }
   }
   for (const s of db.submissions) if (!s.type) s.type = 'moderator';
+  // fixups for DBs saved before these fields existed
+  for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
+  if (db.config.accent === '#6366f1') db.config.accent = '#6cb8f0';
+  if (db.config.bg === '#080a12') db.config.bg = '#0e1218';
   return db;
 }
 function saveDB(db) {
@@ -181,6 +188,7 @@ app.post('/api/applications', submitLimit, (req, res) => {
   const body = req.body && typeof req.body === 'object' ? req.body : {};
   const t = typeById(db, cleanStr(body.type, 40));
   if (!t) return res.status(400).json({ error: 'Pick a role first.' });
+  if (t.open === false) return res.status(400).json({ error: t.name + ' applications are currently closed.' });
   const answers = body.answers && typeof body.answers === 'object' ? body.answers : {};
   for (const q of t.questions) {
     const v = cleanStr(answers[q.id], 3000).trim();
@@ -250,6 +258,7 @@ function cleanType(t) {
     intro: cleanStr(t.intro, 2000),
     successMessage: cleanStr(t.successMessage, 1000),
     showApproved: t.showApproved !== false,
+    open: t.open !== false,
     questions: Array.isArray(t.questions) ? t.questions.slice(0, 40).map(cleanQuestion) : [],
   };
 }
