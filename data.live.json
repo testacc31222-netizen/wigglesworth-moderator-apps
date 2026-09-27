@@ -36,7 +36,7 @@
           },
           {
             "id": "discord",
-            "label": "Discord Username",
+            "label": "Discord Username (.e.g. fernish.gg)",
             "type": "text",
             "placeholder": "Your Discord name",
             "required": true,
