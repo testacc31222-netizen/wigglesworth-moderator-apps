@@ -1,0 +1,258 @@
+{
+  "config": {
+    "title": "Wigglesworth — Official Applications Page",
+    "subtitle": "Three ways in. Pick the role that fits you and send one honest application.",
+    "announcement": "Moderator Applications CLOSED, Opening back at 100 members...",
+    "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
+    "accent": "#6cb8f0",
+    "bg": "#0e1218",
+    "editCode": "MOD123",
+    "showApproved": true,
+    "approvedTitle": "New Wigglesworth Team Members",
+    "bannerImage": "",
+    "logoImage": "",
+    "backgroundImage": "",
+    "topText": "",
+    "bottomText": "Questions? Contact staff on Discord.",
+    "decor": [],
+    "applicationTypes": [
+      {
+        "id": "moderator",
+        "name": "Moderator",
+        "blurb": "Keep chat clean, enforce the rules, help players.",
+        "prefix": "MOD",
+        "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
+        "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
+        "showApproved": true,
+        "open": false,
+        "questions": [
+          {
+            "id": "username",
+            "label": "In-game Username",
+            "type": "text",
+            "placeholder": "Your username",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "discord",
+            "label": "Discord Username (.e.g. fernish.gg)",
+            "type": "text",
+            "placeholder": "Your Discord name",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "age",
+            "label": "Age",
+            "type": "number",
+            "placeholder": "e.g. 16",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "timezone",
+            "label": "Timezone / Availability",
+            "type": "text",
+            "placeholder": "e.g. EST, 3-5hrs daily",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "experience",
+            "label": "Past Moderation Experience?",
+            "type": "textarea",
+            "placeholder": "List experience or write None",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "why",
+            "label": "Why do you want to be Moderator?",
+            "type": "textarea",
+            "placeholder": "Give detail",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "scenario",
+            "label": "Someone is spamming in chat. What do you do?",
+            "type": "textarea",
+            "placeholder": "Explain step-by-step",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "rulebreak",
+            "label": "Have you ever been banned? If so, why?",
+            "type": "text",
+            "placeholder": "Be honest",
+            "required": true,
+            "options": ""
+          }
+        ]
+      },
+      {
+        "id": "creator",
+        "name": "Content Creator",
+        "blurb": "Make videos and streams that grow the community.",
+        "prefix": "CC",
+        "intro": "Creators represent Wigglesworth on their channels. Apply here with your best work.",
+        "successMessage": "Thanks! Your creator application was received. Save your Application ID and check your decision below.",
+        "showApproved": true,
+        "open": true,
+        "questions": [
+          {
+            "id": "username",
+            "label": "In-game Username",
+            "type": "text",
+            "placeholder": "Your username",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "discord",
+            "label": "Discord Username",
+            "type": "text",
+            "placeholder": "Your Discord name",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "age",
+            "label": "Age",
+            "type": "number",
+            "placeholder": "e.g. 16",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "platform",
+            "label": "Main Platform",
+            "type": "select",
+            "placeholder": "",
+            "required": true,
+            "options": "YouTube, Twitch, TikTok, Other"
+          },
+          {
+            "id": "channel",
+            "label": "Channel / Profile Link",
+            "type": "text",
+            "placeholder": "Paste the link",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "schedule",
+            "label": "Upload / Stream Schedule",
+            "type": "text",
+            "placeholder": "e.g. twice a week",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "style",
+            "label": "What kind of content do you make?",
+            "type": "textarea",
+            "placeholder": "Describe it",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "why",
+            "label": "Why create for Wigglesworth?",
+            "type": "textarea",
+            "placeholder": "Give detail",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "strikes",
+            "label": "Any strikes or bans on your channels? Be honest",
+            "type": "text",
+            "placeholder": "Be honest",
+            "required": true,
+            "options": ""
+          }
+        ]
+      },
+      {
+        "id": "developer",
+        "name": "Developer",
+        "blurb": "Build the games, bots, and tools players use.",
+        "prefix": "DEV",
+        "intro": "Developers ship real things for players. Show us what you have built.",
+        "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
+        "showApproved": true,
+        "open": true,
+        "questions": [
+          {
+            "id": "username",
+            "label": "In-game Username",
+            "type": "text",
+            "placeholder": "Your username",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "discord",
+            "label": "Discord Username",
+            "type": "text",
+            "placeholder": "Your Discord name",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "age",
+            "label": "Age",
+            "type": "number",
+            "placeholder": "e.g. 16",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "languages",
+            "label": "Engines you use to model?",
+            "type": "text",
+            "placeholder": "e.g. Luau, JS, Unity",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "experience",
+            "label": "Development/Modeling Experience",
+            "type": "textarea",
+            "placeholder": "What have you built?",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "why",
+            "label": "Why build for Wigglesworth?",
+            "type": "textarea",
+            "placeholder": "Give detail",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "bugscenario",
+            "label": "A game-breaking bug appears an hour before an event, or we are in desperate need of an item to be made. What do you do?",
+            "type": "textarea",
+            "placeholder": "Explain step-by-step",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "teamwork",
+            "label": "Do you prefer solo or team work?",
+            "type": "text",
+            "placeholder": "Either is fine",
+            "required": false,
+            "options": ""
+          }
+        ]
+      }
+    ]
+  },
+  "submissions": []
+}
