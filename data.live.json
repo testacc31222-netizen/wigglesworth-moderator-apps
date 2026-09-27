@@ -212,23 +212,15 @@
           },
           {
             "id": "languages",
-            "label": "Languages / Engines You Use",
+            "label": "Engines you use to model?",
             "type": "text",
             "placeholder": "e.g. Luau, JS, Unity",
             "required": true,
             "options": ""
           },
           {
-            "id": "portfolio",
-            "label": "Portfolio, GitHub, or Past Work Link",
-            "type": "text",
-            "placeholder": "Paste the link",
-            "required": true,
-            "options": ""
-          },
-          {
             "id": "experience",
-            "label": "Development Experience",
+            "label": "Development/Modeling Experience",
             "type": "textarea",
             "placeholder": "What have you built?",
             "required": true,
@@ -244,7 +236,7 @@
           },
           {
             "id": "bugscenario",
-            "label": "A game-breaking bug appears an hour before an event. What do you do?",
+            "label": "A game-breaking bug appears an hour before an event, or we are in desperate need of an item to be made. What do you do?",
             "type": "textarea",
             "placeholder": "Explain step-by-step",
             "required": true,
