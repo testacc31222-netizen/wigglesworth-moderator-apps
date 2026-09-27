@@ -19,8 +19,10 @@ async function fetchConfig(){
   config = await r.json();
   if(!Array.isArray(config.decor)) config.decor = [];
   if(!Array.isArray(config.applicationTypes) || !config.applicationTypes.length) location.reload();
-  if(!currentTypeId || !config.applicationTypes.some(t=>t.id===currentTypeId)) currentTypeId = config.applicationTypes[0].id;
+  if(!currentTypeId || !config.applicationTypes.some(t=>t.id===currentTypeId))
+    currentTypeId = config.applicationTypes.some(t=>t.id==='moderator') ? 'moderator' : config.applicationTypes[0].id;
   applyConfig();
+  if($('applyCard').style.display !== 'block') pickType(currentTypeId, true);
 }
 function applyConfig(){
   $('appTitle').textContent = config.title;
@@ -54,13 +56,13 @@ function toggleApplyMenu(){
   m.style.display = m.style.display === 'none' ? 'block' : 'none';
   if (m.style.display === 'block') renderTypeCards();
 }
-function pickType(id){
+function pickType(id, noScroll){
   currentTypeId = id;
   const t = curType();
   $('roleMenu').style.display = 'none';
   $('applyCard').style.display = 'block';
   fillRoleHeader(t); renderForm();
-  $('applyCard').scrollIntoView({ behavior:'smooth', block:'start' });
+  if(!noScroll) $('applyCard').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 function fillRoleHeader(t){
   $('roleKicker').textContent = (t.name || 'Application').toUpperCase() + ' APPLICATION';
