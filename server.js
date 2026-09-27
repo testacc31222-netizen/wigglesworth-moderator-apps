@@ -11,7 +11,37 @@ app.set('trust proxy', 1);
 
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || '127.0.0.1';
-const DATA_FILE = path.join(__dirname, 'data.json');
+const DATA_FILE = path.join(__dirname, 'data.live.json');
+// Free Render wipes local files on sleep/restart, so every save is mirrored
+// into the GitHub repo itself (needs GITHUB_TOKEN + GITHUB_REPO env vars).
+const GH_TOKEN = process.env.GITHUB_TOKEN || '';
+const GH_REPO = process.env.GITHUB_REPO || 'testacc31222-netizen/wigglesworth-moderator-apps';
+const GH_BRANCH = process.env.GITHUB_BRANCH || 'main';
+const GH_PATH = 'data.live.json';
+
+async function pushToGitHub() {
+  if (!GH_TOKEN) return;
+  try {
+    const api = `https://api.github.com/repos/${GH_REPO}/contents/${GH_PATH}`;
+    const H = { 'User-Agent': 'wigglesworth-apps', Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json' };
+    let sha = null;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const g = await fetch(`${api}?ref=${GH_BRANCH}`, { headers: H });
+        if (g.ok) sha = (await g.json()).sha;
+        else if (g.status !== 404) { console.error('gh read failed', g.status); return; }
+      } catch (e) { console.error('gh read error', e.message); return; }
+      const content = fs.readFileSync(DATA_FILE, 'utf8');
+      if (Buffer.byteLength(content) > 40_000_000) { console.error('gh backup too large, skip'); return; }
+      const put = await fetch(api, { method: 'PUT', headers: { ...H, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: 'autosave site data', content: Buffer.from(content).toString('base64'), sha: sha || undefined, branch: GH_BRANCH }) });
+      if (put.ok) return;
+      if (put.status === 422) { sha = null; continue; } // sha race: refetch and retry once
+      console.error('gh backup failed', put.status);
+      return;
+    }
+  } catch (e) { console.error('gh backup error', e.message); }
+}
 const ENV_EDIT_CODE = process.env.EDIT_CODE || '';
 
 app.use(helmet({
@@ -141,6 +171,8 @@ function saveDB(db) {
   const tmp = DATA_FILE + '.tmp';
   fs.writeFileSync(tmp, JSON.stringify(db, null, 2));
   fs.renameSync(tmp, DATA_FILE);
+  // persist off the ephemeral disk; never fail the request over it
+  if (GH_TOKEN) pushToGitHub().catch(e => console.error('gh backup error', e.message));
 }
 function genId(prefix) {
   const c = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -375,6 +407,12 @@ app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req
 });
 
 app.get('/health', (req, res) => res.json({ ok: true }));
+
+app.get('/api/admin/sync', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  res.json({ github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH });
+});
 
 app.listen(PORT, HOST, () => {
   console.log(`Moderator site on http://${HOST}:${PORT} (bound to ${HOST} only — home IP not exposed)`);
