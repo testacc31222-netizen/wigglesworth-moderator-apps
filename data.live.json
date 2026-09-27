@@ -254,22 +254,5 @@
       }
     ]
   },
-  "submissions": [
-    {
-      "appId": "CC-SNYXP4",
-      "type": "creator",
-      "date": "2026-09-27T21:42:26.971Z",
-      "status": "approved",
-      "adminNote": "HOLY, THIS IS AMAZING, WELCOME TO THE CC PROGRAM 55P!!!",
-      "username": "55P",
-      "discord": "55P",
-      "age": "55",
-      "why": "I just felt like it cuz I felt like doing it. You should be glad I'm applying.",
-      "platform": "Other",
-      "channel": "https://youtube.com/@jmancurly?si=k3NRtenKkopAuWk3",
-      "schedule": "When I feel like it",
-      "style": "Videos",
-      "strikes": "Ive got like 54 almost 55"
-    }
-  ]
+  "submissions": []
 }
