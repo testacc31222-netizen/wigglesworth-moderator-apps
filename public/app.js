@@ -22,11 +22,6 @@ async function fetchConfig(){
   if(!currentTypeId || !config.applicationTypes.some(t=>t.id===currentTypeId))
     currentTypeId = config.applicationTypes.some(t=>t.id==='moderator') ? 'moderator' : config.applicationTypes[0].id;
   applyConfig();
-  if($('applyCard').style.display !== 'block'){
-    if(!curType() || curType().open === false)
-      currentTypeId = (config.applicationTypes.find(t=>t.open!==false) || config.applicationTypes[0]).id;
-    pickType(currentTypeId, true);
-  }
 }
 function applyConfig(){
   document.documentElement.style.setProperty('--amber', config.accent || '#6cb8f0');
