@@ -24,7 +24,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -52,7 +52,7 @@
           },
           {
             "id": "timezone",
-            "label": "Timezone / Availability (the quality or state of being able to be used, obtained, or reached when needed)",
+            "label": "Timezone / Availability (being able to be used, obtained, or reached when needed)",
             "type": "text",
             "placeholder": "e.g. EST, 3-5hrs daily",
             "required": true,
@@ -100,7 +100,7 @@
         "intro": "Creators represent Wigglesworth on their channels. Apply here with your best work.",
         "successMessage": "Thanks! Your creator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -302,21 +302,6 @@
       "schedule": "2-9 times a week",
       "style": "About the game trending vr memes and",
       "strikes": "May be some from when i started but since doing wigglesworth no"
-    },
-    {
-      "appId": "MOD-A6SSKQ",
-      "type": "moderator",
-      "date": "2026-09-29T21:50:11.067Z",
-      "status": "denied",
-      "adminNote": "",
-      "username": "wsfsdafewgwe",
-      "discord": "sfsdafewgwesfsdafewgwesfsdafewgwesfsdafewgwe",
-      "age": "342423",
-      "timezone": "sfsdafewgwe",
-      "experience": "sfsdafewgwesfsdafewgwesfsdafewgwesfsdafewgwe",
-      "why": "sfsdafewgwesfsdafewgwesfsdafewgwe",
-      "scenario": "sfsdafewgwesfsdafewgwesfsdafewgwe",
-      "rulebreak": "sfsdafewgwesfsdafewgwesfsdafewgwesfsdafewgwe"
     }
   ]
 }
