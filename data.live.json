@@ -24,7 +24,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -52,7 +52,7 @@
           },
           {
             "id": "timezone",
-            "label": "Timezone / Availability",
+            "label": "Timezone / Availability (the quality or state of being able to be used, obtained, or reached when needed)",
             "type": "text",
             "placeholder": "e.g. EST, 3-5hrs daily",
             "required": true,
@@ -100,7 +100,7 @@
         "intro": "Creators represent Wigglesworth on their channels. Apply here with your best work.",
         "successMessage": "Thanks! Your creator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
