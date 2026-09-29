@@ -24,7 +24,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
