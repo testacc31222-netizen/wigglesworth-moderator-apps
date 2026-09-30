@@ -365,6 +365,21 @@
       "why": "I want to be able to help the community improve as a whole. I also want to help give my opinions on matters that members don't have full says about. And I would be a good representative of what is expected and what is right.",
       "scenario": "First verbal warning straight to the point I would tell them to stop spamming or else you will be timed out. If they continue I will do what I said previously and time them out for 30 minutes to an hour based on severity.",
       "rulebreak": "No I have not been banned at all."
+    },
+    {
+      "appId": "MOD-PMPZPB",
+      "type": "moderator",
+      "date": "2026-09-30T22:06:02.620Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "NZX",
+      "discord": "nzx0187",
+      "age": "13",
+      "timezone": "Est",
+      "experience": "None",
+      "why": "So i can ban toxic rude unkind people",
+      "scenario": "Warn if not listening ban",
+      "rulebreak": "No not in this game"
     }
   ]
 }
