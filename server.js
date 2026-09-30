@@ -143,6 +143,12 @@ const DEFAULT_CONFIG = {
   topText: '',
   bottomText: 'Questions? Contact staff on Discord.',
   decor: [],
+  faq: [
+    { q: 'Who can apply?', a: 'Anyone 13 or older. No experience needed for Moderator — attitude matters more.' },
+    { q: 'How long until I hear back?', a: 'Usually within a week. Check your decision above with your Application ID.' },
+    { q: 'Can I apply for two roles?', a: 'Yes — one application per role. Pick the closest fit first.' },
+    { q: 'What gets denied instantly?', a: 'Lying, copied answers, blank fields, or applying twice to skip the queue.' },
+  ],
   applicationTypes: JSON.parse(JSON.stringify(DEFAULT_TYPES)),
 };
 
@@ -173,6 +179,7 @@ function loadDB() {
   for (const s of db.submissions) if (!s.type) s.type = 'moderator';
   // fixups for DBs saved before these fields existed
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
+  if (!Array.isArray(db.config.faq)) db.config.faq = structuredClone(DEFAULT_CONFIG.faq);
   if (db.config.accent === '#6366f1') db.config.accent = '#6cb8f0';
   if (db.config.bg === '#080a12') db.config.bg = '#0e1218';
   return db;
@@ -328,6 +335,9 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     backgroundImage: cleanStr(c.backgroundImage, 2000000),
     topText: cleanStr(c.topText, 8000),
     bottomText: cleanStr(c.bottomText, 8000),
+    faq: Array.isArray(c.faq)
+      ? c.faq.slice(0, 20).map(f => ({ q: cleanStr(f.q, 200), a: cleanStr(f.a, 1000) })).filter(f => f.q || f.a)
+      : [],
     decor: Array.isArray(c.decor) ? c.decor.slice(0, 40).map(d => ({
       id: Number(d.id) || Date.now(),
       kind: d.kind === 'text' ? 'text' : 'img',

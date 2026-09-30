@@ -18,6 +18,7 @@ async function fetchConfig(){
   const r = await fetch('/api/config');
   config = await r.json();
   if(!Array.isArray(config.decor)) config.decor = [];
+  if(!Array.isArray(config.faq)) config.faq = [];
   if(!Array.isArray(config.applicationTypes) || !config.applicationTypes.length) location.reload();
   if(!currentTypeId || !config.applicationTypes.some(t=>t.id===currentTypeId))
     currentTypeId = config.applicationTypes.some(t=>t.id==='moderator') ? 'moderator' : config.applicationTypes[0].id;
@@ -42,10 +43,36 @@ function applyConfig(){
   const li = $('logoImg');
   if(config.logoImage){ li.src = config.logoImage; li.style.display='block'; } else li.style.display='none';
   $('topText').innerHTML = rich(config.topText);
-  renderTypeCards(); renderApprovedPublic(); renderDecor();
+  renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor();
   if (curType() && $('applyCard').style.display === 'block') fillRoleHeader(curType());
   if(unlocked) showEditor(false);
 }
+function renderFaq(){
+  const card = $('faq'), list = $('faqList');
+  const items = (config.faq || []).filter(f => f.q || f.a);
+  if(!items.length){ card.style.display = 'none'; return; }
+  card.style.display = 'block'; list.innerHTML = '';
+  items.forEach(f=>{
+    const d = document.createElement('div'); d.className = 'faq-item';
+    const b = document.createElement('b'); b.textContent = f.q;
+    const br = document.createElement('br');
+    const s = document.createElement('span'); s.textContent = f.a;
+    d.append(b, br, s); list.appendChild(d);
+  });
+}
+function renderFaqEditor(){
+  const w = $('faqEditor'); w.innerHTML = '';
+  (config.faq || []).forEach((f, i)=>{
+    const d = document.createElement('div'); d.className = 'q-item';
+    d.innerHTML = `<strong>F${i + 1}</strong>
+      <div class="row"><button class="btn-small" onclick="delFaq(${i})">Delete</button></div>
+      <label>Question</label><input value="${esc(f.q)}" oninput="config.faq[${i}].q=this.value">
+      <label>Answer</label><textarea rows="2" oninput="config.faq[${i}].a=this.value">${esc(f.a)}</textarea>`;
+    w.appendChild(d);
+  });
+}
+function addFaq(){ config.faq.push({ q: 'New question?', a: '' }); renderFaqEditor(); }
+function delFaq(i){ if(!confirm('Delete this FAQ item?')) return; config.faq.splice(i, 1); renderFaqEditor(); }
 function renderTypeCards(){
   const w = $('roleCards'); w.innerHTML = '';
   config.applicationTypes.forEach(t=>{
@@ -213,7 +240,7 @@ function showEditor(refetch=true){
   $('e_rules').value=config.rules||'';
   $('e_top').value=config.topText||'';
   $('e_bottom').value=config.bottomText||'';
-  syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderDecor(); renderDecorList();
+  syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderFaqEditor(); renderDecor(); renderDecorList();
   syncAppTypeFilter();
   if(refetch) renderSubs();
 }
