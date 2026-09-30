@@ -2,7 +2,7 @@
   "config": {
     "title": "Wigglesworth — Official Applications Page",
     "subtitle": "Three ways in. Pick the role that fits you and send one honest application.",
-    "announcement": "Moderator Applications CLOSED, Opening back at 100 members...",
+    "announcement": "Reopening Moderator Applications soon, check discord for more information.",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#6cb8f0",
     "bg": "#0e1218",
@@ -24,7 +24,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -52,7 +52,7 @@
           },
           {
             "id": "timezone",
-            "label": "Timezone / Availability",
+            "label": "Timezone / Availability (being able to be used, obtained, or reached when needed)",
             "type": "text",
             "placeholder": "e.g. EST, 3-5hrs daily",
             "required": true,
@@ -184,7 +184,7 @@
         "intro": "Developers ship real things for players. Show us what you have built.",
         "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -254,5 +254,84 @@
       }
     ]
   },
-  "submissions": []
+  "submissions": [
+    {
+      "appId": "CC-YASNF9",
+      "type": "creator",
+      "date": "2026-09-27T22:42:40.276Z",
+      "status": "denied",
+      "adminNote": "hi bro",
+      "username": "hi fern",
+      "discord": "hi fern",
+      "age": "32423",
+      "why": "hi fernhi fernhi fernhi fernhi fernhi fernhi fernhi fernhi fern",
+      "platform": "YouTube",
+      "channel": "hi fern",
+      "schedule": "hi fern",
+      "style": "hi fernhi fernhi fernhi fernhi fernhi fernhi fernhi fern",
+      "strikes": "hi fern"
+    },
+    {
+      "appId": "CC-9TDSNN",
+      "type": "creator",
+      "date": "2026-09-27T23:00:44.472Z",
+      "status": "approved",
+      "adminNote": "I'll let you in, but you have to post more wigglesworth content. Im giving you a chance, considering how you were an old wigglesworth creator.",
+      "username": "VAULTVR",
+      "discord": "vaultvr1",
+      "age": "13",
+      "why": "I wanna come back 🥹🤞",
+      "platform": "YouTube",
+      "channel": "https://m.youtube.com/@VaultVR1/shorts#bottom-sheet",
+      "schedule": "2 to 3 times a week",
+      "style": "I like content with others and sometimes content talking about things and other stuff.",
+      "strikes": "No"
+    },
+    {
+      "appId": "CC-99MHFW",
+      "type": "creator",
+      "date": "2026-09-28T17:12:54.900Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "204",
+      "discord": "daysvr.",
+      "age": "13",
+      "why": "Was a creator in the old discord but when joining this discord was told to re apply also love the community i built in this game and would love to carry on doing it as an official creator",
+      "platform": "YouTube",
+      "channel": "(TikTok) https://www.tiktok.com/@204rblx?_r=1&_t=ZN-9A7BglRxmHj  (YouTube) https://www.youtube.com/@204_WW",
+      "schedule": "2-9 times a week",
+      "style": "About the game trending vr memes and",
+      "strikes": "May be some from when i started but since doing wigglesworth no"
+    },
+    {
+      "appId": "MOD-UD235K",
+      "type": "moderator",
+      "date": "2026-09-30T01:36:21.124Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "VEXR",
+      "discord": "vexr",
+      "age": "14",
+      "timezone": "6 hours daily",
+      "experience": "I was a old mod here and in tinys horror",
+      "why": "To help the community and make sure there’s no toxic people again like I used to. I used to always help the community and I still want to. I want to keep racism, homophobia, etc. out of the community, including M and abuse staff abuse anything of the sorts so I’m here to help again",
+      "scenario": "I warn them if it Carry’s on I mute them",
+      "rulebreak": "No"
+    },
+    {
+      "appId": "MOD-3NPFTU",
+      "type": "moderator",
+      "date": "2026-09-30T01:40:29.854Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "VAULTVR",
+      "discord": "vaultvr1",
+      "age": "13",
+      "timezone": "4 to 5 or more depending on school",
+      "experience": "In this game and a game with 3 or 4k members",
+      "why": "Because I love this game and enjoy being active in game and in the discord. Also because i see rule breakers all the time and sometimes theres no one in there to handle it and all I can do is report them in game and to the discord but someone might not respond. Also because I want to be apart of the staff team because theres a lot of my good friends in there and the staff team knows me. I also want to be staff so I can get the staff cosmetic known.I also want to help moderate in game and in the discord for anything and if I could I would help grow the official youtube channel by collaborating with mine.Thats it!",
+      "scenario": "I would first tell them to stop spamming so people can actually talk without having to scroll up. If they don't stop then I would time them out for 5 to 10 minutes and tell them to stop spamming or it will be higher of a timeout.If they do it again then 30 mins or whatever a higherup says.But before I do anything I would give 3 warnings and tell them to stop spamming.",
+      "rulebreak": "No only once because of prx banning everyone"
+    }
+  ]
 }
