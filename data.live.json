@@ -14,6 +14,24 @@
     "backgroundImage": "",
     "topText": "",
     "bottomText": "Questions? Contact staff on Discord.",
+    "faq": [
+      {
+        "q": "Who can apply?",
+        "a": "Anyone 13 or older. No experience needed for Moderator — attitude matters more."
+      },
+      {
+        "q": "How long until I hear back?",
+        "a": "Usually in a about a few days or hours, depending if you ping @mightbeqntmz. Check your decision above with your Application ID given to you after submitting your application."
+      },
+      {
+        "q": "Can I apply for two roles?",
+        "a": "Yes — one application per role. Pick the closest fit first."
+      },
+      {
+        "q": "What gets denied instantly?",
+        "a": "Lying, copied answers, blank fields, or applying twice to skip the queue."
+      }
+    ],
     "decor": [],
     "applicationTypes": [
       {
