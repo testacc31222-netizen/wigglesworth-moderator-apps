@@ -80,6 +80,7 @@ const submitLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 10, message: { er
 const adminLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 60, message: { error: 'Too many attempts, slow down.' } });
 const statusLimit = rateLimit({ windowMs: 60 * 1000, max: 30 });
 const configLimit = rateLimit({ windowMs: 60 * 1000, max: 40 });
+const ticketLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 8, message: { error: 'Too many tickets, try again later.' } });
 app.use('/api/', general);
 
 const Q = (id, label, type, placeholder, required, options = '') =>
@@ -190,6 +191,7 @@ function loadDB() {
     }
   }
   for (const s of db.submissions) if (!s.type) s.type = 'moderator';
+  if (!Array.isArray(db.tickets)) db.tickets = [];
   // fixups for DBs saved before these fields existed
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
   if (!Array.isArray(db.config.faq)) db.config.faq = structuredClone(DEFAULT_CONFIG.faq);
@@ -239,6 +241,9 @@ function typeById(db, id) {
 }
 function validAppId(id) {
   return /^[A-Z0-9]{2,4}-[A-Z2-9]{6}$/.test(String(id || '').toUpperCase());
+}
+function validTicketId(id) {
+  return /^TKT-[A-Z2-9]{6}$/.test(String(id || '').toUpperCase());
 }
 function displayName(s) {
   return cleanStr(s.username || s.discord || 'Applicant', 80);
@@ -303,7 +308,90 @@ app.get('/api/approved', statusLimit, (req, res) => {
   res.json(out.slice(0, 200));
 });
 
-// --- admin ---
+// --- private tickets ---
+app.post('/api/tickets', ticketLimit, (req, res) => {
+  const db = loadDB();
+  const b = req.body && typeof req.body === 'object' ? req.body : {};
+  const name = cleanStr(b.name, 80).trim();
+  const subject = cleanStr(b.subject, 120).trim();
+  const message = cleanStr(b.message, 3000).trim();
+  if (!name) return res.status(400).json({ error: 'Add your name.' });
+  if (!subject) return res.status(400).json({ error: 'Add a subject.' });
+  if (message.length < 10) return res.status(400).json({ error: 'Message is too short.' });
+  const t = {
+    id: genId('TKT'), name, subject, status: 'open', unread: true,
+    createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+    replies: [{ by: 'user', name, text: message, at: new Date().toISOString() }],
+  };
+  db.tickets.push(t);
+  if (db.tickets.length > 2000) db.tickets = db.tickets.slice(-2000);
+  saveDB(db);
+  res.json({ id: t.id });
+});
+
+app.get('/api/tickets/:id', statusLimit, (req, res) => {
+  if (!validTicketId(req.params.id)) return res.status(404).json({ error: 'Not found' });
+  const db = loadDB();
+  const t = db.tickets.find(x => (x.id || '').toUpperCase() === req.params.id.toUpperCase());
+  if (!t) return res.status(404).json({ error: 'Not found' });
+  res.json({ id: t.id, name: t.name, subject: t.subject, status: t.status,
+             createdAt: t.createdAt, updatedAt: t.updatedAt, replies: t.replies });
+});
+
+app.post('/api/tickets/:id/reply', ticketLimit, (req, res) => {
+  if (!validTicketId(req.params.id)) return res.status(404).json({ error: 'Not found' });
+  const db = loadDB();
+  const t = db.tickets.find(x => (x.id || '').toUpperCase() === req.params.id.toUpperCase());
+  if (!t) return res.status(404).json({ error: 'Not found' });
+  const b = req.body && typeof req.body === 'object' ? req.body : {};
+  const staff = b.staff === true && isAdmin(req, db);
+  if (b.staff === true && !staff) return res.status(401).json({ error: 'Unauthorized' });
+  if (!staff && t.status !== 'open') return res.status(400).json({ error: 'This ticket is closed.' });
+  const text = cleanStr(b.text, 2000).trim();
+  if (text.length < 1) return res.status(400).json({ error: 'Empty reply.' });
+  if (t.replies.length >= 200) return res.status(400).json({ error: 'Thread is full.' });
+  const name = staff ? 'Staff' : cleanStr(b.name || t.name, 80);
+  t.replies.push({ by: staff ? 'staff' : 'user', name, text, at: new Date().toISOString() });
+  t.updatedAt = new Date().toISOString();
+  t.unread = !staff;
+  if (staff) audit(db, 'ticket_reply', t.id);
+  saveDB(db);
+  res.json({ ok: true });
+});
+
+app.get('/api/admin/tickets', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  res.set('Cache-Control', 'no-store');
+  res.json(db.tickets.slice().reverse().slice(0, 1000).map(t => ({
+    id: t.id, name: t.name, subject: t.subject, status: t.status, unread: !!t.unread,
+    createdAt: t.createdAt, updatedAt: t.updatedAt, replies: t.replies,
+  })));
+});
+
+app.post('/api/admin/tickets/:id/status', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!validTicketId(req.params.id)) return res.status(404).json({ error: 'Not found' });
+  const t = db.tickets.find(x => x.id === req.params.id);
+  if (!t) return res.status(404).json({ error: 'Not found' });
+  const { status } = req.body || {};
+  if (!['open', 'closed'].includes(status)) return res.status(400).json({ error: 'Bad status' });
+  t.status = status;
+  t.updatedAt = new Date().toISOString();
+  audit(db, 'ticket_' + status, t.id);
+  saveDB(db);
+  res.json({ ok: true });
+});
+
+app.delete('/api/admin/tickets/:id', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  db.tickets = db.tickets.filter(x => x.id !== req.params.id);
+  audit(db, 'ticket_deleted', req.params.id);
+  saveDB(db);
+  res.json({ ok: true });
+});
 app.get('/api/admin/applications', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
@@ -435,7 +523,7 @@ app.get('/api/admin/backup', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   res.set('Cache-Control', 'no-store');
-  res.json({ version: 1, exportedAt: new Date().toISOString(), config: db.config, submissions: db.submissions });
+  res.json({ version: 1, exportedAt: new Date().toISOString(), config: db.config, submissions: db.submissions, tickets: db.tickets || [] });
 });
 
 app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req, res) => {
@@ -450,6 +538,9 @@ app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req
   if (ENV_EDIT_CODE) db.config.editCode = keepCode;
   if (!db.config.editCode) db.config.editCode = keepCode;
   db.submissions = b.submissions.filter(s => s && typeof s.appId === 'string').slice(-5000);
+  if (Array.isArray(b.tickets)) {
+    db.tickets = b.tickets.filter(t => t && typeof t.id === 'string' && Array.isArray(t.replies)).slice(-2000);
+  }
   audit(db, 'restored', String(db.submissions.length));
   saveDB(db);
   res.json({ ok: true, submissions: db.submissions.length });

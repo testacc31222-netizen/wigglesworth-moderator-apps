@@ -166,6 +166,15 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 .faq-item{background:rgba(0,0,0,.22);border:1px solid var(--line-soft);border-radius:10px;padding:13px 15px;margin:10px 0;font-size:14px;line-height:1.6}
 .faq-item b{color:var(--text)}
 .faq-item span{color:var(--muted)}
+.thread{display:grid;gap:10px;margin:12px 0}
+.msg{background:rgba(0,0,0,.28);border:1px solid var(--line-soft);border-radius:10px;padding:11px 13px;font-size:14px;line-height:1.6;white-space:pre-wrap}
+.msg .who{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:1.2px;color:var(--muted);display:block;margin-bottom:4px}
+.msg-staff{border-left:4px solid var(--amber)}
+.msg-user{border-left:4px solid var(--line)}
+.ticket-row{display:flex;gap:10px;align-items:center;background:rgba(0,0,0,.28);border:1px solid var(--line-soft);border-radius:10px;padding:11px 13px;margin:8px 0;font-size:13.5px;cursor:pointer;text-align:left;width:100%;color:var(--text)}
+.ticket-row:hover{border-color:var(--amber)}
+#ticketBadge{background:var(--amber);color:#0c1a26;border-radius:999px;font-size:11px;font-weight:800;padding:1px 8px;margin-left:4px}
+#ticketBadge:empty{display:none}
 #roleName{font-size:30px}
 .type-item{background:rgba(0,0,0,.28);border:1px solid var(--line-soft);border-radius:10px;padding:14px;margin:12px 0}
 @media(max-width:560px){.nav{display:none}#roleName{font-size:25px}}
@@ -180,6 +189,7 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
     <div class="wordmark"><span class="dot"></span>Wigglesworth&nbsp;<em>Studios</em></div>
     <nav class="nav">
       <a href="#apply">Applications</a>
+      <a href="#contact">Tickets</a>
       <a href="#status">Decision</a>
       <a href="#accepted">Accepted</a>
     </nav>
@@ -233,6 +243,38 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
     <div class="rich" id="bottomText"></div>
   </div>
 
+  <div class="card" id="contact">
+    <div class="eyebrow">Private tickets</div>
+    <h3 style="margin:4px 0 6px">Message the staff team</h3>
+    <p class="hint">Only you and staff see this thread. No account needed — your ticket ID is the key, keep it private.</p>
+    <form id="ticketForm" onsubmit="return submitTicket(event)">
+      <label>Your name</label>
+      <input id="t_name" placeholder="What should we call you?" maxlength="80">
+      <label>Subject</label>
+      <input id="t_subject" placeholder="What is this about?" maxlength="120">
+      <label>Message</label>
+      <textarea id="t_message" placeholder="Write it here…" rows="4"></textarea>
+      <button class="btn-primary" type="submit">Open ticket</button>
+    </form>
+    <div id="ticketCreated" style="display:none;text-align:center;padding:10px 0">
+      <h3 style="margin:6px 0">Ticket opened</h3>
+      <p class="hint">Save this ID — it's the only way back into your thread:</p>
+      <div class="appid" id="newTicketId">—</div>
+      <div class="row">
+        <button class="btn-small" onclick="copyTicketId()">Copy ID</button>
+        <button class="btn-small" onclick="resetTicketForm()">Write another</button>
+      </div>
+    </div>
+    <div style="margin-top:18px;border-top:1px dashed var(--line);padding-top:14px">
+      <h3 style="margin:0 0 4px">Check your ticket</h3>
+      <div class="row">
+        <input id="ticketInput" placeholder="e.g. TKT-A1B2C3" style="flex:3">
+        <button class="btn-confirm" onclick="checkTicket()" style="flex:1">Open</button>
+      </div>
+      <div id="ticketResult"></div>
+    </div>
+  </div>
+
   <div class="card" id="status">
     <h3 style="margin:0">Check your decision</h3>
     <p class="hint">Enter your Application ID (you got it after submitting). Works for every role.</p>
@@ -269,6 +311,7 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
       <button data-tab="decor" onclick="switchTab('decor',this)">Drag & Decor</button>
       <button data-tab="texts" onclick="switchTab('texts',this)">Texts</button>
       <button data-tab="questions" onclick="switchTab('questions',this)">Questions</button>
+      <button data-tab="tickets" onclick="switchTab('tickets',this)">Tickets <span id="ticketBadge"></span></button>
       <button data-tab="apps" onclick="switchTab('apps',this)">Applications</button>
     </div>
 
@@ -347,6 +390,16 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
       <select id="e_qtype" onchange="renderQEditor()"></select>
       <div id="qEditor"></div>
       <button class="btn-small" onclick="addQuestion()">+ Add Question</button>
+    </div>
+
+    <div id="tab-tickets" class="tabpane">
+      <div class="toolbar">
+        <input id="ticketSearch" placeholder="Search name / subject / ID…" oninput="renderTickets()" style="flex:2">
+        <select id="ticketFilter" onchange="renderTickets()" style="flex:1"><option value="">All</option><option value="open">Open</option><option value="closed">Closed</option><option value="unread">Unread</option></select>
+      </div>
+      <div id="ticketThread"></div>
+      <h3>Tickets (<span id="ticketCount">0</span>)</h3>
+      <div id="ticketList"></div>
     </div>
 
     <div id="tab-apps" class="tabpane">

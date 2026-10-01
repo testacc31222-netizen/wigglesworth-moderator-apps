@@ -242,7 +242,7 @@ function showEditor(refetch=true){
   $('e_bottom').value=config.bottomText||'';
   syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderFaqEditor(); renderDecor(); renderDecorList();
   syncAppTypeFilter();
-  if(refetch) renderSubs();
+  if(refetch){ renderSubs(); renderTickets(); }
 }
 function lockEditor(){ unlocked=false; editCode=''; sessionStorage.removeItem('mod_edit_code'); selectedDecor=null; $('editor').style.display='none'; renderDecor(); }
 function edType(i){ return config.applicationTypes[i]; }
@@ -416,6 +416,117 @@ function exportCSV(){
   a.download='wigglesworth-applications.csv'; a.click();
 }
 
+// ---- private tickets ----
+let currentTicket = null;
+let selectedTicketId = null;
+let ticketAdminCache = [];
+function threadHTML(t, staffMode){
+  let h = `<div class="thread">`;
+  (t.replies || []).forEach(m=>{
+    h += `<div class="msg msg-${m.by==='staff'?'staff':'user'}"><span class="who">${esc(m.by==='staff'?'STAFF':(m.name||'YOU'))} · ${esc((m.at||'').slice(0,16).replace('T',' '))}</span>${esc(m.text)}</div>`;
+  });
+  return h + `</div>`;
+}
+async function submitTicket(e){
+  e.preventDefault();
+  const body = { name: $('t_name').value.trim(), subject: $('t_subject').value.trim(), message: $('t_message').value.trim() };
+  if(!body.name || !body.subject || body.message.length < 10){ alert('Fill name, subject, and a message (10+ characters).'); return false; }
+  try{
+    const r = await fetch('/api/tickets',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const j = await r.json();
+    if(!r.ok) throw new Error(j.error||'Failed');
+    $('ticketForm').style.display='none';
+    $('ticketCreated').style.display='block';
+    $('newTicketId').textContent = j.id;
+  }catch(err){ alert(err.message); }
+  return false;
+}
+function resetTicketForm(){ $('ticketForm').reset(); $('ticketForm').style.display='block'; $('ticketCreated').style.display='none'; }
+function copyTicketId(){ const t=$('newTicketId').textContent; navigator.clipboard?.writeText(t); alert('Copied: '+t); }
+async function checkTicket(){
+  const id = $('ticketInput').value.trim().toUpperCase();
+  const box = $('ticketResult'); box.innerHTML='';
+  if(!id) return;
+  try{
+    const r = await fetch('/api/tickets/'+encodeURIComponent(id));
+    if(!r.ok) throw 0;
+    currentTicket = await r.json();
+    renderUserThread();
+  }catch{ box.innerHTML='<div class="status-box pending">No ticket found for <b>'+esc(id)+'</b></div>'; }
+}
+function renderUserThread(){
+  const box = $('ticketResult');
+  const t = currentTicket;
+  const closed = t.status !== 'open';
+  box.innerHTML = `<div class="status-box ${closed?'denied':'pending'}" style="margin-top:12px"><b>${esc(t.id)}</b> · ${esc(t.subject)} — <span class="status ${closed?'denied':'pending'}">${closed?'CLOSED':'OPEN'}</span></div>`
+    + threadHTML(t,false)
+    + (closed ? '<p class="hint">This ticket is closed. Open a new one if you need more help.</p>'
+      : `<label>Reply</label><textarea id="t_reply" rows="3" placeholder="Write back…"></textarea><div class="row"><button class="btn-confirm" onclick="userReply()">Send reply</button></div>`);
+}
+async function userReply(){
+  const text = $('t_reply').value.trim();
+  if(!text) return;
+  const r = await fetch('/api/tickets/'+currentTicket.id+'/reply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
+  const j = await r.json();
+  if(!r.ok){ alert(j.error||'Failed'); return; }
+  const t2 = await (await fetch('/api/tickets/'+currentTicket.id)).json();
+  currentTicket = t2; renderUserThread();
+}
+async function renderTickets(){
+  const q=($('ticketSearch').value||'').toLowerCase();
+  const f=$('ticketFilter').value;
+  const r = await fetch('/api/admin/tickets',{headers:{'x-edit-code':editCode}});
+  if(r.status===401){ $('ticketList').innerHTML='<p class="hint">Wrong code — lock and unlock again.</p>'; return; }
+  ticketAdminCache = await r.json();
+  const unread = ticketAdminCache.filter(t=>t.unread && t.status==='open').length;
+  $('ticketBadge').textContent = unread || '';
+  $('ticketCount').textContent = ticketAdminCache.length;
+  const w = $('ticketList'); w.innerHTML = ticketAdminCache.length?'':'<p class="hint">No tickets yet.</p>';
+  ticketAdminCache.filter(t=>{
+    if(f==='open' && t.status!=='open') return false;
+    if(f==='closed' && t.status!=='closed') return false;
+    if(f==='unread' && !(t.unread && t.status==='open')) return false;
+    if(q && !JSON.stringify(t).toLowerCase().includes(q)) return false;
+    return true;
+  }).forEach(t=>{
+    const b=document.createElement('button'); b.className='ticket-row';
+    b.innerHTML=`<b>${esc(t.id)}</b>${t.unread&&t.status==='open'?' <span class="status pending">NEW</span>':''}<span style="flex:1"><b>${esc(t.subject)}</b><br><span class="hint">${esc(t.name)} · ${esc((t.updatedAt||'').slice(0,16).replace('T',' '))} · ${t.replies.length} msg</span></span><span class="status ${t.status==='open'?'pending':'denied'}">${t.status.toUpperCase()}</span>`;
+    b.onclick=()=>{ selectedTicketId=t.id; renderTicketThread(); };
+    w.appendChild(b);
+  });
+  if(selectedTicketId) renderTicketThread();
+}
+function renderTicketThread(){
+  const box = $('ticketThread');
+  const t = ticketAdminCache.find(x=>x.id===selectedTicketId);
+  if(!t){ box.innerHTML=''; return; }
+  const closed = t.status!=='open';
+  box.innerHTML = `<div class="submission"><b>${esc(t.id)}</b> — ${esc(t.subject)} <span class="hint">from ${esc(t.name)} · ${esc(t.createdAt||'')}</span> <span class="status ${closed?'denied':'pending'}">${t.status.toUpperCase()}</span></div>`
+    + threadHTML(t,true)
+    + `<label>Reply as staff${closed?' (reopens the ticket)':''}</label><textarea id="t_staffReply" rows="3"></textarea>
+    <div class="row"><button class="btn-confirm" onclick="staffReply()">Send</button>
+    ${closed?`<button class="btn-small" onclick="setTicketStatus('${t.id}','open')">Reopen</button>`:`<button class="btn-small" onclick="setTicketStatus('${t.id}','closed')">Close</button>`}
+    <button class="btn-small" onclick="delTicket('${t.id}')">Delete</button></div>`;
+}
+async function staffReply(){
+  const text = $('t_staffReply').value.trim();
+  if(!text) return;
+  const t = ticketAdminCache.find(x=>x.id===selectedTicketId);
+  await fetch('/api/tickets/'+t.id+'/reply',{method:'POST',headers:headers(),body:JSON.stringify({text, staff:true})});
+  if(t.status!=='open') await fetch('/api/admin/tickets/'+t.id+'/status',{method:'POST',headers:headers(),body:JSON.stringify({status:'open'})});
+  await renderTickets();
+}
+async function setTicketStatus(id,st){
+  await fetch('/api/admin/tickets/'+id+'/status',{method:'POST',headers:headers(),body:JSON.stringify({status:st})});
+  renderTickets();
+}
+async function delTicket(id){
+  if(!confirm('Delete '+id+' and its whole thread?')) return;
+  await fetch('/api/admin/tickets/'+id,{method:'DELETE',headers:{'x-edit-code':editCode}});
+  if(selectedTicketId===id) selectedTicketId=null;
+  renderTickets();
+}
+
 // ---- floating decor ----
 function renderDecor(){
   const layer=$('stickerLayer'); layer.innerHTML='';
@@ -505,6 +616,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
   fetchConfig();
   $('codeInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkCode(); });
   $('statusInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkStatus(); });
+  $('ticketInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkTicket(); });
   ['e_bannerFile','e_logoFile','e_bgFile','e_inlineFile'].forEach(id=>{
     $(id)?.addEventListener('change',e=>{
       const f=e.target.files[0]; if(!f) return;
