@@ -223,7 +223,7 @@ function validAppId(id) {
   return /^[A-Z0-9]{2,4}-[A-Z2-9]{6}$/.test(String(id || '').toUpperCase());
 }
 function displayName(s) {
-  return cleanStr(s.username || s.discord || s.appId, 80);
+  return cleanStr(s.username || s.discord || 'Applicant', 80);
 }
 
 // --- public ---
@@ -274,7 +274,7 @@ app.get('/api/approved', statusLimit, (req, res) => {
     if (!db.config.showApproved || !t.showApproved) continue;
     if (only && only !== t.id) continue;
     db.submissions.filter(s => s.type === t.id && s.status === 'approved').reverse().slice(0, 100).forEach(s => {
-      out.push({ appId: s.appId, type: t.id, typeName: t.name, date: s.date, username: displayName(s) });
+      out.push({ type: t.id, typeName: t.name, date: s.date, username: displayName(s) });
     });
   }
   res.json(out.slice(0, 200));

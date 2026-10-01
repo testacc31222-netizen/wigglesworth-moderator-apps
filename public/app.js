@@ -189,7 +189,7 @@ async function renderApprovedPublic(){
     let lastType = null;
     arr.forEach(s=>{
       if(s.type!==lastType){ lastType=s.type; const h=document.createElement('div'); h.className='hint'; h.style.margin='8px 0 2px'; h.textContent=typeName(s.type); list.appendChild(h); }
-      const d=document.createElement('div'); d.textContent=s.username+' · '+s.appId; list.appendChild(d);
+      const d=document.createElement('div'); d.textContent=s.username; list.appendChild(d);
     });
   }catch{ wrap.style.display='none'; }
 }
