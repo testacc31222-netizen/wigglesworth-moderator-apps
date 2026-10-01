@@ -144,7 +144,7 @@ async function submitApp(e){
     if(!r.ok) throw new Error(j.error||'Submit failed');
     $('modForm').style.display='none';
     $('success').style.display='block';
-    $('successMsg').textContent = t.successMessage || '';
+    $('successMsg').textContent = j.successMessage || t.successMessage || '';
     $('newAppId').textContent = j.appId;
     renderApprovedPublic();
   }catch(err){ alert(err.message); }
@@ -330,6 +330,17 @@ function syncAppTypeFilter(){
   config.applicationTypes.forEach(t=>{ const o=document.createElement('option'); o.value=t.id; o.textContent=t.name; s.appendChild(o); });
   s.value=keep;
 }
+async function renderAudit(){
+  try{
+    const r = await fetch('/api/admin/audit',{headers:{'x-edit-code':editCode}});
+    if(!r.ok) return;
+    const log = await r.json();
+    const w = $('auditLog');
+    if(!log.length){ w.innerHTML=''; return; }
+    w.innerHTML = '<div class="hint" style="margin-bottom:4px">Security log — latest staff actions:</div>' +
+      log.slice(0,8).map(e=>`<div class="hint">· ${esc(e.t||'').slice(0,16).replace('T',' ')} — ${esc(e.act)}${e.id?' '+esc(e.id):''}</div>`).join('');
+  }catch{}
+}
 async function renderSubs(){
   const q=($('appSearch').value||'').toLowerCase();
   const f=$('appFilter').value, tf=$('appTypeFilter').value;
@@ -337,6 +348,7 @@ async function renderSubs(){
   if(r.status===401){ $('subs').innerHTML='<p class="hint">Wrong code — lock and unlock again.</p>'; return; }
   let subs = await r.json();
   adminCache = subs;
+  renderAudit();
   $('subCount').textContent=subs.length;
   const w=$('subs'); w.innerHTML = subs.length?'':'<p class="hint">No submissions yet.</p>';
   const qmap = {};

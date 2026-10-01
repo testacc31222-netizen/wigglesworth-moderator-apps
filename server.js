@@ -55,7 +55,19 @@ async function pushToGitHub() {
 const ENV_EDIT_CODE = process.env.EDIT_CODE || '';
 
 app.use(helmet({
-  contentSecurityPolicy: false,
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+      fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
+      imgSrc: ["'self'", 'data:', 'https:'],
+      connectSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      baseUri: ["'self'"],
+      frameAncestors: ["'none'"],
+    },
+  },
   crossOriginEmbedderPolicy: false,
 }));
 app.use(express.json({ limit: '200kb' }));
@@ -67,6 +79,7 @@ const general = rateLimit({ windowMs: 60 * 1000, max: 120 });
 const submitLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 10, message: { error: 'Too many applications, try again later.' } });
 const adminLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 60, message: { error: 'Too many attempts, slow down.' } });
 const statusLimit = rateLimit({ windowMs: 60 * 1000, max: 30 });
+const configLimit = rateLimit({ windowMs: 60 * 1000, max: 40 });
 app.use('/api/', general);
 
 const Q = (id, label, type, placeholder, required, options = '') =>
@@ -214,6 +227,11 @@ function isAdmin(req, db) {
 }
 function publicConfig(db) {
   const { editCode, ...rest } = db.config;
+  // success messages are only revealed after a real submission
+  rest.applicationTypes = (rest.applicationTypes || []).map(t => {
+    const { successMessage, ...pub } = t;
+    return pub;
+  });
   return rest;
 }
 function typeById(db, id) {
@@ -225,9 +243,14 @@ function validAppId(id) {
 function displayName(s) {
   return cleanStr(s.username || s.discord || 'Applicant', 80);
 }
+function audit(db, act, id) {
+  if (!Array.isArray(db.audit)) db.audit = [];
+  db.audit.unshift({ t: new Date().toISOString(), act, id: cleanStr(id, 40) });
+  if (db.audit.length > 100) db.audit = db.audit.slice(0, 100);
+}
 
 // --- public ---
-app.get('/api/config', (req, res) => {
+app.get('/api/config', configLimit, (req, res) => {
   res.set('Cache-Control', 'no-store');
   res.json(publicConfig(loadDB()));
 });
@@ -254,7 +277,7 @@ app.post('/api/applications', submitLimit, (req, res) => {
   db.submissions.push(entry);
   if (db.submissions.length > 5000) db.submissions = db.submissions.slice(-5000);
   saveDB(db);
-  res.json({ appId: entry.appId, type: entry.type });
+  res.json({ appId: entry.appId, type: entry.type, successMessage: t.successMessage || '' });
 });
 
 app.get('/api/status/:id', statusLimit, (req, res) => {
@@ -356,6 +379,7 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
   };
   if (ENV_EDIT_CODE) out.editCode = db.config.editCode;
   db.config = out;
+  audit(db, 'config_saved', '');
   saveDB(db);
   res.json({ ok: true });
 });
@@ -372,6 +396,7 @@ app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {
     s.status = status;
   }
   if (adminNote !== undefined) s.adminNote = cleanStr(adminNote, 2000);
+  audit(db, 'status_' + s.status, s.appId);
   saveDB(db);
   res.json({ ok: true });
 });
@@ -380,6 +405,7 @@ app.delete('/api/admin/applications/:id', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   db.submissions = db.submissions.filter(x => x.appId !== req.params.id);
+  audit(db, 'deleted', req.params.id);
   saveDB(db);
   res.json({ ok: true });
 });
@@ -389,6 +415,7 @@ app.delete('/api/admin/applications', adminLimit, (req, res) => {
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   const only = cleanStr(req.query.type, 40);
   db.submissions = only ? db.submissions.filter(x => x.type !== only) : [];
+  audit(db, 'cleared' + (only ? '_' + only : '_all'), '');
   saveDB(db);
   res.json({ ok: true });
 });
@@ -399,6 +426,7 @@ app.post('/api/admin/reset', adminLimit, (req, res) => {
   const keepCode = db.config.editCode;
   db.config = structuredClone(DEFAULT_CONFIG);
   db.config.editCode = keepCode;
+  audit(db, 'reset', '');
   saveDB(db);
   res.json(publicConfig(db));
 });
@@ -422,6 +450,7 @@ app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req
   if (ENV_EDIT_CODE) db.config.editCode = keepCode;
   if (!db.config.editCode) db.config.editCode = keepCode;
   db.submissions = b.submissions.filter(s => s && typeof s.appId === 'string').slice(-5000);
+  audit(db, 'restored', String(db.submissions.length));
   saveDB(db);
   res.json({ ok: true, submissions: db.submissions.length });
 });
@@ -432,6 +461,13 @@ app.get('/api/admin/sync', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   res.json({ github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH });
+});
+
+app.get('/api/admin/audit', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  res.set('Cache-Control', 'no-store');
+  res.json((db.audit || []).slice(0, 50));
 });
 
 app.listen(PORT, HOST, () => {
