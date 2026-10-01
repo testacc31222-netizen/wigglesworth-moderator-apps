@@ -530,21 +530,6 @@
       "why": "testforthingsandsuch",
       "scenario": "testforthingsandsuch",
       "rulebreak": "testforthingsandsuch"
-    },
-    {
-      "appId": "MOD-PX3XP7",
-      "type": "moderator",
-      "date": "2026-10-01T01:42:02.134Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "testforthingsandsuch",
-      "discord": "testforthingsandsuch",
-      "age": "testforthingsandsuch",
-      "timezone": "testforthingsandsuch",
-      "experience": "testforthingsandsuch",
-      "why": "testforthingsandsuch",
-      "scenario": "testforthingsandsuch",
-      "rulebreak": "testforthingsandsuch"
     }
   ]
 }
