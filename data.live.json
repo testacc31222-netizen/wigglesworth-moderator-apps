@@ -44,7 +44,9 @@
       },
       "heroEyebrow": {
         "dx": 14,
-        "dy": 4
+        "dy": 4,
+        "text": "Tickets and Applications",
+        "orig": "01 · Staff applications"
       }
     },
     "decor": [],
@@ -493,6 +495,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-01T06:19:27.111Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-01T06:19:08.295Z",
       "act": "config_saved",
