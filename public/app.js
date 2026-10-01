@@ -576,6 +576,14 @@ document.addEventListener('pointerdown', e=>{
   window.addEventListener('pointermove', dDragMove);
   window.addEventListener('pointerup', dDragEnd, { once: true });
 }, true);
+function dTransform(L, dx, dy){
+  const t = [];
+  if(dx || dy) t.push('translate(' + (dx || 0) + 'px,' + (dy || 0) + 'px)');
+  if(L.rot) t.push('rotate(' + L.rot + 'deg)');
+  const sx = L.sx || 1, sy = L.sy || 1;
+  if(sx !== 1 || sy !== 1) t.push('scale(' + sx + ',' + sy + ')');
+  return t.join(' ');
+}
 function dDragMove(e){
   if(!dragInfo) return;
   const dx = e.clientX - dragInfo.sx, dy = e.clientY - dragInfo.sy;
@@ -583,7 +591,7 @@ function dDragMove(e){
   if(!dragInfo.moved) return;
   const el = dEl(dragInfo.key); if(!el) return;
   const o = Object.assign({ dx: 0, dy: 0 }, dragInfo.orig);
-  el.style.transform = 'translate(' + (o.dx + dx) + 'px,' + (o.dy + dy) + 'px)';
+  el.style.transform = dTransform(dragInfo.orig, o.dx + dx, o.dy + dy);
   dragInfo.nx = o.dx + dx; dragInfo.ny = o.dy + dy;
 }
 function dDragEnd(){
@@ -603,7 +611,7 @@ function applyLayout(){
     const el = dEl(key); if(!el || !DREG[key]) continue;
     const L = config.layout[key];
     if(L.hide){ el.style.display = 'none'; continue; }
-    if(L.dx || L.dy) el.style.transform = 'translate(' + (L.dx || 0) + 'px,' + (L.dy || 0) + 'px)';
+    el.style.transform = dTransform(L, L.dx || 0, L.dy || 0);
     if(L.fs) el.style.fontSize = L.fs + 'px';
     if(L.text != null && el.children.length === 0) el.textContent = L.text;
   }
@@ -648,6 +656,30 @@ function dSize(d){
   const fs = Math.min(96, Math.max(10, cur + d));
   el.style.fontSize = fs + 'px';
   setLayout(selectedKey, { fs });
+}
+function dRotate(d){
+  const el = dEl(selectedKey); if(!el) return;
+  const cur = layoutOf(selectedKey);
+  let rot = ((cur.rot || 0) + d) % 360;
+  el.style.transform = dTransform(Object.assign({}, cur, { rot }), cur.dx || 0, cur.dy || 0);
+  setLayout(selectedKey, { rot });
+}
+function dScale(f){
+  const el = dEl(selectedKey); if(!el) return;
+  const cur = layoutOf(selectedKey);
+  const cl = v => Math.min(3, Math.max(0.3, Math.round(v * 100) / 100));
+  const patch = { sx: cl((cur.sx || 1) * f), sy: cl((cur.sy || 1) * f) };
+  el.style.transform = dTransform(Object.assign({}, cur, patch), cur.dx || 0, cur.dy || 0);
+  setLayout(selectedKey, patch);
+}
+function dStretch(axis, d){
+  const el = dEl(selectedKey); if(!el) return;
+  const cur = layoutOf(selectedKey);
+  const k = axis === 'x' ? 'sx' : 'sy';
+  const v = Math.min(4, Math.max(0.2, Math.round(((cur[k] || 1) + d) * 100) / 100));
+  const patch = {}; patch[k] = v;
+  el.style.transform = dTransform(Object.assign({}, cur, patch), cur.dx || 0, cur.dy || 0);
+  setLayout(selectedKey, patch);
 }
 function dToggleHide(){
   const el = dEl(selectedKey); if(!el) return;
@@ -702,6 +734,8 @@ function renderLayoutList(){
     if(L.hide) parts.push('hidden');
     if(L.dx || L.dy) parts.push('moved');
     if(L.fs) parts.push(L.fs + 'px');
+    if(L.rot) parts.push('rot ' + L.rot + '°');
+    if((L.sx && L.sx !== 1) || (L.sy && L.sy !== 1)) parts.push('scale ' + (L.sx || 1) + '×' + (L.sy || 1));
     if(L.text != null) parts.push('reworded');
     div.innerHTML = '<b>' + esc((DREG[k] && DREG[k].label) || k) + '</b> <span class="hint">' + parts.join(' · ') + '</span>';
     const row = document.createElement('div'); row.className = 'row';

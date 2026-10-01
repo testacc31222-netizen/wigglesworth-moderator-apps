@@ -481,6 +481,14 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
     <button class="btn-small" id="dtEdit" onclick="dEditText()">Edit text</button>
     <button class="btn-small" onclick="dSize(-2)">A−</button>
     <button class="btn-small" onclick="dSize(2)">A+</button>
+    <button class="btn-small" onclick="dRotate(-15)">R−</button>
+    <button class="btn-small" onclick="dRotate(15)">R+</button>
+    <button class="btn-small" onclick="dScale(0.9)">S−</button>
+    <button class="btn-small" onclick="dScale(1.1)">S+</button>
+    <button class="btn-small" onclick="dStretch('x',-0.1)">W−</button>
+    <button class="btn-small" onclick="dStretch('x',0.1)">W+</button>
+    <button class="btn-small" onclick="dStretch('y',-0.1)">H−</button>
+    <button class="btn-small" onclick="dStretch('y',0.1)">H+</button>
     <button class="btn-small" id="dtHide" onclick="dToggleHide()">Hide</button>
     <button class="btn-small" id="dtTab" onclick="dGotoTab()" style="display:none">Edit in tab</button>
     <button class="btn-small" onclick="dResetEl()">Reset</button>

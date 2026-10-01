@@ -415,6 +415,9 @@ function cleanLayout(l) {
     if (Number.isFinite(+v.dx)) e.dx = Math.min(2000, Math.max(-2000, Math.round(+v.dx)));
     if (Number.isFinite(+v.dy)) e.dy = Math.min(2000, Math.max(-2000, Math.round(+v.dy)));
     if (Number.isFinite(+v.fs)) e.fs = Math.min(96, Math.max(10, Math.round(+v.fs)));
+    if (Number.isFinite(+v.rot)) e.rot = Math.min(180, Math.max(-180, Math.round(+v.rot)));
+    if (Number.isFinite(+v.sx)) e.sx = Math.min(4, Math.max(0.2, Math.round(+v.sx * 100) / 100));
+    if (Number.isFinite(+v.sy)) e.sy = Math.min(4, Math.max(0.2, Math.round(+v.sy * 100) / 100));
     if (v.hide === true) e.hide = true;
     if (typeof v.text === 'string' && v.text) e.text = cleanStr(v.text, 500);
     if (typeof v.orig === 'string' && v.orig) e.orig = cleanStr(v.orig, 500);
