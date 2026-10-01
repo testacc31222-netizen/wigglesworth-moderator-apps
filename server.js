@@ -200,6 +200,7 @@ function loadDB() {
   // fixups for DBs saved before these fields existed
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
   if (!Array.isArray(db.config.faq)) db.config.faq = structuredClone(DEFAULT_CONFIG.faq);
+  if (!db.config.layout || typeof db.config.layout !== 'object') db.config.layout = {};
   if (db.config.accent === '#6366f1') db.config.accent = '#6cb8f0';
   if (db.config.bg === '#080a12') db.config.bg = '#0e1218';
   return db;
@@ -404,8 +405,24 @@ app.get('/api/admin/applications', adminLimit, (req, res) => {
   res.json(db.submissions.slice().reverse().slice(0, 1000));
 });
 
-function cleanQuestion(q, i) {
-  return {
+function cleanLayout(l) {
+  const out = {};
+  if (!l || typeof l !== 'object') return out;
+  for (const k of Object.keys(l).slice(0, 30)) {
+    if (!/^[a-zA-Z0-9_-]{1,40}$/.test(k)) continue;
+    const v = l[k] || {};
+    const e = {};
+    if (Number.isFinite(+v.dx)) e.dx = Math.min(2000, Math.max(-2000, Math.round(+v.dx)));
+    if (Number.isFinite(+v.dy)) e.dy = Math.min(2000, Math.max(-2000, Math.round(+v.dy)));
+    if (Number.isFinite(+v.fs)) e.fs = Math.min(96, Math.max(10, Math.round(+v.fs)));
+    if (v.hide === true) e.hide = true;
+    if (typeof v.text === 'string' && v.text) e.text = cleanStr(v.text, 500);
+    if (typeof v.orig === 'string' && v.orig) e.orig = cleanStr(v.orig, 500);
+    if (Object.keys(e).length) out[k] = e;
+  }
+  return out;
+}
+function cleanQuestion(q, i) {  return {
     id: cleanStr(q.id || ('q' + i), 40).replace(/[^a-zA-Z0-9_-]/g, '') || ('q' + i),
     label: cleanStr(q.label, 200) || 'Question',
     type: ['text', 'number', 'textarea', 'select'].includes(q.type) ? q.type : 'text',
@@ -414,8 +431,7 @@ function cleanQuestion(q, i) {
     options: cleanStr(q.options, 500),
   };
 }
-function cleanType(t) {
-  return {
+function cleanType(t) {  return {
     id: cleanStr(t.id, 40).toLowerCase().replace(/[^a-z0-9_-]/g, '') || 'role',
     name: cleanStr(t.name, 60) || 'Role',
     blurb: cleanStr(t.blurb, 160),
@@ -454,6 +470,7 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     faq: Array.isArray(c.faq)
       ? c.faq.slice(0, 20).map(f => ({ q: cleanStr(f.q, 200), a: cleanStr(f.a, 1000) })).filter(f => f.q || f.a)
       : [],
+    layout: cleanLayout(c.layout),
     decor: Array.isArray(c.decor) ? c.decor.slice(0, 40).map(d => ({
       id: Number(d.id) || Date.now(),
       kind: d.kind === 'text' ? 'text' : 'img',

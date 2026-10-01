@@ -43,7 +43,7 @@ function applyConfig(){
   const li = $('logoImg');
   if(config.logoImage){ li.src = config.logoImage; li.style.display='block'; } else li.style.display='none';
   $('topText').innerHTML = rich(config.topText);
-  renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor();
+  renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor(); applyLayout();
   if (curType() && $('applyCard').style.display === 'block') fillRoleHeader(curType());
   if(unlocked) showEditor(false);
 }
@@ -526,6 +526,200 @@ async function delTicket(id){
   if(selectedTicketId===id) selectedTicketId=null;
   renderTickets();
 }
+
+// ---- canva-lite visual editor ----
+const DREG = {
+  heroEyebrow:{label:'Hero eyebrow',text:true},
+  appTitle:{label:'Main title',config:'title'},
+  appSubtitle:{label:'Subtitle',config:'subtitle'},
+  handNote:{label:'Handwritten note'},
+  applyBtn:{label:'Apply button',text:true},
+  heroHint:{label:'Hero hint',text:true},
+  stat0:{label:'Stat chip 1',text:true},
+  stat1:{label:'Stat chip 2',text:true},
+  stat2:{label:'Stat chip 3',text:true},
+  statusEyebrow:{label:'Decision eyebrow',text:true},
+  statusTitle:{label:'Decision heading',text:true},
+  acceptedEyebrow:{label:'Accepted eyebrow',text:true},
+  acceptedTitle:{label:'Accepted heading',tab:'general',field:'e_approvedTitle'},
+  contactEyebrow:{label:'Tickets eyebrow',text:true},
+  contactTitle:{label:'Tickets heading',text:true},
+  faqEyebrow:{label:'FAQ eyebrow',text:true},
+  faqTitle:{label:'FAQ heading',text:true},
+  foot:{label:'Footer'},
+  topText:{label:'Top text',tab:'texts',field:'e_top'},
+  bottomText:{label:'Bottom text',tab:'texts',field:'e_bottom'},
+  appRules:{label:'Rules box',tab:'texts',field:'e_rules'},
+  announceBar:{label:'Announcement',tab:'general',field:'e_announce'},
+};
+let designOn=false, selectedKey=null, dragInfo=null, editingEl=false;
+function dEl(key){ try{ return document.querySelector('[data-dkey="'+CSS.escape(key)+'"]'); }catch{ return null; } }
+function layoutOf(key){ return (config.layout && config.layout[key]) || {}; }
+async function persistConfigQuiet(){
+  await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
+}
+function toggleDesign(){
+  if(!unlocked) return;
+  designOn=!designOn;
+  document.body.classList.toggle('design-on',designOn);
+  $('designToggle').textContent='Select & move on page: '+(designOn?'ON':'OFF');
+  if(!designOn) dSelect(null);
+}
+document.addEventListener('pointerdown', e=>{
+  if(!designOn || !unlocked || editingEl) return;
+  if(e.target.closest('#dtoolbar') || e.target.closest('#editor') || e.target.closest('.modal')) return;
+  const t = e.target.closest('[data-dkey]');
+  if(!t || !DREG[t.getAttribute('data-dkey')]) return;
+  e.preventDefault();
+  dSelect(t.getAttribute('data-dkey'));
+  dragInfo = { key: t.getAttribute('data-dkey'), sx: e.clientX, sy: e.clientY, moved: false, orig: layoutOf(t.getAttribute('data-dkey')) };
+  window.addEventListener('pointermove', dDragMove);
+  window.addEventListener('pointerup', dDragEnd, { once: true });
+}, true);
+function dDragMove(e){
+  if(!dragInfo) return;
+  const dx = e.clientX - dragInfo.sx, dy = e.clientY - dragInfo.sy;
+  if(Math.abs(dx) + Math.abs(dy) > 4) dragInfo.moved = true;
+  if(!dragInfo.moved) return;
+  const el = dEl(dragInfo.key); if(!el) return;
+  const o = Object.assign({ dx: 0, dy: 0 }, dragInfo.orig);
+  el.style.transform = 'translate(' + (o.dx + dx) + 'px,' + (o.dy + dy) + 'px)';
+  dragInfo.nx = o.dx + dx; dragInfo.ny = o.dy + dy;
+}
+function dDragEnd(){
+  window.removeEventListener('pointermove', dDragMove);
+  if(dragInfo && dragInfo.moved) setLayout(dragInfo.key, { dx: Math.round(dragInfo.nx), dy: Math.round(dragInfo.ny) });
+  dragInfo = null;
+}
+function setLayout(key, patch){
+  config.layout = config.layout || {};
+  config.layout[key] = Object.assign({}, config.layout[key] || {}, patch);
+  persistConfigQuiet(); renderLayoutList();
+}
+function applyLayout(){
+  renderLayoutList();
+  if(!config.layout) return;
+  for(const key in config.layout){
+    const el = dEl(key); if(!el || !DREG[key]) continue;
+    const L = config.layout[key];
+    if(L.hide){ el.style.display = 'none'; continue; }
+    if(L.dx || L.dy) el.style.transform = 'translate(' + (L.dx || 0) + 'px,' + (L.dy || 0) + 'px)';
+    if(L.fs) el.style.fontSize = L.fs + 'px';
+    if(L.text != null && el.children.length === 0) el.textContent = L.text;
+  }
+}
+function dSelect(key){
+  document.querySelectorAll('.dselected').forEach(s=>s.classList.remove('dselected'));
+  selectedKey = key;
+  const bar = $('dtoolbar');
+  if(!key || !DREG[key]){ bar.style.display = 'none'; return; }
+  const el = dEl(key);
+  if(el) el.classList.add('dselected');
+  $('dtName').textContent = DREG[key].label;
+  $('dtEdit').style.display = (DREG[key].text || DREG[key].config) ? '' : 'none';
+  $('dtTab').style.display = DREG[key].tab ? '' : 'none';
+  const hidden = el && el.style.display === 'none';
+  $('dtHide').textContent = hidden ? 'Unhide' : 'Hide';
+  bar.style.display = 'flex';
+}
+function dEditText(){
+  const def = DREG[selectedKey]; if(!def) return;
+  if(def.tab){ dGotoTab(); return; }
+  const el = dEl(selectedKey); if(!el) return;
+  editingEl = true;
+  el.contentEditable = 'true'; el.focus();
+  try{ document.execCommand('selectAll', false, null); }catch{}
+  el.onblur = ()=>{
+    el.contentEditable = 'false'; el.onblur = null; editingEl = false;
+    const v = el.textContent.trim();
+    if(def.config){ config[def.config] = v; persistConfigQuiet(); }
+    else {
+      const cur = layoutOf(selectedKey);
+      const patch = { text: v };
+      if(cur.orig === undefined && cur.text === undefined) patch.orig = el.getAttribute('data-orig') || '';
+      setLayout(selectedKey, patch);
+    }
+  };
+  el.onkeydown = (e)=>{ if(e.key === 'Escape'){ el.contentEditable = 'false'; editingEl = false; applyLayout(); } };
+}
+function dSize(d){
+  const el = dEl(selectedKey); if(!el) return;
+  const cur = Math.round(parseFloat(getComputedStyle(el).fontSize) || 16);
+  const fs = Math.min(96, Math.max(10, cur + d));
+  el.style.fontSize = fs + 'px';
+  setLayout(selectedKey, { fs });
+}
+function dToggleHide(){
+  const el = dEl(selectedKey); if(!el) return;
+  config.layout = config.layout || {};
+  if(el.style.display === 'none'){
+    const cur = config.layout[selectedKey] || {};
+    delete cur.hide;
+    if(Object.keys(cur).length) config.layout[selectedKey] = cur;
+    else delete config.layout[selectedKey];
+    persistConfigQuiet(); renderLayoutList();
+    el.style.display = '';
+    applyLayout();
+  } else {
+    el.style.display = 'none';
+    setLayout(selectedKey, { hide: true });
+  }
+  dSelect(null);
+}
+function dResetEl(){
+  const key = selectedKey; if(!key) return;
+  const el = dEl(key);
+  const L = layoutOf(key);
+  if(el){
+    el.style.transform = ''; el.style.fontSize = ''; el.style.display = '';
+    if(L.text != null && L.orig != null && el.children.length === 0) el.textContent = L.orig;
+  }
+  if(config.layout){ delete config.layout[key]; persistConfigQuiet(); renderLayoutList(); }
+  dSelect(null);
+}
+function dGotoTab(){
+  const def = DREG[selectedKey]; if(!def || !def.tab) return;
+  const btn = document.querySelector('.tabs button[data-tab="' + def.tab + '"]');
+  if(btn) switchTab(def.tab, btn);
+  const f = $(def.field);
+  if(f){ f.focus(); f.classList.add('dflash'); setTimeout(()=>f.classList.remove('dflash'), 1600); }
+}
+async function resetLayout(){
+  if(!confirm('Reset every moved, resized and hidden item?')) return;
+  config.layout = {};
+  await persistConfigQuiet();
+  location.reload();
+}
+function renderLayoutList(){
+  const w = $('layoutList'); if(!w) return;
+  const keys = config.layout ? Object.keys(config.layout) : [];
+  if(!keys.length){ w.innerHTML = '<p class="hint">Nothing moved yet. Turn on design mode above and drag things.</p>'; return; }
+  w.innerHTML = '';
+  keys.forEach(k=>{
+    const L = config.layout[k];
+    const div = document.createElement('div'); div.className = 'decor-item';
+    const parts = [];
+    if(L.hide) parts.push('hidden');
+    if(L.dx || L.dy) parts.push('moved');
+    if(L.fs) parts.push(L.fs + 'px');
+    if(L.text != null) parts.push('reworded');
+    div.innerHTML = '<b>' + esc((DREG[k] && DREG[k].label) || k) + '</b> <span class="hint">' + parts.join(' · ') + '</span>';
+    const row = document.createElement('div'); row.className = 'row';
+    const b1 = document.createElement('button'); b1.className = 'btn-small'; b1.textContent = 'Select';
+    b1.onclick = ()=>{ dSelect(k); const el = dEl(k); if(el) el.scrollIntoView({ block: 'center' }); };
+    const b2 = document.createElement('button'); b2.className = 'btn-small'; b2.textContent = 'Reset';
+    b2.onclick = ()=>{ dSelect(k); dResetEl(); };
+    row.append(b1, b2); div.appendChild(row); w.appendChild(div);
+  });
+}
+// stash originals once so Reset can restore reworded text
+document.addEventListener('pointerdown', e=>{
+  if(!designOn || !unlocked) return;
+  const t = e.target.closest && e.target.closest('[data-dkey]');
+  if(!t) return;
+  const k = t.getAttribute('data-dkey');
+  if(!t.getAttribute('data-orig') && t.children.length === 0) t.setAttribute('data-orig', t.textContent);
+}, true);
 
 // ---- floating decor ----
 function renderDecor(){

@@ -183,6 +183,12 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 .ticket-row:hover{border-color:var(--amber)}
 #ticketBadge{background:var(--amber);color:#0c1a26;border-radius:999px;font-size:11px;font-weight:800;padding:1px 8px;margin-left:4px}
 #ticketBadge:empty{display:none}
+body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 65%, transparent);outline-offset:3px;cursor:move}
+.dselected{outline:2px solid var(--amber)!important;outline-offset:3px}
+#dtoolbar{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;display:flex;gap:6px;align-items:center;background:#1a2029;border:1px solid var(--line);border-radius:14px;padding:8px 10px;box-shadow:0 14px 40px rgba(0,0,0,.55);max-width:96vw;flex-wrap:wrap;justify-content:center}
+#dtoolbar b{font-size:12px;color:var(--amber);margin-right:2px}
+#dtoolbar .btn-small{padding:6px 10px;font-size:12px}
+.dflash{box-shadow:0 0 0 3px var(--amber)!important}
 #loader{position:fixed;inset:0;z-index:100;background:#0a0a0f;display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center;transition:opacity .45s ease .9s}
 #loader.open{opacity:0;pointer-events:none}
 .split{position:relative;width:min(66vw,300px);aspect-ratio:1/1}
@@ -228,27 +234,27 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
     <button class="btn-small" onclick="openCodeModal()">Edit</button>
   </div>
 
-  <div id="announceBar" class="announce" style="display:none"></div>
+  <div id="announceBar" class="announce" data-dkey="announceBar" style="display:none"></div>
 
   <div class="card hero" id="apply">
     <img id="bannerImg" class="banner" style="display:none" alt="">
     <div class="logo-row">
       <img id="logoImg" style="display:none" alt="">
       <div>
-        <div class="eyebrow">01 · Staff applications</div>
-        <h1 id="appTitle">Wigglesworth — Join the Team</h1>
-        <p class="subtitle" id="appSubtitle"></p>
+        <div class="eyebrow" data-dkey="heroEyebrow">01 · Staff applications</div>
+        <h1 id="appTitle" data-dkey="appTitle">Wigglesworth — Join the Team</h1>
+        <p class="subtitle" id="appSubtitle" data-dkey="appSubtitle"></p>
       </div>
     </div>
-    <div class="rich" id="topText"></div>
+    <div class="rich" id="topText" data-dkey="topText"></div>
     <div class="hero-actions">
-      <div class="hand">start here, pick a role! <svg width="30" height="24" viewBox="0 0 30 24" fill="none"><path d="M3 2C9 15 17 20 26 19M21 14l5 5-6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <button class="btn-primary" id="applyBtn" onclick="toggleApplyMenu()" style="margin-top:8px">Fill an application</button>
-      <p class="hint" style="text-align:center">Pick a role — one honest application per role.</p>
+      <div class="hand" data-dkey="handNote">start here, pick a role! <svg width="30" height="24" viewBox="0 0 30 24" fill="none"><path d="M3 2C9 15 17 20 26 19M21 14l5 5-6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <button class="btn-primary" id="applyBtn" data-dkey="applyBtn" onclick="toggleApplyMenu()" style="margin-top:8px">Fill an application</button>
+      <p class="hint" data-dkey="heroHint" style="text-align:center">Pick a role — one honest application per role.</p>
       <div class="stats">
-        <span class="stat-chip">3 open roles</span>
-        <span class="stat-chip">Read by humans</span>
-        <span class="stat-chip">Every entry answered</span>
+        <span class="stat-chip" data-dkey="stat0">3 open roles</span>
+        <span class="stat-chip" data-dkey="stat1">Read by humans</span>
+        <span class="stat-chip" data-dkey="stat2">Every entry answered</span>
       </div>
       <p class="hint" style="text-align:center;margin-top:10px">In a hurry? <a href="#applyCard" onclick="pickType('moderator')">Jump straight to Moderator →</a></p>
     </div>
@@ -261,7 +267,7 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
     <div class="role-kicker" id="roleKicker">Application</div>
     <h2 id="roleName" style="margin:4px 0 6px"></h2>
     <p class="subtitle" id="roleIntro"></p>
-    <div class="rules" id="appRules"></div>
+    <div class="rules" id="appRules" data-dkey="appRules"></div>
     <form id="modForm" onsubmit="return submitApp(event)"></form>
     <div id="success">
       <h2>Application received</h2>
@@ -273,12 +279,12 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
         <button class="btn-small" onclick="resetForm()">Back to roles</button>
       </div>
     </div>
-    <div class="rich" id="bottomText"></div>
+    <div class="rich" id="bottomText" data-dkey="bottomText"></div>
   </div>
 
   <div class="card" id="contact">
-    <div class="eyebrow">04 · Private tickets</div>
-    <h3 style="margin:4px 0 6px">Message the staff team</h3>
+    <div class="eyebrow" data-dkey="contactEyebrow">04 · Private tickets</div>
+    <h3 style="margin:4px 0 6px" data-dkey="contactTitle">Message the staff team</h3>
     <p class="hint">Only you and staff see this thread. No account needed — your ticket ID is the key, keep it private.</p>
     <form id="ticketForm" onsubmit="return submitTicket(event)">
       <label>Your name</label>
@@ -309,8 +315,8 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
   </div>
 
   <div class="card" id="status">
-    <div class="eyebrow">02 · Your decision</div>
-    <h3 style="margin:4px 0 6px">Check your decision</h3>
+    <div class="eyebrow" data-dkey="statusEyebrow">02 · Your decision</div>
+    <h3 style="margin:4px 0 6px" data-dkey="statusTitle">Check your decision</h3>
     <p class="hint">Enter your Application ID (you got it after submitting). Works for every role.</p>
     <div class="row">
       <input id="statusInput" placeholder="e.g. MOD-A1B2C3" style="flex:3">
@@ -320,7 +326,7 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
   </div>
 
   <div class="card" id="accepted" style="display:none">
-    <div class="eyebrow">03 · Accepted</div>
+    <div class="eyebrow" data-dkey="acceptedEyebrow">03 · Accepted</div>
     <div class="row" style="margin-top:6px;align-items:center">
       <h3 style="margin:0;flex:3" id="acceptedTitle">New team members</h3>
       <select id="acceptedFilter" onchange="renderApprovedPublic()" style="flex:1;min-width:140px"><option value="">All roles</option></select>
@@ -329,12 +335,12 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
   </div>
 
   <div class="card" id="faq">
-    <div class="eyebrow">05 · Before you apply</div>
-    <h3 style="margin:4px 0 6px">Good to know</h3>
+    <div class="eyebrow" data-dkey="faqEyebrow">05 · Before you apply</div>
+    <h3 style="margin:4px 0 6px" data-dkey="faqTitle">Good to know</h3>
     <div id="faqList"></div>
   </div>
 
-  <div class="foot">Run by the Wigglesworth staff team — every application gets read and answered.<br><span class="colo">Set in Fraunces &amp; Plex Mono · pinned up by hand</span></div>
+  <div class="foot" data-dkey="foot">Run by the Wigglesworth staff team — every application gets read and answered.<br><span class="colo">Set in Fraunces &amp; Plex Mono · pinned up by hand</span></div>
 
   <div class="card" id="editor">
     <h2 style="margin:0">Editor Mode</h2>
@@ -351,6 +357,8 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
     </div>
 
     <div id="tab-general" class="tabpane active">
+      <div class="row"><button class="btn-confirm" id="designToggle" onclick="toggleDesign()">Select &amp; move on page: OFF</button></div>
+      <p class="hint">Design mode: click anything with a dashed outline to select it, drag to move, edit text inline. Changes save automatically.</p>
       <label>Site Title</label><input id="e_title">
       <label>Subtitle</label><input id="e_subtitle">
       <label>Announcement bar (leave empty to hide)</label><input id="e_announce" placeholder="e.g. Applications OPEN for March!">
@@ -385,6 +393,9 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
       <img id="p_bg" class="img-preview" style="display:none">
       <div class="row"><button class="btn-small" onclick="clearImg('backgroundImage')">Remove background</button></div>
       <p class="hint">Tip: you can upload from your PC or paste any image link.</p>
+      <label>Moved / hidden page items</label>
+      <div id="layoutList"></div>
+      <div class="row"><button class="btn-small" onclick="resetLayout()">Reset all positions</button></div>
     </div>
 
     <div id="tab-decor" class="tabpane">
@@ -465,6 +476,16 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
   </div>
 </div>
 
+<div id="dtoolbar" style="display:none">
+    <b id="dtName">item</b>
+    <button class="btn-small" id="dtEdit" onclick="dEditText()">Edit text</button>
+    <button class="btn-small" onclick="dSize(-2)">A−</button>
+    <button class="btn-small" onclick="dSize(2)">A+</button>
+    <button class="btn-small" id="dtHide" onclick="dToggleHide()">Hide</button>
+    <button class="btn-small" id="dtTab" onclick="dGotoTab()" style="display:none">Edit in tab</button>
+    <button class="btn-small" onclick="dResetEl()">Reset</button>
+    <button class="btn-small" onclick="dSelect(null)">Done</button>
+  </div>
 <div class="modal-back" id="codeModal">
   <div class="modal">
     <h2>Enter Edit Code</h2>
