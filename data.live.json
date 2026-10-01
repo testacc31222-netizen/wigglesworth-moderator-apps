@@ -475,6 +475,23 @@
           "at": "2026-10-01T05:09:31.022Z"
         }
       ]
+    },
+    {
+      "id": "TKT-7K8DM7",
+      "name": "Probe3",
+      "subject": "Probe3",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-01T05:12:22.063Z",
+      "updatedAt": "2026-10-01T05:12:22.063Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Probe3",
+          "text": "Third probe with clean body file",
+          "at": "2026-10-01T05:12:22.063Z"
+        }
+      ]
     }
   ]
 }
