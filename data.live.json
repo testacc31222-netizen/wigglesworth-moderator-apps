@@ -480,10 +480,10 @@
       "id": "TKT-7K8DM7",
       "name": "Probe3",
       "subject": "Probe3",
-      "status": "open",
+      "status": "closed",
       "unread": true,
       "createdAt": "2026-10-01T05:12:22.063Z",
-      "updatedAt": "2026-10-01T05:21:01.525Z",
+      "updatedAt": "2026-10-01T05:21:12.312Z",
       "replies": [
         {
           "by": "user",
@@ -507,6 +507,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-01T05:21:12.312Z",
+      "act": "ticket_closed",
+      "id": "TKT-7K8DM7"
+    },
     {
       "t": "2026-10-01T05:20:45.571Z",
       "act": "ticket_reply",
