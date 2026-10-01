@@ -397,21 +397,6 @@
       "rulebreak": "No"
     },
     {
-      "appId": "MOD-RJB9LH",
-      "type": "moderator",
-      "date": "2026-10-01T01:20:25.759Z",
-      "status": "denied",
-      "adminNote": "WELCOME TO THE STAFF TEAM",
-      "username": "Zern",
-      "discord": "endisking",
-      "age": "67",
-      "timezone": "I don't play",
-      "experience": "None",
-      "why": "Cuz i wanna be one. So let me be one please. I know you see me fern.",
-      "scenario": "Stop it now or else. I will tell someone to stop.",
-      "rulebreak": "Few times"
-    },
-    {
       "appId": "MOD-RH7WTX",
       "type": "moderator",
       "date": "2026-10-01T01:21:16.715Z",
@@ -431,7 +416,7 @@
       "type": "moderator",
       "date": "2026-10-01T01:32:30.308Z",
       "status": "pending",
-      "adminNote": "welcome",
+      "adminNote": "",
       "username": "testforsecurityfixesbecauseimsmart",
       "discord": "testforsecurityfixesbecauseimsmart",
       "age": "testforsecurityfixesbecauseimsmart",
