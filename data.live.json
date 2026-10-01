@@ -32,6 +32,12 @@
         "a": "Lying, copied answers, blank fields, or applying twice to skip the queue."
       }
     ],
+    "layout": {
+      "handNote": {
+        "dx": -6,
+        "dy": -2
+      }
+    },
     "decor": [],
     "applicationTypes": [
       {
@@ -40,7 +46,7 @@
         "blurb": "Keep chat clean, enforce the rules, help players.",
         "prefix": "MOD",
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
-        "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
+        "successMessage": "",
         "showApproved": true,
         "open": true,
         "questions": [
@@ -116,7 +122,7 @@
         "blurb": "Make videos and streams that grow the community.",
         "prefix": "CC",
         "intro": "Creators represent Wigglesworth on their channels. Apply here with your best work.",
-        "successMessage": "Thanks! Your creator application was received. Save your Application ID and check your decision below.",
+        "successMessage": "",
         "showApproved": true,
         "open": true,
         "questions": [
@@ -200,7 +206,7 @@
         "blurb": "Build the games, bots, and tools players use.",
         "prefix": "DEV",
         "intro": "Developers ship real things for players. Show us what you have built.",
-        "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
+        "successMessage": "",
         "showApproved": true,
         "open": false,
         "questions": [
@@ -478,6 +484,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-01T06:17:50.049Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-01T05:21:15.580Z",
       "act": "ticket_deleted",
