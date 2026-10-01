@@ -71,8 +71,8 @@ function renderFaqEditor(){
     w.appendChild(d);
   });
 }
-function addFaq(){ config.faq.push({ q: 'New question?', a: '' }); renderFaqEditor(); }
-function delFaq(i){ if(!confirm('Delete this FAQ item?')) return; config.faq.splice(i, 1); renderFaqEditor(); }
+function addFaq(){ config.faq.push({ q: 'New question?', a: '' }); markDirty(); renderFaqEditor(); }
+function delFaq(i){ if(!confirm('Delete this FAQ item?')) return; config.faq.splice(i, 1); markDirty(); renderFaqEditor(); }
 function renderTypeCards(){
   const w = $('roleCards'); w.innerHTML = '';
   config.applicationTypes.forEach(t=>{
@@ -242,9 +242,23 @@ function showEditor(refetch=true){
   $('e_bottom').value=config.bottomText||'';
   syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderFaqEditor(); renderDecor(); renderDecorList();
   syncAppTypeFilter();
+  editorDirty = false;
   if(refetch){ renderSubs(); renderTickets(); }
 }
-function lockEditor(){ unlocked=false; editCode=''; sessionStorage.removeItem('mod_edit_code'); selectedDecor=null; $('editor').style.display='none'; renderDecor(); }
+async function lockEditor(){
+  if(unlocked && editorDirty){
+    try{
+      collectEditor();
+      const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
+      if(!r.ok) throw 0;
+      editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode);
+      editorDirty = false;
+    }catch{ alert('Auto-save failed — check connection, then lock again.'); return; }
+  }
+  unlocked=false; editCode=''; sessionStorage.removeItem('mod_edit_code'); selectedDecor=null; designOn=false;
+  document.body.classList.remove('design-on');
+  $('editor').style.display='none'; renderDecor();
+}
 function edType(i){ return config.applicationTypes[i]; }
 function renderTypeEditor(){
   const w=$('typeEditor'); w.innerHTML='';
@@ -284,9 +298,9 @@ function renderQEditor(){
     w.appendChild(d);
   });
 }
-function addQuestion(){ qType().questions.push({id:'q'+Date.now(),label:'New Question',type:'text',placeholder:'',required:true,options:''}); renderQEditor(); }
-function delQ(i){ if(!confirm('Delete this question?')) return; qType().questions.splice(i,1); renderQEditor(); }
-function moveQ(i,dir){ const qs=qType().questions; const j=i+dir; if(j<0||j>=qs.length) return; const t2=qs[i]; qs[i]=qs[j]; qs[j]=t2; renderQEditor(); }
+function addQuestion(){ qType().questions.push({id:'q'+Date.now(),label:'New Question',type:'text',placeholder:'',required:true,options:''}); markDirty(); renderQEditor(); }
+function delQ(i){ if(!confirm('Delete this question?')) return; qType().questions.splice(i,1); markDirty(); renderQEditor(); }
+function moveQ(i,dir){ const qs=qType().questions; const j=i+dir; if(j<0||j>=qs.length) return; const t2=qs[i]; qs[i]=qs[j]; qs[j]=t2; markDirty(); renderQEditor(); }
 function insertInline(where){
   if(!inlineDataUrl){ alert('Upload a picture first.'); return; }
   const tag=`<br><img src="${inlineDataUrl}" style="max-width:100%;border-radius:12px;"><br>`;
@@ -294,27 +308,33 @@ function insertInline(where){
   inlineDataUrl=''; $('p_inline').style.display='none';
   alert('Inserted! Hit Save All Changes to publish.');
 }
+let editorDirty = false;
+function markDirty(){ editorDirty = true; }
+function collectEditor(){
+  config.title = $('e_title').value || config.title;
+  config.subtitle = $('e_subtitle').value;
+  config.announcement = $('e_announce').value;
+  config.showApproved = $('e_showApproved').checked;
+  config.approvedTitle = $('e_approvedTitle').value;
+  config.accent = $('e_accent').value;
+  config.bg = $('e_bg').value;
+  const bu = $('e_bannerUrl').value.trim(); if(bu) config.bannerImage = bu;
+  const lu = $('e_logoUrl').value.trim(); if(lu) config.logoImage = lu;
+  const gu = $('e_bgUrl').value.trim(); if(gu) config.backgroundImage = gu;
+  config.rules = $('e_rules').value;
+  config.topText = $('e_top').value;
+  config.bottomText = $('e_bottom').value;
+  const nc = $('e_code').value.trim();
+  if(nc) config.editCode = nc;
+}
 async function saveConfig(){
-  config.title=$('e_title').value||'Wigglesworth — Join the Team';
-  config.subtitle=$('e_subtitle').value;
-  config.announcement=$('e_announce').value;
-  config.showApproved=$('e_showApproved').checked;
-  config.approvedTitle=$('e_approvedTitle').value;
-  config.accent=$('e_accent').value;
-  config.bg=$('e_bg').value;
-  const bu=$('e_bannerUrl').value.trim(); if(bu) config.bannerImage=bu;
-  const lu=$('e_logoUrl').value.trim(); if(lu) config.logoImage=lu;
-  const gu=$('e_bgUrl').value.trim(); if(gu) config.backgroundImage=gu;
-  config.rules=$('e_rules').value;
-  config.topText=$('e_top').value;
-  config.bottomText=$('e_bottom').value;
-  const nc=$('e_code').value.trim();
-  if(!nc){ alert('Edit code cannot be empty'); return; }
-  config.editCode=nc;
+  collectEditor();
+  if(!config.editCode){ alert('Edit code cannot be empty'); return; }
   const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
   if(r.status===401){ alert('Edit code changed or wrong — unlock again.'); lockEditor(); return; }
   if(!r.ok){ alert('Save failed.'); return; }
-  editCode = nc; sessionStorage.setItem('mod_edit_code', nc);
+  editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode);
+  editorDirty = false;
   await fetchConfig();
   const check = config.applicationTypes.map(t=>t.id+':'+(t.open!==false?'open':'closed')).join(', ');
   alert('Saved and verified live! (' + check + ')');
@@ -322,6 +342,7 @@ async function saveConfig(){
 async function resetConfig(){
   if(!confirm('Reset to default?')) return;
   await fetch('/api/admin/reset',{method:'POST',headers:headers()});
+  editorDirty = false;
   await fetchConfig();
 }
 function syncAppTypeFilter(){
@@ -853,6 +874,17 @@ setTimeout(()=>{ minTime = true; maybeOpenLoader(); }, 1700);
 setTimeout(openLoader, 8000);
 window.addEventListener('DOMContentLoaded', ()=>{
   document.body.style.overflow = 'hidden';
+  $('editor').addEventListener('input', markDirty);
+  $('editor').addEventListener('change', markDirty);
+  window.addEventListener('beforeunload', e=>{
+    if(unlocked && editorDirty){
+      try{
+        collectEditor();
+        fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config),keepalive:true}).catch(()=>{});
+      }catch{}
+      e.preventDefault();
+    }
+  });
   fetchConfig().then(()=>{ pageReady = true; maybeOpenLoader(); })
     .catch(()=>{ pageReady = true; maybeOpenLoader(); });
   $('codeInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkCode(); });
