@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#14121a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,700&family=IBM+Plex+Mono:wght@500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -34,11 +34,11 @@ body{
   padding:36px 18px 70px;color:var(--text);
   font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
   background-color:var(--bg);
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:34px 34px;background-attachment:fixed;background-position:center;
+  background-image:none;
 }
+body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");}
+.container{z-index:2}
 ::selection{background:var(--amber);color:#0c1a26}
 .bg-orbs{display:none}
 .container{width:100%;max-width:720px;position:relative;z-index:2}
@@ -47,9 +47,10 @@ body{
   padding:30px 28px;box-shadow:var(--shadow);margin-bottom:22px;overflow:hidden;position:relative;
 }
 .card::before{display:none}
+.card.hero::before{display:block;content:"";position:absolute;inset:11px;border:1px dashed color-mix(in srgb, var(--amber) 35%, transparent);border-radius:14px;pointer-events:none}
 h1,h2{font-family:Fraunces,Georgia,"Times New Roman",serif;font-weight:900;letter-spacing:-.5px;color:var(--text)}
 h1{margin:0 0 4px;font-size:38px;line-height:1.02}
-h1::after{content:"";display:block;width:64px;height:4px;background:var(--amber);margin-top:12px;border-radius:2px}
+h1::after{content:"";display:block;width:74px;height:5px;background:var(--amber);margin-top:12px;border-radius:3px;transform:rotate(-.7deg)}
 h3{font-family:Fraunces,Georgia,serif;letter-spacing:0}
 .subtitle{color:var(--muted);margin:8px 0;font-size:15px;line-height:1.55}
 .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}
@@ -60,8 +61,12 @@ h3{font-family:Fraunces,Georgia,serif;letter-spacing:0}
   background:color-mix(in srgb, var(--amber) 8%, transparent)}
 .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber)}
 .announce{
-  color:#0c1a26;border-radius:10px;padding:12px 16px;font-weight:700;font-size:14px;margin-bottom:16px;
-  background:var(--amber);border:1px solid var(--amber-deep);box-shadow:4px 4px 0 rgba(0,0,0,.4)}
+  position:relative;color:#0c1a26;border-radius:10px;padding:12px 16px;font-weight:700;font-size:14px;margin-bottom:16px;
+  background:var(--amber);border:1px solid var(--amber-deep);box-shadow:4px 4px 0 rgba(0,0,0,.4);transform:rotate(-.5deg)}
+.announce::before,.announce::after{content:"";position:absolute;top:-10px;width:58px;height:17px;
+  background:color-mix(in srgb, var(--amber) 45%, transparent);border-left:1px dashed rgba(0,0,0,.25);border-right:1px dashed rgba(0,0,0,.25)}
+.announce::before{left:30px;transform:rotate(-5deg)}
+.announce::after{right:30px;transform:rotate(4deg)}
 label{display:block;font-weight:700;margin:20px 0 7px;font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-family:"IBM Plex Mono",ui-monospace,monospace}
 label span.req{color:var(--red);margin-left:4px}
 input,textarea,select{
@@ -133,6 +138,7 @@ input[type=range]{accent-color:var(--amber);height:28px}
 input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 .foot{text-align:center;color:var(--faint);font-size:12.5px;margin:26px 0 8px;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:.4px}
 .foot::before{content:"";display:block;width:120px;margin:0 auto 14px;border-top:1px dashed var(--line)}
+.foot .colo{color:var(--faint);font-size:11px;letter-spacing:.6px}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:#333c48;border-radius:99px}::-webkit-scrollbar-track{background:transparent}
 #stickerLayer{position:fixed;inset:0;z-index:5;pointer-events:none;overflow:hidden}
 .sticker{position:absolute;pointer-events:none;user-select:none;line-height:1.2;filter:drop-shadow(0 10px 20px rgba(0,0,0,.5))}
@@ -161,6 +167,8 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 .role-card .go{margin-left:auto;color:var(--amber);font-size:20px;font-weight:800}
 .role-kicker{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:2.2px;color:var(--amber)}
 .hero-actions a{color:var(--amber)}
+.hand{font-family:Caveat,cursive;font-size:24px;color:var(--amber);transform:rotate(-2.5deg);margin:2px 0 -6px;text-align:center}
+.hand svg{vertical-align:-4px}
 .stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
 .stat-chip{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:1px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
 .faq-item{background:rgba(0,0,0,.22);border:1px solid var(--line-soft);border-radius:10px;padding:13px 15px;margin:10px 0;font-size:14px;line-height:1.6}
@@ -227,13 +235,14 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
     <div class="logo-row">
       <img id="logoImg" style="display:none" alt="">
       <div>
-        <div class="eyebrow">Staff applications</div>
+        <div class="eyebrow">01 · Staff applications</div>
         <h1 id="appTitle">Wigglesworth — Join the Team</h1>
         <p class="subtitle" id="appSubtitle"></p>
       </div>
     </div>
     <div class="rich" id="topText"></div>
     <div class="hero-actions">
+      <div class="hand">start here, pick a role! <svg width="30" height="24" viewBox="0 0 30 24" fill="none"><path d="M3 2C9 15 17 20 26 19M21 14l5 5-6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <button class="btn-primary" id="applyBtn" onclick="toggleApplyMenu()" style="margin-top:8px">Fill an application</button>
       <p class="hint" style="text-align:center">Pick a role — one honest application per role.</p>
       <div class="stats">
@@ -268,7 +277,7 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
   </div>
 
   <div class="card" id="contact">
-    <div class="eyebrow">Private tickets</div>
+    <div class="eyebrow">04 · Private tickets</div>
     <h3 style="margin:4px 0 6px">Message the staff team</h3>
     <p class="hint">Only you and staff see this thread. No account needed — your ticket ID is the key, keep it private.</p>
     <form id="ticketForm" onsubmit="return submitTicket(event)">
@@ -300,7 +309,8 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
   </div>
 
   <div class="card" id="status">
-    <h3 style="margin:0">Check your decision</h3>
+    <div class="eyebrow">02 · Your decision</div>
+    <h3 style="margin:4px 0 6px">Check your decision</h3>
     <p class="hint">Enter your Application ID (you got it after submitting). Works for every role.</p>
     <div class="row">
       <input id="statusInput" placeholder="e.g. MOD-A1B2C3" style="flex:3">
@@ -310,7 +320,8 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
   </div>
 
   <div class="card" id="accepted" style="display:none">
-    <div class="row" style="margin-top:0;align-items:center">
+    <div class="eyebrow">03 · Accepted</div>
+    <div class="row" style="margin-top:6px;align-items:center">
       <h3 style="margin:0;flex:3" id="acceptedTitle">New team members</h3>
       <select id="acceptedFilter" onchange="renderApprovedPublic()" style="flex:1;min-width:140px"><option value="">All roles</option></select>
     </div>
@@ -318,12 +329,12 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
   </div>
 
   <div class="card" id="faq">
-    <div class="eyebrow">Before you apply</div>
+    <div class="eyebrow">05 · Before you apply</div>
     <h3 style="margin:4px 0 6px">Good to know</h3>
     <div id="faqList"></div>
   </div>
 
-  <div class="foot">Run by the Wigglesworth staff team — every application gets read and answered.</div>
+  <div class="foot">Run by the Wigglesworth staff team — every application gets read and answered.<br><span class="colo">Set in Fraunces &amp; Plex Mono · pinned up by hand</span></div>
 
   <div class="card" id="editor">
     <h2 style="margin:0">Editor Mode</h2>
