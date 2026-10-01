@@ -425,6 +425,21 @@
       "why": "testforsecurityfixesbecauseimsmart",
       "scenario": "testforsecurityfixesbecauseimsmart",
       "rulebreak": "testforsecurityfixesbecauseimsmart"
+    },
+    {
+      "appId": "MOD-WEGLFM",
+      "type": "moderator",
+      "date": "2026-10-01T01:34:12.339Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "testforsecurityfixesbecauseimsmart",
+      "discord": "testforsecurityfixesbecauseimsmart",
+      "age": "testforsecurityfixesbecauseimsmart",
+      "timezone": "testforsecurityfixesbecauseimsmart",
+      "experience": "testforsecurityfixesbecauseimsmart",
+      "why": "testforsecurityfixesbecauseimsmart",
+      "scenario": "testforsecurityfixesbecauseimsmart",
+      "rulebreak": "testforsecurityfixesbecauseimsmart"
     }
   ]
 }
