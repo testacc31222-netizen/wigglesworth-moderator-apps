@@ -2,7 +2,7 @@
   "config": {
     "title": "Wigglesworth — Official Applications Page",
     "subtitle": "Three ways in. Pick the role that fits you and send one honest application.",
-    "announcement": "Moderator Applications are open for 10 more minutes.",
+    "announcement": "Moderator Applications CLOSED, Opening back at 150 members...",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#6cb8f0",
     "bg": "#0e1218",
@@ -496,12 +496,22 @@
   ],
   "audit": [
     {
-      "t": "2026-10-01T06:19:49.493Z",
+      "t": "2026-10-01T06:20:11.079Z",
       "act": "config_saved",
       "id": ""
     },
     {
-      "t": "2026-10-01T06:19:42.376Z",
+      "t": "2026-10-01T06:19:27.111Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:19:08.295Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:19:06.617Z",
       "act": "config_saved",
       "id": ""
     },
