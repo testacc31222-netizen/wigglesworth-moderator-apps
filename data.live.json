@@ -481,20 +481,31 @@
       "name": "Live",
       "subject": "Ping",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-01T05:09:31.022Z",
-      "updatedAt": "2026-10-01T05:09:31.022Z",
+      "updatedAt": "2026-10-01T18:13:54.108Z",
       "replies": [
         {
           "by": "user",
           "name": "Live",
           "text": "Checking the live ticket box works end to end",
           "at": "2026-10-01T05:09:31.022Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "It does",
+          "at": "2026-10-01T18:13:54.108Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-01T18:13:54.108Z",
+      "act": "ticket_reply",
+      "id": "TKT-CXKAEZ"
+    },
     {
       "t": "2026-10-01T06:20:23.992Z",
       "act": "config_saved",
