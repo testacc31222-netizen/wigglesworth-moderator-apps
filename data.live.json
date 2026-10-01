@@ -530,6 +530,66 @@
       "why": "testforthingsandsuch",
       "scenario": "testforthingsandsuch",
       "rulebreak": "testforthingsandsuch"
+    },
+    {
+      "appId": "MOD-7UVJVH",
+      "type": "moderator",
+      "date": "2026-10-01T01:42:01.675Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "testforthingsandsuch",
+      "discord": "testforthingsandsuch",
+      "age": "testforthingsandsuch",
+      "timezone": "testforthingsandsuch",
+      "experience": "testforthingsandsuch",
+      "why": "testforthingsandsuch",
+      "scenario": "testforthingsandsuch",
+      "rulebreak": "testforthingsandsuch"
+    },
+    {
+      "appId": "MOD-Q2ZLL6",
+      "type": "moderator",
+      "date": "2026-10-01T01:42:01.889Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "testforthingsandsuch",
+      "discord": "testforthingsandsuch",
+      "age": "testforthingsandsuch",
+      "timezone": "testforthingsandsuch",
+      "experience": "testforthingsandsuch",
+      "why": "testforthingsandsuch",
+      "scenario": "testforthingsandsuch",
+      "rulebreak": "testforthingsandsuch"
+    },
+    {
+      "appId": "MOD-PX3XP7",
+      "type": "moderator",
+      "date": "2026-10-01T01:42:02.134Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "testforthingsandsuch",
+      "discord": "testforthingsandsuch",
+      "age": "testforthingsandsuch",
+      "timezone": "testforthingsandsuch",
+      "experience": "testforthingsandsuch",
+      "why": "testforthingsandsuch",
+      "scenario": "testforthingsandsuch",
+      "rulebreak": "testforthingsandsuch"
+    },
+    {
+      "appId": "MOD-W7MFMK",
+      "type": "moderator",
+      "date": "2026-10-01T01:42:02.347Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "testforthingsandsuch",
+      "discord": "testforthingsandsuch",
+      "age": "testforthingsandsuch",
+      "timezone": "testforthingsandsuch",
+      "experience": "testforthingsandsuch",
+      "why": "testforthingsandsuch",
+      "scenario": "testforthingsandsuch",
+      "rulebreak": "testforthingsandsuch"
     }
   ]
 }
