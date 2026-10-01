@@ -481,9 +481,9 @@
       "name": "Probe3",
       "subject": "Probe3",
       "status": "open",
-      "unread": false,
+      "unread": true,
       "createdAt": "2026-10-01T05:12:22.063Z",
-      "updatedAt": "2026-10-01T05:20:45.571Z",
+      "updatedAt": "2026-10-01T05:21:01.525Z",
       "replies": [
         {
           "by": "user",
@@ -496,6 +496,12 @@
           "name": "Staff",
           "text": "What seems to be the issue",
           "at": "2026-10-01T05:20:45.571Z"
+        },
+        {
+          "by": "user",
+          "name": "Probe3",
+          "text": "I cant gay",
+          "at": "2026-10-01T05:21:01.525Z"
         }
       ]
     }
