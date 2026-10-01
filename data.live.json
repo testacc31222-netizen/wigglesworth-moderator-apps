@@ -515,6 +515,21 @@
       "why": "testforthingsandsuch",
       "scenario": "testforthingsandsuch",
       "rulebreak": "testforthingsandsuch"
+    },
+    {
+      "appId": "MOD-EYGSHJ",
+      "type": "moderator",
+      "date": "2026-10-01T01:42:01.432Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "testforthingsandsuch",
+      "discord": "testforthingsandsuch",
+      "age": "testforthingsandsuch",
+      "timezone": "testforthingsandsuch",
+      "experience": "testforthingsandsuch",
+      "why": "testforthingsandsuch",
+      "scenario": "testforthingsandsuch",
+      "rulebreak": "testforthingsandsuch"
     }
   ]
 }
