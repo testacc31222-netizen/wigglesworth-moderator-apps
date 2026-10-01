@@ -425,6 +425,36 @@
       "why": "testforthingsandsuch",
       "scenario": "testforthingsandsuch",
       "rulebreak": "testforthingsandsuch"
+    },
+    {
+      "appId": "MOD-F9BKHS",
+      "type": "moderator",
+      "date": "2026-10-01T01:41:57.562Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "testforthingsandsuch",
+      "discord": "testforthingsandsuch",
+      "age": "testforthingsandsuch",
+      "timezone": "testforthingsandsuch",
+      "experience": "testforthingsandsuch",
+      "why": "testforthingsandsuch",
+      "scenario": "testforthingsandsuch",
+      "rulebreak": "testforthingsandsuch"
+    },
+    {
+      "appId": "MOD-VQTZSR",
+      "type": "moderator",
+      "date": "2026-10-01T01:41:58.298Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "testforthingsandsuch",
+      "discord": "testforthingsandsuch",
+      "age": "testforthingsandsuch",
+      "timezone": "testforthingsandsuch",
+      "experience": "testforthingsandsuch",
+      "why": "testforthingsandsuch",
+      "scenario": "testforthingsandsuch",
+      "rulebreak": "testforthingsandsuch"
     }
   ]
 }
