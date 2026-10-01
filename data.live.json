@@ -41,6 +41,10 @@
       "appTitle": {
         "dx": -2,
         "dy": 1
+      },
+      "heroEyebrow": {
+        "dx": 14,
+        "dy": 4
       }
     },
     "decor": [],
@@ -489,6 +493,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-01T06:19:08.295Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-01T06:19:06.617Z",
       "act": "config_saved",
