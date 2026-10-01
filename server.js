@@ -56,6 +56,9 @@ const ENV_EDIT_CODE = process.env.EDIT_CODE || '';
 
 app.use(helmet({
   contentSecurityPolicy: {
+    // NOTE: no script-src-attr directive on purpose — the UI uses inline
+    // onclick handlers, and helmet's default ('none') would disable them all.
+    useDefaults: false,
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "'unsafe-inline'"],
@@ -63,9 +66,11 @@ app.use(helmet({
       fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
       imgSrc: ["'self'", 'data:', 'https:'],
       connectSrc: ["'self'"],
+      formAction: ["'self'"],
       objectSrc: ["'none'"],
       baseUri: ["'self'"],
       frameAncestors: ["'none'"],
+      upgradeInsecureRequests: [],
     },
   },
   crossOriginEmbedderPolicy: false,
