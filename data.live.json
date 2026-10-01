@@ -481,17 +481,30 @@
       "name": "Probe3",
       "subject": "Probe3",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-01T05:12:22.063Z",
-      "updatedAt": "2026-10-01T05:12:22.063Z",
+      "updatedAt": "2026-10-01T05:20:45.571Z",
       "replies": [
         {
           "by": "user",
           "name": "Probe3",
           "text": "Third probe with clean body file",
           "at": "2026-10-01T05:12:22.063Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "What seems to be the issue",
+          "at": "2026-10-01T05:20:45.571Z"
         }
       ]
+    }
+  ],
+  "audit": [
+    {
+      "t": "2026-10-01T05:20:45.571Z",
+      "act": "ticket_reply",
+      "id": "TKT-7K8DM7"
     }
   ]
 }
