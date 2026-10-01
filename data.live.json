@@ -2,7 +2,7 @@
   "config": {
     "title": "Wigglesworth — Official Applications Page",
     "subtitle": "Three ways in. Pick the role that fits you and send one honest application.",
-    "announcement": "Moderator Applications are open for 10 more minutes.",
+    "announcement": "Moderator Applications CLOSED, Opening back at 150 members...",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#6cb8f0",
     "bg": "#0e1218",
@@ -32,6 +32,23 @@
         "a": "Lying, copied answers, blank fields, or applying twice to skip the queue."
       }
     ],
+    "layout": {
+      "handNote": {
+        "dx": -1,
+        "dy": -3,
+        "fs": 24
+      },
+      "appTitle": {
+        "dx": -2,
+        "dy": 1
+      },
+      "heroEyebrow": {
+        "dx": 14,
+        "dy": 4,
+        "text": "Tickets and Applications",
+        "orig": "01 · Staff applications"
+      }
+    },
     "decor": [],
     "applicationTypes": [
       {
@@ -40,9 +57,9 @@
         "blurb": "Keep chat clean, enforce the rules, help players.",
         "prefix": "MOD",
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
-        "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
+        "successMessage": "",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -116,7 +133,7 @@
         "blurb": "Make videos and streams that grow the community.",
         "prefix": "CC",
         "intro": "Creators represent Wigglesworth on their channels. Apply here with your best work.",
-        "successMessage": "Thanks! Your creator application was received. Save your Application ID and check your decision below.",
+        "successMessage": "",
         "showApproved": true,
         "open": true,
         "questions": [
@@ -200,7 +217,7 @@
         "blurb": "Build the games, bots, and tools players use.",
         "prefix": "DEV",
         "intro": "Developers ship real things for players. Show us what you have built.",
-        "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
+        "successMessage": "",
         "showApproved": true,
         "open": false,
         "questions": [
@@ -478,6 +495,76 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-01T06:20:23.992Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:20:11.079Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:19:27.111Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:19:08.295Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:19:06.617Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:19:02.049Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:18:07.729Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:18:04.228Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:18:00.324Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:18:00.159Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:17:59.222Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:17:58.589Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:17:56.721Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:17:50.049Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-01T05:21:15.580Z",
       "act": "ticket_deleted",
