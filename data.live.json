@@ -455,36 +455,6 @@
       "why": "testforthingsandsuch",
       "scenario": "testforthingsandsuch",
       "rulebreak": "testforthingsandsuch"
-    },
-    {
-      "appId": "MOD-758435",
-      "type": "moderator",
-      "date": "2026-10-01T01:41:59.131Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "testforthingsandsuch",
-      "discord": "testforthingsandsuch",
-      "age": "testforthingsandsuch",
-      "timezone": "testforthingsandsuch",
-      "experience": "testforthingsandsuch",
-      "why": "testforthingsandsuch",
-      "scenario": "testforthingsandsuch",
-      "rulebreak": "testforthingsandsuch"
-    },
-    {
-      "appId": "MOD-LFL24P",
-      "type": "moderator",
-      "date": "2026-10-01T01:41:59.581Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "testforthingsandsuch",
-      "discord": "testforthingsandsuch",
-      "age": "testforthingsandsuch",
-      "timezone": "testforthingsandsuch",
-      "experience": "testforthingsandsuch",
-      "why": "testforthingsandsuch",
-      "scenario": "testforthingsandsuch",
-      "rulebreak": "testforthingsandsuch"
     }
   ]
 }
