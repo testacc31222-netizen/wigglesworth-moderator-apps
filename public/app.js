@@ -612,8 +612,21 @@ function decorSet(id,k,v){ const d=config.decor.find(x=>x.id===id); if(!d) retur
 function decorText(id,v){ const d=config.decor.find(x=>x.id===id); if(!d) return; d.text=v; renderDecor(); clearTimeout(window.__dt); window.__dt=setTimeout(saveDecorQuiet,600); }
 function decorFront(id){ const d=config.decor.find(x=>x.id===id); if(!d) return; const m=Math.max(5,...config.decor.map(x=>x.z||5)); d.z=m+1; renderDecor(); }
 
+let pageReady = false, minTime = false;
+function maybeOpenLoader(){ if(pageReady && minTime) openLoader(); }
+function openLoader(){
+  const l = document.getElementById('loader');
+  if(!l || l.classList.contains('open')) return;
+  l.classList.add('open');
+  document.body.style.overflow = '';
+  setTimeout(()=>{ l.style.display = 'none'; }, 1600);
+}
+setTimeout(()=>{ minTime = true; maybeOpenLoader(); }, 1700);
+setTimeout(openLoader, 8000);
 window.addEventListener('DOMContentLoaded', ()=>{
-  fetchConfig();
+  document.body.style.overflow = 'hidden';
+  fetchConfig().then(()=>{ pageReady = true; maybeOpenLoader(); })
+    .catch(()=>{ pageReady = true; maybeOpenLoader(); });
   $('codeInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkCode(); });
   $('statusInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkStatus(); });
   $('ticketInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkTicket(); });
