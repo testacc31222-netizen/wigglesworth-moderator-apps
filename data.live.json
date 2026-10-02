@@ -495,7 +495,7 @@
       "type": "creator",
       "date": "2026-10-02T18:30:20.015Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "Congrats, based on your submission, you are now accepted into the content creator program. ping @fernish.gg for your role! And be sure to stay consistent..!",
       "username": "Monkevr",
       "discord": "Monke.vr",
       "age": "13",
@@ -527,6 +527,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-02T19:43:16.926Z",
+      "act": "status_pending",
+      "id": "CC-5RR3GD"
+    },
     {
       "t": "2026-10-02T19:35:39.355Z",
       "act": "status_pending",
