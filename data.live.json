@@ -547,6 +547,23 @@
           "at": "2026-10-02T22:14:26.968Z"
         }
       ]
+    },
+    {
+      "id": "TKT-HHMDZY",
+      "name": "Kgy",
+      "subject": "This is a reason I want to be a moderator",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-02T22:17:10.004Z",
+      "updatedAt": "2026-10-02T22:17:10.004Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Kgy",
+          "text": "The reason why I want to be a moderator is because if anybody’s being toxic or being mean to another player, I will give them a warning if they do that two more times after I give them that first warning reported to the discord and ask them to ban that player for a certain amount of time or the time that they want to give them",
+          "at": "2026-10-02T22:17:10.004Z"
+        }
+      ]
     }
   ],
   "audit": [
