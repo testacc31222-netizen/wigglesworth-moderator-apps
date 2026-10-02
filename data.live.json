@@ -478,7 +478,7 @@
       "appId": "CC-HEAWNQ",
       "type": "creator",
       "date": "2026-10-02T01:50:26.397Z",
-      "status": "approved",
+      "status": "pending",
       "adminNote": "Congrats, based on your submission, you are now accepted into the content creator program. ping fernish.gg for your role!",
       "username": "AGOOSE",
       "discord": "agoose_.",
@@ -494,8 +494,8 @@
       "appId": "CC-5RR3GD",
       "type": "creator",
       "date": "2026-10-02T18:30:20.015Z",
-      "status": "approved",
-      "adminNote": "Congrats, based on your submission, you are now accepted into the content creator program. ping @fernish.gg for your role! And be sure to stay consistent..!",
+      "status": "pending",
+      "adminNote": "Congrats, based on your submission, you are now accepted into the content creator program. ping @fernish.gg and say \"give me\" for your role! And be sure to stay consistent..!",
       "username": "Monkevr",
       "discord": "Monke.vr",
       "age": "13",
@@ -528,13 +528,8 @@
   ],
   "audit": [
     {
-      "t": "2026-10-02T19:43:21.671Z",
-      "act": "status_approved",
-      "id": "CC-HEAWNQ"
-    },
-    {
-      "t": "2026-10-02T19:43:18.268Z",
-      "act": "status_approved",
+      "t": "2026-10-02T19:44:03.759Z",
+      "act": "status_pending",
       "id": "CC-5RR3GD"
     },
     {
