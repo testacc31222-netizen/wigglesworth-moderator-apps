@@ -28,6 +28,25 @@ const GH_REPO = /^[\w.-]+\/[\w.-]+$/.test(RAW_REPO)
 if (GH_REPO !== RAW_REPO) console.error('Bad GITHUB_REPO value, using default repo');
 const GH_BRANCH = process.env.GITHUB_BRANCH || 'main';
 const GH_PATH = 'data.live.json';
+// Discord staff alerts (ticket created + user replies). URL stays server-side.
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || '';
+const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
+
+async function discordNotify(text) {
+  if (!DISCORD_WEBHOOK_URL) return;
+  try {
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 5000);
+    const r = await fetch(DISCORD_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: (DISCORD_PING_ID ? `<@${DISCORD_PING_ID}> ` : '') + text.slice(0, 1800) }),
+      signal: ctrl.signal,
+    });
+    clearTimeout(to);
+    if (!r.ok) console.error('discord alert failed', r.status);
+  } catch (e) { console.error('discord alert error', e.message); }
+}
 
 async function pushToGitHub() {
   if (!GH_TOKEN) return;
@@ -179,7 +198,7 @@ function loadDB() {
   } catch {
     db = null;
   }
-  if (!db || typeof db !== 'object') return { config: structuredClone(DEFAULT_CONFIG), submissions: [] };
+  if (!db || typeof db !== 'object') return { config: structuredClone(DEFAULT_CONFIG), submissions: [], tickets: [], audit: [] };
   if (!db.config || typeof db.config !== 'object') db.config = structuredClone(DEFAULT_CONFIG);
   if (!Array.isArray(db.submissions)) db.submissions = [];
   // migrate v2 (single mod form) -> v3 (types)
@@ -332,6 +351,7 @@ app.post('/api/tickets', ticketLimit, (req, res) => {
   db.tickets.push(t);
   if (db.tickets.length > 2000) db.tickets = db.tickets.slice(-2000);
   saveDB(db);
+  discordNotify(`New ticket **${t.id}** — ${t.subject}\nFrom **${t.name}**: ${t.replies[0].text.slice(0, 500)}`);
   res.json({ id: t.id });
 });
 
@@ -362,6 +382,7 @@ app.post('/api/tickets/:id/reply', ticketLimit, (req, res) => {
   t.unread = !staff;
   if (staff) audit(db, 'ticket_reply', t.id);
   saveDB(db);
+  if (!staff) discordNotify(`Reply on ticket **${t.id}** (${t.subject}) from **${name}**:\n${text.slice(0, 500)}`);
   res.json({ ok: true });
 });
 
@@ -576,7 +597,7 @@ app.get('/health', (req, res) => res.json({ ok: true }));
 app.get('/api/admin/sync', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
-  res.json({ github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH });
+  res.json({ github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH, discord: !!DISCORD_WEBHOOK_URL });
 });
 
 app.get('/api/admin/audit', adminLimit, (req, res) => {

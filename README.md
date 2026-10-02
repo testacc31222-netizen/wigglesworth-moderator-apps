@@ -27,6 +27,17 @@ Everyone (phone + PC) uses the Render link. Approvals update live everywhere.
 - Server-side validation + length caps + control-char stripping on all inputs, ID format checks
 - `EDIT_CODE` env override so the code isn't stored in git; atomic `data.json` writes, 5000-sub cap
 
+## Discord ticket alerts (optional)
+
+New tickets and ticket replies ping you in Discord:
+
+1. Discord → your **staff-only** channel → Edit channel → Integrations → Webhooks → New Webhook → Copy URL
+2. Right-click yourself (Developer Mode on) → Copy User ID
+3. Render → service → Environment → add `DISCORD_WEBHOOK_URL` = webhook URL and `DISCORD_PING_ID` = your user ID → Save
+4. Open a test ticket — it lands in the channel with a ping
+
+Use a staff-only channel: ticket contents are posted there. No webhook = feature silently off.
+
 ## Files
 
 - `server.js` (hardened API), `public/` (site), `render.yaml`, `.gitignore`
