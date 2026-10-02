@@ -548,6 +548,23 @@
           "at": "2026-10-02T03:54:07.370Z"
         }
       ]
+    },
+    {
+      "id": "TKT-7G5S3Y",
+      "name": "fern testing sequencefern testing sequencefern testing sequencefern testing sequ",
+      "subject": "fern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing se",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-02T03:55:09.874Z",
+      "updatedAt": "2026-10-02T03:55:09.874Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "fern testing sequencefern testing sequencefern testing sequencefern testing sequ",
+          "text": "fern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequence",
+          "at": "2026-10-02T03:55:09.874Z"
+        }
+      ]
     }
   ],
   "audit": [
