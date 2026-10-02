@@ -548,6 +548,23 @@
           "at": "2026-10-02T04:13:11.148Z"
         }
       ]
+    },
+    {
+      "id": "TKT-TSJPWD",
+      "name": "fern testing sequencefern testing sequencefern testing sequencefern testing sequ",
+      "subject": "fern testing sequencefern testing sequencefern testing sequence",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-02T04:33:59.904Z",
+      "updatedAt": "2026-10-02T04:33:59.904Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "fern testing sequencefern testing sequencefern testing sequencefern testing sequ",
+          "text": "fern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequence",
+          "at": "2026-10-02T04:33:59.904Z"
+        }
+      ]
     }
   ],
   "audit": [
