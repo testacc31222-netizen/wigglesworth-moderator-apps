@@ -452,6 +452,8 @@ async function submitTicket(e){
   e.preventDefault();
   const body = { name: $('t_name').value.trim(), subject: $('t_subject').value.trim(), message: $('t_message').value.trim() };
   if(!body.name || !body.subject || body.message.length < 10){ alert('Fill name, subject, and a message (10+ characters).'); return false; }
+  const btn = e.target.querySelector('button[type=submit]');
+  if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
   try{
     const r = await fetch('/api/tickets',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const j = await r.json();
@@ -460,6 +462,7 @@ async function submitTicket(e){
     $('ticketCreated').style.display='block';
     $('newTicketId').textContent = j.id;
   }catch(err){ alert(err.message); }
+  finally{ if(btn){ btn.disabled = false; btn.textContent = 'Open ticket'; } }
   return false;
 }
 function resetTicketForm(){ $('ticketForm').reset(); $('ticketForm').style.display='block'; $('ticketCreated').style.display='none'; }

@@ -32,20 +32,33 @@ const GH_PATH = 'data.live.json';
 const DISCORD_WEBHOOK_URL = (process.env.DISCORD_WEBHOOK_URL || '').trim();
 const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
 
-async function discordNotify(text) {
-  if (!DISCORD_WEBHOOK_URL) return;
+async function discordPost(url, body, attempt = 0) {
   try {
     const ctrl = new AbortController();
-    const to = setTimeout(() => ctrl.abort(), 5000);
-    const r = await fetch(DISCORD_WEBHOOK_URL, {
+    const to = setTimeout(() => ctrl.abort(), 8000);
+    const r = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ content: (DISCORD_PING_ID ? `<@${DISCORD_PING_ID}> ` : '') + text.slice(0, 1800) }),
+      body: JSON.stringify(body),
       signal: ctrl.signal,
     });
     clearTimeout(to);
+    if (r.status === 429 && attempt === 0) {
+      let wait = 5000;
+      try {
+        const j = await r.json();
+        if (j.retry_after) wait = Math.min(30000, j.retry_after * 1000 + 500);
+      } catch {}
+      await new Promise(res => setTimeout(res, wait));
+      return discordPost(url, body, 1);
+    }
     if (!r.ok) console.error('discord alert failed', r.status);
   } catch (e) { console.error('discord alert error', e.message); }
+}
+function discordNotify(text) {
+  if (!DISCORD_WEBHOOK_URL) return;
+  const body = { content: (DISCORD_PING_ID ? `<@${DISCORD_PING_ID}> ` : '') + text.slice(0, 1800) };
+  discordPost(DISCORD_WEBHOOK_URL, body).catch(e => console.error('discord alert error', e.message));
 }
 
 async function pushToGitHub() {
