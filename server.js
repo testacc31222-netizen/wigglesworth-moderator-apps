@@ -29,7 +29,7 @@ if (GH_REPO !== RAW_REPO) console.error('Bad GITHUB_REPO value, using default re
 const GH_BRANCH = process.env.GITHUB_BRANCH || 'main';
 const GH_PATH = 'data.live.json';
 // Discord staff alerts (ticket created + user replies). URL stays server-side.
-const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || '';
+const DISCORD_WEBHOOK_URL = (process.env.DISCORD_WEBHOOK_URL || '').trim();
 const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
 
 async function discordNotify(text) {
@@ -609,4 +609,5 @@ app.get('/api/admin/audit', adminLimit, (req, res) => {
 
 app.listen(PORT, HOST, () => {
   console.log(`Moderator site on http://${HOST}:${PORT} (bound to ${HOST} only — home IP not exposed)`);
+  console.log(`Discord ticket alerts: ${DISCORD_WEBHOOK_URL ? 'ON' : 'OFF (set DISCORD_WEBHOOK_URL)'}`);
 });
