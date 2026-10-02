@@ -580,6 +580,23 @@
           "at": "2026-10-02T22:17:10.004Z"
         }
       ]
+    },
+    {
+      "id": "TKT-RVLKY8",
+      "name": "Kaiicen",
+      "subject": "I want to be a content creator for this game",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-02T22:25:22.390Z",
+      "updatedAt": "2026-10-02T22:25:22.390Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Kaiicen",
+          "text": "And some of my videos that look very young, but that was from a long time ago and I really want to have fun and promote the game out so other people can play the game",
+          "at": "2026-10-02T22:25:22.390Z"
+        }
+      ]
     }
   ],
   "audit": [
