@@ -33,6 +33,7 @@ const DISCORD_WEBHOOK_URL = (process.env.DISCORD_WEBHOOK_URL || '').trim();
 const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
 
 async function discordPost(url, body, attempt = 0) {
+  const MAX_ATTEMPTS = 4;
   try {
     const ctrl = new AbortController();
     const to = setTimeout(() => ctrl.abort(), 8000);
@@ -43,16 +44,18 @@ async function discordPost(url, body, attempt = 0) {
       signal: ctrl.signal,
     });
     clearTimeout(to);
-    if (r.status === 429 && attempt === 0) {
-      let wait = 5000;
+    if (r.status === 429 && attempt + 1 < MAX_ATTEMPTS) {
+      let wait = 5000 * (attempt + 1);
       try {
         const j = await r.json();
-        if (j.retry_after) wait = Math.min(30000, j.retry_after * 1000 + 500);
+        if (j.retry_after) wait = Math.min(120000, j.retry_after * 1000 + 500);
       } catch {}
+      console.error(`discord alert throttled (try ${attempt + 1}), retrying in ${Math.round(wait / 1000)}s`);
       await new Promise(res => setTimeout(res, wait));
-      return discordPost(url, body, 1);
+      return discordPost(url, body, attempt + 1);
     }
     if (!r.ok) console.error('discord alert failed', r.status);
+    else if (attempt > 0) console.log('discord alert delivered after retry');
   } catch (e) { console.error('discord alert error', e.message); }
 }
 function discordNotify(text) {
