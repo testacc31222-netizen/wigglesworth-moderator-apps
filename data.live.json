@@ -552,6 +552,11 @@
   ],
   "audit": [
     {
+      "t": "2026-10-02T03:55:39.204Z",
+      "act": "ticket_deleted",
+      "id": "TKT-7G5S3Y"
+    },
+    {
       "t": "2026-10-02T03:55:35.735Z",
       "act": "ticket_deleted",
       "id": "TKT-7G5S3Y"
