@@ -533,23 +533,6 @@
       ]
     },
     {
-      "id": "TKT-B72XCH",
-      "name": "fern testing sequence",
-      "subject": "fern testing sequencefern testing sequence",
-      "status": "open",
-      "unread": true,
-      "createdAt": "2026-10-02T04:13:11.148Z",
-      "updatedAt": "2026-10-02T04:13:11.148Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "fern testing sequence",
-          "text": "fern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequence",
-          "at": "2026-10-02T04:13:11.148Z"
-        }
-      ]
-    },
-    {
       "id": "TKT-6WLBB2",
       "name": "ConnCheck",
       "subject": "Delivery test",
@@ -568,6 +551,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-02T04:56:46.562Z",
+      "act": "ticket_deleted",
+      "id": "TKT-B72XCH"
+    },
     {
       "t": "2026-10-02T04:56:38.478Z",
       "act": "ticket_deleted",
