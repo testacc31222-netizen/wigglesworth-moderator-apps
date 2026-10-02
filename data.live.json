@@ -516,23 +516,6 @@
       ]
     },
     {
-      "id": "TKT-JHPG8Y",
-      "name": "endisking",
-      "subject": "The thing is",
-      "status": "open",
-      "unread": true,
-      "createdAt": "2026-10-01T23:58:06.050Z",
-      "updatedAt": "2026-10-01T23:58:06.050Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "endisking",
-          "text": "Im gay and bisexual",
-          "at": "2026-10-01T23:58:06.050Z"
-        }
-      ]
-    },
-    {
       "id": "TKT-6WLBB2",
       "name": "ConnCheck",
       "subject": "Delivery test",
@@ -551,6 +534,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-02T04:56:50.098Z",
+      "act": "ticket_deleted",
+      "id": "TKT-JHPG8Y"
+    },
     {
       "t": "2026-10-02T04:56:46.562Z",
       "act": "ticket_deleted",
