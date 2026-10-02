@@ -493,29 +493,6 @@
   ],
   "tickets": [
     {
-      "id": "TKT-CXKAEZ",
-      "name": "Live",
-      "subject": "Ping",
-      "status": "open",
-      "unread": false,
-      "createdAt": "2026-10-01T05:09:31.022Z",
-      "updatedAt": "2026-10-01T18:13:54.108Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "Live",
-          "text": "Checking the live ticket box works end to end",
-          "at": "2026-10-01T05:09:31.022Z"
-        },
-        {
-          "by": "staff",
-          "name": "Staff",
-          "text": "It does",
-          "at": "2026-10-01T18:13:54.108Z"
-        }
-      ]
-    },
-    {
       "id": "TKT-6WLBB2",
       "name": "ConnCheck",
       "subject": "Delivery test",
@@ -534,6 +511,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-02T04:56:53.509Z",
+      "act": "ticket_deleted",
+      "id": "TKT-CXKAEZ"
+    },
     {
       "t": "2026-10-02T04:56:50.098Z",
       "act": "ticket_deleted",
