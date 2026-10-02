@@ -531,6 +531,23 @@
           "at": "2026-10-01T23:58:06.050Z"
         }
       ]
+    },
+    {
+      "id": "TKT-B72XCH",
+      "name": "fern testing sequence",
+      "subject": "fern testing sequencefern testing sequence",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-02T04:13:11.148Z",
+      "updatedAt": "2026-10-02T04:13:11.148Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "fern testing sequence",
+          "text": "fern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequencefern testing sequence",
+          "at": "2026-10-02T04:13:11.148Z"
+        }
+      ]
     }
   ],
   "audit": [
