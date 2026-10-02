@@ -565,6 +565,23 @@
           "at": "2026-10-02T04:33:59.904Z"
         }
       ]
+    },
+    {
+      "id": "TKT-6WLBB2",
+      "name": "ConnCheck",
+      "subject": "Delivery test",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-02T04:52:32.412Z",
+      "updatedAt": "2026-10-02T04:52:32.412Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "ConnCheck",
+          "text": "Staff - this is an automated delivery test, safe to delete",
+          "at": "2026-10-02T04:52:32.412Z"
+        }
+      ]
     }
   ],
   "audit": [
