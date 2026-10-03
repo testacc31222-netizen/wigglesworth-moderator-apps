@@ -265,6 +265,7 @@ function showEditor(refetch=true){
   $('e_cdShow').checked=!!(config.countdown && config.countdown.show);
   $('e_cdTitle').value=(config.countdown && config.countdown.title)||'';
   $('e_cdTarget').value=isoToLocal(config.countdown && config.countdown.target);
+  $('e_cdVideo').value=(config.countdown && config.countdown.endVideo)||'';
   $('e_code').value=editCode;
   $('e_showApproved').checked=config.showApproved!==false;
   $('e_approvedTitle').value=config.approvedTitle||'';
@@ -354,6 +355,7 @@ function collectEditor(){
     show: $('e_cdShow').checked,
     title: $('e_cdTitle').value,
     target: localToIso($('e_cdTarget').value),
+    endVideo: $('e_cdVideo').value.trim(),
   };
   config.showApproved = $('e_showApproved').checked;
   config.approvedTitle = $('e_approvedTitle').value;

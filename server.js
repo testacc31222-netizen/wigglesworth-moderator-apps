@@ -204,7 +204,7 @@ const DEFAULT_CONFIG = {
   topText: '',
   bottomText: 'Questions? Contact staff on Discord.',
   decor: [],
-  countdown: { show: false, title: 'Update drops in', target: '' },
+  countdown: { show: false, title: 'Update drops in', target: '', endVideo: '' },
   faq: [
     { q: 'Who can apply?', a: 'Anyone 13 or older. No experience needed for Moderator — attitude matters more.' },
     { q: 'How long until I hear back?', a: 'Usually within a week. Check your decision above with your Application ID.' },
@@ -244,8 +244,9 @@ function loadDB() {
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
   if (!Array.isArray(db.config.faq)) db.config.faq = structuredClone(DEFAULT_CONFIG.faq);
   if (!db.config.countdown || typeof db.config.countdown !== 'object') {
-    db.config.countdown = { show: false, title: 'Update drops in', target: '' };
+    db.config.countdown = { show: false, title: 'Update drops in', target: '', endVideo: '' };
   }
+  if (typeof db.config.countdown.endVideo !== 'string') db.config.countdown.endVideo = '';
   if (!db.config.layout || typeof db.config.layout !== 'object') db.config.layout = {};
   if (db.config.accent === '#6366f1') db.config.accent = '#6cb8f0';
   if (db.config.bg === '#080a12') db.config.bg = '#0e1218';
@@ -524,6 +525,7 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     countdown: {
       show: !!(c.countdown && c.countdown.show),
       title: cleanStr(c.countdown && c.countdown.title, 120),
+      endVideo: cleanStr(c.countdown && c.countdown.endVideo, 500),
       target: (() => {
         const s = cleanStr(c.countdown && c.countdown.target, 40);
         const ms = Date.parse(s);
