@@ -32,6 +32,11 @@
         "a": "Lying, copied answers, blank fields, or applying twice to skip the queue."
       }
     ],
+    "countdown": {
+      "show": false,
+      "title": "",
+      "target": ""
+    },
     "layout": {
       "handNote": {
         "dx": -1,
@@ -59,7 +64,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -600,6 +605,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-03T03:16:32.327Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-02T19:44:03.759Z",
       "act": "status_pending",
