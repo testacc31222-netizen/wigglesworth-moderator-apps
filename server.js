@@ -111,6 +111,13 @@ app.use(helmet({
   crossOriginEmbedderPolicy: false,
 }));
 app.use(express.json({ limit: '200kb' }));
+// The standalone countdown site reads public config cross-origin.
+const COUNTDOWN_ORIGIN = 'https://wigglesworth-countdown.onrender.com';
+app.use((req, res, next) => {
+  if (req.headers.origin === COUNTDOWN_ORIGIN) res.set('Access-Control-Allow-Origin', COUNTDOWN_ORIGIN);
+  if (req.method === 'OPTIONS' && req.headers.origin === COUNTDOWN_ORIGIN) return res.sendStatus(204);
+  next();
+});
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1h', setHeaders(res, filePath) {
   if (filePath.endsWith('index.html') || filePath.endsWith('app.js')) res.set('Cache-Control', 'no-store');
 } }));
