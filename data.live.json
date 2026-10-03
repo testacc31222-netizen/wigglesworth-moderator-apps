@@ -479,7 +479,7 @@
       "type": "creator",
       "date": "2026-10-02T01:50:26.397Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "Congrats, based on your submission, you are now accepted into the content creator program. ping fernish.gg for your role!",
       "username": "AGOOSE",
       "discord": "agoose_.",
       "age": "14",
@@ -489,6 +489,38 @@
       "schedule": "once or twice a week",
       "style": "I make any content like funny, goofy, storys based,creative and thats all!",
       "strikes": "0"
+    },
+    {
+      "appId": "CC-5RR3GD",
+      "type": "creator",
+      "date": "2026-10-02T18:30:20.015Z",
+      "status": "pending",
+      "adminNote": "Congrats, based on your submission, you are now accepted into the content creator program. ping @fernish.gg and say \"give me\" for your role! And be sure to stay consistent..!",
+      "username": "Monkevr",
+      "discord": "Monke.vr",
+      "age": "13",
+      "why": "Bc I want to share the game around",
+      "platform": "TikTok",
+      "channel": "https://www.tiktok.com/@monke5550?_r=1&_t=ZG-9AE3w3ImwCG",
+      "schedule": "Vids 1-3 a day",
+      "style": "Gtag copy",
+      "strikes": "No"
+    },
+    {
+      "appId": "CC-L59SZE",
+      "type": "creator",
+      "date": "2026-10-02T22:24:20.670Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Kgy",
+      "discord": "K.gy",
+      "age": "15",
+      "why": "On the game and bring it out to more people",
+      "platform": "YouTube",
+      "channel": "@Kgyu-u8l",
+      "schedule": "Three times a week or four",
+      "style": "I really make funny or promoting the game type of content and also in some of my videos, I look very young, but that was from a long time ago. That’s why I look so young.",
+      "strikes": "Yes, but only one"
     }
   ],
   "tickets": [
@@ -508,9 +540,96 @@
           "at": "2026-10-02T04:52:32.412Z"
         }
       ]
+    },
+    {
+      "id": "TKT-DP4J9Y",
+      "name": "Kgy",
+      "subject": "I want to be a moderator",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-02T22:14:00.920Z",
+      "updatedAt": "2026-10-02T22:14:26.968Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Kgy",
+          "text": "The reason why I want to be the right I will try to find anyone that’s being toxic to anybody else being bullied by another person and give them a warning if they do that again and again I’ll report it to the discord and then tell them to give like the certain amount of time of a ban",
+          "at": "2026-10-02T22:14:00.920Z"
+        },
+        {
+          "by": "user",
+          "name": "Kgy",
+          "text": "Thank you bye",
+          "at": "2026-10-02T22:14:26.968Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-HHMDZY",
+      "name": "Kgy",
+      "subject": "This is a reason I want to be a moderator",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-02T22:17:10.004Z",
+      "updatedAt": "2026-10-02T22:17:10.004Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Kgy",
+          "text": "The reason why I want to be a moderator is because if anybody’s being toxic or being mean to another player, I will give them a warning if they do that two more times after I give them that first warning reported to the discord and ask them to ban that player for a certain amount of time or the time that they want to give them",
+          "at": "2026-10-02T22:17:10.004Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-RVLKY8",
+      "name": "Kaiicen",
+      "subject": "I want to be a content creator for this game",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-02T22:25:22.390Z",
+      "updatedAt": "2026-10-02T22:25:22.390Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Kaiicen",
+          "text": "And some of my videos that look very young, but that was from a long time ago and I really want to have fun and promote the game out so other people can play the game",
+          "at": "2026-10-02T22:25:22.390Z"
+        }
+      ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-02T19:44:03.759Z",
+      "act": "status_pending",
+      "id": "CC-5RR3GD"
+    },
+    {
+      "t": "2026-10-02T19:43:16.926Z",
+      "act": "status_pending",
+      "id": "CC-5RR3GD"
+    },
+    {
+      "t": "2026-10-02T19:35:39.355Z",
+      "act": "status_pending",
+      "id": "CC-HEAWNQ"
+    },
+    {
+      "t": "2026-10-02T18:48:13.364Z",
+      "act": "status_pending",
+      "id": "CC-HEAWNQ"
+    },
+    {
+      "t": "2026-10-02T18:45:48.034Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-02T18:45:44.038Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-02T04:56:53.509Z",
       "act": "ticket_deleted",
