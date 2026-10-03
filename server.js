@@ -28,6 +28,9 @@ const GH_REPO = /^[\w.-]+\/[\w.-]+$/.test(RAW_REPO)
 if (GH_REPO !== RAW_REPO) console.error('Bad GITHUB_REPO value, using default repo');
 const GH_BRANCH = process.env.GITHUB_BRANCH || 'main';
 const GH_PATH = 'data.live.json';
+// Teaser uploads land in the countdown repo so the static site can serve them.
+const GH_CD_REPO = process.env.GITHUB_COUNTDOWN_REPO || 'testacc31222-netizen/wigglesworth-countdown';
+const COUNTDOWN_PUBLIC_URL = (process.env.COUNTDOWN_PUBLIC_URL || 'https://wigglesworth-countdown.onrender.com').replace(/\/$/, '');
 // Discord staff alerts (ticket created + user replies). URL stays server-side.
 const DISCORD_WEBHOOK_URL = (process.env.DISCORD_WEBHOOK_URL || '').trim();
 const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
@@ -137,6 +140,7 @@ const adminLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 60, message: { err
 const statusLimit = rateLimit({ windowMs: 60 * 1000, max: 30 });
 const configLimit = rateLimit({ windowMs: 60 * 1000, max: 40 });
 const ticketLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 8, message: { error: 'Too many tickets, try again later.' } });
+const uploadLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 30, message: { error: 'Too many uploads, try later.' } });
 app.use('/api/', general);
 
 const Q = (id, label, type, placeholder, required, options = '') =>
@@ -654,11 +658,41 @@ app.get('/api/admin/config', adminLimit, (req, res) => {
   res.json(db.config);
 });
 
-app.get('/api/admin/audit', adminLimit, (req, res) => {
+app.post('/api/admin/upload-video', uploadLimit, express.raw({ type: ['video/mp4', 'video/webm'], limit: '60mb' }), async (req, res) => {
   const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  const buf = req.body;
+  if (!buf || !buf.length) return res.status(400).json({ error: 'Empty file' });
+  const ct = (req.headers['content-type'] || '').split(';')[0].trim();
+  const ext = ct === 'video/webm' ? 'webm' : 'mp4';
+  const isMp4 = buf.length > 12 && buf.subarray(4, 8).toString() === 'ftyp';
+  const isWebm = buf.length > 4 && buf[0] === 0x1A && buf[1] === 0x45 && buf[2] === 0xDF && buf[3] === 0xA3;
+  if (!((ext === 'mp4' && isMp4) || (ext === 'webm' && isWebm))) {
+    return res.status(400).json({ error: 'Not a real MP4/WebM file' });
+  }
+  if (!GH_TOKEN) return res.status(400).json({ error: 'GitHub sync not configured' });
+  const name = 'vids/' + Date.now().toString(36) + '-' + crypto.randomInt(46656).toString(36) + '.' + ext;
+  try {
+    const api = `https://api.github.com/repos/${GH_CD_REPO}/contents/${name}`;
+    const H = { 'User-Agent': 'wigglesworth-apps', Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json' };
+    const put = await fetch(api, { method: 'PUT', headers: { ...H, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: 'upload teaser ' + name, content: buf.toString('base64'), branch: GH_BRANCH }) });
+    if (!put.ok) { console.error('video store failed', put.status); return res.status(502).json({ error: 'Video store failed' }); }
+  } catch (e) { console.error('video store error', e.message); return res.status(502).json({ error: 'Video store failed' }); }
+  audit(db, 'video_upload', name);
+  saveDB(db);
+  res.json({ url: `${COUNTDOWN_PUBLIC_URL}/${name}` });
+});
+
+app.get('/api/admin/audit', adminLimit, (req, res) => {  const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   res.set('Cache-Control', 'no-store');
   res.json((db.audit || []).slice(0, 50));
+});
+
+app.use((err, req, res, next) => {
+  if (err && err.type === 'entity.too.large') return res.status(413).json({ error: 'Too big (60MB max)' });
+  next(err);
 });
 
 app.listen(PORT, HOST, () => {
