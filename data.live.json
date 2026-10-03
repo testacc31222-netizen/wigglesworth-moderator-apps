@@ -516,8 +516,8 @@
       "appId": "CC-L59SZE",
       "type": "creator",
       "date": "2026-10-02T22:24:20.670Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Great application and great editing skills, proud to see what you bring to the table Trx!",
       "username": "Kgy",
       "discord": "K.gy",
       "age": "15",
@@ -532,8 +532,8 @@
       "appId": "CC-ZRGADC",
       "type": "creator",
       "date": "2026-10-03T03:22:33.358Z",
-      "status": "approved",
-      "adminNote": "Great application and great editing skills, proud to see what you bring to the table Trx!",
+      "status": "pending",
+      "adminNote": "",
       "username": "Trx6k",
       "discord": "Trx6k",
       "age": "15",
@@ -543,6 +543,22 @@
       "schedule": "I Upload Every So Often (I Try To Post At least Once A Week)",
       "style": "I Make WigglesWorth Content On That Channel. And on my main I post gorillatag.",
       "strikes": "Nope"
+    },
+    {
+      "appId": "CC-U33MS5",
+      "type": "creator",
+      "date": "2026-10-03T03:45:32.201Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Kgy",
+      "discord": "K.gy",
+      "age": "15",
+      "why": "The reason why I want to be a contact creators because I want to promote the game and try to get more people to play it",
+      "platform": "YouTube",
+      "channel": "Kgy97-u8l",
+      "schedule": "three or four times a week",
+      "style": "Funny or just gameplay",
+      "strikes": "Only one"
     }
   ],
   "tickets": [
@@ -623,22 +639,12 @@
   ],
   "audit": [
     {
-      "t": "2026-10-03T03:45:08.573Z",
-      "act": "status_pending",
+      "t": "2026-10-03T03:44:49.024Z",
+      "act": "status_approved",
       "id": "CC-L59SZE"
     },
     {
-      "t": "2026-10-03T03:45:06.021Z",
-      "act": "status_approved",
-      "id": "CC-ZRGADC"
-    },
-    {
-      "t": "2026-10-03T03:45:05.183Z",
-      "act": "status_pending",
-      "id": "CC-ZRGADC"
-    },
-    {
-      "t": "2026-10-03T03:44:59.479Z",
+      "t": "2026-10-03T03:44:47.005Z",
       "act": "status_pending",
       "id": "CC-L59SZE"
     },
