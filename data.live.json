@@ -719,6 +719,23 @@
           "at": "2026-10-03T03:46:40.827Z"
         }
       ]
+    },
+    {
+      "id": "TKT-8KPDCY",
+      "name": "Jordan",
+      "subject": "about the game",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-03T23:53:04.038Z",
+      "updatedAt": "2026-10-03T23:53:04.038Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Jordan",
+          "text": "Thanked for making this game i really do in joy this game so i just wanna say never give up and follow your dreams.",
+          "at": "2026-10-03T23:53:04.038Z"
+        }
+      ]
     }
   ],
   "audit": [
