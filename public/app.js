@@ -351,12 +351,12 @@ function collectEditor(){
   config.title = $('e_title').value || config.title;
   config.subtitle = $('e_subtitle').value;
   config.announcement = $('e_announce').value;
-  config.countdown = {
+  config.countdown = Object.assign({}, config.countdown, {
     show: $('e_cdShow').checked,
     title: $('e_cdTitle').value,
     target: localToIso($('e_cdTarget').value),
     endVideo: $('e_cdVideo').value.trim(),
-  };
+  });
   config.showApproved = $('e_showApproved').checked;
   config.approvedTitle = $('e_approvedTitle').value;
   config.accent = $('e_accent').value;

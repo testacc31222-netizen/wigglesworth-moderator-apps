@@ -217,7 +217,9 @@ const DEFAULT_CONFIG = {
   topText: '',
   bottomText: 'Questions? Contact staff on Discord.',
   decor: [],
-  countdown: { show: false, title: 'Update drops in', target: '', endVideo: '' },
+  countdown: { show: false, title: 'Update drops in', target: '', endVideo: '', ambience: '',
+    daysLine: 'day {d} left.', finalLine: '{h}h {m}m {s}s left.', subLine: '{h}h {m}m {s}s to go',
+    completedLine: 'completed.', endCardLine: 'that was it.', soonLine: 'soon.' },
   faq: [
     { q: 'Who can apply?', a: 'Anyone 13 or older. No experience needed for Moderator — attitude matters more.' },
     { q: 'How long until I hear back?', a: 'Usually within a week. Check your decision above with your Application ID.' },
@@ -260,6 +262,12 @@ function loadDB() {
     db.config.countdown = { show: false, title: 'Update drops in', target: '', endVideo: '' };
   }
   if (typeof db.config.countdown.endVideo !== 'string') db.config.countdown.endVideo = '';
+  if (typeof db.config.countdown.ambience !== 'string') db.config.countdown.ambience = '';
+  for (const [k, dflt] of [['daysLine', 'day {d} left.'], ['finalLine', '{h}h {m}m {s}s left.'],
+      ['subLine', '{h}h {m}m {s}s to go'], ['completedLine', 'completed.'],
+      ['endCardLine', 'that was it.'], ['soonLine', 'soon.']]) {
+    if (typeof db.config.countdown[k] !== 'string' || !db.config.countdown[k]) db.config.countdown[k] = dflt;
+  }
   if (!db.config.layout || typeof db.config.layout !== 'object') db.config.layout = {};
   if (db.config.accent === '#6366f1') db.config.accent = '#6cb8f0';
   if (db.config.bg === '#080a12') db.config.bg = '#0e1218';
@@ -539,6 +547,13 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
       show: !!(c.countdown && c.countdown.show),
       title: cleanStr(c.countdown && c.countdown.title, 120),
       endVideo: cleanStr(c.countdown && c.countdown.endVideo, 500),
+      ambience: cleanStr(c.countdown && c.countdown.ambience, 500),
+      daysLine: cleanStr(c.countdown && c.countdown.daysLine, 200) || 'day {d} left.',
+      finalLine: cleanStr(c.countdown && c.countdown.finalLine, 200) || '{h}h {m}m {s}s left.',
+      subLine: cleanStr(c.countdown && c.countdown.subLine, 200) || '{h}h {m}m {s}s to go',
+      completedLine: cleanStr(c.countdown && c.countdown.completedLine, 200) || 'completed.',
+      endCardLine: cleanStr(c.countdown && c.countdown.endCardLine, 200) || 'that was it.',
+      soonLine: cleanStr(c.countdown && c.countdown.soonLine, 200) || 'soon.',
       target: (() => {
         const s = cleanStr(c.countdown && c.countdown.target, 40);
         const ms = Date.parse(s);
@@ -658,17 +673,26 @@ app.get('/api/admin/config', adminLimit, (req, res) => {
   res.json(db.config);
 });
 
-app.post('/api/admin/upload-video', uploadLimit, express.raw({ type: ['video/mp4', 'video/webm'], limit: '60mb' }), async (req, res) => {
+app.post('/api/admin/upload-video', uploadLimit, express.raw({ type: ['video/mp4', 'video/webm', 'audio/mpeg', 'audio/ogg', 'audio/wav', 'audio/mp4'], limit: '60mb' }), async (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   const buf = req.body;
   if (!buf || !buf.length) return res.status(400).json({ error: 'Empty file' });
   const ct = (req.headers['content-type'] || '').split(';')[0].trim();
-  const ext = ct === 'video/webm' ? 'webm' : 'mp4';
+  const ext = ct === 'video/webm' ? 'webm'
+    : ct === 'audio/mpeg' ? 'mp3'
+    : ct === 'audio/ogg' ? 'ogg'
+    : ct === 'audio/wav' ? 'wav'
+    : ct === 'audio/mp4' ? 'm4a' : 'mp4';
   const isMp4 = buf.length > 12 && buf.subarray(4, 8).toString() === 'ftyp';
   const isWebm = buf.length > 4 && buf[0] === 0x1A && buf[1] === 0x45 && buf[2] === 0xDF && buf[3] === 0xA3;
-  if (!((ext === 'mp4' && isMp4) || (ext === 'webm' && isWebm))) {
-    return res.status(400).json({ error: 'Not a real MP4/WebM file' });
+  const isMp3 = buf.length > 3 && (buf.subarray(0, 3).toString() === 'ID3' || (buf[0] === 0xFF && (buf[1] & 0xE0) === 0xE0));
+  const isWav = buf.length > 12 && buf.subarray(0, 4).toString() === 'RIFF' && buf.subarray(8, 12).toString() === 'WAVE';
+  const isOgg = buf.length > 4 && buf.subarray(0, 4).toString() === 'OggS';
+  const okMedia = (ext === 'mp4' && isMp4) || (ext === 'webm' && isWebm) ||
+    (ext === 'mp3' && isMp3) || (ext === 'ogg' && isOgg) || (ext === 'wav' && isWav) || (ext === 'm4a' && isMp4);
+  if (!okMedia) {
+    return res.status(400).json({ error: 'Not a real MP4/WebM/MP3 file' });
   }
   if (!GH_TOKEN) return res.status(400).json({ error: 'GitHub sync not configured' });
   const name = 'vids/' + Date.now().toString(36) + '-' + crypto.randomInt(46656).toString(36) + '.' + ext;
