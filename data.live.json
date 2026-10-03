@@ -35,7 +35,7 @@
     "countdown": {
       "show": true,
       "title": "day 2 countdown",
-      "endVideo": "https://wigglesworth-countdown.onrender.com/vids/murx3a10-5ip.mp4",
+      "endVideo": "https://wigglesworth-countdown.onrender.com/vids/muryhsvc-wqw.mp4",
       "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
       "daysLine": "day {d} left.",
       "finalLine": "{h}h {m}m {s}s left.",
@@ -43,7 +43,7 @@
       "completedLine": "completed, day 3 soon.",
       "endCardLine": "that was it, get ready for day 3",
       "soonLine": "soon.",
-      "target": "2026-10-03T22:55:00.000Z"
+      "target": "2026-10-03T05:50:00.000Z"
     },
     "layout": {
       "handNote": {
@@ -662,6 +662,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-03T05:33:52.273Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-03T05:33:32.012Z",
       "act": "video_upload",
