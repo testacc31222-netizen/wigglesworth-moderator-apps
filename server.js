@@ -197,6 +197,7 @@ const DEFAULT_CONFIG = {
   topText: '',
   bottomText: 'Questions? Contact staff on Discord.',
   decor: [],
+  countdown: { show: false, title: 'Update drops in', target: '' },
   faq: [
     { q: 'Who can apply?', a: 'Anyone 13 or older. No experience needed for Moderator — attitude matters more.' },
     { q: 'How long until I hear back?', a: 'Usually within a week. Check your decision above with your Application ID.' },
@@ -235,6 +236,9 @@ function loadDB() {
   // fixups for DBs saved before these fields existed
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
   if (!Array.isArray(db.config.faq)) db.config.faq = structuredClone(DEFAULT_CONFIG.faq);
+  if (!db.config.countdown || typeof db.config.countdown !== 'object') {
+    db.config.countdown = { show: false, title: 'Update drops in', target: '' };
+  }
   if (!db.config.layout || typeof db.config.layout !== 'object') db.config.layout = {};
   if (db.config.accent === '#6366f1') db.config.accent = '#6cb8f0';
   if (db.config.bg === '#080a12') db.config.bg = '#0e1218';
@@ -510,6 +514,15 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     faq: Array.isArray(c.faq)
       ? c.faq.slice(0, 20).map(f => ({ q: cleanStr(f.q, 200), a: cleanStr(f.a, 1000) })).filter(f => f.q || f.a)
       : [],
+    countdown: {
+      show: !!(c.countdown && c.countdown.show),
+      title: cleanStr(c.countdown && c.countdown.title, 120),
+      target: (() => {
+        const s = cleanStr(c.countdown && c.countdown.target, 40);
+        const ms = Date.parse(s);
+        return isNaN(ms) ? '' : new Date(ms).toISOString();
+      })(),
+    },
     layout: cleanLayout(c.layout),
     decor: Array.isArray(c.decor) ? c.decor.slice(0, 40).map(d => ({
       id: Number(d.id) || Date.now(),

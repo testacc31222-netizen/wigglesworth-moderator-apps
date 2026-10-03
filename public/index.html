@@ -183,6 +183,11 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 .ticket-row:hover{border-color:var(--amber)}
 #ticketBadge{background:var(--amber);color:#0c1a26;border-radius:999px;font-size:11px;font-weight:800;padding:1px 8px;margin-left:4px}
 #ticketBadge:empty{display:none}
+.cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
+.cd-cell{background:rgba(0,0,0,.28);border:1px solid var(--line-soft);border-radius:10px;padding:12px 6px;text-align:center}
+.cd-cell b{display:block;font-family:Fraunces,Georgia,serif;font-weight:900;font-size:34px;line-height:1}
+.cd-cell span{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:1.5px;color:var(--muted)}
+@media(max-width:560px){.cd-cell b{font-size:24px}}
 body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 65%, transparent);outline-offset:3px;cursor:move}
 .dselected{outline:2px solid var(--amber)!important;outline-offset:3px}
 #dtoolbar{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;display:flex;gap:6px;align-items:center;background:#1a2029;border:1px solid var(--line);border-radius:14px;padding:8px 10px;box-shadow:0 14px 40px rgba(0,0,0,.55);max-width:96vw;flex-wrap:wrap;justify-content:center}
@@ -261,6 +266,18 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
     <div id="roleMenu" class="role-menu" style="display:none">
       <div id="roleCards"></div>
     </div>
+  </div>
+
+  <div class="card" id="countCard" style="display:none">
+    <div class="eyebrow">Update countdown</div>
+    <h2 id="cdTitle" style="margin:4px 0 10px"></h2>
+    <div class="cd-grid">
+      <div class="cd-cell"><b id="cdD">–</b><span>days</span></div>
+      <div class="cd-cell"><b id="cdH">–</b><span>hrs</span></div>
+      <div class="cd-cell"><b id="cdM">–</b><span>min</span></div>
+      <div class="cd-cell"><b id="cdS">–</b><span>sec</span></div>
+    </div>
+    <p class="hint" id="cdNote" style="text-align:center"></p>
   </div>
 
   <div class="card" id="applyCard" style="display:none">
@@ -362,6 +379,9 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
       <label>Site Title</label><input id="e_title">
       <label>Subtitle</label><input id="e_subtitle">
       <label>Announcement bar (leave empty to hide)</label><input id="e_announce" placeholder="e.g. Applications OPEN for March!">
+      <label><input type="checkbox" id="e_cdShow" style="width:auto"> Show update countdown</label>
+      <label>Countdown title</label><input id="e_cdTitle" placeholder="e.g. Update 2.0 drops in">
+      <label>Countdown date &amp; time (your timezone)</label><input id="e_cdTarget" type="datetime-local">
       <label>Edit Code — used to unlock this editor</label>
       <input id="e_code" type="password" placeholder="Set a private edit code">
       <div class="row"><button class="btn-small" onclick="toggleCode()">Show / Hide code</button></div>

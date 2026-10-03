@@ -43,7 +43,7 @@ function applyConfig(){
   const li = $('logoImg');
   if(config.logoImage){ li.src = config.logoImage; li.style.display='block'; } else li.style.display='none';
   $('topText').innerHTML = rich(config.topText);
-  renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor(); applyLayout();
+  renderCountdown(); renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor(); applyLayout();
   if (curType() && $('applyCard').style.display === 'block') fillRoleHeader(curType());
   if(unlocked) showEditor(false);
 }
@@ -73,6 +73,39 @@ function renderFaqEditor(){
 }
 function addFaq(){ config.faq.push({ q: 'New question?', a: '' }); markDirty(); renderFaqEditor(); }
 function delFaq(i){ if(!confirm('Delete this FAQ item?')) return; config.faq.splice(i, 1); markDirty(); renderFaqEditor(); }
+let cdTimer = null;
+function isoToLocal(iso){
+  const d = new Date(iso); if(isNaN(d)) return '';
+  const p = n => String(n).padStart(2, '0');
+  return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + 'T' + p(d.getHours()) + ':' + p(d.getMinutes());
+}
+function localToIso(v){ const d = new Date(v); return isNaN(d) ? '' : d.toISOString(); }
+function renderCountdown(){
+  const c = config.countdown || {};
+  const card = $('countCard');
+  const t = Date.parse(c.target || '');
+  if(!c.show || !t){ card.style.display = 'none'; if(cdTimer){ clearInterval(cdTimer); cdTimer = null; } return; }
+  card.style.display = 'block';
+  $('cdTitle').textContent = c.title || 'Update drops in';
+  const pad = n => String(n).padStart(2, '0');
+  const tick = ()=>{
+    let ms = t - Date.now();
+    if(ms <= 0){
+      $('cdD').textContent = $('cdH').textContent = $('cdM').textContent = $('cdS').textContent = '0';
+      $('cdNote').textContent = 'The update is live!';
+      if(cdTimer){ clearInterval(cdTimer); cdTimer = null; }
+      return;
+    }
+    $('cdD').textContent = Math.floor(ms / 86400000);
+    $('cdH').textContent = pad(Math.floor(ms / 3600000) % 24);
+    $('cdM').textContent = pad(Math.floor(ms / 60000) % 60);
+    $('cdS').textContent = pad(Math.floor(ms / 1000) % 60);
+    $('cdNote').textContent = 'Until ' + new Date(t).toLocaleString();
+  };
+  tick();
+  if(cdTimer) clearInterval(cdTimer);
+  cdTimer = setInterval(tick, 1000);
+}
 function renderTypeCards(){
   const w = $('roleCards'); w.innerHTML = '';
   config.applicationTypes.forEach(t=>{
@@ -229,6 +262,9 @@ function showEditor(refetch=true){
   $('e_title').value=config.title;
   $('e_subtitle').value=config.subtitle||'';
   $('e_announce').value=config.announcement||'';
+  $('e_cdShow').checked=!!(config.countdown && config.countdown.show);
+  $('e_cdTitle').value=(config.countdown && config.countdown.title)||'';
+  $('e_cdTarget').value=isoToLocal(config.countdown && config.countdown.target);
   $('e_code').value=editCode;
   $('e_showApproved').checked=config.showApproved!==false;
   $('e_approvedTitle').value=config.approvedTitle||'';
@@ -314,6 +350,11 @@ function collectEditor(){
   config.title = $('e_title').value || config.title;
   config.subtitle = $('e_subtitle').value;
   config.announcement = $('e_announce').value;
+  config.countdown = {
+    show: $('e_cdShow').checked,
+    title: $('e_cdTitle').value,
+    target: localToIso($('e_cdTarget').value),
+  };
   config.showApproved = $('e_showApproved').checked;
   config.approvedTitle = $('e_approvedTitle').value;
   config.accent = $('e_accent').value;
