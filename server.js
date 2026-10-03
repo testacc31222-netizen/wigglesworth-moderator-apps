@@ -111,11 +111,20 @@ app.use(helmet({
   crossOriginEmbedderPolicy: false,
 }));
 app.use(express.json({ limit: '200kb' }));
-// The standalone countdown site reads public config cross-origin.
+// The standalone countdown site reads public config cross-origin and,
+// with the staff edit code, saves countdown changes back.
 const COUNTDOWN_ORIGIN = 'https://wigglesworth-countdown.onrender.com';
 app.use((req, res, next) => {
-  if (req.headers.origin === COUNTDOWN_ORIGIN) res.set('Access-Control-Allow-Origin', COUNTDOWN_ORIGIN);
-  if (req.method === 'OPTIONS' && req.headers.origin === COUNTDOWN_ORIGIN) return res.sendStatus(204);
+  if (req.headers.origin === COUNTDOWN_ORIGIN) {
+    res.set('Access-Control-Allow-Origin', COUNTDOWN_ORIGIN);
+    res.set('Vary', 'Origin');
+    if (req.method === 'OPTIONS') {
+      res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+      res.set('Access-Control-Allow-Headers', 'Content-Type, x-edit-code');
+      res.set('Access-Control-Max-Age', '600');
+      return res.sendStatus(204);
+    }
+  }
   next();
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1h', setHeaders(res, filePath) {
@@ -636,6 +645,13 @@ app.get('/api/admin/sync', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   res.json({ github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH, discord: !!DISCORD_WEBHOOK_URL });
+});
+
+app.get('/api/admin/config', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  res.set('Cache-Control', 'no-store');
+  res.json(db.config);
 });
 
 app.get('/api/admin/audit', adminLimit, (req, res) => {
