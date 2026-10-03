@@ -516,7 +516,7 @@
       "type": "creator",
       "date": "2026-10-02T22:24:20.670Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "Great application and great editing skills, proud to see what you bring to the table Trx!",
       "username": "Kgy",
       "discord": "K.gy",
       "age": "15",
@@ -621,6 +621,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-03T03:44:47.005Z",
+      "act": "status_pending",
+      "id": "CC-L59SZE"
+    },
     {
       "t": "2026-10-03T03:16:32.327Z",
       "act": "config_saved",
