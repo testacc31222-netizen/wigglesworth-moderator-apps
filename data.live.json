@@ -36,7 +36,7 @@
       "show": true,
       "title": "day 2 countdown",
       "endVideo": "https://wigglesworth-countdown.onrender.com/vids/murx3a10-5ip.mp4",
-      "ambience": "C:\\Users\\testa\\Downloads\\freesound_community-night-cricket-ambience-22484.mp3",
+      "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
       "daysLine": "day {d} left.",
       "finalLine": "{h}h {m}m {s}s left.",
       "subLine": "{h}h {m}m {s}s to go",
@@ -662,6 +662,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-03T05:31:07.059Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-03T05:31:04.226Z",
       "act": "video_upload",
