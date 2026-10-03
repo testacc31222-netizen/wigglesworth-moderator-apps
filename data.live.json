@@ -340,7 +340,7 @@
       "type": "creator",
       "date": "2026-09-28T17:12:54.900Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "HI",
       "username": "204",
       "discord": "daysvr.",
       "age": "13",
@@ -692,6 +692,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-03T22:32:48.857Z",
+      "act": "status_pending",
+      "id": "CC-99MHFW"
+    },
     {
       "t": "2026-10-03T22:32:27.216Z",
       "act": "config_saved",
