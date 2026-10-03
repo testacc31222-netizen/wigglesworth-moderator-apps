@@ -34,7 +34,7 @@
     ],
     "countdown": {
       "show": true,
-      "title": "loading the project... searching for unreleased files.",
+      "title": " DAY 2 // 1 IS NOT CREW",
       "endVideo": "https://wigglesworth-countdown.onrender.com/vids/muryhsvc-wqw.mp4",
       "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
       "daysLine": "day {d} left till the show.",
@@ -662,6 +662,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-03T17:54:19.734Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-03T17:49:04.266Z",
       "act": "config_saved",
