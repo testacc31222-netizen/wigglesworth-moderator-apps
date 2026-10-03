@@ -635,6 +635,23 @@
           "at": "2026-10-02T22:25:22.390Z"
         }
       ]
+    },
+    {
+      "id": "TKT-FG2FE5",
+      "name": "Kgy",
+      "subject": "Being a cc",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-03T03:46:40.827Z",
+      "updatedAt": "2026-10-03T03:46:40.827Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Kgy",
+          "text": "I want to be a cc because I want to promote the game and get more players",
+          "at": "2026-10-03T03:46:40.827Z"
+        }
+      ]
     }
   ],
   "audit": [
