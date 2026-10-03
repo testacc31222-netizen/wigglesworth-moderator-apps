@@ -673,26 +673,26 @@ app.get('/api/admin/config', adminLimit, (req, res) => {
   res.json(db.config);
 });
 
-app.post('/api/admin/upload-video', uploadLimit, express.raw({ type: ['video/mp4', 'video/webm', 'audio/mpeg', 'audio/ogg', 'audio/wav', 'audio/mp4'], limit: '60mb' }), async (req, res) => {
+app.post('/api/admin/upload-video', uploadLimit, express.raw({ type: ['video/*', 'audio/*'], limit: '60mb' }), async (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   const buf = req.body;
   if (!buf || !buf.length) return res.status(400).json({ error: 'Empty file' });
-  const ct = (req.headers['content-type'] || '').split(';')[0].trim();
-  const ext = ct === 'video/webm' ? 'webm'
-    : ct === 'audio/mpeg' ? 'mp3'
-    : ct === 'audio/ogg' ? 'ogg'
-    : ct === 'audio/wav' ? 'wav'
-    : ct === 'audio/mp4' ? 'm4a' : 'mp4';
+  const ct = (req.headers['content-type'] || '').split(';')[0].trim().toLowerCase();
+  const audioCt = ct.startsWith('audio/');
   const isMp4 = buf.length > 12 && buf.subarray(4, 8).toString() === 'ftyp';
   const isWebm = buf.length > 4 && buf[0] === 0x1A && buf[1] === 0x45 && buf[2] === 0xDF && buf[3] === 0xA3;
   const isMp3 = buf.length > 3 && (buf.subarray(0, 3).toString() === 'ID3' || (buf[0] === 0xFF && (buf[1] & 0xE0) === 0xE0));
   const isWav = buf.length > 12 && buf.subarray(0, 4).toString() === 'RIFF' && buf.subarray(8, 12).toString() === 'WAVE';
   const isOgg = buf.length > 4 && buf.subarray(0, 4).toString() === 'OggS';
-  const okMedia = (ext === 'mp4' && isMp4) || (ext === 'webm' && isWebm) ||
-    (ext === 'mp3' && isMp3) || (ext === 'ogg' && isOgg) || (ext === 'wav' && isWav) || (ext === 'm4a' && isMp4);
-  if (!okMedia) {
-    return res.status(400).json({ error: 'Not a real MP4/WebM/MP3 file' });
+  let ext = '';
+  if (isMp4) ext = audioCt ? 'm4a' : 'mp4';
+  else if (isWebm && (ct === 'video/webm' || ct === 'audio/webm')) ext = 'webm';
+  else if (isMp3 && audioCt) ext = 'mp3';
+  else if (isWav && audioCt) ext = 'wav';
+  else if (isOgg && (ct === 'audio/ogg' || ct === 'video/ogg')) ext = 'ogg';
+  if (!ext) {
+    return res.status(400).json({ error: 'Not a real video/audio file' });
   }
   if (!GH_TOKEN) return res.status(400).json({ error: 'GitHub sync not configured' });
   const name = 'vids/' + Date.now().toString(36) + '-' + crypto.randomInt(46656).toString(36) + '.' + ext;
