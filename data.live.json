@@ -37,7 +37,7 @@
       "title": "day 2 countdown",
       "endVideo": "https://wigglesworth-countdown.onrender.com/vids/muryhsvc-wqw.mp4",
       "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
-      "daysLine": "day {d} left.",
+      "daysLine": "day {d} left till the show.",
       "finalLine": "{h}h {m}m {s}s left.",
       "subLine": "{h}h {m}m {s}s to go",
       "completedLine": "completed, day 3 soon.",
@@ -662,6 +662,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-03T07:16:16.587Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-03T06:20:42.217Z",
       "act": "config_saved",
