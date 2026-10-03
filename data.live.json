@@ -33,7 +33,7 @@
       }
     ],
     "countdown": {
-      "show": true,
+      "show": false,
       "title": "day 2 countdown",
       "endVideo": "https://wigglesworth-countdown.onrender.com/vids/muryhsvc-wqw.mp4",
       "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
@@ -662,6 +662,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-03T07:16:29.928Z",
+      "act": "config_saved",
+      "id": ""
+    },
     {
       "t": "2026-10-03T07:16:16.587Z",
       "act": "config_saved",
