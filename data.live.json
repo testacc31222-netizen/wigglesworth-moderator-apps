@@ -1116,20 +1116,32 @@
       "name": "Cat",
       "subject": "forgot what my code is and what a code is",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T21:40:47.413Z",
-      "updatedAt": "2026-10-04T21:40:47.413Z",
+      "updatedAt": "2026-10-04T21:41:00.240Z",
       "replies": [
         {
           "by": "user",
           "name": "Cat",
           "text": "so i forgot my code thats it",
           "at": "2026-10-04T21:40:47.413Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey! Could you let me know which code you’re referring to? Is it a referral code, a role‑application code, or something else? That’ll help me point you in the right direction.",
+          "at": "2026-10-04T21:41:00.240Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:41:00.240Z",
+      "act": "ticket_reply",
+      "id": "TKT-L9TY2Z",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:38:14.972Z",
       "act": "config_saved",
@@ -1665,11 +1677,6 @@
     },
     {
       "t": "2026-10-03T07:38:06.166Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:37:57.690Z",
       "act": "config_saved",
       "id": ""
     }
