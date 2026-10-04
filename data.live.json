@@ -777,6 +777,21 @@
       "schedule": "100 PER WEEK",
       "style": "ANIMAL COMPANY AND WIGGLE WIGGLE WIGGLE",
       "strikes": "NO"
+    },
+    {
+      "appId": "MOD-KJ6H4E",
+      "type": "moderator",
+      "date": "2026-10-04T18:26:34.847Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "SharrXD/none because I don't play",
+      "discord": "SharrXD",
+      "age": "14",
+      "timezone": "idk, whenever qntmz is available",
+      "experience": "uh I work with qntmz",
+      "why": "just cuz I wanna be mod and yea mod",
+      "scenario": "execute them/timeout",
+      "rulebreak": "no"
     }
   ],
   "tickets": [
