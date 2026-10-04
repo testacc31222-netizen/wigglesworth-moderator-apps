@@ -571,7 +571,7 @@
       "appId": "MOD-LM4EAW",
       "type": "moderator",
       "date": "2026-10-03T18:52:19.033Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "Make this more professional and more long.",
       "username": "BLEH",
       "discord": "bam_bam29l",
@@ -784,6 +784,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:15:09.434Z",
+      "act": "status_denied",
+      "id": "MOD-LM4EAW"
+    },
     {
       "t": "2026-10-04T04:15:06.504Z",
       "act": "status_pending",
