@@ -446,7 +446,7 @@
       "type": "moderator",
       "date": "2026-10-01T02:14:00.104Z",
       "status": "denied",
-      "adminNote": "",
+      "adminNote": "Too short",
       "username": "CLUSSY",
       "discord": "CLUSSYVR3",
       "age": "14",
@@ -1097,6 +1097,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-04T21:25:55.795Z",
+      "act": "status_denied",
+      "id": "MOD-JGRKY2",
+      "by": ""
+    },
+    {
       "t": "2026-10-04T21:25:52.797Z",
       "act": "status_denied",
       "id": "MOD-JGRKY2",
@@ -1596,11 +1602,6 @@
     },
     {
       "t": "2026-10-02T19:44:03.759Z",
-      "act": "status_pending",
-      "id": "CC-5RR3GD"
-    },
-    {
-      "t": "2026-10-02T19:43:16.926Z",
       "act": "status_pending",
       "id": "CC-5RR3GD"
     }
