@@ -628,21 +628,6 @@
       "rulebreak": "No"
     },
     {
-      "appId": "MOD-S8G2D4",
-      "type": "moderator",
-      "date": "2026-10-04T01:15:55.842Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Interminal",
-      "discord": "thegoatgtagplayer",
-      "age": "15",
-      "timezone": "CST 3 Hours Daily",
-      "experience": "Project WigglesworthSilent ModsVex Taggers",
-      "why": "I want to be a moderator , becauuse I have moderation experience of course and before staff reset I low-key respected all staff members and wasn't really into staff beef but like now after staff reset and stuff and how I acted when staff reset im not proud of myself since I was mad and stuff including me saying 4 project wigglesworth inside my bio although zern talked to me about it and I removed it but yeah. I miss moderating this game although high chance original staff won't be picked but its worth a try thanks for reading.",
-      "scenario": "1. Ask them to stop2.If they continue I will eventually warn that person to stop3. If they don't stop after warning 2 I would timeout for an hour with the reasoning : failed to listen to staff members and continued spamming when already warned twice.",
-      "rulebreak": "I only got banned once that was from chickenrunyt but he didn't mean to ban me he meant to kick but I was low-key spamming grenades or flashbangs so yeah"
-    },
-    {
       "appId": "MOD-KQ79BS",
       "type": "moderator",
       "date": "2026-10-04T01:15:56.389Z",
@@ -784,6 +769,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T03:57:01.959Z",
+      "act": "deleted",
+      "id": "MOD-S8G2D4"
+    },
     {
       "t": "2026-10-04T03:44:51.831Z",
       "act": "config_saved",
