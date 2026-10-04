@@ -707,7 +707,7 @@
       "type": "moderator",
       "date": "2026-10-04T15:33:45.333Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "retoni",
       "discord": "just_retoni",
       "age": "14",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:31:54.328Z",
+      "act": "status_pending",
+      "id": "MOD-64F6CF",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:30:40.321Z",
       "act": "status_pending",
@@ -1611,11 +1617,6 @@
       "t": "2026-10-03T04:54:10.961Z",
       "act": "video_upload",
       "id": "vids/murx3a10-5ip.mp4"
-    },
-    {
-      "t": "2026-10-03T04:48:43.918Z",
-      "act": "config_saved",
-      "id": ""
     }
   ]
 }
