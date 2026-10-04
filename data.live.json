@@ -71,8 +71,8 @@
         "prefix": "MOD",
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "",
-        "showApproved": false,
-        "open": true,
+        "showApproved": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -1166,6 +1166,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-04T21:43:38.357Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-04T21:41:53.510Z",
       "act": "config_saved",
       "id": "",
@@ -1704,11 +1710,6 @@
     },
     {
       "t": "2026-10-03T07:40:41.785Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:39:12.880Z",
       "act": "config_saved",
       "id": ""
     }
