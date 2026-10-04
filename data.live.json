@@ -617,7 +617,7 @@
       "type": "moderator",
       "date": "2026-10-03T23:52:49.151Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "You called me a PDF",
       "username": "Rudolph",
       "discord": "TGLRAIN",
       "age": "13",
@@ -769,6 +769,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T03:57:14.270Z",
+      "act": "status_pending",
+      "id": "MOD-KXTFAC"
+    },
     {
       "t": "2026-10-04T03:57:01.959Z",
       "act": "deleted",
