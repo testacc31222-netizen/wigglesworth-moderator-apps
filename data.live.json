@@ -523,7 +523,7 @@
       "appId": "CC-L59SZE",
       "type": "creator",
       "date": "2026-10-02T22:24:20.670Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "",
       "username": "Kgy",
       "discord": "K.gy",
@@ -540,7 +540,7 @@
       "type": "creator",
       "date": "2026-10-03T03:22:33.358Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "Great application and great editing skills, proud to see what you bring to the table Trx!",
       "username": "Trx6k",
       "discord": "Trx6k",
       "age": "15",
@@ -602,7 +602,7 @@
       "type": "moderator",
       "date": "2026-10-03T23:50:55.983Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "join a vc. ASAP!!!",
       "username": "Jordan",
       "discord": "autumn915123",
       "age": "16",
@@ -617,7 +617,7 @@
       "type": "moderator",
       "date": "2026-10-03T23:52:49.151Z",
       "status": "denied",
-      "adminNote": "You called me a PDF 😭",
+      "adminNote": "You called me a PDF",
       "username": "Rudolph",
       "discord": "TGLRAIN",
       "age": "13",
@@ -631,7 +631,7 @@
       "appId": "MOD-KQ79BS",
       "type": "moderator",
       "date": "2026-10-04T01:15:56.389Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "We aren't looking for previous staff members.",
       "username": "Interminal",
       "discord": "thegoatgtagplayer",
@@ -662,7 +662,7 @@
       "type": "moderator",
       "date": "2026-10-04T04:03:36.889Z",
       "status": "pending",
-      "adminNote": "join a voice chat.",
+      "adminNote": "join a voice chat. ASAP",
       "username": "Jordan",
       "discord": "Autumn915123",
       "age": "16",
@@ -785,14 +785,24 @@
   ],
   "audit": [
     {
-      "t": "2026-10-04T04:25:02.702Z",
+      "t": "2026-10-04T04:25:36.113Z",
       "act": "status_pending",
-      "id": "CC-L59SZE"
+      "id": "MOD-P6T7KY"
     },
     {
-      "t": "2026-10-04T04:24:55.467Z",
+      "t": "2026-10-04T04:24:36.847Z",
+      "act": "status_pending",
+      "id": "CC-ZRGADC"
+    },
+    {
+      "t": "2026-10-04T04:24:30.177Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:24:21.318Z",
       "act": "status_denied",
-      "id": "MOD-KXTFAC"
+      "id": "MOD-KQ79BS"
     },
     {
       "t": "2026-10-04T04:24:19.819Z",
