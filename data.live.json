@@ -1145,6 +1145,23 @@
           "at": "2026-10-04T21:41:00.240Z"
         }
       ]
+    },
+    {
+      "id": "TKT-KSF2S5",
+      "name": "Royal",
+      "subject": "I don’t know my code for the mod apps",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T21:42:07.045Z",
+      "updatedAt": "2026-10-04T21:42:07.045Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Royal",
+          "text": "I forgot my code to see my mod results",
+          "at": "2026-10-04T21:42:07.045Z"
+        }
+      ]
     }
   ],
   "audit": [
