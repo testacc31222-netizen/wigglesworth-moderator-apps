@@ -1021,20 +1021,31 @@
       "name": "Fernish,.gg",
       "subject": "moderator applcaitsonas",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T20:37:08.639Z",
-      "updatedAt": "2026-10-04T20:37:08.639Z",
+      "updatedAt": "2026-10-04T20:38:10.447Z",
       "replies": [
         {
           "by": "user",
           "name": "Fernish,.gg",
           "text": "I need my moderator key",
           "at": "2026-10-04T20:37:08.639Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey there! Could you let me know what you mean by “moderator key”? Are you looking for a specific tool or access code? Once I have a bit more detail, I can point you in the right direction.",
+          "at": "2026-10-04T20:38:10.447Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T20:38:10.447Z",
+      "act": "ticket_reply",
+      "id": "TKT-BFHMED"
+    },
     {
       "t": "2026-10-04T20:37:52.117Z",
       "act": "config_saved",
@@ -1527,11 +1538,6 @@
     },
     {
       "t": "2026-10-01T06:20:23.992Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:20:11.079Z",
       "act": "config_saved",
       "id": ""
     }
