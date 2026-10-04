@@ -330,6 +330,21 @@ function validTicketId(id) {
 function displayName(s) {
   return cleanStr(s.username || s.discord || 'Applicant', 80);
 }
+const FAQ_STOP = new Set('a,an,the,and,or,but,if,then,so,for,to,of,in,on,at,by,do,does,did,is,are,was,were,be,been,am,i,you,he,she,it,we,they,me,him,her,us,them,my,your,his,our,their,what,when,where,who,whom,which,how,why,can,could,should,would,will,just,very,here,there,this,that,these,those,any,all,anyone,anybody,please,thanks,thank,hi,hello,hey,get,got,have,has,had'.split(','));
+function faqMatch(text, faqs) {
+  const words = s => (String(s).toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => w.length > 2 && !FAQ_STOP.has(w));
+  const tw = new Set(words(text));
+  if (!tw.size) return null;
+  let best = null;
+  for (const f of faqs || []) {
+    const qw = [...new Set(words(f.q))];
+    if (!qw.length) continue;
+    const hit = qw.filter(w => tw.has(w)).length;
+    const score = hit / qw.length;
+    if (hit >= 2 && score >= 0.4 && (!best || score > best.score)) best = { f, score };
+  }
+  return best;
+}
 function audit(db, act, id) {
   if (!Array.isArray(db.audit)) db.audit = [];
   db.audit.unshift({ t: new Date().toISOString(), act, id: cleanStr(id, 40) });
@@ -407,6 +422,13 @@ app.post('/api/tickets', ticketLimit, (req, res) => {
   };
   db.tickets.push(t);
   if (db.tickets.length > 2000) db.tickets = db.tickets.slice(-2000);
+  const faqHit = faqMatch(subject + ' ' + message, db.config.faq);
+  if (faqHit) {
+    t.replies.push({ by: 'staff', name: 'Staff (auto)',
+      text: `Quick answer from our FAQ:\n\n${faqHit.f.a}\n\nStill stuck? Just reply and a human will pick it up.`,
+      at: new Date().toISOString() });
+    audit(db, 'auto_faq', t.id);
+  }
   saveDB(db);
   discordNotify(`New ticket **${t.id}** — ${t.subject}\nFrom **${t.name}**: ${t.replies[0].text.slice(0, 500)}`);
   res.json({ id: t.id });
