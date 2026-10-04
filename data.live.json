@@ -736,7 +736,7 @@
       "appId": "MOD-XWTN6U",
       "type": "moderator",
       "date": "2026-10-04T16:14:12.658Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "Make the application longer and professional.. Go home.",
       "username": "Galixy0895",
       "discord": "Imscaredofjobs67",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:19:42.858Z",
+      "act": "status_denied",
+      "id": "MOD-XWTN6U",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:19:40.508Z",
       "act": "status_pending",
@@ -1595,11 +1601,6 @@
       "t": "2026-10-02T18:48:13.364Z",
       "act": "status_pending",
       "id": "CC-HEAWNQ"
-    },
-    {
-      "t": "2026-10-02T18:45:48.034Z",
-      "act": "config_saved",
-      "id": ""
     }
   ]
 }
