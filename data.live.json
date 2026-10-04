@@ -2,7 +2,7 @@
   "config": {
     "title": "Wigglesworth — Official Applications And Support ",
     "subtitle": "Three ways in. Pick the role that fits you and send one honest application.",
-    "announcement": "Moderator Applications CLOSED, Opening back at 150 members...",
+    "announcement": "LEAVING MODERATOR APPLICATIONS OPEN, ONLY READING THEM WHEN WE GET TO 150!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#6cb8f0",
     "bg": "#0e1218",
@@ -34,16 +34,16 @@
     ],
     "countdown": {
       "show": true,
-      "title": "day 2 countdown",
-      "endVideo": "https://wigglesworth-countdown.onrender.com/vids/murx3a10-5ip.mp4",
-      "ambience": "C:\\Users\\testa\\Downloads\\freesound_community-night-cricket-ambience-22484.mp3",
-      "daysLine": "day {d} left.",
+      "title": "DAY 3 // DO YOUR TAS...",
+      "endVideo": "https://wigglesworth-countdown.onrender.com/vids/muryhsvc-wqw.mp4",
+      "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
+      "daysLine": "day {d} left till the show.",
       "finalLine": "{h}h {m}m {s}s left.",
       "subLine": "{h}h {m}m {s}s to go",
       "completedLine": "completed, day 3 soon.",
       "endCardLine": "that was it, get ready for day 3",
       "soonLine": "soon.",
-      "target": "2026-10-03T04:55:00.000Z"
+      "target": "2026-10-04T21:40:00.000Z"
     },
     "layout": {
       "handNote": {
@@ -340,7 +340,7 @@
       "type": "creator",
       "date": "2026-09-28T17:12:54.900Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "HI",
       "username": "204",
       "discord": "daysvr.",
       "age": "13",
@@ -523,8 +523,8 @@
       "appId": "CC-L59SZE",
       "type": "creator",
       "date": "2026-10-02T22:24:20.670Z",
-      "status": "approved",
-      "adminNote": "Great application and great editing skills, proud to see what you bring to the table Trx!",
+      "status": "denied",
+      "adminNote": "",
       "username": "Kgy",
       "discord": "K.gy",
       "age": "15",
@@ -540,7 +540,7 @@
       "type": "creator",
       "date": "2026-10-03T03:22:33.358Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "Great application and great editing skills, proud to see what you bring to the table Trx!",
       "username": "Trx6k",
       "discord": "Trx6k",
       "age": "15",
@@ -566,6 +566,247 @@
       "schedule": "three or four times a week",
       "style": "Funny or just gameplay",
       "strikes": "Only one"
+    },
+    {
+      "appId": "MOD-LM4EAW",
+      "type": "moderator",
+      "date": "2026-10-03T18:52:19.033Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "BLEH",
+      "discord": "bam_bam29l",
+      "age": "13",
+      "timezone": "uk time/GMT+1",
+      "experience": "ive had experience and i was rlly good! idk what this means ry",
+      "why": "Im respectful,Gonna be active,Nice ingame/DiscordI can make sounds",
+      "scenario": "Tell them to stop,Or dm the owner",
+      "rulebreak": "nope,"
+    },
+    {
+      "appId": "MOD-FFL4UP",
+      "type": "moderator",
+      "date": "2026-10-03T20:50:09.317Z",
+      "status": "denied",
+      "adminNote": "",
+      "username": "Unkown.ar/guess who i am",
+      "discord": "Mrhalfcourt_is_gone",
+      "age": "12",
+      "timezone": "Est",
+      "experience": "I was mod in this game and used to be in some fan games",
+      "why": "Ive been mod in this game before and ive helped around alot around.Ive banned pepole ive helped pepole and ive even made friends yes i know i might not get mod but i will still help.I will try my hardest to br active in game/out game the thing about me is that i will hunt down pepole who are toxic/cheating and just a bad example i hope that i can get mod and be active.",
+      "scenario": "Give them 3 warnings first can you please stop that the 2nd time i say you have one warning left please stop spamming chat 3rd time i ban them (on first warning i might kick them)",
+      "rulebreak": "Nope"
+    },
+    {
+      "appId": "MOD-KXTFAC",
+      "type": "moderator",
+      "date": "2026-10-03T23:52:49.151Z",
+      "status": "denied",
+      "adminNote": "You called me a PDF",
+      "username": "Rudolph",
+      "discord": "TGLRAIN",
+      "age": "13",
+      "timezone": "3hour prolly",
+      "experience": "I used to be a modrator in this game and I im really nice",
+      "why": "Cause I want to help this community and make it better not have people being mean",
+      "scenario": "Warn them because there spamming and being annoying",
+      "rulebreak": "No"
+    },
+    {
+      "appId": "MOD-KQ79BS",
+      "type": "moderator",
+      "date": "2026-10-04T01:15:56.389Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Interminal",
+      "discord": "thegoatgtagplayer",
+      "age": "15",
+      "timezone": "CST 3 Hours Daily",
+      "experience": "Project WigglesworthSilent ModsVex Taggers",
+      "why": "I want to be a moderator , becauuse I have moderation experience of course and before staff reset I low-key respected all staff members and wasn't really into staff beef but like now after staff reset and stuff and how I acted when staff reset im not proud of myself since I was mad and stuff including me saying 4 project wigglesworth inside my bio although zern talked to me about it and I removed it but yeah. I miss moderating this game although high chance original staff won't be picked but its worth a try thanks for reading.",
+      "scenario": "1. Ask them to stop2.If they continue I will eventually warn that person to stop3. If they don't stop after warning 2 I would timeout for an hour with the reasoning : failed to listen to staff members and continued spamming when already warned twice.",
+      "rulebreak": "I only got banned once that was from chickenrunyt but he didn't mean to ban me he meant to kick but I was low-key spamming grenades or flashbangs so yeah"
+    },
+    {
+      "appId": "MOD-2U9UHB",
+      "type": "moderator",
+      "date": "2026-10-04T01:41:26.382Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Loki",
+      "discord": "idfktbh67",
+      "age": "13",
+      "timezone": "PDT 4-5 hours on week days 8 ish on weekends",
+      "experience": "cant remember tbh",
+      "why": "because i used to be staff in alot of games and now im moving to gtag fan-games or idk yet but i wanna help out the community and stuff",
+      "scenario": "depends on what they spam, if its just spamming i time them for 5 mins, if its spamming slurs i time them for a week or kick them cuz i dont like that stuff",
+      "rulebreak": "nah havent even gotten the game yet i will soon tho"
+    },
+    {
+      "appId": "MOD-P6T7KY",
+      "type": "moderator",
+      "date": "2026-10-04T04:03:36.889Z",
+      "status": "pending",
+      "adminNote": "join a voice chat. ASAP",
+      "username": "Jordan",
+      "discord": "Autumn915123",
+      "age": "16",
+      "timezone": "6 hours a day",
+      "experience": "None",
+      "why": "To help the community for wiggleworths and i will be doing stick justice to find bad monkeys.",
+      "scenario": "I would ask them to please to spamming if they don't i would ask for permission to time them out in the server or kick.",
+      "rulebreak": "I have never gotten ban I'm a good person and i follow rules."
+    },
+    {
+      "appId": "MOD-KF92HF",
+      "type": "moderator",
+      "date": "2026-10-04T04:36:02.769Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "French Toast",
+      "discord": "frn.toast",
+      "age": "14",
+      "timezone": "EST (depends, ill be available usually)",
+      "experience": "Been moderator in this game 3 times, i have past experience in games such as Project Cheetah, Project N3on, etc.",
+      "why": "I’d like to be a moderator since i would like to protect this game from all rule breakers, i know how to moderate due to my past experiences and i think i would be a decent moderator for this game! I will be responsible in any situation and will not flip out over something, i will try my absolute best to respond as quick as possible to any kind of problem/question that comes my way!",
+      "scenario": "If someone is spamming inside chat, i would time them out (if i have the permission)If i do not have the permission to time them out then i will ask a higher up to please help with the situation.",
+      "rulebreak": "I haven’t been banned."
+    },
+    {
+      "appId": "MOD-3QWMPW",
+      "type": "moderator",
+      "date": "2026-10-04T06:15:09.223Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Koakly",
+      "discord": "TimberMoose8",
+      "age": "13",
+      "timezone": "1 - 3 Hrs",
+      "experience": "Ive never been a moderator",
+      "why": "I want to be a mod because i want to help the project wigglesworthcommunity to become better and i want to help enforce the rules",
+      "scenario": "If someone was spamming in chat i would first ask them to \"please stop spamming in chat\" and if they dont I would time them out and ask them again to stop spamming in chat",
+      "rulebreak": "No, ive never been banned"
+    },
+    {
+      "appId": "MOD-UU83V4",
+      "type": "moderator",
+      "date": "2026-10-04T08:30:12.283Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Royal",
+      "discord": "Neptune",
+      "age": "14",
+      "timezone": "3 hours daily",
+      "experience": "In a couple games like prospect spook and craft rooms",
+      "why": "Because I know I can provide a safer community for the game",
+      "scenario": "I give them a warning and if they carry on i would time them out for 5 mins",
+      "rulebreak": "Yeah I got false banned in the game ages ago it didn’t have a reason"
+    },
+    {
+      "appId": "MOD-64F6CF",
+      "type": "moderator",
+      "date": "2026-10-04T15:33:45.333Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "retoni",
+      "discord": "just_retoni",
+      "age": "14",
+      "timezone": "4-5 hours daily CST",
+      "experience": "I have experience in 2 games that are still up and 2 that I retired from, one game that is still up is don’t blink they have 3.6k members and an active player base averaging around 60 people on the game at once. The other game is null space it has 350 members and is growing rapidly averaging 150 con current players a day.",
+      "why": "I want to be moderator because I have more experience with moderation then the average applicant. I also would be an absolute asset to you guys, I would beta test, moderate, give ideas, and so much more. I’m also very trustworthy and nice. I have good grammar, and I am good at calming things down in the game and discord. That is why I want moderator.",
+      "scenario": "If someone is spamming in chat I would delete the messages and time them out for 5 minutes, if they continue the time out would just get longer and longer.",
+      "rulebreak": "No"
+    },
+    {
+      "appId": "MOD-XAVQJ3",
+      "type": "moderator",
+      "date": "2026-10-04T15:42:22.187Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "DANIFIREX",
+      "discord": "danifire1500",
+      "age": "15",
+      "timezone": "VET, 3-5 hours daily",
+      "experience": "I have been moderator, admin, and other ranks, on alot of games, im a know dev, i have my own game Scary Monster, and for example im mod on Exploration MEG/Ground Zero, ramdommakesgames, and more, i quit on some, i still on alot",
+      "why": "I really like the ideqa of this game, the type, the community, and i think i will be a good influence on the game, i can make liminal maps, that can help on the game, give some stuff for the game and more",
+      "scenario": "depends, if im just mod, i will report the messages, tell the owner or a better rank than me, if i get admin later, or a rank like that, i will timeout, and if he keeps spamming alot, well, a ban, i will still tell better ranks than me that someone is spamming",
+      "rulebreak": "i have never been banned"
+    },
+    {
+      "appId": "MOD-XWTN6U",
+      "type": "moderator",
+      "date": "2026-10-04T16:14:12.658Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Galixy0895",
+      "discord": "Imscaredofjobs67",
+      "age": "13",
+      "timezone": "EST",
+      "experience": "None",
+      "why": "I want to help the game out",
+      "scenario": "Give them 3 warnings",
+      "rulebreak": "I have never been banned"
+    },
+    {
+      "appId": "MOD-N67S3W",
+      "type": "moderator",
+      "date": "2026-10-04T17:00:15.548Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "AGOOSE",
+      "discord": "agoose_.",
+      "age": "14",
+      "timezone": "Home: All day until 12pm. At school: 3pm-7pm",
+      "experience": "I been a mod for alot of things, like my server, and alot f others i forgot i know what being a mod does and i know the powers",
+      "why": "I want to be a moderator for Wigglesworth is because i think wiggesworth is a very good game and me and my friends like it and because there going to be a lot of people joining the server and only a few mods and i am bored alot i want to help wigglesworth discord and game be safe by taking care of people saying slurs, n words, etc. when i get mod i will take everthing as good and keep the community safe, growing, kind.",
+      "scenario": "If i saw someone spamming in chat i would give them a warning but if they keep spamming when i gave a warning it's a timout for 10-20 mins but if their spamming slurs it's a kick.",
+      "rulebreak": "Yes i have because in my server someone that hated me that idk why joined my server and tried to get down my server but me i reacted very fast and saw that he joined and banned him for trying to start a raid and i know because of his user and his friends joining."
+    },
+    {
+      "appId": "CC-YSWS2L",
+      "type": "creator",
+      "date": "2026-10-04T17:54:16.901Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "NINJA.AC",
+      "discord": "NINJA.AC",
+      "age": "124356",
+      "why": "BECAUSE IM COOL AND I LIKE TO PLAY THE GAME",
+      "platform": "YouTube",
+      "channel": "https://www.youtube.com/@Ninja_Vr_Ac",
+      "schedule": "100 PER WEEK",
+      "style": "ANIMAL COMPANY AND WIGGLE WIGGLE WIGGLE",
+      "strikes": "NO"
+    },
+    {
+      "appId": "MOD-KJ6H4E",
+      "type": "moderator",
+      "date": "2026-10-04T18:26:34.847Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "SharrXD/none because I don't play",
+      "discord": "SharrXD",
+      "age": "14",
+      "timezone": "idk, whenever qntmz is available",
+      "experience": "uh I work with qntmz",
+      "why": "just cuz I wanna be mod and yea mod",
+      "scenario": "execute them/timeout",
+      "rulebreak": "no"
+    },
+    {
+      "appId": "MOD-H83PHA",
+      "type": "moderator",
+      "date": "2026-10-04T19:24:16.357Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "LAYOJRJR",
+      "discord": "michaeljacksonbest",
+      "age": "15",
+      "timezone": "IDT 3-6 hours could be a little more",
+      "experience": "I was an ex moderator for wigglesworth (this game)",
+      "why": "I want to be a moderator because I want to improve my experience and stretch my skills and the communities growth and success rate",
+      "scenario": "I will warn him twice if he doesn't stop after the warnings I'll time him out for a couple of minutes and tell him the reason with the proof",
+      "rulebreak": "No I have not been banned ever"
     }
   ],
   "tickets": [
@@ -591,9 +832,9 @@
       "name": "Kgy",
       "subject": "I want to be a moderator",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-02T22:14:00.920Z",
-      "updatedAt": "2026-10-02T22:14:26.968Z",
+      "updatedAt": "2026-10-04T04:28:04.934Z",
       "replies": [
         {
           "by": "user",
@@ -606,6 +847,12 @@
           "name": "Kgy",
           "text": "Thank you bye",
           "at": "2026-10-02T22:14:26.968Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "This is support, if you want to do applications do it in the applications page.",
+          "at": "2026-10-04T04:28:04.934Z"
         }
       ]
     },
@@ -614,15 +861,21 @@
       "name": "Kgy",
       "subject": "This is a reason I want to be a moderator",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-02T22:17:10.004Z",
-      "updatedAt": "2026-10-02T22:17:10.004Z",
+      "updatedAt": "2026-10-04T04:27:00.486Z",
       "replies": [
         {
           "by": "user",
           "name": "Kgy",
           "text": "The reason why I want to be a moderator is because if anybody’s being toxic or being mean to another player, I will give them a warning if they do that two more times after I give them that first warning reported to the discord and ask them to ban that player for a certain amount of time or the time that they want to give them",
           "at": "2026-10-02T22:17:10.004Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "This is for support ONLY, applications can be done in the applications page.",
+          "at": "2026-10-04T04:27:00.486Z"
         }
       ]
     },
@@ -631,15 +884,21 @@
       "name": "Kaiicen",
       "subject": "I want to be a content creator for this game",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-02T22:25:22.390Z",
-      "updatedAt": "2026-10-02T22:25:22.390Z",
+      "updatedAt": "2026-10-04T04:27:57.277Z",
       "replies": [
         {
           "by": "user",
           "name": "Kaiicen",
           "text": "And some of my videos that look very young, but that was from a long time ago and I really want to have fun and promote the game out so other people can play the game",
           "at": "2026-10-02T22:25:22.390Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "This is support, if you want to do applications do it in the applications page.",
+          "at": "2026-10-04T04:27:57.277Z"
         }
       ]
     },
@@ -648,20 +907,377 @@
       "name": "Kgy",
       "subject": "Being a cc",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-03T03:46:40.827Z",
-      "updatedAt": "2026-10-03T03:46:40.827Z",
+      "updatedAt": "2026-10-04T04:27:41.402Z",
       "replies": [
         {
           "by": "user",
           "name": "Kgy",
           "text": "I want to be a cc because I want to promote the game and get more players",
           "at": "2026-10-03T03:46:40.827Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "This is support, if you want to do applications do it in the applications page.",
+          "at": "2026-10-04T04:27:41.402Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-8KPDCY",
+      "name": "Jordan",
+      "subject": "about the game",
+      "status": "open",
+      "unread": false,
+      "createdAt": "2026-10-03T23:53:04.038Z",
+      "updatedAt": "2026-10-04T04:27:48.043Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Jordan",
+          "text": "Thanked for making this game i really do in joy this game so i just wanna say never give up and follow your dreams.",
+          "at": "2026-10-03T23:53:04.038Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "ok",
+          "at": "2026-10-04T04:27:48.043Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-DHGPDG",
+      "name": "Interminal Moderation",
+      "subject": "My Lost Mod ID",
+      "status": "open",
+      "unread": false,
+      "createdAt": "2026-10-04T09:16:03.971Z",
+      "updatedAt": "2026-10-04T20:07:28.763Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Interminal Moderation",
+          "text": "I Lost My Mod ID Code Or Whatever And I Was Wondering If Yall Could Regive It To Me / Send It",
+          "at": "2026-10-04T09:16:03.971Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Sure thing! Your id is MOD-KQ79BS",
+          "at": "2026-10-04T20:07:28.763Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T20:07:28.763Z",
+      "act": "ticket_reply",
+      "id": "TKT-DHGPDG"
+    },
+    {
+      "t": "2026-10-04T20:07:02.487Z",
+      "act": "status_pending",
+      "id": "MOD-KQ79BS"
+    },
+    {
+      "t": "2026-10-04T04:30:32.834Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-04T04:29:07.318Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-04T04:29:02.279Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-04T04:28:49.692Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-04T04:28:04.934Z",
+      "act": "ticket_reply",
+      "id": "TKT-DP4J9Y"
+    },
+    {
+      "t": "2026-10-04T04:27:57.277Z",
+      "act": "ticket_reply",
+      "id": "TKT-RVLKY8"
+    },
+    {
+      "t": "2026-10-04T04:27:48.043Z",
+      "act": "ticket_reply",
+      "id": "TKT-8KPDCY"
+    },
+    {
+      "t": "2026-10-04T04:27:41.402Z",
+      "act": "ticket_reply",
+      "id": "TKT-FG2FE5"
+    },
+    {
+      "t": "2026-10-04T04:27:00.486Z",
+      "act": "ticket_reply",
+      "id": "TKT-HHMDZY"
+    },
+    {
+      "t": "2026-10-04T04:25:50.027Z",
+      "act": "deleted",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:25:47.919Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:25:47.749Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:25:47.363Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:25:46.947Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:25:46.670Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:25:46.291Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:25:36.113Z",
+      "act": "status_pending",
+      "id": "MOD-P6T7KY"
+    },
+    {
+      "t": "2026-10-04T04:24:36.847Z",
+      "act": "status_pending",
+      "id": "CC-ZRGADC"
+    },
+    {
+      "t": "2026-10-04T04:24:30.177Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:24:21.318Z",
+      "act": "status_denied",
+      "id": "MOD-KQ79BS"
+    },
+    {
+      "t": "2026-10-04T04:24:19.819Z",
+      "act": "status_pending",
+      "id": "MOD-KQ79BS"
+    },
+    {
+      "t": "2026-10-04T04:23:12.523Z",
+      "act": "status_pending",
+      "id": "MOD-P6T7KY"
+    },
+    {
+      "t": "2026-10-04T04:22:55.593Z",
+      "act": "status_denied",
+      "id": "CC-L59SZE"
+    },
+    {
+      "t": "2026-10-04T04:22:54.878Z",
+      "act": "status_approved",
+      "id": "CC-L59SZE"
+    },
+    {
+      "t": "2026-10-04T04:15:37.305Z",
+      "act": "status_denied",
+      "id": "MOD-FFL4UP"
+    },
+    {
+      "t": "2026-10-04T04:14:25.971Z",
+      "act": "status_denied",
+      "id": "MOD-KXTFAC"
+    },
+    {
+      "t": "2026-10-04T04:14:22.081Z",
+      "act": "status_denied",
+      "id": "MOD-FFL4UP"
+    },
+    {
+      "t": "2026-10-04T04:14:21.691Z",
+      "act": "status_pending",
+      "id": "MOD-FFL4UP"
+    },
+    {
+      "t": "2026-10-04T03:57:14.270Z",
+      "act": "status_pending",
+      "id": "MOD-KXTFAC"
+    },
+    {
+      "t": "2026-10-04T03:57:01.959Z",
+      "act": "deleted",
+      "id": "MOD-S8G2D4"
+    },
+    {
+      "t": "2026-10-04T03:44:51.831Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-04T03:44:48.439Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T22:32:48.857Z",
+      "act": "status_pending",
+      "id": "CC-99MHFW"
+    },
+    {
+      "t": "2026-10-03T22:32:27.216Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T17:54:19.734Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T17:49:04.266Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:40:41.785Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:39:12.880Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:38:21.839Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:38:17.434Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:38:06.166Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:37:57.690Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:37:55.885Z",
+      "act": "video_upload",
+      "id": "vids/mus2xuwm-89.mp4"
+    },
+    {
+      "t": "2026-10-03T07:36:11.809Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:36:05.128Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:35:30.724Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:34:55.059Z",
+      "act": "video_upload",
+      "id": "vids/mus2ty9q-kok.mp4"
+    },
+    {
+      "t": "2026-10-03T07:16:29.928Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T07:16:16.587Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T06:20:42.217Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T06:08:24.389Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T05:54:41.669Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T05:51:17.429Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T05:33:52.273Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T05:33:32.012Z",
+      "act": "video_upload",
+      "id": "vids/muryhsvc-wqw.mp4"
+    },
+    {
+      "t": "2026-10-03T05:32:23.340Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T05:31:37.324Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T05:31:07.059Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-03T05:31:04.226Z",
+      "act": "video_upload",
+      "id": "vids/muryeq4q-rik.mp3"
+    },
     {
       "t": "2026-10-03T05:19:12.176Z",
       "act": "config_saved",
@@ -856,61 +1472,6 @@
       "t": "2026-10-01T06:19:06.617Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-01T06:19:02.049Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:18:07.729Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:18:04.228Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:18:00.324Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:18:00.159Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:17:59.222Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:17:58.589Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:17:56.721Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:17:50.049Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T05:21:15.580Z",
-      "act": "ticket_deleted",
-      "id": "TKT-7K8DM7"
-    },
-    {
-      "t": "2026-10-01T05:20:45.571Z",
-      "act": "ticket_reply",
-      "id": "TKT-7K8DM7"
     }
   ]
 }
