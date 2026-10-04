@@ -572,7 +572,7 @@
       "type": "moderator",
       "date": "2026-10-03T18:52:19.033Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "Make this more professional and more long.",
       "username": "BLEH",
       "discord": "bam_bam29l",
       "age": "13",
@@ -616,7 +616,7 @@
       "appId": "MOD-KXTFAC",
       "type": "moderator",
       "date": "2026-10-03T23:52:49.151Z",
-      "status": "denied",
+      "status": "pending",
       "adminNote": "You called me a PDF",
       "username": "Rudolph",
       "discord": "TGLRAIN",
@@ -785,9 +785,9 @@
   ],
   "audit": [
     {
-      "t": "2026-10-04T04:14:25.971Z",
-      "act": "status_denied",
-      "id": "MOD-KXTFAC"
+      "t": "2026-10-04T04:15:06.504Z",
+      "act": "status_pending",
+      "id": "MOD-LM4EAW"
     },
     {
       "t": "2026-10-04T04:14:22.081Z",
