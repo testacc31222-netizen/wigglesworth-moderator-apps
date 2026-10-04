@@ -903,7 +903,7 @@
       "appId": "MOD-DKHJU9",
       "type": "moderator",
       "date": "2026-10-04T21:15:22.049Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "abstract",
       "discord": ".forevergone.",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:36:19.311Z",
+      "act": "status_denied",
+      "id": "MOD-DKHJU9",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:36:17.908Z",
       "act": "status_pending",
@@ -1623,11 +1629,6 @@
     },
     {
       "t": "2026-10-03T07:16:16.587Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T06:20:42.217Z",
       "act": "config_saved",
       "id": ""
     }
