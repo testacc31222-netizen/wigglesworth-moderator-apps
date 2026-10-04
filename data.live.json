@@ -1099,15 +1099,21 @@
       "name": "Bamber",
       "subject": "I lost my code",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T21:40:43.779Z",
-      "updatedAt": "2026-10-04T21:40:43.779Z",
+      "updatedAt": "2026-10-04T21:41:06.158Z",
       "replies": [
         {
           "by": "user",
           "name": "Bamber",
           "text": "Hi i lost my staff code application pls send",
           "at": "2026-10-04T21:40:43.779Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hi! Could you let me know which code you’re referring to? Is it the application ID you received after submitting, or a different staff code? Once I have that, I’ll be happy to help.",
+          "at": "2026-10-04T21:41:06.158Z"
         }
       ]
     },
@@ -1136,6 +1142,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:41:06.158Z",
+      "act": "ticket_reply",
+      "id": "TKT-VMH9B5",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:41:00.240Z",
       "act": "ticket_reply",
@@ -1672,11 +1684,6 @@
     },
     {
       "t": "2026-10-03T07:38:17.434Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:38:06.166Z",
       "act": "config_saved",
       "id": ""
     }
