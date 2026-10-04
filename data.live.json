@@ -598,21 +598,6 @@
       "rulebreak": "Nope"
     },
     {
-      "appId": "MOD-KLFLKK",
-      "type": "moderator",
-      "date": "2026-10-03T23:50:55.983Z",
-      "status": "pending",
-      "adminNote": "join a vc. ASAP!!!",
-      "username": "Jordan",
-      "discord": "autumn915123",
-      "age": "16",
-      "timezone": "6 hours a day",
-      "experience": "None",
-      "why": "To help the game out and not have cheaters in the game i really in joy this game.",
-      "scenario": "Ask them politely to stop and if they don't listen I'll ask for permission to kick him from the server or time him out.",
-      "rulebreak": "No i have never got banned I'm a good person and i follow rules I've never gotten ban on any game."
-    },
-    {
       "appId": "MOD-KXTFAC",
       "type": "moderator",
       "date": "2026-10-03T23:52:49.151Z",
@@ -784,6 +769,16 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:25:50.027Z",
+      "act": "deleted",
+      "id": "MOD-KLFLKK"
+    },
+    {
+      "t": "2026-10-04T04:25:47.919Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
     {
       "t": "2026-10-04T04:25:47.749Z",
       "act": "status_pending",
