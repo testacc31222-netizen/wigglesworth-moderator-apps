@@ -662,7 +662,7 @@
       "type": "moderator",
       "date": "2026-10-04T04:03:36.889Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "join a voice chat.",
       "username": "Jordan",
       "discord": "Autumn915123",
       "age": "16",
@@ -784,6 +784,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:23:12.523Z",
+      "act": "status_pending",
+      "id": "MOD-P6T7KY"
+    },
     {
       "t": "2026-10-04T04:22:55.593Z",
       "act": "status_denied",
