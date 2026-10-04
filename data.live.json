@@ -888,8 +888,8 @@
       "appId": "MOD-TKAKAJ",
       "type": "moderator",
       "date": "2026-10-04T20:54:57.388Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Yeah a because yeah ok. Fet it okay got kendrick on it too lol i just think it would make sense for the other guy too to have it in a movie and then the next one would have a sequel and the sequel would have to happen to make it in a different story or a movie and not just the sequel",
       "username": "korp",
       "discord": "wtfbamber",
       "age": "20",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:36:34.174Z",
+      "act": "status_denied",
+      "id": "MOD-TKAKAJ",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:36:27.619Z",
       "act": "status_denied",
@@ -1622,11 +1628,6 @@
     },
     {
       "t": "2026-10-03T06:20:42.217Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T06:08:24.389Z",
       "act": "config_saved",
       "id": ""
     }
