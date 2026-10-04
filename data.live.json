@@ -631,7 +631,7 @@
       "appId": "MOD-KQ79BS",
       "type": "moderator",
       "date": "2026-10-04T01:15:56.389Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "We aren't looking for previous staff members.",
       "username": "Interminal",
       "discord": "thegoatgtagplayer",
@@ -784,6 +784,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:24:21.318Z",
+      "act": "status_denied",
+      "id": "MOD-KQ79BS"
+    },
     {
       "t": "2026-10-04T04:24:19.819Z",
       "act": "status_pending",
