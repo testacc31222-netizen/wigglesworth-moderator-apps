@@ -691,7 +691,7 @@
       "appId": "MOD-UU83V4",
       "type": "moderator",
       "date": "2026-10-04T08:30:12.283Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "Application too short.",
       "username": "Royal",
       "discord": "Neptune",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:32:04.923Z",
+      "act": "status_denied",
+      "id": "MOD-UU83V4",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:32:03.539Z",
       "act": "status_pending",
@@ -1612,11 +1618,6 @@
     },
     {
       "t": "2026-10-03T05:19:12.176Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:18:30.315Z",
       "act": "config_saved",
       "id": ""
     }
