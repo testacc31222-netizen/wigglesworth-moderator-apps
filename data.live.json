@@ -1168,20 +1168,32 @@
       "name": "Rudolph",
       "subject": "Mod",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T21:44:36.323Z",
-      "updatedAt": "2026-10-04T21:44:36.323Z",
+      "updatedAt": "2026-10-04T21:45:36.177Z",
       "replies": [
         {
           "by": "user",
           "name": "Rudolph",
           "text": "Did I get it",
           "at": "2026-10-04T21:44:36.323Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hi! Thanks for reaching out. To check the status of your application, could you let me know your ApplicationID or the role you applied for? I’ll look into it right away.",
+          "at": "2026-10-04T21:45:36.177Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:45:36.177Z",
+      "act": "ticket_reply",
+      "id": "TKT-B2U756",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:43:38.357Z",
       "act": "config_saved",
@@ -1722,11 +1734,6 @@
     },
     {
       "t": "2026-10-03T17:49:04.266Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:40:41.785Z",
       "act": "config_saved",
       "id": ""
     }
