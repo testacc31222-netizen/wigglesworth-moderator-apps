@@ -616,8 +616,8 @@
       "appId": "MOD-KQ79BS",
       "type": "moderator",
       "date": "2026-10-04T01:15:56.389Z",
-      "status": "denied",
-      "adminNote": "You have a great application, although, We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
+      "status": "pending",
+      "adminNote": "",
       "username": "Interminal",
       "discord": "thegoatgtagplayer",
       "age": "15",
@@ -631,8 +631,8 @@
       "appId": "MOD-2U9UHB",
       "type": "moderator",
       "date": "2026-10-04T01:41:26.382Z",
-      "status": "denied",
-      "adminNote": "Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
+      "status": "pending",
+      "adminNote": "",
       "username": "Loki",
       "discord": "idfktbh67",
       "age": "13",
@@ -646,8 +646,8 @@
       "appId": "MOD-P6T7KY",
       "type": "moderator",
       "date": "2026-10-04T04:03:36.889Z",
-      "status": "pending",
-      "adminNote": "join a voice chat. ASAP",
+      "status": "denied",
+      "adminNote": "",
       "username": "Jordan",
       "discord": "Autumn915123",
       "age": "16",
@@ -661,8 +661,8 @@
       "appId": "MOD-KF92HF",
       "type": "moderator",
       "date": "2026-10-04T04:36:02.769Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "You have a great applicaition, welcome to the staff team, make sure to maintain activity ingame and outside of the game!",
       "username": "French Toast",
       "discord": "frn.toast",
       "age": "14",
@@ -782,7 +782,7 @@
       "appId": "MOD-KJ6H4E",
       "type": "moderator",
       "date": "2026-10-04T18:26:34.847Z",
-      "status": "denied",
+      "status": "pending",
       "adminNote": "Im not even gonna read this 😭",
       "username": "SharrXD/none because I don't play",
       "discord": "SharrXD",
@@ -1097,99 +1097,93 @@
   ],
   "audit": [
     {
-      "t": "2026-10-04T21:36:46.299Z",
-      "act": "status_denied",
-      "id": "MOD-XAVQJ3",
+      "t": "2026-10-04T21:36:50.320Z",
+      "act": "status_approved",
+      "id": "MOD-KF92HF",
       "by": ""
     },
     {
-      "t": "2026-10-04T21:36:44.545Z",
+      "t": "2026-10-04T21:36:19.311Z",
+      "act": "status_denied",
+      "id": "MOD-DKHJU9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:36:17.908Z",
       "act": "status_pending",
-      "id": "MOD-XAVQJ3",
+      "id": "MOD-DKHJU9",
       "by": ""
     },
     {
-      "t": "2026-10-04T21:36:37.135Z",
-      "act": "status_denied",
-      "id": "MOD-KJ6H4E",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:36:34.174Z",
+      "t": "2026-10-04T21:36:14.891Z",
       "act": "status_denied",
       "id": "MOD-TKAKAJ",
       "by": ""
     },
     {
-      "t": "2026-10-04T21:36:27.619Z",
-      "act": "status_denied",
-      "id": "MOD-DKHJU9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:35:49.057Z",
+      "t": "2026-10-04T21:36:06.471Z",
       "act": "status_pending",
-      "id": "MOD-DKHJU9",
+      "id": "MOD-TKAKAJ",
       "by": ""
     },
     {
-      "t": "2026-10-04T21:34:25.230Z",
-      "act": "status_denied",
-      "id": "MOD-2U9UHB",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:33:27.277Z",
-      "act": "status_denied",
-      "id": "MOD-KQ79BS",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:33:25.212Z",
-      "act": "status_pending",
-      "id": "MOD-KQ79BS",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:33:05.636Z",
-      "act": "status_denied",
-      "id": "MOD-2U9UHB",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:33:05.059Z",
-      "act": "status_denied",
-      "id": "MOD-2U9UHB",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:32:18.216Z",
-      "act": "status_denied",
-      "id": "MOD-3QWMPW",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:32:16.830Z",
-      "act": "status_pending",
-      "id": "MOD-3QWMPW",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:32:04.923Z",
-      "act": "status_denied",
-      "id": "MOD-UU83V4",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:32:03.539Z",
-      "act": "status_pending",
-      "id": "MOD-UU83V4",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:31:55.346Z",
+      "t": "2026-10-04T21:34:53.249Z",
       "act": "status_denied",
       "id": "MOD-64F6CF",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:34:49.186Z",
+      "act": "status_denied",
+      "id": "MOD-XAVQJ3",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:34:45.645Z",
+      "act": "status_pending",
+      "id": "MOD-XAVQJ3",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:34:00.150Z",
+      "act": "status_denied",
+      "id": "MOD-UU83V4",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:33:58.700Z",
+      "act": "status_pending",
+      "id": "MOD-UU83V4",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:33:54.430Z",
+      "act": "status_denied",
+      "id": "MOD-3QWMPW",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:33:51.732Z",
+      "act": "status_pending",
+      "id": "MOD-3QWMPW",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:32:52.189Z",
+      "act": "status_denied",
+      "id": "MOD-P6T7KY",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:32:45.071Z",
+      "act": "status_approved",
+      "id": "MOD-KF92HF",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:32:43.219Z",
+      "act": "status_pending",
+      "id": "MOD-KF92HF",
       "by": ""
     },
     {
@@ -1633,6 +1627,11 @@
       "t": "2026-10-03T07:34:55.059Z",
       "act": "video_upload",
       "id": "vids/mus2ty9q-kok.mp4"
+    },
+    {
+      "t": "2026-10-03T07:16:29.928Z",
+      "act": "config_saved",
+      "id": ""
     }
   ]
 }
