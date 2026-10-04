@@ -797,7 +797,7 @@
       "appId": "MOD-H83PHA",
       "type": "moderator",
       "date": "2026-10-04T19:24:16.357Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "LAYOJRJR",
       "discord": "michaeljacksonbest",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:29:50.459Z",
+      "act": "status_denied",
+      "id": "MOD-H83PHA",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:29:48.826Z",
       "act": "status_pending",
@@ -1608,11 +1614,6 @@
       "t": "2026-10-03T04:47:12.026Z",
       "act": "video_upload",
       "id": "vids/murwua9k-w4u.mp4"
-    },
-    {
-      "t": "2026-10-03T04:43:33.208Z",
-      "act": "config_saved",
-      "id": ""
     }
   ]
 }
