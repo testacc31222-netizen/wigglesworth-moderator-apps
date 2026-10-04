@@ -1162,6 +1162,23 @@
           "at": "2026-10-04T21:42:07.045Z"
         }
       ]
+    },
+    {
+      "id": "TKT-JK8HJX",
+      "name": "204",
+      "subject": "Lost my mod key",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T21:44:07.545Z",
+      "updatedAt": "2026-10-04T21:44:07.545Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "204",
+          "text": "No mod key",
+          "at": "2026-10-04T21:44:07.545Z"
+        }
+      ]
     }
   ],
   "audit": [
