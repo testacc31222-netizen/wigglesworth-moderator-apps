@@ -523,7 +523,7 @@
       "appId": "CC-L59SZE",
       "type": "creator",
       "date": "2026-10-02T22:24:20.670Z",
-      "status": "denied",
+      "status": "pending",
       "adminNote": "",
       "username": "Kgy",
       "discord": "K.gy",
@@ -784,6 +784,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:25:02.702Z",
+      "act": "status_pending",
+      "id": "CC-L59SZE"
+    },
     {
       "t": "2026-10-04T04:24:55.467Z",
       "act": "status_denied",
