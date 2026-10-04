@@ -737,7 +737,7 @@
       "type": "moderator",
       "date": "2026-10-04T16:14:12.658Z",
       "status": "denied",
-      "adminNote": "Make the application longer and professional.. Go home.",
+      "adminNote": "Make the application longer and professional.. Go home. (Trx6K)",
       "username": "Galixy0895",
       "discord": "Imscaredofjobs67",
       "age": "13",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:19:50.796Z",
+      "act": "status_denied",
+      "id": "MOD-XWTN6U",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:19:42.858Z",
       "act": "status_denied",
@@ -1594,11 +1600,6 @@
     },
     {
       "t": "2026-10-02T19:35:39.355Z",
-      "act": "status_pending",
-      "id": "CC-HEAWNQ"
-    },
-    {
-      "t": "2026-10-02T18:48:13.364Z",
       "act": "status_pending",
       "id": "CC-HEAWNQ"
     }
