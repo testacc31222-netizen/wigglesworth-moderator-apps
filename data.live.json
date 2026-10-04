@@ -1110,6 +1110,23 @@
           "at": "2026-10-04T21:40:43.779Z"
         }
       ]
+    },
+    {
+      "id": "TKT-L9TY2Z",
+      "name": "Cat",
+      "subject": "forgot what my code is and what a code is",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T21:40:47.413Z",
+      "updatedAt": "2026-10-04T21:40:47.413Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Cat",
+          "text": "so i forgot my code thats it",
+          "at": "2026-10-04T21:40:47.413Z"
+        }
+      ]
     }
   ],
   "audit": [
