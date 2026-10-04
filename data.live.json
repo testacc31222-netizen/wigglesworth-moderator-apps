@@ -822,6 +822,21 @@
       "why": "Palworld is fun, and its very emusing",
       "scenario": "spam with them, and swear",
       "rulebreak": "I have, but its a secert"
+    },
+    {
+      "appId": "MOD-LNVJU8",
+      "type": "moderator",
+      "date": "2026-10-04T20:31:56.304Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "204",
+      "discord": "daysvr.",
+      "age": "13",
+      "timezone": "3:30 PM GMT - 11:30PM GMT 8 hours total",
+      "experience": "No experience:(",
+      "why": "I want to get rid of moddera ruining the game and racist homophobes and genuinely horrible people and make the wigglesworth community a nice clean safe community where we can all be accepted also warn glitch abusers and whatever else is needed for this community to become safe because i am sick of these sorts of people slipping through and me having no authority to do anything about it.",
+      "scenario": "Warn them at first if they carry on Time them out",
+      "rulebreak": "No"
     }
   ],
   "tickets": [
@@ -985,31 +1000,9 @@
           "at": "2026-10-04T20:07:28.763Z"
         }
       ]
-    },
-    {
-      "id": "TKT-JEQ7LV",
-      "name": "fern testing sequence",
-      "subject": "rgerojgneringijrneirgerojgneringijrneirgerojgneringijrnei",
-      "status": "open",
-      "unread": true,
-      "createdAt": "2026-10-04T20:31:17.650Z",
-      "updatedAt": "2026-10-04T20:31:17.650Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "fern testing sequence",
-          "text": "Give me my moderator id please",
-          "at": "2026-10-04T20:31:17.650Z"
-        }
-      ]
     }
   ],
   "audit": [
-    {
-      "t": "2026-10-04T20:31:22.794Z",
-      "act": "config_saved",
-      "id": ""
-    },
     {
       "t": "2026-10-04T20:30:59.629Z",
       "act": "ticket_closed",
@@ -1502,6 +1495,11 @@
     },
     {
       "t": "2026-10-01T06:19:27.111Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-01T06:19:08.295Z",
       "act": "config_saved",
       "id": ""
     }
