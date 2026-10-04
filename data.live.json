@@ -953,20 +953,31 @@
       "name": "Interminal Moderation",
       "subject": "My Lost Mod ID",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T09:16:03.971Z",
-      "updatedAt": "2026-10-04T09:16:03.971Z",
+      "updatedAt": "2026-10-04T20:07:28.763Z",
       "replies": [
         {
           "by": "user",
           "name": "Interminal Moderation",
           "text": "I Lost My Mod ID Code Or Whatever And I Was Wondering If Yall Could Regive It To Me / Send It",
           "at": "2026-10-04T09:16:03.971Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Sure thing! Your id is MOD-KQ79BS",
+          "at": "2026-10-04T20:07:28.763Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T20:07:28.763Z",
+      "act": "ticket_reply",
+      "id": "TKT-DHGPDG"
+    },
     {
       "t": "2026-10-04T20:07:02.487Z",
       "act": "status_pending",
@@ -1459,11 +1470,6 @@
     },
     {
       "t": "2026-10-01T06:19:06.617Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:19:02.049Z",
       "act": "config_saved",
       "id": ""
     }
