@@ -616,7 +616,7 @@
       "appId": "MOD-KXTFAC",
       "type": "moderator",
       "date": "2026-10-03T23:52:49.151Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "You called me a PDF",
       "username": "Rudolph",
       "discord": "TGLRAIN",
@@ -784,6 +784,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:14:25.971Z",
+      "act": "status_denied",
+      "id": "MOD-KXTFAC"
+    },
     {
       "t": "2026-10-04T04:14:22.081Z",
       "act": "status_denied",
