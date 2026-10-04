@@ -985,6 +985,23 @@
           "at": "2026-10-04T20:07:28.763Z"
         }
       ]
+    },
+    {
+      "id": "TKT-JEQ7LV",
+      "name": "fern testing sequence",
+      "subject": "rgerojgneringijrneirgerojgneringijrneirgerojgneringijrnei",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T20:31:17.650Z",
+      "updatedAt": "2026-10-04T20:31:17.650Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "fern testing sequence",
+          "text": "Give me my moderator id please",
+          "at": "2026-10-04T20:31:17.650Z"
+        }
+      ]
     }
   ],
   "audit": [
