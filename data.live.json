@@ -661,7 +661,7 @@
       "appId": "MOD-KF92HF",
       "type": "moderator",
       "date": "2026-10-04T04:36:02.769Z",
-      "status": "pending",
+      "status": "approved",
       "adminNote": "You have a great applicaition, welcome to the staff team, make sure to maintain activity ingame and outside of the game!",
       "username": "French Toast",
       "discord": "frn.toast",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:32:45.071Z",
+      "act": "status_approved",
+      "id": "MOD-KF92HF",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:32:43.219Z",
       "act": "status_pending",
@@ -1611,11 +1617,6 @@
     },
     {
       "t": "2026-10-03T05:18:30.315Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:54:19.263Z",
       "act": "config_saved",
       "id": ""
     }
