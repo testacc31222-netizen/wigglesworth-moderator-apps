@@ -1015,6 +1015,23 @@
           "at": "2026-10-04T20:07:28.763Z"
         }
       ]
+    },
+    {
+      "id": "TKT-BFHMED",
+      "name": "Fernish,.gg",
+      "subject": "moderator applcaitsonas",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T20:37:08.639Z",
+      "updatedAt": "2026-10-04T20:37:08.639Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Fernish,.gg",
+          "text": "I need my moderator key",
+          "at": "2026-10-04T20:37:08.639Z"
+        }
+      ]
     }
   ],
   "audit": [
