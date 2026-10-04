@@ -616,7 +616,7 @@
       "appId": "MOD-KQ79BS",
       "type": "moderator",
       "date": "2026-10-04T01:15:56.389Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "You have a great application, although, We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "Interminal",
       "discord": "thegoatgtagplayer",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:33:27.277Z",
+      "act": "status_denied",
+      "id": "MOD-KQ79BS",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:33:25.212Z",
       "act": "status_pending",
@@ -1620,11 +1626,6 @@
       "t": "2026-10-03T05:33:52.273Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-03T05:33:32.012Z",
-      "act": "video_upload",
-      "id": "vids/muryhsvc-wqw.mp4"
     }
   ]
 }
