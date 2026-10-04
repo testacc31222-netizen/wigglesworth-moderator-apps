@@ -761,20 +761,31 @@
       "name": "Jordan",
       "subject": "about the game",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-03T23:53:04.038Z",
-      "updatedAt": "2026-10-03T23:53:04.038Z",
+      "updatedAt": "2026-10-04T04:27:20.507Z",
       "replies": [
         {
           "by": "user",
           "name": "Jordan",
           "text": "Thanked for making this game i really do in joy this game so i just wanna say never give up and follow your dreams.",
           "at": "2026-10-03T23:53:04.038Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Thank you 16 yr!",
+          "at": "2026-10-04T04:27:20.507Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:27:20.507Z",
+      "act": "ticket_reply",
+      "id": "TKT-8KPDCY"
+    },
     {
       "t": "2026-10-04T04:27:00.486Z",
       "act": "ticket_reply",
@@ -1269,11 +1280,6 @@
       "t": "2026-10-01T06:17:50.049Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-01T05:21:15.580Z",
-      "act": "ticket_deleted",
-      "id": "TKT-7K8DM7"
     }
   ]
 }
