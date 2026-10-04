@@ -841,6 +841,23 @@
           "at": "2026-10-04T04:27:48.043Z"
         }
       ]
+    },
+    {
+      "id": "TKT-DHGPDG",
+      "name": "Interminal Moderation",
+      "subject": "My Lost Mod ID",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T09:16:03.971Z",
+      "updatedAt": "2026-10-04T09:16:03.971Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Interminal Moderation",
+          "text": "I Lost My Mod ID Code Or Whatever And I Was Wondering If Yall Could Regive It To Me / Send It",
+          "at": "2026-10-04T09:16:03.971Z"
+        }
+      ]
     }
   ],
   "audit": [
