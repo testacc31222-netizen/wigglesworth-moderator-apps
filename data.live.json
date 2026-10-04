@@ -767,7 +767,7 @@
       "type": "creator",
       "date": "2026-10-04T17:54:16.901Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "Take these applications more serious.",
       "username": "NINJA.AC",
       "discord": "NINJA.AC",
       "age": "124356",
@@ -1104,6 +1104,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T20:58:15.137Z",
+      "act": "status_pending",
+      "id": "CC-YSWS2L"
+    },
     {
       "t": "2026-10-04T20:53:37.097Z",
       "act": "config_saved",
@@ -1596,11 +1601,6 @@
     },
     {
       "t": "2026-10-01T18:37:38.540Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T18:15:10.648Z",
       "act": "config_saved",
       "id": ""
     }
