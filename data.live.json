@@ -1082,15 +1082,21 @@
       "name": "Slimyflap",
       "subject": "Telling y’all smth",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T20:43:17.202Z",
-      "updatedAt": "2026-10-04T20:43:17.202Z",
+      "updatedAt": "2026-10-04T21:41:10.919Z",
       "replies": [
         {
           "by": "user",
           "name": "Slimyflap",
           "text": "I haven’t posted for like 5 months so I will start making content",
           "at": "2026-10-04T20:43:17.202Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey there! It’s great to hear you’re ready to jump back into content creation. You can definitely apply for the Content Creator role—no prior experience is required, just a passion for the game and a positive attitude. Just submit a new application for that role and we’ll review it as soon as we can. If you have any questions about the process or need help getting started, let me know!",
+          "at": "2026-10-04T21:41:10.919Z"
         }
       ]
     },
@@ -1142,6 +1148,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:41:10.919Z",
+      "act": "ticket_reply",
+      "id": "TKT-A8PCT6",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:41:06.158Z",
       "act": "ticket_reply",
@@ -1679,11 +1691,6 @@
     },
     {
       "t": "2026-10-03T07:38:21.839Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:38:17.434Z",
       "act": "config_saved",
       "id": ""
     }
