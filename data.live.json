@@ -1063,35 +1063,6 @@
       ]
     },
     {
-      "id": "TKT-BFHMED",
-      "name": "Fernish,.gg",
-      "subject": "moderator applcaitsonas",
-      "status": "open",
-      "unread": false,
-      "createdAt": "2026-10-04T20:37:08.639Z",
-      "updatedAt": "2026-10-04T21:06:35.150Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "Fernish,.gg",
-          "text": "I need my moderator key",
-          "at": "2026-10-04T20:37:08.639Z"
-        },
-        {
-          "by": "staff",
-          "name": "Staff",
-          "text": "Hey there! Could you let me know what you mean by “moderator key”? Are you looking for a specific tool or access code? Once I have a bit more detail, I can point you in the right direction.",
-          "at": "2026-10-04T20:38:10.447Z"
-        },
-        {
-          "by": "staff",
-          "name": "Staff",
-          "text": "Sure thing! Could you let me know what you mean by “moderator key”? Are you looking for a specific tool, an access code, or something else? Once I know, I can point you in the right direction.",
-          "at": "2026-10-04T21:06:35.150Z"
-        }
-      ]
-    },
-    {
       "id": "TKT-A8PCT6",
       "name": "Slimyflap",
       "subject": "Telling y’all smth",
@@ -1110,6 +1081,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:06:39.623Z",
+      "act": "ticket_deleted",
+      "id": "TKT-BFHMED"
+    },
     {
       "t": "2026-10-04T21:06:35.150Z",
       "act": "ticket_reply",
@@ -1604,11 +1580,6 @@
       "t": "2026-10-02T04:56:38.478Z",
       "act": "ticket_deleted",
       "id": "TKT-TSJPWD"
-    },
-    {
-      "t": "2026-10-02T03:55:47.421Z",
-      "act": "ticket_deleted",
-      "id": "TKT-PKLYGB"
     }
   ]
 }
