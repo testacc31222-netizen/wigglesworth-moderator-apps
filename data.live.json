@@ -632,7 +632,7 @@
       "type": "moderator",
       "date": "2026-10-04T01:15:56.389Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "We aren't looking for previous staff members.",
       "username": "Interminal",
       "discord": "thegoatgtagplayer",
       "age": "15",
@@ -784,6 +784,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:24:19.819Z",
+      "act": "status_pending",
+      "id": "MOD-KQ79BS"
+    },
     {
       "t": "2026-10-04T04:23:12.523Z",
       "act": "status_pending",
