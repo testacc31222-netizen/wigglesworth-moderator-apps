@@ -491,7 +491,7 @@
       "appId": "CC-HEAWNQ",
       "type": "creator",
       "date": "2026-10-02T01:50:26.397Z",
-      "status": "pending",
+      "status": "approved",
       "adminNote": "Congrats, based on your submission, you are now accepted into the content creator program. ping fernish.gg for your role!",
       "username": "AGOOSE",
       "discord": "agoose_.",
@@ -1105,6 +1105,11 @@
   ],
   "audit": [
     {
+      "t": "2026-10-04T21:05:13.369Z",
+      "act": "status_approved",
+      "id": "CC-HEAWNQ"
+    },
+    {
       "t": "2026-10-04T21:05:08.526Z",
       "act": "status_pending",
       "id": "CC-5RR3GD"
@@ -1596,11 +1601,6 @@
     },
     {
       "t": "2026-10-02T03:55:39.204Z",
-      "act": "ticket_deleted",
-      "id": "TKT-7G5S3Y"
-    },
-    {
-      "t": "2026-10-02T03:55:35.735Z",
       "act": "ticket_deleted",
       "id": "TKT-7G5S3Y"
     }
