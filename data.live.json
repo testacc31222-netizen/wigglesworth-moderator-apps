@@ -523,8 +523,8 @@
       "appId": "CC-L59SZE",
       "type": "creator",
       "date": "2026-10-02T22:24:20.670Z",
-      "status": "approved",
-      "adminNote": "Great application and great editing skills, proud to see what you bring to the table Trx!",
+      "status": "denied",
+      "adminNote": "",
       "username": "Kgy",
       "discord": "K.gy",
       "age": "15",
@@ -784,6 +784,16 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:22:55.593Z",
+      "act": "status_denied",
+      "id": "CC-L59SZE"
+    },
+    {
+      "t": "2026-10-04T04:22:54.878Z",
+      "act": "status_approved",
+      "id": "CC-L59SZE"
+    },
     {
       "t": "2026-10-04T04:15:37.305Z",
       "act": "status_denied",
