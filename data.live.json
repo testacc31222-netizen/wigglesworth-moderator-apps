@@ -722,7 +722,7 @@
       "type": "moderator",
       "date": "2026-10-04T15:42:22.187Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "You have a great application but you need maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "DANIFIREX",
       "discord": "danifire1500",
       "age": "15",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:36:44.545Z",
+      "act": "status_pending",
+      "id": "MOD-XAVQJ3",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:36:37.135Z",
       "act": "status_denied",
@@ -1624,11 +1630,6 @@
     },
     {
       "t": "2026-10-03T07:16:29.928Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:16:16.587Z",
       "act": "config_saved",
       "id": ""
     }
