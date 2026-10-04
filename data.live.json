@@ -827,7 +827,7 @@
       "appId": "MOD-LNVJU8",
       "type": "moderator",
       "date": "2026-10-04T20:31:56.304Z",
-      "status": "pending",
+      "status": "approved",
       "adminNote": "Great Application, especially the part where you stated \"where we can all be accepted\", welcome into the staff team, make sure to maintain your activity ingame and outside the game!",
       "username": "204",
       "discord": "daysvr.",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:29:30.686Z",
+      "act": "status_approved",
+      "id": "MOD-LNVJU8",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:29:28.403Z",
       "act": "status_pending",
@@ -1604,11 +1610,6 @@
       "t": "2026-10-03T04:36:54.636Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-03T04:36:53.073Z",
-      "act": "video_upload",
-      "id": "vids/murwh1ed-4ml.mp4"
     }
   ]
 }
