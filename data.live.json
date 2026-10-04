@@ -807,6 +807,21 @@
       "why": "I want to be a moderator because I want to improve my experience and stretch my skills and the communities growth and success rate",
       "scenario": "I will warn him twice if he doesn't stop after the warnings I'll time him out for a couple of minutes and tell him the reason with the proof",
       "rulebreak": "No I have not been banned ever"
+    },
+    {
+      "appId": "MOD-DD9LE9",
+      "type": "moderator",
+      "date": "2026-10-04T20:28:52.486Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "volchitsa",
+      "discord": "volchitsa.03",
+      "age": "21",
+      "timezone": "est",
+      "experience": "Its a secert.",
+      "why": "Palworld is fun, and its very emusing",
+      "scenario": "spam with them, and swear",
+      "rulebreak": "I have, but its a secert"
     }
   ],
   "tickets": [
