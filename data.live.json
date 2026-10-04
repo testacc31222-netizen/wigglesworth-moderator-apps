@@ -812,7 +812,7 @@
       "appId": "MOD-DD9LE9",
       "type": "moderator",
       "date": "2026-10-04T20:28:52.486Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "Welcome to the staff team!",
       "username": "volchitsa",
       "discord": "volchitsa.03",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:29:36.674Z",
+      "act": "status_denied",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:29:35.537Z",
       "act": "status_pending",
@@ -1604,11 +1610,6 @@
     },
     {
       "t": "2026-10-03T04:43:20.231Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:37:11.354Z",
       "act": "config_saved",
       "id": ""
     }
