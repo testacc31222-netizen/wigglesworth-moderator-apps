@@ -183,6 +183,7 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 .ticket-row:hover{border-color:var(--amber)}
 #ticketBadge{background:var(--amber);color:#0c1a26;border-radius:999px;font-size:11px;font-weight:800;padding:1px 8px;margin-left:4px}
 #ticketBadge:empty{display:none}
+mark{background:color-mix(in srgb, var(--amber) 45%, transparent);color:inherit;border-radius:3px;padding:0 1px}
 .cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
 .cd-cell{background:rgba(0,0,0,.28);border:1px solid var(--line-soft);border-radius:10px;padding:12px 6px;text-align:center}
 .cd-cell b{display:block;font-family:Fraunces,Georgia,serif;font-weight:900;font-size:34px;line-height:1}
@@ -462,7 +463,9 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
 
     <div id="tab-tickets" class="tabpane">
       <div class="toolbar">
-        <input id="ticketSearch" placeholder="Search name / subject / ID…" oninput="renderTickets()" style="flex:2">
+        <input id="ticketSearch" placeholder="Find someone — name, ID, subject, any message word…" oninput="renderTickets()" style="flex:1;min-width:220px">
+      </div>
+      <div class="toolbar">
         <select id="ticketFilter" onchange="renderTickets()" style="flex:1"><option value="">All</option><option value="open">Open</option><option value="closed">Closed</option><option value="unread">Unread</option></select>
       </div>
       <div id="ticketThread"></div>
@@ -473,7 +476,9 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
     <div id="tab-apps" class="tabpane">
       <div id="auditLog" style="margin-bottom:10px"></div>
       <div class="toolbar">
-        <input id="appSearch" placeholder="Search ID / username…" oninput="renderSubs()" style="flex:2">
+        <input id="appSearch" placeholder="Find someone — name, ID, any answer word…" oninput="renderSubs()" style="flex:1;min-width:220px">
+      </div>
+      <div class="toolbar">
         <select id="appTypeFilter" onchange="renderSubs()" style="flex:1"><option value="">All roles</option></select>
         <select id="appFilter" onchange="renderSubs()" style="flex:1"><option value="">All</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="denied">Denied</option></select>
       </div>

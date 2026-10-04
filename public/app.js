@@ -9,6 +9,13 @@ let adminCache = [];
 
 const $ = id => document.getElementById(id);
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function hi(v, q){
+  const s = esc(v == null ? '' : String(v));
+  q = (q || '').trim();
+  if(!q) return s;
+  try{ return s.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'), '<mark>$1</mark>'); }
+  catch{ return s; }
+}
 function rich(t){ if(!t) return ''; return t.replace(/\n/g,'<br>'); }
 function headers(){ return { 'Content-Type':'application/json', 'x-edit-code': editCode }; }
 function curType(){ return (config.applicationTypes||[]).find(t=>t.id===currentTypeId) || config.applicationTypes[0]; }
@@ -406,28 +413,30 @@ async function renderAudit(){
   }catch{}
 }
 async function renderSubs(){
-  const q=($('appSearch').value||'').toLowerCase();
+  const qr=($('appSearch').value||'');
+  const q=qr.toLowerCase();
   const f=$('appFilter').value, tf=$('appTypeFilter').value;
   const r = await fetch('/api/admin/applications',{headers:{'x-edit-code':editCode}});
   if(r.status===401){ $('subs').innerHTML='<p class="hint">Wrong code — lock and unlock again.</p>'; return; }
   let subs = await r.json();
   adminCache = subs;
   renderAudit();
-  $('subCount').textContent=subs.length;
-  const w=$('subs'); w.innerHTML = subs.length?'':'<p class="hint">No submissions yet.</p>';
-  const qmap = {};
-  config.applicationTypes.forEach(t=>t.questions.forEach(x=>{ qmap[t.id+':'+x.id]=x.label; }));
-  subs.filter(s=>{
+  const shown = subs.filter(s=>{
     if(f && s.status!==f) return false;
     if(tf && s.type!==tf) return false;
     if(q && !JSON.stringify(s).toLowerCase().includes(q)) return false;
     return true;
-  }).forEach(s=>{
+  });
+  $('subCount').textContent = shown.length + ' of ' + subs.length;
+  const w=$('subs'); w.innerHTML = shown.length?'':'<p class="hint">No matches. Try a name, ID, or any answer word.</p>';
+  const qmap = {};
+  config.applicationTypes.forEach(t=>t.questions.forEach(x=>{ qmap[t.id+':'+x.id]=x.label; }));
+  shown.forEach(s=>{
     const d=document.createElement('div'); d.className='submission';
-    let html=`<b>${esc(s.appId||'')}</b> <span class="hint">${esc(typeName(s.type))}</span> <span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span><br><span class="hint">${esc(s.date||'')}</span><br><br>`;
+    let html=`<b>${hi(s.appId||'',qr)}</b> <span class="hint">${hi(typeName(s.type),qr)}</span> <span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span><br><span class="hint">${hi(s.date||'',qr)}</span><br><br>`;
     Object.keys(s).forEach(k=>{
       if(['appId','type','date','status','adminNote'].includes(k)) return;
-      html+=`<b>${esc(qmap[s.type+':'+k]||k)}:</b> ${esc(s[k]||'-')}<br>`;
+      html+=`<b>${hi(qmap[s.type+':'+k]||k,qr)}:</b> ${hi(s[k]||'-',qr)}<br>`;
     });
     html+=`<label>Staff note (seen by applicant):</label><input value="${esc(s.adminNote||'')}" id="note_${esc(s.appId)}" placeholder="e.g. Great app, welcome!">`;
     d.innerHTML=html;
@@ -540,24 +549,26 @@ async function userReply(){
   currentTicket = t2; renderUserThread();
 }
 async function renderTickets(){
-  const q=($('ticketSearch').value||'').toLowerCase();
+  const qr=($('ticketSearch').value||'');
+  const q=qr.toLowerCase();
   const f=$('ticketFilter').value;
   const r = await fetch('/api/admin/tickets',{headers:{'x-edit-code':editCode}});
   if(r.status===401){ $('ticketList').innerHTML='<p class="hint">Wrong code — lock and unlock again.</p>'; return; }
   ticketAdminCache = await r.json();
   const unread = ticketAdminCache.filter(t=>t.unread && t.status==='open').length;
   $('ticketBadge').textContent = unread || '';
-  $('ticketCount').textContent = ticketAdminCache.length;
-  const w = $('ticketList'); w.innerHTML = ticketAdminCache.length?'':'<p class="hint">No tickets yet.</p>';
-  ticketAdminCache.filter(t=>{
+  const shown = ticketAdminCache.filter(t=>{
     if(f==='open' && t.status!=='open') return false;
     if(f==='closed' && t.status!=='closed') return false;
     if(f==='unread' && !(t.unread && t.status==='open')) return false;
     if(q && !JSON.stringify(t).toLowerCase().includes(q)) return false;
     return true;
-  }).forEach(t=>{
+  });
+  $('ticketCount').textContent = shown.length + ' of ' + ticketAdminCache.length;
+  const w = $('ticketList'); w.innerHTML = shown.length?'':'<p class="hint">No matches.</p>';
+  shown.forEach(t=>{
     const b=document.createElement('button'); b.className='ticket-row';
-    b.innerHTML=`<b>${esc(t.id)}</b>${t.unread&&t.status==='open'?' <span class="status pending">NEW</span>':''}<span style="flex:1"><b>${esc(t.subject)}</b><br><span class="hint">${esc(t.name)} · ${esc((t.updatedAt||'').slice(0,16).replace('T',' '))} · ${t.replies.length} msg</span></span><span class="status ${t.status==='open'?'pending':'denied'}">${t.status.toUpperCase()}</span>`;
+    b.innerHTML=`<b>${hi(t.id,qr)}</b>${t.unread&&t.status==='open'?' <span class="status pending">NEW</span>':''}<span style="flex:1"><b>${hi(t.subject,qr)}</b><br><span class="hint">${hi(t.name,qr)} · ${hi((t.updatedAt||'').slice(0,16).replace('T',' '),qr)} · ${t.replies.length} msg</span></span><span class="status ${t.status==='open'?'pending':'denied'}">${t.status.toUpperCase()}</span>`;
     b.onclick=()=>{ selectedTicketId=t.id; renderTicketThread(); };
     w.appendChild(b);
   });
@@ -572,8 +583,20 @@ function renderTicketThread(){
     + threadHTML(t,true)
     + `<label>Reply as staff${closed?' (reopens the ticket)':''}</label><textarea id="t_staffReply" rows="3"></textarea>
     <div class="row"><button class="btn-confirm" onclick="staffReply()">Send</button>
+    <button class="btn-small" id="aiBtn" onclick="suggestReply()">Draft with AI</button>
     ${closed?`<button class="btn-small" onclick="setTicketStatus('${t.id}','open')">Reopen</button>`:`<button class="btn-small" onclick="setTicketStatus('${t.id}','closed')">Close</button>`}
     <button class="btn-small" onclick="delTicket('${t.id}')">Delete</button></div>`;
+}
+async function suggestReply(){
+  const btn = $('aiBtn');
+  if(btn){ btn.disabled = true; btn.textContent = 'Thinking…'; }
+  try{
+    const r = await fetch('/api/admin/tickets/'+selectedTicketId+'/suggest',{method:'POST',headers:{'x-edit-code':editCode}});
+    const j = await r.json();
+    if(!r.ok) throw new Error(j.error || 'AI unavailable');
+    $('t_staffReply').value = j.suggestion;
+  }catch(err){ alert(err.message); }
+  finally{ if(btn){ btn.disabled = false; btn.textContent = 'Draft with AI'; } }
 }
 async function staffReply(){
   const text = $('t_staffReply').value.trim();

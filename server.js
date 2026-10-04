@@ -140,6 +140,14 @@ const adminLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 60, message: { err
 const statusLimit = rateLimit({ windowMs: 60 * 1000, max: 30 });
 const configLimit = rateLimit({ windowMs: 60 * 1000, max: 40 });
 const ticketLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 8, message: { error: 'Too many tickets, try again later.' } });
+const aiLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 20, message: { error: 'AI limit reached, try later.' } });
+// Optional AI drafts (Groq free tier works): set AI_API_KEY (+AI_BASE_URL, AI_MODEL).
+const AI_API_KEY = (process.env.AI_API_KEY || '').trim();
+const AI_BASE_URL = (process.env.AI_BASE_URL || 'https://api.groq.com/openai/v1').replace(/\/$/, '');
+const AI_MODEL = process.env.AI_MODEL || 'openai/gpt-oss-20b';
+function cleanText(v, max = 2000) {
+  return String(v ?? '').replace(/[^\S\n\t ]/g, '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').slice(0, max);
+}
 const uploadLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 30, message: { error: 'Too many uploads, try later.' } });
 app.use('/api/', general);
 
@@ -435,6 +443,44 @@ app.post('/api/tickets/:id/reply', ticketLimit, (req, res) => {
   res.json({ ok: true });
 });
 
+// AI-drafted staff reply (human reviews before sending — nothing auto-sends).
+app.post('/api/admin/tickets/:id/suggest', aiLimit, async (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!AI_API_KEY) return res.status(400).json({ error: 'AI not configured (set AI_API_KEY)' });
+  if (!validTicketId(req.params.id)) return res.status(404).json({ error: 'Not found' });
+  const t = db.tickets.find(x => x.id === req.params.id);
+  if (!t) return res.status(404).json({ error: 'Not found' });
+  const thread = (t.replies || []).slice(-8)
+    .map(m => `${m.by === 'staff' ? 'Staff' : 'Player'}: ${cleanText(m.text, 400)}`)
+    .join('\n').slice(0, 2500);
+  const roles = db.config.applicationTypes.map(x => x.name).join(', ');
+  const faq = (db.config.faq || []).slice(0, 8)
+    .map(f => `Q: ${f.q} A: ${f.a}`).join('\n').slice(0, 1200);
+  try {
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 25000);
+    const r = await fetch(`${AI_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${AI_API_KEY}` },
+      body: JSON.stringify({
+        model: AI_MODEL, temperature: 0.3, max_tokens: 300,
+        messages: [
+          { role: 'system', content: 'You draft replies for Wigglesworth game community staff answering a player support ticket. Be short, warm and human. Never invent policies, links, dates or promises. If the answer is unknown, ask one clarifying question. Output ONLY the reply text, no quotes, no preamble.' },
+          { role: 'user', content: `Ticket subject: ${t.subject}\nRoles offered: ${roles}\nKnown answers:\n${faq}\n\nThread so far:\n${thread}\n\nDraft the next staff reply:` },
+        ],
+      }),
+      signal: ctrl.signal,
+    });
+    clearTimeout(to);
+    if (!r.ok) { console.error('ai suggest failed', r.status); return res.status(502).json({ error: 'AI unavailable' }); }
+    const j = await r.json();
+    const text = cleanText(j && j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content, 1500).trim();
+    if (!text) return res.status(502).json({ error: 'AI unavailable' });
+    res.json({ suggestion: text });
+  } catch (e) { console.error('ai suggest error', e.message); res.status(502).json({ error: 'AI unavailable' }); }
+});
+
 app.get('/api/admin/tickets', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
@@ -663,7 +709,7 @@ app.get('/health', (req, res) => res.json({ ok: true }));
 app.get('/api/admin/sync', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
-  res.json({ github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH, discord: !!DISCORD_WEBHOOK_URL });
+  res.json({ github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH, discord: !!DISCORD_WEBHOOK_URL, ai: !!AI_API_KEY });
 });
 
 app.get('/api/admin/config', adminLimit, (req, res) => {
