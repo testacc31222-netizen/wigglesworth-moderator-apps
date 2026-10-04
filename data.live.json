@@ -967,10 +967,10 @@
       "id": "TKT-DHGPDG",
       "name": "Interminal Moderation",
       "subject": "My Lost Mod ID",
-      "status": "open",
+      "status": "closed",
       "unread": false,
       "createdAt": "2026-10-04T09:16:03.971Z",
-      "updatedAt": "2026-10-04T20:07:28.763Z",
+      "updatedAt": "2026-10-04T20:30:59.629Z",
       "replies": [
         {
           "by": "user",
@@ -988,6 +988,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T20:30:59.629Z",
+      "act": "ticket_closed",
+      "id": "TKT-DHGPDG"
+    },
     {
       "t": "2026-10-04T20:07:28.763Z",
       "act": "ticket_reply",
@@ -1480,11 +1485,6 @@
     },
     {
       "t": "2026-10-01T06:19:08.295Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:19:06.617Z",
       "act": "config_saved",
       "id": ""
     }
