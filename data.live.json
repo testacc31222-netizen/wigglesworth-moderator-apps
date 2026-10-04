@@ -602,7 +602,7 @@
       "type": "moderator",
       "date": "2026-10-03T23:50:55.983Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "join a vc. ASAP!!!",
       "username": "Jordan",
       "discord": "autumn915123",
       "age": "16",
@@ -784,6 +784,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:24:30.177Z",
+      "act": "status_pending",
+      "id": "MOD-KLFLKK"
+    },
     {
       "t": "2026-10-04T04:24:21.318Z",
       "act": "status_denied",
