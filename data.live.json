@@ -445,7 +445,7 @@
       "appId": "MOD-JGRKY2",
       "type": "moderator",
       "date": "2026-10-01T02:14:00.104Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "",
       "username": "CLUSSY",
       "discord": "CLUSSYVR3",
@@ -1097,6 +1097,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-04T21:25:52.797Z",
+      "act": "status_denied",
+      "id": "MOD-JGRKY2",
+      "by": ""
+    },
+    {
       "t": "2026-10-04T21:19:50.796Z",
       "act": "status_denied",
       "id": "MOD-XWTN6U",
@@ -1597,11 +1603,6 @@
       "t": "2026-10-02T19:43:16.926Z",
       "act": "status_pending",
       "id": "CC-5RR3GD"
-    },
-    {
-      "t": "2026-10-02T19:35:39.355Z",
-      "act": "status_pending",
-      "id": "CC-HEAWNQ"
     }
   ]
 }
