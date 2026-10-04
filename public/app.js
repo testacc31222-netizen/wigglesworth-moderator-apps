@@ -17,7 +17,9 @@ function hi(v, q){
   catch{ return s; }
 }
 function rich(t){ if(!t) return ''; return t.replace(/\n/g,'<br>'); }
-function headers(){ return { 'Content-Type':'application/json', 'x-edit-code': editCode }; }
+function staffName(){ return (sessionStorage.getItem('staff_name') || '').trim(); }
+function headers(){ const h = { 'Content-Type':'application/json', 'x-edit-code': editCode }; if(staffName()) h['x-staff'] = staffName(); return h; }
+function dispName(s){ return s.username || s.discord || s.appId || 'Applicant'; }
 function curType(){ return (config.applicationTypes||[]).find(t=>t.id===currentTypeId) || config.applicationTypes[0]; }
 function typeName(id){ const t=(config.applicationTypes||[]).find(x=>x.id===id); return t?t.name:id; }
 
@@ -284,9 +286,17 @@ function showEditor(refetch=true){
   $('e_rules').value=config.rules||'';
   $('e_top').value=config.topText||'';
   $('e_bottom').value=config.bottomText||'';
+  $('e_staffName').value=staffName();
   syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderFaqEditor(); renderDecor(); renderDecorList();
   syncAppTypeFilter();
   editorDirty = false;
+  if(window.__refT) clearInterval(window.__refT);
+  window.__refT = setInterval(()=>{
+    if(!unlocked) return;
+    const a = document.activeElement;
+    if(a && /INPUT|TEXTAREA|SELECT/.test(a.tagName)) return;
+    renderSubs(); renderTickets();
+  }, 30000);
   if(refetch){ renderSubs(); renderTickets(); }
 }
 async function lockEditor(){
@@ -300,6 +310,7 @@ async function lockEditor(){
     }catch{ alert('Auto-save failed — check connection, then lock again.'); return; }
   }
   unlocked=false; editCode=''; sessionStorage.removeItem('mod_edit_code'); selectedDecor=null; designOn=false;
+  if(window.__refT){ clearInterval(window.__refT); window.__refT = null; }
   document.body.classList.remove('design-on');
   $('editor').style.display='none'; renderDecor();
 }
@@ -409,7 +420,7 @@ async function renderAudit(){
     const w = $('auditLog');
     if(!log.length){ w.innerHTML=''; return; }
     w.innerHTML = '<div class="hint" style="margin-bottom:4px">Security log — latest staff actions:</div>' +
-      log.slice(0,8).map(e=>`<div class="hint">· ${esc(e.t||'').slice(0,16).replace('T',' ')} — ${esc(e.act)}${e.id?' '+esc(e.id):''}</div>`).join('');
+      log.slice(0,8).map(e=>`<div class="hint">· ${esc(e.t||'').slice(0,16).replace('T',' ')} — ${esc(e.act)}${e.id?' '+esc(e.id):''}${e.by?' · by '+esc(e.by):''}</div>`).join('');
   }catch{}
 }
 async function renderSubs(){
@@ -443,15 +454,15 @@ async function renderSubs(){
     const bar=document.createElement('div'); bar.className='row';
     const mk=(t3,cls,fn)=>{ const b=document.createElement('button'); b.className=cls; b.textContent=t3; b.onclick=fn; return b; };
     bar.append(
-      mk('Approve','btn-approve',()=>setStatus(s.appId,'approved')),
-      mk('Deny','btn-deny',()=>setStatus(s.appId,'denied')),
+      mk('Approve','btn-approve',()=>{ if(confirm('Approve ' + dispName(s) + ' (' + s.appId + ') as ' + typeName(s.type) + '?')) setStatus(s.appId,'approved'); }),
+      mk('Deny','btn-deny',()=>{ if(confirm('Deny ' + dispName(s) + ' (' + s.appId + ')?')) setStatus(s.appId,'denied'); }),
       mk('Pending','btn-pending',()=>setStatus(s.appId,'pending')),
       mk('Save note','btn-small',async()=>{
         const note=document.getElementById('note_'+s.appId).value;
         await fetch('/api/admin/applications/'+s.appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({adminNote:note})});
         renderSubs();
       }),
-      mk('Delete','btn-small',()=>delSub(s.appId))
+      mk('Delete','btn-small',()=>{ if(confirm('Delete ' + dispName(s) + ' (' + s.appId + ') forever?')) delSub(s.appId); })
     );
     d.appendChild(bar); w.appendChild(d);
   });
@@ -462,7 +473,6 @@ async function setStatus(appId,st){
   renderSubs(); renderApprovedPublic();
 }
 async function delSub(appId){
-  if(!confirm('Delete '+appId+'?')) return;
   await fetch('/api/admin/applications/'+appId,{method:'DELETE',headers:{'x-edit-code':editCode}});
   renderSubs(); renderApprovedPublic();
 }

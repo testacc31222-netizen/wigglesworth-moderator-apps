@@ -345,9 +345,11 @@ function faqMatch(text, faqs) {
   }
   return best;
 }
-function audit(db, act, id) {
+function audit(db, act, id, req) {
   if (!Array.isArray(db.audit)) db.audit = [];
-  db.audit.unshift({ t: new Date().toISOString(), act, id: cleanStr(id, 40) });
+  let by = '';
+  try { by = cleanStr(req && req.headers && req.headers['x-staff'], 40).replace(/[<>&"']/g, ''); } catch {}
+  db.audit.unshift({ t: new Date().toISOString(), act, id: cleanStr(id, 40), by });
   if (db.audit.length > 100) db.audit = db.audit.slice(0, 100);
 }
 
@@ -427,7 +429,7 @@ app.post('/api/tickets', ticketLimit, (req, res) => {
     t.replies.push({ by: 'staff', name: 'Staff (auto)',
       text: `Quick answer from our FAQ:\n\n${faqHit.f.a}\n\nStill stuck? Just reply and a human will pick it up.`,
       at: new Date().toISOString() });
-    audit(db, 'auto_faq', t.id);
+    audit(db, 'auto_faq', t.id, null);
   }
   saveDB(db);
   discordNotify(`New ticket **${t.id}** — ${t.subject}\nFrom **${t.name}**: ${t.replies[0].text.slice(0, 500)}`);
@@ -459,7 +461,7 @@ app.post('/api/tickets/:id/reply', ticketLimit, (req, res) => {
   t.replies.push({ by: staff ? 'staff' : 'user', name, text, at: new Date().toISOString() });
   t.updatedAt = new Date().toISOString();
   t.unread = !staff;
-  if (staff) audit(db, 'ticket_reply', t.id);
+  if (staff) audit(db, 'ticket_reply', t.id, req);
   saveDB(db);
   if (!staff) discordNotify(`Reply on ticket **${t.id}** (${t.subject}) from **${name}**:\n${text.slice(0, 500)}`);
   res.json({ ok: true });
@@ -523,7 +525,7 @@ app.post('/api/admin/tickets/:id/status', adminLimit, (req, res) => {
   if (!['open', 'closed'].includes(status)) return res.status(400).json({ error: 'Bad status' });
   t.status = status;
   t.updatedAt = new Date().toISOString();
-  audit(db, 'ticket_' + status, t.id);
+  audit(db, 'ticket_' + status, t.id, req);
   saveDB(db);
   res.json({ ok: true });
 });
@@ -532,7 +534,7 @@ app.delete('/api/admin/tickets/:id', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   db.tickets = db.tickets.filter(x => x.id !== req.params.id);
-  audit(db, 'ticket_deleted', req.params.id);
+  audit(db, 'ticket_deleted', req.params.id, req);
   saveDB(db);
   res.json({ ok: true });
 });
@@ -647,7 +649,7 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
   };
   if (ENV_EDIT_CODE) out.editCode = db.config.editCode;
   db.config = out;
-  audit(db, 'config_saved', '');
+  audit(db, 'config_saved', '', req);
   saveDB(db);
   res.json({ ok: true });
 });
@@ -664,7 +666,7 @@ app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {
     s.status = status;
   }
   if (adminNote !== undefined) s.adminNote = cleanStr(adminNote, 2000);
-  audit(db, 'status_' + s.status, s.appId);
+  audit(db, 'status_' + s.status, s.appId, req);
   saveDB(db);
   res.json({ ok: true });
 });
@@ -673,7 +675,7 @@ app.delete('/api/admin/applications/:id', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   db.submissions = db.submissions.filter(x => x.appId !== req.params.id);
-  audit(db, 'deleted', req.params.id);
+  audit(db, 'deleted', req.params.id, req);
   saveDB(db);
   res.json({ ok: true });
 });
@@ -683,7 +685,7 @@ app.delete('/api/admin/applications', adminLimit, (req, res) => {
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   const only = cleanStr(req.query.type, 40);
   db.submissions = only ? db.submissions.filter(x => x.type !== only) : [];
-  audit(db, 'cleared' + (only ? '_' + only : '_all'), '');
+  audit(db, 'cleared' + (only ? '_' + only : '_all'), '', req);
   saveDB(db);
   res.json({ ok: true });
 });
@@ -694,7 +696,7 @@ app.post('/api/admin/reset', adminLimit, (req, res) => {
   const keepCode = db.config.editCode;
   db.config = structuredClone(DEFAULT_CONFIG);
   db.config.editCode = keepCode;
-  audit(db, 'reset', '');
+  audit(db, 'reset', '', req);
   saveDB(db);
   res.json(publicConfig(db));
 });
@@ -721,7 +723,7 @@ app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req
   if (Array.isArray(b.tickets)) {
     db.tickets = b.tickets.filter(t => t && typeof t.id === 'string' && Array.isArray(t.replies)).slice(-2000);
   }
-  audit(db, 'restored', String(db.submissions.length));
+  audit(db, 'restored', String(db.submissions.length), req);
   saveDB(db);
   res.json({ ok: true, submissions: db.submissions.length });
 });
@@ -771,7 +773,7 @@ app.post('/api/admin/upload-video', uploadLimit, express.raw({ type: ['video/*',
       body: JSON.stringify({ message: 'upload teaser ' + name, content: buf.toString('base64'), branch: GH_BRANCH }) });
     if (!put.ok) { console.error('video store failed', put.status); return res.status(502).json({ error: 'Video store failed' }); }
   } catch (e) { console.error('video store error', e.message); return res.status(502).json({ error: 'Video store failed' }); }
-  audit(db, 'video_upload', name);
+  audit(db, 'video_upload', name, req);
   saveDB(db);
   res.json({ url: `${COUNTDOWN_PUBLIC_URL}/${name}` });
 });

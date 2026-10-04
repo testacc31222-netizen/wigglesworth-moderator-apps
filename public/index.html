@@ -390,6 +390,7 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
       <div class="row"><button class="btn-small" onclick="toggleCode()">Show / Hide code</button></div>
       <label><input type="checkbox" id="e_showApproved" style="width:auto"> Show public Accepted list</label>
       <label>Accepted list title</label><input id="e_approvedTitle" placeholder="New team members">
+      <label>Your staff name (shown in the security log so actions trace to a person)</label><input id="e_staffName" placeholder="e.g. Alex" oninput="sessionStorage.setItem('staff_name', this.value)">
     </div>
 
     <div id="tab-roles" class="tabpane">
