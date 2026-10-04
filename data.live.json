@@ -706,7 +706,7 @@
       "appId": "MOD-64F6CF",
       "type": "moderator",
       "date": "2026-10-04T15:33:45.333Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "retoni",
       "discord": "just_retoni",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:34:53.249Z",
+      "act": "status_denied",
+      "id": "MOD-64F6CF",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:34:49.186Z",
       "act": "status_denied",
@@ -1619,11 +1625,6 @@
     },
     {
       "t": "2026-10-03T05:51:17.429Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:33:52.273Z",
       "act": "config_saved",
       "id": ""
     }
