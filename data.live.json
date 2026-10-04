@@ -813,7 +813,7 @@
       "type": "moderator",
       "date": "2026-10-04T20:28:52.486Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "Welcome to the staff team!",
       "username": "volchitsa",
       "discord": "volchitsa.03",
       "age": "21",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:16:12.590Z",
+      "act": "status_pending",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:11:33.818Z",
       "act": "config_saved",
@@ -1591,11 +1597,6 @@
       "t": "2026-10-02T04:56:50.098Z",
       "act": "ticket_deleted",
       "id": "TKT-JHPG8Y"
-    },
-    {
-      "t": "2026-10-02T04:56:46.562Z",
-      "act": "ticket_deleted",
-      "id": "TKT-B72XCH"
     }
   ]
 }
