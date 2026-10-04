@@ -766,7 +766,7 @@
       "appId": "CC-YSWS2L",
       "type": "creator",
       "date": "2026-10-04T17:54:16.901Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "Take these applications more serious.",
       "username": "NINJA.AC",
       "discord": "NINJA.AC",
@@ -1104,6 +1104,16 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T20:58:25.510Z",
+      "act": "status_pending",
+      "id": "CC-ZRGADC"
+    },
+    {
+      "t": "2026-10-04T20:58:16.332Z",
+      "act": "status_denied",
+      "id": "CC-YSWS2L"
+    },
     {
       "t": "2026-10-04T20:58:15.137Z",
       "act": "status_pending",
@@ -1591,16 +1601,6 @@
     },
     {
       "t": "2026-10-01T18:39:09.439Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T18:37:44.792Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T18:37:38.540Z",
       "act": "config_saved",
       "id": ""
     }
