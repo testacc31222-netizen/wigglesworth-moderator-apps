@@ -1090,6 +1090,11 @@
   ],
   "audit": [
     {
+      "t": "2026-10-04T20:52:40.559Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
       "t": "2026-10-04T20:38:10.447Z",
       "act": "ticket_reply",
       "id": "TKT-BFHMED"
@@ -1583,11 +1588,6 @@
       "t": "2026-10-01T18:13:54.108Z",
       "act": "ticket_reply",
       "id": "TKT-CXKAEZ"
-    },
-    {
-      "t": "2026-10-01T06:20:23.992Z",
-      "act": "config_saved",
-      "id": ""
     }
   ]
 }
