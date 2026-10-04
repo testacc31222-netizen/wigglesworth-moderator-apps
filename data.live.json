@@ -782,7 +782,7 @@
       "appId": "MOD-KJ6H4E",
       "type": "moderator",
       "date": "2026-10-04T18:26:34.847Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "Im not even gonna read this 😭",
       "username": "SharrXD/none because I don't play",
       "discord": "SharrXD",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:36:37.135Z",
+      "act": "status_denied",
+      "id": "MOD-KJ6H4E",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:36:34.174Z",
       "act": "status_denied",
@@ -1623,11 +1629,6 @@
     },
     {
       "t": "2026-10-03T07:16:16.587Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T06:20:42.217Z",
       "act": "config_saved",
       "id": ""
     }
