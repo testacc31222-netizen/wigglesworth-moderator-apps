@@ -752,7 +752,7 @@
       "type": "moderator",
       "date": "2026-10-04T17:00:15.548Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "You have a great applicaition and it looks like you're free most of the time, welcome to the staff team, make sure to maintain activity ingame and outside of the game!",
       "username": "AGOOSE",
       "discord": "agoose_.",
       "age": "14",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:37:07.453Z",
+      "act": "status_pending",
+      "id": "MOD-N67S3W",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:36:50.320Z",
       "act": "status_approved",
@@ -1627,11 +1633,6 @@
       "t": "2026-10-03T07:34:55.059Z",
       "act": "video_upload",
       "id": "vids/mus2ty9q-kok.mp4"
-    },
-    {
-      "t": "2026-10-03T07:16:29.928Z",
-      "act": "config_saved",
-      "id": ""
     }
   ]
 }
