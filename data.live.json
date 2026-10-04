@@ -681,9 +681,9 @@
       "name": "Kgy",
       "subject": "I want to be a moderator",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-02T22:14:00.920Z",
-      "updatedAt": "2026-10-02T22:14:26.968Z",
+      "updatedAt": "2026-10-04T04:28:04.934Z",
       "replies": [
         {
           "by": "user",
@@ -696,6 +696,12 @@
           "name": "Kgy",
           "text": "Thank you bye",
           "at": "2026-10-02T22:14:26.968Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "This is support, if you want to do applications do it in the applications page.",
+          "at": "2026-10-04T04:28:04.934Z"
         }
       ]
     },
@@ -793,6 +799,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:28:04.934Z",
+      "act": "ticket_reply",
+      "id": "TKT-DP4J9Y"
+    },
     {
       "t": "2026-10-04T04:27:57.277Z",
       "act": "ticket_reply",
@@ -1285,11 +1296,6 @@
     },
     {
       "t": "2026-10-01T06:17:59.222Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:17:58.589Z",
       "act": "config_saved",
       "id": ""
     }
