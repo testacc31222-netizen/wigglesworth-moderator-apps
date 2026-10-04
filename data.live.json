@@ -676,7 +676,7 @@
       "appId": "MOD-3QWMPW",
       "type": "moderator",
       "date": "2026-10-04T06:15:09.223Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "Koakly",
       "discord": "TimberMoose8",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:33:54.430Z",
+      "act": "status_denied",
+      "id": "MOD-3QWMPW",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:33:51.732Z",
       "act": "status_pending",
@@ -1616,11 +1622,6 @@
       "t": "2026-10-03T05:31:07.059Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-03T05:31:04.226Z",
-      "act": "video_upload",
-      "id": "vids/muryeq4q-rik.mp3"
     }
   ]
 }
