@@ -1191,6 +1191,23 @@
           "at": "2026-10-04T21:45:36.177Z"
         }
       ]
+    },
+    {
+      "id": "TKT-BWSRDF",
+      "name": "Noah",
+      "subject": "I want moderator",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T21:54:07.806Z",
+      "updatedAt": "2026-10-04T21:54:07.806Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Noah",
+          "text": "One of my favorite things in the world is",
+          "at": "2026-10-04T21:54:07.806Z"
+        }
+      ]
     }
   ],
   "audit": [
