@@ -704,15 +704,21 @@
       "name": "Kgy",
       "subject": "This is a reason I want to be a moderator",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-02T22:17:10.004Z",
-      "updatedAt": "2026-10-02T22:17:10.004Z",
+      "updatedAt": "2026-10-04T04:27:00.486Z",
       "replies": [
         {
           "by": "user",
           "name": "Kgy",
           "text": "The reason why I want to be a moderator is because if anybody’s being toxic or being mean to another player, I will give them a warning if they do that two more times after I give them that first warning reported to the discord and ask them to ban that player for a certain amount of time or the time that they want to give them",
           "at": "2026-10-02T22:17:10.004Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "This is for support ONLY, applications can be done in the applications page.",
+          "at": "2026-10-04T04:27:00.486Z"
         }
       ]
     },
@@ -769,6 +775,11 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T04:27:00.486Z",
+      "act": "ticket_reply",
+      "id": "TKT-HHMDZY"
+    },
     {
       "t": "2026-10-04T04:25:50.027Z",
       "act": "deleted",
@@ -1262,11 +1273,6 @@
     {
       "t": "2026-10-01T05:21:15.580Z",
       "act": "ticket_deleted",
-      "id": "TKT-7K8DM7"
-    },
-    {
-      "t": "2026-10-01T05:20:45.571Z",
-      "act": "ticket_reply",
       "id": "TKT-7K8DM7"
     }
   ]
