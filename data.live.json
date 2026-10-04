@@ -1151,15 +1151,21 @@
       "name": "Royal",
       "subject": "I don’t know my code for the mod apps",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T21:42:07.045Z",
-      "updatedAt": "2026-10-04T21:42:07.045Z",
+      "updatedAt": "2026-10-04T21:45:41.534Z",
       "replies": [
         {
           "by": "user",
           "name": "Royal",
           "text": "I forgot my code to see my mod results",
           "at": "2026-10-04T21:42:07.045Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Sure thing! Could you share the Application ID you received when you submitted, or the email you used for the application? That’ll help me locate your results.",
+          "at": "2026-10-04T21:45:41.534Z"
         }
       ]
     },
@@ -1188,6 +1194,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:45:41.534Z",
+      "act": "ticket_reply",
+      "id": "TKT-KSF2S5",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:45:36.177Z",
       "act": "ticket_reply",
@@ -1729,11 +1741,6 @@
     },
     {
       "t": "2026-10-03T17:54:19.734Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T17:49:04.266Z",
       "act": "config_saved",
       "id": ""
     }
