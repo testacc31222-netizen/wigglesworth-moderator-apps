@@ -491,7 +491,7 @@
       "appId": "CC-HEAWNQ",
       "type": "creator",
       "date": "2026-10-02T01:50:26.397Z",
-      "status": "approved",
+      "status": "pending",
       "adminNote": "Congrats, based on your submission, you are now accepted into the content creator program. ping fernish.gg for your role!",
       "username": "AGOOSE",
       "discord": "agoose_.",
@@ -1090,24 +1090,30 @@
       "name": "Slimyflap",
       "subject": "Telling y’all smth",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T20:43:17.202Z",
-      "updatedAt": "2026-10-04T20:43:17.202Z",
+      "updatedAt": "2026-10-04T21:06:19.722Z",
       "replies": [
         {
           "by": "user",
           "name": "Slimyflap",
           "text": "I haven’t posted for like 5 months so I will start making content",
           "at": "2026-10-04T20:43:17.202Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "That’s great to hear! 🎉 If you’re interested in the Content Creator role, just submit a new application for that position. No prior posting history is required—just a genuine attitude and a few ideas for what you’d like to create. Once you’ve applied, you’ll get an Application ID and we’ll review it within a few days (or sooner if you ping @mightbeqntmz). Let me know if you need help with the application form or have any questions!",
+          "at": "2026-10-04T21:06:19.722Z"
         }
       ]
     }
   ],
   "audit": [
     {
-      "t": "2026-10-04T21:05:13.369Z",
-      "act": "status_approved",
-      "id": "CC-HEAWNQ"
+      "t": "2026-10-04T21:06:19.722Z",
+      "act": "ticket_reply",
+      "id": "TKT-A8PCT6"
     },
     {
       "t": "2026-10-04T21:05:08.526Z",
