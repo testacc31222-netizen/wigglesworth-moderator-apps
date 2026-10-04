@@ -43,7 +43,7 @@
       "completedLine": "completed, day 3 soon.",
       "endCardLine": "that was it, get ready for day 3",
       "soonLine": "soon.",
-      "target": "2026-10-03T21:40:00.000Z"
+      "target": "2026-10-10T21:40:00.000Z"
     },
     "layout": {
       "handNote": {
@@ -800,6 +800,11 @@
   ],
   "audit": [
     {
+      "t": "2026-10-04T04:28:49.692Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
       "t": "2026-10-04T04:28:04.934Z",
       "act": "ticket_reply",
       "id": "TKT-DP4J9Y"
@@ -1291,11 +1296,6 @@
     },
     {
       "t": "2026-10-01T06:18:00.159Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-01T06:17:59.222Z",
       "act": "config_saved",
       "id": ""
     }
