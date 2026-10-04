@@ -721,7 +721,7 @@
       "appId": "MOD-XAVQJ3",
       "type": "moderator",
       "date": "2026-10-04T15:42:22.187Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "You have a great application but you need maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "DANIFIREX",
       "discord": "danifire1500",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:37:20.090Z",
+      "act": "status_denied",
+      "id": "MOD-XAVQJ3",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:37:14.810Z",
       "act": "status_denied",
@@ -1628,11 +1634,6 @@
       "t": "2026-10-03T07:35:30.724Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-03T07:34:55.059Z",
-      "act": "video_upload",
-      "id": "vids/mus2ty9q-kok.mp4"
     }
   ]
 }
