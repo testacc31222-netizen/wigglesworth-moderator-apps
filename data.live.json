@@ -744,15 +744,21 @@
       "name": "Kgy",
       "subject": "Being a cc",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-03T03:46:40.827Z",
-      "updatedAt": "2026-10-03T03:46:40.827Z",
+      "updatedAt": "2026-10-04T04:27:41.402Z",
       "replies": [
         {
           "by": "user",
           "name": "Kgy",
           "text": "I want to be a cc because I want to promote the game and get more players",
           "at": "2026-10-03T03:46:40.827Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "This is support, if you want to do applications do it in the applications page.",
+          "at": "2026-10-04T04:27:41.402Z"
         }
       ]
     },
@@ -761,30 +767,24 @@
       "name": "Jordan",
       "subject": "about the game",
       "status": "open",
-      "unread": false,
+      "unread": true,
       "createdAt": "2026-10-03T23:53:04.038Z",
-      "updatedAt": "2026-10-04T04:27:20.507Z",
+      "updatedAt": "2026-10-03T23:53:04.038Z",
       "replies": [
         {
           "by": "user",
           "name": "Jordan",
           "text": "Thanked for making this game i really do in joy this game so i just wanna say never give up and follow your dreams.",
           "at": "2026-10-03T23:53:04.038Z"
-        },
-        {
-          "by": "staff",
-          "name": "Staff",
-          "text": "Thank you 16 yr!",
-          "at": "2026-10-04T04:27:20.507Z"
         }
       ]
     }
   ],
   "audit": [
     {
-      "t": "2026-10-04T04:27:20.507Z",
+      "t": "2026-10-04T04:27:41.402Z",
       "act": "ticket_reply",
-      "id": "TKT-8KPDCY"
+      "id": "TKT-FG2FE5"
     },
     {
       "t": "2026-10-04T04:27:00.486Z",
