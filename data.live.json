@@ -783,7 +783,7 @@
       "type": "moderator",
       "date": "2026-10-04T18:26:34.847Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "Im not even gonna read this 😭",
       "username": "SharrXD/none because I don't play",
       "discord": "SharrXD",
       "age": "14",
@@ -1096,6 +1096,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:30:40.321Z",
+      "act": "status_pending",
+      "id": "MOD-KJ6H4E",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:30:25.483Z",
       "act": "status_denied",
@@ -1608,11 +1614,6 @@
     },
     {
       "t": "2026-10-03T04:48:43.918Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:47:15.710Z",
       "act": "config_saved",
       "id": ""
     }
