@@ -299,6 +299,82 @@
             "options": ""
           }
         ]
+      },
+      {
+        "id": "event",
+        "name": "Event Hoster",
+        "prefix": "EVT",
+        "blurb": "Run game nights, tournaments, and community events.",
+        "intro": "Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.",
+        "successMessage": "Thanks! Your event hoster application was received. Save your Application ID and check your decision below.",
+        "showApproved": true,
+        "open": true,
+        "questions": [
+          {
+            "id": "username",
+            "label": "In-game Username",
+            "type": "text",
+            "placeholder": "Your username",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "discord",
+            "label": "Discord Username",
+            "type": "text",
+            "placeholder": "Your Discord name",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "age",
+            "label": "Age",
+            "type": "number",
+            "placeholder": "e.g. 16",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "timezone",
+            "label": "Timezone / Availability",
+            "type": "text",
+            "placeholder": "e.g. EST, weekends",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "experience",
+            "label": "Any hosting experience?",
+            "type": "textarea",
+            "placeholder": "Events run before, or write None",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "eventidea",
+            "label": "Describe an event you would host",
+            "type": "textarea",
+            "placeholder": "Game, format, how it runs",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "chaos",
+            "label": "30 players show up and the game breaks mid-event. What do you do?",
+            "type": "textarea",
+            "placeholder": "Explain step-by-step",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "reliable",
+            "label": "Can you commit to a regular slot?",
+            "type": "text",
+            "placeholder": "e.g. Saturdays 5pm EST",
+            "required": true,
+            "options": ""
+          }
+        ]
       }
     ]
   },
@@ -813,7 +889,7 @@
       "type": "moderator",
       "date": "2026-10-04T20:28:52.486Z",
       "status": "denied",
-      "adminNote": "Welcome to the staff team!",
+      "adminNote": "Hi volchitsa, thank you for applying to be a moderator. We appreciate your interest and time. At this time we’re not moving forward with your application. Keep gaining experience and feel free to reapply in the future. Best wishes.",
       "username": "volchitsa",
       "discord": "volchitsa.03",
       "age": "21",
@@ -1211,6 +1287,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-05T21:35:04.562Z",
+      "act": "ai_denied",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:45:36.177Z",
       "act": "ticket_reply",
@@ -1752,11 +1834,6 @@
     },
     {
       "t": "2026-10-03T17:54:19.734Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T17:49:04.266Z",
       "act": "config_saved",
       "id": ""
     }
