@@ -72,7 +72,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -445,8 +445,8 @@
       "appId": "MOD-JGRKY2",
       "type": "moderator",
       "date": "2026-10-01T02:14:00.104Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Too short",
       "username": "CLUSSY",
       "discord": "CLUSSYVR3",
       "age": "14",
@@ -616,8 +616,8 @@
       "appId": "MOD-KQ79BS",
       "type": "moderator",
       "date": "2026-10-04T01:15:56.389Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "You have a great application, although, We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "Interminal",
       "discord": "thegoatgtagplayer",
       "age": "15",
@@ -631,8 +631,8 @@
       "appId": "MOD-2U9UHB",
       "type": "moderator",
       "date": "2026-10-04T01:41:26.382Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "Loki",
       "discord": "idfktbh67",
       "age": "13",
@@ -661,8 +661,8 @@
       "appId": "MOD-KF92HF",
       "type": "moderator",
       "date": "2026-10-04T04:36:02.769Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "You have a great applicaition, welcome to the staff team, make sure to maintain activity ingame and outside of the game!",
       "username": "French Toast",
       "discord": "frn.toast",
       "age": "14",
@@ -676,8 +676,8 @@
       "appId": "MOD-3QWMPW",
       "type": "moderator",
       "date": "2026-10-04T06:15:09.223Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "Koakly",
       "discord": "TimberMoose8",
       "age": "13",
@@ -691,8 +691,8 @@
       "appId": "MOD-UU83V4",
       "type": "moderator",
       "date": "2026-10-04T08:30:12.283Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Application too short.",
       "username": "Royal",
       "discord": "Neptune",
       "age": "14",
@@ -706,8 +706,8 @@
       "appId": "MOD-64F6CF",
       "type": "moderator",
       "date": "2026-10-04T15:33:45.333Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "retoni",
       "discord": "just_retoni",
       "age": "14",
@@ -721,8 +721,8 @@
       "appId": "MOD-XAVQJ3",
       "type": "moderator",
       "date": "2026-10-04T15:42:22.187Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "You have a great application but you need maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "DANIFIREX",
       "discord": "danifire1500",
       "age": "15",
@@ -736,8 +736,8 @@
       "appId": "MOD-XWTN6U",
       "type": "moderator",
       "date": "2026-10-04T16:14:12.658Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Make the application longer and professional.. Go home. (Trx6K)",
       "username": "Galixy0895",
       "discord": "Imscaredofjobs67",
       "age": "13",
@@ -751,8 +751,8 @@
       "appId": "MOD-N67S3W",
       "type": "moderator",
       "date": "2026-10-04T17:00:15.548Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "You have a great applicaition and it looks like you're free most of the time, welcome to the staff team, make sure to maintain activity ingame and outside of the game!",
       "username": "AGOOSE",
       "discord": "agoose_.",
       "age": "14",
@@ -782,8 +782,8 @@
       "appId": "MOD-KJ6H4E",
       "type": "moderator",
       "date": "2026-10-04T18:26:34.847Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Im not even gonna read this 😭",
       "username": "SharrXD/none because I don't play",
       "discord": "SharrXD",
       "age": "14",
@@ -797,8 +797,8 @@
       "appId": "MOD-H83PHA",
       "type": "moderator",
       "date": "2026-10-04T19:24:16.357Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "LAYOJRJR",
       "discord": "michaeljacksonbest",
       "age": "15",
@@ -812,8 +812,8 @@
       "appId": "MOD-DD9LE9",
       "type": "moderator",
       "date": "2026-10-04T20:28:52.486Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Welcome to the staff team!",
       "username": "volchitsa",
       "discord": "volchitsa.03",
       "age": "21",
@@ -827,8 +827,8 @@
       "appId": "MOD-LNVJU8",
       "type": "moderator",
       "date": "2026-10-04T20:31:56.304Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Great Application, especially the part where you stated \"where we can all be accepted\", welcome into the staff team, make sure to maintain your activity ingame and outside the game!",
       "username": "204",
       "discord": "daysvr.",
       "age": "13",
@@ -842,8 +842,8 @@
       "appId": "MOD-AVZBGE",
       "type": "moderator",
       "date": "2026-10-04T20:35:21.428Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "VAULTVR",
       "discord": "vaultvr1",
       "age": "13",
@@ -857,8 +857,8 @@
       "appId": "MOD-TPTQ3X",
       "type": "moderator",
       "date": "2026-10-04T20:41:10.814Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
       "username": "Couch",
       "discord": "Couch_tato",
       "age": "13",
@@ -888,8 +888,8 @@
       "appId": "MOD-TKAKAJ",
       "type": "moderator",
       "date": "2026-10-04T20:54:57.388Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Yeah a because yeah ok. Fet it okay got kendrick on it too lol i just think it would make sense for the other guy too to have it in a movie and then the next one would have a sequel and the sequel would have to happen to make it in a different story or a movie and not just the sequel",
       "username": "korp",
       "discord": "wtfbamber",
       "age": "20",
@@ -898,6 +898,21 @@
       "why": "Yeah a because yeah ok. Fet it okay got kendrick on it too lol i just think it would make sense for the other guy too to have it in a movie and then the next one would have a sequel and the sequel would have to happen to make it in a different story or a movie and not just the sequel",
       "scenario": "Ban then the only way i could be happy with the fact i can be a part in a project",
       "rulebreak": "No"
+    },
+    {
+      "appId": "MOD-DKHJU9",
+      "type": "moderator",
+      "date": "2026-10-04T21:15:22.049Z",
+      "status": "denied",
+      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
+      "username": "abstract",
+      "discord": ".forevergone.",
+      "age": "15",
+      "timezone": "EST",
+      "experience": "I have been mod in a few games I was old t-mod here and was admin in memory tag owned by tasty.",
+      "why": "I want to be moderator to help around the server in areas other people might have missed, I know I am a past staff member but maybe yall can accept. I also am very nice and active within the community. I am also a very logical person and know what a bannable offense is when I see it and I can reason with people really well.",
+      "scenario": "First I would give them a verbal warning, warning that I would time them if they don't stop, second I would use logic to see how bad of a spam it was and from there if they don't stop I would time them the appropriate duration based on the severity of their offense.",
+      "rulebreak": "No I have not been banned at all."
     }
   ],
   "tickets": [
@@ -1067,20 +1082,429 @@
       "name": "Slimyflap",
       "subject": "Telling y’all smth",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T20:43:17.202Z",
-      "updatedAt": "2026-10-04T20:43:17.202Z",
+      "updatedAt": "2026-10-04T21:41:10.919Z",
       "replies": [
         {
           "by": "user",
           "name": "Slimyflap",
           "text": "I haven’t posted for like 5 months so I will start making content",
           "at": "2026-10-04T20:43:17.202Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey there! It’s great to hear you’re ready to jump back into content creation. You can definitely apply for the Content Creator role—no prior experience is required, just a passion for the game and a positive attitude. Just submit a new application for that role and we’ll review it as soon as we can. If you have any questions about the process or need help getting started, let me know!",
+          "at": "2026-10-04T21:41:10.919Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-VMH9B5",
+      "name": "Bamber",
+      "subject": "I lost my code",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T21:40:43.779Z",
+      "updatedAt": "2026-10-04T21:46:45.135Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Bamber",
+          "text": "Hi i lost my staff code application pls send",
+          "at": "2026-10-04T21:40:43.779Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hi! Could you let me know which code you’re referring to? Is it the application ID you received after submitting, or a different staff code? Once I have that, I’ll be happy to help.",
+          "at": "2026-10-04T21:41:06.158Z"
+        },
+        {
+          "by": "user",
+          "name": "Bamber",
+          "text": "Staff ID Oke?",
+          "at": "2026-10-04T21:46:45.135Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-L9TY2Z",
+      "name": "Cat",
+      "subject": "forgot what my code is and what a code is",
+      "status": "open",
+      "unread": false,
+      "createdAt": "2026-10-04T21:40:47.413Z",
+      "updatedAt": "2026-10-04T21:41:00.240Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Cat",
+          "text": "so i forgot my code thats it",
+          "at": "2026-10-04T21:40:47.413Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey! Could you let me know which code you’re referring to? Is it a referral code, a role‑application code, or something else? That’ll help me point you in the right direction.",
+          "at": "2026-10-04T21:41:00.240Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-KSF2S5",
+      "name": "Royal",
+      "subject": "I don’t know my code for the mod apps",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T21:42:07.045Z",
+      "updatedAt": "2026-10-04T21:42:07.045Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Royal",
+          "text": "I forgot my code to see my mod results",
+          "at": "2026-10-04T21:42:07.045Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-B2U756",
+      "name": "Rudolph",
+      "subject": "Mod",
+      "status": "open",
+      "unread": false,
+      "createdAt": "2026-10-04T21:44:36.323Z",
+      "updatedAt": "2026-10-04T21:45:36.177Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Rudolph",
+          "text": "Did I get it",
+          "at": "2026-10-04T21:44:36.323Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hi! Thanks for reaching out. To check the status of your application, could you let me know your ApplicationID or the role you applied for? I’ll look into it right away.",
+          "at": "2026-10-04T21:45:36.177Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-BWSRDF",
+      "name": "Noah",
+      "subject": "I want moderator",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-04T21:54:07.806Z",
+      "updatedAt": "2026-10-04T21:54:07.806Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Noah",
+          "text": "One of my favorite things in the world is",
+          "at": "2026-10-04T21:54:07.806Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-04T21:45:36.177Z",
+      "act": "ticket_reply",
+      "id": "TKT-B2U756",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:43:38.357Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:41:53.510Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:41:10.919Z",
+      "act": "ticket_reply",
+      "id": "TKT-A8PCT6",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:41:06.158Z",
+      "act": "ticket_reply",
+      "id": "TKT-VMH9B5",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:41:00.240Z",
+      "act": "ticket_reply",
+      "id": "TKT-L9TY2Z",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:38:14.972Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:37:30.681Z",
+      "act": "status_approved",
+      "id": "MOD-KF92HF",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:37:26.990Z",
+      "act": "status_approved",
+      "id": "MOD-N67S3W",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:37:25.299Z",
+      "act": "status_pending",
+      "id": "MOD-N67S3W",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:37:20.090Z",
+      "act": "status_denied",
+      "id": "MOD-XAVQJ3",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:37:14.810Z",
+      "act": "status_denied",
+      "id": "MOD-2U9UHB",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:36:44.545Z",
+      "act": "status_pending",
+      "id": "MOD-XAVQJ3",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:36:37.135Z",
+      "act": "status_denied",
+      "id": "MOD-KJ6H4E",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:36:34.174Z",
+      "act": "status_denied",
+      "id": "MOD-TKAKAJ",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:36:27.619Z",
+      "act": "status_denied",
+      "id": "MOD-DKHJU9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:35:49.057Z",
+      "act": "status_pending",
+      "id": "MOD-DKHJU9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:34:25.230Z",
+      "act": "status_denied",
+      "id": "MOD-2U9UHB",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:33:27.277Z",
+      "act": "status_denied",
+      "id": "MOD-KQ79BS",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:33:25.212Z",
+      "act": "status_pending",
+      "id": "MOD-KQ79BS",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:33:05.636Z",
+      "act": "status_denied",
+      "id": "MOD-2U9UHB",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:33:05.059Z",
+      "act": "status_denied",
+      "id": "MOD-2U9UHB",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:32:18.216Z",
+      "act": "status_denied",
+      "id": "MOD-3QWMPW",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:32:16.830Z",
+      "act": "status_pending",
+      "id": "MOD-3QWMPW",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:32:04.923Z",
+      "act": "status_denied",
+      "id": "MOD-UU83V4",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:32:03.539Z",
+      "act": "status_pending",
+      "id": "MOD-UU83V4",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:31:55.346Z",
+      "act": "status_denied",
+      "id": "MOD-64F6CF",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:31:54.328Z",
+      "act": "status_pending",
+      "id": "MOD-64F6CF",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:30:40.321Z",
+      "act": "status_pending",
+      "id": "MOD-KJ6H4E",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:30:25.483Z",
+      "act": "status_denied",
+      "id": "MOD-H83PHA",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:29:50.459Z",
+      "act": "status_denied",
+      "id": "MOD-H83PHA",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:29:48.826Z",
+      "act": "status_pending",
+      "id": "MOD-H83PHA",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:29:36.674Z",
+      "act": "status_denied",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:29:35.537Z",
+      "act": "status_pending",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:29:30.686Z",
+      "act": "status_approved",
+      "id": "MOD-LNVJU8",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:29:28.403Z",
+      "act": "status_pending",
+      "id": "MOD-LNVJU8",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:28:27.585Z",
+      "act": "status_denied",
+      "id": "MOD-AVZBGE",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:28:25.773Z",
+      "act": "status_pending",
+      "id": "MOD-AVZBGE",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:28:16.699Z",
+      "act": "status_denied",
+      "id": "MOD-TPTQ3X",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:28:14.801Z",
+      "act": "status_pending",
+      "id": "MOD-TPTQ3X",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:25:55.795Z",
+      "act": "status_denied",
+      "id": "MOD-JGRKY2",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:25:52.797Z",
+      "act": "status_denied",
+      "id": "MOD-JGRKY2",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:19:50.796Z",
+      "act": "status_denied",
+      "id": "MOD-XWTN6U",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:19:42.858Z",
+      "act": "status_denied",
+      "id": "MOD-XWTN6U",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:19:40.508Z",
+      "act": "status_pending",
+      "id": "MOD-XWTN6U",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:16:26.063Z",
+      "act": "status_pending",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:16:21.362Z",
+      "act": "status_pending",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:16:14.688Z",
+      "act": "status_denied",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:11:33.818Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:06:39.623Z",
       "act": "ticket_deleted",
@@ -1335,251 +1759,6 @@
       "t": "2026-10-03T17:49:04.266Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-03T07:40:41.785Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:39:12.880Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:38:21.839Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:38:17.434Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:38:06.166Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:37:57.690Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:37:55.885Z",
-      "act": "video_upload",
-      "id": "vids/mus2xuwm-89.mp4"
-    },
-    {
-      "t": "2026-10-03T07:36:11.809Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:36:05.128Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:35:30.724Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:34:55.059Z",
-      "act": "video_upload",
-      "id": "vids/mus2ty9q-kok.mp4"
-    },
-    {
-      "t": "2026-10-03T07:16:29.928Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T07:16:16.587Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T06:20:42.217Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T06:08:24.389Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:54:41.669Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:51:17.429Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:33:52.273Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:33:32.012Z",
-      "act": "video_upload",
-      "id": "vids/muryhsvc-wqw.mp4"
-    },
-    {
-      "t": "2026-10-03T05:32:23.340Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:31:37.324Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:31:07.059Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:31:04.226Z",
-      "act": "video_upload",
-      "id": "vids/muryeq4q-rik.mp3"
-    },
-    {
-      "t": "2026-10-03T05:19:12.176Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T05:18:30.315Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:54:19.263Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:54:10.961Z",
-      "act": "video_upload",
-      "id": "vids/murx3a10-5ip.mp4"
-    },
-    {
-      "t": "2026-10-03T04:48:43.918Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:47:15.710Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:47:12.026Z",
-      "act": "video_upload",
-      "id": "vids/murwua9k-w4u.mp4"
-    },
-    {
-      "t": "2026-10-03T04:43:33.208Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:43:20.231Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:37:11.354Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:36:54.636Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T04:36:53.073Z",
-      "act": "video_upload",
-      "id": "vids/murwh1ed-4ml.mp4"
-    },
-    {
-      "t": "2026-10-03T04:24:33.912Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T03:44:49.024Z",
-      "act": "status_approved",
-      "id": "CC-L59SZE"
-    },
-    {
-      "t": "2026-10-03T03:44:47.005Z",
-      "act": "status_pending",
-      "id": "CC-L59SZE"
-    },
-    {
-      "t": "2026-10-03T03:16:32.327Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-02T19:44:03.759Z",
-      "act": "status_pending",
-      "id": "CC-5RR3GD"
-    },
-    {
-      "t": "2026-10-02T19:43:16.926Z",
-      "act": "status_pending",
-      "id": "CC-5RR3GD"
-    },
-    {
-      "t": "2026-10-02T19:35:39.355Z",
-      "act": "status_pending",
-      "id": "CC-HEAWNQ"
-    },
-    {
-      "t": "2026-10-02T18:48:13.364Z",
-      "act": "status_pending",
-      "id": "CC-HEAWNQ"
-    },
-    {
-      "t": "2026-10-02T18:45:48.034Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-02T18:45:44.038Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-02T04:56:53.509Z",
-      "act": "ticket_deleted",
-      "id": "TKT-CXKAEZ"
-    },
-    {
-      "t": "2026-10-02T04:56:50.098Z",
-      "act": "ticket_deleted",
-      "id": "TKT-JHPG8Y"
-    },
-    {
-      "t": "2026-10-02T04:56:46.562Z",
-      "act": "ticket_deleted",
-      "id": "TKT-B72XCH"
-    },
-    {
-      "t": "2026-10-02T04:56:38.478Z",
-      "act": "ticket_deleted",
-      "id": "TKT-TSJPWD"
     }
   ]
 }
