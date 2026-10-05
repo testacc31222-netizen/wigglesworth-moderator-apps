@@ -211,11 +211,29 @@ const DEFAULT_TYPES = [
       Q('teamwork', 'Do you prefer solo or team work?', 'text', 'Either is fine', false),
     ],
   },
+  {
+    id: 'event', name: 'Event Hoster', prefix: 'EVT',
+    blurb: 'Run game nights, tournaments, and community events.',
+    intro: 'Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.',
+    successMessage: 'Thanks! Your event hoster application was received. Save your Application ID and check your decision below.',
+    showApproved: true,
+    open: true,
+    questions: [
+      Q('username', 'In-game Username', 'text', 'Your username', true),
+      Q('discord', 'Discord Username', 'text', 'Your Discord name', true),
+      Q('age', 'Age', 'number', 'e.g. 16', true),
+      Q('timezone', 'Timezone / Availability', 'text', 'e.g. EST, weekends', true),
+      Q('experience', 'Any hosting experience?', 'textarea', 'Events run before, or write None', true),
+      Q('eventidea', 'Describe an event you would host', 'textarea', 'Game, format, how it runs', true),
+      Q('chaos', '30 players show up and the game breaks mid-event. What do you do?', 'textarea', 'Explain step-by-step', true),
+      Q('reliable', 'Can you commit to a regular slot?', 'text', 'e.g. Saturdays 5pm EST', true),
+    ],
+  },
 ];
 
 const DEFAULT_CONFIG = {
   title: 'Wigglesworth — Join the Team',
-  subtitle: 'Three ways in. Pick the role that fits you and send one honest application.',
+  subtitle: 'Four ways in. Pick the role that fits you and send one honest application.',
   announcement: 'Applications are OPEN',
   rules: '• Must be 13+\n• One role per application — pick the closest fit\n• Be honest — lying = instant deny\n• Spamming applications = blacklist',
   accent: '#6cb8f0', bg: '#0e1218',
@@ -265,6 +283,9 @@ function loadDB() {
   if (!Array.isArray(db.tickets)) db.tickets = [];
   // fixups for DBs saved before these fields existed
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
+  if (!db.config.applicationTypes.some(t => t.id === 'event')) {
+    db.config.applicationTypes.push(structuredClone(DEFAULT_TYPES.find(t => t.id === 'event')));
+  }
   if (!Array.isArray(db.config.faq)) db.config.faq = structuredClone(DEFAULT_CONFIG.faq);
   if (!db.config.countdown || typeof db.config.countdown !== 'object') {
     db.config.countdown = { show: false, title: 'Update drops in', target: '', endVideo: '' };
@@ -652,6 +673,51 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
   audit(db, 'config_saved', '', req);
   saveDB(db);
   res.json({ ok: true });
+});
+
+// One click: set the decision AND write a matching personal message.
+// Nothing auto-sends to applicants beyond the note they already see;
+// staff can still edit the note afterwards.
+app.post('/api/admin/applications/:id/decision', aiLimit, async (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!validAppId(req.params.id)) return res.status(404).json({ error: 'Not found' });
+  const s = db.submissions.find(x => x.appId === req.params.id);
+  if (!s) return res.status(404).json({ error: 'Not found' });
+  const { decision } = req.body || {};
+  if (!['approved', 'denied'].includes(decision)) return res.status(400).json({ error: 'Bad decision' });
+  if (!AI_API_KEY) return res.status(400).json({ error: 'AI not configured (set AI_API_KEY)' });
+  const t = typeById(db, s.type);
+  const answers = (t ? t.questions : []).map(q => `${q.label}: ${cleanText(s[q.id], 500)}`).join('\n').slice(0, 2500);
+  const verdict = decision === 'approved'
+    ? 'Write a warm acceptance: congratulate them by name, mention one specific thing from their answers that stood out, tell them staff will reach out with next steps. Keep it short.'
+    : 'Write a kind rejection: thank them for applying, give ONE general encouragement (gain experience, reapply later), never be harsh, never invent specific reasons. Keep it short.';
+  try {
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 25000);
+    const r = await fetch(`${AI_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${AI_API_KEY}` },
+      body: JSON.stringify({
+        model: AI_MODEL, temperature: 0.5, max_tokens: 300,
+        messages: [
+          { role: 'system', content: 'You write decision messages for Wigglesworth community staff to applicants. Warm, human, concise. Never invent links, dates, usernames or promises. Output ONLY the message text, no quotes, no preamble.' },
+          { role: 'user', content: `Role applied for: ${t ? t.name : s.type}\nApplicant: ${displayName(s)}\n\nTheir answers:\n${answers}\n\n${verdict}` },
+        ],
+      }),
+      signal: ctrl.signal,
+    });
+    clearTimeout(to);
+    if (!r.ok) { console.error('ai decision failed', r.status); return res.status(502).json({ error: 'AI unavailable' }); }
+    const j = await r.json();
+    const note = cleanText(j && j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content, 1500).trim();
+    if (!note) return res.status(502).json({ error: 'AI unavailable' });
+    s.status = decision;
+    s.adminNote = note;
+    audit(db, 'ai_' + decision, s.appId, req);
+    saveDB(db);
+    res.json({ ok: true });
+  } catch (e) { console.error('ai decision error', e.message); res.status(502).json({ error: 'AI unavailable' }); }
 });
 
 app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {

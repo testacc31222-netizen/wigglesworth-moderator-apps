@@ -117,6 +117,7 @@ function renderCountdown(){
 }
 function renderTypeCards(){
   const w = $('roleCards'); w.innerHTML = '';
+  const openN = config.applicationTypes.filter(t=>t.open!==false).length;
   config.applicationTypes.forEach(t=>{
     const b = document.createElement('button');
     const closed = t.open === false;
@@ -125,6 +126,10 @@ function renderTypeCards(){
     if(closed) b.style.opacity = '.55';
     w.appendChild(b);
   });
+  const s0 = dEl('stat0');
+  if(s0 && !(config.layout && config.layout.stat0 && config.layout.stat0.text)) {
+    s0.textContent = openN + ' open role' + (openN === 1 ? '' : 's');
+  }
 }
 function toggleApplyMenu(){
   const m = $('roleMenu');
@@ -454,9 +459,11 @@ async function renderSubs(){
     const bar=document.createElement('div'); bar.className='row';
     const mk=(t3,cls,fn)=>{ const b=document.createElement('button'); b.className=cls; b.textContent=t3; b.onclick=fn; return b; };
     bar.append(
-      mk('Approve','btn-approve',()=>{ if(confirm('Approve ' + dispName(s) + ' (' + s.appId + ') as ' + typeName(s.type) + '?')) setStatus(s.appId,'approved'); }),
-      mk('Deny','btn-deny',()=>{ if(confirm('Deny ' + dispName(s) + ' (' + s.appId + ')?')) setStatus(s.appId,'denied'); }),
+      mk('Approve','btn-approve',()=>setStatus(s.appId,'approved')),
+      mk('Deny','btn-deny',()=>setStatus(s.appId,'denied')),
       mk('Pending','btn-pending',()=>setStatus(s.appId,'pending')),
+      mk('AI Accept','btn-small',()=>aiDecision(s.appId,'approved')),
+      mk('AI Deny','btn-small',()=>aiDecision(s.appId,'denied')),
       mk('Save note','btn-small',async()=>{
         const note=document.getElementById('note_'+s.appId).value;
         await fetch('/api/admin/applications/'+s.appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({adminNote:note})});
@@ -471,6 +478,14 @@ async function setStatus(appId,st){
   const noteEl = document.getElementById('note_'+appId);
   await fetch('/api/admin/applications/'+appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({status:st, adminNote: noteEl?noteEl.value:undefined})});
   renderSubs(); renderApprovedPublic();
+}
+async function aiDecision(appId, decision){
+  try{
+    const r = await fetch('/api/admin/applications/'+appId+'/decision',{method:'POST',headers:headers(),body:JSON.stringify({decision})});
+    const j = await r.json();
+    if(!r.ok) throw new Error(j.error || 'AI unavailable');
+    renderSubs(); renderApprovedPublic();
+  }catch(err){ alert(err.message); }
 }
 async function delSub(appId){
   await fetch('/api/admin/applications/'+appId,{method:'DELETE',headers:{'x-edit-code':editCode}});
