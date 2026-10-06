@@ -1273,20 +1273,32 @@
       "name": "Noah",
       "subject": "I want moderator",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T21:54:07.806Z",
-      "updatedAt": "2026-10-04T21:54:07.806Z",
+      "updatedAt": "2026-10-06T00:07:00.816Z",
       "replies": [
         {
           "by": "user",
           "name": "Noah",
           "text": "One of my favorite things in the world is",
           "at": "2026-10-04T21:54:07.806Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Thanks for reaching out! To apply for a Moderator role, just fill out the application form and submit it. If you have any questions about the process, let us know. Also, you mentioned “One of my favorite things in the world is…” – would you mind finishing that sentence?",
+          "at": "2026-10-06T00:07:00.816Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-06T00:07:00.816Z",
+      "act": "ticket_reply",
+      "id": "TKT-BWSRDF",
+      "by": ""
+    },
     {
       "t": "2026-10-05T21:35:11.983Z",
       "act": "status_denied",
@@ -1832,11 +1844,6 @@
       "t": "2026-10-03T22:32:48.857Z",
       "act": "status_pending",
       "id": "CC-99MHFW"
-    },
-    {
-      "t": "2026-10-03T22:32:27.216Z",
-      "act": "config_saved",
-      "id": ""
     }
   ]
 }
