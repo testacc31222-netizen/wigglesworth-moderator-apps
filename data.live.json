@@ -994,8 +994,8 @@
       "appId": "EVT-PLFTVT",
       "type": "event",
       "date": "2026-10-06T00:10:41.533Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying for the Event Hoster role. We appreciate your interest and experience. Keep building your hosting skills and feel free to reapply in the future. Best of luck!",
       "username": "Stunt",
       "discord": "stunt_vr",
       "age": "14",
@@ -1323,6 +1323,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-06T02:04:10.799Z",
+      "act": "ai_denied",
+      "id": "EVT-PLFTVT",
+      "by": ""
+    },
     {
       "t": "2026-10-06T00:07:49.095Z",
       "act": "config_saved",
@@ -1868,11 +1874,6 @@
     },
     {
       "t": "2026-10-04T03:44:51.831Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T03:44:48.439Z",
       "act": "config_saved",
       "id": ""
     }
