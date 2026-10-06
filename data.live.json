@@ -994,8 +994,8 @@
       "appId": "EVT-PLFTVT",
       "type": "event",
       "date": "2026-10-06T00:10:41.533Z",
-      "status": "denied",
-      "adminNote": "Thank you for applying for the Event Hoster role. We appreciate your interest and experience. Keep building your hosting skills and feel free to reapply in the future. Best of luck!",
+      "status": "pending",
+      "adminNote": "",
       "username": "Stunt",
       "discord": "stunt_vr",
       "age": "14",
@@ -1009,8 +1009,8 @@
       "appId": "EVT-RG9JAX",
       "type": "event",
       "date": "2026-10-06T01:54:06.715Z",
-      "status": "approved",
-      "adminNote": "Hi Couch,\n\nCongratulations! Your creative idea for a stealth‑based event in BTM really stood out, and we’re excited to have you join our team. Our staff will be in touch soon with next steps.",
+      "status": "pending",
+      "adminNote": "",
       "username": "Couch",
       "discord": "Couch_tato",
       "age": "13",
@@ -1324,9 +1324,9 @@
   ],
   "audit": [
     {
-      "t": "2026-10-06T02:04:29.565Z",
-      "act": "ai_approved",
-      "id": "EVT-RG9JAX",
+      "t": "2026-10-06T02:04:50.553Z",
+      "act": "status_pending",
+      "id": "EVT-PLFTVT",
       "by": ""
     },
     {
