@@ -303,10 +303,10 @@
       {
         "id": "event",
         "name": "Event Hoster",
-        "prefix": "EVT",
         "blurb": "Run game nights, tournaments, and community events.",
+        "prefix": "EVT",
         "intro": "Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.",
-        "successMessage": "Thanks! Your event hoster application was received. Save your Application ID and check your decision below.",
+        "successMessage": "",
         "showApproved": true,
         "open": true,
         "questions": [
@@ -360,7 +360,7 @@
           },
           {
             "id": "chaos",
-            "label": "30 players show up and the game breaks mid-event. What do you do?",
+            "label": "Players show up and the game breaks mid-event. What do you do?",
             "type": "textarea",
             "placeholder": "Explain step-by-step",
             "required": true,
@@ -1233,21 +1233,15 @@
       "name": "Royal",
       "subject": "I don’t know my code for the mod apps",
       "status": "open",
-      "unread": false,
+      "unread": true,
       "createdAt": "2026-10-04T21:42:07.045Z",
-      "updatedAt": "2026-10-06T00:07:06.565Z",
+      "updatedAt": "2026-10-04T21:42:07.045Z",
       "replies": [
         {
           "by": "user",
           "name": "Royal",
           "text": "I forgot my code to see my mod results",
           "at": "2026-10-04T21:42:07.045Z"
-        },
-        {
-          "by": "staff",
-          "name": "Staff",
-          "text": "Hi there! I’d love to help you locate your code. Could you let me know the Application ID you received when you submitted your application (or the email address you used)? That’ll help me pull up the right details.",
-          "at": "2026-10-06T00:07:06.565Z"
         }
       ]
     },
@@ -1300,9 +1294,9 @@
   ],
   "audit": [
     {
-      "t": "2026-10-06T00:07:06.565Z",
-      "act": "ticket_reply",
-      "id": "TKT-KSF2S5",
+      "t": "2026-10-06T00:07:49.095Z",
+      "act": "config_saved",
+      "id": "",
       "by": ""
     },
     {
