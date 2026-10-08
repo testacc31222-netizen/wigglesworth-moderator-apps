@@ -1924,5 +1924,19 @@
       "id": "MOD-S8G2D4"
     }
   ],
-  "reports": []
+  "reports": [
+    {
+      "id": "RPT-YNETUZ",
+      "reporter": "",
+      "staffName": "Milo vr",
+      "details": "They are trying to get me to put they helped in reports for a promo keep me anonymous",
+      "files": [
+        "/evidence/ev-muznyalr-z4a.jpg"
+      ],
+      "status": "open",
+      "adminNote": "",
+      "createdAt": "2026-10-08T15:00:42.263Z",
+      "updatedAt": "2026-10-08T15:00:42.263Z"
+    }
+  ]
 }
