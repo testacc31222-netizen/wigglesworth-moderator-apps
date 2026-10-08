@@ -299,6 +299,82 @@
             "options": ""
           }
         ]
+      },
+      {
+        "id": "event",
+        "name": "Event Hoster",
+        "blurb": "Run game nights, tournaments, and community events.",
+        "prefix": "EVT",
+        "intro": "Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.",
+        "successMessage": "",
+        "showApproved": true,
+        "open": true,
+        "questions": [
+          {
+            "id": "username",
+            "label": "In-game Username",
+            "type": "text",
+            "placeholder": "Your username",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "discord",
+            "label": "Discord Username",
+            "type": "text",
+            "placeholder": "Your Discord name",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "age",
+            "label": "Age",
+            "type": "number",
+            "placeholder": "e.g. 16",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "timezone",
+            "label": "Timezone / Availability",
+            "type": "text",
+            "placeholder": "e.g. EST, weekends",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "experience",
+            "label": "Any hosting experience?",
+            "type": "textarea",
+            "placeholder": "Events run before, or write None",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "eventidea",
+            "label": "Describe an event you would host",
+            "type": "textarea",
+            "placeholder": "Game, format, how it runs",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "chaos",
+            "label": "Players show up and the game breaks mid-event. What do you do?",
+            "type": "textarea",
+            "placeholder": "Explain step-by-step",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "reliable",
+            "label": "Can you commit to a regular slot?",
+            "type": "text",
+            "placeholder": "e.g. Saturdays 5pm EST",
+            "required": true,
+            "options": ""
+          }
+        ]
       }
     ]
   },
@@ -813,7 +889,7 @@
       "type": "moderator",
       "date": "2026-10-04T20:28:52.486Z",
       "status": "denied",
-      "adminNote": "Welcome to the staff team!",
+      "adminNote": "Hi volchitsa, thank you for applying to be a moderator. We appreciate your interest and time. At this time we’re not moving forward with your application. Keep gaining experience and feel free to reapply in the future. Best wishes.",
       "username": "volchitsa",
       "discord": "volchitsa.03",
       "age": "21",
@@ -913,6 +989,66 @@
       "why": "I want to be moderator to help around the server in areas other people might have missed, I know I am a past staff member but maybe yall can accept. I also am very nice and active within the community. I am also a very logical person and know what a bannable offense is when I see it and I can reason with people really well.",
       "scenario": "First I would give them a verbal warning, warning that I would time them if they don't stop, second I would use logic to see how bad of a spam it was and from there if they don't stop I would time them the appropriate duration based on the severity of their offense.",
       "rulebreak": "No I have not been banned at all."
+    },
+    {
+      "appId": "EVT-PLFTVT",
+      "type": "event",
+      "date": "2026-10-06T00:10:41.533Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Stunt",
+      "discord": "stunt_vr",
+      "age": "14",
+      "timezone": "Weekdays from 12:00 PM CST - 10:30 PM CST and Saturday anytime",
+      "experience": "Yes, I was an Event Hoster for Wigglesworth",
+      "eventidea": "Red Light Green light, Simon Says, and more",
+      "chaos": "Delay the event and do the event a different time",
+      "reliable": "Yeah"
+    },
+    {
+      "appId": "EVT-RG9JAX",
+      "type": "event",
+      "date": "2026-10-06T01:54:06.715Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Couch",
+      "discord": "Couch_tato",
+      "age": "13",
+      "timezone": "Est. All of this week and next week. (depends on the time) After that then usually weekends.",
+      "experience": "None as of now, but I would try my best if I get selected!",
+      "eventidea": "My idea would take place in btm. Basically the monster has to cover their eyes in some way so they can't see. The monsters goal is to catch the players only using their audio. The players would have to sneak past the monster without making a sound. If the monster hears a loud sound they can turn around and catch them. (people have to be extremely quiet, passing the monster in the middle to make it to the end) I also have a bonus event. This also would take place in btm where all of the players would have to make it past the monster. They have to successfully make it past the monster when there back is turned. To pass, a person must be the first to cross the section. It is basically red light green light and when they are caught they get sent to the lobby where they can spectate and wait for the next round. (this would help to keep track of winners)",
+      "chaos": "I would try to sort things out and handle the situation at my best capability. I would also suggest things to resolve this issue, by figuring out a solution.",
+      "reliable": "Probably Saturdays/Sundays around 5-8pm est"
+    },
+    {
+      "appId": "EVT-QCF2T2",
+      "type": "event",
+      "date": "2026-10-06T11:41:28.277Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "retoni",
+      "discord": "just_retoni",
+      "age": "14",
+      "timezone": "CST, from 3:30 to 9:30",
+      "experience": "Yes",
+      "eventidea": "I would probably host something like an hide and seek event or mini games like red light green light and things of that nature I would also make up some of my own things.",
+      "chaos": "First I would tell everyone to wait 1 minute or so to see if it was just a little bug with the game. If that doesn’t work I would ask everyone to reset their game as I check the discord to see if zern posted that there was a bug. After that I would delay the event until the devs fix the game and it is playable again.",
+      "reliable": "Yes, I can commit to doing events at around 7pm CST."
+    },
+    {
+      "appId": "EVT-J98W6M",
+      "type": "event",
+      "date": "2026-10-06T14:46:21.661Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Royal",
+      "discord": "Neptunegt7",
+      "age": "13",
+      "timezone": "Europe any time on weekends rlly",
+      "experience": "I did a bit of event hosting for a YouTuber called k1ngvr7",
+      "eventidea": "Mainly give always",
+      "chaos": "1. I would get everyone’s discord before we start 2. Then I would ping them a new code 3. Carry on and have fun",
+      "reliable": "I can’t rlly bc my family is rlly busy"
     }
   ],
   "tickets": [
@@ -1197,20 +1333,62 @@
       "name": "Noah",
       "subject": "I want moderator",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T21:54:07.806Z",
-      "updatedAt": "2026-10-04T21:54:07.806Z",
+      "updatedAt": "2026-10-06T00:07:00.816Z",
       "replies": [
         {
           "by": "user",
           "name": "Noah",
           "text": "One of my favorite things in the world is",
           "at": "2026-10-04T21:54:07.806Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Thanks for reaching out! To apply for a Moderator role, just fill out the application form and submit it. If you have any questions about the process, let us know. Also, you mentioned “One of my favorite things in the world is…” – would you mind finishing that sentence?",
+          "at": "2026-10-06T00:07:00.816Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-06T02:04:50.553Z",
+      "act": "status_pending",
+      "id": "EVT-PLFTVT",
+      "by": ""
+    },
+    {
+      "t": "2026-10-06T02:04:10.799Z",
+      "act": "ai_denied",
+      "id": "EVT-PLFTVT",
+      "by": ""
+    },
+    {
+      "t": "2026-10-06T00:07:49.095Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-06T00:07:00.816Z",
+      "act": "ticket_reply",
+      "id": "TKT-BWSRDF",
+      "by": ""
+    },
+    {
+      "t": "2026-10-05T21:35:11.983Z",
+      "act": "status_denied",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-05T21:35:04.562Z",
+      "act": "ai_denied",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
     {
       "t": "2026-10-04T21:45:36.177Z",
       "act": "ticket_reply",
@@ -1729,36 +1907,6 @@
       "t": "2026-10-04T03:57:01.959Z",
       "act": "deleted",
       "id": "MOD-S8G2D4"
-    },
-    {
-      "t": "2026-10-04T03:44:51.831Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T03:44:48.439Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T22:32:48.857Z",
-      "act": "status_pending",
-      "id": "CC-99MHFW"
-    },
-    {
-      "t": "2026-10-03T22:32:27.216Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T17:54:19.734Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-03T17:49:04.266Z",
-      "act": "config_saved",
-      "id": ""
     }
   ]
 }
