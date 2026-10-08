@@ -300,9 +300,9 @@ function showEditor(refetch=true){
     if(!unlocked) return;
     const a = document.activeElement;
     if(a && /INPUT|TEXTAREA|SELECT/.test(a.tagName)) return;
-    renderSubs(); renderTickets();
+    renderSubs(); renderTickets(); renderReports();
   }, 30000);
-  if(refetch){ renderSubs(); renderTickets(); }
+  if(refetch){ renderSubs(); renderTickets(); renderReports(); }
 }
 async function lockEditor(){
   if(unlocked && editorDirty){
@@ -642,6 +642,110 @@ async function delTicket(id){
   renderTickets();
 }
 
+// ---- staff reports ----
+let reportFiles = [];
+let selectedReportId = null;
+let reportAdminCache = [];
+function evIsImg(u){ return /\.(png|jpg|gif|webp)$/i.test(u); }
+function renderEvList(){
+  const w = $('evList'); w.innerHTML = '';
+  reportFiles.forEach((u, i)=>{
+    const d = document.createElement('div');
+    d.innerHTML = (evIsImg(u) ? `<img class="ev-thumb" src="${esc(u)}">` : `<p class="hint">🎬 ${esc(u.split('/').pop())}</p>`);
+    const x = document.createElement('button'); x.className = 'btn-small'; x.type = 'button'; x.textContent = 'Remove';
+    x.onclick = ()=>{ reportFiles.splice(i, 1); renderEvList(); };
+    d.appendChild(x); w.appendChild(d);
+  });
+}
+async function uploadEvidence(f){
+  if(!/^(image|video)\//.test(f.type) && !/\.(png|jpg|jpeg|gif|webp|mp4|webm)$/i.test(f.name)){ $('evMsg').textContent = 'Pictures or MP4/WebM only.'; return; }
+  if(f.size > 12 * 1024 * 1024){ $('evMsg').textContent = 'Too big — 12MB max each.'; return; }
+  if(reportFiles.length >= 3){ $('evMsg').textContent = 'Max 3 files.'; return; }
+  $('evMsg').textContent = 'Uploading…';
+  try{
+    const r = await fetch('/api/report-evidence',{method:'POST',headers:{'Content-Type':f.type||'application/octet-stream'},body:f});
+    const j = await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(j.error || 'Upload failed');
+    reportFiles.push(j.url); renderEvList();
+    $('evMsg').textContent = '';
+  }catch(err){ $('evMsg').textContent = err.message; }
+}
+async function submitReport(e){
+  e.preventDefault();
+  const body = { staffName: $('r_staff').value.trim(), reporter: $('r_name').value.trim(),
+    details: $('r_details').value.trim(), files: reportFiles };
+  if(!body.staffName || body.details.length < 20){ alert('Name the staff member and describe what happened (20+ characters).'); return false; }
+  const btn = e.target.querySelector('button[type=submit]');
+  if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+  try{
+    const r = await fetch('/api/reports',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const j = await r.json();
+    if(!r.ok) throw new Error(j.error || 'Failed');
+    $('reportForm').style.display = 'none';
+    $('reportDone').style.display = 'block';
+    $('newReportId').textContent = j.id;
+  }catch(err){ alert(err.message); }
+  finally{ if(btn){ btn.disabled = false; btn.textContent = 'Send report'; } }
+  return false;
+}
+function resetReportForm(){ $('reportForm').reset(); reportFiles = []; renderEvList(); $('reportForm').style.display = 'block'; $('reportDone').style.display = 'none'; }
+function copyReportId(){ const t = $('newReportId').textContent; navigator.clipboard?.writeText(t); alert('Copied: ' + t); }
+async function renderReports(){
+  const qr = ($('reportSearch').value || '');
+  const q = qr.toLowerCase();
+  const f = $('reportFilter').value;
+  const r = await fetch('/api/admin/reports',{headers:{'x-edit-code':editCode}});
+  if(r.status === 401){ $('reportList').innerHTML = '<p class="hint">Wrong code — lock and unlock again.</p>'; return; }
+  reportAdminCache = await r.json();
+  const open = reportAdminCache.filter(t => t.status === 'open').length;
+  $('reportBadge').textContent = open || '';
+  const shown = reportAdminCache.filter(t=>{
+    if(f && t.status !== f) return false;
+    if(q && !JSON.stringify(t).toLowerCase().includes(q)) return false;
+    return true;
+  });
+  $('reportCount').textContent = shown.length + ' of ' + reportAdminCache.length;
+  const w = $('reportList'); w.innerHTML = shown.length ? '' : '<p class="hint">No matches.</p>';
+  shown.forEach(t=>{
+    const b = document.createElement('button'); b.className = 'ticket-row';
+    b.innerHTML = `<b>${hi(t.id, qr)}</b>${t.status === 'open' ? ' <span class="status pending">NEW</span>' : ''}<span style="flex:1"><b>re: ${hi(t.staffName, qr)}</b><br><span class="hint">by ${hi(t.reporter || 'Anonymous', qr)} · ${(t.files || []).length} file(s) · ${hi((t.updatedAt || '').slice(0, 16).replace('T', ' '), qr)}</span></span><span class="status ${t.status === 'open' ? 'pending' : 'denied'}">${t.status.toUpperCase()}</span>`;
+    b.onclick = ()=>{ selectedReportId = t.id; renderReportThread(); };
+    w.appendChild(b);
+  });
+  if(selectedReportId) renderReportThread();
+}
+function renderReportThread(){
+  const box = $('reportThread');
+  const t = reportAdminCache.find(x => x.id === selectedReportId);
+  if(!t){ box.innerHTML = ''; return; }
+  const closed = t.status !== 'open';
+  let files = '';
+  (t.files || []).forEach(u=>{
+    files += evIsImg(u) ? `<a href="${esc(u)}" target="_blank" rel="noopener"><img class="ev-thumb" src="${esc(u)}"></a>`
+      : `<p><a href="${esc(u)}" target="_blank" rel="noopener">🎬 ${esc(u.split('/').pop())}</a></p>`;
+  });
+  box.innerHTML = `<div class="submission"><b>${esc(t.id)}</b> — re: <b>${esc(t.staffName)}</b> <span class="hint">from ${esc(t.reporter || 'Anonymous')} · ${esc(t.createdAt || '')}</span> <span class="status ${closed ? 'denied' : 'pending'}">${t.status.toUpperCase()}</span><br><br>${esc(t.details)}<br><br>${files}</div>`
+    + `<label>Internal note (never shown publicly)</label><input value="${esc(t.adminNote || '')}" id="rnote_${esc(t.id)}" placeholder="e.g. checked logs, warned">`
+    + `<div class="row"><button class="btn-small" id="rSaveNote">Save note</button>`
+    + (closed ? `<button class="btn-small" onclick="setReportStatus('${t.id}','open')">Reopen</button>` : `<button class="btn-small" onclick="setReportStatus('${t.id}','closed')">Resolve</button>`)
+    + `<button class="btn-small" onclick="delReport('${t.id}')">Delete</button></div>`;
+  $('rSaveNote').onclick = async ()=>{
+    const note = document.getElementById('rnote_' + t.id).value;
+    await fetch('/api/admin/reports/' + t.id + '/status',{method:'POST',headers:headers(),body:JSON.stringify({adminNote:note})});
+    renderReports();
+  };
+}
+async function setReportStatus(id, st){
+  await fetch('/api/admin/reports/' + id + '/status',{method:'POST',headers:headers(),body:JSON.stringify({status:st})});
+  renderReports();
+}
+async function delReport(id){
+  if(!confirm('Delete report ' + id + ' and its evidence forever?')) return;
+  await fetch('/api/admin/reports/' + id,{method:'DELETE',headers:{'x-edit-code':editCode}});
+  if(selectedReportId === id) selectedReportId = null;
+  renderReports();
+}
+
 // ---- canva-lite visual editor ----
 const DREG = {
   heroEyebrow:{label:'Hero eyebrow',text:true},
@@ -970,6 +1074,20 @@ window.addEventListener('DOMContentLoaded', ()=>{
   document.body.style.overflow = 'hidden';
   $('editor').addEventListener('input', markDirty);
   $('editor').addEventListener('change', markDirty);
+  const dz = $('evdrop'), fz = $('r_files');
+  if(dz && fz){
+    dz.addEventListener('click', ()=>fz.click());
+    fz.addEventListener('change', ()=>{
+      for(const f of fz.files) uploadEvidence(f);
+      fz.value = '';
+    });
+    ['dragover','dragenter'].forEach(ev=>dz.addEventListener(ev, e=>{ e.preventDefault(); dz.classList.add('hot'); }));
+    ['dragleave','drop'].forEach(ev=>dz.addEventListener(ev, e=>{ e.preventDefault(); dz.classList.remove('hot'); }));
+    dz.addEventListener('drop', e=>{
+      const fs = e.dataTransfer && e.dataTransfer.files;
+      for(const f of (fs || [])) uploadEvidence(f);
+    });
+  }
   window.addEventListener('beforeunload', e=>{
     if(unlocked && editorDirty){
       try{

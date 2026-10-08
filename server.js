@@ -30,6 +30,9 @@ const GH_BRANCH = process.env.GITHUB_BRANCH || 'main';
 const GH_PATH = 'data.live.json';
 // Teaser uploads land in the countdown repo so the static site can serve them.
 const GH_CD_REPO = process.env.GITHUB_COUNTDOWN_REPO || 'testacc31222-netizen/wigglesworth-countdown';
+const EVIDENCE_DIR = path.join(__dirname, 'evidence');
+try { fs.mkdirSync(EVIDENCE_DIR, { recursive: true }); } catch {}
+app.use('/evidence', express.static(EVIDENCE_DIR, { maxAge: '7d' }));
 const COUNTDOWN_PUBLIC_URL = (process.env.COUNTDOWN_PUBLIC_URL || 'https://wigglesworth-countdown.onrender.com').replace(/\/$/, '');
 // Discord staff alerts (ticket created + user replies). URL stays server-side.
 const DISCORD_WEBHOOK_URL = (process.env.DISCORD_WEBHOOK_URL || '').trim();
@@ -149,6 +152,7 @@ function cleanText(v, max = 2000) {
   return String(v ?? '').replace(/[^\S\n\t ]/g, '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').slice(0, max);
 }
 const uploadLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 30, message: { error: 'Too many uploads, try later.' } });
+const evidenceLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 10, message: { error: 'Too many uploads, try later.' } });
 app.use('/api/', general);
 
 const Q = (id, label, type, placeholder, required, options = '') =>
@@ -263,7 +267,7 @@ function loadDB() {
   } catch {
     db = null;
   }
-  if (!db || typeof db !== 'object') return { config: structuredClone(DEFAULT_CONFIG), submissions: [], tickets: [], audit: [] };
+  if (!db || typeof db !== 'object') return { config: structuredClone(DEFAULT_CONFIG), submissions: [], tickets: [], reports: [], audit: [] };
   if (!db.config || typeof db.config !== 'object') db.config = structuredClone(DEFAULT_CONFIG);
   if (!Array.isArray(db.submissions)) db.submissions = [];
   // migrate v2 (single mod form) -> v3 (types)
@@ -281,6 +285,7 @@ function loadDB() {
   }
   for (const s of db.submissions) if (!s.type) s.type = 'moderator';
   if (!Array.isArray(db.tickets)) db.tickets = [];
+  if (!Array.isArray(db.reports)) db.reports = [];
   // fixups for DBs saved before these fields existed
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
   if (!db.config.applicationTypes.some(t => t.id === 'event')) {
@@ -347,6 +352,19 @@ function validAppId(id) {
 }
 function validTicketId(id) {
   return /^TKT-[A-Z2-9]{6}$/.test(String(id || '').toUpperCase());
+}
+function validReportId(id) {
+  return /^RPT-[A-Z2-9]{6}$/.test(String(id || '').toUpperCase());
+}
+async function githubPutFile(repo, fpath, buf, message) {
+  const api = `https://api.github.com/repos/${repo}/contents/${fpath}`;
+  const H = { 'User-Agent': 'wigglesworth-apps', Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json' };
+  try {
+    const r = await fetch(api, { method: 'PUT', headers: { ...H, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, content: buf.toString('base64'), branch: GH_BRANCH }) });
+    if (!r.ok) console.error('gh file store failed', r.status, fpath);
+    return r.ok;
+  } catch (e) { console.error('gh file store error', e.message); return false; }
 }
 function displayName(s) {
   return cleanStr(s.username || s.discord || 'Applicant', 80);
@@ -771,7 +789,7 @@ app.get('/api/admin/backup', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   res.set('Cache-Control', 'no-store');
-  res.json({ version: 1, exportedAt: new Date().toISOString(), config: db.config, submissions: db.submissions, tickets: db.tickets || [] });
+  res.json({ version: 1, exportedAt: new Date().toISOString(), config: db.config, submissions: db.submissions, tickets: db.tickets || [], reports: db.reports || [] });
 });
 
 app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req, res) => {
@@ -788,6 +806,9 @@ app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req
   db.submissions = b.submissions.filter(s => s && typeof s.appId === 'string').slice(-5000);
   if (Array.isArray(b.tickets)) {
     db.tickets = b.tickets.filter(t => t && typeof t.id === 'string' && Array.isArray(t.replies)).slice(-2000);
+  }
+  if (Array.isArray(b.reports)) {
+    db.reports = b.reports.filter(r => r && typeof r.id === 'string').slice(-2000);
   }
   audit(db, 'restored', String(db.submissions.length), req);
   saveDB(db);
@@ -842,6 +863,108 @@ app.post('/api/admin/upload-video', uploadLimit, express.raw({ type: ['video/*',
   audit(db, 'video_upload', name, req);
   saveDB(db);
   res.json({ url: `${COUNTDOWN_PUBLIC_URL}/${name}` });
+});
+
+function detectImage(buf) {
+  if (!buf || buf.length < 12) return '';
+  if (buf[0] === 0x89 && buf.subarray(1, 4).toString() === 'PNG') return 'png';
+  if (buf[0] === 0xFF && buf[1] === 0xD8 && buf[2] === 0xFF) return 'jpg';
+  if (/^GIF8[79]a/.test(buf.subarray(0, 6).toString())) return 'gif';
+  if (buf.subarray(0, 4).toString() === 'RIFF' && buf.subarray(8, 12).toString() === 'WEBP') return 'webp';
+  return '';
+}
+
+// --- staff reports (public submit, staff-only review) ---
+app.post('/api/report-evidence', evidenceLimit, express.raw({ type: ['image/*', 'video/*'], limit: '12mb' }), async (req, res) => {
+  const buf = req.body;
+  if (!buf || !buf.length) return res.status(400).json({ error: 'Empty file' });
+  const ct = (req.headers['content-type'] || '').split(';')[0].trim().toLowerCase();
+  let ext = detectImage(buf);
+  if (!ext) {
+    const isMp4 = buf.length > 12 && buf.subarray(4, 8).toString() === 'ftyp';
+    const isWebm = buf.length > 4 && buf[0] === 0x1A && buf[1] === 0x45 && buf[2] === 0xDF && buf[3] === 0xA3;
+    if (isMp4 && ct.startsWith('video/')) ext = 'mp4';
+    else if (isWebm && ct === 'video/webm') ext = 'webm';
+  }
+  if (!ext) return res.status(400).json({ error: 'Only pictures or short videos' });
+  const name = 'ev-' + Date.now().toString(36) + '-' + crypto.randomInt(46656).toString(36) + '.' + ext;
+  try { fs.writeFileSync(path.join(EVIDENCE_DIR, name), buf); }
+  catch { return res.status(500).json({ error: 'Store failed' }); }
+  res.json({ url: '/evidence/' + name });
+  if (GH_TOKEN) githubPutFile(GH_REPO, 'evidence/' + name, buf, 'store report evidence ' + name);
+});
+
+app.post('/api/reports', ticketLimit, (req, res) => {
+  const db = loadDB();
+  const b = req.body && typeof req.body === 'object' ? req.body : {};
+  const reporter = cleanStr(b.reporter, 80).trim();
+  const staffName = cleanStr(b.staffName, 80).trim();
+  const details = cleanStr(b.details, 3000).trim();
+  const files = Array.isArray(b.files)
+    ? b.files.slice(0, 3).map(f => cleanStr(f, 300)).filter(f => /^\/evidence\/ev-[a-z0-9-]+\.(png|jpg|gif|webp|mp4|webm)$/.test(f))
+    : [];
+  if (!staffName) return res.status(400).json({ error: 'Name the staff member.' });
+  if (details.length < 20) return res.status(400).json({ error: 'Describe what happened (20+ characters).' });
+  const r = {
+    id: genId('RPT'), reporter, staffName, details, files,
+    status: 'open', adminNote: '',
+    createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+  };
+  db.reports.push(r);
+  if (db.reports.length > 2000) db.reports = db.reports.slice(-2000);
+  saveDB(db);
+  discordNotify(`New staff report **${r.id}** against **${staffName}** from **${reporter || 'Anonymous'}** (${files.length} file${files.length === 1 ? '' : 's'})`);
+  res.json({ id: r.id });
+});
+
+app.get('/api/admin/reports', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  res.set('Cache-Control', 'no-store');
+  res.json(db.reports.slice().reverse().slice(0, 1000));
+});
+
+app.post('/api/admin/reports/:id/status', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!validReportId(req.params.id)) return res.status(404).json({ error: 'Not found' });
+  const r = db.reports.find(x => x.id === req.params.id);
+  if (!r) return res.status(404).json({ error: 'Not found' });
+  const { status, adminNote } = req.body || {};
+  if (status !== undefined) {
+    if (!['open', 'closed'].includes(status)) return res.status(400).json({ error: 'Bad status' });
+    r.status = status;
+    r.updatedAt = new Date().toISOString();
+  }
+  if (adminNote !== undefined) r.adminNote = cleanStr(adminNote, 2000);
+  audit(db, 'report_' + r.status, r.id, req);
+  saveDB(db);
+  res.json({ ok: true });
+});
+
+app.delete('/api/admin/reports/:id', adminLimit, async (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  const r = db.reports.find(x => x.id === req.params.id);
+  db.reports = db.reports.filter(x => x.id !== req.params.id);
+  audit(db, 'report_deleted', req.params.id, req);
+  saveDB(db);
+  if (r && GH_TOKEN) {
+    for (const f of r.files || []) {
+      const fp = 'evidence/' + path.basename(f);
+      if (!/^evidence\/ev-[a-z0-9-]+\.(png|jpg|gif|webp|mp4|webm)$/.test(fp)) continue;
+      try {
+        const H = { 'User-Agent': 'wigglesworth-apps', Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json' };
+        const g = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${fp}?ref=${GH_BRANCH}`, { headers: H });
+        if (!g.ok) continue;
+        const sha = (await g.json()).sha;
+        await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${fp}`, { method: 'DELETE',
+          headers: { ...H, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: 'remove report evidence ' + fp, sha, branch: GH_BRANCH }) });
+      } catch (e) { console.error('evidence delete error', e.message); }
+    }
+  }
+  res.json({ ok: true });
 });
 
 app.get('/api/admin/audit', adminLimit, (req, res) => {  const db = loadDB();

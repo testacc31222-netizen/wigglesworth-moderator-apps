@@ -183,6 +183,12 @@ input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
 .ticket-row:hover{border-color:var(--amber)}
 #ticketBadge{background:var(--amber);color:#0c1a26;border-radius:999px;font-size:11px;font-weight:800;padding:1px 8px;margin-left:4px}
 #ticketBadge:empty{display:none}
+#reportBadge{background:var(--red);color:#fff;border-radius:999px;font-size:11px;font-weight:800;padding:1px 8px;margin-left:4px}
+#reportBadge:empty{display:none}
+#evdrop{border:1.5px dashed var(--line);border-radius:12px;padding:20px 14px;text-align:center;font-weight:700;cursor:pointer;margin-top:4px}
+#evdrop span{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:4px}
+#evdrop.hot{border-color:var(--amber);background:color-mix(in srgb, var(--amber) 7%, transparent)}
+.ev-thumb{max-width:100%;max-height:140px;border-radius:10px;margin-top:8px;display:block;border:1px solid var(--line)}
 mark{background:color-mix(in srgb, var(--amber) 45%, transparent);color:inherit;border-radius:3px;padding:0 1px}
 .cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
 .cd-cell{background:rgba(0,0,0,.28);border:1px solid var(--line-soft);border-radius:10px;padding:12px 6px;text-align:center}
@@ -233,6 +239,7 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
     <div class="wordmark"><span class="dot"></span>Wigglesworth&nbsp;<em>Studios</em></div>
     <nav class="nav">
       <a href="#apply">Applications</a>
+      <a href="#report">Report</a>
       <a href="#contact">Tickets</a>
       <a href="#status">Decision</a>
       <a href="#accepted">Accepted</a>
@@ -298,6 +305,34 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
       </div>
     </div>
     <div class="rich" id="bottomText" data-dkey="bottomText"></div>
+  </div>
+
+  <div class="card" id="report">
+    <div class="eyebrow">Staff report</div>
+    <h3 style="margin:4px 0 6px">Report a staff member</h3>
+    <p class="hint">Seen a staff member break the rules? Tell us here. You can stay anonymous — leave your name empty. Attach a picture or short video if you have proof (12MB max each, up to 3).</p>
+    <form id="reportForm" onsubmit="return submitReport(event)">
+      <label>Staff member's name</label>
+      <input id="r_staff" placeholder="Who did this involve?" maxlength="80">
+      <label>Your name (optional)</label>
+      <input id="r_name" placeholder="Leave empty to stay anonymous" maxlength="80">
+      <label>What happened</label>
+      <textarea id="r_details" placeholder="What did they do, when, where…" rows="4"></textarea>
+      <label>Evidence — pictures or video</label>
+      <div id="evdrop">Drop pictures / video here<span>or click to browse · 12MB max each · up to 3</span><input id="r_files" type="file" accept="image/png,image/jpeg,image/gif,image/webp,video/mp4,video/webm" multiple style="display:none"></div>
+      <div id="evList"></div>
+      <div id="evMsg" class="hint"></div>
+      <button class="btn-primary" type="submit">Send report</button>
+    </form>
+    <div id="reportDone" style="display:none;text-align:center;padding:10px 0">
+      <h3 style="margin:6px 0">Report received</h3>
+      <p class="hint">Reference (save it if you want):</p>
+      <div class="appid" id="newReportId">—</div>
+      <div class="row">
+        <button class="btn-small" onclick="copyReportId()">Copy ID</button>
+        <button class="btn-small" onclick="resetReportForm()">Write another</button>
+      </div>
+    </div>
   </div>
 
   <div class="card" id="contact">
@@ -371,6 +406,7 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
       <button data-tab="texts" onclick="switchTab('texts',this)">Texts</button>
       <button data-tab="questions" onclick="switchTab('questions',this)">Questions</button>
       <button data-tab="tickets" onclick="switchTab('tickets',this)">Tickets <span id="ticketBadge"></span></button>
+      <button data-tab="reports" onclick="switchTab('reports',this)">Reports <span id="reportBadge"></span></button>
       <button data-tab="apps" onclick="switchTab('apps',this)">Applications</button>
     </div>
 
@@ -472,6 +508,18 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
       <div id="ticketThread"></div>
       <h3>Tickets (<span id="ticketCount">0</span>)</h3>
       <div id="ticketList"></div>
+    </div>
+
+    <div id="tab-reports" class="tabpane">
+      <div class="toolbar">
+        <input id="reportSearch" placeholder="Find someone — staff, reporter, ID, any word…" oninput="renderReports()" style="flex:1;min-width:220px">
+      </div>
+      <div class="toolbar">
+        <select id="reportFilter" onchange="renderReports()" style="flex:1"><option value="">All</option><option value="open">Open</option><option value="closed">Closed</option></select>
+      </div>
+      <div id="reportThread"></div>
+      <h3>Reports (<span id="reportCount">0</span>)</h3>
+      <div id="reportList"></div>
     </div>
 
     <div id="tab-apps" class="tabpane">
