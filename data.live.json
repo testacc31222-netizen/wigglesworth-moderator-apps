@@ -1288,9 +1288,9 @@
       "name": "Bamber",
       "subject": "I lost my code",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T21:40:43.779Z",
-      "updatedAt": "2026-10-04T21:46:45.135Z",
+      "updatedAt": "2026-10-09T08:01:46.264Z",
       "replies": [
         {
           "by": "user",
@@ -1309,6 +1309,12 @@
           "name": "Bamber",
           "text": "Staff ID Oke?",
           "at": "2026-10-04T21:46:45.135Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Sure thing! The code you’re looking for is the Application ID you received right after submitting your application. If you don’t have that handy, could you let me know what you do have or where you saw it? That’ll help me locate it for you.",
+          "at": "2026-10-09T08:01:46.264Z"
         }
       ]
     },
@@ -1400,6 +1406,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-09T08:01:46.264Z",
+      "act": "ticket_reply",
+      "id": "TKT-VMH9B5",
+      "by": ""
+    },
     {
       "t": "2026-10-09T08:01:37.058Z",
       "act": "ticket_closed",
@@ -1950,11 +1962,6 @@
       "t": "2026-10-04T04:14:21.691Z",
       "act": "status_pending",
       "id": "MOD-FFL4UP"
-    },
-    {
-      "t": "2026-10-04T03:57:14.270Z",
-      "act": "status_pending",
-      "id": "MOD-KXTFAC"
     }
   ],
   "reports": []
