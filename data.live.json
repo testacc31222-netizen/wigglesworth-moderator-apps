@@ -1339,10 +1339,10 @@
       "id": "TKT-KSF2S5",
       "name": "Royal",
       "subject": "I don’t know my code for the mod apps",
-      "status": "open",
+      "status": "closed",
       "unread": true,
       "createdAt": "2026-10-04T21:42:07.045Z",
-      "updatedAt": "2026-10-04T21:42:07.045Z",
+      "updatedAt": "2026-10-09T08:01:37.058Z",
       "replies": [
         {
           "by": "user",
@@ -1400,6 +1400,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-09T08:01:37.058Z",
+      "act": "ticket_closed",
+      "id": "TKT-KSF2S5",
+      "by": ""
+    },
     {
       "t": "2026-10-06T02:04:50.553Z",
       "act": "status_pending",
@@ -1949,11 +1955,6 @@
       "t": "2026-10-04T03:57:14.270Z",
       "act": "status_pending",
       "id": "MOD-KXTFAC"
-    },
-    {
-      "t": "2026-10-04T03:57:01.959Z",
-      "act": "deleted",
-      "id": "MOD-S8G2D4"
     }
   ],
   "reports": []
