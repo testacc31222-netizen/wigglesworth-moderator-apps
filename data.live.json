@@ -33,7 +33,7 @@
       }
     ],
     "countdown": {
-      "show": true,
+      "show": false,
       "title": "DAY 3 // DO YOUR TAS...",
       "endVideo": "https://wigglesworth-countdown.onrender.com/vids/muryhsvc-wqw.mp4",
       "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
@@ -441,21 +441,6 @@
       "why": "To help the community and make sure there’s no toxic people again like I used to. I used to always help the community and I still want to. I want to keep racism, homophobia, etc. out of the community, including M and abuse staff abuse anything of the sorts so I’m here to help again",
       "scenario": "I warn them if it Carry’s on I mute them",
       "rulebreak": "No"
-    },
-    {
-      "appId": "MOD-3NPFTU",
-      "type": "moderator",
-      "date": "2026-09-30T01:40:29.854Z",
-      "status": "pending",
-      "adminNote": "You have good activity and current staff members welcome you back.",
-      "username": "VAULTVR",
-      "discord": "vaultvr1",
-      "age": "13",
-      "timezone": "4 to 5 or more depending on school",
-      "experience": "In this game and a game with 3 or 4k members",
-      "why": "Because I love this game and enjoy being active in game and in the discord. Also because i see rule breakers all the time and sometimes theres no one in there to handle it and all I can do is report them in game and to the discord but someone might not respond. Also because I want to be apart of the staff team because theres a lot of my good friends in there and the staff team knows me. I also want to be staff so I can get the staff cosmetic known.I also want to help moderate in game and in the discord for anything and if I could I would help grow the official youtube channel by collaborating with mine.Thats it!",
-      "scenario": "I would first tell them to stop spamming so people can actually talk without having to scroll up. If they don't stop then I would time them out for 5 to 10 minutes and tell them to stop spamming or it will be higher of a timeout.If they do it again then 30 mins or whatever a higherup says.But before I do anything I would give 3 warnings and tell them to stop spamming.",
-      "rulebreak": "No only once because of prx banning everyone"
     },
     {
       "appId": "MOD-73KAU9",
@@ -1026,8 +1011,8 @@
       "appId": "MOD-CERPFK",
       "type": "moderator",
       "date": "2026-10-10T16:45:05.123Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your enthusiasm and interest in helping the community. While we can’t offer you a position right now, we encourage you to keep gaining experience and reapply in the future. next time try to make your applications a little longer. Good luck!",
       "username": "kash",
       "discord": "kashvr1",
       "age": "13",
@@ -1101,8 +1086,8 @@
       "appId": "MOD-F3Q9HM",
       "type": "moderator",
       "date": "2026-10-10T21:05:04.057Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator, yeepingaway. We appreciate your enthusiasm and willingness to help the community. Keep building your moderation experience and feel free to reapply in the future.",
       "username": "yeepingaway",
       "discord": "yeepingaway",
       "age": "14",
@@ -1116,8 +1101,8 @@
       "appId": "MOD-4EDNAX",
       "type": "moderator",
       "date": "2026-10-10T21:06:45.987Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying, Aiden. We appreciate your interest and encourage you to keep gaining moderation experience and reapply in the future.",
       "username": "Aiden",
       "discord": "aidenishere26",
       "age": "16",
@@ -1216,6 +1201,81 @@
       "why": "I would like to become a moderator so I can increase my responsibility as I grow. I also want to become a moderator so I can help build and grow communities. I also want to become a moderator so I can protect the community and keep the game safe, fun, and fair to everyone.",
       "scenario": "I kindly ask them to stop, if they continue to do it, I will simply file a warning. If they continue to do it after multiple warnings, I will time them out for the duration that the owner tells me to time them out for.",
       "rulebreak": "I've gotten false banned once. Someone said they heard me say the N word, but I was recording at the time, once I submitted the appeal ticketm, i showed them who the real culprit is, they had unbanned me."
+    },
+    {
+      "appId": "MOD-Y5XAQZ",
+      "type": "moderator",
+      "date": "2026-10-10T22:03:34.593Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "danifire1500 or danifirex",
+      "discord": "danifire1500",
+      "age": "15",
+      "timezone": "VET, 3-5hrs daily",
+      "experience": "I have been mod, admin, or better ranks on alot of games, i got my own game Scary Monster and im a know dev",
+      "why": "i really like the idea of this game, i like this game",
+      "scenario": "the first thing is delete message, if i have perms to timeout, i will, then tell the owner or better ranks than me, and if i shopuldnt do the timeout when i tell to the owner, i will delete the timeout",
+      "rulebreak": "no i have never been banned"
+    },
+    {
+      "appId": "DEV-ZGJZ3K",
+      "type": "developer",
+      "date": "2026-10-10T22:06:33.184Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "danifire1500 or danifirex",
+      "discord": "danifire1500",
+      "age": "15",
+      "experience": "I make maps, im getting better, and i know basic and a lil bit of advanced stuff, i can make alot of details, and i still learning every day",
+      "why": "I really like this game and the idea for it",
+      "languages": "Blender",
+      "bugscenario": "If we need other map, bc thats the thing i do, and its really neccessary, i will do it fast at possible (just if im able to) btw im able to do it almost every time",
+      "teamwork": "Team work"
+    },
+    {
+      "appId": "DEV-G7VX3R",
+      "type": "developer",
+      "date": "2026-10-10T22:13:49.867Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "i forgot and I got banned",
+      "discord": "monkii.lol1",
+      "age": "14",
+      "experience": "I'm mainly good at development. Modeling isn't really my thing, but I've been a developer for about 4 years now, so I have a good amount of experience with it!",
+      "why": "I can help with bugs, anti-cheats, making maps, creating monsters, and more! I've been wanting to become a dev for a bigger game like Wigglesworth, and I'd love the opportunity to help out. If there's anything you want me to make or add to the game, just lmk! 🙏",
+      "languages": "Unity",
+      "bugscenario": "I'll look into ways to patch it, and once I figure out how to fix the issue, I'll upload the updated build when it's ready or use whatever method works best.",
+      "teamwork": "I don't mind if it is solo or teamwork I will just not vc a lot"
+    },
+    {
+      "appId": "MOD-3LAWGA",
+      "type": "moderator",
+      "date": "2026-10-10T22:23:30.135Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Trident",
+      "discord": "primary787_75955",
+      "age": "13",
+      "timezone": "EST, 4-5hrs daily",
+      "experience": "None",
+      "why": "Mainly so I can help the community whenever I can and always be there for people getting bullied, harassed, etc. If I do become a moderator in this game, I will do my absolute best to help the community in every way I can. I may not have past moderator experience, but I can always learn.",
+      "scenario": "I would likely warn them in chat if they do not stop, they will be timed out and if things escalate I may timeout them or if things get too crazy tell somebody with the authority to kick, blacklist, or ban.",
+      "rulebreak": "No, I have never been banned."
+    },
+    {
+      "appId": "MOD-P42LHL",
+      "type": "moderator",
+      "date": "2026-10-10T23:01:23.600Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Mrhalfcourt_is_gone",
+      "discord": "Mrhalfcourt",
+      "age": "13",
+      "timezone": "Est",
+      "experience": "This game",
+      "why": "I will be active every day helping people learn the game or guide pepole on stuff as byeing cosmetics,what the monsters do and so much more I can help pepole in the discord who are new and how to do stuff i will always try my hardest to help the community",
+      "scenario": "Tell them to stop (warning 1) and delete all the messages if they keep on doing it I tell them one more tins to stop spamming chat (warning 2) and delete all messages one last time if they spam again I time they out for 24h and after that if they still spam I time out for 48h",
+      "rulebreak": "Nope"
     }
   ],
   "tickets": [
@@ -1529,15 +1589,21 @@
       "name": "Your worst fucking nightmare..",
       "subject": "The DEATH of all.",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-10T21:25:13.116Z",
-      "updatedAt": "2026-10-10T21:25:13.116Z",
+      "updatedAt": "2026-10-10T22:44:39.968Z",
       "replies": [
         {
           "by": "user",
           "name": "Your worst fucking nightmare..",
           "text": "You will perish in one week.",
           "at": "2026-10-10T21:25:13.116Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hi! I’m sorry to hear that you’re feeling upset. Could you let me know what you’re referring to so I can help you better?",
+          "at": "2026-10-10T22:44:39.968Z"
         }
       ]
     },
@@ -1546,20 +1612,133 @@
       "name": "KingCase",
       "subject": "The Moderator application.",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-10T21:32:45.643Z",
-      "updatedAt": "2026-10-10T21:32:45.643Z",
+      "updatedAt": "2026-10-10T22:44:47.256Z",
       "replies": [
         {
           "by": "user",
           "name": "KingCase",
           "text": "I recommend to add some multiple choice questions to the application to see how much experience the applicants really have. For example, \"1. If your friend says a slur, what would you do?\" and add answers to the question.",
           "at": "2026-10-10T21:32:45.643Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Thanks for the suggestion! We’re always looking for ways to improve the application process. Could you share a bit more about what you’d like to see in the multiple‑choice section—any specific scenarios or answer choices you think would be most helpful? That’ll help us evaluate how best to incorporate feedback.",
+          "at": "2026-10-10T22:44:47.256Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-VYZT7E",
+      "name": "Coolguy",
+      "subject": "Ticket gone",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-10T22:50:23.983Z",
+      "updatedAt": "2026-10-10T22:52:37.159Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Coolguy",
+          "text": "my cc code CC-URSKJS, and mod code MOD-F3Q9HM both say not found, can i get help?",
+          "at": "2026-10-10T22:50:23.984Z"
+        },
+        {
+          "by": "user",
+          "name": "Coolguy",
+          "text": "SORRY I WAS BEING DUMB AND PUT IT IN THE WRONG SPOT",
+          "at": "2026-10-10T22:52:37.159Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T22:59:18.063Z",
+      "act": "deleted",
+      "id": "MOD-3NPFTU",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:58:18.774Z",
+      "act": "ai_denied",
+      "id": "MOD-F3Q9HM",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:58:13.831Z",
+      "act": "ai_denied",
+      "id": "MOD-F3Q9HM",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:58:00.041Z",
+      "act": "status_denied",
+      "id": "MOD-4EDNAX",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:57:55.762Z",
+      "act": "status_denied",
+      "id": "MOD-4EDNAX",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:57:51.286Z",
+      "act": "ai_denied",
+      "id": "MOD-4EDNAX",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:57:50.873Z",
+      "act": "ai_denied",
+      "id": "MOD-4EDNAX",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:46:50.122Z",
+      "act": "status_denied",
+      "id": "MOD-CERPFK",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:46:26.169Z",
+      "act": "ai_denied",
+      "id": "MOD-CERPFK",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:46:25.452Z",
+      "act": "ai_denied",
+      "id": "MOD-CERPFK",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:44:47.256Z",
+      "act": "ticket_reply",
+      "id": "TKT-88ULAF",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:44:39.968Z",
+      "act": "ticket_reply",
+      "id": "TKT-BCBTWN",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:44:10.237Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:32:20.656Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
     {
       "t": "2026-10-10T21:04:18.697Z",
       "act": "deleted",
@@ -2061,76 +2240,6 @@
       "t": "2026-10-04T20:07:28.763Z",
       "act": "ticket_reply",
       "id": "TKT-DHGPDG"
-    },
-    {
-      "t": "2026-10-04T20:07:02.487Z",
-      "act": "status_pending",
-      "id": "MOD-KQ79BS"
-    },
-    {
-      "t": "2026-10-04T04:30:32.834Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T04:29:07.318Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T04:29:02.279Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T04:28:49.692Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T04:28:04.934Z",
-      "act": "ticket_reply",
-      "id": "TKT-DP4J9Y"
-    },
-    {
-      "t": "2026-10-04T04:27:57.277Z",
-      "act": "ticket_reply",
-      "id": "TKT-RVLKY8"
-    },
-    {
-      "t": "2026-10-04T04:27:48.043Z",
-      "act": "ticket_reply",
-      "id": "TKT-8KPDCY"
-    },
-    {
-      "t": "2026-10-04T04:27:41.402Z",
-      "act": "ticket_reply",
-      "id": "TKT-FG2FE5"
-    },
-    {
-      "t": "2026-10-04T04:27:00.486Z",
-      "act": "ticket_reply",
-      "id": "TKT-HHMDZY"
-    },
-    {
-      "t": "2026-10-04T04:25:50.027Z",
-      "act": "deleted",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:47.919Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:47.749Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:47.363Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
     }
   ],
   "reports": []
