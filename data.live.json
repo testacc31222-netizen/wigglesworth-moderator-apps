@@ -1117,7 +1117,7 @@
       "type": "moderator",
       "date": "2026-10-10T21:06:45.987Z",
       "status": "denied",
-      "adminNote": "Thank you for applying to be a moderator, Aiden. We appreciate your interest and the time you took to submit your application. While we are unable to move forward with your application at this time, we encourage you to continue gaining moderation experience and reapply in the future. Best of luck!",
+      "adminNote": "Thank you for applying, Aiden. We appreciate your interest and encourage you to keep gaining moderation experience and reapply in the future.",
       "username": "Aiden",
       "discord": "aidenishere26",
       "age": "16",
@@ -1655,6 +1655,18 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T22:57:55.762Z",
+      "act": "status_denied",
+      "id": "MOD-4EDNAX",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:57:51.286Z",
+      "act": "ai_denied",
+      "id": "MOD-4EDNAX",
+      "by": ""
+    },
     {
       "t": "2026-10-10T22:57:50.873Z",
       "act": "ai_denied",
@@ -2224,16 +2236,6 @@
       "t": "2026-10-04T04:29:02.279Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-04T04:28:49.692Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T04:28:04.934Z",
-      "act": "ticket_reply",
-      "id": "TKT-DP4J9Y"
     }
   ],
   "reports": []
