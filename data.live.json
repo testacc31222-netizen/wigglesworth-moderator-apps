@@ -1116,8 +1116,8 @@
       "appId": "MOD-4EDNAX",
       "type": "moderator",
       "date": "2026-10-10T21:06:45.987Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator, Aiden. We appreciate your interest and the time you took to submit your application. While we are unable to move forward with your application at this time, we encourage you to continue gaining moderation experience and reapply in the future. Best of luck!",
       "username": "Aiden",
       "discord": "aidenishere26",
       "age": "16",
@@ -1655,6 +1655,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T22:57:50.873Z",
+      "act": "ai_denied",
+      "id": "MOD-4EDNAX",
+      "by": ""
+    },
     {
       "t": "2026-10-10T22:46:50.122Z",
       "act": "status_denied",
@@ -2228,11 +2234,6 @@
       "t": "2026-10-04T04:28:04.934Z",
       "act": "ticket_reply",
       "id": "TKT-DP4J9Y"
-    },
-    {
-      "t": "2026-10-04T04:27:57.277Z",
-      "act": "ticket_reply",
-      "id": "TKT-RVLKY8"
     }
   ],
   "reports": []
