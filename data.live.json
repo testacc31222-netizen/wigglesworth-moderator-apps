@@ -308,7 +308,7 @@
         "intro": "Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.",
         "successMessage": "",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -1422,6 +1422,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T04:53:50.978Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T04:52:42.788Z",
       "act": "config_saved",
       "id": "",
@@ -1975,11 +1981,6 @@
     {
       "t": "2026-10-04T04:22:55.593Z",
       "act": "status_denied",
-      "id": "CC-L59SZE"
-    },
-    {
-      "t": "2026-10-04T04:22:54.878Z",
-      "act": "status_approved",
       "id": "CC-L59SZE"
     }
   ],
