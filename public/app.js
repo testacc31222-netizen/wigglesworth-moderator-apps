@@ -9,6 +9,13 @@ let adminCache = [];
 
 const $ = id => document.getElementById(id);
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function busyOn(btn, text){
+  if(!btn || btn.disabled) return ()=>{};
+  const o = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>' + esc(text || 'Working…');
+  return ()=>{ btn.disabled = false; btn.innerHTML = o; };
+}
 function hi(v, q){
   const s = esc(v == null ? '' : String(v));
   q = (q || '').trim();
@@ -185,6 +192,7 @@ async function submitApp(e){
     if((q.id==='why'||q.id==='scenario'||q.id==='bugscenario') && v.length<20){ alert(q.label+' is too short. Give more detail.'); el.focus(); return false; }
     answers[q.id]=v;
   }
+  const done = busyOn(e.target.querySelector('button[type=submit]'), 'Sending');
   try{
     const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t.id,answers})});
     const j = await r.json();
@@ -195,6 +203,7 @@ async function submitApp(e){
     $('newAppId').textContent = j.appId;
     renderApprovedPublic();
   }catch(err){ alert(err.message); }
+  finally{ done(); }
   return false;
 }
 function resetForm(){
@@ -208,6 +217,7 @@ async function checkStatus(){
   const id = $('statusInput').value.trim().toUpperCase();
   const box = $('statusResult'); box.innerHTML='';
   if(!id){ box.innerHTML='<p class="hint">Enter your ID.</p>'; return; }
+  const done = busyOn(document.querySelector('#status .btn-confirm'), 'Checking');
   try{
     const r = await fetch('/api/status/'+encodeURIComponent(id));
     if(!r.ok) throw 0;
@@ -218,6 +228,7 @@ async function checkStatus(){
   }catch{
     box.innerHTML = '<div class="status-box pending">No application found for <b>'+esc(id)+'</b></div>';
   }
+  finally{ done(); }
 }
 async function renderApprovedPublic(){
   const wrap=$('accepted'), list=$('approvedList');
@@ -529,8 +540,7 @@ async function submitTicket(e){
   e.preventDefault();
   const body = { name: $('t_name').value.trim(), subject: $('t_subject').value.trim(), message: $('t_message').value.trim() };
   if(!body.name || !body.subject || body.message.length < 10){ alert('Fill name, subject, and a message (10+ characters).'); return false; }
-  const btn = e.target.querySelector('button[type=submit]');
-  if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+  const done = busyOn(e.target.querySelector('button[type=submit]'), 'Sending');
   try{
     const r = await fetch('/api/tickets',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const j = await r.json();
@@ -539,7 +549,7 @@ async function submitTicket(e){
     $('ticketCreated').style.display='block';
     $('newTicketId').textContent = j.id;
   }catch(err){ alert(err.message); }
-  finally{ if(btn){ btn.disabled = false; btn.textContent = 'Open ticket'; } }
+  finally{ done(); }
   return false;
 }
 function resetTicketForm(){ $('ticketForm').reset(); $('ticketForm').style.display='block'; $('ticketCreated').style.display='none'; }
@@ -548,12 +558,14 @@ async function checkTicket(){
   const id = $('ticketInput').value.trim().toUpperCase();
   const box = $('ticketResult'); box.innerHTML='';
   if(!id) return;
+  const done = busyOn(document.querySelector('#contact .btn-confirm'), 'Opening');
   try{
     const r = await fetch('/api/tickets/'+encodeURIComponent(id));
     if(!r.ok) throw 0;
     currentTicket = await r.json();
     renderUserThread();
   }catch{ box.innerHTML='<div class="status-box pending">No ticket found for <b>'+esc(id)+'</b></div>'; }
+  finally{ done(); }
 }
 function renderUserThread(){
   const box = $('ticketResult');
@@ -626,10 +638,13 @@ async function suggestReply(){
 async function staffReply(){
   const text = $('t_staffReply').value.trim();
   if(!text) return;
+  const done = busyOn(document.querySelector('#ticketThread .btn-confirm'), 'Sending');
+  try{
   const t = ticketAdminCache.find(x=>x.id===selectedTicketId);
   await fetch('/api/tickets/'+t.id+'/reply',{method:'POST',headers:headers(),body:JSON.stringify({text, staff:true})});
   if(t.status!=='open') await fetch('/api/admin/tickets/'+t.id+'/status',{method:'POST',headers:headers(),body:JSON.stringify({status:'open'})});
   await renderTickets();
+  }finally{ done(); }
 }
 async function setTicketStatus(id,st){
   await fetch('/api/admin/tickets/'+id+'/status',{method:'POST',headers:headers(),body:JSON.stringify({status:st})});
@@ -675,8 +690,7 @@ async function submitReport(e){
   const body = { staffName: $('r_staff').value.trim(), reporter: $('r_name').value.trim(),
     details: $('r_details').value.trim(), files: reportFiles };
   if(!body.staffName || body.details.length < 20){ alert('Name the staff member and describe what happened (20+ characters).'); return false; }
-  const btn = e.target.querySelector('button[type=submit]');
-  if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+  const done = busyOn(e.target.querySelector('button[type=submit]'), 'Sending');
   try{
     const r = await fetch('/api/reports',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const j = await r.json();
@@ -685,7 +699,7 @@ async function submitReport(e){
     $('reportDone').style.display = 'block';
     $('newReportId').textContent = j.id;
   }catch(err){ alert(err.message); }
-  finally{ if(btn){ btn.disabled = false; btn.textContent = 'Send report'; } }
+  finally{ done(); }
   return false;
 }
 function resetReportForm(){ $('reportForm').reset(); reportFiles = []; renderEvList(); $('reportForm').style.display = 'block'; $('reportDone').style.display = 'none'; }
