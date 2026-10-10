@@ -809,21 +809,6 @@
       "rulebreak": "i have never been banned"
     },
     {
-      "appId": "MOD-XWTN6U",
-      "type": "moderator",
-      "date": "2026-10-04T16:14:12.658Z",
-      "status": "denied",
-      "adminNote": "Make the application longer and professional.. Go home. (Trx6K)",
-      "username": "Galixy0895",
-      "discord": "Imscaredofjobs67",
-      "age": "13",
-      "timezone": "EST",
-      "experience": "None",
-      "why": "I want to help the game out",
-      "scenario": "Give them 3 warnings",
-      "rulebreak": "I have never been banned"
-    },
-    {
       "appId": "MOD-N67S3W",
       "type": "moderator",
       "date": "2026-10-04T17:00:15.548Z",
@@ -1361,6 +1346,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T16:35:07.394Z",
+      "act": "deleted",
+      "id": "MOD-XWTN6U",
+      "by": ""
+    },
     {
       "t": "2026-10-10T16:35:04.085Z",
       "act": "deleted",
@@ -1922,11 +1913,6 @@
     },
     {
       "t": "2026-10-04T04:25:46.670Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:46.291Z",
       "act": "status_pending",
       "id": "MOD-KLFLKK"
     }
