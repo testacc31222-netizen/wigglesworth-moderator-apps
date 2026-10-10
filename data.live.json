@@ -72,7 +72,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -1407,6 +1407,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T03:17:36.994Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T03:17:28.971Z",
       "act": "config_saved",
       "id": "",
@@ -1958,11 +1964,6 @@
       "t": "2026-10-04T04:14:25.971Z",
       "act": "status_denied",
       "id": "MOD-KXTFAC"
-    },
-    {
-      "t": "2026-10-04T04:14:22.081Z",
-      "act": "status_denied",
-      "id": "MOD-FFL4UP"
     }
   ],
   "reports": []
