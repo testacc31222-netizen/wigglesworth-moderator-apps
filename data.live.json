@@ -961,21 +961,6 @@
       "strikes": "No"
     },
     {
-      "appId": "MOD-TKAKAJ",
-      "type": "moderator",
-      "date": "2026-10-04T20:54:57.388Z",
-      "status": "denied",
-      "adminNote": "Yeah a because yeah ok. Fet it okay got kendrick on it too lol i just think it would make sense for the other guy too to have it in a movie and then the next one would have a sequel and the sequel would have to happen to make it in a different story or a movie and not just the sequel",
-      "username": "korp",
-      "discord": "wtfbamber",
-      "age": "20",
-      "timezone": "CST, 10-15 hours daily",
-      "experience": "I am staff for discord.gg/wittyville",
-      "why": "Yeah a because yeah ok. Fet it okay got kendrick on it too lol i just think it would make sense for the other guy too to have it in a movie and then the next one would have a sequel and the sequel would have to happen to make it in a different story or a movie and not just the sequel",
-      "scenario": "Ban then the only way i could be happy with the fact i can be a part in a project",
-      "rulebreak": "No"
-    },
-    {
       "appId": "EVT-PLFTVT",
       "type": "event",
       "date": "2026-10-06T00:10:41.533Z",
@@ -1451,6 +1436,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T16:34:46.718Z",
+      "act": "deleted",
+      "id": "MOD-TKAKAJ",
+      "by": ""
+    },
     {
       "t": "2026-10-10T16:34:43.463Z",
       "act": "deleted",
@@ -2008,11 +1999,6 @@
       "t": "2026-10-04T04:24:19.819Z",
       "act": "status_pending",
       "id": "MOD-KQ79BS"
-    },
-    {
-      "t": "2026-10-04T04:23:12.523Z",
-      "act": "status_pending",
-      "id": "MOD-P6T7KY"
     }
   ],
   "reports": []
