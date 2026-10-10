@@ -1629,6 +1629,23 @@
           "at": "2026-10-10T22:44:47.256Z"
         }
       ]
+    },
+    {
+      "id": "TKT-VYZT7E",
+      "name": "Coolguy",
+      "subject": "Ticket gone",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-10T22:50:23.983Z",
+      "updatedAt": "2026-10-10T22:50:23.983Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Coolguy",
+          "text": "my cc code CC-URSKJS, and mod code MOD-F3Q9HM both say not found, can i get help?",
+          "at": "2026-10-10T22:50:23.984Z"
+        }
+      ]
     }
   ],
   "audit": [
