@@ -138,11 +138,34 @@ function renderTypeCards(){
     s0.innerHTML = `<b>${openN}</b><span>${openN===1?'role':'roles'} open</span>`;
   }
 }
+let impactTimer = null;
 function toggleApplyMenu(){
   const m = $('roleMenu');
-  m.style.display = m.style.display === 'none' ? 'block' : 'none';
-  if (m.style.display === 'block'){ renderTypeCards(); m.scrollIntoView({ behavior:'smooth', block:'start' }); }
+  if(m.style.display === 'none'){
+    m.style.display = 'block'; renderTypeCards();
+    playImpact(()=>{ m.scrollIntoView({ behavior:'smooth', block:'start' }); });
+  } else {
+    m.style.display = 'none';
+  }
 }
+function playImpact(after){
+  const imp = $('impact');
+  if(!imp || imp.classList.contains('show')){ if(after) after(); return; }
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  imp.classList.add('show');
+  imp._after = after || null;
+  clearTimeout(impactTimer);
+  impactTimer = setTimeout(endImpact, reduced ? 800 : 5000);
+}
+function endImpact(){
+  clearTimeout(impactTimer);
+  const imp = $('impact');
+  if(!imp || !imp.classList.contains('show')) return;
+  imp.classList.remove('show');
+  const after = imp._after; imp._after = null;
+  if(after) after();
+}
+function skipImpact(){ endImpact(); }
 function pickType(id, noScroll){
   currentTypeId = id;
   const t = curType();
