@@ -1662,6 +1662,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T23:17:58.947Z",
+      "act": "report_deleted",
+      "id": "RPT-VXEFSH",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T23:17:26.868Z",
       "act": "report_deleted",
       "id": "RPT-VXEFSH",
@@ -2245,11 +2251,6 @@
       "t": "2026-10-04T20:52:40.559Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-04T20:38:10.447Z",
-      "act": "ticket_reply",
-      "id": "TKT-BFHMED"
     }
   ],
   "reports": []
