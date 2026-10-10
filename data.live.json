@@ -1612,20 +1612,32 @@
       "name": "KingCase",
       "subject": "The Moderator application.",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-10T21:32:45.643Z",
-      "updatedAt": "2026-10-10T21:32:45.643Z",
+      "updatedAt": "2026-10-10T22:44:47.256Z",
       "replies": [
         {
           "by": "user",
           "name": "KingCase",
           "text": "I recommend to add some multiple choice questions to the application to see how much experience the applicants really have. For example, \"1. If your friend says a slur, what would you do?\" and add answers to the question.",
           "at": "2026-10-10T21:32:45.643Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Thanks for the suggestion! We’re always looking for ways to improve the application process. Could you share a bit more about what you’d like to see in the multiple‑choice section—any specific scenarios or answer choices you think would be most helpful? That’ll help us evaluate how best to incorporate feedback.",
+          "at": "2026-10-10T22:44:47.256Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T22:44:47.256Z",
+      "act": "ticket_reply",
+      "id": "TKT-88ULAF",
+      "by": ""
+    },
     {
       "t": "2026-10-10T22:44:39.968Z",
       "act": "ticket_reply",
@@ -2195,11 +2207,6 @@
       "t": "2026-10-04T04:27:00.486Z",
       "act": "ticket_reply",
       "id": "TKT-HHMDZY"
-    },
-    {
-      "t": "2026-10-04T04:25:50.027Z",
-      "act": "deleted",
-      "id": "MOD-KLFLKK"
     }
   ],
   "reports": []
