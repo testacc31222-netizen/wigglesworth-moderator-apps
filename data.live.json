@@ -1611,10 +1611,10 @@
       "id": "TKT-88ULAF",
       "name": "KingCase",
       "subject": "The Moderator application.",
-      "status": "open",
+      "status": "closed",
       "unread": false,
       "createdAt": "2026-10-10T21:32:45.643Z",
-      "updatedAt": "2026-10-10T22:44:47.256Z",
+      "updatedAt": "2026-10-10T23:20:04.760Z",
       "replies": [
         {
           "by": "user",
@@ -1661,6 +1661,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T23:20:04.761Z",
+      "act": "ticket_closed",
+      "id": "TKT-88ULAF",
+      "by": ""
+    },
     {
       "t": "2026-10-10T23:17:58.947Z",
       "act": "report_deleted",
@@ -2244,11 +2250,6 @@
     },
     {
       "t": "2026-10-04T20:53:37.097Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T20:52:40.559Z",
       "act": "config_saved",
       "id": ""
     }
