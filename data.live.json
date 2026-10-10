@@ -1635,9 +1635,9 @@
       "name": "Coolguy",
       "subject": "Ticket gone",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-10T22:50:23.983Z",
-      "updatedAt": "2026-10-10T22:52:37.159Z",
+      "updatedAt": "2026-10-10T23:16:23.923Z",
       "replies": [
         {
           "by": "user",
@@ -1650,11 +1650,23 @@
           "name": "Coolguy",
           "text": "SORRY I WAS BEING DUMB AND PUT IT IN THE WRONG SPOT",
           "at": "2026-10-10T22:52:37.159Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey! It looks like the codes didn’t match the application you submitted. Could you double‑check the code you received and let me know where you entered it? If you still have the application ID or a screenshot, that would help too. Thanks!",
+          "at": "2026-10-10T23:16:23.923Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T23:16:23.923Z",
+      "act": "ticket_reply",
+      "id": "TKT-VYZT7E",
+      "by": ""
+    },
     {
       "t": "2026-10-10T23:15:42.052Z",
       "act": "config_saved",
@@ -2236,11 +2248,6 @@
       "t": "2026-10-04T20:36:00.047Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-04T20:30:59.629Z",
-      "act": "ticket_closed",
-      "id": "TKT-DHGPDG"
     }
   ],
   "reports": []
