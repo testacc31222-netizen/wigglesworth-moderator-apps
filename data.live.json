@@ -915,21 +915,6 @@
       "rulebreak": "No"
     },
     {
-      "appId": "MOD-AVZBGE",
-      "type": "moderator",
-      "date": "2026-10-04T20:35:21.428Z",
-      "status": "denied",
-      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
-      "username": "VAULTVR",
-      "discord": "vaultvr1",
-      "age": "13",
-      "timezone": "Est, 5 hours",
-      "experience": "This game and in a game with 3k or 4k members",
-      "why": "I love this game and want to help with ingame and discord moderation.I also want to be a mod to help with banning in game and discord moderation.I also want to be moderator because some of my friends are mod and ik the staff team and would love to be apart of it.I also want to be mod because I love helping others and would help people in game and outside the game a lot.I also would be there for staff unless I cannot whatsoever but most of the time besides from school I can be there.I also want to be staff because I would love to help grow the game, server, and make some items known like the mod staff, would love to be apart of the team.",
-      "scenario": "First i would tell them to stop.Second I would give them another warning and tell them to stop.Third I would time them out for a reasonable time from 10 mins to 20.",
-      "rulebreak": "No only once because of prx banning everyone"
-    },
-    {
       "appId": "CC-CHA7GM",
       "type": "creator",
       "date": "2026-10-04T20:43:58.515Z",
@@ -1421,6 +1406,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T16:34:50.371Z",
+      "act": "deleted",
+      "id": "MOD-AVZBGE",
+      "by": ""
+    },
     {
       "t": "2026-10-10T16:34:48.394Z",
       "act": "deleted",
@@ -1980,11 +1971,6 @@
       "t": "2026-10-04T04:24:30.177Z",
       "act": "status_pending",
       "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:24:21.318Z",
-      "act": "status_denied",
-      "id": "MOD-KQ79BS"
     }
   ],
   "reports": []
