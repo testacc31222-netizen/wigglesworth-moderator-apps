@@ -43,7 +43,7 @@
       "completedLine": "completed, day 3 soon.",
       "endCardLine": "that was it, get ready for day 3",
       "soonLine": "soon.",
-      "target": "2026-10-04T21:40:00.000Z"
+      "target": "2026-10-04T23:40:00.000Z"
     },
     "layout": {
       "handNote": {
@@ -232,7 +232,7 @@
         "intro": "Developers ship real things for players. Show us what you have built.",
         "successMessage": "",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -1422,6 +1422,18 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T04:52:42.788Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T04:52:42.484Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T03:17:36.994Z",
       "act": "config_saved",
       "id": "",
@@ -1969,16 +1981,6 @@
       "t": "2026-10-04T04:22:54.878Z",
       "act": "status_approved",
       "id": "CC-L59SZE"
-    },
-    {
-      "t": "2026-10-04T04:15:37.305Z",
-      "act": "status_denied",
-      "id": "MOD-FFL4UP"
-    },
-    {
-      "t": "2026-10-04T04:14:25.971Z",
-      "act": "status_denied",
-      "id": "MOD-KXTFAC"
     }
   ],
   "reports": []
