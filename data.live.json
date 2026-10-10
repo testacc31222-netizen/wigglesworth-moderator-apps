@@ -443,21 +443,6 @@
       "rulebreak": "No"
     },
     {
-      "appId": "MOD-3NPFTU",
-      "type": "moderator",
-      "date": "2026-09-30T01:40:29.854Z",
-      "status": "pending",
-      "adminNote": "You have good activity and current staff members welcome you back.",
-      "username": "VAULTVR",
-      "discord": "vaultvr1",
-      "age": "13",
-      "timezone": "4 to 5 or more depending on school",
-      "experience": "In this game and a game with 3 or 4k members",
-      "why": "Because I love this game and enjoy being active in game and in the discord. Also because i see rule breakers all the time and sometimes theres no one in there to handle it and all I can do is report them in game and to the discord but someone might not respond. Also because I want to be apart of the staff team because theres a lot of my good friends in there and the staff team knows me. I also want to be staff so I can get the staff cosmetic known.I also want to help moderate in game and in the discord for anything and if I could I would help grow the official youtube channel by collaborating with mine.Thats it!",
-      "scenario": "I would first tell them to stop spamming so people can actually talk without having to scroll up. If they don't stop then I would time them out for 5 to 10 minutes and tell them to stop spamming or it will be higher of a timeout.If they do it again then 30 mins or whatever a higherup says.But before I do anything I would give 3 warnings and tell them to stop spamming.",
-      "rulebreak": "No only once because of prx banning everyone"
-    },
-    {
       "appId": "MOD-73KAU9",
       "type": "moderator",
       "date": "2026-09-30T21:33:41.492Z",
@@ -1362,6 +1347,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T16:35:40.221Z",
+      "act": "deleted",
+      "id": "MOD-3NPFTU",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T16:35:34.811Z",
       "act": "deleted",
       "id": "MOD-LM4EAW",
@@ -1922,11 +1913,6 @@
     },
     {
       "t": "2026-10-04T04:25:46.670Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:46.291Z",
       "act": "status_pending",
       "id": "MOD-KLFLKK"
     }
