@@ -1540,6 +1540,23 @@
           "at": "2026-10-10T21:25:13.116Z"
         }
       ]
+    },
+    {
+      "id": "TKT-88ULAF",
+      "name": "KingCase",
+      "subject": "The Moderator application.",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-10T21:32:45.643Z",
+      "updatedAt": "2026-10-10T21:32:45.643Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "KingCase",
+          "text": "I recommend to add some multiple choice questions to the application to see how much experience the applicants really have. For example, \"1. If your friend says a slur, what would you do?\" and add answers to the question.",
+          "at": "2026-10-10T21:32:45.643Z"
+        }
+      ]
     }
   ],
   "audit": [
