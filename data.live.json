@@ -1102,7 +1102,7 @@
       "type": "moderator",
       "date": "2026-10-10T21:05:04.057Z",
       "status": "denied",
-      "adminNote": "Thank you for applying to be a moderator, yeepingaway. We appreciate your enthusiasm for helping the community. While we won’t be moving forward with your application right now, we encourage you to keep gaining experience and consider reapplying in the future.",
+      "adminNote": "Thank you for applying to be a moderator, yeepingaway. We appreciate your enthusiasm for helping the community grow. Keep building your experience and feel free to reapply in the future.",
       "username": "yeepingaway",
       "discord": "yeepingaway",
       "age": "14",
@@ -1117,7 +1117,7 @@
       "type": "moderator",
       "date": "2026-10-10T21:06:45.987Z",
       "status": "denied",
-      "adminNote": "Thank you for applying, Aiden. We appreciate your interest and encourage you to keep gaining moderation experience and reapply in the future.",
+      "adminNote": "Thank you for applying to be a moderator, Aiden. We appreciate your interest and the time you took to submit your application. While we are unable to move forward with your application at this time, we encourage you to continue gaining moderation experience and reapply in the future. Best of luck!",
       "username": "Aiden",
       "discord": "aidenishere26",
       "age": "16",
@@ -1656,45 +1656,9 @@
   ],
   "audit": [
     {
-      "t": "2026-10-10T22:58:21.405Z",
+      "t": "2026-10-10T22:58:23.444Z",
       "act": "ai_denied",
       "id": "MOD-F3Q9HM",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T22:58:19.686Z",
-      "act": "ai_denied",
-      "id": "MOD-F3Q9HM",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T22:58:18.774Z",
-      "act": "ai_denied",
-      "id": "MOD-F3Q9HM",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T22:58:13.831Z",
-      "act": "ai_denied",
-      "id": "MOD-F3Q9HM",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T22:58:00.041Z",
-      "act": "status_denied",
-      "id": "MOD-4EDNAX",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T22:57:55.762Z",
-      "act": "status_denied",
-      "id": "MOD-4EDNAX",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T22:57:51.286Z",
-      "act": "ai_denied",
-      "id": "MOD-4EDNAX",
       "by": ""
     },
     {
@@ -2241,6 +2205,36 @@
       "t": "2026-10-04T20:30:59.629Z",
       "act": "ticket_closed",
       "id": "TKT-DHGPDG"
+    },
+    {
+      "t": "2026-10-04T20:07:28.763Z",
+      "act": "ticket_reply",
+      "id": "TKT-DHGPDG"
+    },
+    {
+      "t": "2026-10-04T20:07:02.487Z",
+      "act": "status_pending",
+      "id": "MOD-KQ79BS"
+    },
+    {
+      "t": "2026-10-04T04:30:32.834Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-04T04:29:07.318Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-04T04:29:02.279Z",
+      "act": "config_saved",
+      "id": ""
+    },
+    {
+      "t": "2026-10-04T04:28:49.692Z",
+      "act": "config_saved",
+      "id": ""
     }
   ],
   "reports": []
