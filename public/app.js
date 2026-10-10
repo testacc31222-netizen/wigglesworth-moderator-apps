@@ -135,13 +135,13 @@ function renderTypeCards(){
   });
   const s0 = dEl('stat0');
   if(s0 && !(config.layout && config.layout.stat0 && config.layout.stat0.text)) {
-    s0.textContent = openN + ' open role' + (openN === 1 ? '' : 's');
+    s0.innerHTML = `<b>${openN}</b><span>${openN===1?'role':'roles'} open</span>`;
   }
 }
 function toggleApplyMenu(){
   const m = $('roleMenu');
   m.style.display = m.style.display === 'none' ? 'block' : 'none';
-  if (m.style.display === 'block') renderTypeCards();
+  if (m.style.display === 'block'){ renderTypeCards(); m.scrollIntoView({ behavior:'smooth', block:'start' }); }
 }
 function pickType(id, noScroll){
   currentTypeId = id;
@@ -209,7 +209,7 @@ async function submitApp(e){
 function resetForm(){
   $('applyCard').style.display='none';
   $('roleMenu').style.display='block'; renderTypeCards();
-  document.getElementById('apply').scrollIntoView({ behavior:'smooth' });
+  document.getElementById('roleMenu').scrollIntoView({ behavior:'smooth' });
 }
 function copyAppId(){ const t=$('newAppId').textContent; navigator.clipboard?.writeText(t); alert('Copied: '+t); }
 
@@ -244,10 +244,10 @@ async function renderApprovedPublic(){
     if(sel.value) arr = arr.filter(s=>s.type===sel.value);
     if(!config.showApproved || !arr.length){ wrap.style.display='none'; return; }
     wrap.style.display='block'; list.innerHTML='';
-    let lastType = null;
     arr.forEach(s=>{
-      if(s.type!==lastType){ lastType=s.type; const h=document.createElement('div'); h.className='hint'; h.style.margin='8px 0 2px'; h.textContent=typeName(s.type); list.appendChild(h); }
-      const d=document.createElement('div'); d.textContent=s.username; list.appendChild(d);
+      const d=document.createElement('div'); d.className='arow';
+      d.innerHTML = `<b>${esc(s.username)}</b><span class="meta">${esc(typeName(s.type))} · ${esc((s.date||'').slice(0,10))}</span>`;
+      list.appendChild(d);
     });
   }catch{ wrap.style.display='none'; }
 }

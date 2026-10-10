@@ -288,6 +288,12 @@ function loadDB() {
   if (!Array.isArray(db.reports)) db.reports = [];
   // fixups for DBs saved before these fields existed
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
+  for (const t of db.config.applicationTypes) {
+    if (!t.successMessage) {
+      const d = DEFAULT_TYPES.find(x => x.id === t.id);
+      t.successMessage = d ? d.successMessage : 'Thanks! Your application was received.';
+    }
+  }
   if (!db.config.applicationTypes.some(t => t.id === 'event')) {
     db.config.applicationTypes.push(structuredClone(DEFAULT_TYPES.find(t => t.id === 'event')));
   }
@@ -684,7 +690,14 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
       o: Math.min(1, Math.max(0.2, Number(d.o ?? 1))),
       z: Math.min(100, Math.max(1, Number(d.z) || 5)),
     })) : [],
-    applicationTypes: c.applicationTypes.map(cleanType),
+    applicationTypes: c.applicationTypes.map(t => {
+      const clean = cleanType(t);
+      const old = db.config.applicationTypes.find(x => x.id === clean.id);
+      // the public config hides successMessage, so an editor working from it
+      // sends blanks — never let a blank wipe a real message
+      if (old && old.successMessage && !clean.successMessage) clean.successMessage = old.successMessage;
+      return clean;
+    }),
   };
   if (ENV_EDIT_CODE) out.editCode = db.config.editCode;
   db.config = out;
