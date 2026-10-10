@@ -870,21 +870,6 @@
       "rulebreak": "No I have not been banned ever"
     },
     {
-      "appId": "MOD-DD9LE9",
-      "type": "moderator",
-      "date": "2026-10-04T20:28:52.486Z",
-      "status": "denied",
-      "adminNote": "Hi volchitsa, thank you for applying to be a moderator. We appreciate your interest and time. At this time we’re not moving forward with your application. Keep gaining experience and feel free to reapply in the future. Best wishes.",
-      "username": "volchitsa",
-      "discord": "volchitsa.03",
-      "age": "21",
-      "timezone": "est",
-      "experience": "Its a secert.",
-      "why": "Palworld is fun, and its very emusing",
-      "scenario": "spam with them, and swear",
-      "rulebreak": "I have, but its a secert"
-    },
-    {
       "appId": "MOD-LNVJU8",
       "type": "moderator",
       "date": "2026-10-04T20:31:56.304Z",
@@ -1421,6 +1406,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T16:35:15.809Z",
+      "act": "deleted",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
     {
       "t": "2026-10-10T16:35:12.940Z",
       "act": "deleted",
@@ -1980,11 +1971,6 @@
       "t": "2026-10-04T04:24:30.177Z",
       "act": "status_pending",
       "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:24:21.318Z",
-      "act": "status_denied",
-      "id": "MOD-KQ79BS"
     }
   ],
   "reports": []
