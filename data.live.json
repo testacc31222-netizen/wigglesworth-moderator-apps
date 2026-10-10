@@ -72,7 +72,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -232,7 +232,7 @@
         "intro": "Developers ship real things for players. Show us what you have built.",
         "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -1662,6 +1662,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T23:31:37.338Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T23:31:00.891Z",
       "act": "config_saved",
       "id": "",
@@ -2247,11 +2253,6 @@
     {
       "t": "2026-10-04T20:58:16.332Z",
       "act": "status_denied",
-      "id": "CC-YSWS2L"
-    },
-    {
-      "t": "2026-10-04T20:58:15.137Z",
-      "act": "status_pending",
       "id": "CC-YSWS2L"
     }
   ],
