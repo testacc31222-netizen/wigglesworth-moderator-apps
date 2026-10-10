@@ -1086,8 +1086,8 @@
       "appId": "MOD-YED9KM",
       "type": "moderator",
       "date": "2026-10-10T21:03:03.428Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator, tungroyal. We appreciate your enthusiasm and willingness to help keep the community safe. We encourage you to continue gaining experience and feel free to reapply in the future.",
       "username": "tungroyal",
       "discord": "Neptunegt7",
       "age": "13",
@@ -1655,6 +1655,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T22:58:45.456Z",
+      "act": "ai_denied",
+      "id": "MOD-YED9KM",
+      "by": ""
+    },
     {
       "t": "2026-10-10T22:58:36.338Z",
       "act": "status_denied",
@@ -2229,11 +2235,6 @@
     },
     {
       "t": "2026-10-04T04:29:07.318Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T04:29:02.279Z",
       "act": "config_saved",
       "id": ""
     }
