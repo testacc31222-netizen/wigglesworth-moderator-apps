@@ -1036,6 +1036,21 @@
       "why": "I want to be a moderator because I am very active and I want to make wigglesworth a more fun and enjoyable game, by helping stop the toxicity and hate towards other players.",
       "scenario": "If someone is spamming in chat, then I would stop them and give them one verbal warning, and if this behaviour continues, then I would take further action by timing them out.",
       "rulebreak": "No"
+    },
+    {
+      "appId": "MOD-CERPFK",
+      "type": "moderator",
+      "date": "2026-10-10T16:45:05.123Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "kash",
+      "discord": "kashvr1",
+      "age": "13",
+      "timezone": "EST. Always available",
+      "experience": "Im a moderator in a game called munky. Im also making a game rn",
+      "why": "I want to help the people and get rid of racist people and cheaters",
+      "scenario": "Time them out for at least like, 20 minutes or so",
+      "rulebreak": "Nope"
     }
   ],
   "tickets": [
