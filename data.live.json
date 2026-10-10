@@ -1101,8 +1101,8 @@
       "appId": "MOD-F3Q9HM",
       "type": "moderator",
       "date": "2026-10-10T21:05:04.057Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying, yeepingaway. We appreciate your interest in helping the community. While we can’t offer a moderator spot at this time, we encourage you to gain more experience and reapply later.",
       "username": "yeepingaway",
       "discord": "yeepingaway",
       "age": "14",
@@ -1655,6 +1655,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T22:58:13.831Z",
+      "act": "ai_denied",
+      "id": "MOD-F3Q9HM",
+      "by": ""
+    },
     {
       "t": "2026-10-10T22:58:00.041Z",
       "act": "status_denied",
@@ -2230,11 +2236,6 @@
     },
     {
       "t": "2026-10-04T04:30:32.834Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T04:29:07.318Z",
       "act": "config_saved",
       "id": ""
     }
