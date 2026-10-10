@@ -644,21 +644,6 @@
       "strikes": "Only one"
     },
     {
-      "appId": "MOD-LM4EAW",
-      "type": "moderator",
-      "date": "2026-10-03T18:52:19.033Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "BLEH",
-      "discord": "bam_bam29l",
-      "age": "13",
-      "timezone": "uk time/GMT+1",
-      "experience": "ive had experience and i was rlly good! idk what this means ry",
-      "why": "Im respectful,Gonna be active,Nice ingame/DiscordI can make sounds",
-      "scenario": "Tell them to stop,Or dm the owner",
-      "rulebreak": "nope,"
-    },
-    {
       "appId": "MOD-FFL4UP",
       "type": "moderator",
       "date": "2026-10-03T20:50:09.317Z",
@@ -1377,6 +1362,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T16:35:34.811Z",
+      "act": "deleted",
+      "id": "MOD-LM4EAW",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T16:35:20.739Z",
       "act": "deleted",
       "id": "MOD-KJ6H4E",
@@ -1938,11 +1929,6 @@
       "t": "2026-10-04T04:25:46.291Z",
       "act": "status_pending",
       "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:36.113Z",
-      "act": "status_pending",
-      "id": "MOD-P6T7KY"
     }
   ],
   "reports": []
