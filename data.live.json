@@ -2,7 +2,7 @@
   "config": {
     "title": "Wigglesworth — Official Applications And Support ",
     "subtitle": "Three ways in. Pick the role that fits you and send one honest application.",
-    "announcement": "LEAVING MODERATOR APPLICATIONS OPEN, ONLY READING THEM WHEN WE GET TO 150!",
+    "announcement": "APPLICATIONS ARE NOW OPEN!! FOR MODERATOR, CONTENT CREATOR, AND EVENT HOSTER!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#6cb8f0",
     "bg": "#0e1218",
@@ -43,7 +43,7 @@
       "completedLine": "completed, day 3 soon.",
       "endCardLine": "that was it, get ready for day 3",
       "soonLine": "soon.",
-      "target": "2026-10-04T21:40:00.000Z"
+      "target": "2026-10-04T23:40:00.000Z"
     },
     "layout": {
       "handNote": {
@@ -72,7 +72,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -232,7 +232,7 @@
         "intro": "Developers ship real things for players. Show us what you have built.",
         "successMessage": "",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -308,7 +308,7 @@
         "intro": "Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.",
         "successMessage": "",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -644,21 +644,6 @@
       "strikes": "Only one"
     },
     {
-      "appId": "MOD-LM4EAW",
-      "type": "moderator",
-      "date": "2026-10-03T18:52:19.033Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "BLEH",
-      "discord": "bam_bam29l",
-      "age": "13",
-      "timezone": "uk time/GMT+1",
-      "experience": "ive had experience and i was rlly good! idk what this means ry",
-      "why": "Im respectful,Gonna be active,Nice ingame/DiscordI can make sounds",
-      "scenario": "Tell them to stop,Or dm the owner",
-      "rulebreak": "nope,"
-    },
-    {
       "appId": "MOD-FFL4UP",
       "type": "moderator",
       "date": "2026-10-03T20:50:09.317Z",
@@ -717,21 +702,6 @@
       "why": "because i used to be staff in alot of games and now im moving to gtag fan-games or idk yet but i wanna help out the community and stuff",
       "scenario": "depends on what they spam, if its just spamming i time them for 5 mins, if its spamming slurs i time them for a week or kick them cuz i dont like that stuff",
       "rulebreak": "nah havent even gotten the game yet i will soon tho"
-    },
-    {
-      "appId": "MOD-P6T7KY",
-      "type": "moderator",
-      "date": "2026-10-04T04:03:36.889Z",
-      "status": "pending",
-      "adminNote": "join a voice chat. ASAP",
-      "username": "Jordan",
-      "discord": "Autumn915123",
-      "age": "16",
-      "timezone": "6 hours a day",
-      "experience": "None",
-      "why": "To help the community for wiggleworths and i will be doing stick justice to find bad monkeys.",
-      "scenario": "I would ask them to please to spamming if they don't i would ask for permission to time them out in the server or kick.",
-      "rulebreak": "I have never gotten ban I'm a good person and i follow rules."
     },
     {
       "appId": "MOD-KF92HF",
@@ -855,51 +825,6 @@
       "strikes": "NO"
     },
     {
-      "appId": "MOD-KJ6H4E",
-      "type": "moderator",
-      "date": "2026-10-04T18:26:34.847Z",
-      "status": "denied",
-      "adminNote": "Im not even gonna read this 😭",
-      "username": "SharrXD/none because I don't play",
-      "discord": "SharrXD",
-      "age": "14",
-      "timezone": "idk, whenever qntmz is available",
-      "experience": "uh I work with qntmz",
-      "why": "just cuz I wanna be mod and yea mod",
-      "scenario": "execute them/timeout",
-      "rulebreak": "no"
-    },
-    {
-      "appId": "MOD-H83PHA",
-      "type": "moderator",
-      "date": "2026-10-04T19:24:16.357Z",
-      "status": "denied",
-      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
-      "username": "LAYOJRJR",
-      "discord": "michaeljacksonbest",
-      "age": "15",
-      "timezone": "IDT 3-6 hours could be a little more",
-      "experience": "I was an ex moderator for wigglesworth (this game)",
-      "why": "I want to be a moderator because I want to improve my experience and stretch my skills and the communities growth and success rate",
-      "scenario": "I will warn him twice if he doesn't stop after the warnings I'll time him out for a couple of minutes and tell him the reason with the proof",
-      "rulebreak": "No I have not been banned ever"
-    },
-    {
-      "appId": "MOD-DD9LE9",
-      "type": "moderator",
-      "date": "2026-10-04T20:28:52.486Z",
-      "status": "denied",
-      "adminNote": "Hi volchitsa, thank you for applying to be a moderator. We appreciate your interest and time. At this time we’re not moving forward with your application. Keep gaining experience and feel free to reapply in the future. Best wishes.",
-      "username": "volchitsa",
-      "discord": "volchitsa.03",
-      "age": "21",
-      "timezone": "est",
-      "experience": "Its a secert.",
-      "why": "Palworld is fun, and its very emusing",
-      "scenario": "spam with them, and swear",
-      "rulebreak": "I have, but its a secert"
-    },
-    {
       "appId": "MOD-LNVJU8",
       "type": "moderator",
       "date": "2026-10-04T20:31:56.304Z",
@@ -913,36 +838,6 @@
       "why": "I want to get rid of moddera ruining the game and racist homophobes and genuinely horrible people and make the wigglesworth community a nice clean safe community where we can all be accepted also warn glitch abusers and whatever else is needed for this community to become safe because i am sick of these sorts of people slipping through and me having no authority to do anything about it.",
       "scenario": "Warn them at first if they carry on Time them out",
       "rulebreak": "No"
-    },
-    {
-      "appId": "MOD-AVZBGE",
-      "type": "moderator",
-      "date": "2026-10-04T20:35:21.428Z",
-      "status": "denied",
-      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
-      "username": "VAULTVR",
-      "discord": "vaultvr1",
-      "age": "13",
-      "timezone": "Est, 5 hours",
-      "experience": "This game and in a game with 3k or 4k members",
-      "why": "I love this game and want to help with ingame and discord moderation.I also want to be a mod to help with banning in game and discord moderation.I also want to be moderator because some of my friends are mod and ik the staff team and would love to be apart of it.I also want to be mod because I love helping others and would help people in game and outside the game a lot.I also would be there for staff unless I cannot whatsoever but most of the time besides from school I can be there.I also want to be staff because I would love to help grow the game, server, and make some items known like the mod staff, would love to be apart of the team.",
-      "scenario": "First i would tell them to stop.Second I would give them another warning and tell them to stop.Third I would time them out for a reasonable time from 10 mins to 20.",
-      "rulebreak": "No only once because of prx banning everyone"
-    },
-    {
-      "appId": "MOD-TPTQ3X",
-      "type": "moderator",
-      "date": "2026-10-04T20:41:10.814Z",
-      "status": "denied",
-      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
-      "username": "Couch",
-      "discord": "Couch_tato",
-      "age": "13",
-      "timezone": "Est",
-      "experience": "I am currently a trial moderator for a small game currently in development and I have been moderating for about 3-4 months. (Mainly in discord considering it's in development) I was also a trial mod for this game too, but something happened and the discord got deleted and I just joined it again.",
-      "why": "I think I would be a great fit for this role because I want to make the community better, safer, and more enjoyable to experience.",
-      "scenario": "If someone is spamming or typing anything that goes against the rules inside this discord server, then I would give them one warning or time out based on the severity.",
-      "rulebreak": "N/A"
     },
     {
       "appId": "CC-CHA7GM",
@@ -959,36 +854,6 @@
       "schedule": "Once a week maybe twice if update",
       "style": "Vr contents and popular games",
       "strikes": "No"
-    },
-    {
-      "appId": "MOD-TKAKAJ",
-      "type": "moderator",
-      "date": "2026-10-04T20:54:57.388Z",
-      "status": "denied",
-      "adminNote": "Yeah a because yeah ok. Fet it okay got kendrick on it too lol i just think it would make sense for the other guy too to have it in a movie and then the next one would have a sequel and the sequel would have to happen to make it in a different story or a movie and not just the sequel",
-      "username": "korp",
-      "discord": "wtfbamber",
-      "age": "20",
-      "timezone": "CST, 10-15 hours daily",
-      "experience": "I am staff for discord.gg/wittyville",
-      "why": "Yeah a because yeah ok. Fet it okay got kendrick on it too lol i just think it would make sense for the other guy too to have it in a movie and then the next one would have a sequel and the sequel would have to happen to make it in a different story or a movie and not just the sequel",
-      "scenario": "Ban then the only way i could be happy with the fact i can be a part in a project",
-      "rulebreak": "No"
-    },
-    {
-      "appId": "MOD-DKHJU9",
-      "type": "moderator",
-      "date": "2026-10-04T21:15:22.049Z",
-      "status": "denied",
-      "adminNote": "We're checking for new people. Maintain activity in and outside of the server and you may have a chance to get moderator next time we do applications.",
-      "username": "abstract",
-      "discord": ".forevergone.",
-      "age": "15",
-      "timezone": "EST",
-      "experience": "I have been mod in a few games I was old t-mod here and was admin in memory tag owned by tasty.",
-      "why": "I want to be moderator to help around the server in areas other people might have missed, I know I am a past staff member but maybe yall can accept. I also am very nice and active within the community. I am also a very logical person and know what a bannable offense is when I see it and I can reason with people really well.",
-      "scenario": "First I would give them a verbal warning, warning that I would time them if they don't stop, second I would use logic to see how bad of a spam it was and from there if they don't stop I would time them the appropriate duration based on the severity of their offense.",
-      "rulebreak": "No I have not been banned at all."
     },
     {
       "appId": "EVT-PLFTVT",
@@ -1049,6 +914,308 @@
       "eventidea": "Mainly give always",
       "chaos": "1. I would get everyone’s discord before we start 2. Then I would ping them a new code 3. Carry on and have fun",
       "reliable": "I can’t rlly bc my family is rlly busy"
+    },
+    {
+      "appId": "EVT-QMDXZG",
+      "type": "event",
+      "date": "2026-10-08T11:09:51.022Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Interminal",
+      "discord": "thegoatgtagplayer",
+      "age": "15",
+      "timezone": "CST 3 Hours Daily",
+      "experience": "Yes",
+      "eventidea": "So this event will be hosted inside of Casual/Normal so basically I would get players first to join the code then after we will do events like hide and seek , knock-knock (The Hay House Or Whatever) ,and finally a fashion show since I feel like we have enough cosmetics now and yeah those some events i'm thinking about hosting.",
+      "chaos": "I didn't really understand what you meant but breaks mid-event but I'll give it a shot.1. I would try figuring out what's going on and what caused it2. I would try changing the game mode for the event or something3. I would start directing everyone to join a new code or                  (Sorry If My Answers Was Bad I Just Didn't Understand How You Explained It)",
+      "reliable": "Yes I can commit to a regular slot on any day really around 4:pm depending if school day or weekend ig"
+    },
+    {
+      "appId": "CC-URSKJS",
+      "type": "creator",
+      "date": "2026-10-09T00:13:49.368Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "yeepingaway",
+      "discord": "yeepingaway",
+      "age": "14",
+      "why": "I feel like this game will be big",
+      "platform": "TikTok",
+      "channel": "https://www.tiktok.com/@clawcam5",
+      "schedule": "2-3 weeks",
+      "style": "Im a multiple game content, yet i havent post most",
+      "strikes": "No Never"
+    },
+    {
+      "appId": "CC-NPMDJD",
+      "type": "creator",
+      "date": "2026-10-09T03:39:43.313Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Venovr",
+      "discord": "VENO",
+      "age": "14",
+      "why": "Because I just want to support the community and try to make the game bigger and popular.",
+      "platform": "TikTok",
+      "channel": "https://www.tiktok.com/@defnotjb66?_r=1&_t=ZP-9AOvF8q8snf",
+      "schedule": "Twice a week or more.",
+      "style": "I do like challenge and funny ski to entertain the people that watching my content",
+      "strikes": "No"
+    },
+    {
+      "appId": "MOD-R483PY",
+      "type": "moderator",
+      "date": "2026-10-10T03:36:49.515Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "HEXXEDSKUFFED",
+      "discord": "『★*☆♪HexxedSkuffed★*☆♪ 』",
+      "age": "16",
+      "timezone": "CDT",
+      "experience": "I am mod in Adrenaline. I was mod in a few gtag copys but they were ether shut down or discontinued.",
+      "why": "I want to be a mod so i can help and guide the community of Wiggles. I want to be able to ban people myself instead of sending reports to staff. I like helping people not only in games but also irl. I have been looking forward to joining the community of staff and make more friends then i already have.",
+      "scenario": "Ill tell them to stop and it can get annoying for other Wiggles, if they continue, then i will report it to staff or if this question is saying i am a staff then i would time them out for a few minutes.",
+      "rulebreak": "I have been banned in game for cheating but when i reported it to a owner specifically qntmz, it turned out no be a false alarm. (I wanted to mention something, i am trusted by qntmz, prism, French Toast and a few others)"
+    },
+    {
+      "appId": "MOD-GH3RKU",
+      "type": "moderator",
+      "date": "2026-10-10T11:51:01.525Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "LAYOJRJR",
+      "discord": "michaeljacksonbest",
+      "age": "15",
+      "timezone": "IDT 3-6 could be more",
+      "experience": "i have moderation experience but i dont remember any servers but this server sorry",
+      "why": "i want to be a moderator for this games community because i want to improve my knowledge and experience with the role of being a moderator, i want to help the community's support for the people with questions they need help with and because i want to strech this community's growth.",
+      "scenario": "if someone is spamming in chat whhat will i do is first ill ask him to stop and give him 2 warnings and if the spamming doesnt stop i will give him one more warning and if he doesnt stop ill time him out for an hour.",
+      "rulebreak": "i have never been banned"
+    },
+    {
+      "appId": "MOD-F3N8B6",
+      "type": "moderator",
+      "date": "2026-10-10T14:49:06.853Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "JaydenMike",
+      "discord": "jayden_mike19081",
+      "age": "13",
+      "timezone": "1h",
+      "experience": "No",
+      "why": "To moderate and bring good vibes",
+      "scenario": "Warn or mute them for 1h or 30 mins",
+      "rulebreak": "The whole lobby was toxic and they reported me they said i was annoying bc i was telling them to stop"
+    },
+    {
+      "appId": "MOD-VZU4JE",
+      "type": "moderator",
+      "date": "2026-10-10T15:02:07.445Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Couch",
+      "discord": "Couch_tato",
+      "age": "13",
+      "timezone": "Est/ anytime between 10am-8pm on weekends unless something is going on in my life.",
+      "experience": "I was a past moderator for a small game called, \"Space Monkeys\" and helped out the community for about 1-2 months before moving on to other games. I helped out in-game and in the discord for a short period of time and was trusted within the community.",
+      "why": "I want to be a moderator because I am very active and I want to make wigglesworth a more fun and enjoyable game, by helping stop the toxicity and hate towards other players.",
+      "scenario": "If someone is spamming in chat, then I would stop them and give them one verbal warning, and if this behaviour continues, then I would take further action by timing them out.",
+      "rulebreak": "No"
+    },
+    {
+      "appId": "MOD-CERPFK",
+      "type": "moderator",
+      "date": "2026-10-10T16:45:05.123Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "kash",
+      "discord": "kashvr1",
+      "age": "13",
+      "timezone": "EST. Always available",
+      "experience": "Im a moderator in a game called munky. Im also making a game rn",
+      "why": "I want to help the people and get rid of racist people and cheaters",
+      "scenario": "Time them out for at least like, 20 minutes or so",
+      "rulebreak": "Nope"
+    },
+    {
+      "appId": "MOD-ZSJYBJ",
+      "type": "moderator",
+      "date": "2026-10-10T16:57:29.402Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "CLOVER",
+      "discord": "anomxly",
+      "age": "14",
+      "timezone": "EST",
+      "experience": "Umm WigglesworthProject stumpSome old gtag copies I really just been focus on Wigglesworth tho",
+      "why": "I want to be moderator because. I want to make sure no one is breaking rules and i want to make sure no one is breaking rules and problem playing the game the right way and I want are game to be know as a family friendly game",
+      "scenario": "First I would see who’s spamming and why, Second I would ask him pls to stop and see if he’s mad or something, 3rd I will give him 2 warning to stop and if I have power I would time him out after those 2 warning, and last if he’s still doing I will tell the higher up people",
+      "rulebreak": "Nah"
+    },
+    {
+      "appId": "MOD-S4AXF9",
+      "type": "moderator",
+      "date": "2026-10-10T17:48:52.954Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Raz",
+      "discord": "raz.plays.vr",
+      "age": "16",
+      "timezone": "(EST) Available on ALL school weekdays *AFTER* 3:50 PM. And available all weekend days anytime!",
+      "experience": "My past moderation experience consists of Project Wigglesworth, Primal Fear, Zuse Runners (15k+)",
+      "why": "My great passion in moderating games only continues to increase in professional staffing, therefore I have grown myself to become a very successful and professional moderation team member throughout multiple other games. Not only that, I feel as my shear dedication to keeping the community clean and safe of ALL negativity will benefit by a lot. I also very much enjoy helping communities throughout games by banning and or punishing bad people that don’t understand nor care of the rules.",
+      "scenario": "Firstly I will give them a verbal warning and tell them if it continues it will result in a timeout.",
+      "rulebreak": "No, I have not."
+    },
+    {
+      "appId": "MOD-VH7ML4",
+      "type": "moderator",
+      "date": "2026-10-10T19:05:47.168Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "VAULTVR",
+      "discord": "vaultvr1",
+      "age": "13",
+      "timezone": "Cst and 3 hours to 5 maybe even more",
+      "experience": "In this game and in a game with 3.5k members",
+      "why": "Because I love helping others and would love to help moderate this game. Also because I know the staff team and would love to help them moderate. And because the game is really fun and it would be fun to moderate in game. I also want to help clean up the community and get them banned.One more thing is I would be very active to make sure everythings ok and to not get demoted.",
+      "scenario": "First I would warn them sometimes second I would time them out for a reasonable time like 10 minutes if they continue to and don't stop i would time them out for the amount of time a higher up says.",
+      "rulebreak": "No only once because of prx banning everyone"
+    },
+    {
+      "appId": "MOD-YED9KM",
+      "type": "moderator",
+      "date": "2026-10-10T21:03:03.428Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "tungroyal",
+      "discord": "Neptunegt7",
+      "age": "13",
+      "timezone": "2 hours daily europe",
+      "experience": "ugvr and craft rooms",
+      "why": "because im a very active player andd i know i providde a safe play space for the wiggles worth community :)",
+      "scenario": "5min time out if they carry on 30 then tell higher up mods",
+      "rulebreak": "yeah i was false banned in og"
+    },
+    {
+      "appId": "MOD-F3Q9HM",
+      "type": "moderator",
+      "date": "2026-10-10T21:05:04.057Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "yeepingaway",
+      "discord": "yeepingaway",
+      "age": "14",
+      "timezone": "est",
+      "experience": "Not really much.",
+      "why": "I want to be a moderator because i feel like i want to help this server grow as a community and help people.",
+      "scenario": "I would calmly tell them to stop, as if they dont, i would ask what to do to a older mod",
+      "rulebreak": "No"
+    },
+    {
+      "appId": "MOD-4EDNAX",
+      "type": "moderator",
+      "date": "2026-10-10T21:06:45.987Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Aiden",
+      "discord": "aidenishere26",
+      "age": "16",
+      "timezone": "EST, All the time I am Online School",
+      "experience": "I've been moderator in multiple games, I currently am Moderator in Raccoon, Hallucinate, Community Manager in Those Next-Bots, Server Manager in Chimp Panini.",
+      "why": "I would like to become a Moderator for a lot of reasons, I would love to become one to Gain more Experience with Moderation. In addition I would like to become a Moderator in this game to help protect the game against any type of Modders, Rule Breakers, etc. I want to help People in the game with protection as well as meet new people, show new people around, and overall be a kind and respectful staff member.",
+      "scenario": "I would firstly, figure out why they are spamming, I would proceed to tell them to stop. If they continue without stopping I would time them out for 1hr. If then continue they would be timed out for 1day, and the punishment would get worse if continued.",
+      "rulebreak": "No"
+    },
+    {
+      "appId": "MOD-YDABMQ",
+      "type": "moderator",
+      "date": "2026-10-10T21:08:39.545Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "SSnowwwy_YT",
+      "discord": "@ssnowwwy_yt",
+      "age": "13",
+      "timezone": "BST",
+      "experience": "I have been a staff member for around 20 games/people and still are in some of them bc i either let go or i just retired",
+      "why": "I would like to help the community and keep it safe to make the game a safe and loving area for all",
+      "scenario": "give them 3 warnings then time them out, if they keep going i time them out again, and if they do it a third time after being timed out 2 times i will ban them",
+      "rulebreak": "i have never been banned before"
+    },
+    {
+      "appId": "MOD-JF4AP2",
+      "type": "moderator",
+      "date": "2026-10-10T21:11:08.645Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Seethesky.",
+      "discord": "I love nature.",
+      "age": "13",
+      "timezone": "Uk timezone.",
+      "experience": "Tundertag, some gtag fan games and I was an admin.",
+      "why": "I wanne help to community by protecting it, helping it. I want to be moderation because I found it was really cool and worth giving a shot playing it because it is REALLY fun to play with and that I am real real active like 24/7 because when I first played the game I knew I had a connection to it with me so I was wondering “why not giving a shot getting moderator” and I wanne help people by answering questions, support tickets, or in chat and that is because I absolutely love helping people Wich is really good for the community that doesn’t need to wait hours on other mid active mods.",
+      "scenario": "What I first will do is explain to him that spamming is not worth doing because ur kinda wasting ur own time but ur also spamming the chat Wich people have their notifications on like to help people so I’ll tell him to not spam it because it will get people a little mad and come here and say slurs and names and  we absolutely don’t want that so I’ll explain him not to spam but if he keep going I have no choice but to mute him for 10 minutes or give him a warning.",
+      "rulebreak": "No I have not bin banned in any game because Imalmost never swear and I am ALWAYS kind to people and I help a lot of people instead if being mad at other for no reason so no I have not bin banned from any game"
+    },
+    {
+      "appId": "MOD-KPLAWJ",
+      "type": "moderator",
+      "date": "2026-10-10T21:12:54.479Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Retoni",
+      "discord": "just_retoni",
+      "age": "14",
+      "timezone": "CST 5-6 hours per day",
+      "experience": "Wigglesworth, sunset tag, and Michigan state roleplay. Note these are games I’m retired from.",
+      "why": "I want to become moderator because I have plenty of experience with moderating games. Some games I moderate are don’t blink (3.7k members) and Null space (560 members active game). I’m also very kind and would NEVER abuse my power. I also always keep the server and game clean and friendly, I can de escalate problems, and give people a good experience throughout both the game and server. I’m also trustworthy and mature to take on the actions of moderating this game, I can also solve many problems. That is why I want to become moderator for wigglesworth.",
+      "scenario": "I would delete the messages and time them out / give them a warning to not do that again.",
+      "rulebreak": "No"
+    },
+    {
+      "appId": "MOD-D642D4",
+      "type": "moderator",
+      "date": "2026-10-10T21:14:23.931Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Stunt",
+      "discord": "stunt_vr",
+      "age": "14",
+      "timezone": "Weekdays from 12:00 PM CST - 10:30 PM CST and Saturday anytime",
+      "experience": "I have A LOT of experience with moderation. I have been a staff for Wigglesworth. I also own a lot of games like, Nubbers, and my studio, F1REBALL STUDIO.",
+      "why": "I want to be moderator because I used to be a moderator for this game and I LOVED helping out this game. It was also very fun to be a moderator and surprise people and make there days. I also really liked to help out in the discord server by telling people how to apply for things, how to get the game, and more.",
+      "scenario": "Ask them to please stop. If they keep doing it I will time them out for a little bit. Then if they get untimed and keep spamming, then I will kick or ban them.",
+      "rulebreak": "Maybe, if I was it would be for testing something"
+    },
+    {
+      "appId": "MOD-Y36L3E",
+      "type": "moderator",
+      "date": "2026-10-10T21:17:19.091Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Seethesky.",
+      "discord": "I love nature.",
+      "age": "13",
+      "timezone": "Uk timezone.",
+      "experience": "Tundra tag, gtag fan games.",
+      "why": "Because when I first joined the game I knew I had a connection with it because I saw how good it was and was not copied by other games wich is really good and by growing the community is by having really good active moderators wich I basically am because I am mostly on discord and have my notifications on and I wanne help the community from peopleThat keep saying slurs names or names that harms people wich I wanne protect them from because I dont want that to happen to anyone because that is absolutely not right.",
+      "scenario": "Explain to him that is not right to spam because people are probably sleeping or doing somthing busy and then they got their notifications on and ones they get annoyed they come here and say slurs that we don’t want to happened but if I keep explaining and he keep doing it then I have no other choice but to mute him for about 10 minutes or give him a warning.",
+      "rulebreak": "No I have not bin banned from any game because I almost never swear Wich doesn’t get me banned or muted and I am mostly kind and help people so the answer is no I have not bin banned from any game."
+    },
+    {
+      "appId": "MOD-2E5DGR",
+      "type": "moderator",
+      "date": "2026-10-10T21:30:10.548Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "KingCase1",
+      "discord": "kingcase1",
+      "age": "13",
+      "timezone": "Timezone: PDT. I am usually available, tuesdays and wednesdays, and also the weekend.",
+      "experience": "I indeed have ALOT of moderation experience. I am moderator on many fan-games. I am usually higher permissioned staff, like head administrator. I also have ALOT of ticketing experience. In the servers I am currently staff in, I handle player reports and appeals using a PlayLab bot that allows me to ban people from inside the discord. I had created a ticketing bot that has links to moderator ban info, the ban channel, and the guide all in one thread. In another server, I have insta ban. I start recording whenever someone breaks the rules. I ban them in-game, then log the ban inside the discord.",
+      "why": "I would like to become a moderator so I can increase my responsibility as I grow. I also want to become a moderator so I can help build and grow communities. I also want to become a moderator so I can protect the community and keep the game safe, fun, and fair to everyone.",
+      "scenario": "I kindly ask them to stop, if they continue to do it, I will simply file a warning. If they continue to do it after multiple warnings, I will time them out for the duration that the owner tells me to time them out for.",
+      "rulebreak": "I've gotten false banned once. Someone said they heard me say the N word, but I was recording at the time, once I submitted the appeal ticketm, i showed them who the real culprit is, they had unbanned me."
     }
   ],
   "tickets": [
@@ -1241,9 +1408,9 @@
       "name": "Bamber",
       "subject": "I lost my code",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-04T21:40:43.779Z",
-      "updatedAt": "2026-10-04T21:46:45.135Z",
+      "updatedAt": "2026-10-09T08:01:46.264Z",
       "replies": [
         {
           "by": "user",
@@ -1262,6 +1429,12 @@
           "name": "Bamber",
           "text": "Staff ID Oke?",
           "at": "2026-10-04T21:46:45.135Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Sure thing! The code you’re looking for is the Application ID you received right after submitting your application. If you don’t have that handy, could you let me know what you do have or where you saw it? That’ll help me locate it for you.",
+          "at": "2026-10-09T08:01:46.264Z"
         }
       ]
     },
@@ -1292,10 +1465,10 @@
       "id": "TKT-KSF2S5",
       "name": "Royal",
       "subject": "I don’t know my code for the mod apps",
-      "status": "open",
+      "status": "closed",
       "unread": true,
       "createdAt": "2026-10-04T21:42:07.045Z",
-      "updatedAt": "2026-10-04T21:42:07.045Z",
+      "updatedAt": "2026-10-09T08:01:37.058Z",
       "replies": [
         {
           "by": "user",
@@ -1350,9 +1523,145 @@
           "at": "2026-10-06T00:07:00.816Z"
         }
       ]
+    },
+    {
+      "id": "TKT-BCBTWN",
+      "name": "Your worst fucking nightmare..",
+      "subject": "The DEATH of all.",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-10T21:25:13.116Z",
+      "updatedAt": "2026-10-10T21:25:13.116Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Your worst fucking nightmare..",
+          "text": "You will perish in one week.",
+          "at": "2026-10-10T21:25:13.116Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-88ULAF",
+      "name": "KingCase",
+      "subject": "The Moderator application.",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-10T21:32:45.643Z",
+      "updatedAt": "2026-10-10T21:32:45.643Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "KingCase",
+          "text": "I recommend to add some multiple choice questions to the application to see how much experience the applicants really have. For example, \"1. If your friend says a slur, what would you do?\" and add answers to the question.",
+          "at": "2026-10-10T21:32:45.643Z"
+        }
+      ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T21:04:18.697Z",
+      "act": "deleted",
+      "id": "MOD-LM4EAW",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T21:02:40.699Z",
+      "act": "deleted",
+      "id": "MOD-X2K7XC",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T16:35:50.904Z",
+      "act": "deleted",
+      "id": "MOD-P6T7KY",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T16:35:04.085Z",
+      "act": "deleted",
+      "id": "MOD-KJ6H4E",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T16:35:01.651Z",
+      "act": "deleted",
+      "id": "MOD-H83PHA",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T16:34:59.540Z",
+      "act": "deleted",
+      "id": "MOD-DD9LE9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T16:34:50.371Z",
+      "act": "deleted",
+      "id": "MOD-AVZBGE",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T16:34:48.394Z",
+      "act": "deleted",
+      "id": "MOD-TPTQ3X",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T16:34:46.718Z",
+      "act": "deleted",
+      "id": "MOD-TKAKAJ",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T16:34:43.463Z",
+      "act": "deleted",
+      "id": "MOD-DKHJU9",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T04:53:50.978Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T04:52:42.788Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T04:52:42.484Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T03:17:36.994Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T03:17:28.971Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-09T08:01:46.264Z",
+      "act": "ticket_reply",
+      "id": "TKT-VMH9B5",
+      "by": ""
+    },
+    {
+      "t": "2026-10-09T08:01:37.058Z",
+      "act": "ticket_closed",
+      "id": "TKT-KSF2S5",
+      "by": ""
+    },
     {
       "t": "2026-10-06T02:04:50.553Z",
       "act": "status_pending",
@@ -1822,91 +2131,7 @@
       "t": "2026-10-04T04:25:47.363Z",
       "act": "status_pending",
       "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:46.947Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:46.670Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:46.291Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:36.113Z",
-      "act": "status_pending",
-      "id": "MOD-P6T7KY"
-    },
-    {
-      "t": "2026-10-04T04:24:36.847Z",
-      "act": "status_pending",
-      "id": "CC-ZRGADC"
-    },
-    {
-      "t": "2026-10-04T04:24:30.177Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:24:21.318Z",
-      "act": "status_denied",
-      "id": "MOD-KQ79BS"
-    },
-    {
-      "t": "2026-10-04T04:24:19.819Z",
-      "act": "status_pending",
-      "id": "MOD-KQ79BS"
-    },
-    {
-      "t": "2026-10-04T04:23:12.523Z",
-      "act": "status_pending",
-      "id": "MOD-P6T7KY"
-    },
-    {
-      "t": "2026-10-04T04:22:55.593Z",
-      "act": "status_denied",
-      "id": "CC-L59SZE"
-    },
-    {
-      "t": "2026-10-04T04:22:54.878Z",
-      "act": "status_approved",
-      "id": "CC-L59SZE"
-    },
-    {
-      "t": "2026-10-04T04:15:37.305Z",
-      "act": "status_denied",
-      "id": "MOD-FFL4UP"
-    },
-    {
-      "t": "2026-10-04T04:14:25.971Z",
-      "act": "status_denied",
-      "id": "MOD-KXTFAC"
-    },
-    {
-      "t": "2026-10-04T04:14:22.081Z",
-      "act": "status_denied",
-      "id": "MOD-FFL4UP"
-    },
-    {
-      "t": "2026-10-04T04:14:21.691Z",
-      "act": "status_pending",
-      "id": "MOD-FFL4UP"
-    },
-    {
-      "t": "2026-10-04T03:57:14.270Z",
-      "act": "status_pending",
-      "id": "MOD-KXTFAC"
-    },
-    {
-      "t": "2026-10-04T03:57:01.959Z",
-      "act": "deleted",
-      "id": "MOD-S8G2D4"
     }
-  ]
+  ],
+  "reports": []
 }
