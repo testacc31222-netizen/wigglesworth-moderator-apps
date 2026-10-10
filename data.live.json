@@ -70,7 +70,7 @@
         "blurb": "Keep chat clean, enforce the rules, help players.",
         "prefix": "MOD",
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
-        "successMessage": "",
+        "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
         "open": true,
         "questions": [
@@ -146,7 +146,7 @@
         "blurb": "Make videos and streams that grow the community.",
         "prefix": "CC",
         "intro": "Creators represent Wigglesworth on their channels. Apply here with your best work.",
-        "successMessage": "",
+        "successMessage": "Thanks! Your creator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
         "open": true,
         "questions": [
@@ -230,7 +230,7 @@
         "blurb": "Build the games, bots, and tools players use.",
         "prefix": "DEV",
         "intro": "Developers ship real things for players. Show us what you have built.",
-        "successMessage": "",
+        "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
         "open": true,
         "questions": [
@@ -306,7 +306,7 @@
         "blurb": "Run game nights, tournaments, and community events.",
         "prefix": "EVT",
         "intro": "Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.",
-        "successMessage": "",
+        "successMessage": "Thanks! Your event hoster application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
         "open": false,
         "questions": [
@@ -1611,10 +1611,10 @@
       "id": "TKT-88ULAF",
       "name": "KingCase",
       "subject": "The Moderator application.",
-      "status": "open",
+      "status": "closed",
       "unread": false,
       "createdAt": "2026-10-10T21:32:45.643Z",
-      "updatedAt": "2026-10-10T22:44:47.256Z",
+      "updatedAt": "2026-10-10T23:20:04.760Z",
       "replies": [
         {
           "by": "user",
@@ -1635,9 +1635,9 @@
       "name": "Coolguy",
       "subject": "Ticket gone",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-10T22:50:23.983Z",
-      "updatedAt": "2026-10-10T22:52:37.159Z",
+      "updatedAt": "2026-10-10T23:16:23.923Z",
       "replies": [
         {
           "by": "user",
@@ -1650,11 +1650,53 @@
           "name": "Coolguy",
           "text": "SORRY I WAS BEING DUMB AND PUT IT IN THE WRONG SPOT",
           "at": "2026-10-10T22:52:37.159Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey! It looks like the codes didn’t match the application you submitted. Could you double‑check the code you received and let me know where you entered it? If you still have the application ID or a screenshot, that would help too. Thanks!",
+          "at": "2026-10-10T23:16:23.923Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T23:20:04.761Z",
+      "act": "ticket_closed",
+      "id": "TKT-88ULAF",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T23:17:58.947Z",
+      "act": "report_deleted",
+      "id": "RPT-VXEFSH",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T23:17:26.868Z",
+      "act": "report_deleted",
+      "id": "RPT-VXEFSH",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T23:17:24.335Z",
+      "act": "report_closed",
+      "id": "RPT-VXEFSH",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T23:16:23.923Z",
+      "act": "ticket_reply",
+      "id": "TKT-VYZT7E",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T23:15:42.052Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
     {
       "t": "2026-10-10T22:59:18.063Z",
       "act": "deleted",
@@ -2210,36 +2252,6 @@
       "t": "2026-10-04T20:53:37.097Z",
       "act": "config_saved",
       "id": ""
-    },
-    {
-      "t": "2026-10-04T20:52:40.559Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T20:38:10.447Z",
-      "act": "ticket_reply",
-      "id": "TKT-BFHMED"
-    },
-    {
-      "t": "2026-10-04T20:37:52.117Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T20:36:00.047Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T20:30:59.629Z",
-      "act": "ticket_closed",
-      "id": "TKT-DHGPDG"
-    },
-    {
-      "t": "2026-10-04T20:07:28.763Z",
-      "act": "ticket_reply",
-      "id": "TKT-DHGPDG"
     }
   ],
   "reports": []
