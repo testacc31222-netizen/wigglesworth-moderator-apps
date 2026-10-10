@@ -1026,8 +1026,8 @@
       "appId": "MOD-CERPFK",
       "type": "moderator",
       "date": "2026-10-10T16:45:05.123Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Hi kash,\n\nThank you for applying to be a moderator. We appreciate the time you spent on your application. At this time we’re not able to offer you a position, but we encourage you to keep building your moderation skills and reapply in the future.  \n\nBest of luck!",
       "username": "kash",
       "discord": "kashvr1",
       "age": "13",
@@ -1633,6 +1633,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T22:46:25.452Z",
+      "act": "ai_denied",
+      "id": "MOD-CERPFK",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T22:44:47.256Z",
       "act": "ticket_reply",
       "id": "TKT-88ULAF",
@@ -2202,11 +2208,6 @@
       "t": "2026-10-04T04:27:41.402Z",
       "act": "ticket_reply",
       "id": "TKT-FG2FE5"
-    },
-    {
-      "t": "2026-10-04T04:27:00.486Z",
-      "act": "ticket_reply",
-      "id": "TKT-HHMDZY"
     }
   ],
   "reports": []
