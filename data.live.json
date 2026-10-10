@@ -1027,7 +1027,7 @@
       "type": "moderator",
       "date": "2026-10-10T16:45:05.123Z",
       "status": "denied",
-      "adminNote": "Hi kash,\n\nThank you for applying to be a moderator. We appreciate the time you spent on your application. At this time we’re not able to offer you a position, but we encourage you to keep building your moderation skills and reapply in the future.  \n\nBest of luck!",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your enthusiasm and interest in helping the community. While we can’t offer you a position right now, we encourage you to keep gaining experience and reapply in the future. next time try to make your applications a little longer. Good luck!",
       "username": "kash",
       "discord": "kashvr1",
       "age": "13",
@@ -1633,6 +1633,18 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T22:46:50.122Z",
+      "act": "status_denied",
+      "id": "MOD-CERPFK",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:46:26.169Z",
+      "act": "ai_denied",
+      "id": "MOD-CERPFK",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T22:46:25.452Z",
       "act": "ai_denied",
       "id": "MOD-CERPFK",
@@ -2198,16 +2210,6 @@
       "t": "2026-10-04T04:27:57.277Z",
       "act": "ticket_reply",
       "id": "TKT-RVLKY8"
-    },
-    {
-      "t": "2026-10-04T04:27:48.043Z",
-      "act": "ticket_reply",
-      "id": "TKT-8KPDCY"
-    },
-    {
-      "t": "2026-10-04T04:27:41.402Z",
-      "act": "ticket_reply",
-      "id": "TKT-FG2FE5"
     }
   ],
   "reports": []
