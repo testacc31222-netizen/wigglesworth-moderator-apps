@@ -2250,5 +2250,17 @@
       "id": ""
     }
   ],
-  "reports": []
+  "reports": [
+    {
+      "id": "RPT-VXEFSH",
+      "reporter": "quantummz",
+      "staffName": "Trx6K",
+      "details": "they were being toxic and they weren't letting me say TRXMOTTEZ",
+      "files": [],
+      "status": "open",
+      "adminNote": "",
+      "createdAt": "2026-10-10T23:17:04.242Z",
+      "updatedAt": "2026-10-10T23:17:04.242Z"
+    }
+  ]
 }
