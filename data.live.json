@@ -428,21 +428,6 @@
       "strikes": "May be some from when i started but since doing wigglesworth no"
     },
     {
-      "appId": "MOD-UD235K",
-      "type": "moderator",
-      "date": "2026-09-30T01:36:21.124Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "VEXR",
-      "discord": "vexr",
-      "age": "14",
-      "timezone": "6 hours daily",
-      "experience": "I was a old mod here and in tinys horror",
-      "why": "To help the community and make sure there’s no toxic people again like I used to. I used to always help the community and I still want to. I want to keep racism, homophobia, etc. out of the community, including M and abuse staff abuse anything of the sorts so I’m here to help again",
-      "scenario": "I warn them if it Carry’s on I mute them",
-      "rulebreak": "No"
-    },
-    {
       "appId": "MOD-73KAU9",
       "type": "moderator",
       "date": "2026-09-30T21:33:41.492Z",
@@ -1347,6 +1332,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-10T16:35:42.570Z",
+      "act": "deleted",
+      "id": "MOD-UD235K",
+      "by": ""
+    },
+    {
       "t": "2026-10-10T16:35:40.221Z",
       "act": "deleted",
       "id": "MOD-3NPFTU",
@@ -1908,11 +1899,6 @@
     },
     {
       "t": "2026-10-04T04:25:46.947Z",
-      "act": "status_pending",
-      "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:46.670Z",
       "act": "status_pending",
       "id": "MOD-KLFLKK"
     }
