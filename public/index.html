@@ -135,6 +135,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .tabs button{background:transparent;color:var(--muted);border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:10px 14px;border-radius:0;font-size:13px;font-weight:700}
 .tabs button:hover{color:var(--text)}
 .tabs button.active{color:var(--amber);border-bottom-color:var(--amber)}
+.ed-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.ed-actions{display:flex;gap:8px}
+.ed-actions button{padding:10px 18px;border-radius:10px;font-weight:700;border:0;min-width:0}
+#dirtyDot{display:none;color:var(--yellow);font-weight:700}
+#dirtyDot.on{display:inline}
+#editor .tabs button{display:inline-flex;align-items:center;gap:7px}
+#editor .tabs button svg{width:15px;height:15px;flex:none}
+#editor .tabpane{background:rgba(255,255,255,.02);border:1px solid var(--line-soft);border-radius:12px;padding:16px;margin-top:12px}
+#editor .tabpane>label:first-child{margin-top:2px}
 .tabpane{display:none}.tabpane.active{display:block}
 .q-item,.decor-item{background:rgba(255,255,255,.025);border:1px solid var(--line-soft);border-radius:10px;padding:14px;margin:12px 0}
 .q-item:focus-within{border-color:var(--amber)}
@@ -465,18 +474,26 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
   <div class="foot" data-dkey="foot">Run by the Wigglesworth staff team — every application gets read and answered.<br><span class="colo">Set in Space Grotesk &amp; Plex Mono · run by humans</span></div>
 
   <div class="card" id="editor">
-    <h2 style="margin:0">Editor Mode</h2>
-    <p class="hint">Unlocked with edit code. Shared live - edits and applications sync on phone + computer instantly.</p>
+    <div class="ed-head">
+      <div>
+        <h2 style="margin:0">Editor Mode</h2>
+        <p class="hint" style="margin:4px 0 0">Unlocked with edit code. Shared live - edits and applications sync on phone + computer instantly. <span id="dirtyDot">● Unsaved changes</span></p>
+      </div>
+      <div class="ed-actions">
+        <button class="btn-confirm" onclick="saveConfig()">Save</button>
+        <button class="btn-cancel" onclick="lockEditor()">Lock</button>
+      </div>
+    </div>
     <div class="tabs">
-      <button data-tab="general" class="active" onclick="switchTab('general',this)">General</button>
-      <button data-tab="roles" onclick="switchTab('roles',this)">Roles</button>
-      <button data-tab="design" onclick="switchTab('design',this)">Design & Pictures</button>
-      <button data-tab="decor" onclick="switchTab('decor',this)">Drag & Decor</button>
-      <button data-tab="texts" onclick="switchTab('texts',this)">Texts</button>
-      <button data-tab="questions" onclick="switchTab('questions',this)">Questions</button>
-      <button data-tab="tickets" onclick="switchTab('tickets',this)">Tickets <span id="ticketBadge"></span></button>
-      <button data-tab="reports" onclick="switchTab('reports',this)">Reports <span id="reportBadge"></span></button>
-      <button data-tab="apps" onclick="switchTab('apps',this)">Applications</button>
+      <button data-tab="general" class="active" onclick="switchTab('general',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 5h12M2 11h12"/><circle cx="6" cy="5" r="1.8" fill="var(--card)"/><circle cx="10" cy="11" r="1.8" fill="var(--card)"/></svg>General</button>
+      <button data-tab="roles" onclick="switchTab('roles',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="5" r="2.5"/><path d="M3 13.5c.6-2.8 2.6-4.2 5-4.2s4.4 1.4 5 4.2"/></svg>Roles</button>
+      <button data-tab="design" onclick="switchTab('design',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2s5 5.3 5 8.7a5 5 0 0 1-10 0C3 7.3 8 2 8 2z"/></svg>Design & Pictures</button>
+      <button data-tab="decor" onclick="switchTab('decor',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="10" rx="2"/><circle cx="5.5" cy="6.5" r="1.2"/><path d="M2 11l3.5-3 2.5 2.5L11 7l3 3"/></svg>Drag & Decor</button>
+      <button data-tab="texts" onclick="switchTab('texts',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 4h10M8 4v10"/></svg>Texts</button>
+      <button data-tab="questions" onclick="switchTab('questions',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5.5 4H14M5.5 8H14M5.5 12H14"/><circle cx="2.8" cy="4" r=".9"/><circle cx="2.8" cy="8" r=".9"/><circle cx="2.8" cy="12" r=".9"/></svg>Questions</button>
+      <button data-tab="tickets" onclick="switchTab('tickets',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M2.5 5.5L8 9.5l5.5-4"/></svg>Tickets <span id="ticketBadge"></span></button>
+      <button data-tab="reports" onclick="switchTab('reports',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14V2m0 1h8l-2 3 2 3H4"/></svg>Reports <span id="reportBadge"></span></button>
+      <button data-tab="apps" onclick="switchTab('apps',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5L4 4h8l2 5.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><path d="M2 9.5h12"/></svg>Applications</button>
     </div>
 
     <div id="tab-general" class="tabpane active">

@@ -305,7 +305,7 @@ function showEditor(refetch=true){
   $('e_staffName').value=staffName();
   syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderFaqEditor(); renderDecor(); renderDecorList();
   syncAppTypeFilter();
-  editorDirty = false;
+  markClean();
   if(window.__refT) clearInterval(window.__refT);
   window.__refT = setInterval(()=>{
     if(!unlocked) return;
@@ -322,7 +322,7 @@ async function lockEditor(){
       const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
       if(!r.ok) throw 0;
       editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode);
-      editorDirty = false;
+      markClean();
     }catch{ alert('Auto-save failed — check connection, then lock again.'); return; }
   }
   unlocked=false; editCode=''; sessionStorage.removeItem('mod_edit_code'); selectedDecor=null; designOn=false;
@@ -380,7 +380,8 @@ function insertInline(where){
   alert('Inserted! Hit Save All Changes to publish.');
 }
 let editorDirty = false;
-function markDirty(){ editorDirty = true; }
+function markDirty(){ editorDirty = true; const d = $('dirtyDot'); if(d) d.classList.add('on'); }
+function markClean(){ editorDirty = false; const d = $('dirtyDot'); if(d) d.classList.remove('on'); }
 function collectEditor(){
   config.title = $('e_title').value || config.title;
   config.subtitle = $('e_subtitle').value;
@@ -411,7 +412,7 @@ async function saveConfig(){
   if(r.status===401){ alert('Edit code changed or wrong — unlock again.'); lockEditor(); return; }
   if(!r.ok){ alert('Save failed.'); return; }
   editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode);
-  editorDirty = false;
+  markClean();
   await fetchConfig();
   const check = config.applicationTypes.map(t=>t.id+':'+(t.open!==false?'open':'closed')).join(', ');
   alert('Saved and verified live! (' + check + ')');
@@ -419,7 +420,7 @@ async function saveConfig(){
 async function resetConfig(){
   if(!confirm('Reset to default?')) return;
   await fetch('/api/admin/reset',{method:'POST',headers:headers()});
-  editorDirty = false;
+  markClean();
   await fetchConfig();
 }
 function syncAppTypeFilter(){
