@@ -443,21 +443,6 @@
       "rulebreak": "No"
     },
     {
-      "appId": "MOD-3NPFTU",
-      "type": "moderator",
-      "date": "2026-09-30T01:40:29.854Z",
-      "status": "pending",
-      "adminNote": "You have good activity and current staff members welcome you back.",
-      "username": "VAULTVR",
-      "discord": "vaultvr1",
-      "age": "13",
-      "timezone": "4 to 5 or more depending on school",
-      "experience": "In this game and a game with 3 or 4k members",
-      "why": "Because I love this game and enjoy being active in game and in the discord. Also because i see rule breakers all the time and sometimes theres no one in there to handle it and all I can do is report them in game and to the discord but someone might not respond. Also because I want to be apart of the staff team because theres a lot of my good friends in there and the staff team knows me. I also want to be staff so I can get the staff cosmetic known.I also want to help moderate in game and in the discord for anything and if I could I would help grow the official youtube channel by collaborating with mine.Thats it!",
-      "scenario": "I would first tell them to stop spamming so people can actually talk without having to scroll up. If they don't stop then I would time them out for 5 to 10 minutes and tell them to stop spamming or it will be higher of a timeout.If they do it again then 30 mins or whatever a higherup says.But before I do anything I would give 3 warnings and tell them to stop spamming.",
-      "rulebreak": "No only once because of prx banning everyone"
-    },
-    {
       "appId": "MOD-73KAU9",
       "type": "moderator",
       "date": "2026-09-30T21:33:41.492Z",
@@ -1086,8 +1071,8 @@
       "appId": "MOD-YED9KM",
       "type": "moderator",
       "date": "2026-10-10T21:03:03.428Z",
-      "status": "denied",
-      "adminNote": "Thank you for applying to be a moderator, tungroyal. We appreciate your enthusiasm and willingness to help keep the community safe. We encourage you to continue gaining experience and feel free to reapply in the future.",
+      "status": "pending",
+      "adminNote": "",
       "username": "tungroyal",
       "discord": "Neptunegt7",
       "age": "13",
@@ -1102,7 +1087,7 @@
       "type": "moderator",
       "date": "2026-10-10T21:05:04.057Z",
       "status": "denied",
-      "adminNote": "Thank you for applying to be a moderator, yeepingaway. We appreciate your enthusiasm for helping the community grow. Keep building your experience and feel free to reapply in the future.",
+      "adminNote": "Thank you for applying to be a moderator, yeepingaway. We appreciate your enthusiasm and willingness to help the community. Keep building your moderation experience and feel free to reapply in the future.",
       "username": "yeepingaway",
       "discord": "yeepingaway",
       "age": "14",
@@ -1117,7 +1102,7 @@
       "type": "moderator",
       "date": "2026-10-10T21:06:45.987Z",
       "status": "denied",
-      "adminNote": "Thank you for applying to be a moderator, Aiden. We appreciate your interest and the time you took to submit your application. While we are unable to move forward with your application at this time, we encourage you to continue gaining moderation experience and reapply in the future. Best of luck!",
+      "adminNote": "Thank you for applying, Aiden. We appreciate your interest and encourage you to keep gaining moderation experience and reapply in the future.",
       "username": "Aiden",
       "discord": "aidenishere26",
       "age": "16",
@@ -1656,21 +1641,39 @@
   ],
   "audit": [
     {
-      "t": "2026-10-10T22:58:45.456Z",
-      "act": "ai_denied",
-      "id": "MOD-YED9KM",
+      "t": "2026-10-10T22:59:18.063Z",
+      "act": "deleted",
+      "id": "MOD-3NPFTU",
       "by": ""
     },
     {
-      "t": "2026-10-10T22:58:36.338Z",
+      "t": "2026-10-10T22:58:18.774Z",
+      "act": "ai_denied",
+      "id": "MOD-F3Q9HM",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:58:13.831Z",
+      "act": "ai_denied",
+      "id": "MOD-F3Q9HM",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:58:00.041Z",
       "act": "status_denied",
-      "id": "MOD-F3Q9HM",
+      "id": "MOD-4EDNAX",
       "by": ""
     },
     {
-      "t": "2026-10-10T22:58:23.444Z",
+      "t": "2026-10-10T22:57:55.762Z",
+      "act": "status_denied",
+      "id": "MOD-4EDNAX",
+      "by": ""
+    },
+    {
+      "t": "2026-10-10T22:57:51.286Z",
       "act": "ai_denied",
-      "id": "MOD-F3Q9HM",
+      "id": "MOD-4EDNAX",
       "by": ""
     },
     {
@@ -2222,21 +2225,6 @@
       "t": "2026-10-04T20:07:28.763Z",
       "act": "ticket_reply",
       "id": "TKT-DHGPDG"
-    },
-    {
-      "t": "2026-10-04T20:07:02.487Z",
-      "act": "status_pending",
-      "id": "MOD-KQ79BS"
-    },
-    {
-      "t": "2026-10-04T04:30:32.834Z",
-      "act": "config_saved",
-      "id": ""
-    },
-    {
-      "t": "2026-10-04T04:29:07.318Z",
-      "act": "config_saved",
-      "id": ""
     }
   ],
   "reports": []
