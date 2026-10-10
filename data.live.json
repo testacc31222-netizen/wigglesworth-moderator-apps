@@ -855,21 +855,6 @@
       "strikes": "NO"
     },
     {
-      "appId": "MOD-KJ6H4E",
-      "type": "moderator",
-      "date": "2026-10-04T18:26:34.847Z",
-      "status": "denied",
-      "adminNote": "Im not even gonna read this 😭",
-      "username": "SharrXD/none because I don't play",
-      "discord": "SharrXD",
-      "age": "14",
-      "timezone": "idk, whenever qntmz is available",
-      "experience": "uh I work with qntmz",
-      "why": "just cuz I wanna be mod and yea mod",
-      "scenario": "execute them/timeout",
-      "rulebreak": "no"
-    },
-    {
       "appId": "MOD-LNVJU8",
       "type": "moderator",
       "date": "2026-10-04T20:31:56.304Z",
@@ -1376,6 +1361,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-10T16:35:04.085Z",
+      "act": "deleted",
+      "id": "MOD-KJ6H4E",
+      "by": ""
+    },
     {
       "t": "2026-10-10T16:35:01.651Z",
       "act": "deleted",
@@ -1938,11 +1929,6 @@
       "t": "2026-10-04T04:25:46.291Z",
       "act": "status_pending",
       "id": "MOD-KLFLKK"
-    },
-    {
-      "t": "2026-10-04T04:25:36.113Z",
-      "act": "status_pending",
-      "id": "MOD-P6T7KY"
     }
   ],
   "reports": []
