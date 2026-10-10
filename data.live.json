@@ -1508,6 +1508,23 @@
           "at": "2026-10-06T00:07:00.816Z"
         }
       ]
+    },
+    {
+      "id": "TKT-BCBTWN",
+      "name": "Your worst fucking nightmare..",
+      "subject": "The DEATH of all.",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-10T21:25:13.116Z",
+      "updatedAt": "2026-10-10T21:25:13.116Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Your worst fucking nightmare..",
+          "text": "You will perish in one week.",
+          "at": "2026-10-10T21:25:13.116Z"
+        }
+      ]
     }
   ],
   "audit": [
