@@ -1116,8 +1116,8 @@
       "appId": "MOD-YDABMQ",
       "type": "moderator",
       "date": "2026-10-10T21:08:39.545Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator, SSnowwwy_YT. We appreciate the time you spent on your application. At this time we have chosen to move forward with other candidates. We encourage you to continue gaining experience and feel free to reapply in the future. Thank you again for your interest in the community.",
       "username": "SSnowwwy_YT",
       "discord": "@ssnowwwy_yt",
       "age": "13",
@@ -1131,8 +1131,8 @@
       "appId": "MOD-JF4AP2",
       "type": "moderator",
       "date": "2026-10-10T21:11:08.645Z",
-      "status": "denied",
-      "adminNote": "Thank you for applying, Seethesky. We appreciate the time you took to share your experience and enthusiasm. At this time we’re not moving forward with your application, but we encourage you to keep gaining moderation experience and feel free to reapply in the future.",
+      "status": "pending",
+      "adminNote": "",
       "username": "Seethesky.",
       "discord": "I love nature.",
       "age": "13",
@@ -1146,8 +1146,8 @@
       "appId": "MOD-KPLAWJ",
       "type": "moderator",
       "date": "2026-10-10T21:12:54.479Z",
-      "status": "denied",
-      "adminNote": "Thank you for applying to be a moderator, Retoni. We appreciate the time you put into your application. While we’re not moving forward with your candidacy at this time, we encourage you to keep building your moderation experience and consider reapplying in the future.",
+      "status": "pending",
+      "adminNote": "",
       "username": "Retoni",
       "discord": "just_retoni",
       "age": "14",
@@ -1735,15 +1735,9 @@
   ],
   "audit": [
     {
-      "t": "2026-10-11T01:23:11.707Z",
+      "t": "2026-10-11T01:23:24.030Z",
       "act": "ai_denied",
-      "id": "MOD-JF4AP2",
-      "by": ""
-    },
-    {
-      "t": "2026-10-11T01:23:02.673Z",
-      "act": "ai_denied",
-      "id": "MOD-KPLAWJ",
+      "id": "MOD-YDABMQ",
       "by": ""
     },
     {
@@ -2331,6 +2325,11 @@
       "t": "2026-10-04T21:06:35.150Z",
       "act": "ticket_reply",
       "id": "TKT-BFHMED"
+    },
+    {
+      "t": "2026-10-04T21:05:13.369Z",
+      "act": "status_approved",
+      "id": "CC-HEAWNQ"
     }
   ],
   "reports": []
