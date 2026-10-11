@@ -1071,8 +1071,8 @@
       "appId": "MOD-YED9KM",
       "type": "moderator",
       "date": "2026-10-10T21:03:03.428Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Hi tungroyal, thank you for applying to be a moderator. We appreciate your enthusiasm and involvement in the community. Keep gaining experience and feel free to reapply in the future. Best wishes!",
       "username": "tungroyal",
       "discord": "Neptunegt7",
       "age": "13",
@@ -1116,8 +1116,8 @@
       "appId": "MOD-YDABMQ",
       "type": "moderator",
       "date": "2026-10-10T21:08:39.545Z",
-      "status": "denied",
-      "adminNote": "Thank you for applying to be a moderator, SSnowwwy_YT. We appreciate the time you spent on your application. At this time we have chosen to move forward with other candidates. We encourage you to continue gaining experience and feel free to reapply in the future. Thank you again for your interest in the community. And i'd recommend you adding more to your application!",
+      "status": "pending",
+      "adminNote": "",
       "username": "SSnowwwy_YT",
       "discord": "@ssnowwwy_yt",
       "age": "13",
@@ -1146,8 +1146,8 @@
       "appId": "MOD-KPLAWJ",
       "type": "moderator",
       "date": "2026-10-10T21:12:54.479Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator, Retoni. We appreciate the time you put into your application. While we’re not moving forward with your candidacy at this time, we encourage you to keep building your moderation experience and consider reapplying in the future.",
       "username": "Retoni",
       "discord": "just_retoni",
       "age": "14",
@@ -1735,15 +1735,15 @@
   ],
   "audit": [
     {
-      "t": "2026-10-11T01:23:52.266Z",
-      "act": "status_denied",
-      "id": "MOD-YDABMQ",
+      "t": "2026-10-11T01:24:12.644Z",
+      "act": "ai_denied",
+      "id": "MOD-YED9KM",
       "by": ""
     },
     {
-      "t": "2026-10-11T01:23:24.030Z",
+      "t": "2026-10-11T01:23:02.673Z",
       "act": "ai_denied",
-      "id": "MOD-YDABMQ",
+      "id": "MOD-KPLAWJ",
       "by": ""
     },
     {
