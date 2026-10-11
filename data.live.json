@@ -1026,8 +1026,8 @@
       "appId": "MOD-ZSJYBJ",
       "type": "moderator",
       "date": "2026-10-10T16:57:29.402Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying for the moderator position. We appreciate your interest and encourage you to continue gaining experience and reapply in the future.",
       "username": "CLOVER",
       "discord": "anomxly",
       "age": "14",
@@ -1735,6 +1735,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-11T01:33:12.815Z",
+      "act": "ai_denied",
+      "id": "MOD-ZSJYBJ",
+      "by": ""
+    },
+    {
       "t": "2026-10-11T01:32:05.853Z",
       "act": "ai_approved",
       "id": "MOD-S4AXF9",
@@ -2324,12 +2330,6 @@
     },
     {
       "t": "2026-10-04T21:19:50.796Z",
-      "act": "status_denied",
-      "id": "MOD-XWTN6U",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:19:42.858Z",
       "act": "status_denied",
       "id": "MOD-XWTN6U",
       "by": ""
