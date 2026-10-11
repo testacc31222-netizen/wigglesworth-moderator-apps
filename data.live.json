@@ -1117,7 +1117,7 @@
       "type": "moderator",
       "date": "2026-10-10T21:08:39.545Z",
       "status": "denied",
-      "adminNote": "Thank you for applying to be a moderator, SSnowwwy_YT. We appreciate the time you spent on your application. At this time we have chosen to move forward with other candidates. We encourage you to continue gaining experience and feel free to reapply in the future. Thank you again for your interest in the community.",
+      "adminNote": "Thank you for applying to be a moderator, SSnowwwy_YT. We appreciate the time you spent on your application. At this time we have chosen to move forward with other candidates. We encourage you to continue gaining experience and feel free to reapply in the future. Thank you again for your interest in the community. And i'd recommend you adding more to your application!",
       "username": "SSnowwwy_YT",
       "discord": "@ssnowwwy_yt",
       "age": "13",
@@ -1735,6 +1735,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-11T01:23:52.266Z",
+      "act": "status_denied",
+      "id": "MOD-YDABMQ",
+      "by": ""
+    },
+    {
       "t": "2026-10-11T01:23:24.030Z",
       "act": "ai_denied",
       "id": "MOD-YDABMQ",
@@ -2325,11 +2331,6 @@
       "t": "2026-10-04T21:06:35.150Z",
       "act": "ticket_reply",
       "id": "TKT-BFHMED"
-    },
-    {
-      "t": "2026-10-04T21:05:13.369Z",
-      "act": "status_approved",
-      "id": "CC-HEAWNQ"
     }
   ],
   "reports": []
