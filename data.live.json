@@ -966,8 +966,8 @@
       "appId": "MOD-GH3RKU",
       "type": "moderator",
       "date": "2026-10-10T11:51:01.525Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your interest and the time you spent on your application. At this time we will not be moving forward, but we encourage you to keep gaining experience and reapply in the future. Best wishes!",
       "username": "LAYOJRJR",
       "discord": "michaeljacksonbest",
       "age": "15",
@@ -1735,9 +1735,9 @@
   ],
   "audit": [
     {
-      "t": "2026-10-11T01:28:43.203Z",
-      "act": "status_approved",
-      "id": "MOD-R483PY",
+      "t": "2026-10-11T01:29:00.101Z",
+      "act": "ai_denied",
+      "id": "MOD-GH3RKU",
       "by": ""
     },
     {
