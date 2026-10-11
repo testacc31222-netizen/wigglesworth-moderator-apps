@@ -1176,8 +1176,8 @@
       "appId": "MOD-2E5DGR",
       "type": "moderator",
       "date": "2026-10-10T21:30:10.548Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your enthusiasm and the experience you’ve shared. We encourage you to keep building your moderation skills and we look forward to seeing your application again in the future.",
       "username": "KingCase1",
       "discord": "kingcase1",
       "age": "13",
@@ -1719,6 +1719,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-11T01:34:59.870Z",
+      "act": "ai_denied",
+      "id": "MOD-2E5DGR",
+      "by": ""
+    },
     {
       "t": "2026-10-11T01:34:57.853Z",
       "act": "ai_denied",
@@ -2310,12 +2316,6 @@
     {
       "t": "2026-10-04T21:28:27.585Z",
       "act": "status_denied",
-      "id": "MOD-AVZBGE",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:28:25.773Z",
-      "act": "status_pending",
       "id": "MOD-AVZBGE",
       "by": ""
     }
