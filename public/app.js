@@ -72,11 +72,34 @@ function typeName(id){ const t=(config.applicationTypes||[]).find(x=>x.id===id);
 
 async function fetchConfig(){
   setStage(35, 'Contacting HQ…');
-  const r = await fetch('/api/config');
-  config = await r.json();
+  for(let attempt = 1; attempt <= 8; attempt++){
+    try{
+      const ctrl = new AbortController();
+      const to = setTimeout(()=>ctrl.abort(), 12000);
+      const r = await fetch('/api/config', { signal: ctrl.signal });
+      clearTimeout(to);
+      if(!r.ok) throw new Error('bad status ' + r.status);
+      config = await r.json();
+      if(!config || !Array.isArray(config.applicationTypes) || !config.applicationTypes.length) throw new Error('bad shape');
+      break;
+    }catch(e){
+      if(attempt >= 8){ showLoadError(); throw e; }
+      setStage(35, 'Still waking the server… (try ' + attempt + '/8)');
+      await new Promise(res=>setTimeout(res, 1500));
+    }
+  }
   if(!Array.isArray(config.decor)) config.decor = [];
   if(!Array.isArray(config.faq)) config.faq = [];
-  if(!Array.isArray(config.applicationTypes) || !config.applicationTypes.length) location.reload();
+  if(!Array.isArray(config.applicationTypes) || !config.applicationTypes.length){
+    try{
+      const n = parseInt(sessionStorage.getItem('cfg_reload') || '0');
+      if(n >= 2){ showLoadError(); throw new Error('bad config'); }
+      sessionStorage.setItem('cfg_reload', String(n + 1));
+    }catch{ throw new Error('bad config'); }
+    location.reload();
+    return;
+  }
+  try{ sessionStorage.removeItem('cfg_reload'); }catch{}
   linkRequired = !!config.linkRequired;
   if(!currentTypeId || !config.applicationTypes.some(t=>t.id===currentTypeId))
     currentTypeId = config.applicationTypes.some(t=>t.id==='moderator') ? 'moderator' : config.applicationTypes[0].id;
@@ -1145,6 +1168,24 @@ function setStage(pct, text){
   if(txt && text) txt.textContent = text;
 }
 function maybeOpenLoader(){ if(pageReady && minTime) openLoader(); }
+function showLoadError(){
+  openLoader();
+  document.body.style.overflow = '';
+  let box = $('loadError');
+  if(!box){
+    box = document.createElement('div');
+    box.id = 'loadError';
+    box.className = 'card';
+    const main = document.querySelector('.main');
+    if(main) main.prepend(box);
+    else document.body.prepend(box);
+  }
+  box.innerHTML = `<div class="eyebrow">Connection trouble</div>`
+    + `<h2 style="margin:4px 0 6px">Couldn't reach the server</h2>`
+    + `<p class="hint">Check your connection, turn off any VPN or adblocker for this site, or try mobile data — school and public WiFi sometimes block game sites. Then retry.</p>`
+    + `<div class="row"><button class="btn-confirm" onclick="location.reload()">Retry</button></div>`;
+  try{ box.scrollIntoView({ behavior:'smooth' }); }catch{}
+}
 function openLoader(){
   const l = document.getElementById('loader');
   if(!l || l.classList.contains('open')) return;
@@ -1154,7 +1195,7 @@ function openLoader(){
   setTimeout(()=>{ l.style.display = 'none'; }, 1600);
 }
 setTimeout(()=>{ minTime = true; maybeOpenLoader(); }, 2200);
-setTimeout(openLoader, 9000);
+setTimeout(()=>{ if(!pageReady) openLoader(); }, 120000);
 window.addEventListener('load', ()=>setStage(55, 'Waking the visuals…'));
 window.addEventListener('DOMContentLoaded', ()=>{
   document.body.style.overflow = 'hidden';
