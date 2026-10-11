@@ -1251,8 +1251,8 @@
       "appId": "MOD-P42LHL",
       "type": "moderator",
       "date": "2026-10-10T23:01:23.600Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your enthusiasm and the time you put into your application. We encourage you to continue gaining experience and feel free to reapply in the future.",
       "username": "Mrhalfcourt_is_gone",
       "discord": "Mrhalfcourt",
       "age": "13",
@@ -1719,6 +1719,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-11T01:34:42.335Z",
+      "act": "ai_denied",
+      "id": "MOD-P42LHL",
+      "by": ""
+    },
     {
       "t": "2026-10-11T01:34:39.186Z",
       "act": "ai_denied",
@@ -2311,12 +2317,6 @@
       "t": "2026-10-04T21:29:28.403Z",
       "act": "status_pending",
       "id": "MOD-LNVJU8",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:28:27.585Z",
-      "act": "status_denied",
-      "id": "MOD-AVZBGE",
       "by": ""
     }
   ],
