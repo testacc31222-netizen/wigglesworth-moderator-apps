@@ -1056,8 +1056,8 @@
       "appId": "MOD-VH7ML4",
       "type": "moderator",
       "date": "2026-10-10T19:05:47.168Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a Moderator. We appreciate your enthusiasm and interest in helping our community. Keep building your experience here, and we’d love to see you apply again in the future.",
       "username": "VAULTVR",
       "discord": "vaultvr1",
       "age": "13",
@@ -1735,6 +1735,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-11T01:30:33.037Z",
+      "act": "ai_denied",
+      "id": "MOD-VH7ML4",
+      "by": ""
+    },
+    {
       "t": "2026-10-11T01:29:01.371Z",
       "act": "status_denied",
       "id": "MOD-GH3RKU",
@@ -2326,12 +2332,6 @@
       "t": "2026-10-04T21:19:40.508Z",
       "act": "status_pending",
       "id": "MOD-XWTN6U",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:16:26.063Z",
-      "act": "status_pending",
-      "id": "MOD-DD9LE9",
       "by": ""
     }
   ],
