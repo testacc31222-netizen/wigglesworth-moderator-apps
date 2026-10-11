@@ -463,20 +463,28 @@ async function renderSubs(){
   const qmap = {};
   config.applicationTypes.forEach(t=>t.questions.forEach(x=>{ qmap[t.id+':'+x.id]=x.label; }));
   shown.forEach(s=>{
+    const name = dispName(s);
     const d=document.createElement('div'); d.className='submission';
-    let html=`<b>${hi(s.appId||'',qr)}</b> <span class="hint">${hi(typeName(s.type),qr)}</span> <span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span><br><span class="hint">${hi(s.date||'',qr)}</span><br><br>`;
+    let html=`<div class="sub-head"><div class="avatar">${esc(name.slice(0,1).toUpperCase()||'?')}</div>`
+      +`<div class="who"><b>${hi(name,qr)}</b><span class="hint">${hi(s.appId||'',qr)} · ${hi(typeName(s.type),qr)} · ${hi((s.date||'').slice(0,16).replace('T',' '),qr)}</span></div>`
+      +`<span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span></div>`
+      +`<div class="qa">`;
     Object.keys(s).forEach(k=>{
       if(['appId','type','date','status','adminNote'].includes(k)) return;
-      html+=`<b>${hi(qmap[s.type+':'+k]||k,qr)}:</b> ${hi(s[k]||'-',qr)}<br>`;
+      html+=`<div class="qa-row"><span>${hi(qmap[s.type+':'+k]||k,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
+    html+=`</div>`;
     html+=`<label>Staff note (seen by applicant):</label><input value="${esc(s.adminNote||'')}" id="note_${esc(s.appId)}" placeholder="e.g. Great app, welcome!">`;
     d.innerHTML=html;
     const bar=document.createElement('div'); bar.className='row';
+    const bar2=document.createElement('div'); bar2.className='row';
     const mk=(t3,cls,fn)=>{ const b=document.createElement('button'); b.className=cls; b.textContent=t3; b.onclick=fn; return b; };
     bar.append(
       mk('Approve','btn-approve',()=>setStatus(s.appId,'approved')),
       mk('Deny','btn-deny',()=>setStatus(s.appId,'denied')),
-      mk('Pending','btn-pending',()=>setStatus(s.appId,'pending')),
+      mk('Pending','btn-pending',()=>setStatus(s.appId,'pending'))
+    );
+    bar2.append(
       mk('AI Accept','btn-small',()=>aiDecision(s.appId,'approved')),
       mk('AI Deny','btn-small',()=>aiDecision(s.appId,'denied')),
       mk('Save note','btn-small',async()=>{
@@ -486,7 +494,7 @@ async function renderSubs(){
       }),
       mk('Delete','btn-small',()=>{ if(confirm('Delete ' + dispName(s) + ' (' + s.appId + ') forever?')) delSub(s.appId); })
     );
-    d.appendChild(bar); w.appendChild(d);
+    d.appendChild(bar); d.appendChild(bar2); w.appendChild(d);
   });
 }
 async function setStatus(appId,st){
