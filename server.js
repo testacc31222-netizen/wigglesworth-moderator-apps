@@ -447,7 +447,7 @@ async function githubPutFile(repo, fpath, buf, message) {
   } catch (e) { console.error('gh file store error', e.message); return false; }
 }
 function displayName(s) {
-  return cleanStr(s.username || s.discord || 'Applicant', 80);
+  return cleanStr(s.discordName || s.discord || s.username || 'Applicant', 80);
 }
 const FAQ_STOP = new Set('a,an,the,and,or,but,if,then,so,for,to,of,in,on,at,by,do,does,did,is,are,was,were,be,been,am,i,you,he,she,it,we,they,me,him,her,us,them,my,your,his,our,their,what,when,where,who,whom,which,how,why,can,could,should,would,will,just,very,here,there,this,that,these,those,any,all,anyone,anybody,please,thanks,thank,hi,hello,hey,get,got,have,has,had'.split(','));
 function faqMatch(text, faqs) {
@@ -517,7 +517,7 @@ app.get('/api/status/:id', statusLimit, (req, res) => {
   const s = db.submissions.find(x => (x.appId || '').toUpperCase() === req.params.id.toUpperCase());
   if (!s) return res.status(404).json({ error: 'Not found' });
   const t = typeById(db, s.type);
-  res.json({ appId: s.appId, type: s.type, typeName: t ? t.name : s.type, date: s.date, status: s.status, adminNote: s.adminNote });
+  res.json({ appId: s.appId, type: s.type, typeName: t ? t.name : s.type, date: s.date, status: s.status, adminNote: s.adminNote, who: displayName(s) });
 });
 
 app.get('/api/approved', statusLimit, (req, res) => {

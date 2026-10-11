@@ -16,8 +16,14 @@ function linkName(){
 }
 function unlinkDiscord(){
   try{ localStorage.removeItem('link_token'); localStorage.removeItem('link_user'); }catch{}
-  renderLinkBar(); renderForm();
+  renderLinkBar(); renderForm(); updateGate();
   const tn = $('t_name'); if(tn){ tn.disabled = false; tn.value = ''; tn.title = ''; }
+}
+function updateGate(){
+  const gated = linkRequired && !linkToken() && !unlocked;
+  document.body.classList.toggle('gated', gated);
+  const g = $('gate');
+  if(g) g.style.display = gated ? 'flex' : 'none';
 }
 function renderLinkBar(){
   const bar = $('linkBar');
@@ -97,7 +103,7 @@ function applyConfig(){
   const li = $('logoImg');
   if(config.logoImage){ li.src = config.logoImage; li.style.display='block'; } else li.style.display='none';
   $('topText').innerHTML = rich(config.topText);
-  renderLinkBar();
+  renderLinkBar(); updateGate();
   renderCountdown(); renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor(); applyLayout();
   if (curType() && $('applyCard').style.display === 'block') fillRoleHeader(curType());
   if(unlocked) showEditor(false);
@@ -268,7 +274,7 @@ async function checkStatus(){
     const s = await r.json();
     const cls = s.status||'pending';
     const word = cls==='approved'?'Accepted':cls==='denied'?'Not accepted':'Under review';
-    box.innerHTML = `<div class="status-box ${cls}"><b>${esc(s.appId)}</b> · ${esc(s.typeName||'')}<br><span class="status ${cls}">${word}</span><br><span class="hint">Submitted: ${esc(s.date||'')}</span>${s.adminNote?'<br><br><b>Note from staff:</b><br>'+esc(s.adminNote):''}</div>`;
+    box.innerHTML = `<div class="status-box ${cls}"><b>${esc(s.appId)}</b> · ${esc(s.typeName||'')}<br><span class="status ${cls}">${word}</span><br><span class="hint">Applicant: ${esc(s.who||'')}</span><br><span class="hint">Submitted: ${esc(s.date||'')}</span>${s.adminNote?'<br><br><b>Note from staff:</b><br>'+esc(s.adminNote):''}</div>`;
   }catch{
     box.innerHTML = '<div class="status-box pending">No application found for <b>'+esc(id)+'</b></div>';
   }
@@ -350,6 +356,7 @@ function showEditor(refetch=true){
   syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderFaqEditor(); renderDecor(); renderDecorList();
   syncAppTypeFilter();
   markClean();
+  updateGate();
   if(window.__refT) clearInterval(window.__refT);
   window.__refT = setInterval(()=>{
     if(!unlocked) return;
@@ -372,7 +379,7 @@ async function lockEditor(){
   unlocked=false; editCode=''; sessionStorage.removeItem('mod_edit_code'); selectedDecor=null; designOn=false;
   if(window.__refT){ clearInterval(window.__refT); window.__refT = null; }
   document.body.classList.remove('design-on');
-  $('editor').style.display='none'; renderDecor();
+  $('editor').style.display='none'; renderDecor(); updateGate();
 }
 function edType(i){ return config.applicationTypes[i]; }
 function renderTypeEditor(){
