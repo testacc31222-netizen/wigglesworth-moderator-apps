@@ -143,6 +143,42 @@ const adminLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 60, message: { err
 const statusLimit = rateLimit({ windowMs: 60 * 1000, max: 30 });
 const configLimit = rateLimit({ windowMs: 60 * 1000, max: 40 });
 const ticketLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 8, message: { error: 'Too many tickets, try again later.' } });
+const linkLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 30, message: { error: 'Too many tries, slow down.' } });
+// Discord OAuth linking: staff creates an app, sets DISCORD_CLIENT_ID/SECRET.
+// Signed tokens prove identity without sessions; enforced only when configured.
+const DISCORD_CLIENT_ID = (process.env.DISCORD_CLIENT_ID || '').trim();
+const DISCORD_CLIENT_SECRET = (process.env.DISCORD_CLIENT_SECRET || '').trim();
+const LINK_SECRET = (process.env.LINK_SECRET || '').trim();
+const LINK_REDIRECT = (process.env.LINK_REDIRECT || 'https://wigglesworth-moderator-applications.onrender.com/api/link/callback').trim();
+function linkKey(db) {
+  if (LINK_SECRET) return LINK_SECRET;
+  return 'auto:' + crypto.createHash('sha256').update(String(effectiveCode(db))).digest('hex');
+}
+function b64u(buf) {
+  return Buffer.from(buf).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function signLink(db, p) {
+  const body = b64u(JSON.stringify(p));
+  const sig = b64u(crypto.createHmac('sha256', linkKey(db)).update(body).digest());
+  return body + '.' + sig;
+}
+function verifyLink(db, token) {
+  try {
+    if (!token) return null;
+    const parts = String(token).split('.');
+    if (parts.length !== 2 || !parts[0] || !parts[1]) return null;
+    const want = b64u(crypto.createHmac('sha256', linkKey(db)).update(parts[0]).digest());
+    const a = Buffer.from(want), b = Buffer.from(parts[1]);
+    if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) return null;
+    const p = JSON.parse(Buffer.from(parts[0].replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString());
+    if (!p.id || !p.exp || Date.now() > p.exp) return null;
+    return { id: String(p.id).slice(0, 32), name: cleanStr(p.name, 80) || 'Unknown' };
+  } catch { return null; }
+}
+const linkConfigured = () => !!(DISCORD_CLIENT_ID && DISCORD_CLIENT_SECRET);
+// Blunt, tiny abuse filter for public text (matches stay staff-side).
+const SLURS = [/\bnigg?[ae]rs?\b/i, /\bf+ag+g+o+t+s?\b/i, /\bkike?s?\b/i, /\bch[i1]nks?\b/i, /\bspi+c+s?\b/i, /\btrann(y|ies)\b/i];
+function hasSlur(s) { return SLURS.some(re => re.test(String(s || ''))); }
 const aiLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 20, message: { error: 'AI limit reached, try later.' } });
 // Optional AI drafts (Groq free tier works): set AI_API_KEY (+AI_BASE_URL, AI_MODEL).
 const AI_API_KEY = (process.env.AI_API_KEY || '').trim();
@@ -348,8 +384,46 @@ function publicConfig(db) {
     const { successMessage, ...pub } = t;
     return pub;
   });
+  rest.linkRequired = linkConfigured();
   return rest;
 }
+
+// --- Discord account linking (Login with Discord, signed token, no sessions) ---
+app.get('/api/link/start', linkLimit, (req, res) => {
+  if (!linkConfigured()) return res.status(400).send('Linking not configured');
+  res.redirect('https://discord.com/oauth2/authorize?client_id=' + encodeURIComponent(DISCORD_CLIENT_ID)
+    + '&redirect_uri=' + encodeURIComponent(LINK_REDIRECT)
+    + '&response_type=code&scope=identify');
+});
+
+app.get('/api/link/callback', linkLimit, async (req, res) => {
+  try {
+    if (!linkConfigured()) return res.status(400).send('Linking not configured');
+    const db = loadDB();
+    const code = cleanStr(req.query.code, 300);
+    if (!code) return res.redirect('/?linked=error');
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 12000);
+    const tr = await fetch('https://discord.com/api/oauth2/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ client_id: DISCORD_CLIENT_ID, client_secret: DISCORD_CLIENT_SECRET, grant_type: 'authorization_code', code, redirect_uri: LINK_REDIRECT }),
+      signal: ctrl.signal,
+    });
+    clearTimeout(to);
+    if (!tr.ok) return res.redirect('/?linked=error');
+    const tj = await tr.json();
+    if (!tj.access_token) return res.redirect('/?linked=error');
+    const ur = await fetch('https://discord.com/api/users/@me', { headers: { Authorization: `Bearer ${tj.access_token}` } });
+    if (!ur.ok) return res.redirect('/?linked=error');
+    const u = await ur.json();
+    if (!u.id || !u.username) return res.redirect('/?linked=error');
+    const token = signLink(db, { id: String(u.id), name: String(u.username).slice(0, 80),
+      avatar: u.avatar ? `https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png` : '',
+      iat: Date.now(), exp: Date.now() + 365 * 864e5 });
+    res.send('<!doctype html><html><body><script>try{localStorage.setItem("link_token",' + JSON.stringify(token) + ');localStorage.setItem("link_user",' + JSON.stringify(String(u.username)) + ');}catch{}location.replace("/#linked");</' + 'script></body></html>');
+  } catch { res.redirect('/?linked=error'); }
+});
 function typeById(db, id) {
   return db.config.applicationTypes.find(t => t.id === id);
 }
@@ -411,6 +485,12 @@ app.post('/api/applications', submitLimit, (req, res) => {
   if (!t) return res.status(400).json({ error: 'Pick a role first.' });
   if (t.open === false) return res.status(400).json({ error: t.name + ' applications are currently closed.' });
   const answers = body.answers && typeof body.answers === 'object' ? body.answers : {};
+  let who = null;
+  if (linkConfigured()) {
+    who = verifyLink(db, body.link);
+    if (!who) return res.status(400).json({ error: 'Link your Discord first.' });
+    answers.discord = who.name;
+  }
   for (const q of t.questions) {
     const v = cleanStr(answers[q.id], 3000).trim();
     if (q.required && !v) return res.status(400).json({ error: 'Missing: ' + q.label });
@@ -419,10 +499,12 @@ app.post('/api/applications', submitLimit, (req, res) => {
     }
   }
   const entry = { appId: genId(t.prefix), type: t.id, date: new Date().toISOString(), status: 'pending', adminNote: '' };
+  if (who) { entry.discordId = who.id; entry.discordName = who.name; }
   const ids = new Set(t.questions.map(q => q.id));
   for (const q of db.config.applicationTypes.flatMap(x => x.questions)) {
     if (ids.has(q.id)) entry[q.id] = cleanStr(answers[q.id], 3000);
   }
+  if (hasSlur(Object.values(entry).join(' '))) return res.status(400).json({ error: 'Submission rejected.' });
   db.submissions.push(entry);
   if (db.submissions.length > 5000) db.submissions = db.submissions.slice(-5000);
   saveDB(db);
@@ -456,14 +538,22 @@ app.get('/api/approved', statusLimit, (req, res) => {
 app.post('/api/tickets', ticketLimit, (req, res) => {
   const db = loadDB();
   const b = req.body && typeof req.body === 'object' ? req.body : {};
-  const name = cleanStr(b.name, 80).trim();
+  let name = cleanStr(b.name, 80).trim();
   const subject = cleanStr(b.subject, 120).trim();
   const message = cleanStr(b.message, 3000).trim();
+  let who = null;
+  if (linkConfigured()) {
+    who = verifyLink(db, b.link);
+    if (!who) return res.status(400).json({ error: 'Link your Discord first.' });
+    name = who.name;
+  }
   if (!name) return res.status(400).json({ error: 'Add your name.' });
   if (!subject) return res.status(400).json({ error: 'Add a subject.' });
   if (message.length < 10) return res.status(400).json({ error: 'Message is too short.' });
+  if (hasSlur(name + ' ' + subject + ' ' + message)) return res.status(400).json({ error: 'Message rejected.' });
   const t = {
     id: genId('TKT'), name, subject, status: 'open', unread: true,
+    ...(who ? { discordId: who.id } : {}),
     createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
     replies: [{ by: 'user', name, text: message, at: new Date().toISOString() }],
   };
@@ -501,6 +591,7 @@ app.post('/api/tickets/:id/reply', ticketLimit, (req, res) => {
   if (!staff && t.status !== 'open') return res.status(400).json({ error: 'This ticket is closed.' });
   const text = cleanStr(b.text, 2000).trim();
   if (text.length < 1) return res.status(400).json({ error: 'Empty reply.' });
+  if (!staff && hasSlur(text)) return res.status(400).json({ error: 'Reply rejected.' });
   if (t.replies.length >= 200) return res.status(400).json({ error: 'Thread is full.' });
   const name = staff ? 'Staff' : cleanStr(b.name || t.name, 80);
   t.replies.push({ by: staff ? 'staff' : 'user', name, text, at: new Date().toISOString() });
@@ -918,6 +1009,7 @@ app.post('/api/reports', ticketLimit, (req, res) => {
     : [];
   if (!staffName) return res.status(400).json({ error: 'Name the staff member.' });
   if (details.length < 20) return res.status(400).json({ error: 'Describe what happened (20+ characters).' });
+  if (hasSlur(staffName + ' ' + details)) return res.status(400).json({ error: 'Submission rejected.' });
   const r = {
     id: genId('RPT'), reporter, staffName, details, files,
     status: 'open', adminNote: '',

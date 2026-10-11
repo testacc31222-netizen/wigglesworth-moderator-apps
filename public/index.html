@@ -69,6 +69,8 @@ h3{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.2px}
   color:#fff;border-radius:12px;padding:13px 16px;font-weight:600;font-size:14px;margin-bottom:16px;
   background:color-mix(in srgb, var(--amber) 16%, transparent);border:1px solid color-mix(in srgb, var(--amber) 45%, transparent)}
 .announce::before,.announce::after{display:none}
+.linkbar{display:flex;gap:10px;align-items:center;justify-content:space-between;background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:20px;font-size:14px}
+.linkbar .ok{color:var(--green);font-weight:700}
 .hero-actions{margin-top:6px}
 .hero-actions a{color:var(--amber)}
 .role-menu{margin-top:6px;border-top:1px dashed var(--line);padding-top:16px}
@@ -342,6 +344,8 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
   <main class="main">
 
   <div id="announceBar" class="announce" data-dkey="announceBar" style="display:none"></div>
+
+  <div id="linkBar" class="linkbar" style="display:none"></div>
 
   <div class="card hero" id="apply">
     <img id="bannerImg" class="banner" style="display:none" alt="">

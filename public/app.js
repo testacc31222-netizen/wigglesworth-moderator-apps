@@ -1,4 +1,38 @@
 let config = null;
+let linkRequired = false;
+function linkToken(){ try{ return localStorage.getItem('link_token') || ''; }catch{ return ''; } }
+function linkPayload(){
+  try{
+    const t = linkToken();
+    let b = t.split('.')[0].replace(/-/g, '+').replace(/_/g, '/');
+    while(b.length % 4) b += '=';
+    return JSON.parse(atob(b));
+  }catch{ return null; }
+}
+function linkName(){
+  const p = linkPayload();
+  if(p && p.name) return p.name;
+  try{ return localStorage.getItem('link_user') || ''; }catch{ return ''; }
+}
+function unlinkDiscord(){
+  try{ localStorage.removeItem('link_token'); localStorage.removeItem('link_user'); }catch{}
+  renderLinkBar(); renderForm();
+  const tn = $('t_name'); if(tn){ tn.disabled = false; tn.value = ''; tn.title = ''; }
+}
+function renderLinkBar(){
+  const bar = $('linkBar');
+  if(!linkRequired || !bar){ if(bar) bar.style.display = 'none'; return; }
+  const name = linkName();
+  if(linkToken() && name){
+    bar.style.display = 'flex';
+    bar.innerHTML = `<span class="ok">Linked as ${esc(name)}</span><button class="btn-small" onclick="unlinkDiscord()">Unlink</button>`;
+    const tn = $('t_name'); if(tn){ tn.value = name; tn.disabled = true; tn.title = 'Verified from your linked Discord'; }
+  } else {
+    bar.style.display = 'flex';
+    bar.innerHTML = `<span>You must link Discord to apply or open tickets.</span><button class="btn-small" onclick="location.href='/api/link/start'">Link Discord</button>`;
+  }
+}
+function linkMissing(){ return linkRequired && (!linkToken() || !linkName()); }
 let currentTypeId = null;
 let unlocked = sessionStorage.getItem('mod_edit_code') ? true : false;
 let editCode = sessionStorage.getItem('mod_edit_code') || '';
@@ -37,6 +71,7 @@ async function fetchConfig(){
   if(!Array.isArray(config.decor)) config.decor = [];
   if(!Array.isArray(config.faq)) config.faq = [];
   if(!Array.isArray(config.applicationTypes) || !config.applicationTypes.length) location.reload();
+  linkRequired = !!config.linkRequired;
   if(!currentTypeId || !config.applicationTypes.some(t=>t.id===currentTypeId))
     currentTypeId = config.applicationTypes.some(t=>t.id==='moderator') ? 'moderator' : config.applicationTypes[0].id;
   setStage(70, 'Loading roles…');
@@ -62,6 +97,7 @@ function applyConfig(){
   const li = $('logoImg');
   if(config.logoImage){ li.src = config.logoImage; li.style.display='block'; } else li.style.display='none';
   $('topText').innerHTML = rich(config.topText);
+  renderLinkBar();
   renderCountdown(); renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor(); applyLayout();
   if (curType() && $('applyCard').style.display === 'block') fillRoleHeader(curType());
   if(unlocked) showEditor(false);
@@ -178,6 +214,10 @@ function renderForm(){
       });
     } else { el=document.createElement('input'); el.type=q.type||'text'; }
     el.id='f_'+q.id; el.placeholder=q.placeholder||''; el.required=!!q.required;
+    if(q.id==='discord' && !linkMissing()){
+      el.value = linkName(); el.disabled = true;
+      el.title = 'Verified from your linked Discord';
+    }
     f.appendChild(el);
   });
   const b=document.createElement('button');
@@ -186,6 +226,7 @@ function renderForm(){
 }
 async function submitApp(e){
   e.preventDefault();
+  if(linkMissing()){ alert('Link your Discord first — tap Link Discord above.'); document.getElementById('linkBar').scrollIntoView({ behavior:'smooth' }); return false; }
   const t = curType();
   const answers = {};
   for(const q of t.questions){
@@ -197,7 +238,7 @@ async function submitApp(e){
   }
   const done = busyOn(e.target.querySelector('button[type=submit]'), 'Sending');
   try{
-    const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t.id,answers})});
+    const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t.id,answers,link:linkToken()})});
     const j = await r.json();
     if(!r.ok) throw new Error(j.error||'Submit failed');
     $('modForm').style.display='none';
@@ -471,7 +512,8 @@ async function renderSubs(){
       +`<div class="qa">`;
     Object.keys(s).forEach(k=>{
       if(['appId','type','date','status','adminNote'].includes(k)) return;
-      html+=`<div class="qa-row"><span>${hi(qmap[s.type+':'+k]||k,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
+      const lbl = qmap[s.type+':'+k] || (k === 'discordId' ? 'Verified Discord ID' : k);
+      html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
     html+=`</div>`;
     html+=`<label>Staff note (seen by applicant):</label><input value="${esc(s.adminNote||'')}" id="note_${esc(s.appId)}" placeholder="e.g. Great app, welcome!">`;
@@ -550,7 +592,8 @@ function threadHTML(t, staffMode){
 }
 async function submitTicket(e){
   e.preventDefault();
-  const body = { name: $('t_name').value.trim(), subject: $('t_subject').value.trim(), message: $('t_message').value.trim() };
+  if(linkMissing()){ alert('Link your Discord first — tap Link Discord above.'); document.getElementById('linkBar').scrollIntoView({ behavior:'smooth' }); return false; }
+  const body = { name: linkName(), subject: $('t_subject').value.trim(), message: $('t_message').value.trim(), link: linkToken() };
   if(!body.name || !body.subject || body.message.length < 10){ alert('Fill name, subject, and a message (10+ characters).'); return false; }
   const done = busyOn(e.target.querySelector('button[type=submit]'), 'Sending');
   try{
@@ -628,7 +671,7 @@ function renderTicketThread(){
   const t = ticketAdminCache.find(x=>x.id===selectedTicketId);
   if(!t){ box.innerHTML=''; return; }
   const closed = t.status!=='open';
-  box.innerHTML = `<div class="submission"><b>${esc(t.id)}</b> — ${esc(t.subject)} <span class="hint">from ${esc(t.name)} · ${esc(t.createdAt||'')}</span> <span class="status ${closed?'denied':'pending'}">${t.status.toUpperCase()}</span></div>`
+  box.innerHTML = `<div class="submission"><b>${esc(t.id)}</b> — ${esc(t.subject)} <span class="hint">from ${esc(t.name)}${t.discordId ? ' · <span title="Verified Discord ID">' + esc(t.discordId) + '</span>' : ''} · ${esc(t.createdAt||'')}</span> <span class="status ${closed?'denied':'pending'}">${t.status.toUpperCase()}</span></div>`
     + threadHTML(t,true)
     + `<label>Reply as staff${closed?' (reopens the ticket)':''}</label><textarea id="t_staffReply" rows="3"></textarea>
     <div class="row"><button class="btn-confirm" onclick="staffReply()">Send</button>
@@ -1136,6 +1179,10 @@ window.addEventListener('DOMContentLoaded', ()=>{
   });
   fetchConfig().then(()=>{ pageReady = true; maybeOpenLoader(); })
     .catch(()=>{ pageReady = true; maybeOpenLoader(); });
+  if(location.hash === '#linked'){
+    history.replaceState(null, '', location.pathname);
+    setTimeout(()=>alert('Discord linked! You can now apply and open tickets.'), 600);
+  }
   $('codeInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkCode(); });
   $('statusInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkStatus(); });
   $('ticketInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkTicket(); });
