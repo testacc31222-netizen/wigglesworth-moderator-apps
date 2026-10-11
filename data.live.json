@@ -982,7 +982,7 @@
       "type": "moderator",
       "date": "2026-10-10T14:49:06.853Z",
       "status": "denied",
-      "adminNote": "Hi JaydenMike, thank you for applying to be a moderator. We appreciate your enthusiasm and interest in helping keep the community positive. At this time we’re not able to move forward with your application, but we encourage you to keep building your moderation experience and we’d love to see you apply again in the future.",
+      "adminNote": "Hi JaydenMike, thank you for applying to be a moderator. We appreciate your enthusiasm and interest in helping keep the community positive. At this time we’re not able to move forward with your application, but we encourage you to keep building your moderation experience and we’d love to see you apply again in the future. And make sure to make your application a little longer and more professional for the trx statue",
       "username": "JaydenMike",
       "discord": "jayden_mike19081",
       "age": "13",
@@ -1735,6 +1735,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-11T01:26:27.871Z",
+      "act": "status_denied",
+      "id": "MOD-F3N8B6",
+      "by": ""
+    },
+    {
       "t": "2026-10-11T01:26:00.475Z",
       "act": "ai_denied",
       "id": "MOD-F3N8B6",
@@ -2327,11 +2333,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-04T21:06:39.623Z",
-      "act": "ticket_deleted",
-      "id": "TKT-BFHMED"
     }
   ],
   "reports": []
