@@ -996,8 +996,8 @@
       "appId": "MOD-VZU4JE",
       "type": "moderator",
       "date": "2026-10-10T15:02:07.445Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Congratulations, Couch! Your enthusiasm for keeping Wigglesworth fun and your experience helping out in both game and Discord really stood out. Staff will reach out soon with next steps.",
       "username": "Couch",
       "discord": "Couch_tato",
       "age": "13",
@@ -1720,6 +1720,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-11T01:35:07.554Z",
+      "act": "ai_approved",
+      "id": "MOD-VZU4JE",
+      "by": ""
+    },
+    {
       "t": "2026-10-11T01:35:01.886Z",
       "act": "ai_denied",
       "id": "MOD-YDABMQ",
@@ -2310,12 +2316,6 @@
     {
       "t": "2026-10-04T21:29:30.686Z",
       "act": "status_approved",
-      "id": "MOD-LNVJU8",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:29:28.403Z",
-      "act": "status_pending",
       "id": "MOD-LNVJU8",
       "by": ""
     }
