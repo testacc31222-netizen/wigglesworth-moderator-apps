@@ -232,7 +232,7 @@
         "intro": "Developers ship real things for players. Show us what you have built.",
         "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -308,7 +308,7 @@
         "intro": "Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.",
         "successMessage": "Thanks! Your event hoster application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -1720,6 +1720,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-11T01:52:39.875Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-11T01:50:43.608Z",
       "act": "config_saved",
       "id": "",
@@ -2310,12 +2316,6 @@
     {
       "t": "2026-10-04T21:29:36.674Z",
       "act": "status_denied",
-      "id": "MOD-DD9LE9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:29:35.537Z",
-      "act": "status_pending",
       "id": "MOD-DD9LE9",
       "by": ""
     }
