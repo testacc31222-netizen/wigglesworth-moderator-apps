@@ -306,6 +306,29 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
 </style>
 </head>
 <body>
+<script>
+window.__booted=false;window.__fatalShown=false;
+window.__showFatal=function(title,msg){
+  if(window.__fatalShown)return;window.__fatalShown=true;
+  try{
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:200;display:flex;justify-content:center;align-items:center;background:rgba(5,6,10,.94);padding:18px;font-family:system-ui,Arial,sans-serif';
+    d.innerHTML='<div style="max-width:440px;background:#161a23;border:1px solid #3a4356;border-radius:14px;padding:26px;color:#eef1f6">'
+      +'<div style="font-size:12px;letter-spacing:2px;color:#8fa8ff">WIGGLESWORTH</div>'
+      +'<h2 style="margin:8px 0 6px;font-size:22px">'+title+'</h2>'
+      +'<p style="font-size:14px;color:#9aa3b2;line-height:1.55">'+msg+'</p>'
+      +'<button id="fatalRetry" style="width:100%;padding:13px;border:0;border-radius:10px;background:#5865F2;color:#fff;font-size:15px;font-weight:700;cursor:pointer">Retry</button></div>';
+    document.body.appendChild(d);
+    var b=document.getElementById('fatalRetry');if(b)b.onclick=function(){location.reload();};
+  }catch(e){}
+};
+window.addEventListener('error',function(e){
+  if(window.__booted)return;
+  var m=(e&&e.message)||'A script failed to start';
+  window.__showFatal('Something broke while loading',String(m).slice(0,220));
+});
+setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to load','The page is stuck contacting the server. Check your connection, turn off VPN or adblocker for this site (school WiFi often blocks it), then retry.');},45000);
+</script>
 <div id="loader">
   <div class="split">
     <div class="halo"></div>
