@@ -1735,6 +1735,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-11T01:28:43.203Z",
+      "act": "status_approved",
+      "id": "MOD-R483PY",
+      "by": ""
+    },
+    {
       "t": "2026-10-11T01:28:19.493Z",
       "act": "ai_approved",
       "id": "MOD-R483PY",
@@ -2325,12 +2331,6 @@
     {
       "t": "2026-10-04T21:16:21.362Z",
       "act": "status_pending",
-      "id": "MOD-DD9LE9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:16:14.688Z",
-      "act": "status_denied",
       "id": "MOD-DD9LE9",
       "by": ""
     }
