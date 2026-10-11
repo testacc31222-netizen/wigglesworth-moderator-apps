@@ -375,15 +375,20 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 
   <div id="linkBar" class="linkbar" style="display:none"></div>
 
-  <div id="gate" style="display:none">
+  <div id="gate" style="display:flex">
     <div class="gate-card">
       <div class="eyebrow">Members only</div>
       <h1>Link Discord to enter</h1>
       <p class="subtitle">Applications, tickets and decisions live behind Discord verification. One tap, no password — it also keeps bots and ban-dodgers out.</p>
-      <button class="btn-primary" onclick="location.href='/api/link/start'">Link Discord</button>
+      <a class="btn-primary" href="/api/link/start" style="display:block;text-align:center;text-decoration:none">Link Discord</a>
       <p class="hint">Staff? <a href="#" onclick="openCodeModal();return false;">Unlock the editor</a> instead.</p>
     </div>
   </div>
+  <script>
+  try{
+    if(localStorage.getItem('link_token')){ document.getElementById('gate').style.display='none'; }
+  }catch(e){}
+  </script>
 
   <div class="card hero" id="apply">
     <img id="bannerImg" class="banner" style="display:none" alt="">
