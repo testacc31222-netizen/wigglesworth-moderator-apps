@@ -1116,8 +1116,8 @@
       "appId": "MOD-YDABMQ",
       "type": "moderator",
       "date": "2026-10-10T21:08:39.545Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your interest and the time you took to share your experience. We encourage you to continue gaining moderation experience and feel free to reapply in the future.",
       "username": "SSnowwwy_YT",
       "discord": "@ssnowwwy_yt",
       "age": "13",
@@ -1720,6 +1720,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-11T01:35:01.886Z",
+      "act": "ai_denied",
+      "id": "MOD-YDABMQ",
+      "by": ""
+    },
+    {
       "t": "2026-10-11T01:34:59.870Z",
       "act": "ai_denied",
       "id": "MOD-2E5DGR",
@@ -2311,12 +2317,6 @@
       "t": "2026-10-04T21:29:28.403Z",
       "act": "status_pending",
       "id": "MOD-LNVJU8",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:28:27.585Z",
-      "act": "status_denied",
-      "id": "MOD-AVZBGE",
       "by": ""
     }
   ],
