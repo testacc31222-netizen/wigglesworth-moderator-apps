@@ -1146,8 +1146,8 @@
       "appId": "MOD-KPLAWJ",
       "type": "moderator",
       "date": "2026-10-10T21:12:54.479Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator, Retoni. We appreciate the time you put into your application. While we’re not moving forward with your candidacy at this time, we encourage you to keep building your moderation experience and consider reapplying in the future.",
       "username": "Retoni",
       "discord": "just_retoni",
       "age": "14",
@@ -1734,6 +1734,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-11T01:23:02.673Z",
+      "act": "ai_denied",
+      "id": "MOD-KPLAWJ",
+      "by": ""
+    },
     {
       "t": "2026-10-11T01:22:32.116Z",
       "act": "ai_denied",
@@ -2324,11 +2330,6 @@
       "t": "2026-10-04T21:05:13.369Z",
       "act": "status_approved",
       "id": "CC-HEAWNQ"
-    },
-    {
-      "t": "2026-10-04T21:05:08.526Z",
-      "act": "status_pending",
-      "id": "CC-5RR3GD"
     }
   ],
   "reports": []
