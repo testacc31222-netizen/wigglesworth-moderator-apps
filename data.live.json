@@ -1236,8 +1236,8 @@
       "appId": "MOD-3LAWGA",
       "type": "moderator",
       "date": "2026-10-10T22:23:30.135Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying, Trident. We appreciate your interest in helping the community. At this time we’re unable to offer a moderator position, but we encourage you to gain more experience and reapply in the future.",
       "username": "Trident",
       "discord": "primary787_75955",
       "age": "13",
@@ -1719,6 +1719,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-11T01:34:39.186Z",
+      "act": "ai_denied",
+      "id": "MOD-3LAWGA",
+      "by": ""
+    },
     {
       "t": "2026-10-11T01:34:36.651Z",
       "act": "ai_denied",
@@ -2310,12 +2316,6 @@
     {
       "t": "2026-10-04T21:28:27.585Z",
       "act": "status_denied",
-      "id": "MOD-AVZBGE",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:28:25.773Z",
-      "act": "status_pending",
       "id": "MOD-AVZBGE",
       "by": ""
     }
