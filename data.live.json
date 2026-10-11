@@ -232,7 +232,7 @@
         "intro": "Developers ship real things for players. Show us what you have built.",
         "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -308,7 +308,7 @@
         "intro": "Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.",
         "successMessage": "Thanks! Your event hoster application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -996,8 +996,8 @@
       "appId": "MOD-VZU4JE",
       "type": "moderator",
       "date": "2026-10-10T15:02:07.445Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Congratulations, Couch! Your enthusiasm for keeping Wigglesworth fun and your experience helping out in both game and Discord really stood out. Staff will reach out soon with next steps.",
       "username": "Couch",
       "discord": "Couch_tato",
       "age": "13",
@@ -1026,8 +1026,8 @@
       "appId": "MOD-ZSJYBJ",
       "type": "moderator",
       "date": "2026-10-10T16:57:29.402Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying for the moderator position. We appreciate your interest and encourage you to continue gaining experience and reapply in the future.",
       "username": "CLOVER",
       "discord": "anomxly",
       "age": "14",
@@ -1041,8 +1041,8 @@
       "appId": "MOD-S4AXF9",
       "type": "moderator",
       "date": "2026-10-10T17:48:52.954Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Congratulations Raz! Your dedication to keeping the community clean and safe really stood out. We’re excited to have you on board—staff will reach out soon with the next steps.",
       "username": "Raz",
       "discord": "raz.plays.vr",
       "age": "16",
@@ -1116,8 +1116,8 @@
       "appId": "MOD-YDABMQ",
       "type": "moderator",
       "date": "2026-10-10T21:08:39.545Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your interest and the time you took to share your experience. We encourage you to continue gaining moderation experience and feel free to reapply in the future.",
       "username": "SSnowwwy_YT",
       "discord": "@ssnowwwy_yt",
       "age": "13",
@@ -1126,21 +1126,6 @@
       "why": "I would like to help the community and keep it safe to make the game a safe and loving area for all",
       "scenario": "give them 3 warnings then time them out, if they keep going i time them out again, and if they do it a third time after being timed out 2 times i will ban them",
       "rulebreak": "i have never been banned before"
-    },
-    {
-      "appId": "MOD-JF4AP2",
-      "type": "moderator",
-      "date": "2026-10-10T21:11:08.645Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Seethesky.",
-      "discord": "I love nature.",
-      "age": "13",
-      "timezone": "Uk timezone.",
-      "experience": "Tundertag, some gtag fan games and I was an admin.",
-      "why": "I wanne help to community by protecting it, helping it. I want to be moderation because I found it was really cool and worth giving a shot playing it because it is REALLY fun to play with and that I am real real active like 24/7 because when I first played the game I knew I had a connection to it with me so I was wondering “why not giving a shot getting moderator” and I wanne help people by answering questions, support tickets, or in chat and that is because I absolutely love helping people Wich is really good for the community that doesn’t need to wait hours on other mid active mods.",
-      "scenario": "What I first will do is explain to him that spamming is not worth doing because ur kinda wasting ur own time but ur also spamming the chat Wich people have their notifications on like to help people so I’ll tell him to not spam it because it will get people a little mad and come here and say slurs and names and  we absolutely don’t want that so I’ll explain him not to spam but if he keep going I have no choice but to mute him for 10 minutes or give him a warning.",
-      "rulebreak": "No I have not bin banned in any game because Imalmost never swear and I am ALWAYS kind to people and I help a lot of people instead if being mad at other for no reason so no I have not bin banned from any game"
     },
     {
       "appId": "MOD-KPLAWJ",
@@ -1191,8 +1176,8 @@
       "appId": "MOD-2E5DGR",
       "type": "moderator",
       "date": "2026-10-10T21:30:10.548Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your enthusiasm and the experience you’ve shared. We encourage you to keep building your moderation skills and we look forward to seeing your application again in the future.",
       "username": "KingCase1",
       "discord": "kingcase1",
       "age": "13",
@@ -1206,8 +1191,8 @@
       "appId": "MOD-Y5XAQZ",
       "type": "moderator",
       "date": "2026-10-10T22:03:34.593Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your interest and time. While we can’t offer you a position right now, we encourage you to keep building your experience and consider applying again in the future.",
       "username": "danifire1500 or danifirex",
       "discord": "danifire1500",
       "age": "15",
@@ -1251,8 +1236,8 @@
       "appId": "MOD-3LAWGA",
       "type": "moderator",
       "date": "2026-10-10T22:23:30.135Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying, Trident. We appreciate your enthusiasm and willingness to help the community. We encourage you to gain more experience and reapply in the future.",
       "username": "Trident",
       "discord": "primary787_75955",
       "age": "13",
@@ -1266,8 +1251,8 @@
       "appId": "MOD-P42LHL",
       "type": "moderator",
       "date": "2026-10-10T23:01:23.600Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your enthusiasm and willingness to help the community. Keep building your experience and feel free to reapply in the future.",
       "username": "Mrhalfcourt_is_gone",
       "discord": "Mrhalfcourt",
       "age": "13",
@@ -1734,6 +1719,78 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-11T01:52:39.875Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:50:43.608Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:35:07.554Z",
+      "act": "ai_approved",
+      "id": "MOD-VZU4JE",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:35:01.886Z",
+      "act": "ai_denied",
+      "id": "MOD-YDABMQ",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:34:59.870Z",
+      "act": "ai_denied",
+      "id": "MOD-2E5DGR",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:34:57.853Z",
+      "act": "ai_denied",
+      "id": "MOD-Y5XAQZ",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:34:55.866Z",
+      "act": "ai_denied",
+      "id": "MOD-3LAWGA",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:34:53.337Z",
+      "act": "ai_denied",
+      "id": "MOD-P42LHL",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:34:20.750Z",
+      "act": "deleted",
+      "id": "MOD-JF4AP2",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:33:17.250Z",
+      "act": "status_denied",
+      "id": "MOD-ZSJYBJ",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:33:12.815Z",
+      "act": "ai_denied",
+      "id": "MOD-ZSJYBJ",
+      "by": ""
+    },
+    {
+      "t": "2026-10-11T01:32:05.853Z",
+      "act": "ai_approved",
+      "id": "MOD-S4AXF9",
+      "by": ""
+    },
     {
       "t": "2026-10-11T01:30:33.037Z",
       "act": "ai_denied",
@@ -2260,78 +2317,6 @@
       "t": "2026-10-04T21:29:36.674Z",
       "act": "status_denied",
       "id": "MOD-DD9LE9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:29:35.537Z",
-      "act": "status_pending",
-      "id": "MOD-DD9LE9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:29:30.686Z",
-      "act": "status_approved",
-      "id": "MOD-LNVJU8",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:29:28.403Z",
-      "act": "status_pending",
-      "id": "MOD-LNVJU8",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:28:27.585Z",
-      "act": "status_denied",
-      "id": "MOD-AVZBGE",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:28:25.773Z",
-      "act": "status_pending",
-      "id": "MOD-AVZBGE",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:28:16.699Z",
-      "act": "status_denied",
-      "id": "MOD-TPTQ3X",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:28:14.801Z",
-      "act": "status_pending",
-      "id": "MOD-TPTQ3X",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:25:55.795Z",
-      "act": "status_denied",
-      "id": "MOD-JGRKY2",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:25:52.797Z",
-      "act": "status_denied",
-      "id": "MOD-JGRKY2",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:19:50.796Z",
-      "act": "status_denied",
-      "id": "MOD-XWTN6U",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:19:42.858Z",
-      "act": "status_denied",
-      "id": "MOD-XWTN6U",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:19:40.508Z",
-      "act": "status_pending",
-      "id": "MOD-XWTN6U",
       "by": ""
     }
   ],
