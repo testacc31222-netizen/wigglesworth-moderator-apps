@@ -397,32 +397,42 @@ app.get('/api/link/start', linkLimit, (req, res) => {
 });
 
 app.get('/api/link/callback', linkLimit, async (req, res) => {
+  const fail = (stage, detail) => {
+    console.error('link callback failed at ' + stage + (detail ? ': ' + detail : ''));
+    return res.redirect('/?linked=error&stage=' + stage);
+  };
   try {
-    if (!linkConfigured()) return res.status(400).send('Linking not configured');
+    if (!linkConfigured()) return fail('config');
     const db = loadDB();
     const code = cleanStr(req.query.code, 300);
-    if (!code) return res.redirect('/?linked=error');
+    if (!code) return fail('ncode');
     const ctrl = new AbortController();
     const to = setTimeout(() => ctrl.abort(), 12000);
-    const tr = await fetch('https://discord.com/api/oauth2/token', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ client_id: DISCORD_CLIENT_ID, client_secret: DISCORD_CLIENT_SECRET, grant_type: 'authorization_code', code, redirect_uri: LINK_REDIRECT }),
-      signal: ctrl.signal,
-    });
+    let tr;
+    try {
+      tr = await fetch('https://discord.com/api/oauth2/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ client_id: DISCORD_CLIENT_ID, client_secret: DISCORD_CLIENT_SECRET, grant_type: 'authorization_code', code, redirect_uri: LINK_REDIRECT }),
+        signal: ctrl.signal,
+      });
+    } catch (e) { clearTimeout(to); return fail('exchange', 'network ' + e.message); }
     clearTimeout(to);
-    if (!tr.ok) return res.redirect('/?linked=error');
+    if (!tr.ok) return fail('exchange', 'status ' + tr.status);
     const tj = await tr.json();
-    if (!tj.access_token) return res.redirect('/?linked=error');
-    const ur = await fetch('https://discord.com/api/users/@me', { headers: { Authorization: `Bearer ${tj.access_token}` } });
-    if (!ur.ok) return res.redirect('/?linked=error');
+    if (!tj.access_token) return fail('notoken');
+    let ur;
+    try {
+      ur = await fetch('https://discord.com/api/users/@me', { headers: { Authorization: `Bearer ${tj.access_token}` } });
+    } catch (e) { return fail('profile', 'network ' + e.message); }
+    if (!ur.ok) return fail('profile', 'status ' + ur.status);
     const u = await ur.json();
-    if (!u.id || !u.username) return res.redirect('/?linked=error');
+    if (!u.id || !u.username) return fail('profile', 'bad user');
     const token = signLink(db, { id: String(u.id), name: String(u.username).slice(0, 80),
       avatar: u.avatar ? `https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png` : '',
       iat: Date.now(), exp: Date.now() + 365 * 864e5 });
     res.send('<!doctype html><html><body><script>try{localStorage.setItem("link_token",' + JSON.stringify(token) + ');localStorage.setItem("link_user",' + JSON.stringify(String(u.username)) + ');}catch{}location.replace("/#linked");</' + 'script></body></html>');
-  } catch { res.redirect('/?linked=error'); }
+  } catch { return fail('crash'); }
 });
 function typeById(db, id) {
   return db.config.applicationTypes.find(t => t.id === id);

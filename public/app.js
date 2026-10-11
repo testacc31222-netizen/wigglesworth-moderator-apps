@@ -1233,7 +1233,13 @@ window.addEventListener('DOMContentLoaded', ()=>{
     setTimeout(()=>alert('Discord linked! You can now apply and open tickets.'), 600);
   }
   if(/(^|[?&])linked=error($|&)/.test(location.search)){
+    const stage = (location.search.match(/[?&]stage=([a-z]+)/) || [])[1] || '';
     history.replaceState(null, '', location.pathname);
+    const explain = stage === 'ncode'
+      ? 'Discord sent you back without a code — you may have pressed Deny instead of Authorize. Try again and press Authorize.'
+      : (stage === 'exchange' || stage === 'notoken')
+      ? 'You authorized, but the server could not complete the handshake. This is almost always a wrong Client Secret or a redirect URL in your Discord app that does not exactly match this site. Staff: re-check both in the Discord portal and Render env.'
+      : 'Something hiccuped on the way back from Discord. Wait a minute and try again.';
     setTimeout(()=>{
       try{
         const d = document.createElement('div');
@@ -1241,7 +1247,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         d.innerHTML = '<div style="max-width:440px;background:#161a23;border:1px solid #3a4356;border-radius:14px;padding:26px;color:#eef1f6">'
           + '<div style="font-size:12px;letter-spacing:2px;color:#8fa8ff">WIGGLESWORTH</div>'
           + '<h2 style="margin:8px 0 6px;font-size:22px">Discord link failed</h2>'
-          + '<p style="font-size:14px;color:#9aa3b2;line-height:1.55">Discord sent you back without a code. Most often the redirect URL in your Discord app does not match this site exactly, or access was denied.</p>'
+          + '<p style="font-size:14px;color:#9aa3b2;line-height:1.55">' + explain + '</p>'
           + '<div style="display:flex;gap:8px;margin-top:6px"><button id="linkRetry" style="flex:1;padding:12px;border:0;border-radius:10px;background:#5865F2;color:#fff;font-size:14px;font-weight:700;cursor:pointer">Try again</button>'
           + '<button id="linkDismiss" style="flex:1;padding:12px;border:1px solid #3a4356;border-radius:10px;background:transparent;color:#eef1f6;font-size:14px;font-weight:700;cursor:pointer">Dismiss</button></div></div>';
         document.body.appendChild(d);
