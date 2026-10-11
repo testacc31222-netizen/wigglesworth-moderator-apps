@@ -212,7 +212,10 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
 .type-item{background:rgba(255,255,255,.025);border:1px solid var(--line-soft);border-radius:10px;padding:14px;margin:12px 0}
 #loader{position:fixed;inset:0;z-index:100;background:#0a0a0f;display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center;transition:opacity .45s ease .9s}
 #loader.open{opacity:0;pointer-events:none}
-.split{position:relative;width:min(66vw,300px);aspect-ratio:1/1}
+.split{position:relative;width:min(66vw,300px);aspect-ratio:1/1;animation:floaty 3.2s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.halo{position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb, var(--amber) 26%, transparent),transparent 65%);animation:halo 2.4s ease-in-out infinite;pointer-events:none}
+@keyframes halo{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
 .half{position:absolute;top:0;bottom:0;width:50.5%;background-image:url("loader-monkey.png");background-size:200% 100%;background-repeat:no-repeat;transition:transform 1s cubic-bezier(.7,0,.3,1)}
 .half.L{left:0;background-position:0 50%}
 .half.R{right:0;background-position:100% 50%}
@@ -221,10 +224,11 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
 .seam{position:absolute;left:50%;top:-5%;bottom:-5%;width:2px;margin-left:-1px;background:var(--amber);box-shadow:0 0 14px var(--amber);opacity:0}
 #loader.open .seam{opacity:1;transition:opacity .15s}
 .loadbar{width:min(64vw,260px);height:6px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
-.loadbar span{display:block;height:100%;width:30%;border-radius:99px;background:var(--amber);animation:loadslide 1.1s ease-in-out infinite}
+.loadbar span{display:block;height:100%;width:0%;border-radius:99px;background:var(--amber);box-shadow:0 0 12px var(--amber);transition:width .35s ease}
+.loadpct{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:30px;letter-spacing:-.5px;color:var(--text)}
 @keyframes loadslide{0%{transform:translateX(-110%)}100%{transform:translateX(360%)}}
 .loadtxt{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:2.5px;color:var(--muted)}
-@media (prefers-reduced-motion:reduce){.half,#loader,.loadbar span{transition:none;animation:none}}
+@media (prefers-reduced-motion:reduce){.half,#loader,.split,.halo{transition:none;animation:none}}
 #roleName{font-size:28px}
 @media(max-width:560px){
   body{padding:22px 12px 50px}
@@ -259,17 +263,6 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
 .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .role-card .go{transition:transform .15s}
 .role-card:hover .go{transform:translateX(3px)}
-#impact{position:fixed;inset:0;z-index:90;display:none;justify-content:center;align-items:center;background:#07080c;cursor:pointer}
-#impact.show{display:flex;animation:impactFlash .45s ease-out}
-@keyframes impactFlash{0%{background:#fff}18%{background:#07080c}100%{background:#07080c}}
-#impact .in{text-align:center;padding:0 20px;animation:impactIn .5s cubic-bezier(.2,1.4,.3,1)}
-@keyframes impactIn{0%{transform:scale(1.6);opacity:0}100%{transform:scale(1);opacity:1}}
-#impact .kick{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:3px;color:var(--amber)}
-#impact h1{font-size:clamp(44px,10vw,110px);margin:10px 0 14px}
-#impact .bar{width:min(60vw,320px);height:4px;border-radius:99px;background:rgba(255,255,255,.12);margin:0 auto;overflow:hidden}
-#impact .bar span{display:block;height:100%;width:100%;background:var(--amber);transform-origin:left;animation:impactDrain 5s linear forwards}
-@keyframes impactDrain{from{transform:scaleX(1)}to{transform:scaleX(0)}}
-@media (prefers-reduced-motion:reduce){#impact.show{animation:none}#impact .in{animation:none}#impact .bar span{animation-duration:.8s}}
 .approved-list .arow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
 .approved-list .arow .meta{font-size:12px;color:var(--muted);white-space:nowrap}
 #modForm,#ticketForm,#reportForm{counter-reset:q}
@@ -296,12 +289,14 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
 <body>
 <div id="loader">
   <div class="split">
+    <div class="halo"></div>
     <div class="half L"></div>
     <div class="half R"></div>
     <div class="seam" id="seam"></div>
   </div>
-  <div class="loadbar"><span></span></div>
-  <div class="loadtxt">Loading…</div>
+  <div class="loadpct" id="loadpct">0%</div>
+  <div class="loadbar"><span id="loadfill"></span></div>
+  <div class="loadtxt" id="loadtxt">Waking the server…</div>
 </div>
 <div id="stickerLayer"></div>
 <div class="bg-orbs"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
@@ -650,13 +645,6 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
   </main>
 </div>
 
-<div id="impact" onclick="skipImpact()">
-  <div class="in">
-    <div class="kick">Wigglesworth staff</div>
-    <h1>CHOOSE YOUR TRACK</h1>
-    <div class="bar"><span></span></div>
-  </div>
-</div>
 <div id="dtoolbar" style="display:none">
     <b id="dtName">item</b>
     <button class="btn-small" id="dtEdit" onclick="dEditText()">Edit text</button>
