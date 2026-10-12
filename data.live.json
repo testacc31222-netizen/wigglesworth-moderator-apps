@@ -2320,5 +2320,16 @@
       "by": ""
     }
   ],
-  "reports": []
+  "reports": [],
+  "diag": [
+    {
+      "t": "2026-10-12T05:21:27.921Z",
+      "build": "probe",
+      "hero": false,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Python-urllib/3.14"
+    }
+  ]
 }
