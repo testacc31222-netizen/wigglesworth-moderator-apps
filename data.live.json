@@ -2323,6 +2323,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-12T20:00:31.505Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    },
+    {
       "t": "2026-10-12T19:56:20.165Z",
       "build": "20261011b",
       "hero": false,
