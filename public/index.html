@@ -41,11 +41,11 @@ body{
 ::selection{background:var(--amber);color:#fff}
 .bg-orbs{display:none}
 .container{width:100%;max-width:720px;position:relative;z-index:2}
-.card{
+.panel{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
   padding:28px 26px;box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;position:relative;
 }
-.card::before{display:none}
+.panel::before{display:none}
 h1,h2{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;letter-spacing:-.5px;color:var(--text)}
 h1{margin:0 0 4px;font-size:34px;line-height:1.08}
 h1::after{content:"";display:block;width:56px;height:4px;background:var(--amber);margin-top:12px;border-radius:2px}
@@ -129,11 +129,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .rich{font-size:15px;line-height:1.7;margin:14px 0;color:#c9d1de}
 .rich b{color:#fff}.rich a{color:var(--amber)}
 .rich img{max-width:100%;border-radius:10px;margin:10px 0;border:1px solid var(--line)}
-.banner{width:calc(100% + 52px);margin:-28px -26px 18px -26px;max-height:230px;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+.heroimg{width:calc(100% + 52px);margin:-28px -26px 18px -26px;max-height:230px;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
 .logo-row{display:flex;gap:14px;align-items:center;margin-bottom:10px}
 .logo-row img{width:56px;height:56px;border-radius:14px;object-fit:cover;border:1px solid var(--line)}
-.modal-back{display:none;position:fixed;inset:0;background:rgba(4,6,10,.72);backdrop-filter:blur(6px);justify-content:center;align-items:center;padding:16px;z-index:50}
-.modal{background:#181d28;border:1px solid var(--line);border-radius:16px;padding:26px;width:100%;max-width:430px;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.dlg-back{display:none;position:fixed;inset:0;background:rgba(4,6,10,.72);backdrop-filter:blur(6px);justify-content:center;align-items:center;padding:16px;z-index:50}
+.dlg{background:#181d28;border:1px solid var(--line);border-radius:16px;padding:26px;width:100%;max-width:430px;box-shadow:0 30px 70px rgba(0,0,0,.55)}
 .row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .row button{flex:1;padding:12px;border-radius:10px;font-weight:700;min-width:120px}
 #editor{display:none}
@@ -251,14 +251,14 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
 #roleName{font-size:28px}
 @media(max-width:560px){
   body{padding:22px 12px 50px}
-  .card{padding:22px 18px}
+  .panel{padding:22px 18px}
   h1{font-size:28px}
   #roleName{font-size:24px}
   .nav{display:none}
   input,textarea,select{font-size:16px}
   .cd-cell b{font-size:24px}
   .row button{min-width:100px}
-  .modal{padding:20px}
+  .dlg{padding:20px}
 }
 
 /* ---- dashboard layout (layout/structure only, palette untouched) ---- */
@@ -273,8 +273,8 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
 .side-foot .btn-small{width:100%}
 .mobilebar,.mnav{display:none}
 .main{min-width:0;display:flex;flex-direction:column}
-.main>.card{scroll-margin-top:16px}
-.main>.card:target{border-color:var(--amber)}
+.main>.panel{scroll-margin-top:16px}
+.main>.panel:target{border-color:var(--amber)}
 .hero{background:linear-gradient(135deg,color-mix(in srgb, var(--amber) 20%, transparent),transparent 55%),var(--card)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;text-align:left}
 .stat-chip{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:rgba(255,255,255,.025)}
@@ -390,8 +390,9 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
   }catch(e){}
   </script>
 
-  <div class="card hero" id="apply">
-    <img id="bannerImg" class="banner" style="display:none" alt="">
+  <div class="panel hero" id="apply">
+    <img id="bannerImg" class="heroimg" style="display:none" alt="">
+    <div id="abWarn" style="display:none"></div>
     <div class="logo-row">
       <img id="logoImg" style="display:none" alt="">
       <div>
@@ -413,13 +414,13 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     </div>
   </div>
 
-  <section class="card" id="roleMenu" style="display:none">
+  <section class="panel" id="roleMenu" style="display:none">
     <div class="eyebrow">Choose your track</div>
     <h2 style="margin:4px 0 12px">Pick a role to begin</h2>
     <div id="roleCards" class="role-grid"></div>
   </section>
 
-  <div class="card" id="countCard" style="display:none">
+  <div class="panel" id="countCard" style="display:none">
     <div class="eyebrow">Update countdown</div>
     <h2 id="cdTitle" style="margin:4px 0 10px"></h2>
     <div class="cd-grid">
@@ -431,7 +432,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <p class="hint" id="cdNote" style="text-align:center"></p>
   </div>
 
-  <div class="card" id="applyCard" style="display:none">
+  <div class="panel" id="applyCard" style="display:none">
     <div class="role-kicker" id="roleKicker">Application</div>
     <h2 id="roleName" style="margin:4px 0 6px"></h2>
     <p class="subtitle" id="roleIntro"></p>
@@ -450,7 +451,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <div class="rich" id="bottomText" data-dkey="bottomText"></div>
   </div>
 
-  <div class="card" id="report">
+  <div class="panel" id="report">
     <div class="eyebrow">Staff report</div>
     <h3 style="margin:4px 0 6px">Report a staff member</h3>
     <p class="hint">Seen a staff member break the rules? Tell us here. You can stay anonymous — leave your name empty. Attach a picture or short video if you have proof (12MB max each, up to 3).</p>
@@ -478,7 +479,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     </div>
   </div>
 
-  <div class="card" id="contact">
+  <div class="panel" id="contact">
     <div class="eyebrow" data-dkey="contactEyebrow">04 · Private tickets</div>
     <h3 style="margin:4px 0 6px" data-dkey="contactTitle">Message the staff team</h3>
     <p class="hint">Only you and staff see this thread. No account needed — your ticket ID is the key, keep it private. Simple questions may get an instant answer straight away.</p>
@@ -510,7 +511,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     </div>
   </div>
 
-  <div class="card" id="status">
+  <div class="panel" id="status">
     <div class="eyebrow" data-dkey="statusEyebrow">02 · Your decision</div>
     <h3 style="margin:4px 0 6px" data-dkey="statusTitle">Check your decision</h3>
     <p class="hint">Enter your Application ID (you got it after submitting). Works for every role.</p>
@@ -521,7 +522,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <div id="statusResult"></div>
   </div>
 
-  <div class="card" id="accepted" style="display:none">
+  <div class="panel" id="accepted" style="display:none">
     <div class="eyebrow" data-dkey="acceptedEyebrow">03 · Accepted</div>
     <div class="row" style="margin-top:6px;align-items:center">
       <h3 style="margin:0;flex:3" id="acceptedTitle">New team members</h3>
@@ -530,7 +531,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <div class="approved-list" id="approvedList" style="margin-top:10px"></div>
   </div>
 
-  <div class="card" id="faq">
+  <div class="panel" id="faq">
     <div class="eyebrow" data-dkey="faqEyebrow">05 · Before you apply</div>
     <h3 style="margin:4px 0 6px" data-dkey="faqTitle">Good to know</h3>
     <div id="faqList"></div>
@@ -538,7 +539,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 
   <div class="foot" data-dkey="foot">Run by the Wigglesworth staff team — every application gets read and answered.<br><span class="colo">Set in Space Grotesk &amp; Plex Mono · run by humans</span></div>
 
-  <div class="card" id="editor">
+  <div class="panel" id="editor">
     <div class="ed-head">
       <div>
         <h2 style="margin:0">Editor Mode</h2>
@@ -722,8 +723,8 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <button class="btn-small" onclick="dResetEl()">Reset</button>
     <button class="btn-small" onclick="dSelect(null)">Done</button>
   </div>
-<div class="modal-back" id="codeModal">
-  <div class="modal">
+<div class="dlg-back" id="codeModal">
+  <div class="dlg">
     <h2>Enter Edit Code</h2>
     <p class="hint">Editing is restricted to staff.</p>
     <input id="codeInput" type="password" placeholder="Enter edit code" autocomplete="off">

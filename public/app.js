@@ -129,6 +129,15 @@ function applyConfig(){
   $('topText').innerHTML = rich(config.topText);
   renderLinkBar(); updateGate();
   renderCountdown(); renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor(); applyLayout();
+  try{
+    const hero = $('apply');
+    if(hero && !hero.style.display && getComputedStyle(hero).display === 'none'){
+      const w = $('abWarn');
+      if(w){ w.style.display = 'block';
+        w.innerHTML = `<div class="eyebrow">Heads up</div><h3 style="margin:4px 0 6px">An adblocker is hiding this site</h3><p class="hint">Parts of this page are invisible right now. Whitelist this site in your adblocker (or turn it off here) and reload.</p>`;
+      }
+    }
+  }catch{}
   if (curType() && $('applyCard').style.display === 'block') fillRoleHeader(curType());
   if(unlocked) showEditor(false);
 }
@@ -886,7 +895,7 @@ function toggleDesign(){
 }
 document.addEventListener('pointerdown', e=>{
   if(!designOn || !unlocked || editingEl) return;
-  if(e.target.closest('#dtoolbar') || e.target.closest('#editor') || e.target.closest('.modal')) return;
+  if(e.target.closest('#dtoolbar') || e.target.closest('#editor') || e.target.closest('.dlg')) return;
   const t = e.target.closest('[data-dkey]');
   if(!t || !DREG[t.getAttribute('data-dkey')]) return;
   e.preventDefault();
@@ -1176,7 +1185,7 @@ function showLoadError(){
   if(!box){
     box = document.createElement('div');
     box.id = 'loadError';
-    box.className = 'card';
+    box.className = 'panel';
     const main = document.querySelector('.main');
     if(main) main.prepend(box);
     else document.body.prepend(box);
