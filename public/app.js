@@ -1,5 +1,18 @@
 let config = null;
 let linkRequired = false;
+const BUILD = '20261011b';
+function sendDiag(failed){
+  try{
+    const hero = document.getElementById('apply');
+    const cs = hero ? getComputedStyle(hero) : null;
+    fetch('/api/clientlog',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({ build: BUILD,
+        hero: !!(hero && cs && cs.display !== 'none' && hero.getBoundingClientRect().height > 40),
+        gated: document.body.classList.contains('gated'),
+        token: !!(function(){ try{ return localStorage.getItem('link_token'); }catch(e){ return ''; } })(),
+        failed: !!failed })}).catch(()=>{});
+  }catch{}
+}
 function linkToken(){ try{ return localStorage.getItem('link_token') || ''; }catch{ return ''; } }
 function linkPayload(){
   try{
@@ -106,6 +119,7 @@ async function fetchConfig(){
   setStage(70, 'Loading roles…');
   applyConfig();
   window.__booted = true;
+  setTimeout(()=>sendDiag(false), 2500);
   setStage(92, 'Polishing pixels…');
 }
 function applyConfig(){
@@ -1236,7 +1250,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     }
   });
   fetchConfig().then(()=>{ pageReady = true; maybeOpenLoader(); })
-    .catch(()=>{ pageReady = true; maybeOpenLoader(); });
+    .catch(()=>{ pageReady = true; setTimeout(()=>sendDiag(true), 2500); maybeOpenLoader(); });
   if(location.hash === '#linked'){
     history.replaceState(null, '', location.pathname);
     setTimeout(()=>alert('Discord linked! You can now apply and open tickets.'), 600);

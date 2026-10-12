@@ -189,6 +189,7 @@ function cleanText(v, max = 2000) {
 }
 const uploadLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 30, message: { error: 'Too many uploads, try later.' } });
 const evidenceLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 10, message: { error: 'Too many uploads, try later.' } });
+const diagLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 10, message: { error: 'Slow down.' } });
 app.use('/api/', general);
 
 const Q = (id, label, type, placeholder, required, options = '') =>
@@ -1091,6 +1092,23 @@ app.get('/api/admin/audit', adminLimit, (req, res) => {  const db = loadDB();
 app.use((err, req, res, next) => {
   if (err && err.type === 'entity.too.large') return res.status(413).json({ error: 'Too big (60MB max)' });
   next(err);
+});
+
+// Anonymous client diagnostics: what real browsers actually render.
+// No IPs, no tokens, no identities — just build + visibility flags.
+app.post('/api/clientlog', diagLimit, (req, res) => {
+  const db = loadDB();
+  if (!db.diag || !Array.isArray(db.diag)) db.diag = [];
+  const b = req.body && typeof req.body === 'object' ? req.body : {};
+  db.diag.unshift({
+    t: new Date().toISOString(),
+    build: cleanStr(b.build, 20),
+    hero: !!b.hero, gated: !!b.gated, token: !!b.token, failed: !!b.failed,
+    ua: cleanStr(req.headers['user-agent'], 120),
+  });
+  if (db.diag.length > 50) db.diag = db.diag.slice(0, 50);
+  saveDB(db);
+  res.json({ ok: true });
 });
 
 app.listen(PORT, HOST, () => {
