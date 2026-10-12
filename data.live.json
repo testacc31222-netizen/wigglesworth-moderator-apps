@@ -2323,6 +2323,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-12T22:40:19.351Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.28.15.1087637114 C"
+    },
+    {
       "t": "2026-10-12T21:55:05.706Z",
       "build": "20261011b",
       "hero": false,
