@@ -1,8 +1,10 @@
 let config = null;
 let linkRequired = false;
-const BUILD = '20261011b';
+const BUILD = '20261012b';
 function sendDiag(failed){
   try{
+    const tag = document.getElementById('buildTag');
+    if(tag) tag.textContent = 'build ' + BUILD;
     const hero = document.getElementById('apply');
     const cs = hero ? getComputedStyle(hero) : null;
     fetch('/api/clientlog',{method:'POST',headers:{'Content-Type':'application/json'},
@@ -33,10 +35,11 @@ function unlinkDiscord(){
   const tn = $('t_name'); if(tn){ tn.disabled = false; tn.value = ''; tn.title = ''; }
 }
 function updateGate(){
-  const gated = linkRequired && !linkToken() && !unlocked;
-  document.body.classList.toggle('gated', gated);
+  // Gate retired: the whole site stays visible. Discord linking is still
+  // enforced server-side on submits; this just clears any leftover state.
+  document.body.classList.remove('gated');
   const g = $('gate');
-  if(g) g.style.display = gated ? 'flex' : 'none';
+  if(g) g.style.display = 'none';
 }
 function renderLinkBar(){
   const bar = $('linkBar');
