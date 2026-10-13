@@ -419,7 +419,14 @@ app.get('/api/link/callback', linkLimit, async (req, res) => {
       });
     } catch (e) { clearTimeout(to); return fail('exchange', 'network ' + e.message); }
     clearTimeout(to);
-    if (!tr.ok) return fail('exchange', 'status ' + tr.status);
+    if (!tr.ok) {
+      let why = 'status ' + tr.status;
+      try {
+        const ej = await tr.json();
+        if (ej && (ej.error || ej.error_description)) why += ' ' + [ej.error, ej.error_description].filter(Boolean).join(': ');
+      } catch {}
+      return fail('exchange', why.slice(0, 160));
+    }
     const tj = await tr.json();
     if (!tj.access_token) return fail('notoken');
     let ur;
