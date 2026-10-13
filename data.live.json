@@ -2323,6 +2323,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-13T01:31:45.329Z",
+      "build": "20261012b",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Mobile/15"
+    },
+    {
       "t": "2026-10-13T01:25:53.113Z",
       "build": "20261012b",
       "hero": true,
