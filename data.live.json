@@ -2320,5 +2320,277 @@
       "by": ""
     }
   ],
-  "reports": []
+  "reports": [],
+  "diag": [
+    {
+      "t": "2026-10-13T00:24:49.922Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
+    },
+    {
+      "t": "2026-10-13T00:06:52.861Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T23:08:47.448Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 2) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.1.0.34.52.1079628208 C"
+    },
+    {
+      "t": "2026-10-12T23:07:14.086Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 2) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.1.0.34.52.1079628208 C"
+    },
+    {
+      "t": "2026-10-12T23:06:23.167Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T22:45:06.555Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.28.15.1087637114 C"
+    },
+    {
+      "t": "2026-10-12T22:45:06.342Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.28.15.1087637114 C"
+    },
+    {
+      "t": "2026-10-12T22:44:03.230Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.28.15.1087637114 C"
+    },
+    {
+      "t": "2026-10-12T22:40:19.351Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.28.15.1087637114 C"
+    },
+    {
+      "t": "2026-10-12T21:55:05.706Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T21:23:16.661Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T20:50:49.036Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T20:24:48.802Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T20:24:08.965Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T20:19:52.944Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
+    },
+    {
+      "t": "2026-10-12T20:08:22.366Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
+    },
+    {
+      "t": "2026-10-12T20:08:04.594Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
+    },
+    {
+      "t": "2026-10-12T20:00:54.043Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T20:00:31.505Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T19:56:20.165Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Safari/605.1.15"
+    },
+    {
+      "t": "2026-10-12T19:56:14.514Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Safari/605.1.15"
+    },
+    {
+      "t": "2026-10-12T19:55:53.327Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Safari/605.1.15"
+    },
+    {
+      "t": "2026-10-12T19:33:27.273Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.1.0.34.52.1079628208 C"
+    },
+    {
+      "t": "2026-10-12T19:33:08.901Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.1.0.34.52.1079628208 C"
+    },
+    {
+      "t": "2026-10-12T19:32:07.956Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.1.0.34.52.1079628208 C"
+    },
+    {
+      "t": "2026-10-12T18:37:52.551Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
+    },
+    {
+      "t": "2026-10-12T16:44:52.005Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-10-12T14:25:08.263Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.1.0.34.52.1079628208 C"
+    },
+    {
+      "t": "2026-10-12T14:24:21.104Z",
+      "build": "20261011b",
+      "hero": false,
+      "gated": true,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.1.0.34.52.1079628208 C"
+    },
+    {
+      "t": "2026-10-12T05:21:27.921Z",
+      "build": "probe",
+      "hero": false,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Python-urllib/3.14"
+    }
+  ]
 }
