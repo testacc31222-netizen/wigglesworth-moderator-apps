@@ -2323,6 +2323,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-13T00:57:07.882Z",
+      "build": "20261012b",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+    },
+    {
       "t": "2026-10-13T00:55:59.178Z",
       "build": "20261012b",
       "hero": true,
