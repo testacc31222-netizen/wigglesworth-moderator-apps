@@ -1,8 +1,8 @@
 {
   "config": {
-    "title": "Wigglesworth — Official Applications And Support ",
-    "subtitle": "Three ways in. Pick the role that fits you and send one honest application.",
-    "announcement": "APPLICATIONS ARE NOW OPEN!! FOR MODERATOR, CONTENT CREATOR, AND EVENT HOSTER!",
+    "title": "WIGGLESWORTH",
+    "subtitle": "WIGGLESWORTH",
+    "announcement": "WIGGLESWORTH",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#00bdba",
     "bg": "#0e1218",
@@ -1720,6 +1720,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-14T03:18:03.101Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-14T03:15:40.472Z",
       "act": "config_saved",
       "id": "",
@@ -2309,12 +2315,6 @@
     },
     {
       "t": "2026-10-04T21:30:25.483Z",
-      "act": "status_denied",
-      "id": "MOD-H83PHA",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:29:50.459Z",
       "act": "status_denied",
       "id": "MOD-H83PHA",
       "by": ""
