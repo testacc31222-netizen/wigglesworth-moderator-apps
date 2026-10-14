@@ -1,8 +1,8 @@
 {
   "config": {
-    "title": "WIGGLESWORTH",
-    "subtitle": "WIGGLESWORTH",
-    "announcement": "WIGGLESWORTH",
+    "title": "Wigglesworth — Official Applications And Support ",
+    "subtitle": "Studios",
+    "announcement": "The discord linking issue is KNOWN, stop pinging me for it.",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#00bdba",
     "bg": "#0e1218",
@@ -1720,6 +1720,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-14T03:18:45.958Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-14T03:18:03.101Z",
       "act": "config_saved",
       "id": "",
@@ -2312,25 +2318,10 @@
       "act": "status_pending",
       "id": "MOD-KJ6H4E",
       "by": ""
-    },
-    {
-      "t": "2026-10-04T21:30:25.483Z",
-      "act": "status_denied",
-      "id": "MOD-H83PHA",
-      "by": ""
     }
   ],
   "reports": [],
   "diag": [
-    {
-      "t": "2026-10-14T03:18:06.253Z",
-      "build": "20261012b",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
-    },
     {
       "t": "2026-10-14T03:15:49.392Z",
       "build": "20261012b",
@@ -2771,6 +2762,15 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-10-13T20:57:01.063Z",
+      "build": "20261012b",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
     }
   ]
 }
