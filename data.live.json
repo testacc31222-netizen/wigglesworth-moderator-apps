@@ -84,8 +84,8 @@
         "text": "Hello!",
         "color": "#ffffff",
         "fontSize": 32,
-        "x": 64.84375317891438,
-        "y": 38.981482187906906,
+        "x": 56.19792461395263,
+        "y": 59.62962962962963,
         "w": 220,
         "r": -8,
         "o": 1,
@@ -1749,13 +1749,25 @@
   ],
   "audit": [
     {
-      "t": "2026-10-14T03:19:39.235Z",
+      "t": "2026-10-14T03:19:53.093Z",
       "act": "config_saved",
       "id": "",
       "by": ""
     },
     {
-      "t": "2026-10-14T03:19:34.326Z",
+      "t": "2026-10-14T03:19:52.632Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-14T03:19:09.682Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-14T03:18:45.958Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -2335,24 +2347,21 @@
       "act": "status_pending",
       "id": "MOD-UU83V4",
       "by": ""
-    },
-    {
-      "t": "2026-10-04T21:31:55.346Z",
-      "act": "status_denied",
-      "id": "MOD-64F6CF",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:31:54.328Z",
-      "act": "status_pending",
-      "id": "MOD-64F6CF",
-      "by": ""
     }
   ],
   "reports": [],
   "diag": [
     {
-      "t": "2026-10-14T03:18:06.253Z",
+      "t": "2026-10-14T03:19:12.387Z",
+      "build": "20261012b",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
+    },
+    {
+      "t": "2026-10-14T03:18:49.072Z",
       "build": "20261012b",
       "hero": true,
       "gated": false,
@@ -2785,15 +2794,6 @@
     },
     {
       "t": "2026-10-13T21:13:05.905Z",
-      "build": "20261012b",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-10-13T21:06:51.595Z",
       "build": "20261012b",
       "hero": true,
       "gated": false,
