@@ -4,7 +4,7 @@
     "subtitle": "Three ways in. Pick the role that fits you and send one honest application.",
     "announcement": "APPLICATIONS ARE NOW OPEN!! FOR MODERATOR, CONTENT CREATOR, AND EVENT HOSTER!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
-    "accent": "#6cb8f0",
+    "accent": "#00bdba",
     "bg": "#0e1218",
     "editCode": "MOD123",
     "showApproved": true,
@@ -1720,6 +1720,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-14T03:15:40.472Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-14T03:14:48.977Z",
       "act": "ticket_closed",
       "id": "TKT-SNEJ3K",
@@ -2310,12 +2316,6 @@
     {
       "t": "2026-10-04T21:29:50.459Z",
       "act": "status_denied",
-      "id": "MOD-H83PHA",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:29:48.826Z",
-      "act": "status_pending",
       "id": "MOD-H83PHA",
       "by": ""
     }
