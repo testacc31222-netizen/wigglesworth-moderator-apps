@@ -1697,6 +1697,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-14T03:14:56.435Z",
+      "act": "ticket_deleted",
+      "id": "TKT-SNEJ3K",
+      "by": ""
+    },
+    {
       "t": "2026-10-14T03:14:50.864Z",
       "act": "ticket_deleted",
       "id": "TKT-SNEJ3K",
@@ -2286,12 +2292,6 @@
     },
     {
       "t": "2026-10-04T21:30:25.483Z",
-      "act": "status_denied",
-      "id": "MOD-H83PHA",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:29:50.459Z",
       "act": "status_denied",
       "id": "MOD-H83PHA",
       "by": ""
