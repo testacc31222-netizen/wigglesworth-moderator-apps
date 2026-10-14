@@ -1698,10 +1698,10 @@
       "id": "TKT-SNEJ3K",
       "name": "Josh",
       "subject": "recon",
-      "status": "open",
+      "status": "closed",
       "unread": true,
       "createdAt": "2026-10-10T23:58:18.351Z",
-      "updatedAt": "2026-10-10T23:58:52.824Z",
+      "updatedAt": "2026-10-14T03:14:48.977Z",
       "replies": [
         {
           "by": "user",
@@ -1719,6 +1719,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-14T03:14:48.977Z",
+      "act": "ticket_closed",
+      "id": "TKT-SNEJ3K",
+      "by": ""
+    },
     {
       "t": "2026-10-11T01:52:39.875Z",
       "act": "config_saved",
@@ -2311,12 +2317,6 @@
       "t": "2026-10-04T21:29:48.826Z",
       "act": "status_pending",
       "id": "MOD-H83PHA",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:29:36.674Z",
-      "act": "status_denied",
-      "id": "MOD-DD9LE9",
       "by": ""
     }
   ],
