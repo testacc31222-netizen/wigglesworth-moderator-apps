@@ -4,8 +4,8 @@
     "subtitle": "Not everyone is picked..",
     "announcement": "The discord linking issue is KNOWN, stop pinging me for it.",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
-    "accent": "#D96B24",
-    "bg": "#07070b",
+    "accent": "#FF701F",
+    "bg": "#050609",
     "editCode": "MOD123",
     "showApproved": true,
     "approvedTitle": "New Wigglesworth Team Members",
@@ -2323,25 +2323,7 @@
   "reports": [],
   "diag": [
     {
-      "t": "2026-10-15T03:59:02.360Z",
-      "build": "20261015b",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": true,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
-    },
-    {
-      "t": "2026-10-15T03:58:52.671Z",
-      "build": "20261015b",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": true,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
-    },
-    {
-      "t": "2026-10-15T03:58:46.651Z",
+      "t": "2026-10-15T03:59:08.953Z",
       "build": "20261015b",
       "hero": true,
       "gated": false,
@@ -2765,6 +2747,24 @@
     },
     {
       "t": "2026-10-14T03:15:43.212Z",
+      "build": "20261012b",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
+    },
+    {
+      "t": "2026-10-14T03:15:29.759Z",
+      "build": "20261012b",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
+    },
+    {
+      "t": "2026-10-14T03:13:36.342Z",
       "build": "20261012b",
       "hero": true,
       "gated": false,
