@@ -2368,6 +2368,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-15T22:12:13.671Z",
+      "build": "20261015b",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
+    },
+    {
       "t": "2026-10-15T22:11:24.785Z",
       "build": "20261015b",
       "hero": true,
@@ -2801,15 +2810,6 @@
     },
     {
       "t": "2026-10-14T23:39:47.567Z",
-      "build": "20261012b",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-10-14T23:37:11.995Z",
       "build": "20261012b",
       "hero": true,
       "gated": false,
