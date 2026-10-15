@@ -1277,21 +1277,6 @@
       "schedule": "Three times a day",
       "style": "I play different games",
       "strikes": "No"
-    },
-    {
-      "appId": "DEV-D7QU5B",
-      "type": "developer",
-      "date": "2026-10-15T03:39:44.787Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "testtesttesttesttesttesttesttesttesttesttesttest",
-      "discord": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-      "age": "21",
-      "experience": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-      "why": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-      "languages": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-      "bugscenario": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-      "teamwork": "ou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirj"
     }
   ],
   "tickets": [
@@ -2338,6 +2323,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-15T03:40:10.907Z",
+      "build": "20261015b",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": true,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
+    },
+    {
       "t": "2026-10-15T03:39:14.592Z",
       "build": "20261015b",
       "hero": true,
@@ -2771,15 +2765,6 @@
     },
     {
       "t": "2026-10-14T01:50:32.941Z",
-      "build": "20261012b",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0 Mobile/15E1"
-    },
-    {
-      "t": "2026-10-14T01:48:52.551Z",
       "build": "20261012b",
       "hero": true,
       "gated": false,
