@@ -3,100 +3,97 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Wigglesworth — Moderator Application</title>
-<meta name="description" content="Apply to join the Wigglesworth staff team — Moderator, Content Creator, or Developer.">
+<title>WIGGLESWORTH — Moderator Applications</title>
+<meta name="description" content="Apply to join the Wigglesworth staff team — Moderator, Content Creator, Developer, or Event Hoster.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wigglesworth">
-<meta property="og:title" content="Wigglesworth — Join the Team">
-<meta property="og:description" content="Staff applications are open: Moderator, Content Creator, Developer.">
+<meta property="og:title" content="WIGGLESWORTH — Moderator Applications">
+<meta property="og:description" content="Staff applications are open: Moderator, Content Creator, Developer, Event Hoster.">
 <meta property="og:url" content="https://wigglesworth-moderator-applications.onrender.com/">
 <meta property="og:image" content="https://wigglesworth-moderator-applications.onrender.com/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#07070b">
+<meta name="theme-color" content="#050609">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --amber:#D96B24; --amber-deep:color-mix(in srgb, var(--amber) 55%, #000); --ink:#07070b;
-  --pumpkin:#f2994a; --ember:#ff9d45; --witch:#8b6cc1;
-  --bg:#07070b; --card:rgba(20,15,12,.88); --card-solid:#141110; --line:rgba(217,107,36,.16); --line-soft:rgba(217,107,36,.1);
-  --text:#f3ede6; --muted:#b8ab9e; --faint:#7d7268;
+  --amber:#FF701F; --amber-deep:#8a3c10; --amber2:#C94B17; --ink:#050609;
+  --bg0:#050609; --bg:#0A0C12; --card:#0D1018; --card-solid:#0D1018;
+  --line:rgba(255,112,31,.18); --line-soft:rgba(255,112,31,.1);
+  --text:#F1F1F3; --muted:#9296A3; --faint:#5d6170;
+  --purple:#8b6cc1;
   --red:#f26d6d; --green:#57c98a; --yellow:#e8c547;
-  --radius:14px;
-  --shadow:0 14px 36px rgba(0,0,0,.55), 0 0 42px rgba(217,107,36,.06);
+  --radius:12px;
+  --shadow:0 14px 36px rgba(0,0,0,.5);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;min-height:100vh;display:flex;justify-content:center;
-  padding:36px 18px 70px;color:var(--text);
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  background-color:var(--bg);
+  margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  padding:0 18px 70px;color:var(--text);
+  font-family:"Space Grotesk",Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background-color:var(--bg0);
   background-image:
-    radial-gradient(1000px 460px at 50% -10%,rgba(217,107,36,.14),transparent 62%),
-    radial-gradient(700px 420px at 12% 22%,rgba(139,108,193,.08),transparent 60%),
-    radial-gradient(760px 480px at 88% 30%,rgba(217,107,36,.07),transparent 60%),
-    radial-gradient(900px 600px at 50% 115%,rgba(217,107,36,.05),transparent 60%);
+    radial-gradient(1100px 480px at 50% -10%,rgba(255,112,31,.07),transparent 62%),
+    radial-gradient(760px 460px at 8% 30%,rgba(139,108,193,.05),transparent 60%);
   background-attachment:fixed;
   overflow-x:hidden;
 }
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(rgba(242,153,74,.05) 1px,transparent 1.4px);background-size:30px 30px;
+  background-image:radial-gradient(rgba(255,112,31,.045) 1px,transparent 1.4px);background-size:30px 30px;
   mask-image:radial-gradient(760px 520px at 50% 0%,black,transparent 78%);-webkit-mask-image:radial-gradient(760px 520px at 50% 0%,black,transparent 78%);}
-/* ---- Halloween atmosphere: fog, embers, silhouettes ---- */
-.fog{position:fixed;inset:-12%;z-index:0;pointer-events:none;overflow:hidden;opacity:.55}
+/* ---- atmosphere: fog + embers + corner web (page level, restrained) ---- */
+.fog{position:fixed;inset:-12%;z-index:0;pointer-events:none;overflow:hidden;opacity:.5}
 .fog span{position:absolute;top:0;bottom:0;width:60vmax;border-radius:50%;
-  background:radial-gradient(closest-side,rgba(184,171,158,.09),transparent 70%);
-  filter:blur(38px);animation:drift 26s ease-in-out infinite alternate}
-.fog .f1{left:-12%;animation-duration:30s}
-.fog .f2{left:22%;animation-duration:22s;animation-delay:-8s;opacity:.8}
-.fog .f3{left:58%;animation-duration:34s;animation-delay:-14s}
+  background:radial-gradient(closest-side,rgba(146,150,163,.08),transparent 70%);
+  filter:blur(38px);animation:drift 28s ease-in-out infinite alternate}
+.fog .f1{left:-12%;animation-duration:32s}
+.fog .f2{left:24%;animation-duration:23s;animation-delay:-8s;opacity:.8}
+.fog .f3{left:60%;animation-duration:36s;animation-delay:-14s}
 @keyframes drift{from{transform:translateX(-6vmax)}to{transform:translateX(6vmax)}}
 #embers{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-#embers i{position:absolute;bottom:-12px;border-radius:50%;background:var(--ember);
-  box-shadow:0 0 8px 1px rgba(255,157,69,.55);opacity:0;animation:rise linear infinite}
-@keyframes rise{0%{transform:translateY(0) translateX(0);opacity:0}12%{opacity:.75}100%{transform:translateY(-108vh) translateX(3vw);opacity:0}}
-.haunt{position:fixed;z-index:0;pointer-events:none;opacity:.5}
-.haunt.moon{top:26px;right:34px;width:86px;height:86px;border-radius:50%;
-  background:radial-gradient(circle at 38% 36%,#f7e8d2,#e8c9a0 62%,#c99a63 100%);
-  box-shadow:0 0 34px 8px rgba(242,153,74,.22);opacity:.9}
-.haunt.bat{top:96px;color:#2b2119;animation:flap 7s ease-in-out infinite}
-.haunt.bat svg{display:block;filter:drop-shadow(0 0 6px rgba(217,107,36,.25))}
-@keyframes flap{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.haunt.web{top:0;left:0;width:150px;opacity:.34}
-.haunt.tree{bottom:-8px;left:-18px;width:230px;opacity:.4}
-.haunt.pump{bottom:14px;right:16px;width:64px;opacity:.85;filter:drop-shadow(0 0 14px rgba(217,107,36,.35));animation:floaty 5s ease-in-out infinite}
-@media(max-width:720px){.haunt.tree,.haunt.web{display:none}.haunt.moon{width:62px;height:62px;top:16px;right:18px}}
-@media (prefers-reduced-motion:reduce){.fog,#embers,.haunt.bat,.haunt.pump{animation:none!important;display:none}}
+#embers i{position:absolute;bottom:-12px;border-radius:50%;background:#FF9A4D;
+  box-shadow:0 0 8px 1px rgba(255,112,31,.5);opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) translateX(0);opacity:0}12%{opacity:.6}100%{transform:translateY(-108vh) translateX(3vw);opacity:0}}
+.corner-web{position:fixed;top:0;right:0;width:170px;z-index:1;pointer-events:none;opacity:.3}
+@media(max-width:720px){.corner-web{width:110px}}
+@media (prefers-reduced-motion:reduce){.fog,#embers,.corner-web{animation:none!important;display:none}}
 ::selection{background:var(--amber);color:#fff}
 .bg-orbs{display:none}
-.container{width:100%;max-width:720px;position:relative;z-index:2}
+.container{width:100%;max-width:1120px;position:relative;z-index:2}
 .panel{
-  background:linear-gradient(180deg,rgba(242,153,74,.05),rgba(0,0,0,0) 32%),var(--card);
+  background:var(--card);
   border:1px solid var(--line);border-radius:var(--radius);
   padding:28px 26px;box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;position:relative;
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
 }
 .panel::before{content:"";position:absolute;top:0;left:26px;right:26px;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(242,153,74,.5),transparent);opacity:.6}
-.panel::before{display:none}
+  background:linear-gradient(90deg,transparent,rgba(255,112,31,.4),transparent);opacity:.55}
 h1,h2{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;letter-spacing:-.5px;color:var(--text)}
 h1{margin:0 0 4px;font-size:34px;line-height:1.08}
-h1::after{content:"";display:block;width:56px;height:4px;background:var(--amber);margin-top:12px;border-radius:2px}
+h2{margin:6px 0 4px;font-size:22px}
 h3{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.2px}
-.subtitle{color:var(--muted);margin:8px 0;font-size:15px;line-height:1.55}
-.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}
-.wordmark{font-weight:700;font-size:15px;letter-spacing:-.2px;color:var(--text);display:flex;align-items:center;gap:9px}
-.wordmark .dot{width:20px;height:20px;border-radius:50%;background:var(--amber);display:inline-block;flex:none}
-.wordmark em{font-style:normal;color:var(--muted);font-weight:500}
-.nav{display:flex;gap:22px;align-items:center}
-.nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;text-transform:lowercase;transition:color .15s}
-.nav a:hover{color:var(--text)}
-.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:2.2px;text-transform:uppercase;color:var(--pumpkin);margin-bottom:10px;text-shadow:0 0 12px rgba(217,107,36,.35)}
+.display{font-family:Cinzel,"Times New Roman",serif}
+.subtitle{color:var(--muted);margin:8px 0;font-size:15px;line-height:1.6}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+/* ---- top navigation ---- */
+.navbar{position:sticky;top:0;z-index:40;background:rgba(5,6,9,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 18px;height:64px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:700;font-size:14px;letter-spacing:2px}
+.brand svg{width:26px;height:26px;flex:none}
+.nav-links{display:flex;gap:26px;margin-left:12px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+.btn-apply{display:inline-block;text-decoration:none;background:linear-gradient(180deg,#FF701F,#C94B17);color:#fff;font-weight:700;font-size:14px;padding:10px 22px;border-radius:10px;transition:filter .15s,transform .15s,box-shadow .15s;box-shadow:0 6px 18px rgba(255,112,31,.28)}
+.btn-apply:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-staff{background:transparent;color:var(--muted);border:1px solid var(--line);padding:9px 16px;border-radius:10px;font-size:13px;font-weight:600;transition:color .15s,border-color .15s}
+.btn-staff:hover{color:var(--text);border-color:var(--amber)}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:var(--text)}
+.nav-toggle span{display:block;width:18px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
 .badge{
   display:inline-flex;align-items:center;gap:9px;color:var(--amber);
   font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;font-weight:700;
@@ -107,19 +104,19 @@ h3{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.2px}
   color:#fff;border-radius:12px;padding:13px 16px;font-weight:600;font-size:14px;margin-bottom:16px;
   background:color-mix(in srgb, var(--amber) 16%, transparent);border:1px solid color-mix(in srgb, var(--amber) 45%, transparent)}
 .announce::before,.announce::after{display:none}
-.linkbar{display:flex;gap:10px;align-items:center;justify-content:space-between;background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:20px;font-size:14px}
+.linkbar{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#0A0C12;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:20px;font-size:14px}
 .linkbar .ok{color:var(--green);font-weight:700}
 .buildtag{color:var(--faint);font-size:11px;letter-spacing:.6px}
 .hero-actions{margin-top:6px}
 .hero-actions a{color:var(--amber)}
 .role-menu{margin-top:6px;border-top:1px dashed var(--line);padding-top:16px}
 #roleCards{display:grid;gap:10px}
-.role-card{display:flex;gap:14px;align-items:center;text-align:left;width:100%;background:rgba(217,107,36,.04);border:1px solid var(--line-soft);border-radius:12px;padding:15px 17px;color:var(--text);transition:border-color .2s,transform .2s,background .2s,box-shadow .2s}
-.role-card:hover{border-color:var(--amber);background:rgba(217,107,36,.09);transform:translateY(-1px);box-shadow:0 8px 22px rgba(217,107,36,.16)}
-.role-card .tick{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;font-weight:700;letter-spacing:1px;color:#fff;background:var(--amber);border-radius:6px;padding:5px 9px;white-space:nowrap}
-.role-card h4{margin:0 0 3px;font-family:"Space Grotesk",system-ui,sans-serif;font-size:18px}
+.role-card{display:flex;gap:14px;align-items:center;text-align:left;width:100%;background:#0A0C12;border:1px solid var(--line-soft);border-radius:12px;padding:16px 18px;color:var(--text);transition:border-color .15s,background .15s}
+.role-card:hover{border-color:var(--amber);background:#101320}
+.role-card .tick{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;font-weight:700;letter-spacing:1px;color:#fff;background:var(--amber2);border-radius:6px;padding:5px 9px;white-space:nowrap}
+.role-card h4{margin:0 0 3px;font-family:"Space Grotesk",system-ui,sans-serif;font-size:17px}
 .role-card p{margin:0;color:var(--muted);font-size:13.5px}
-.role-card .go{margin-left:auto;color:var(--amber);font-size:20px;font-weight:800}
+.role-card .go{margin-left:auto;color:var(--amber);font-size:20px;font-weight:700}
 .role-kicker{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:2px;color:var(--amber)}
 #roleName{font-size:28px}
 .stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
@@ -127,39 +124,40 @@ h3{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.2px}
 label{display:block;font-weight:600;margin:18px 0 7px;font-size:13px;color:#cfd6e2}
 label span.req{color:var(--red);margin-left:4px}
 input,textarea,select{
-  width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(217,107,36,.18);
-  background:rgba(7,7,11,.72);color:var(--text);font-size:15px;outline:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+  width:100%;height:46px;padding:0 14px;border-radius:10px;border:1px solid var(--line);
+  background:#050609;color:var(--text);font-size:15px;outline:none;transition:border-color .15s,box-shadow .15s}
+textarea{height:auto;min-height:110px;padding:12px 14px;resize:vertical;line-height:1.6}
+select{appearance:none}
 input::placeholder,textarea::placeholder{color:var(--faint)}
-input:hover,textarea:hover,select:hover{border-color:rgba(242,153,74,.4)}
-input:focus,textarea:focus,select:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(217,107,36,.22),0 0 18px rgba(217,107,36,.18)}
-textarea{min-height:96px;resize:vertical;line-height:1.55}
-button{cursor:pointer;font-family:inherit;transition:filter .2s,transform .15s,background .2s,border-color .2s,box-shadow .2s}
+input:hover,textarea:hover,select:hover{border-color:rgba(255,112,31,.35)}
+input:focus,textarea:focus,select:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,112,31,.18)}
+button{cursor:pointer;font-family:inherit;transition:filter .15s,transform .15s,background .15s,border-color .15s,box-shadow .15s}
 button:disabled{opacity:.6;cursor:wait}
 button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .btn-primary{
-  width:100%;margin-top:24px;padding:15px;border:1px solid rgba(255,180,110,.4);border-radius:12px;
-  color:#1a0e04;font-size:16px;font-weight:800;letter-spacing:.3px;
-  background:linear-gradient(180deg,#f2994a,#D96B24);
-  box-shadow:0 10px 26px rgba(217,107,36,.35),0 0 22px rgba(217,107,36,.22)}
-.btn-primary:hover{filter:brightness(1.07);transform:translateY(-1px);box-shadow:0 14px 32px rgba(217,107,36,.42),0 0 30px rgba(217,107,36,.3)}
+  width:100%;margin-top:24px;padding:15px;border:0;border-radius:10px;
+  color:#fff;font-size:16px;font-weight:700;letter-spacing:.2px;
+  background:linear-gradient(180deg,#FF701F,#C94B17);
+  box-shadow:0 8px 22px rgba(255,112,31,.3)}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .btn-primary:active{transform:translateY(0)}
 .btn-small{
-  background:rgba(217,107,36,.07);color:var(--text);border:1px solid rgba(217,107,36,.22);
-  padding:9px 15px;border-radius:9px;font-size:13px;font-weight:600}
-.btn-small:hover{border-color:var(--amber);color:#fff;background:rgba(217,107,36,.14);box-shadow:0 0 14px rgba(217,107,36,.25);transform:translateY(-1px)}
+  background:rgba(255,112,31,.06);color:var(--text);border:1px solid var(--line);
+  padding:9px 15px;border-radius:10px;font-size:13px;font-weight:600}
+.btn-small:hover{border-color:var(--amber);color:#fff;background:rgba(255,112,31,.12)}
 .btn-approve{background:#2ea36b;color:#fff;border:0;padding:8px 13px;border-radius:9px;font-weight:700}
 .btn-deny{background:transparent;color:var(--red);border:1px solid var(--red);padding:8px 13px;border-radius:9px;font-weight:700}
 .btn-pending{background:transparent;color:var(--yellow);border:1px solid #8a7a1c;padding:8px 13px;border-radius:9px;font-weight:700}
 .btn-approve:hover,.btn-deny:hover,.btn-pending:hover{filter:brightness(1.12)}
-.btn-cancel{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12)!important}
-.btn-confirm{background:var(--amber);color:#fff;border:1px solid transparent}
-.btn-confirm:hover{filter:brightness(1.1)}
+.btn-cancel{background:#0A0C12;color:#fff;border:1px solid var(--line)!important}
+.btn-confirm{background:linear-gradient(180deg,#FF701F,#C94B17);color:#fff;border:1px solid transparent;box-shadow:0 6px 18px rgba(255,112,31,.25)}
+.btn-confirm:hover{filter:brightness(1.08)}
 .spinner{width:14px;height:14px;border:2px solid color-mix(in srgb, currentColor 35%, transparent);border-top-color:currentColor;border-radius:50%;display:inline-block;vertical-align:-2px;margin-right:8px;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 #success{display:none;text-align:center;padding:24px 10px}
 #success h2{color:var(--green)}
 .rules{
-  background:rgba(255,255,255,.03);border:1px solid var(--line);
+  background:#0A0C12;border:1px solid var(--line);
   border-radius:10px;padding:15px 17px;color:var(--muted);font-size:14px;margin:16px 0;white-space:pre-wrap;line-height:1.7}
 .rich{font-size:15px;line-height:1.7;margin:14px 0;color:#c9d1de}
 .rich b{color:#fff}.rich a{color:var(--amber)}
@@ -168,7 +166,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .logo-row{display:flex;gap:14px;align-items:center;margin-bottom:10px}
 .logo-row img{width:56px;height:56px;border-radius:14px;object-fit:cover;border:1px solid var(--line)}
 .dlg-back{display:none;position:fixed;inset:0;background:rgba(4,6,10,.72);backdrop-filter:blur(6px);justify-content:center;align-items:center;padding:16px;z-index:50}
-.dlg{background:#17110d;border:1px solid var(--line);border-radius:16px;padding:26px;width:100%;max-width:430px;box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 30px rgba(217,107,36,.1)}
+.dlg{background:#0D1018;border:1px solid var(--line);border-radius:16px;padding:26px;width:100%;max-width:430px;box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 30px rgba(217,107,36,.1)}
 .row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .row button{flex:1;padding:12px;border-radius:10px;font-weight:700;min-width:120px}
 #editor{display:none}
@@ -187,13 +185,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 #editor .tabpane{background:rgba(255,255,255,.02);border:1px solid var(--line-soft);border-radius:12px;padding:16px;margin-top:12px}
 #editor .tabpane>label:first-child{margin-top:2px}
 .tabpane{display:none}.tabpane.active{display:block}
-.q-item,.decor-item{background:rgba(255,255,255,.025);border:1px solid var(--line-soft);border-radius:10px;padding:14px;margin:12px 0}
+.q-item,.decor-item{background:#0A0C12;border:1px solid var(--line-soft);border-radius:10px;padding:14px;margin:12px 0}
 .q-item:focus-within{border-color:var(--amber)}
 .img-preview{max-width:100%;max-height:180px;border-radius:10px;margin-top:10px;display:block;border:1px solid var(--line)}
-.submission{background:rgba(255,255,255,.025);border:1px solid var(--line-soft);border-radius:12px;padding:14px;margin:12px 0;font-size:13.5px;line-height:1.65}
+.submission{background:#0A0C12;border:1px solid var(--line-soft);border-radius:12px;padding:14px;margin:12px 0;font-size:13.5px;line-height:1.65}
 .submission b{color:var(--text)}
 .sub-head{display:flex;gap:12px;align-items:center;margin-bottom:12px}
-.avatar{width:42px;height:42px;flex:none;border-radius:50%;background:var(--amber);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.avatar{width:42px;height:42px;flex:none;border-radius:50%;background:var(--amber);color:#1d0e04;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
 .sub-head .who{flex:1;min-width:0}
 .sub-head .who b{display:block;font-size:15px}
 .sub-head .who .hint{display:block;margin-top:2px}
@@ -208,7 +206,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .status.pending{color:var(--yellow);border-color:#8a7a1c;background:rgba(232,197,71,.08)}
 .status.approved{color:var(--green);border-color:#2ea36b;background:rgba(87,201,138,.08)}
 .status.denied{color:var(--red);border-color:var(--red);background:rgba(242,109,109,.08)}
-.status-box{border-radius:12px;padding:16px;margin-top:14px;font-size:15px;line-height:1.65;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+.status-box{border-radius:12px;padding:16px;margin-top:14px;font-size:15px;line-height:1.65;border:1px solid var(--line);background:#0A0C12}
 .status-box.approved{border-left:5px solid var(--green)}
 .status-box.denied{border-left:5px solid var(--red)}
 .status-box.pending{border-left:5px solid var(--yellow)}
@@ -227,15 +225,15 @@ mark{background:color-mix(in srgb, var(--amber) 45%, transparent);color:inherit;
 .foot{text-align:center;color:var(--faint);font-size:12.5px;margin:26px 0 8px;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:.4px}
 .foot::before{content:"";display:block;width:120px;margin:0 auto 14px;border-top:1px dashed var(--line)}
 .foot .colo{color:var(--faint);font-size:11px;letter-spacing:.6px}
-.faq-item{background:rgba(255,255,255,.025);border:1px solid var(--line-soft);border-radius:10px;padding:13px 15px;margin:10px 0;font-size:14px;line-height:1.6}
+.faq-item{background:#0A0C12;border:1px solid var(--line-soft);border-radius:10px;padding:13px 15px;margin:10px 0;font-size:14px;line-height:1.6}
 .faq-item b{color:var(--text)}
 .faq-item span{color:var(--muted)}
 .thread{display:grid;gap:10px;margin:12px 0}
-.msg{background:rgba(255,255,255,.025);border:1px solid var(--line-soft);border-radius:10px;padding:11px 13px;font-size:14px;line-height:1.6;white-space:pre-wrap}
+.msg{background:#0A0C12;border:1px solid var(--line-soft);border-radius:10px;padding:11px 13px;font-size:14px;line-height:1.6;white-space:pre-wrap}
 .msg .who{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:1.2px;color:var(--muted);display:block;margin-bottom:4px}
 .msg-staff{border-left:4px solid var(--amber)}
 .msg-user{border-left:4px solid var(--line)}
-.ticket-row{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.025);border:1px solid var(--line-soft);border-radius:10px;padding:11px 13px;margin:8px 0;font-size:13.5px;cursor:pointer;text-align:left;width:100%;color:var(--text);transition:border-color .15s}
+.ticket-row{display:flex;gap:10px;align-items:center;background:#0A0C12;border:1px solid var(--line-soft);border-radius:10px;padding:11px 13px;margin:8px 0;font-size:13.5px;cursor:pointer;text-align:left;width:100%;color:var(--text);transition:border-color .15s}
 .ticket-row:hover{border-color:var(--amber)}
 #ticketBadge{background:var(--amber);color:#fff;border-radius:999px;font-size:11px;font-weight:800;padding:1px 8px;margin-left:4px}
 #ticketBadge:empty{display:none}
@@ -246,7 +244,7 @@ mark{background:color-mix(in srgb, var(--amber) 45%, transparent);color:inherit;
 #evdrop.hot{border-color:var(--amber);background:color-mix(in srgb, var(--amber) 7%, transparent)}
 .ev-thumb{max-width:100%;max-height:140px;border-radius:10px;margin-top:8px;display:block;border:1px solid var(--line)}
 .cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
-.cd-cell{background:rgba(255,255,255,.025);border:1px solid var(--line-soft);border-radius:10px;padding:12px 6px;text-align:center}
+.cd-cell{background:#0A0C12;border:1px solid var(--line-soft);border-radius:10px;padding:12px 6px;text-align:center}
 .cd-cell b{display:block;font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:32px;line-height:1}
 .cd-cell span{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:1.5px;color:var(--muted)}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:#2e3542;border-radius:99px}::-webkit-scrollbar-track{background:transparent}
@@ -259,11 +257,11 @@ mark{background:color-mix(in srgb, var(--amber) 45%, transparent);color:inherit;
 .decor-item input[type=range]{padding:0}
 body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 65%, transparent);outline-offset:3px;cursor:move}
 .dselected{outline:2px solid var(--amber)!important;outline-offset:3px}
-#dtoolbar{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;display:flex;gap:6px;align-items:center;background:#17110d;border:1px solid var(--line);border-radius:14px;padding:8px 10px;box-shadow:0 14px 40px rgba(0,0,0,.55),0 0 24px rgba(217,107,36,.12);max-width:96vw;flex-wrap:wrap;justify-content:center}
+#dtoolbar{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;display:flex;gap:6px;align-items:center;background:#0D1018;border:1px solid var(--line);border-radius:14px;padding:8px 10px;box-shadow:0 14px 40px rgba(0,0,0,.55),0 0 24px rgba(217,107,36,.12);max-width:96vw;flex-wrap:wrap;justify-content:center}
 #dtoolbar b{font-size:12px;color:var(--amber);margin-right:2px}
 #dtoolbar .btn-small{padding:6px 10px;font-size:12px}
 .dflash{box-shadow:0 0 0 3px var(--amber)!important}
-.type-item{background:rgba(255,255,255,.025);border:1px solid var(--line-soft);border-radius:10px;padding:14px;margin:12px 0}
+.type-item{background:#0A0C12;border:1px solid var(--line-soft);border-radius:10px;padding:14px;margin:12px 0}
 #loader{position:fixed;inset:0;z-index:100;background:#070609;display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center;transition:opacity .45s ease .9s}
 #loader.open{opacity:0;pointer-events:none}
 .split{position:relative;width:min(66vw,300px);aspect-ratio:1/1;animation:floaty 3.2s ease-in-out infinite}
@@ -296,42 +294,61 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
   .dlg{padding:20px}
 }
 
-/* ---- dashboard layout (layout/structure only, palette untouched) ---- */
-.container{max-width:1060px}
-.layout{display:grid;grid-template-columns:232px minmax(0,1fr);gap:22px;align-items:start}
-.sidebar{position:sticky;top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 14px;display:flex;flex-direction:column;gap:6px;max-height:calc(100vh - 44px);overflow:auto}
-.snav{display:flex;flex-direction:column;gap:2px;margin-top:14px}
-.snav a{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:background .15s,color .15s}
-.snav a svg{width:17px;height:17px;flex:none}
-.snav a:hover{background:rgba(255,255,255,.05);color:var(--text)}
-.side-foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:grid;gap:8px}
-.side-foot .btn-small{width:100%}
-.mobilebar,.mnav{display:none}
+/* ---- content layout ---- */
 .main{min-width:0;display:flex;flex-direction:column}
-.main>.panel{scroll-margin-top:16px}
-.main>.panel:target{border-color:var(--amber)}
-.hero{background:
-    radial-gradient(420px 200px at 85% 0%,rgba(217,107,36,.16),transparent 65%),
-    radial-gradient(360px 200px at 8% 12%,rgba(139,108,193,.12),transparent 60%),
-    linear-gradient(135deg,rgba(217,107,36,.1),transparent 55%),var(--card);
-  overflow:hidden}
-.hero::after{content:"";position:absolute;inset:auto -30px -70px -30px;height:150px;pointer-events:none;
-  background:radial-gradient(60% 100% at 50% 100%,rgba(217,107,36,.1),transparent 70%)}
-.hero h1{font-size:38px;text-shadow:0 2px 22px rgba(0,0,0,.7),0 0 26px rgba(217,107,36,.18)}
-.hero .subtitle{color:#d8cabd}
-#applyBtn{position:relative;overflow:hidden}
-#applyBtn::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;
-  background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);
-  animation:sheen 4.5s ease-in-out infinite}
-@keyframes sheen{0%,55%{left:-60%}90%,100%{left:130%}}
+.main>.panel,.main>.content-grid,.main>.hero,#apply-form{scroll-margin-top:84px}
+/* ---- cinematic hero ---- */
+.hero{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:22px;min-height:560px;display:flex;box-shadow:var(--shadow)}
+.scene{position:absolute;inset:0;background:linear-gradient(180deg,#04050a 0%,#070a14 46%,#0a0c12 78%,#050609 100%)}
+.scene svg{position:absolute;display:block}
+.moon{top:8%;right:10%;width:130px;height:130px;border-radius:50%;
+  background:radial-gradient(circle at 40% 38%,#ffe9c4,#ffb45e 58%,#e07f22 100%);
+  box-shadow:0 0 60px 18px rgba(255,112,31,.32),0 0 140px 40px rgba(255,112,31,.12)}
+.castle{bottom:26%;left:50%;width:340px;transform:translateX(-50%);opacity:.9}
+.trees-l{bottom:0;left:-20px;width:300px}
+.trees-r{bottom:0;right:-24px;width:330px}
+.bat{color:#05070c;opacity:.9}
+.bat.b1{top:16%;left:56%;animation:fly1 17s linear infinite}
+.bat.b2{top:26%;left:48%;animation:fly2 23s linear infinite}
+@keyframes fly1{0%{transform:translate(0,0) scale(.8)}50%{transform:translate(-90px,26px) scale(1)}100%{transform:translate(-190px,4px) scale(.8)}}
+@keyframes fly2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-120px,-20px) scale(.75)}100%{transform:translate(-240px,10px) scale(1)}}
+.h-fog{position:absolute;left:-10%;right:-10%;height:120px;border-radius:50%;filter:blur(30px);pointer-events:none}
+.h-fog.f-a{bottom:6%;background:radial-gradient(closest-side,rgba(146,150,163,.14),transparent 70%);animation:drift 20s ease-in-out infinite alternate}
+.h-fog.f-b{bottom:-2%;background:radial-gradient(closest-side,rgba(255,112,31,.1),transparent 70%);animation:drift 26s ease-in-out infinite alternate-reverse}
+.ground{position:absolute;left:0;right:0;bottom:0;height:150px}
+.hero-inner{position:relative;z-index:3;max-width:520px;padding:64px 20px 64px 48px;display:flex;flex-direction:column;justify-content:center}
+.hero-inner .eyebrow{color:var(--amber)}
+.hero-title{font-family:Cinzel,serif;font-weight:900;font-size:64px;line-height:1.02;letter-spacing:3px;margin:0;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.8)}
+.hero-role{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;letter-spacing:5px;color:var(--amber);margin:12px 0 4px}
+.hero-inner .subtitle{font-size:15.5px;max-width:44ch}
+.hero-inner .rich{color:#c9cdd6}
+.hero-actions{margin-top:22px;max-width:300px}
+.hero-actions .btn-primary{margin-top:0}
+.hero-note{margin-top:12px;font-size:12.5px;color:var(--muted)}
+#applyBtn{position:relative}
 /* gentle section entrance */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}#applyBtn::after{animation:none;display:none}}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;text-align:left}
-.stat-chip{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:rgba(255,255,255,.025)}
-.stat-chip b{display:block;font-size:26px;font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.5px;color:var(--text)}
-.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.bat{animation:none!important}}
+/* ---- two-column content ---- */
+.content-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:20px;align-items:start;margin-bottom:0}
+.col-left,.col-right{min-width:0;display:flex;flex-direction:column}
+.feature{display:flex;gap:14px;padding:18px 0}
+.feature+.feature{border-top:1px solid var(--line-soft)}
+.feature .fic{width:42px;height:42px;flex:none;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;background:#0A0C12}
+.feature .fic svg{width:20px;height:20px;stroke:var(--amber);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.feature h3{margin:2px 0 5px;font-size:15px;letter-spacing:.4px}
+.feature p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.6}
+.community-card{margin-top:18px;border:1px solid rgba(139,108,193,.3);border-radius:12px;padding:22px;background:linear-gradient(180deg,rgba(139,108,193,.09),rgba(255,112,31,.05));position:relative;overflow:hidden}
+.community-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple),var(--amber))}
+.community-card h3{margin:0 0 6px;font-size:17px}
+.community-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65;font-style:italic}
+.req-list{margin:6px 0 0;padding:0;list-style:none}
+.req-list li{display:flex;gap:12px;padding:13px 0;font-size:14px;color:var(--text)}
+.req-list li+li{border-top:1px solid var(--line-soft)}
+.req-list .rn{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;color:var(--amber);border:1px solid var(--line);border-radius:6px;padding:2px 8px;height:fit-content;white-space:nowrap}
+.req-list p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.role-grid{display:grid;grid-template-columns:1fr;gap:10px}
 .role-card .go{transition:transform .15s}
 .role-card:hover .go{transform:translateX(3px)}
 .approved-list .arow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
@@ -339,20 +356,32 @@ body.design-on [data-dkey]{outline:1.5px dashed color-mix(in srgb, var(--amber) 
 #modForm,#ticketForm,#reportForm{counter-reset:q}
 #modForm>label::before,#ticketForm>label::before,#reportForm>label::before{counter-increment:q;content:"Q" counter(q,decimal-leading-zero);display:inline-block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:1px;color:var(--amber);border:1px solid var(--amber-deep);border-radius:6px;padding:1px 7px;margin-right:9px}
 #editor .tabs{position:sticky;top:0;background:var(--card);z-index:5}
-@media(max-width:920px){
-  .layout{display:block}
-  .sidebar{display:none}
-  .mobilebar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:12px}
-  .mnav{display:flex;gap:8px;overflow-x:auto;margin-bottom:16px;padding-bottom:4px}
-  .mnav a{flex:none;color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:8px 14px}
-  .mnav a:hover{color:var(--text);border-color:var(--amber)}
-  #roleCards.role-grid{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr 1fr}
+@media(max-width:960px){
+  .content-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .navbar.nav-open .nav-links{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:rgba(5,6,9,.97);border-bottom:1px solid var(--line);padding:8px 18px 16px;margin:0}
+  .navbar.nav-open .nav-links a{padding:12px 0;border-top:1px solid var(--line-soft)}
+  .hero{min-height:520px}
+  .hero-inner{padding:48px 24px;max-width:100%}
+  .hero-title{font-size:46px}
+  .castle{width:260px}
+  .moon{width:96px;height:96px;top:6%;right:8%}
 }
 @media(max-width:560px){
-  .stats{grid-template-columns:1fr}
+  body{padding:0 12px 50px}
+  .nav-inner{gap:14px}
+  .brand span{display:none}
+  .btn-staff{display:none}
+  .panel{padding:22px 18px}
+  .hero-title{font-size:38px;letter-spacing:2px}
+  .hero-inner{padding:40px 20px}
   .approved-list .arow{grid-template-columns:1fr}
   .approved-list .arow .meta{white-space:normal}
+  input,textarea,select{font-size:16px}
+  .cd-cell b{font-size:24px}
+  .row button{min-width:100px}
+  .dlg{padding:20px}
 }
 
 </style>
@@ -393,86 +422,99 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
   <div class="loadtxt" id="loadtxt">Waking the server…</div>
 </div>
 <div id="stickerLayer"></div>
-<div class="bg-orbs"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
 <div class="fog" aria-hidden="true"><span class="f1"></span><span class="f2"></span><span class="f3"></span></div>
 <div id="embers" aria-hidden="true"></div>
-<div class="haunt moon" aria-hidden="true"></div>
-<div class="haunt bat" aria-hidden="true"><svg width="72" height="26" viewBox="0 0 72 26" fill="currentColor"><path d="M36 12c3-5 9-8 16-8-2 3-5 5-8 6 4 0 8 1 12 4-5 1-9 0-12-2-2 3-5 5-8 5s-6-2-8-5c-3 2-7 3-12 2 4-3 8-4 12-4-3-1-6-3-8-6 7 0 13 3 16 8z"/></svg></div>
-<div class="haunt web" aria-hidden="true"><svg width="150" height="110" viewBox="0 0 150 110" fill="none" stroke="rgba(184,171,158,.5)"><path d="M0 0l150 0M0 0l0 110M8 0c20 22 20 60 0 92M30 0c30 26 30 66 0 96M60 0c34 28 34 62 0 88M0 12c40 0 90 0 132 0M0 34c42 2 84 2 120 0M0 58c36 4 72 4 100 0M0 82c26 4 52 4 72 0" stroke-width="1.2"/></svg></div>
-<div class="haunt tree" aria-hidden="true"><svg width="230" height="190" viewBox="0 0 230 190" fill="#0d0a08"><path d="M110 190V96l-38-22 30-6-24-30 26 8-8-34 16 24 14-24-6 34 26-8-24 30 30 6-38 22v94z"/><path d="M150 190v-52l-20-12 16-4-12-16 14 4-4-18 9 13 8-13-3 18 14-4-12 16 16 4-20 12v52z"/></svg></div>
-<div class="haunt pump" aria-hidden="true"><svg width="64" height="56" viewBox="0 0 64 56"><ellipse cx="32" cy="32" rx="24" ry="20" fill="#3a1e08"/><ellipse cx="22" cy="32" rx="9" ry="18" fill="#572a0c"/><ellipse cx="42" cy="32" rx="9" ry="18" fill="#572a0c"/><path d="M24 26l5-4 3 5-4 4zM40 26l-5-4-3 5 4 4z" fill="#ffcf7d"/><path d="M22 40q10 8 20 0l-2 5q-8 5-16 0z" fill="#ffcf7d"/><rect x="29" y="6" width="6" height="9" rx="2" fill="#2c1c0e"/></svg></div>
-<div class="container">
-  <div class="mobilebar">
-    <div class="wordmark"><span class="dot"></span>Wigglesworth&nbsp;<em>Studios</em></div>
-    <button class="btn-small" onclick="openCodeModal()">Edit</button>
-  </div>
-  <div class="layout">
-  <aside class="sidebar">
-    <div class="wordmark"><span class="dot"></span>Wigglesworth&nbsp;<em>Studios</em></div>
-    <nav class="snav">
-      <a href="#apply"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2l3 3L6 13l-4 1 1-4z"/></svg>Applications</a>
-      <a href="#report"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14V2m0 1h8l-2 3 2 3H4"/></svg>Report</a>
-      <a href="#contact"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M2.5 5.5L8 9.5l5.5-4"/></svg>Tickets</a>
-      <a href="#status"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M5.5 8l2 2 3.5-4"/></svg>Decision</a>
-      <a href="#accepted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.8 3.7 4.2.6-3 3 .7 4.2-3.7-2-3.7 2 .7-4.2-3-3 4.2-.6z"/></svg>Accepted</a>
+<div class="corner-web" aria-hidden="true"><svg width="100%" viewBox="0 0 170 120" fill="none" stroke="rgba(146,150,163,.55)"><path d="M170 0L60 0M170 0L170 90M160 0C140 28 140 66 160 104M132 0C114 30 114 68 132 106M104 0C90 28 90 60 104 92M170 14C130 14 92 14 62 14M170 36C134 38 100 38 72 36M170 60C138 64 110 64 88 60M170 84C146 88 124 88 106 84" stroke-width="1.2"/></svg></div>
+<header class="navbar" id="topnav">
+  <div class="nav-inner">
+    <a class="brand" href="#apply"><svg viewBox="0 0 32 28" fill="none"><ellipse cx="16" cy="16" rx="12" ry="10" fill="#3a1e08"/><ellipse cx="11" cy="16" rx="4.5" ry="9" fill="#572a0c"/><ellipse cx="21" cy="16" rx="4.5" ry="9" fill="#572a0c"/><path d="M11 12l2.5-2 1.5 2.5-2 2zM21 12l-2.5-2-1.5 2.5 2 2z" fill="#FF701F"/><path d="M10 20q6 5 12 0l-1.5 3q-4.5 3-9 0z" fill="#FF701F"/><rect x="14.5" y="2" width="3" height="5" rx="1" fill="#2c1c0e"/></svg><span>WIGGLESWORTH</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#apply">Home</a>
+      <a href="#why">About</a>
+      <a href="#requirements">Requirements</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <div class="side-foot">
-      <button class="btn-small" onclick="openCodeModal()">Edit</button>
-      <p class="hint" style="margin:0">Staff only</p>
+    <div class="nav-actions">
+      <button class="btn-staff" onclick="openCodeModal()">Staff</button>
+      <a class="btn-apply" href="#apply-form">Apply Now</a>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-  </aside>
-  <nav class="mnav">
-    <a href="#apply">Applications</a>
-    <a href="#report">Report</a>
-    <a href="#contact">Tickets</a>
-    <a href="#status">Decision</a>
-    <a href="#accepted">Accepted</a>
-  </nav>
+  </div>
+</header>
+<div class="container">
   <main class="main">
 
   <div id="announceBar" class="announce" data-dkey="announceBar" style="display:none"></div>
 
-  <div class="panel hero" id="apply">
-    <img id="bannerImg" class="heroimg" style="display:none" alt="">
-    <div id="abWarn" style="display:none"></div>
-    <div class="logo-row">
-      <img id="logoImg" style="display:none" alt="">
-      <div>
-        <div class="eyebrow" data-dkey="heroEyebrow">01 · Staff applications</div>
-        <h1 id="appTitle" data-dkey="appTitle">Wigglesworth — Join the Team</h1>
-        <p class="subtitle" id="appSubtitle" data-dkey="appSubtitle"></p>
+  <section class="hero reveal in" id="apply">
+    <div class="scene" aria-hidden="true">
+      <div class="moon"></div>
+      <svg class="castle" viewBox="0 0 340 190" fill="#04060c"><path d="M20 190V110l14-8v-24l12-6V52l12 6v22l14 8v102zM268 190V110l-14-8V78l-12-6V52l-12 6v22l-14 8v102zM120 190V70l-14-8V44l14-8V20l14 8v10l14-8v18l14 8v12l-14 8v120zM186 190V70l14-8V44l-14-8V20l-14 8v10l-14-8v18l-14 8v12l14 8v120z"/><g fill="#FF701F" opacity=".85"><rect x="150" y="96" width="6" height="10" rx="3"/><rect x="184" y="96" width="6" height="10" rx="3"/><rect x="167" y="60" width="6" height="10" rx="3"/><rect x="48" y="120" width="5" height="8" rx="2.5"/><rect x="287" y="120" width="5" height="8" rx="2.5"/></g></svg>
+      <svg class="trees-l" viewBox="0 0 300 220" fill="#04060b"><path d="M40 220V120l-26-16 20-4-16-22 18 6-6-26 12 18 10-18-4 26 18-6-16 22 20 4-26 16v100zM110 220v-70l-18-12 14-4-11-15 13 4-3-19 8 13 7-13-2 19 13-4-11 15 14 4-18 12v70zM180 220v-84l-22-14 17-4-14-19 16 5-4-23 10 16 9-16-3 23 16-5-14 19 17 4-22 14v84z"/></svg>
+      <svg class="trees-r" viewBox="0 0 330 230" fill="#04060b"><path d="M60 230V130l-30-18 24-6-19-25 21 7-7-30 14 21 12-21-5 30 21-7-19 25 24 6-30 18v100zM170 230v-80l-21-13 16-4-13-18 15 5-4-22 10 15 8-15-3 22 15-5-13 18 16 4-21 13v80zM260 230V140l-24-15 19-5-15-20 17 6-5-24 11 17 10-17-4 24 17-6-15 20 19 5-24 15v90z"/></svg>
+      <svg class="bat b1" width="44" height="16" viewBox="0 0 44 16" fill="currentColor"><path d="M22 7c2-3 5.5-5 10-5-1.2 1.8-3 3-5 3.6 2.5 0 5 .7 7.5 2.4-3 .6-5.5 0-7.5-1.2-1.2 1.8-3 3-5 3s-3.8-1.2-5-3c-2 1.2-4.5 1.8-7.5 1.2 2.5-1.7 5-2.4 7.5-2.4-2-.6-3.8-1.8-5-3.6 4.5 0 8 2 10 5z"/></svg>
+      <svg class="bat b2" width="30" height="12" viewBox="0 0 44 16" fill="currentColor"><path d="M22 7c2-3 5.5-5 10-5-1.2 1.8-3 3-5 3.6 2.5 0 5 .7 7.5 2.4-3 .6-5.5 0-7.5-1.2-1.2 1.8-3 3-5 3s-3.8-1.2-5-3c-2 1.2-4.5 1.8-7.5 1.2 2.5-1.7 5-2.4 7.5-2.4-2-.6-3.8-1.8-5-3.6 4.5 0 8 2 10 5z"/></svg>
+      <span class="h-fog f-a"></span><span class="h-fog f-b"></span>
+      <svg class="ground" viewBox="0 0 1200 150" preserveAspectRatio="none"><path d="M0 90Q200 60 420 84T820 80T1200 92V150H0z" fill="#030407"/><g><ellipse cx="180" cy="118" rx="26" ry="20" fill="#1d0f04"/><ellipse cx="170" cy="118" rx="9" ry="18" fill="#2e1a08"/><ellipse cx="190" cy="118" rx="9" ry="18" fill="#2e1a08"/><path d="M172 112l4-3 2.5 4-3 3zM188 112l-4-3-2.5 4 3 3z" fill="#FF701F"/><rect x="177" y="94" width="5" height="8" rx="2" fill="#241708"/></g><g><ellipse cx="1030" cy="122" rx="20" ry="15" fill="#1d0f04"/><ellipse cx="1022" cy="122" rx="7" ry="13" fill="#2e1a08"/><ellipse cx="1038" cy="122" rx="7" ry="13" fill="#2e1a08"/><path d="M1024 117l3.5-2.5 2 3.5-2.5 2.5zM1036 117l-3.5-2.5-2 3.5 2.5 2.5z" fill="#FF701F"/><rect x="1028" y="103" width="4" height="7" rx="2" fill="#241708"/></g><g opacity=".9"><rect x="555" y="96" width="10" height="22" rx="2" fill="#120b05"/><rect x="552" y="90" width="16" height="10" rx="3" fill="#1d1006"/><rect x="556" y="92" width="8" height="6" rx="2" fill="#FF701F" opacity=".8"/></g></svg>
+    </div>
+    <div class="hero-inner">
+      <img id="bannerImg" class="heroimg" style="display:none" alt="">
+      <div id="abWarn" style="display:none"></div>
+      <div class="logo-row">
+        <img id="logoImg" style="display:none" alt="">
+        <div>
+          <div class="eyebrow" data-dkey="heroEyebrow">JOIN THE TEAM</div>
+          <h1 id="appTitle" class="hero-title display" data-dkey="appTitle">WIGGLESWORTH</h1>
+          <div class="hero-role">MODERATOR APPLICATIONS</div>
+          <p class="subtitle" id="appSubtitle" data-dkey="appSubtitle"></p>
+        </div>
+      </div>
+      <div class="rich" id="topText" data-dkey="topText"></div>
+      <div class="hero-actions">
+        <button class="btn-primary" id="applyBtn" data-dkey="applyBtn" onclick="document.getElementById('apply-form').scrollIntoView({behavior:'smooth'})">Apply Now</button>
+        <p class="hero-note" data-dkey="heroHint">One honest application per role — every entry is read by a human.</p>
       </div>
     </div>
-    <div class="rich" id="topText" data-dkey="topText"></div>
-    <div class="hero-actions">
-      <button class="btn-primary" id="applyBtn" data-dkey="applyBtn" onclick="toggleApplyMenu()" style="margin-top:8px">Fill an application</button>
-      <p class="hint" data-dkey="heroHint" style="text-align:center">Pick a role — one honest application per role.</p>
-      <div class="stats">
-        <span class="stat-chip" data-dkey="stat0">3 open roles</span>
-        <span class="stat-chip" data-dkey="stat1">Read by humans</span>
-        <span class="stat-chip" data-dkey="stat2">Every entry answered</span>
-      </div>
-      <p class="hint" style="text-align:center;margin-top:10px">In a hurry? <a href="#applyCard" onclick="pickType('moderator')">Jump straight to Moderator →</a></p>
-    </div>
-  </div>
+  </section>
 
-  <section class="panel" id="roleMenu" style="display:none">
-    <div class="eyebrow">Choose your track</div>
+  <div class="content-grid">
+    <div class="col-left">
+      <section class="panel reveal" id="why">
+        <div class="eyebrow">About</div>
+        <h2>Why join the team?</h2>
+        <div class="feature">
+          <span class="fic"><svg viewBox="0 0 20 20"><path d="M10 2l2.1 4.4 4.9.6-3.6 3.4.9 4.9-4.3-2.4-4.3 2.4.9-4.9L3 7l4.9-.6z"/></svg></span>
+          <div><h3>MAKE AN IMPACT</h3><p>Help create a safer and better community for everyone.</p></div>
+        </div>
+        <div class="feature">
+          <span class="fic"><svg viewBox="0 0 20 20"><circle cx="10" cy="6.5" r="3"/><path d="M3.5 17c.8-3.4 3.4-5 6.5-5s5.7 1.6 6.5 5"/></svg></span>
+          <div><h3>BE PART OF A TEAM</h3><p>Work alongside other dedicated and passionate members.</p></div>
+        </div>
+        <div class="feature">
+          <span class="fic"><svg viewBox="0 0 20 20"><path d="M4 16V9M10 16V4M16 16v-6"/></svg></span>
+          <div><h3>GAIN EXPERIENCE</h3><p>Build valuable skills in moderation and community management.</p></div>
+        </div>
+        <div class="community-card">
+          <h3>Not just a role. A community.</h3>
+          <p>Wigglesworth is more than a server — it's a family.</p>
+        </div>
+      </section>
+      <section class="panel reveal" id="requirements">
+        <div class="eyebrow">Requirements</div>
+        <h2>Before you apply</h2>
+        <ul class="req-list">
+          <li><span class="rn">01</span><div><b>13 or older</b><p>You must meet the minimum age to join the team.</p></div></li>
+          <li><span class="rn">02</span><div><b>Active &amp; present</b><p>Hang around the community regularly, not just at events.</p></div></li>
+          <li><span class="rn">03</span><div><b>Honest answers</b><p>Write your own words — copied or fake answers are denied.</p></div></li>
+        </ul>
+      </section>
+    </div>
+    <div class="col-right" id="apply-form">
+  <section class="panel" id="roleMenu">
+    <div class="eyebrow">Application</div>
     <h2 style="margin:4px 0 12px">Pick a role to begin</h2>
     <div id="roleCards" class="role-grid"></div>
   </section>
-
-  <div class="panel" id="countCard" style="display:none">
-    <div class="eyebrow">Update countdown</div>
-    <h2 id="cdTitle" style="margin:4px 0 10px"></h2>
-    <div class="cd-grid">
-      <div class="cd-cell"><b id="cdD">–</b><span>days</span></div>
-      <div class="cd-cell"><b id="cdH">–</b><span>hrs</span></div>
-      <div class="cd-cell"><b id="cdM">–</b><span>min</span></div>
-      <div class="cd-cell"><b id="cdS">–</b><span>sec</span></div>
-    </div>
-    <p class="hint" id="cdNote" style="text-align:center"></p>
-  </div>
 
   <div class="panel" id="applyCard" style="display:none">
     <div class="role-kicker" id="roleKicker">Application</div>
@@ -491,6 +533,20 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       </div>
     </div>
     <div class="rich" id="bottomText" data-dkey="bottomText"></div>
+  </div>
+    </div>
+  </div>
+
+  <div class="panel reveal" id="countCard" style="display:none">
+    <div class="eyebrow">Update countdown</div>
+    <h2 id="cdTitle" style="margin:4px 0 10px"></h2>
+    <div class="cd-grid">
+      <div class="cd-cell"><b id="cdD">–</b><span>days</span></div>
+      <div class="cd-cell"><b id="cdH">–</b><span>hrs</span></div>
+      <div class="cd-cell"><b id="cdM">–</b><span>min</span></div>
+      <div class="cd-cell"><b id="cdS">–</b><span>sec</span></div>
+    </div>
+    <p class="hint" id="cdNote" style="text-align:center"></p>
   </div>
 
   <div class="panel" id="report">
@@ -796,16 +852,20 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       }
     }
     // gentle entrance for panels
-    var els=document.querySelectorAll('.main>.panel,.sidebar');
-    els.forEach(function(el){el.classList.add('reveal')});
+    var els=document.querySelectorAll('.main .panel');
+    els.forEach(function(el){if(!el.classList.contains('reveal'))el.classList.add('reveal')});
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){
         es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-      },{threshold:.08});
+      },{threshold:.06});
       els.forEach(function(el){io.observe(el)});
     }else{els.forEach(function(el){el.classList.add('in')})}
+    // close mobile nav on link tap
+    var nl=document.getElementById('navLinks');
+    if(nl)nl.addEventListener('click',function(e){if(e.target.tagName==='A')document.getElementById('topnav').classList.remove('nav-open')});
   }catch(e){}
 })();
+function toggleNav(){try{document.getElementById('topnav').classList.toggle('nav-open')}catch(e){}}
 </script>
 </body>
 </html>

@@ -358,7 +358,6 @@ function showEditor(refetch=true){
   syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderFaqEditor(); renderDecor(); renderDecorList();
   syncAppTypeFilter();
   markClean();
-  updateGate();
   if(window.__refT) clearInterval(window.__refT);
   window.__refT = setInterval(()=>{
     if(!unlocked) return;
@@ -381,7 +380,7 @@ async function lockEditor(){
   unlocked=false; editCode=''; sessionStorage.removeItem('mod_edit_code'); selectedDecor=null; designOn=false;
   if(window.__refT){ clearInterval(window.__refT); window.__refT = null; }
   document.body.classList.remove('design-on');
-  $('editor').style.display='none'; renderDecor(); updateGate();
+  $('editor').style.display='none'; renderDecor();
 }
 function edType(i){ return config.applicationTypes[i]; }
 function renderTypeEditor(){
