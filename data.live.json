@@ -54,14 +54,6 @@
       "appTitle": {
         "dx": -2,
         "dy": 1
-      },
-      "heroEyebrow": {
-        "dx": 14,
-        "dy": 4,
-        "sx": 1.2,
-        "sy": 1.7,
-        "text": "Tickets and Applications",
-        "orig": "01 · Staff applications"
       }
     },
     "decor": [],
@@ -1722,6 +1714,24 @@
   ],
   "audit": [
     {
+      "t": "2026-10-15T04:02:58.102Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-15T04:02:56.645Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-15T04:02:56.394Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-15T04:02:56.171Z",
       "act": "config_saved",
       "id": "",
@@ -2301,24 +2311,6 @@
       "t": "2026-10-04T21:37:14.810Z",
       "act": "status_denied",
       "id": "MOD-2U9UHB",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:36:44.545Z",
-      "act": "status_pending",
-      "id": "MOD-XAVQJ3",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:36:37.135Z",
-      "act": "status_denied",
-      "id": "MOD-KJ6H4E",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:36:34.174Z",
-      "act": "status_denied",
-      "id": "MOD-TKAKAJ",
       "by": ""
     }
   ],
