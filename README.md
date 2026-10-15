@@ -37,16 +37,11 @@ New tickets and ticket replies ping you in Discord:
 
 Use a staff-only channel: ticket contents are posted there. No webhook = feature silently off.
 
-## Discord account linking (optional, recommended)
+## Discord account linking (removed)
 
-Forces applicants to verify Discord before applying or opening tickets:
-
-1. https://discord.com/developers/applications → New Application → OAuth2
-2. Add redirect: `https://wigglesworth-moderator-applications.onrender.com/api/link/callback`
-3. Copy Client ID + Client Secret → Render Environment:
-   `DISCORD_CLIENT_ID`, `DISCORD_CLIENT_SECRET`
-4. Optional: `LINK_SECRET` (random string — signing key; without it the key derives from your edit code, so changing the code unlinks everyone)
-5. Redeploy happens automatically. The site then requires linking; verified names lock in and every record carries the Discord user ID.
+Removed — the site no longer uses Discord OAuth. Applicants just type their
+Discord name manually. Delete any `DISCORD_CLIENT_ID`, `DISCORD_CLIENT_SECRET`,
+`LINK_SECRET`, `LINK_REDIRECT`, `LINK_REQUIRED` vars from Render if present.
 
 ## Files
 

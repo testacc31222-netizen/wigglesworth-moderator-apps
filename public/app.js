@@ -1,6 +1,5 @@
 let config = null;
-let linkRequired = false;
-const BUILD = '20261012b';
+const BUILD = '20261015b';
 function sendDiag(failed){
   try{
     const tag = document.getElementById('buildTag');
@@ -10,51 +9,11 @@ function sendDiag(failed){
     fetch('/api/clientlog',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({ build: BUILD,
         hero: !!(hero && cs && cs.display !== 'none' && hero.getBoundingClientRect().height > 40),
-        gated: document.body.classList.contains('gated'),
-        token: !!(function(){ try{ return localStorage.getItem('link_token'); }catch(e){ return ''; } })(),
+        gated: false,
+        token: false,
         failed: !!failed })}).catch(()=>{});
   }catch{}
 }
-function linkToken(){ try{ return localStorage.getItem('link_token') || ''; }catch{ return ''; } }
-function linkPayload(){
-  try{
-    const t = linkToken();
-    let b = t.split('.')[0].replace(/-/g, '+').replace(/_/g, '/');
-    while(b.length % 4) b += '=';
-    return JSON.parse(atob(b));
-  }catch{ return null; }
-}
-function linkName(){
-  const p = linkPayload();
-  if(p && p.name) return p.name;
-  try{ return localStorage.getItem('link_user') || ''; }catch{ return ''; }
-}
-function unlinkDiscord(){
-  try{ localStorage.removeItem('link_token'); localStorage.removeItem('link_user'); }catch{}
-  renderLinkBar(); renderForm(); updateGate();
-  const tn = $('t_name'); if(tn){ tn.disabled = false; tn.value = ''; tn.title = ''; }
-}
-function updateGate(){
-  // Gate retired: the whole site stays visible. Discord linking is still
-  // enforced server-side on submits; this just clears any leftover state.
-  document.body.classList.remove('gated');
-  const g = $('gate');
-  if(g) g.style.display = 'none';
-}
-function renderLinkBar(){
-  const bar = $('linkBar');
-  if(!linkRequired || !bar){ if(bar) bar.style.display = 'none'; return; }
-  const name = linkName();
-  if(linkToken() && name){
-    bar.style.display = 'flex';
-    bar.innerHTML = `<span class="ok">Linked as ${esc(name)}</span><button class="btn-small" onclick="unlinkDiscord()">Unlink</button>`;
-    const tn = $('t_name'); if(tn){ tn.value = name; tn.disabled = true; tn.title = 'Verified from your linked Discord'; }
-  } else {
-    bar.style.display = 'flex';
-    bar.innerHTML = `<span>You must link Discord to apply or open tickets.</span><button class="btn-small" onclick="location.href='/api/link/start'">Link Discord</button>`;
-  }
-}
-function linkMissing(){ return linkRequired && (!linkToken() || !linkName()); }
 let currentTypeId = null;
 let unlocked = sessionStorage.getItem('mod_edit_code') ? true : false;
 let editCode = sessionStorage.getItem('mod_edit_code') || '';
@@ -116,7 +75,6 @@ async function fetchConfig(){
     return;
   }
   try{ sessionStorage.removeItem('cfg_reload'); }catch{}
-  linkRequired = !!config.linkRequired;
   if(!currentTypeId || !config.applicationTypes.some(t=>t.id===currentTypeId))
     currentTypeId = config.applicationTypes.some(t=>t.id==='moderator') ? 'moderator' : config.applicationTypes[0].id;
   setStage(70, 'Loading roles…');
@@ -144,7 +102,6 @@ function applyConfig(){
   const li = $('logoImg');
   if(config.logoImage){ li.src = config.logoImage; li.style.display='block'; } else li.style.display='none';
   $('topText').innerHTML = rich(config.topText);
-  renderLinkBar(); updateGate();
   renderCountdown(); renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor(); applyLayout();
   try{
     const hero = $('apply');
@@ -270,10 +227,6 @@ function renderForm(){
       });
     } else { el=document.createElement('input'); el.type=q.type||'text'; }
     el.id='f_'+q.id; el.placeholder=q.placeholder||''; el.required=!!q.required;
-    if(q.id==='discord' && !linkMissing()){
-      el.value = linkName(); el.disabled = true;
-      el.title = 'Verified from your linked Discord';
-    }
     f.appendChild(el);
   });
   const b=document.createElement('button');
@@ -282,7 +235,6 @@ function renderForm(){
 }
 async function submitApp(e){
   e.preventDefault();
-  if(linkMissing()){ alert('Link your Discord first — tap Link Discord above.'); document.getElementById('linkBar').scrollIntoView({ behavior:'smooth' }); return false; }
   const t = curType();
   const answers = {};
   for(const q of t.questions){
@@ -294,7 +246,7 @@ async function submitApp(e){
   }
   const done = busyOn(e.target.querySelector('button[type=submit]'), 'Sending');
   try{
-    const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t.id,answers,link:linkToken()})});
+    const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t.id,answers})});
     const j = await r.json();
     if(!r.ok) throw new Error(j.error||'Submit failed');
     $('modForm').style.display='none';
@@ -530,8 +482,7 @@ function syncAppTypeFilter(){
   config.applicationTypes.forEach(t=>{ const o=document.createElement('option'); o.value=t.id; o.textContent=t.name; s.appendChild(o); });
   s.value=keep;
 }
-async function renderAudit(){
-  try{
+async function renderAudit(){  try{
     const r = await fetch('/api/admin/audit',{headers:{'x-edit-code':editCode}});
     if(!r.ok) return;
     const log = await r.json();
@@ -569,7 +520,7 @@ async function renderSubs(){
       +`<div class="qa">`;
     Object.keys(s).forEach(k=>{
       if(['appId','type','date','status','adminNote'].includes(k)) return;
-      const lbl = qmap[s.type+':'+k] || (k === 'discordId' ? 'Verified Discord ID' : k);
+      const lbl = qmap[s.type+':'+k] || k;
       html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
     html+=`</div>`;
@@ -649,8 +600,7 @@ function threadHTML(t, staffMode){
 }
 async function submitTicket(e){
   e.preventDefault();
-  if(linkMissing()){ alert('Link your Discord first — tap Link Discord above.'); document.getElementById('linkBar').scrollIntoView({ behavior:'smooth' }); return false; }
-  const body = { name: linkName(), subject: $('t_subject').value.trim(), message: $('t_message').value.trim(), link: linkToken() };
+  const body = { name: $('t_name').value.trim(), subject: $('t_subject').value.trim(), message: $('t_message').value.trim() };
   if(!body.name || !body.subject || body.message.length < 10){ alert('Fill name, subject, and a message (10+ characters).'); return false; }
   const done = busyOn(e.target.querySelector('button[type=submit]'), 'Sending');
   try{
@@ -728,7 +678,7 @@ function renderTicketThread(){
   const t = ticketAdminCache.find(x=>x.id===selectedTicketId);
   if(!t){ box.innerHTML=''; return; }
   const closed = t.status!=='open';
-  box.innerHTML = `<div class="submission"><b>${esc(t.id)}</b> — ${esc(t.subject)} <span class="hint">from ${esc(t.name)}${t.discordId ? ' · <span title="Verified Discord ID">' + esc(t.discordId) + '</span>' : ''} · ${esc(t.createdAt||'')}</span> <span class="status ${closed?'denied':'pending'}">${t.status.toUpperCase()}</span></div>`
+  box.innerHTML = `<div class="submission"><b>${esc(t.id)}</b> — ${esc(t.subject)} <span class="hint">from ${esc(t.name)} · ${esc(t.createdAt||'')}</span> <span class="status ${closed?'denied':'pending'}">${t.status.toUpperCase()}</span></div>`
     + threadHTML(t,true)
     + `<label>Reply as staff${closed?' (reopens the ticket)':''}</label><textarea id="t_staffReply" rows="3"></textarea>
     <div class="row"><button class="btn-confirm" onclick="staffReply()">Send</button>
@@ -1254,34 +1204,12 @@ window.addEventListener('DOMContentLoaded', ()=>{
   });
   fetchConfig().then(()=>{ pageReady = true; maybeOpenLoader(); })
     .catch(()=>{ pageReady = true; setTimeout(()=>sendDiag(true), 2500); maybeOpenLoader(); });
-  if(location.hash === '#linked'){
-    history.replaceState(null, '', location.pathname);
-    setTimeout(()=>alert('Discord linked! You can now apply and open tickets.'), 600);
-  }
-  if(/(^|[?&])linked=error($|&)/.test(location.search)){
-    const stage = (location.search.match(/[?&]stage=([a-z]+)/) || [])[1] || '';
-    history.replaceState(null, '', location.pathname);
-    const explain = stage === 'ncode'
-      ? 'Discord sent you back without a code — you may have pressed Deny instead of Authorize. Try again and press Authorize.'
-      : (stage === 'exchange' || stage === 'notoken')
-      ? 'You authorized, but the server could not complete the handshake. This is almost always a wrong Client Secret or a redirect URL in your Discord app that does not exactly match this site. Staff: re-check both in the Discord portal and Render env.'
-      : 'Something hiccuped on the way back from Discord. Wait a minute and try again.';
-    setTimeout(()=>{
-      try{
-        const d = document.createElement('div');
-        d.style.cssText = 'position:fixed;inset:0;z-index:150;display:flex;justify-content:center;align-items:center;background:rgba(5,6,10,.9);padding:18px;font-family:system-ui,Arial,sans-serif';
-        d.innerHTML = '<div style="max-width:440px;background:#161a23;border:1px solid #3a4356;border-radius:14px;padding:26px;color:#eef1f6">'
-          + '<div style="font-size:12px;letter-spacing:2px;color:#8fa8ff">WIGGLESWORTH</div>'
-          + '<h2 style="margin:8px 0 6px;font-size:22px">Discord link failed</h2>'
-          + '<p style="font-size:14px;color:#9aa3b2;line-height:1.55">' + explain + '</p>'
-          + '<div style="display:flex;gap:8px;margin-top:6px"><button id="linkRetry" style="flex:1;padding:12px;border:0;border-radius:10px;background:#5865F2;color:#fff;font-size:14px;font-weight:700;cursor:pointer">Try again</button>'
-          + '<button id="linkDismiss" style="flex:1;padding:12px;border:1px solid #3a4356;border-radius:10px;background:transparent;color:#eef1f6;font-size:14px;font-weight:700;cursor:pointer">Dismiss</button></div></div>';
-        document.body.appendChild(d);
-        document.getElementById('linkRetry').onclick = ()=>{ location.href = '/api/link/start'; };
-        document.getElementById('linkDismiss').onclick = ()=>{ d.remove(); };
-      }catch{}
-    }, 800);
-  }
+  try{
+    // Clear any stale Discord-link leftovers from the old build.
+    localStorage.removeItem('link_token'); localStorage.removeItem('link_user');
+    if(location.hash === '#linked') history.replaceState(null, '', location.pathname);
+    if(/(^|[?&])linked=error($|&)/.test(location.search)) history.replaceState(null, '', location.pathname);
+  }catch{}
   $('codeInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkCode(); });
   $('statusInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkStatus(); });
   $('ticketInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkTicket(); });
