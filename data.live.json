@@ -58,7 +58,8 @@
       "heroEyebrow": {
         "dx": 14,
         "dy": 4,
-        "sy": 1.5,
+        "sx": 1.2,
+        "sy": 1.7,
         "text": "Tickets and Applications",
         "orig": "01 · Staff applications"
       }
@@ -1721,6 +1722,30 @@
   ],
   "audit": [
     {
+      "t": "2026-10-15T04:02:56.171Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-15T04:02:56.043Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-15T04:02:54.259Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-15T04:02:54.091Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-15T04:02:53.698Z",
       "act": "config_saved",
       "id": "",
@@ -2294,30 +2319,6 @@
       "t": "2026-10-04T21:36:34.174Z",
       "act": "status_denied",
       "id": "MOD-TKAKAJ",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:36:27.619Z",
-      "act": "status_denied",
-      "id": "MOD-DKHJU9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:35:49.057Z",
-      "act": "status_pending",
-      "id": "MOD-DKHJU9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:34:25.230Z",
-      "act": "status_denied",
-      "id": "MOD-2U9UHB",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:33:27.277Z",
-      "act": "status_denied",
-      "id": "MOD-KQ79BS",
       "by": ""
     }
   ],
