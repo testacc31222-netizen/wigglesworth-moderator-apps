@@ -244,7 +244,7 @@ const DEFAULT_CONFIG = {
   subtitle: 'Four ways in. Pick the role that fits you and send one honest application.',
   announcement: 'Applications are OPEN',
   rules: '• Must be 13+\n• One role per application — pick the closest fit\n• Be honest — lying = instant deny\n• Spamming applications = blacklist',
-  accent: '#6cb8f0', bg: '#0e1218',
+  accent: '#D96B24', bg: '#07070b',
   editCode: 'MOD123',
   showApproved: true, approvedTitle: 'New team members',
   bannerImage: '', logoImage: '', backgroundImage: '',
@@ -313,8 +313,9 @@ function loadDB() {
     if (typeof db.config.countdown[k] !== 'string' || !db.config.countdown[k]) db.config.countdown[k] = dflt;
   }
   if (!db.config.layout || typeof db.config.layout !== 'object') db.config.layout = {};
-  if (db.config.accent === '#6366f1') db.config.accent = '#6cb8f0';
-  if (db.config.bg === '#080a12') db.config.bg = '#0e1218';
+  // Halloween event makeover: roll old blue accents into burnt orange.
+  if (['#6366f1', '#5865F2', '#6cb8f0', '#8fa8ff', '#00bdba'].includes(db.config.accent)) db.config.accent = '#D96B24';
+  if (['#080a12', '#0e1218', '#0e1015'].includes(db.config.bg)) db.config.bg = '#07070b';
   return db;
 }
 function saveDB(db) {
@@ -652,7 +653,7 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     subtitle: cleanStr(c.subtitle, 300),
     announcement: cleanStr(c.announcement, 200),
     rules: cleanStr(c.rules, 3000),
-    accent: /^#[0-9a-fA-F]{6}$/.test(c.accent || '') ? c.accent : '#6cb8f0',
+    accent: /^#[0-9a-fA-F]{6}$/.test(c.accent || '') ? c.accent : '#D96B24',
     bg: /^#[0-9a-fA-F]{6}$/.test(c.bg || '') ? c.bg : '#080a12',
     editCode: cleanStr(c.editCode, 100) || db.config.editCode,
     showApproved: c.showApproved !== false,
