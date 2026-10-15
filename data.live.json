@@ -1277,6 +1277,21 @@
       "schedule": "Three times a day",
       "style": "I play different games",
       "strikes": "No"
+    },
+    {
+      "appId": "DEV-D7QU5B",
+      "type": "developer",
+      "date": "2026-10-15T03:39:44.787Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "testtesttesttesttesttesttesttesttesttesttesttest",
+      "discord": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+      "age": "21",
+      "experience": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+      "why": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+      "languages": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+      "bugscenario": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+      "teamwork": "ou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirj"
     }
   ],
   "tickets": [
