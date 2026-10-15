@@ -45,17 +45,7 @@
       "soonLine": "soon.",
       "target": "2026-10-04T23:40:00.000Z"
     },
-    "layout": {
-      "handNote": {
-        "dx": -1,
-        "dy": -3,
-        "fs": 24
-      },
-      "appTitle": {
-        "dx": -2,
-        "dy": 1
-      }
-    },
+    "layout": {},
     "decor": [],
     "applicationTypes": [
       {
@@ -1714,6 +1704,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-15T04:03:07.952Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-15T04:02:58.102Z",
       "act": "config_saved",
       "id": "",
@@ -2305,12 +2301,6 @@
       "t": "2026-10-04T21:37:20.090Z",
       "act": "status_denied",
       "id": "MOD-XAVQJ3",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:37:14.810Z",
-      "act": "status_denied",
-      "id": "MOD-2U9UHB",
       "by": ""
     }
   ],
