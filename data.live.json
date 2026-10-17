@@ -1389,8 +1389,8 @@
       "appId": "MOD-FAV398",
       "type": "moderator",
       "date": "2026-10-17T12:26:20.467Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to become a moderator, MiloVr. We appreciate your interest and the time you took to share your experience. We encourage you to keep building your moderation skills and feel free to reapply in the future.",
       "username": "MiloVr",
       "discord": "MiloVr",
       "age": "14",
@@ -1917,6 +1917,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-17T21:01:11.504Z",
+      "act": "ai_denied",
+      "id": "MOD-FAV398",
+      "by": "Raz"
+    },
     {
       "t": "2026-10-17T20:56:34.198Z",
       "act": "deleted",
@@ -2509,12 +2515,6 @@
       "t": "2026-10-06T00:07:00.816Z",
       "act": "ticket_reply",
       "id": "TKT-BWSRDF",
-      "by": ""
-    },
-    {
-      "t": "2026-10-05T21:35:11.983Z",
-      "act": "status_denied",
-      "id": "MOD-DD9LE9",
       "by": ""
     }
   ],
