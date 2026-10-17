@@ -1324,22 +1324,6 @@
       "teamwork": "Team work because team work makes the dream work"
     },
     {
-      "appId": "CC-3UE2SZ",
-      "type": "creator",
-      "date": "2026-10-15T22:17:32.899Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Veno",
-      "discord": "VENO",
-      "age": "14",
-      "why": "Because I want to help the community by making content show that the game can get bigger support and help out people that want to be content creators just like me and do giveaway.",
-      "platform": "TikTok",
-      "channel": "https://www.tiktok.com/@defnotjb66?_r=1&_t=ZT-9AaR6kQUyPW",
-      "schedule": "Twice a week or more plus stream once a day.",
-      "style": "Funny ski,people that won event from playing Wigglesworth and alert people about new updates.",
-      "strikes": "No."
-    },
-    {
       "appId": "CC-HN85C7",
       "type": "creator",
       "date": "2026-10-16T23:41:52.851Z",
@@ -1948,6 +1932,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-17T20:55:21.756Z",
+      "act": "deleted",
+      "id": "CC-3UE2SZ",
+      "by": ""
+    },
+    {
       "t": "2026-10-17T20:55:16.541Z",
       "act": "deleted",
       "id": "CC-BE8LN7",
@@ -2539,12 +2529,6 @@
       "t": "2026-10-04T21:45:36.177Z",
       "act": "ticket_reply",
       "id": "TKT-B2U756",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:43:38.357Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
