@@ -1,5 +1,5 @@
 let config = null;
-const BUILD = '20261016a';
+const BUILD = '20261016b';
 function sendDiag(failed){
   try{
     const tag = document.getElementById('buildTag');
