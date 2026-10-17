@@ -1405,7 +1405,7 @@
       "type": "creator",
       "date": "2026-10-17T12:44:44.418Z",
       "status": "denied",
-      "adminNote": "Thank you for applying to join the Wigglesworth community as a Content Creator. We appreciate your enthusiasm and the effort you’ve put into your application. While we’re not able to offer you a spot at this time, we encourage you to keep creating and gaining experience—your passion will serve you well. Feel free to reapply in the future once you’ve had a chance to grow your channel further. Good luck with your content!",
+      "adminNote": "Hi Veno,\n\nThank you for applying to be a Content Creator for Wigglesworth. We appreciate the time you took to share your ideas and enthusiasm for the community. At this time we won’t be moving forward with your application, but we encourage you to keep building your content and gaining experience. We hope you’ll consider reapplying in the future. \n\nBest of luck!",
       "username": "Veno",
       "discord": "VENO",
       "age": "14",
@@ -1947,6 +1947,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-17T20:55:52.457Z",
+      "act": "ai_denied",
+      "id": "CC-7TQP8L",
+      "by": "Raz"
+    },
     {
       "t": "2026-10-17T20:55:30.290Z",
       "act": "deleted",
@@ -2537,12 +2543,6 @@
     },
     {
       "t": "2026-10-04T21:43:38.357Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:41:53.510Z",
       "act": "config_saved",
       "id": "",
       "by": ""
