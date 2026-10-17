@@ -70,13 +70,19 @@ function discordNotify(text) {
   discordPost(DISCORD_WEBHOOK_URL, body).catch(e => console.error('discord alert error', e.message));
 }
 
+let ghPushBusy = false;
+let ghPushQueued = false;
+// Serialized autosave: overlapping saves queue up instead of racing each other
+// (racing writes used to fail silently and could resurrect old data on restart).
 async function pushToGitHub() {
   if (!GH_TOKEN) return;
+  if (ghPushBusy) { ghPushQueued = true; return; }
+  ghPushBusy = true;
   try {
     const api = `https://api.github.com/repos/${GH_REPO}/contents/${GH_PATH}`;
     const H = { 'User-Agent': 'wigglesworth-apps', Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json' };
     let sha = null;
-    for (let attempt = 0; attempt < 2; attempt++) {
+    for (let attempt = 0; attempt < 3; attempt++) {
       try {
         const g = await fetch(`${api}?ref=${GH_BRANCH}`, { headers: H });
         if (g.ok) sha = (await g.json()).sha;
@@ -87,11 +93,18 @@ async function pushToGitHub() {
       const put = await fetch(api, { method: 'PUT', headers: { ...H, 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: 'autosave site data', content: Buffer.from(content).toString('base64'), sha: sha || undefined, branch: GH_BRANCH }) });
       if (put.ok) return;
-      if (put.status === 422) { sha = null; continue; } // sha race: refetch and retry once
+      // 409/422 mean the branch moved while we were writing: refetch the sha,
+      // re-read the file (it always holds the newest state) and try again.
+      if (put.status === 409 || put.status === 422) { sha = null; continue; }
       console.error('gh backup failed', put.status);
       return;
     }
+    console.error('gh backup failed after retries');
   } catch (e) { console.error('gh backup error', e.message); }
+  finally {
+    ghPushBusy = false;
+    if (ghPushQueued) { ghPushQueued = false; pushToGitHub().catch(e => console.error('gh backup error', e.message)); }
+  }
 }
 const ENV_EDIT_CODE = process.env.EDIT_CODE || '';
 
