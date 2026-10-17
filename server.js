@@ -244,7 +244,7 @@ const DEFAULT_CONFIG = {
   subtitle: 'Moderator applications are open. Tell us who you are and why you belong on the team — every application is read by a human.',
   announcement: 'Applications are OPEN',
   rules: '• Must be 13+\n• One role per application — pick the closest fit\n• Be honest — lying = instant deny\n• Spamming applications = blacklist',
-  accent: '#FF701F', bg: '#050609',
+  accent: '#A62C35', bg: '#080809',
   editCode: 'MOD123',
   showApproved: true, approvedTitle: 'New team members',
   bannerImage: '', logoImage: '', backgroundImage: '',
@@ -313,9 +313,18 @@ function loadDB() {
     if (typeof db.config.countdown[k] !== 'string' || !db.config.countdown[k]) db.config.countdown[k] = dflt;
   }
   if (!db.config.layout || typeof db.config.layout !== 'object') db.config.layout = {};
-  // Cinematic Halloween palette: roll legacy accents into #FF701F.
-  if (['#6366f1', '#5865F2', '#6cb8f0', '#8fa8ff', '#00bdba', '#D96B24'].includes(db.config.accent)) db.config.accent = '#FF701F';
-  if (['#080a12', '#0e1218', '#0e1015', '#07070b', '#0A0C12'].includes(db.config.bg)) db.config.bg = '#050609';
+  // Gothic horror palette: roll legacy accents/bgs and stale hero copy into the new theme.
+  if (['#6366f1', '#5865F2', '#6cb8f0', '#8fa8ff', '#00bdba', '#D96B24', '#FF701F'].includes(db.config.accent)) db.config.accent = '#A62C35';
+  if (['#080a12', '#0e1218', '#0e1015', '#07070b', '#050609', '#0A0C12'].includes(db.config.bg)) db.config.bg = '#080809';
+  if (/official applications and support/i.test(String(db.config.title || '')) || db.config.title === 'Wigglesworth — Join the Team') {
+    db.config.title = 'WIGGLESWORTH';
+    if (db.config.layout) delete db.config.layout.appTitle;
+  }
+  if (/discord linking issue is known/i.test(String(db.config.announcement || ''))) db.config.announcement = 'Applications are OPEN — scroll down to apply.';
+  if (db.config.layout && db.config.layout.heroEyebrow && db.config.layout.heroEyebrow.text === 'Tickets and Applications') {
+    db.config.layout.heroEyebrow.text = 'STAFF APPLICATIONS';
+    db.config.layout.heroEyebrow.dx = 0; db.config.layout.heroEyebrow.dy = 0;
+  }
   return db;
 }
 function saveDB(db) {
@@ -653,8 +662,8 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     subtitle: cleanStr(c.subtitle, 300),
     announcement: cleanStr(c.announcement, 200),
     rules: cleanStr(c.rules, 3000),
-    accent: /^#[0-9a-fA-F]{6}$/.test(c.accent || '') ? c.accent : '#FF701F',
-    bg: /^#[0-9a-fA-F]{6}$/.test(c.bg || '') ? c.bg : '#050609',
+    accent: /^#[0-9a-fA-F]{6}$/.test(c.accent || '') ? c.accent : '#A62C35',
+    bg: /^#[0-9a-fA-F]{6}$/.test(c.bg || '') ? c.bg : '#080809',
     editCode: cleanStr(c.editCode, 100) || db.config.editCode,
     showApproved: c.showApproved !== false,
     approvedTitle: cleanStr(c.approvedTitle, 120),

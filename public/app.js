@@ -1,5 +1,5 @@
 let config = null;
-const BUILD = '20261015b';
+const BUILD = '20261016a';
 function sendDiag(failed){
   try{
     const tag = document.getElementById('buildTag');
@@ -84,7 +84,7 @@ async function fetchConfig(){
   setStage(92, 'Polishing pixels…');
 }
 function applyConfig(){
-  document.documentElement.style.setProperty('--amber', config.accent || '#6cb8f0');
+  document.documentElement.style.setProperty('--amber', config.accent || '#A62C35');
   document.body.style.backgroundColor = config.bg || '';
   document.body.style.backgroundImage = config.backgroundImage ? `url("${config.backgroundImage}")` : '';
   document.body.style.backgroundSize = config.backgroundImage ? 'cover' : '';
@@ -346,8 +346,8 @@ function showEditor(refetch=true){
   $('e_code').value=editCode;
   $('e_showApproved').checked=config.showApproved!==false;
   $('e_approvedTitle').value=config.approvedTitle||'';
-  $('e_accent').value=config.accent||'#6cb8f0';
-  $('e_bg').value=config.bg||'#080a12';
+  $('e_accent').value=config.accent||'#A62C35';
+  $('e_bg').value=config.bg||'#080809';
   $('e_bannerUrl').value=config.bannerImage?.startsWith('data:')?'':(config.bannerImage||'');
   $('e_logoUrl').value=config.logoImage?.startsWith('data:')?'':(config.logoImage||'');
   $('e_bgUrl').value=config.backgroundImage?.startsWith('data:')?'':(config.backgroundImage||'');
