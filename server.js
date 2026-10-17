@@ -314,8 +314,10 @@ function loadDB() {
   }
   if (!db.config.layout || typeof db.config.layout !== 'object') db.config.layout = {};
   // Gothic horror palette: roll legacy accents/bgs and stale hero copy into the new theme.
-  if (['#6366f1', '#5865F2', '#6cb8f0', '#8fa8ff', '#00bdba', '#D96B24', '#FF701F'].includes(db.config.accent)) db.config.accent = '#A62C35';
-  if (['#080a12', '#0e1218', '#0e1015', '#07070b', '#050609', '#0A0C12'].includes(db.config.bg)) db.config.bg = '#080809';
+  const _accent = String(db.config.accent || '').toLowerCase();
+  if (['#6366f1', '#5865f2', '#6cb8f0', '#8fa8ff', '#00bdba', '#d96b24', '#ff701f'].includes(_accent)) db.config.accent = '#A62C35';
+  const _bg = String(db.config.bg || '').toLowerCase();
+  if (['#080a12', '#0e1218', '#0e1015', '#07070b', '#050609', '#0a0c12'].includes(_bg)) db.config.bg = '#080809';
   if (/official applications and support/i.test(String(db.config.title || '')) || db.config.title === 'Wigglesworth — Join the Team') {
     db.config.title = 'WIGGLESWORTH';
     if (db.config.layout) delete db.config.layout.appTitle;
