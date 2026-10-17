@@ -809,6 +809,26 @@ app.post('/api/admin/applications/:id/summarize', aiLimit, async (req, res) => {
   } catch (e) { console.error('ai summarize error', e.message); res.status(502).json({ error: 'AI unavailable' }); }
 });
 
+// Tiny admin-only AI diagnostic: shows what the provider actually answers.
+app.post('/api/admin/ai-check', aiLimit, async (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!AI_API_KEY) return res.status(400).json({ error: 'AI not configured (set AI_API_KEY)' });
+  try {
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 20000);
+    const r = await fetch(`${AI_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${AI_API_KEY}` },
+      body: JSON.stringify({ model: AI_MODEL, max_tokens: 20, messages: [{ role: 'user', content: 'Reply with the single word: ping' }] }),
+      signal: ctrl.signal,
+    });
+    clearTimeout(to);
+    const body = (await r.text()).slice(0, 600);
+    res.json({ ok: r.ok, status: r.status, base: AI_BASE_URL, model: AI_MODEL, body });
+  } catch (e) { res.status(502).json({ error: 'Request failed: ' + e.message }); }
+});
+
 app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
