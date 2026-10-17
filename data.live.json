@@ -1496,8 +1496,8 @@
       "appId": "DEV-9T4DZT",
       "type": "developer",
       "date": "2026-10-17T20:52:09.396Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "congrats",
       "username": "royal",
       "discord": "Neptunegt7",
       "age": "13",
@@ -1948,6 +1948,18 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-17T20:52:46.858Z",
+      "act": "status_denied",
+      "id": "DEV-9T4DZT",
+      "by": "Raz"
+    },
+    {
+      "t": "2026-10-17T20:52:46.144Z",
+      "act": "status_pending",
+      "id": "DEV-9T4DZT",
+      "by": "Raz"
+    },
     {
       "t": "2026-10-17T05:52:35.470Z",
       "act": "config_saved",
@@ -2534,18 +2546,6 @@
       "t": "2026-10-04T21:41:06.158Z",
       "act": "ticket_reply",
       "id": "TKT-VMH9B5",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:41:00.240Z",
-      "act": "ticket_reply",
-      "id": "TKT-L9TY2Z",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:38:14.972Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
