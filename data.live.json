@@ -1463,8 +1463,8 @@
       "appId": "DEV-6QY93D",
       "type": "developer",
       "date": "2026-10-17T20:53:50.782Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "fuck off",
       "username": "204",
       "discord": "daysvr.",
       "age": "13",
@@ -1915,6 +1915,18 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-17T20:56:24.331Z",
+      "act": "status_approved",
+      "id": "DEV-6QY93D",
+      "by": "Raz"
+    },
+    {
+      "t": "2026-10-17T20:56:23.803Z",
+      "act": "status_pending",
+      "id": "DEV-6QY93D",
+      "by": "Raz"
+    },
     {
       "t": "2026-10-17T20:56:01.567Z",
       "act": "deleted",
@@ -2501,18 +2513,6 @@
       "t": "2026-10-06T00:07:00.816Z",
       "act": "ticket_reply",
       "id": "TKT-BWSRDF",
-      "by": ""
-    },
-    {
-      "t": "2026-10-05T21:35:11.983Z",
-      "act": "status_denied",
-      "id": "MOD-DD9LE9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-05T21:35:04.562Z",
-      "act": "ai_denied",
-      "id": "MOD-DD9LE9",
       "by": ""
     }
   ],
