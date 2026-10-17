@@ -151,6 +151,13 @@ const aiLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 20, message: { error:
 const AI_API_KEY = (process.env.AI_API_KEY || '').trim();
 const AI_BASE_URL = (process.env.AI_BASE_URL || 'https://api.groq.com/openai/v1').replace(/\/$/, '');
 const AI_MODEL = process.env.AI_MODEL || 'openai/gpt-oss-20b';
+// gpt-oss models spend tokens on hidden reasoning before the visible answer —
+// keep that cheap so the reply text never comes back empty.
+function aiBody(messages, temperature, maxTokens) {
+  const b = { model: AI_MODEL, temperature, max_tokens: maxTokens, messages };
+  if (/gpt-oss/i.test(AI_MODEL)) b.reasoning_effort = 'low';
+  return b;
+}
 function cleanText(v, max = 2000) {
   return String(v ?? '').replace(/[^\S\n\t ]/g, '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').slice(0, max);
 }
@@ -551,13 +558,10 @@ app.post('/api/admin/tickets/:id/suggest', aiLimit, async (req, res) => {
     const r = await fetch(`${AI_BASE_URL}/chat/completions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${AI_API_KEY}` },
-      body: JSON.stringify({
-        model: AI_MODEL, temperature: 0.3, max_tokens: 300,
-        messages: [
-          { role: 'system', content: 'You draft replies for Wigglesworth game community staff answering a player support ticket. Be short, warm and human. Never invent policies, links, dates or promises. If the answer is unknown, ask one clarifying question. Output ONLY the reply text, no quotes, no preamble.' },
-          { role: 'user', content: `Ticket subject: ${t.subject}\nRoles offered: ${roles}\nKnown answers:\n${faq}\n\nThread so far:\n${thread}\n\nDraft the next staff reply:` },
-        ],
-      }),
+      body: JSON.stringify(aiBody([
+        { role: 'system', content: 'You draft replies for Wigglesworth game community staff answering a player support ticket. Be short, warm and human. Never invent policies, links, dates or promises. If the answer is unknown, ask one clarifying question. Output ONLY the reply text, no quotes, no preamble.' },
+        { role: 'user', content: `Ticket subject: ${t.subject}\nRoles offered: ${roles}\nKnown answers:\n${faq}\n\nThread so far:\n${thread}\n\nDraft the next staff reply:` },
+      ], 0.3, 700)),
       signal: ctrl.signal,
     });
     clearTimeout(to);
@@ -748,13 +752,10 @@ app.post('/api/admin/applications/:id/decision', aiLimit, async (req, res) => {
     const r = await fetch(`${AI_BASE_URL}/chat/completions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${AI_API_KEY}` },
-      body: JSON.stringify({
-        model: AI_MODEL, temperature: 0.5, max_tokens: 300,
-        messages: [
-          { role: 'system', content: 'You write decision messages for Wigglesworth community staff to applicants. Warm, human, concise. Never invent links, dates, usernames or promises. Output ONLY the message text, no quotes, no preamble.' },
-          { role: 'user', content: `Role applied for: ${t ? t.name : s.type}\nApplicant: ${displayName(s)}\n\nTheir answers:\n${answers}\n\n${verdict}` },
-        ],
-      }),
+      body: JSON.stringify(aiBody([
+        { role: 'system', content: 'You write decision messages for Wigglesworth community staff to applicants. Warm, human, concise. Never invent links, dates, usernames or promises. Output ONLY the message text, no quotes, no preamble.' },
+        { role: 'user', content: `Role applied for: ${t ? t.name : s.type}\nApplicant: ${displayName(s)}\n\nTheir answers:\n${answers}\n\n${verdict}` },
+      ], 0.5, 700)),
       signal: ctrl.signal,
     });
     clearTimeout(to);
@@ -787,13 +788,10 @@ app.post('/api/admin/applications/:id/summarize', aiLimit, async (req, res) => {
     const r = await fetch(`${AI_BASE_URL}/chat/completions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${AI_API_KEY}` },
-      body: JSON.stringify({
-        model: AI_MODEL, temperature: 0.2, max_tokens: 350,
-        messages: [
-          { role: 'system', content: 'You help Wigglesworth community staff triage applications fast. Summarize the applicant\'s answers so staff can decide without reading everything. Be factual, compact and neutral; never invent details; briefly note anything important that is missing. Output plain text only, exactly this shape:\nVerdict: (Strong / Good / Mixed / Weak) - one short sentence\n- Wants to join: ...\n- Experience: ...\n- Availability: ...\n- Watch-outs: ...\nKeep every line under 25 words. No preamble, no extra sections.' },
-          { role: 'user', content: `Role applied for: ${t ? t.name : s.type}\nApplicant: ${displayName(s)}\n\nTheir answers:\n${answers}\n\nWrite the summary now.` },
-        ],
-      }),
+      body: JSON.stringify(aiBody([
+        { role: 'system', content: 'You help Wigglesworth community staff triage applications fast. Summarize the applicant\'s answers so staff can decide without reading everything. Be factual, compact and neutral; never invent details; briefly note anything important that is missing. Output plain text only, exactly this shape:\nVerdict: (Strong / Good / Mixed / Weak) - one short sentence\n- Wants to join: ...\n- Experience: ...\n- Availability: ...\n- Watch-outs: ...\nKeep every line under 25 words. No preamble, no extra sections.' },
+        { role: 'user', content: `Role applied for: ${t ? t.name : s.type}\nApplicant: ${displayName(s)}\n\nTheir answers:\n${answers}\n\nWrite the summary now.` },
+      ], 0.2, 700)),
       signal: ctrl.signal,
     });
     clearTimeout(to);
@@ -820,7 +818,7 @@ app.post('/api/admin/ai-check', aiLimit, async (req, res) => {
     const r = await fetch(`${AI_BASE_URL}/chat/completions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${AI_API_KEY}` },
-      body: JSON.stringify({ model: AI_MODEL, max_tokens: 20, messages: [{ role: 'user', content: 'Reply with the single word: ping' }] }),
+      body: JSON.stringify(aiBody([{ role: 'user', content: 'Reply with the single word: ping' }], 0, 100)),
       signal: ctrl.signal,
     });
     clearTimeout(to);
