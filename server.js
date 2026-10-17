@@ -822,7 +822,7 @@ app.post('/api/admin/ai-check', aiLimit, async (req, res) => {
       signal: ctrl.signal,
     });
     clearTimeout(to);
-    const body = (await r.text()).slice(0, 600);
+    const body = (await r.text()).slice(0, 1500);
     res.json({ ok: r.ok, status: r.status, base: AI_BASE_URL, model: AI_MODEL, body });
   } catch (e) { res.status(502).json({ error: 'Request failed: ' + e.message }); }
 });
