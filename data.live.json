@@ -1340,22 +1340,6 @@
       "strikes": "No."
     },
     {
-      "appId": "CC-BE8LN7",
-      "type": "creator",
-      "date": "2026-10-15T23:36:09.351Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Ghoststar",
-      "discord": "Not swetty",
-      "age": "13",
-      "why": "It’s fun and love this game and I Wnat to help out new players and the community",
-      "platform": "TikTok",
-      "channel": "Mr fennec1",
-      "schedule": "I don’t stream",
-      "style": "Updates and sometimes imposter and be monso",
-      "strikes": "No"
-    },
-    {
       "appId": "CC-HN85C7",
       "type": "creator",
       "date": "2026-10-16T23:41:52.851Z",
@@ -1964,6 +1948,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-17T20:55:16.541Z",
+      "act": "deleted",
+      "id": "CC-BE8LN7",
+      "by": ""
+    },
+    {
       "t": "2026-10-17T20:55:05.051Z",
       "act": "status_pending",
       "id": "CC-7TQP8L",
@@ -2553,12 +2543,6 @@
     },
     {
       "t": "2026-10-04T21:43:38.357Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:41:53.510Z",
       "act": "config_saved",
       "id": "",
       "by": ""
