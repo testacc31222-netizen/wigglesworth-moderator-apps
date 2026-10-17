@@ -770,6 +770,45 @@ app.post('/api/admin/applications/:id/decision', aiLimit, async (req, res) => {
   } catch (e) { console.error('ai decision error', e.message); res.status(502).json({ error: 'AI unavailable' }); }
 });
 
+// One-click triage summary so staff can skim an application instead of reading every answer.
+// Stored on the submission (one AI call per application; "Re-summarize" overwrites it).
+app.post('/api/admin/applications/:id/summarize', aiLimit, async (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!validAppId(req.params.id)) return res.status(404).json({ error: 'Not found' });
+  const s = db.submissions.find(x => x.appId === req.params.id);
+  if (!s) return res.status(404).json({ error: 'Not found' });
+  if (!AI_API_KEY) return res.status(400).json({ error: 'AI not configured (set AI_API_KEY)' });
+  const t = typeById(db, s.type);
+  const answers = (t ? t.questions : []).map(q => `${q.label}: ${cleanText(s[q.id], 600)}`).join('\n').slice(0, 3000);
+  try {
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 25000);
+    const r = await fetch(`${AI_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${AI_API_KEY}` },
+      body: JSON.stringify({
+        model: AI_MODEL, temperature: 0.2, max_tokens: 350,
+        messages: [
+          { role: 'system', content: 'You help Wigglesworth community staff triage applications fast. Summarize the applicant\'s answers so staff can decide without reading everything. Be factual, compact and neutral; never invent details; briefly note anything important that is missing. Output plain text only, exactly this shape:\nVerdict: (Strong / Good / Mixed / Weak) - one short sentence\n- Wants to join: ...\n- Experience: ...\n- Availability: ...\n- Watch-outs: ...\nKeep every line under 25 words. No preamble, no extra sections.' },
+          { role: 'user', content: `Role applied for: ${t ? t.name : s.type}\nApplicant: ${displayName(s)}\n\nTheir answers:\n${answers}\n\nWrite the summary now.` },
+        ],
+      }),
+      signal: ctrl.signal,
+    });
+    clearTimeout(to);
+    if (!r.ok) { console.error('ai summarize failed', r.status); return res.status(502).json({ error: 'AI unavailable' }); }
+    const j = await r.json();
+    const summary = cleanText(j && j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content, 1200).trim();
+    if (!summary) return res.status(502).json({ error: 'AI unavailable' });
+    s.aiSummary = summary;
+    s.aiSummaryAt = new Date().toISOString();
+    audit(db, 'ai_summary', s.appId, req);
+    saveDB(db);
+    res.json({ summary, at: s.aiSummaryAt });
+  } catch (e) { console.error('ai summarize error', e.message); res.status(502).json({ error: 'AI unavailable' }); }
+});
+
 app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });

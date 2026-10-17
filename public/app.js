@@ -1,5 +1,5 @@
 let config = null;
-const BUILD = '20261016b';
+const BUILD = '20261017a';
 function sendDiag(failed){
   try{
     const tag = document.getElementById('buildTag');
@@ -515,10 +515,13 @@ async function renderSubs(){
     const d=document.createElement('div'); d.className='submission';
     let html=`<div class="sub-head"><div class="avatar">${esc(name.slice(0,1).toUpperCase()||'?')}</div>`
       +`<div class="who"><b>${hi(name,qr)}</b><span class="hint">${hi(s.appId||'',qr)} · ${hi(typeName(s.type),qr)} · ${hi((s.date||'').slice(0,16).replace('T',' '),qr)}</span></div>`
-      +`<span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span></div>`
-      +`<div class="qa">`;
+      +`<span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span></div>`;
+    if(s.aiSummary){
+      html+=`<div class="ai-summary"><div class="ai-summary-head"><b>AI summary</b><span class="hint">${esc((s.aiSummaryAt||'').slice(0,16).replace('T',' '))}</span></div><div class="ai-summary-body">${esc(s.aiSummary)}</div></div>`;
+    }
+    html+=`<div class="qa">`;
     Object.keys(s).forEach(k=>{
-      if(['appId','type','date','status','adminNote'].includes(k)) return;
+      if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt'].includes(k)) return;
       const lbl = qmap[s.type+':'+k] || k;
       html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
@@ -533,7 +536,9 @@ async function renderSubs(){
       mk('Deny','btn-deny',()=>setStatus(s.appId,'denied')),
       mk('Pending','btn-pending',()=>setStatus(s.appId,'pending'))
     );
+    const sumBtn = mk(s.aiSummary?'Re-summarize':'Summarize (AI)','btn-small',()=>summarizeApp(s.appId,sumBtn));
     bar2.append(
+      sumBtn,
       mk('AI Accept','btn-small',()=>aiDecision(s.appId,'approved')),
       mk('AI Deny','btn-small',()=>aiDecision(s.appId,'denied')),
       mk('Save note','btn-small',async()=>{
@@ -559,6 +564,16 @@ async function aiDecision(appId, decision){
     renderSubs(); renderApprovedPublic();
   }catch(err){ alert(err.message); }
 }
+async function summarizeApp(appId, btn){
+  const done = busyOn(btn, 'Summarizing');
+  try{
+    const r = await fetch('/api/admin/applications/'+appId+'/summarize',{method:'POST',headers:headers()});
+    const j = await r.json();
+    if(!r.ok) throw new Error(j.error || 'AI unavailable');
+    await renderSubs();
+  }catch(err){ alert(err.message); }
+  finally{ done(); }
+}
 async function delSub(appId){
   await fetch('/api/admin/applications/'+appId,{method:'DELETE',headers:{'x-edit-code':editCode}});
   renderSubs(); renderApprovedPublic();
@@ -578,7 +593,7 @@ async function backupAll(){
 }
 function exportCSV(){
   if(!adminCache.length){ alert('No submissions (unlock editor first)'); return; }
-  const keySet=['appId','type','date','status','adminNote'];
+  const keySet=['appId','type','date','status','adminNote','aiSummary','aiSummaryAt'];
   adminCache.forEach(s=>Object.keys(s).forEach(k=>{ if(!keySet.includes(k)) keySet.push(k); }));
   const rows=[keySet.join(',')].concat(adminCache.map(s=>keySet.map(h=>`"${(s[h]||'').toString().replace(/"/g,'""')}"`).join(',')));
   const a=document.createElement('a');
