@@ -1,11 +1,11 @@
 {
   "config": {
-    "title": "Wigglesworth — Official Applications And Support ",
+    "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
     "announcement": "Discord linking is removed, you may apply now.",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
-    "accent": "#ff701f",
-    "bg": "#050609",
+    "accent": "#A62C35",
+    "bg": "#080809",
     "editCode": "MOD123",
     "showApproved": true,
     "approvedTitle": "New Wigglesworth Team Members",
@@ -2431,6 +2431,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-17T05:29:54.415Z",
+      "build": "20261016a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
+    },
+    {
       "t": "2026-10-17T05:11:05.236Z",
       "build": "20261015b",
       "hero": true,
@@ -2864,15 +2873,6 @@
     },
     {
       "t": "2026-10-15T03:34:20.365Z",
-      "build": "20261012b",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
-    },
-    {
-      "t": "2026-10-15T03:32:09.464Z",
       "build": "20261012b",
       "hero": true,
       "gated": false,
