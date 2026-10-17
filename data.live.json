@@ -1475,36 +1475,6 @@
       "why": "I want to be moderator because I would never abuse power and always be kind to the community. I also have lots of past and current moderation experience with games like don’t blink and null space. I’m going to be honest at this moment I haven’t been the most active in the world because of other things I haven’t to deal with but if I get moderator I would start to be a lot more active and interacting with the community. I’m also very trustworthy, and know how to moderate games efficiently. I can keep chat clean, and respectful. I can do all of this while not being too strict or hard on members. That is why I want to become moderator.",
       "scenario": "I warn both of them to stop and delete the message if they continue whoever is doing it I would time them out for 1 minute.",
       "rulebreak": "No"
-    },
-    {
-      "appId": "DEV-9T4DZT",
-      "type": "developer",
-      "date": "2026-10-17T20:52:09.396Z",
-      "status": "denied",
-      "adminNote": "congrats",
-      "username": "royal",
-      "discord": "Neptunegt7",
-      "age": "13",
-      "experience": "none",
-      "why": "quantummz told me too",
-      "languages": "none",
-      "bugscenario": "i have no clue because i cant code",
-      "teamwork": "o cant do solo because i cant do any"
-    },
-    {
-      "appId": "DEV-6QY93D",
-      "type": "developer",
-      "date": "2026-10-17T20:53:50.782Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "204",
-      "discord": "daysvr.",
-      "age": "13",
-      "experience": "a roblox game with aids",
-      "why": "i can give you some ideas ig",
-      "languages": "chat std",
-      "bugscenario": "tell somone else idk how to fix it",
-      "teamwork": "idc"
     }
   ],
   "tickets": [
@@ -1947,6 +1917,18 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-17T20:56:34.198Z",
+      "act": "deleted",
+      "id": "DEV-9T4DZT",
+      "by": ""
+    },
+    {
+      "t": "2026-10-17T20:56:31.290Z",
+      "act": "deleted",
+      "id": "DEV-6QY93D",
+      "by": ""
+    },
     {
       "t": "2026-10-17T20:56:30.062Z",
       "act": "status_pending",
@@ -2533,18 +2515,6 @@
       "t": "2026-10-05T21:35:11.983Z",
       "act": "status_denied",
       "id": "MOD-DD9LE9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-05T21:35:04.562Z",
-      "act": "ai_denied",
-      "id": "MOD-DD9LE9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:45:36.177Z",
-      "act": "ticket_reply",
-      "id": "TKT-B2U756",
       "by": ""
     }
   ],
