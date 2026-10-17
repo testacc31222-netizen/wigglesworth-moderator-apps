@@ -4,10 +4,10 @@
     "subtitle": "Not everyone is picked..",
     "announcement": "Discord linking is removed, you may apply now.",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
-    "accent": "#A62C35",
+    "accent": "#a62c35",
     "bg": "#080809",
     "editCode": "MOD123",
-    "showApproved": true,
+    "showApproved": false,
     "approvedTitle": "New Wigglesworth Team Members",
     "bannerImage": "",
     "logoImage": "",
@@ -1828,6 +1828,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-17T05:30:25.514Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-17T05:11:02.535Z",
       "act": "config_saved",
       "id": "",
@@ -2418,12 +2424,6 @@
     {
       "t": "2026-10-04T21:37:26.990Z",
       "act": "status_approved",
-      "id": "MOD-N67S3W",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:37:25.299Z",
-      "act": "status_pending",
       "id": "MOD-N67S3W",
       "by": ""
     }
