@@ -2507,6 +2507,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-17T17:15:52.416Z",
+      "build": "20261016b",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
+    },
+    {
       "t": "2026-10-17T16:51:17.667Z",
       "build": "20261016b",
       "hero": true,
@@ -2946,15 +2955,6 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
-    },
-    {
-      "t": "2026-10-15T22:43:45.362Z",
-      "build": "20261015b",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
     }
   ]
 }
