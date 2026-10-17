@@ -1918,24 +1918,6 @@
   ],
   "audit": [
     {
-      "t": "2026-10-17T21:10:25.194Z",
-      "act": "deleted",
-      "id": "MOD-YEBNDM",
-      "by": "cleanup"
-    },
-    {
-      "t": "2026-10-17T21:06:54.294Z",
-      "act": "deleted",
-      "id": "MOD-UAGHK4",
-      "by": ""
-    },
-    {
-      "t": "2026-10-17T21:06:54.059Z",
-      "act": "ai_summary",
-      "id": "MOD-UAGHK4",
-      "by": "Verify"
-    },
-    {
       "t": "2026-10-17T21:01:11.504Z",
       "act": "ai_denied",
       "id": "MOD-FAV398",
