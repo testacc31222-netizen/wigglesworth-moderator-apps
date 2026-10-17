@@ -2,7 +2,7 @@
   "config": {
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
-    "announcement": "Discord linking is removed, you may apply now.",
+    "announcement": "Leaving moderator applications open, reading them when the time comes. 👀",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -56,7 +56,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -1828,6 +1828,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-17T05:52:16.499Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-17T05:30:25.514Z",
       "act": "config_saved",
       "id": "",
@@ -2419,12 +2425,6 @@
       "t": "2026-10-04T21:37:30.681Z",
       "act": "status_approved",
       "id": "MOD-KF92HF",
-      "by": ""
-    },
-    {
-      "t": "2026-10-04T21:37:26.990Z",
-      "act": "status_approved",
-      "id": "MOD-N67S3W",
       "by": ""
     }
   ],
