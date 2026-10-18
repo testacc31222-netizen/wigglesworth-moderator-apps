@@ -1960,6 +1960,23 @@
           "at": "2026-10-10T23:58:52.824Z"
         }
       ]
+    },
+    {
+      "id": "TKT-3M37CB",
+      "name": "retoni",
+      "subject": "developer",
+      "status": "open",
+      "unread": true,
+      "createdAt": "2026-10-18T14:40:05.200Z",
+      "updatedAt": "2026-10-18T14:40:05.200Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "retoni",
+          "text": "what is the skill set required for developer?",
+          "at": "2026-10-18T14:40:05.200Z"
+        }
+      ]
     }
   ],
   "audit": [
