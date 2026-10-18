@@ -2566,6 +2566,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-18T16:02:11.029Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    },
+    {
       "t": "2026-10-18T14:42:57.164Z",
       "build": "20261017a",
       "hero": true,
@@ -2999,15 +3008,6 @@
     },
     {
       "t": "2026-10-17T05:52:19.491Z",
-      "build": "20261016b",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
-    },
-    {
-      "t": "2026-10-17T05:50:47.448Z",
       "build": "20261016b",
       "hero": true,
       "gated": false,
