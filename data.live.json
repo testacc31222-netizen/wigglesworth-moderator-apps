@@ -1643,6 +1643,21 @@
       "why": "So I can ban bad people and They Are Doing things they shouldn't be. I will bend them.",
       "scenario": "I will tell them to please stop. And if they don't stop I'll tell them. Take you An hour And then You can chat again.",
       "rulebreak": "No I've never been banned."
+    },
+    {
+      "appId": "EVT-BRV5V7",
+      "type": "event",
+      "date": "2026-10-19T04:49:03.318Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Trx6k",
+      "discord": "Trx6k",
+      "age": "15",
+      "timezone": "PST, 7-10 Hours A Week",
+      "experience": "None",
+      "eventidea": "A Series Of Challenges Where People Compete For Prizes, Hide And Seek, Find The Wiggle, And More.",
+      "chaos": "I Ask Everyone If We Should Bring Them Into The Game. If The Majority Say Yes They Stay If No I Ask Them To Please Watch And Don't Disturb. If Disturbed I Will Have To Kick Them.",
+      "reliable": "Saturday, 3-5pm PST"
     }
   ],
   "tickets": [
