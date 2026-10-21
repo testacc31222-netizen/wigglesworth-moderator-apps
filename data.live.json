@@ -2828,6 +2828,15 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-21T02:56:03.447Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 27_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/24B5110a Instagra"
+    },
+    {
       "t": "2026-10-21T02:56:03.168Z",
       "build": "20261017a",
       "hero": true,
@@ -3261,15 +3270,6 @@
     },
     {
       "t": "2026-10-18T14:38:58.427Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 OPR/136."
-    },
-    {
-      "t": "2026-10-18T14:37:26.504Z",
       "build": "20261017a",
       "hero": true,
       "gated": false,
