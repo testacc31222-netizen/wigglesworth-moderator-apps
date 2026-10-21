@@ -1749,6 +1749,21 @@
       "why": "I want to help the game",
       "scenario": "give them a warning first",
       "rulebreak": "I have not been banned"
+    },
+    {
+      "appId": "MOD-82ETCZ",
+      "type": "moderator",
+      "date": "2026-10-21T12:12:15.038Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Pwqust",
+      "discord": "Sxr5lblox",
+      "age": "16",
+      "timezone": "3hrs on the game",
+      "experience": "I am a good mod",
+      "why": "Because I have my own Roblox game and I know what it is like",
+      "scenario": "Mute them if they ping kick if they ping the owners ban them",
+      "rulebreak": "No because I am a good person"
     }
   ],
   "tickets": [
