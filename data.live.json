@@ -2828,6 +2828,24 @@
   "reports": [],
   "diag": [
     {
+      "t": "2026-10-21T02:55:59.428Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 12; SM-A042F Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 C"
+    },
+    {
+      "t": "2026-10-21T02:55:59.110Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 16; SM-A556B Build/BP4A.251205.006) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrom"
+    },
+    {
       "t": "2026-10-20T23:40:23.246Z",
       "build": "20261017a",
       "hero": true,
@@ -3258,24 +3276,6 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/150.1.0.24.52.1046134268 C"
-    },
-    {
-      "t": "2026-10-18T07:04:51.281Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151."
-    },
-    {
-      "t": "2026-10-18T02:55:33.079Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.7.7 Mobile/15"
     }
   ]
 }
