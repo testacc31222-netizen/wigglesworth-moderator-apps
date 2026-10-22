@@ -2949,7 +2949,19 @@
       "by": ""
     }
   ],
-  "reports": [],
+  "reports": [
+    {
+      "id": "RPT-KX7XRA",
+      "reporter": "Owen call me xhuman though",
+      "staffName": "I forgot (you might know though)",
+      "details": "They banned everyone in the server",
+      "files": [],
+      "status": "open",
+      "adminNote": "",
+      "createdAt": "2026-10-22T22:58:22.902Z",
+      "updatedAt": "2026-10-22T22:58:22.902Z"
+    }
+  ],
   "diag": [
     {
       "t": "2026-10-22T22:54:48.282Z",
