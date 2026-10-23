@@ -2318,15 +2318,21 @@
       "name": "SkaiGuy with or without vr",
       "subject": "i forgot  the mod- numbers",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-18T23:27:49.342Z",
-      "updatedAt": "2026-10-18T23:27:49.342Z",
+      "updatedAt": "2026-10-23T00:56:37.261Z",
       "replies": [
         {
           "by": "user",
           "name": "SkaiGuy with or without vr",
           "text": "i might have to apply again",
           "at": "2026-10-18T23:27:49.342Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey there! If you’re missing the mod‑numbers, just let us know which role you’re applying for and we’ll send you a fresh copy. No need to re‑apply—just give us the details and we’ll sort it out.",
+          "at": "2026-10-23T00:56:37.261Z"
         }
       ]
     },
@@ -2352,21 +2358,15 @@
       "name": "Sxr5lblox",
       "subject": "Mod",
       "status": "open",
-      "unread": false,
+      "unread": true,
       "createdAt": "2026-10-21T12:12:42.006Z",
-      "updatedAt": "2026-10-23T00:56:45.281Z",
+      "updatedAt": "2026-10-21T12:12:42.006Z",
       "replies": [
         {
           "by": "user",
           "name": "Sxr5lblox",
           "text": "When am I getting mod",
           "at": "2026-10-21T12:12:42.006Z"
-        },
-        {
-          "by": "staff",
-          "name": "Staff",
-          "text": "Hey there! We’re still reviewing applications. If you’ve already submitted, you should see a status update in your application ID. If it’s been a few days and you haven’t heard anything, feel free to ping @mightbeqntmz for a quick check. Thanks for your patience!",
-          "at": "2026-10-23T00:56:45.281Z"
         }
       ]
     },
@@ -2375,36 +2375,24 @@
       "name": "Xhuman",
       "subject": "Hamburger",
       "status": "open",
-      "unread": false,
+      "unread": true,
       "createdAt": "2026-10-22T22:59:31.764Z",
-      "updatedAt": "2026-10-23T00:56:41.125Z",
+      "updatedAt": "2026-10-22T22:59:31.764Z",
       "replies": [
         {
           "by": "user",
           "name": "Xhuman",
           "text": "Hamburges are good",
           "at": "2026-10-22T22:59:31.764Z"
-        },
-        {
-          "by": "staff",
-          "name": "Staff",
-          "text": "Sounds tasty! If you’re interested in applying for a role, just let me know which one and I’ll guide you through the process.",
-          "at": "2026-10-23T00:56:41.125Z"
         }
       ]
     }
   ],
   "audit": [
     {
-      "t": "2026-10-23T00:56:45.281Z",
+      "t": "2026-10-23T00:56:37.261Z",
       "act": "ticket_reply",
-      "id": "TKT-FKTG65",
-      "by": ""
-    },
-    {
-      "t": "2026-10-23T00:56:41.125Z",
-      "act": "ticket_reply",
-      "id": "TKT-EZNWDD",
+      "id": "TKT-WNUS4S",
       "by": ""
     },
     {
@@ -3005,6 +2993,15 @@
   ],
   "diag": [
     {
+      "t": "2026-10-23T01:00:10.881Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36"
+    },
+    {
       "t": "2026-10-23T00:56:10.003Z",
       "build": "20261017a",
       "hero": true,
@@ -3438,15 +3435,6 @@
     },
     {
       "t": "2026-10-19T03:01:14.603Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/150.1.0.24.52.1046134268 C"
-    },
-    {
-      "t": "2026-10-19T02:00:30.329Z",
       "build": "20261017a",
       "hero": true,
       "gated": false,
