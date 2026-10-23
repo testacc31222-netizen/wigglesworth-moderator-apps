@@ -1856,51 +1856,6 @@
       "why": "I want to be proud that I'm a high rank in a game",
       "scenario": "step 1: tell them to chill out. step 2:if they don't stop kick them for a warning #2. step 3:report the to record if they don't stop, or ban for a day or 2",
       "rulebreak": "I have from a moderator reporting everyone in the server"
-    },
-    {
-      "appId": "MOD-DR5WAA",
-      "type": "moderator",
-      "date": "2026-10-23T03:12:08.092Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Jerroldd",
-      "discord": "Lemmo",
-      "age": "13",
-      "timezone": "5",
-      "experience": "Its been good I've banned a few toxic players for swearing saying slurs and some more",
-      "why": "Yes I've enjoyed this game greatly and would love to help and be in the team",
-      "scenario": "I will tell them to stop and calm down and if they take it too far will start taking action",
-      "rulebreak": "No"
-    },
-    {
-      "appId": "MOD-XH7D3X",
-      "type": "moderator",
-      "date": "2026-10-23T03:13:01.434Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "R4",
-      "discord": "r4_real",
-      "age": "14",
-      "timezone": "CDT 4-7 Hours",
-      "experience": "R.C Brains, Monkey Jumpers V3, Ape Lockdown, Site 9, Billy The AI.",
-      "why": "I want to be a moderator because I want to help the community grow as a team. I love moderating games to help others. I am frequently active in vr and Discord. I am great at reporting on people doing bad or inappropriate things. I'm very kind and nice and I will put my heart into moderating this community because I love it. I will keep this game safe as much as I can, I will make sure I will record all the time in lobbies to catch rule breakers in action I can stay active most of the day I can adjust times needed to moderate the game and the discord server.",
-      "scenario": "If someone is spamming in chat, I would immediately tell them to stop and give them their first warning. If they continue doing it, I will time them out for 5 minutes to make sure they will stop if they come back and do it. I would time them out for an hour for disrupting the chat. If they did it again, I would time them out for 1 day. If they continued, I would keep timing them out longer and longer and also telling higher ups to see if I could get someone to ban the person.",
-      "rulebreak": "No"
-    },
-    {
-      "appId": "EVT-ATJDJD",
-      "type": "event",
-      "date": "2026-10-23T03:21:55.727Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "R4",
-      "discord": "r4_real",
-      "age": "14",
-      "timezone": "CDT 4-7 Hours",
-      "experience": "Yes, RC Brains",
-      "eventidea": "An event I would host would be simon says how it would run. I would gather people into a lobby and tell them to line up. When they line up. I would start asking questions, such as simon says put your hand on your nose, etc. I would keep asking different questions till I mix them up, saying put your hands on your hands or anything like that if they do it they are out",
-      "chaos": "I would tell them to wait a minute before I can see the problem. If the game does break, I would resolve the situation by telling them we will have to do another game and I would take a vote on what game they would like to play Once they vote and which everyone gets the most votes will be the one we will pick as a group",
-      "reliable": "Saturday 4pm CDT"
     }
   ],
   "tickets": [
@@ -3038,22 +2993,13 @@
   ],
   "diag": [
     {
-      "t": "2026-10-23T03:18:39.652Z",
+      "t": "2026-10-23T11:05:20.897Z",
       "build": "20261017a",
       "hero": true,
       "gated": false,
       "token": false,
       "failed": false,
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-10-23T03:06:44.500Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.55.15.1096209725 C"
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.45.15.1092497976 C"
     },
     {
       "t": "2026-10-23T00:56:10.003Z",
@@ -3486,6 +3432,15 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-10-19T03:01:14.603Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/150.1.0.24.52.1046134268 C"
     }
   ]
 }
