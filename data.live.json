@@ -1617,22 +1617,6 @@
       "strikes": "No never been banned from discord"
     },
     {
-      "appId": "CC-XGYBNS",
-      "type": "creator",
-      "date": "2026-10-22T22:45:34.494Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "BIGBRO",
-      "discord": "ThePorterFamalia6_7",
-      "age": "18",
-      "why": "I wanna make the game a better place",
-      "platform": "YouTube",
-      "channel": "https://www.youtube.com/@doodlefan-j8s",
-      "schedule": "2 weeks",
-      "style": "Vr videos and roblox videos",
-      "strikes": "No never been banned from discord"
-    },
-    {
       "appId": "MOD-57D52Z",
       "type": "moderator",
       "date": "2026-10-24T17:24:52.591Z",
@@ -2179,6 +2163,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-24T17:48:14.729Z",
+      "act": "deleted",
+      "id": "CC-XGYBNS",
+      "by": ""
+    },
     {
       "t": "2026-10-24T17:48:00.839Z",
       "act": "deleted",
@@ -2771,12 +2761,6 @@
       "t": "2026-10-10T16:35:04.085Z",
       "act": "deleted",
       "id": "MOD-KJ6H4E",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:35:01.651Z",
-      "act": "deleted",
-      "id": "MOD-H83PHA",
       "by": ""
     }
   ],
