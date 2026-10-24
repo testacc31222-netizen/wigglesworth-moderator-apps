@@ -2,7 +2,7 @@
   "config": {
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
-    "announcement": "Leaving moderator applications open, reading them when the time comes. 👀",
+    "announcement": "APPLICATIONS ARE NOW OPEN!! FOR MODERATOR, CONTENT CREATOR, AND EVENT HOSTER!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -2420,6 +2420,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-24T18:46:55.641Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
     {
       "t": "2026-10-24T18:46:23.394Z",
       "act": "config_saved",
