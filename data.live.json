@@ -1856,6 +1856,21 @@
       "why": "I want to be proud that I'm a high rank in a game",
       "scenario": "step 1: tell them to chill out. step 2:if they don't stop kick them for a warning #2. step 3:report the to record if they don't stop, or ban for a day or 2",
       "rulebreak": "I have from a moderator reporting everyone in the server"
+    },
+    {
+      "appId": "MOD-NCBUTX",
+      "type": "moderator",
+      "date": "2026-10-24T14:58:29.116Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Zoro",
+      "discord": "Chandler",
+      "age": "13",
+      "timezone": "Central time (Louisiana)",
+      "experience": "I was head modderater in project monky v4",
+      "why": "I want to hold athority and help the community to be better.",
+      "scenario": "Give them a warning but if they do not stop then I will take it up with you, the owner.",
+      "rulebreak": "Never"
     }
   ],
   "tickets": [
