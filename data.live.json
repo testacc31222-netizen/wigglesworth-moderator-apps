@@ -1675,21 +1675,6 @@
       "rulebreak": "No"
     },
     {
-      "appId": "MOD-BM9FXA",
-      "type": "moderator",
-      "date": "2026-10-19T22:57:53.772Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Max",
-      "discord": "tranquil_eagle_46166",
-      "age": "18",
-      "timezone": "1-3",
-      "experience": "Not much",
-      "why": "Ban toxic people or cheaters",
-      "scenario": "i ask that he stop calmly",
-      "rulebreak": "No"
-    },
-    {
       "appId": "CC-2SEEML",
       "type": "creator",
       "date": "2026-10-20T00:54:57.281Z",
@@ -2285,6 +2270,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-24T17:47:28.612Z",
+      "act": "deleted",
+      "id": "MOD-BM9FXA",
+      "by": ""
+    },
+    {
       "t": "2026-10-24T17:47:07.364Z",
       "act": "deleted",
       "id": "MOD-QF26JU",
@@ -2874,12 +2865,6 @@
     },
     {
       "t": "2026-10-10T04:53:50.978Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T04:52:42.788Z",
       "act": "config_saved",
       "id": "",
       "by": ""
