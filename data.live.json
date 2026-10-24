@@ -1599,21 +1599,6 @@
       "rulebreak": "no"
     },
     {
-      "appId": "MOD-CTMVLG",
-      "type": "moderator",
-      "date": "2026-10-18T23:31:15.568Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "SkaiGuyVR",
-      "discord": "SkaiGuy",
-      "age": "13",
-      "timezone": "Fridays,saturdays,sunday at any time",
-      "experience": "no",
-      "why": "i want to be a mod because i want to make wiggles worth a better place and make sure every ones ok",
-      "scenario": "1.I say dont do that 2.if he doesnt i will kick or report him",
-      "rulebreak": "no"
-    },
-    {
       "appId": "CC-NLW4JZ",
       "type": "creator",
       "date": "2026-10-19T00:04:02.081Z",
@@ -2240,6 +2225,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-24T17:47:39.165Z",
+      "act": "deleted",
+      "id": "MOD-CTMVLG",
+      "by": ""
+    },
+    {
       "t": "2026-10-24T17:47:36.092Z",
       "act": "deleted",
       "id": "MOD-3RJPCK",
@@ -2831,12 +2822,6 @@
       "t": "2026-10-10T16:34:48.394Z",
       "act": "deleted",
       "id": "MOD-TPTQ3X",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:34:46.718Z",
-      "act": "deleted",
-      "id": "MOD-TKAKAJ",
       "by": ""
     }
   ],
