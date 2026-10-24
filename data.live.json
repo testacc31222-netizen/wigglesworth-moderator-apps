@@ -1690,21 +1690,6 @@
       "rulebreak": "No"
     },
     {
-      "appId": "MOD-QF26JU",
-      "type": "moderator",
-      "date": "2026-10-19T23:54:09.135Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Pwquest",
-      "discord": "Sxr5lblox1519",
-      "age": "16",
-      "timezone": "1hrs on the game",
-      "experience": "I know how to be a good mod in the game",
-      "why": "Because i find bullies",
-      "scenario": "Mute them and if they ping any mod or any dev or the owner i will ban them or kick them",
-      "rulebreak": "No i have not been baned"
-    },
-    {
       "appId": "CC-2SEEML",
       "type": "creator",
       "date": "2026-10-20T00:54:57.281Z",
@@ -2300,6 +2285,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-24T17:47:07.364Z",
+      "act": "deleted",
+      "id": "MOD-QF26JU",
+      "by": ""
+    },
+    {
       "t": "2026-10-24T17:47:04.224Z",
       "act": "deleted",
       "id": "MOD-4KYDP4",
@@ -2889,12 +2880,6 @@
     },
     {
       "t": "2026-10-10T04:52:42.788Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T04:52:42.484Z",
       "act": "config_saved",
       "id": "",
       "by": ""
