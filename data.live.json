@@ -1630,21 +1630,6 @@
       "strikes": "Nope"
     },
     {
-      "appId": "MOD-3RJPCK",
-      "type": "moderator",
-      "date": "2026-10-19T00:34:15.196Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Death",
-      "discord": "Tommy",
-      "age": "17",
-      "timezone": "6 hours",
-      "experience": "I reported them so then they could get banned the next day to the owner. I reported them so then they could get banned the next day to the owner.",
-      "why": "So I can ban bad people and They Are Doing things they shouldn't be. I will bend them.",
-      "scenario": "I will tell them to please stop. And if they don't stop I'll tell them. Take you An hour And then You can chat again.",
-      "rulebreak": "No I've never been banned."
-    },
-    {
       "appId": "EVT-BRV5V7",
       "type": "event",
       "date": "2026-10-19T04:49:03.318Z",
@@ -2255,6 +2240,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-24T17:47:36.092Z",
+      "act": "deleted",
+      "id": "MOD-3RJPCK",
+      "by": ""
+    },
+    {
       "t": "2026-10-24T17:47:32.873Z",
       "act": "deleted",
       "id": "MOD-JCGZ4Z",
@@ -2846,12 +2837,6 @@
       "t": "2026-10-10T16:34:46.718Z",
       "act": "deleted",
       "id": "MOD-TKAKAJ",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:34:43.463Z",
-      "act": "deleted",
-      "id": "MOD-DKHJU9",
       "by": ""
     }
   ],
