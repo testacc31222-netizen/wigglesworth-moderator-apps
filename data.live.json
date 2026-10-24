@@ -1828,21 +1828,6 @@
       "rulebreak": "No never been banned from discord"
     },
     {
-      "appId": "MOD-JVXZRF",
-      "type": "moderator",
-      "date": "2026-10-22T22:55:14.488Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Bigbro",
-      "discord": "ThePorterFamilia6_7",
-      "age": "18",
-      "timezone": "6:34",
-      "experience": "Yes alot of times",
-      "why": "Make the game and discord better",
-      "scenario": "Ban them for 1 day do it again banned for 1 week do it again permanent ban",
-      "rulebreak": "No i never been banned"
-    },
-    {
       "appId": "MOD-57D52Z",
       "type": "moderator",
       "date": "2026-10-24T17:24:52.591Z",
@@ -2389,6 +2374,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-24T17:46:44.040Z",
+      "act": "deleted",
+      "id": "MOD-JVXZRF",
+      "by": ""
+    },
     {
       "t": "2026-10-24T17:45:42.413Z",
       "act": "deleted",
