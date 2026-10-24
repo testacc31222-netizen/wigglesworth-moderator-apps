@@ -1736,21 +1736,6 @@
       "strikes": "I agree"
     },
     {
-      "appId": "MOD-CDNLSN",
-      "type": "moderator",
-      "date": "2026-10-20T18:29:15.249Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Donut",
-      "discord": "the_monke3",
-      "age": "14",
-      "timezone": "CST and available 12 Pm to 10 Pm",
-      "experience": "None",
-      "why": "I want to help the game",
-      "scenario": "give them a warning first",
-      "rulebreak": "I have not been banned"
-    },
-    {
       "appId": "CC-3SJT9Q",
       "type": "creator",
       "date": "2026-10-22T21:57:08.343Z",
@@ -2329,6 +2314,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-24T17:47:00.881Z",
+      "act": "deleted",
+      "id": "MOD-CDNLSN",
+      "by": ""
+    },
     {
       "t": "2026-10-24T17:46:57.827Z",
       "act": "deleted",
@@ -2919,12 +2910,6 @@
     },
     {
       "t": "2026-10-10T03:17:36.994Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T03:17:28.971Z",
       "act": "config_saved",
       "id": "",
       "by": ""
