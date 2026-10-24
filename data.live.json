@@ -2,7 +2,7 @@
   "config": {
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
-    "announcement": "APPLICATIONS ARE NOW OPEN!! FOR MODERATOR, CONTENT CREATOR, AND EVENT HOSTER!",
+    "announcement": "Leaving moderator applications open, reading them when the time comes. 👀",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -1856,52 +1856,6 @@
       "why": "I want to be proud that I'm a high rank in a game",
       "scenario": "step 1: tell them to chill out. step 2:if they don't stop kick them for a warning #2. step 3:report the to record if they don't stop, or ban for a day or 2",
       "rulebreak": "I have from a moderator reporting everyone in the server"
-    },
-    {
-      "appId": "MOD-AQ6S3S",
-      "type": "moderator",
-      "date": "2026-10-24T18:40:45.448Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Bleh (i think?)",
-      "discord": "bam_bam29l",
-      "age": "14",
-      "timezone": "GMT+1 (uk)",
-      "experience": "Yes, Faz tag, a website click game, and more",
-      "why": "To moderate and have fun!",
-      "scenario": "Tell them to stop or dm a higher role",
-      "rulebreak": "No."
-    },
-    {
-      "appId": "CC-2Z4R6G",
-      "type": "creator",
-      "date": "2026-10-24T18:44:27.944Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Ashbman15",
-      "discord": "Ashbman15",
-      "age": "14",
-      "why": "The game is so fun and it is great and being a content creator would make it so fun.",
-      "platform": "YouTube",
-      "channel": "https://youtube.com/@ashbman15?si=XostANyKQ9Gi-sJx",
-      "schedule": "Once a week",
-      "style": "I want to make videos about the Updates and just daily videos.",
-      "strikes": "No"
-    },
-    {
-      "appId": "MOD-MLBZXL",
-      "type": "moderator",
-      "date": "2026-10-24T19:16:56.232Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Xilo",
-      "discord": "Xilo.fling",
-      "age": "13",
-      "timezone": "Est",
-      "experience": "I have been moderator for many games and i am loyal active and i keep the community safe respectful and fun for all",
-      "why": "i love the game and i find people who break the rules a lot so i do what i can while being a player but i can help a lot more being mod",
-      "scenario": "ask them to stop they have 2 chances if they dont stop the third time they get muted for a bit",
-      "rulebreak": "no i have never been an form wigglesworth or any other games because i follow the rules"
     }
   ],
   "tickets": [
@@ -2435,18 +2389,6 @@
     }
   ],
   "audit": [
-    {
-      "t": "2026-10-24T18:46:55.641Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-24T18:46:23.394Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
     {
       "t": "2026-10-23T00:56:37.261Z",
       "act": "ticket_reply",
@@ -3051,130 +2993,13 @@
   ],
   "diag": [
     {
-      "t": "2026-10-24T19:23:43.104Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.1.0.26.54.1096616420 C"
-    },
-    {
-      "t": "2026-10-24T19:17:36.307Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/443.5.997327796 Mo"
-    },
-    {
-      "t": "2026-10-24T19:15:22.993Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/443.5.997327796 Mo"
-    },
-    {
-      "t": "2026-10-24T19:09:52.677Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
-    },
-    {
-      "t": "2026-10-24T19:09:15.544Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-10-24T19:07:30.387Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/443.5.997327796 Mo"
-    },
-    {
-      "t": "2026-10-24T19:05:21.043Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-10-24T19:04:59.175Z",
+      "t": "2026-10-24T20:36:55.432Z",
       "build": "20261017a",
       "hero": true,
       "gated": false,
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
-    },
-    {
-      "t": "2026-10-24T18:59:02.876Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.7.5 Mobile/15"
-    },
-    {
-      "t": "2026-10-24T18:46:58.439Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
-    },
-    {
-      "t": "2026-10-24T18:46:26.089Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
-    },
-    {
-      "t": "2026-10-24T18:41:30.335Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.55.15.1096209725 C"
-    },
-    {
-      "t": "2026-10-24T18:40:01.690Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-10-24T18:39:15.380Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Safari/605.1.15"
     },
     {
       "t": "2026-10-23T00:56:10.003Z",
@@ -3499,6 +3324,123 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Mobile/15E1"
+    },
+    {
+      "t": "2026-10-20T01:41:56.677Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
+    },
+    {
+      "t": "2026-10-20T00:52:05.969Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.45.15.1092497976 C"
+    },
+    {
+      "t": "2026-10-20T00:51:51.893Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
+    },
+    {
+      "t": "2026-10-20T00:26:09.658Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.45.15.1092497976 C"
+    },
+    {
+      "t": "2026-10-19T23:46:44.142Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.45.15.1092497976 C"
+    },
+    {
+      "t": "2026-10-19T22:45:48.327Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.0.0.32.30.1064607984 C"
+    },
+    {
+      "t": "2026-10-19T22:44:04.524Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.0.0.32.30.1064607984 C"
+    },
+    {
+      "t": "2026-10-19T21:47:39.648Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
+    },
+    {
+      "t": "2026-10-19T21:21:37.793Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.1.0.34.52.1079628208 C"
+    },
+    {
+      "t": "2026-10-19T21:02:55.761Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/30.0 Chrome/143.0.0.0 Mobile Sa"
+    },
+    {
+      "t": "2026-10-19T06:58:43.493Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E1"
+    },
+    {
+      "t": "2026-10-19T04:44:04.271Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-10-19T03:01:14.603Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/150.1.0.24.52.1046134268 C"
     }
   ]
 }
