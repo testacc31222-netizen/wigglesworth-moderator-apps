@@ -1705,21 +1705,6 @@
       "rulebreak": "No i have not been baned"
     },
     {
-      "appId": "MOD-4KYDP4",
-      "type": "moderator",
-      "date": "2026-10-20T00:33:43.324Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Haden",
-      "discord": "Haden_vr",
-      "age": "18",
-      "timezone": "5pm-8pm",
-      "experience": "No",
-      "why": "I want to be a moderator because i want to hunt down cheaters and toxic players and make a heavy impact on wigglesworth.",
-      "scenario": "I will time them out if they keep spamming i will mute them for a few hours.",
-      "rulebreak": "No"
-    },
-    {
       "appId": "CC-2SEEML",
       "type": "creator",
       "date": "2026-10-20T00:54:57.281Z",
@@ -2315,6 +2300,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-24T17:47:04.224Z",
+      "act": "deleted",
+      "id": "MOD-4KYDP4",
+      "by": ""
+    },
+    {
       "t": "2026-10-24T17:47:00.881Z",
       "act": "deleted",
       "id": "MOD-CDNLSN",
@@ -2904,12 +2895,6 @@
     },
     {
       "t": "2026-10-10T04:52:42.484Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T03:17:36.994Z",
       "act": "config_saved",
       "id": "",
       "by": ""
