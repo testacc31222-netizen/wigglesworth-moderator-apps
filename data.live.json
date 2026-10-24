@@ -1553,21 +1553,6 @@
       "reliable": "not rlly sorry"
     },
     {
-      "appId": "MOD-CN8FGK",
-      "type": "moderator",
-      "date": "2026-10-18T22:44:06.129Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "noxonth",
-      "discord": "mtapolar",
-      "age": "14",
-      "timezone": "EST 3,5hrs",
-      "experience": "None",
-      "why": "Help new players help people in the community",
-      "scenario": "Warn them and tell them to stop spamming",
-      "rulebreak": "No"
-    },
-    {
       "appId": "CC-KM28H3",
       "type": "creator",
       "date": "2026-10-18T23:13:08.440Z",
@@ -2210,6 +2195,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-24T17:47:44.295Z",
+      "act": "deleted",
+      "id": "MOD-CN8FGK",
+      "by": ""
+    },
+    {
       "t": "2026-10-24T17:47:41.419Z",
       "act": "deleted",
       "id": "MOD-56H48J",
@@ -2801,12 +2792,6 @@
       "t": "2026-10-10T16:34:59.540Z",
       "act": "deleted",
       "id": "MOD-DD9LE9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:34:50.371Z",
-      "act": "deleted",
-      "id": "MOD-AVZBGE",
       "by": ""
     }
   ],
