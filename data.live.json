@@ -2993,13 +2993,13 @@
   ],
   "diag": [
     {
-      "t": "2026-10-24T21:52:36.353Z",
+      "t": "2026-10-24T22:13:26.254Z",
       "build": "20261017a",
       "hero": true,
       "gated": false,
       "token": false,
       "failed": false,
-      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.1.0.26.54.1096616420 C"
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36"
     },
     {
       "t": "2026-10-23T00:56:10.003Z",
