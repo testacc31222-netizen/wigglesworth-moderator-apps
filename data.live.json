@@ -1856,21 +1856,6 @@
       "why": "I want to be proud that I'm a high rank in a game",
       "scenario": "step 1: tell them to chill out. step 2:if they don't stop kick them for a warning #2. step 3:report the to record if they don't stop, or ban for a day or 2",
       "rulebreak": "I have from a moderator reporting everyone in the server"
-    },
-    {
-      "appId": "MOD-NCBUTX",
-      "type": "moderator",
-      "date": "2026-10-24T14:58:29.116Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Zoro",
-      "discord": "Chandler",
-      "age": "13",
-      "timezone": "Central time (Louisiana)",
-      "experience": "I was head modderater in project monky v4",
-      "why": "I want to hold athority and help the community to be better.",
-      "scenario": "Give them a warning but if they do not stop then I will take it up with you, the owner.",
-      "rulebreak": "Never"
     }
   ],
   "tickets": [
@@ -3008,49 +2993,13 @@
   ],
   "diag": [
     {
-      "t": "2026-10-24T14:54:54.982Z",
+      "t": "2026-10-24T15:31:52.093Z",
       "build": "20261017a",
       "hero": true,
       "gated": false,
       "token": false,
       "failed": false,
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-10-24T14:54:46.784Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15"
-    },
-    {
-      "t": "2026-10-24T14:53:56.169Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E1"
-    },
-    {
-      "t": "2026-10-24T14:52:13.628Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.55.15.1096209725 C"
-    },
-    {
-      "t": "2026-10-24T14:50:36.311Z",
-      "build": "20261017a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.0.0.55.15.1096209725 C"
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
     },
     {
       "t": "2026-10-23T00:56:10.003Z",
@@ -3456,6 +3405,42 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/152.1.0.34.52.1079628208 C"
+    },
+    {
+      "t": "2026-10-19T21:02:55.761Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/30.0 Chrome/143.0.0.0 Mobile Sa"
+    },
+    {
+      "t": "2026-10-19T06:58:43.493Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E1"
+    },
+    {
+      "t": "2026-10-19T04:44:04.271Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-10-19T03:01:14.603Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/150.1.0.24.52.1046134268 C"
     }
   ]
 }
