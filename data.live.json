@@ -1371,21 +1371,6 @@
       "reliable": "Yes, I Can Commit To A Regular Time Slot  And Make Sure I Show Up On Time And Stay Consistent With Hosting The Event"
     },
     {
-      "appId": "MOD-3288CA",
-      "type": "moderator",
-      "date": "2026-10-17T07:37:13.340Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Royalvr7",
-      "discord": "Neptunegt7",
-      "age": "13",
-      "timezone": "I play 2 hours eu times normally",
-      "experience": "I did Ug vr moderation and craft rooms beta",
-      "why": "Because I know I can help the community and be a great help to the staff team",
-      "scenario": "5 min time out if they carry on 30m then report to higher ups",
-      "rulebreak": "Yeah I was false banned when it was a lethal ape coppy"
-    },
-    {
       "appId": "MOD-FAV398",
       "type": "moderator",
       "date": "2026-10-17T12:26:20.467Z",
@@ -2195,6 +2180,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-24T17:48:00.839Z",
+      "act": "deleted",
+      "id": "MOD-3288CA",
+      "by": ""
+    },
+    {
       "t": "2026-10-24T17:47:44.295Z",
       "act": "deleted",
       "id": "MOD-CN8FGK",
@@ -2786,12 +2777,6 @@
       "t": "2026-10-10T16:35:01.651Z",
       "act": "deleted",
       "id": "MOD-H83PHA",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:34:59.540Z",
-      "act": "deleted",
-      "id": "MOD-DD9LE9",
       "by": ""
     }
   ],
