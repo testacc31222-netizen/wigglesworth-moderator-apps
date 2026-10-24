@@ -1766,21 +1766,6 @@
       "rulebreak": "No because I am a good person"
     },
     {
-      "appId": "MOD-V6WEP4",
-      "type": "moderator",
-      "date": "2026-10-22T21:30:41.316Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "3xxt3",
-      "discord": "3xxt3",
-      "age": "14",
-      "timezone": "2PM - 9/10PM",
-      "experience": "Reasonable experience, knows basic rules, knows how to handle things without it becoming into a bigger problem.",
-      "why": "Just for the fun of it, i want to help this game/community and have a better  and safe area for people to play in to be honest.",
-      "scenario": "Time them out. But if its bad like racial slurs i would consider contacting the higher-ups.",
-      "rulebreak": "No."
-    },
-    {
       "appId": "CC-3SJT9Q",
       "type": "creator",
       "date": "2026-10-22T21:57:08.343Z",
@@ -2359,6 +2344,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-24T17:46:53.989Z",
+      "act": "deleted",
+      "id": "MOD-V6WEP4",
+      "by": ""
+    },
     {
       "t": "2026-10-24T17:46:47.029Z",
       "act": "deleted",
@@ -2951,12 +2942,6 @@
       "t": "2026-10-09T08:01:46.264Z",
       "act": "ticket_reply",
       "id": "TKT-VMH9B5",
-      "by": ""
-    },
-    {
-      "t": "2026-10-09T08:01:37.058Z",
-      "act": "ticket_closed",
-      "id": "TKT-KSF2S5",
       "by": ""
     }
   ],
