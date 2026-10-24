@@ -1751,21 +1751,6 @@
       "rulebreak": "I have not been banned"
     },
     {
-      "appId": "MOD-82ETCZ",
-      "type": "moderator",
-      "date": "2026-10-21T12:12:15.038Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Pwqust",
-      "discord": "Sxr5lblox",
-      "age": "16",
-      "timezone": "3hrs on the game",
-      "experience": "I am a good mod",
-      "why": "Because I have my own Roblox game and I know what it is like",
-      "scenario": "Mute them if they ping kick if they ping the owners ban them",
-      "rulebreak": "No because I am a good person"
-    },
-    {
       "appId": "CC-3SJT9Q",
       "type": "creator",
       "date": "2026-10-22T21:57:08.343Z",
@@ -2344,6 +2329,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-24T17:46:57.827Z",
+      "act": "deleted",
+      "id": "MOD-82ETCZ",
+      "by": ""
+    },
     {
       "t": "2026-10-24T17:46:53.989Z",
       "act": "deleted",
@@ -2936,12 +2927,6 @@
       "t": "2026-10-10T03:17:28.971Z",
       "act": "config_saved",
       "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-09T08:01:46.264Z",
-      "act": "ticket_reply",
-      "id": "TKT-VMH9B5",
       "by": ""
     }
   ],
