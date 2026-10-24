@@ -1601,22 +1601,6 @@
       "strikes": "I agree"
     },
     {
-      "appId": "CC-3SJT9Q",
-      "type": "creator",
-      "date": "2026-10-22T21:57:08.343Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Bigbro",
-      "discord": "ThePorterFamalia6_7",
-      "age": "22",
-      "why": "I wanna get attention and I kind of want to be like pmapro",
-      "platform": "YouTube",
-      "channel": "https://www.youtube.com/@doodlefan-j8s",
-      "schedule": "2 weeks",
-      "style": "Vr videos any good game",
-      "strikes": "No never been banned from discord"
-    },
-    {
       "appId": "MOD-57D52Z",
       "type": "moderator",
       "date": "2026-10-24T17:24:52.591Z",
@@ -2163,6 +2147,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-24T17:48:25.545Z",
+      "act": "deleted",
+      "id": "CC-3SJT9Q",
+      "by": ""
+    },
     {
       "t": "2026-10-24T17:48:14.729Z",
       "act": "deleted",
@@ -2755,12 +2745,6 @@
       "t": "2026-10-10T16:35:50.904Z",
       "act": "deleted",
       "id": "MOD-P6T7KY",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:35:04.085Z",
-      "act": "deleted",
-      "id": "MOD-KJ6H4E",
       "by": ""
     }
   ],
