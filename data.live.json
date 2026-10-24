@@ -584,7 +584,7 @@
       "appId": "CC-ZRGADC",
       "type": "creator",
       "date": "2026-10-03T03:22:33.358Z",
-      "status": "approved",
+      "status": "pending",
       "adminNote": "Great application and great editing skills, proud to see what you bring to the table Trx!",
       "username": "Trx6k",
       "discord": "Trx6k",
@@ -2390,12 +2390,6 @@
   ],
   "audit": [
     {
-      "t": "2026-10-24T15:36:27.670Z",
-      "act": "status_approved",
-      "id": "CC-ZRGADC",
-      "by": ""
-    },
-    {
       "t": "2026-10-23T00:56:37.261Z",
       "act": "ticket_reply",
       "id": "TKT-WNUS4S",
@@ -2999,7 +2993,7 @@
   ],
   "diag": [
     {
-      "t": "2026-10-24T15:31:52.093Z",
+      "t": "2026-10-24T17:15:40.753Z",
       "build": "20261017a",
       "hero": true,
       "gated": false,
