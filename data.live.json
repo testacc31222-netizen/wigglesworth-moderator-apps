@@ -1856,6 +1856,21 @@
       "why": "I want to be proud that I'm a high rank in a game",
       "scenario": "step 1: tell them to chill out. step 2:if they don't stop kick them for a warning #2. step 3:report the to record if they don't stop, or ban for a day or 2",
       "rulebreak": "I have from a moderator reporting everyone in the server"
+    },
+    {
+      "appId": "MOD-AQ6S3S",
+      "type": "moderator",
+      "date": "2026-10-24T18:40:45.448Z",
+      "status": "pending",
+      "adminNote": "",
+      "username": "Bleh (i think?)",
+      "discord": "bam_bam29l",
+      "age": "14",
+      "timezone": "GMT+1 (uk)",
+      "experience": "Yes, Faz tag, a website click game, and more",
+      "why": "To moderate and have fun!",
+      "scenario": "Tell them to stop or dm a higher role",
+      "rulebreak": "No."
     }
   ],
   "tickets": [
