@@ -1660,21 +1660,6 @@
       "reliable": "Saturday, 3-5pm PST"
     },
     {
-      "appId": "MOD-JCGZ4Z",
-      "type": "moderator",
-      "date": "2026-10-19T21:51:06.297Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Lightningvr",
-      "discord": "Lightningvr20",
-      "age": "14",
-      "timezone": "Uk time",
-      "experience": "I was a itch.io game and I got the motor because the game got took down but I’m trying to get a moderator in another game",
-      "why": "Cause I wanna help the community and play the game for play the game and I do not brag about me being a moderator,I want to help people from toxic.",
-      "scenario": "Tell him to start three times if they don’t stop I’m gonna ban him",
-      "rulebreak": "No"
-    },
-    {
       "appId": "CC-2SEEML",
       "type": "creator",
       "date": "2026-10-20T00:54:57.281Z",
@@ -2270,6 +2255,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-24T17:47:32.873Z",
+      "act": "deleted",
+      "id": "MOD-JCGZ4Z",
+      "by": ""
+    },
+    {
       "t": "2026-10-24T17:47:28.612Z",
       "act": "deleted",
       "id": "MOD-BM9FXA",
@@ -2861,12 +2852,6 @@
       "t": "2026-10-10T16:34:43.463Z",
       "act": "deleted",
       "id": "MOD-DKHJU9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T04:53:50.978Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
