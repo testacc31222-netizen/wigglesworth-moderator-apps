@@ -13,7 +13,7 @@
       "eyebrow": "About",
       "titleA": "Help WIgglesworth",
       "titleB": "we build together.",
-      "lede": "The best communities are made by people who show up with care, judgment, and imagination. Find the work that feels like yours.",
+      "lede": "The best communities are made by people who show up with care. Find the work that feels like yours.",
       "featureTitle1": "Make an impact",
       "featureText1": "Help create a safer and better community for everyone.",
       "featureTitle2": "Stand with a team",
@@ -2845,6 +2845,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T07:21:08.828Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:20:31.496Z",
       "act": "config_saved",
       "id": "",
@@ -3434,12 +3440,6 @@
     },
     {
       "t": "2026-10-10T04:52:42.788Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T04:52:42.484Z",
       "act": "config_saved",
       "id": "",
       "by": ""
