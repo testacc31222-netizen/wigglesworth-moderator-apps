@@ -173,8 +173,8 @@
       }
     ],
     "countdown": {
-      "show": false,
-      "title": "DAY 3 // DO YOUR TAS...",
+      "show": true,
+      "title": "👀",
       "endVideo": "",
       "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
       "daysLine": "day {d} left till the show.",
@@ -183,7 +183,7 @@
       "completedLine": "completed, day 3 soon.",
       "endCardLine": "that was it, get ready for day 3",
       "soonLine": "soon.",
-      "target": "2026-10-04T23:40:00.000Z"
+      "target": ""
     },
     "layout": {},
     "decor": [],
@@ -2845,6 +2845,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T07:33:59.864Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:33:27.226Z",
       "act": "config_saved",
       "id": "",
@@ -3436,12 +3442,6 @@
       "t": "2026-10-10T16:35:01.651Z",
       "act": "deleted",
       "id": "MOD-H83PHA",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:34:59.540Z",
-      "act": "deleted",
-      "id": "MOD-DD9LE9",
       "by": ""
     }
   ],
