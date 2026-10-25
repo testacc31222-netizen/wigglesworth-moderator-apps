@@ -2516,27 +2516,6 @@
       "receiptAt": "2026-10-25T23:05:10.935Z"
     },
     {
-      "appId": "MOD-NNQT2W",
-      "type": "moderator",
-      "date": "2026-10-25T23:06:35.113Z",
-      "status": "approved",
-      "adminNote": "Congratulations, ou4ijebnrkjgnerijgnirj! Your enthusiasm in describing how you would handle a spam situation really stood out. Our staff will reach out soon with the next steps.",
-      "email": "testacc31222@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_6f4cdda9c2a8413e10e97599",
-      "notifiedStatus": "approved",
-      "username": "ou4ijebnrkjgnerijgnirj",
-      "discord": "ou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirj",
-      "age": "12",
-      "timezone": "1242348237498237",
-      "experience": "fewfwergbneruygbuherbguhjernguhjernijgenijrniger",
-      "why": "fewfwergbneruygbuherbguhjernguhjernijgenijrnigerfewfwergbneruygbuherbguhjernguhjernijgenijrniger",
-      "scenario": "fewfwergbneruygbuherbguhjernguhjernijgenijrnigerfewfwergbneruygbuherbguhjernguhjernijgenijrniger",
-      "rulebreak": "fewfwergbneruygbuherbguhjernguhjernijgenijrniger",
-      "receiptAt": "2026-10-25T23:06:35.114Z",
-      "notifiedAt": "2026-10-25T23:25:10.891Z"
-    },
-    {
       "appId": "MOD-JYERJZ",
       "type": "moderator",
       "date": "2026-10-25T23:39:21.908Z",
@@ -3107,6 +3086,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-25T23:40:14.768Z",
+      "act": "deleted",
+      "id": "MOD-NNQT2W",
+      "by": ""
+    },
     {
       "t": "2026-10-25T23:37:35.774Z",
       "act": "account_link",
@@ -3699,12 +3684,6 @@
       "t": "2026-10-25T15:18:24.599Z",
       "act": "config_saved",
       "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T07:56:28.405Z",
-      "act": "account_login",
-      "id": "acc_6f4cdda9c2a8413e10e97599",
       "by": ""
     }
   ],
