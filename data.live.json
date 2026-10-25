@@ -2931,6 +2931,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T15:18:24.599Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:56:28.405Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
@@ -3523,12 +3529,6 @@
       "act": "ticket_reply",
       "id": "TKT-VYZT7E",
       "by": ""
-    },
-    {
-      "t": "2026-10-10T23:15:42.052Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -3546,22 +3546,22 @@
   ],
   "diag": [
     {
-      "t": "2026-10-25T15:17:59.835Z",
+      "t": "2026-10-25T08:28:52.303Z",
       "build": "20261024d",
       "hero": true,
       "gated": false,
       "token": false,
       "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156."
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
     },
     {
-      "t": "2026-10-25T15:17:31.281Z",
+      "t": "2026-10-25T08:26:49.587Z",
       "build": "20261024d",
       "hero": true,
       "gated": false,
       "token": false,
       "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156."
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155."
     },
     {
       "t": "2026-10-25T08:17:19.639Z",
