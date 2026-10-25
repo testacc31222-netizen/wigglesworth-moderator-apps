@@ -11,6 +11,24 @@ let mode = 'email';
 let codeEmail = '';
 let redirecting = false;
 
+// Keep the account page atmosphere in step with the main site without a
+// library or a continuous JavaScript animation loop.
+(function addAccountEmbers() {
+  const layer = $('embers');
+  if (!layer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const count = window.innerWidth < 640 ? 8 : 15;
+  for (let i = 0; i < count; i++) {
+    const ember = document.createElement('i');
+    const size = 1.5 + Math.random() * 2;
+    ember.style.width = ember.style.height = size.toFixed(1) + 'px';
+    ember.style.left = (Math.random() * 100) + 'vw';
+    ember.style.background = Math.random() < .28 ? 'rgba(166,44,53,.55)' : 'rgba(184,177,167,.5)';
+    ember.style.animationDuration = (14 + Math.random() * 14) + 's';
+    ember.style.animationDelay = (-Math.random() * 24) + 's';
+    layer.appendChild(ember);
+  }
+})();
+
 function safeNext(value) {
   const raw = String(value || '').trim();
   if (!raw || !raw.startsWith('/') || raw.startsWith('//') || raw.includes('\\')) return '';
