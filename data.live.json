@@ -2871,28 +2871,15 @@
           "at": "2026-10-25T07:55:45.157Z"
         }
       ]
-    },
-    {
-      "id": "TKT-HBW3EF",
-      "name": "quantummz",
-      "subject": "uhhh game",
-      "status": "open",
-      "unread": true,
-      "email": "testacc31222@gmail.com",
-      "accountId": "acc_6f4cdda9c2a8413e10e97599",
-      "createdAt": "2026-10-25T08:17:34.276Z",
-      "updatedAt": "2026-10-25T08:17:34.276Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "quantummz",
-          "text": "yesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesno",
-          "at": "2026-10-25T08:17:34.276Z"
-        }
-      ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-25T17:24:48.091Z",
+      "act": "ticket_deleted",
+      "id": "TKT-HBW3EF",
+      "by": ""
+    },
     {
       "t": "2026-10-25T17:24:39.544Z",
       "act": "deleted",
@@ -3484,12 +3471,6 @@
     {
       "t": "2026-10-11T01:33:17.250Z",
       "act": "status_denied",
-      "id": "MOD-ZSJYBJ",
-      "by": ""
-    },
-    {
-      "t": "2026-10-11T01:33:12.815Z",
-      "act": "ai_denied",
       "id": "MOD-ZSJYBJ",
       "by": ""
     }
