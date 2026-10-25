@@ -2376,7 +2376,7 @@
       "type": "moderator",
       "date": "2026-10-25T23:04:28.672Z",
       "status": "approved",
-      "adminNote": "Congratulations VENO!  \nYour answer about handling spam in chat really stood out to us.  \nOur staff will reach out soon with the next steps.",
+      "adminNote": "Congratulations VENO!  Your answer about handling spam in chat really stood out to us.  Our staff will reach out soon with the next steps.",
       "email": "graysonajack@icloud.com",
       "emailUpdates": true,
       "accountId": "acc_fb83bd5d46e67e1daced0f6f",
@@ -2966,6 +2966,18 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T23:05:16.722Z",
+      "act": "status_approved",
+      "id": "MOD-3XVJ2M",
+      "by": ""
+    },
+    {
+      "t": "2026-10-25T23:05:16.029Z",
+      "act": "status_approved",
+      "id": "MOD-3XVJ2M",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T23:05:12.458Z",
       "act": "ai_approved",
       "id": "MOD-3XVJ2M",
@@ -3549,18 +3561,6 @@
     },
     {
       "t": "2026-10-25T07:34:38.196Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T07:34:37.216Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T07:34:25.057Z",
       "act": "config_saved",
       "id": "",
       "by": ""
