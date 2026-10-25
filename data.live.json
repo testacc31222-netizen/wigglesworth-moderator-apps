@@ -8,6 +8,7 @@
     "bg": "#080809",
     "editCode": "MOD123",
     "showApproved": false,
+    "showBanner": false,
     "approvedTitle": "New Wigglesworth Team Members",
     "about": {
       "eyebrow": "About",
@@ -2862,6 +2863,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T07:45:20.080Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:36:57.482Z",
       "act": "config_saved",
       "id": "",
@@ -3453,12 +3460,6 @@
       "t": "2026-10-10T22:57:50.873Z",
       "act": "ai_denied",
       "id": "MOD-4EDNAX",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T22:46:50.122Z",
-      "act": "status_denied",
-      "id": "MOD-CERPFK",
       "by": ""
     }
   ],
