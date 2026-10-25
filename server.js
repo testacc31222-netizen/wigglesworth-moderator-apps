@@ -342,6 +342,14 @@ const DEFAULT_CONFIG = {
   accent: '#A62C35', bg: '#080809',
   editCode: 'MOD123',
   showApproved: true, approvedTitle: 'New team members',
+  copy: {},
+  about: {
+    eyebrow: 'About', titleA: 'Steward the world', titleB: 'we build together.',
+    lede: 'The best communities are made by people who show up with care, judgment, and imagination. Find the work that feels like yours.',
+    featureTitle1: 'Make an impact', featureText1: 'Help create a safer and better community for everyone.',
+    featureTitle2: 'Stand with a team', featureText2: 'Work alongside dedicated and passionate members.',
+    featureTitle3: 'Grow your craft', featureText3: 'Build valuable skills in moderation and community management.',
+  },
   bannerImage: '', logoImage: '', backgroundImage: '',
   topText: '',
   bottomText: 'Questions? Contact staff on Discord.',
@@ -405,6 +413,8 @@ function loadDB() {
     db.config.applicationTypes.push(structuredClone(DEFAULT_TYPES.find(t => t.id === 'event')));
   }
   if (!Array.isArray(db.config.faq)) db.config.faq = structuredClone(DEFAULT_CONFIG.faq);
+  if (!db.config.copy || typeof db.config.copy !== 'object' || Array.isArray(db.config.copy)) db.config.copy = {};
+  if (!db.config.about || typeof db.config.about !== 'object') db.config.about = structuredClone(DEFAULT_CONFIG.about);
   if (!db.config.countdown || typeof db.config.countdown !== 'object') {
     db.config.countdown = { show: false, title: 'Update drops in', target: '', endVideo: '' };
   }
@@ -1335,6 +1345,22 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     editCode: cleanStr(c.editCode, 100) || db.config.editCode,
     showApproved: c.showApproved !== false,
     approvedTitle: cleanStr(c.approvedTitle, 120),
+    about: (() => {
+      const a = c.about && typeof c.about === 'object' ? c.about : (db.config.about || DEFAULT_CONFIG.about);
+      return Object.fromEntries(Object.keys(DEFAULT_CONFIG.about).map(k => [k,
+        cleanStr(typeof a[k] === 'string' ? a[k] : (db.config.about?.[k] ?? DEFAULT_CONFIG.about[k]),
+          k === 'lede' || k.startsWith('featureText') ? 500 : 120)
+      ]));
+    })(),
+    copy: (() => {
+      const source = c.copy && typeof c.copy === 'object' && !Array.isArray(c.copy) ? c.copy : (db.config.copy || {});
+      const result = Object.create(null);
+      for (const [key, value] of Object.entries(source).slice(0, 400)) {
+        if (!/^[a-zA-Z0-9_-]{1,40}$/.test(key) || typeof value !== 'string') continue;
+        result[key] = cleanStr(value, 1000);
+      }
+      return result;
+    })(),
     bannerImage: cleanStr(c.bannerImage, 2000000),
     logoImage: cleanStr(c.logoImage, 2000000),
     backgroundImage: cleanStr(c.backgroundImage, 2000000),

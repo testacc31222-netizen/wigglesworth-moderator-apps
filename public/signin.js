@@ -333,6 +333,13 @@ $('code').addEventListener('input', e => { e.target.value = e.target.value.repla
   e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9-]/g, '').slice(0, 12);
 }));
 (async function boot() {
+  if (window.SiteCopy) {
+    const targets = window.SiteCopy.prepare([document.querySelector('main.account-shell'), document.querySelector('footer')], 'account');
+    try {
+      const r = await fetch('/api/config', { cache: 'no-store' });
+      if (r.ok) { const c = await r.json(); window.SiteCopy.apply(targets, c.copy); }
+    } catch {}
+  }
   await loadMeta();
   if (meta.mailConfigured === false) {
     $('mailOffNotice').hidden = false;

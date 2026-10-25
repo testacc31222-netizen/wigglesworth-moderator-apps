@@ -253,8 +253,9 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
 @media(max-width:560px){body{padding:0 10px 30px}.top{padding:17px 14px}.brand{font-size:10px;letter-spacing:.2em}.brand svg{width:24px;height:24px}.back{font-size:9px;letter-spacing:.08em}.wrap{padding:36px 10px 42px;gap:29px}.intro{text-align:left}.intro>.eyebrow{justify-content:flex-start}h1{font-size:clamp(40px,11vw,54px);margin-bottom:19px}.lede{font-size:14px;line-height:1.8;margin-bottom:22px}.assurances{margin-bottom:20px}.assurances li{font-size:15px;gap:11px;padding:12px 0}.assurances span{font-size:9px;padding:4px 7px}.small{font-size:13px}.card{padding:26px 20px}.tabs{gap:22px;margin-bottom:22px}.tabs button{font-size:10px;letter-spacing:.15em}.dash-head{flex-direction:row;align-items:center;gap:10px}.dash-head h2{font-size:17px}.ghost{align-self:auto}.app{padding:15px}.app-top{gap:8px}.app h4{font-size:12px;letter-spacing:.07em}.pill{font-size:8px;padding:4px 6px}.row{flex-wrap:nowrap}.row .secondary{padding:0 13px;font-size:10px}footer{padding:17px 10px 24px;font-size:12px;gap:8px}footer span:last-child{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.fog,#embers{display:none!important}}
 </style>
+<link rel="stylesheet" href="/gothic-luxury.css?v=6">
 </head>
-<body>
+<body class="account-page">
 <div class="atmos" aria-hidden="true">
   <div class="moon"></div>
   <div class="haze"></div>
@@ -272,9 +273,10 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
   <a class="back" href="/">← Back to applications</a>
 </header>
 
-<main class="wrap">
-  <section class="intro">
-    <p class="eyebrow">Applicant account</p>
+<main class="wrap account-shell">
+  <section class="intro account-intro">
+    <div class="account-crest" aria-hidden="true"><span>W</span></div>
+    <p class="eyebrow">Applicant account · private portal</p>
     <h1>Your application,<br><em>answered.</em></h1>
     <p class="lede">One quiet place for every application you have sent us. Sign in with your email to apply, see where each application stands, read the note from staff, and get ticket replies in your inbox.</p>
     <ul class="assurances">
@@ -286,7 +288,8 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
   </section>
 
   <section class="auth" aria-label="Sign in">
-    <div class="card">
+    <div class="auth-heading"><span class="chapter-index"><span>01</span><i></i><span>YOUR ACCOUNT</span></span><p>A quiet place to follow what comes next.</p></div>
+    <div class="card account-card">
       <i class="cnr tl"></i><i class="cnr tr"></i><i class="cnr bl"></i><i class="cnr br"></i>
 
       <div id="signedOut">
@@ -377,6 +380,7 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
   <span>Sign in to open the applications site</span>
 </footer>
 
+<script src="/site-copy.js?v=20261025"></script>
 <script src="/signin.js"></script>
 </body>
 </html>

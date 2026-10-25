@@ -1,0 +1,60 @@
+/* Shared static-copy support for the staff editor and public pages. */
+(function () {
+  'use strict';
+  const hash = s => {
+    let h = 2166136261;
+    for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
+    return (h >>> 0).toString(36);
+  };
+  function prepare(roots, namespace) {
+    const result = [];
+    const occurrences = new Map();
+    const ignored = 'SCRIPT,STYLE,NOSCRIPT,TEMPLATE,TEXTAREA';
+    const add = (el, source, kind) => {
+      const normalized = String(source || '').replace(/\s+/g, ' ').trim();
+      if (!normalized) return;
+      const base = hash(normalized);
+      const n = occurrences.get(base) || 0;
+      occurrences.set(base, n + 1);
+      const key = (kind === 'placeholder' ? 'p-' : 't-') + namespace + '-' + base + '-' + n;
+      el.dataset.copyKey = key;
+      el.dataset.copyKind = kind || 'text';
+      el.dataset.copyDefault = source;
+      el.dataset.copyLabel = normalized.slice(0, 160);
+      result.push({ key, label: el.dataset.copyLabel, value: source, kind: kind || 'text', el });
+    };
+    (Array.isArray(roots) ? roots : [roots]).filter(Boolean).forEach(root => {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          const parent = node.parentElement;
+          if (!parent || parent.closest(ignored) || parent.closest('#editor') || parent.closest('#why') || parent.closest('[data-dkey]')) return NodeFilter.FILTER_REJECT;
+          if (parent.closest('[data-generated-copy-ignore]')) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(node => {
+        const parent = node.parentElement;
+        if (parent.tagName === 'OPTION') { add(parent, node.nodeValue, 'text'); return; }
+        const span = document.createElement('span');
+        span.className = 'site-copy';
+        node.parentNode.insertBefore(span, node);
+        span.appendChild(node);
+        add(span, node.nodeValue, 'text');
+      });
+      root.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el => add(el, el.getAttribute('placeholder'), 'placeholder'));
+    });
+    return result;
+  }
+  function apply(targets, values) {
+    values = values && typeof values === 'object' ? values : {};
+    targets.forEach(t => {
+      if (!Object.prototype.hasOwnProperty.call(values, t.key) || typeof values[t.key] !== 'string') return;
+      if (t.kind === 'placeholder') t.el.setAttribute('placeholder', values[t.key]);
+      else t.el.textContent = values[t.key];
+    });
+  }
+  window.SiteCopy = { prepare, apply };
+})();

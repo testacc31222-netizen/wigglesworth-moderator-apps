@@ -1,6 +1,14 @@
 let config = null;
+let publicCopyTargets = [];
 let account = null;
 const BUILD = '20261024d';
+const DEFAULT_ABOUT = {
+  eyebrow:'About', titleA:'Steward the world', titleB:'we build together.',
+  lede:'The best communities are made by people who show up with care, judgment, and imagination. Find the work that feels like yours.',
+  featureTitle1:'Make an impact', featureText1:'Help create a safer and better community for everyone.',
+  featureTitle2:'Stand with a team', featureText2:'Work alongside dedicated and passionate members.',
+  featureTitle3:'Grow your craft', featureText3:'Build valuable skills in moderation and community management.'
+};
 function sendDiag(failed){
   try{
     const tag = document.getElementById('buildTag');
@@ -16,6 +24,7 @@ function sendDiag(failed){
   }catch{}
 }
 let currentTypeId = null;
+let applicationStep = 0;
 let unlocked = sessionStorage.getItem('mod_edit_code') ? true : false;
 let editCode = sessionStorage.getItem('mod_edit_code') || '';
 let selectedDecor = null;
@@ -57,6 +66,8 @@ async function fetchConfig(){
       if(!r.ok) throw new Error('bad status ' + r.status);
       config = await r.json();
       if(!config || !Array.isArray(config.applicationTypes) || !config.applicationTypes.length) throw new Error('bad shape');
+      config.copy = config.copy && typeof config.copy === 'object' ? config.copy : {};
+      if(!publicCopyTargets.length && window.SiteCopy) publicCopyTargets = window.SiteCopy.prepare([document.querySelector('#topnav'), document.querySelector('.container .main'), document.querySelector('footer')], 'home');
       break;
     }catch(e){
       if(attempt >= 8){ showLoadError(); throw e; }
@@ -66,6 +77,7 @@ async function fetchConfig(){
   }
   if(!Array.isArray(config.decor)) config.decor = [];
   if(!Array.isArray(config.faq)) config.faq = [];
+  config.about = Object.assign({}, DEFAULT_ABOUT, config.about || {});
   if(!Array.isArray(config.applicationTypes) || !config.applicationTypes.length){
     try{
       const n = parseInt(sessionStorage.getItem('cfg_reload') || '0');
@@ -103,6 +115,9 @@ function applyConfig(){
   const li = $('logoImg');
   if(config.logoImage){ li.src = config.logoImage; li.style.display='block'; } else li.style.display='none';
   $('topText').innerHTML = rich(config.topText);
+  if(window.SiteCopy) window.SiteCopy.apply(publicCopyTargets, config.copy);
+  const about = Object.assign({}, DEFAULT_ABOUT, config.about || {});
+  Object.keys(DEFAULT_ABOUT).forEach(k=>{ const el=$('about'+k[0].toUpperCase()+k.slice(1)); if(el) el.textContent=about[k]; });
   renderCountdown(); renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor(); applyLayout();
   try{
     const hero = $('apply');
@@ -139,6 +154,26 @@ function renderFaqEditor(){
       <label>Answer</label><textarea rows="2" oninput="config.faq[${i}].a=this.value">${esc(f.a)}</textarea>`;
     w.appendChild(d);
   });
+}
+function renderPublicCopyEditor(){
+  const w=$('publicCopyEditor'); if(!w) return;
+  w.innerHTML='';
+  publicCopyTargets.forEach(t=>{
+    const value = Object.prototype.hasOwnProperty.call(config.copy||{},t.key) ? config.copy[t.key] : t.value;
+    const row=document.createElement('div'); row.className='copy-editor-item';
+    row.dataset.copyLabel=t.label.toLowerCase();
+    const label=document.createElement('label'); label.htmlFor='copy_'+t.key; label.textContent=t.kind==='placeholder'?'Placeholder · '+t.label:t.label;
+    const field=document.createElement(value.length>90?'textarea':'input');
+    field.id='copy_'+t.key; field.value=value; field.setAttribute('aria-label',label.textContent);
+    if(field.tagName==='TEXTAREA') field.rows=2;
+    field.addEventListener('input',markDirty);
+    row.append(label,field); w.appendChild(row);
+  });
+  const search=$('copySearch');
+  if(search) search.oninput=()=>{
+    const q=search.value.trim().toLowerCase();
+    w.querySelectorAll('.copy-editor-item').forEach(row=>{ row.hidden=!!q&&!row.dataset.copyLabel.includes(q); });
+  };
 }
 function addFaq(){ config.faq.push({ q: 'New question?', a: '' }); markDirty(); renderFaqEditor(); }
 function delFaq(i){ if(!confirm('Delete this FAQ item?')) return; config.faq.splice(i, 1); markDirty(); renderFaqEditor(); }
@@ -217,47 +252,168 @@ async function fetchAccount(){
     account = r.ok ? await r.json() : null;
   }catch{ account = null; }
 }
+function questionChapter(q, index){
+  const id = String(q.id || '').toLowerCase();
+  if(['username','discord','age','timezone'].includes(id) || index < 3) return 'Your place in the community';
+  if(['experience','platform','channel','schedule','style','languages','portfolio'].includes(id)) return 'Your experience & craft';
+  if(['why','scenario','bugscenario','eventidea','chaos','rulebreak','strikes','reliable'].includes(id)) return 'Your judgment & intent';
+  if(id==='teamwork') return 'Your approach to collaboration';
+  return index < 4 ? 'Your place in the community' : index < 7 ? 'Your experience & craft' : 'Your judgment & intent';
+}
+function applicationSections(){ return Array.from(document.querySelectorAll('#modForm .form-section')); }
+function setApplicationStep(index, focusHeading){
+  const sections = applicationSections();
+  if(!sections.length) return;
+  const nextIndex = Math.max(0,Math.min(index,sections.length-1));
+  if(nextIndex !== applicationStep){
+    const error = $('applicationError'); if(error) error.hidden=true;
+  }
+  applicationStep = nextIndex;
+  sections.forEach((section,i)=>{
+    section.hidden = i !== applicationStep;
+    if(i === applicationStep) section.setAttribute('aria-current','step');
+    else section.removeAttribute('aria-current');
+  });
+  const links = Array.from(document.querySelectorAll('#applicationStepNav .step-link'));
+  links.forEach((link,i)=>{
+    link.classList.toggle('active',i===applicationStep);
+    link.classList.toggle('complete',i<applicationStep && sectionIsComplete(sections[i]));
+    if(i===applicationStep) link.setAttribute('aria-current','step');
+    else link.removeAttribute('aria-current');
+  });
+  const previous = document.querySelector('#modForm .step-previous');
+  const next = document.querySelector('#modForm .step-next');
+  const submit = document.querySelector('#modForm .step-submit');
+  const counter = $('applicationStepCounter');
+  if(previous) previous.hidden = applicationStep === 0;
+  if(next) next.hidden = applicationStep === sections.length-1;
+  if(submit) submit.hidden = applicationStep !== sections.length-1;
+  if(counter) counter.textContent = 'Step ' + (applicationStep+1) + ' of ' + sections.length;
+  updateApplicationProgress();
+  if(focusHeading){
+    const heading = sections[applicationStep].querySelector('h3');
+    if(heading){ heading.setAttribute('tabindex','-1'); heading.focus({preventScroll:true}); }
+  }
+}
+function sectionIsComplete(section){
+  if(!section) return false;
+  return Array.from(section.querySelectorAll('input[required],textarea[required],select[required]')).every(el=>{
+    const value = (el.value||'').trim();
+    return !!value && (el.type !== 'email' || /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(value));
+  });
+}
+function showApplicationError(message, element){
+  const box = $('applicationError');
+  if(box){ box.textContent=message; box.hidden=false; }
+  if(element){
+    element.setAttribute('aria-invalid','true');
+    element.addEventListener('input',()=>element.removeAttribute('aria-invalid'),{once:true});
+    element.addEventListener('change',()=>element.removeAttribute('aria-invalid'),{once:true});
+    element.focus();
+  }
+}
+function validateApplicationStep(){
+  const section = applicationSections()[applicationStep];
+  if(!section) return true;
+  const t = curType();
+  for(const el of section.querySelectorAll('input[required],textarea[required],select[required]')){
+    const value = (el.value||'').trim();
+    if(!value){
+      const question = t.questions.find(q=>'f_'+q.id===el.id);
+      showApplicationError(question ? 'Please complete “'+question.label+'” before continuing.' : 'Enter the email address where we can send your decision.',el); return false;
+    }
+    const question = t.questions.find(q=>'f_'+q.id===el.id);
+    if(question && ['why','scenario','bugscenario'].includes(question.id) && value.length<20){
+      showApplicationError('Please add a little more detail to “'+question.label+'” (at least 20 characters).',el); return false;
+    }
+    if(el.id==='f_email' && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(value)){
+      showApplicationError('Enter a valid email address so we can send your decision.',el); return false;
+    }
+  }
+  return true;
+}
+function updateApplicationProgress(){
+  const f = $('modForm'), bar = document.querySelector('.progress-track[role="progressbar"]');
+  const text = $('applicationProgressText'), fill = $('applicationProgressFill');
+  if(!f || !bar || !text || !fill) return;
+  const required = Array.from(f.querySelectorAll('input[required],textarea[required],select[required]'));
+  const complete = required.filter(el => el.value.trim() && (el.type !== 'email' || /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(el.value.trim()))).length;
+  const pct = required.length ? Math.round(complete / required.length * 100) : 100;
+  const sections = applicationSections();
+  text.textContent = pct + '% complete · step ' + (Math.min(applicationStep+1,Math.max(sections.length,1))) + ' of ' + Math.max(sections.length,1);
+  bar.setAttribute('aria-valuenow', String(pct));
+  fill.style.width = pct + '%';
+}
 function renderForm(){
   const t = curType();
   const f = $('modForm'); f.innerHTML=''; f.style.display='block';
+  const nav = $('applicationStepNav'); nav.innerHTML=''; applicationStep = 0;
   $('success').style.display='none';
-  // Email is a core field (not configurable) so decision emails always have
-  // somewhere to go, even if staff edit the questions.
+  const emailSection = document.createElement('section');
+  emailSection.className = 'form-section form-section-email';
+  emailSection.id = 'application-step-0';
+  emailSection.innerHTML = '<div class="form-section-heading"><span class="form-section-number">I</span><div><h3>Stay in touch</h3><p>We will send your receipt and decision here.</p></div></div>';
   const emLab = document.createElement('label');
-  emLab.className = 'emailcore';
+  emLab.className = 'emailcore'; emLab.setAttribute('for','f_email');
   emLab.innerHTML = 'Email <span class="req">*</span>';
-  f.appendChild(emLab);
   const em = document.createElement('input');
   em.type='email'; em.id='f_email'; em.placeholder='you@example.com'; em.required=true; em.autocomplete='email';
   if(account && account.email){ em.value = account.email; em.readOnly = true; }
-  f.appendChild(em);
+  const emailField = document.createElement('div'); emailField.className='form-field form-field-wide';
+  emailField.append(emLab,em); emailSection.appendChild(emailField);
   if(account && account.email){
     const note = document.createElement('p'); note.className='emailnote';
     note.innerHTML = 'Signed in as <b>'+esc(account.email)+'</b>. <a href="/signin">Manage account</a>.';
-    f.appendChild(note);
+    emailSection.appendChild(note);
   }
   const opt = document.createElement('label'); opt.className='checkline';
   const checked = !(account && account.emailUpdates === false);
   opt.innerHTML = '<input type="checkbox" id="f_email_updates"'+(checked?' checked':'')+'> Email me when my application is reviewed';
-  f.appendChild(opt);
-  t.questions.forEach(q=>{
-    const lab = document.createElement('label');
+  emailSection.appendChild(opt); f.appendChild(emailSection);
+  const chapters = [emailSection];
+  const numerals = ['II','III','IV','V','VI','VII','VIII'];
+  let activeChapter = 'Stay in touch';
+  t.questions.forEach((q,index)=>{
+    const chapter = questionChapter(q,index);
+    let section = chapters[chapters.length-1];
+    if(chapter !== activeChapter){
+      section = document.createElement('section'); section.className='form-section';
+      section.id = 'application-step-'+chapters.length;
+      const numeral = numerals[chapters.length-1] || 'IX';
+      section.innerHTML = '<div class="form-section-heading"><span class="form-section-number">'+numeral+'</span><div><h3>'+esc(chapter)+'</h3><p>Share enough detail for us to understand your answer.</p></div></div>';
+      chapters.push(section); f.appendChild(section); activeChapter=chapter;
+    }
+    const lab = document.createElement('label'); lab.htmlFor='f_'+q.id;
     lab.innerHTML = esc(q.label) + (q.required ? ' <span class="req">*</span>' : '');
-    f.appendChild(lab);
     let el;
     if(q.type==='textarea'){ el = document.createElement('textarea'); }
     else if(q.type==='select'){
       el = document.createElement('select');
+      const prompt = document.createElement('option'); prompt.value=''; prompt.textContent='Choose an option'; prompt.disabled=true; prompt.selected=true; el.appendChild(prompt);
       (q.options||'').split(',').map(s=>s.trim()).filter(Boolean).forEach(o=>{
         const op=document.createElement('option'); op.value=o; op.textContent=o; el.appendChild(op);
       });
     } else { el=document.createElement('input'); el.type=q.type||'text'; }
     el.id='f_'+q.id; el.placeholder=q.placeholder||''; el.required=!!q.required;
-    f.appendChild(el);
+    const field = document.createElement('div'); field.className='form-field'+(q.type==='textarea'?' form-field-wide':'');
+    field.append(lab,el); section.appendChild(field);
   });
-  const b=document.createElement('button');
-  b.className='btn-primary'; b.type='submit'; b.textContent='Submit '+t.name+' Application';
-  f.appendChild(b);
+  const actions = document.createElement('div'); actions.className='form-submit-wrap';
+  const error = document.createElement('div'); error.id='applicationError'; error.className='form-error'; error.setAttribute('role','alert'); error.hidden=true; f.appendChild(error);
+  actions.innerHTML = '<div class="form-step-actions"><button class="step-previous" type="button">← Previous</button><span id="applicationStepCounter"></span><div class="step-action-end"><button class="step-next" type="button">Next Step <span aria-hidden="true">→</span></button><button class="btn-primary step-submit" type="submit">Submit '+esc(t.name)+' Application</button></div></div>';
+  f.appendChild(actions);
+  const next = actions.querySelector('.step-next'), previous = actions.querySelector('.step-previous');
+  next.addEventListener('click',()=>{ if(validateApplicationStep()) setApplicationStep(applicationStep+1,true); });
+  previous.addEventListener('click',()=>setApplicationStep(applicationStep-1,true));
+  chapters.forEach((section,index)=>{
+    const button = document.createElement('button'); button.type='button'; button.className='step-link';
+    button.setAttribute('aria-controls',section.id);
+    button.innerHTML = '<span class="step-link-number">'+String(index+1).padStart(2,'0')+'</span><span class="step-link-name">'+esc(section.querySelector('h3').textContent)+'</span><span class="step-link-mark" aria-hidden="true"></span>';
+    button.addEventListener('click',()=>setApplicationStep(index,true)); nav.appendChild(button);
+  });
+  f.oninput = updateApplicationProgress;
+  f.onchange = updateApplicationProgress;
+  setApplicationStep(0,false);
 }
 async function submitApp(e){
   e.preventDefault();
@@ -266,13 +422,13 @@ async function submitApp(e){
   for(const q of t.questions){
     const el = $('f_'+q.id);
     const v = (el.value||'').trim();
-    if(q.required && !v){ alert('Please fill: '+q.label); el.focus(); return false; }
-    if((q.id==='why'||q.id==='scenario'||q.id==='bugscenario') && v.length<20){ alert(q.label+' is too short. Give more detail.'); el.focus(); return false; }
+    if(q.required && !v){ const step=applicationSections().findIndex(s=>s.contains(el)); if(step>=0) setApplicationStep(step,false); showApplicationError('Please complete “'+q.label+'” before submitting.',el); return false; }
+    if((q.id==='why'||q.id==='scenario'||q.id==='bugscenario') && v.length<20){ const step=applicationSections().findIndex(s=>s.contains(el)); if(step>=0) setApplicationStep(step,false); showApplicationError('Please add a little more detail to “'+q.label+'” (at least 20 characters).',el); return false; }
     answers[q.id]=v;
   }
   const emailEl = $('f_email');
   const email = (emailEl && emailEl.value || '').trim();
-  if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)){ alert('Add a valid email so we can send your decision.'); emailEl && emailEl.focus(); return false; }
+  if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)){ const step=applicationSections().findIndex(s=>s.contains(emailEl)); if(step>=0) setApplicationStep(step,false); showApplicationError('Enter a valid email address so we can send your decision.',emailEl); return false; }
   const emailUpdates = !!($('f_email_updates') && $('f_email_updates').checked);
   const done = busyOn(e.target.querySelector('button[type=submit]'), 'Sending');
   try{
@@ -425,8 +581,11 @@ function showEditor(refetch=true){
   $('e_rules').value=config.rules||'';
   $('e_top').value=config.topText||'';
   $('e_bottom').value=config.bottomText||'';
+  const about = Object.assign({}, DEFAULT_ABOUT, config.about || {});
+  Object.keys(DEFAULT_ABOUT).forEach(k=>{ const el=$('e_about'+k[0].toUpperCase()+k.slice(1)); if(el) el.value=about[k]; });
   $('e_staffName').value=staffName();
   syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderFaqEditor(); renderDecor(); renderDecorList();
+  renderPublicCopyEditor();
   syncAppTypeFilter();
   loadMailStatus();
   markClean();
@@ -526,6 +685,9 @@ function collectEditor(){
   config.rules = $('e_rules').value;
   config.topText = $('e_top').value;
   config.bottomText = $('e_bottom').value;
+  config.about = Object.keys(DEFAULT_ABOUT).reduce((a,k)=>{ a[k]=$('e_about'+k[0].toUpperCase()+k.slice(1)).value; return a; },{});
+  config.copy = config.copy || {};
+  publicCopyTargets.forEach(t=>{ const field=$('copy_'+t.key); if(field) config.copy[t.key]=field.value; });
   const nc = $('e_code').value.trim();
   if(nc) config.editCode = nc;
 }

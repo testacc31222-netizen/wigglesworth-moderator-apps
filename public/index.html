@@ -270,6 +270,11 @@ body.design-on [data-dkey]{outline:1.5px dashed rgba(193,74,84,.65);outline-offs
 #dtoolbar .btn-small{padding:6px 10px;font-size:12px}
 .dflash{box-shadow:0 0 0 3px rgba(193,74,84,.8)!important}
 .type-item{background:#0d0d10;border:1px solid var(--line-soft);border-radius:6px;padding:14px;margin:12px 0}
+.copy-editor-group{margin:18px 0;padding:14px;border:1px solid var(--line-soft);border-radius:6px;background:#0d0d10}
+.copy-editor-group summary{cursor:pointer;color:var(--ivory);font-family:var(--font-display);font-size:14px;letter-spacing:.04em}
+.copy-editor-item{margin:12px 0;padding:10px 0;border-bottom:1px solid var(--line-soft)}
+.copy-editor-item[hidden]{display:none}
+.site-copy{white-space:inherit}
 #loader{position:fixed;inset:0;z-index:100;background:#060607;display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center;transition:opacity .45s ease .9s}
 #loader.open{opacity:0;pointer-events:none}
 .split{position:relative;width:min(66vw,300px);aspect-ratio:1/1;animation:floaty 3.4s ease-in-out infinite}
@@ -567,8 +572,9 @@ input:focus,textarea:focus,select:focus{border-color:rgba(193,74,84,.78);box-sha
 @media(max-width:640px){body{padding:0 10px 54px}.container{padding:0 8px}.nav-inner{height:62px;padding:0 14px}.navbar.nav-open .nav-links{top:62px}.nav-actions{gap:7px}.btn-apply{padding:10px 13px;font-size:10px}.hero{min-height:660px;margin:14px 0 20px}.hero::before{inset:8px}.hero-inner{padding:70px 18px 88px}.hero-title{font-size:clamp(39px,11.3vw,62px);letter-spacing:.055em;overflow-wrap:anywhere}.hero-inner .eyebrow{font-size:11px;letter-spacing:.34em}.hero-role{letter-spacing:.28em}.hero-inner .subtitle{font-size:14px}.panel{padding:25px 19px;margin-bottom:16px}.col-left{display:flex;gap:0}#report,#contact,#status,#accepted,#faq,#countCard{margin-top:16px}.role-card{min-height:84px;padding:16px 14px;gap:11px}.role-card .tick{padding:5px 7px;font-size:9px;letter-spacing:.1em}.role-card h4{font-size:12px}.role-card p{font-size:12px}.row{gap:8px}.row input,.row select{min-width:0}#editor .tabs{top:62px;overflow:auto;flex-wrap:nowrap;scrollbar-width:thin}#editor .tabs button{white-space:nowrap}.ed-head{align-items:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.fog,#embers,.specks{display:none!important}.reveal{opacity:1;transform:none}}
 </style>
+<link rel="stylesheet" href="/gothic-luxury.css?v=6">
 </head>
-<body>
+<body class="main-page">
 <script>
 window.__booted=false;window.__fatalShown=false;
 window.__showFatal=function(title,msg){
@@ -652,41 +658,33 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <div class="eyebrow" data-dkey="heroEyebrow">Staff Applications</div>
       <h1 id="appTitle" class="hero-title display" data-dkey="appTitle">WIGGLESWORTH</h1>
       <div class="orn" aria-hidden="true"><i></i><b></b><i></i></div>
-      <div class="hero-role">Moderator Applications</div>
+      <div class="hero-role">A place in the order awaits</div>
       <p class="subtitle" id="appSubtitle" data-dkey="appSubtitle"></p>
       <div class="rich" id="topText" data-dkey="topText"></div>
       <div class="hero-actions">
         <button class="btn-primary" id="applyBtn" data-dkey="applyBtn" onclick="document.getElementById('apply-form').scrollIntoView({behavior:'smooth'})">Apply Now</button>
         <p class="hero-note" data-dkey="heroHint">One honest application per role — every entry is read by a human.</p>
       </div>
+      <div class="hero-seal" aria-label="Wigglesworth staff applications"><span>EST.</span><b>W</b><span>HUMAN<br>REVIEW</span></div>
     </div>
   </section>
 
-  <div class="content-grid">
-    <div class="col-left">
-      <section class="panel reveal" id="why">
-        <div class="eyebrow">About</div>
-        <h2>Why join the team?</h2>
-        <div class="feature">
-          <span class="fic"><svg viewBox="0 0 20 20"><path d="M10 2l2.1 4.4 4.9.6-3.6 3.4.9 4.9-4.3-2.4-4.3 2.4.9-4.9L3 7l4.9-.6z"/></svg></span>
-          <div><h3>MAKE AN IMPACT</h3><p>Help create a safer and better community for everyone.</p></div>
-        </div>
-        <div class="feature">
-          <span class="fic"><svg viewBox="0 0 20 20"><circle cx="10" cy="6.5" r="3"/><path d="M3.5 17c.8-3.4 3.4-5 6.5-5s5.7 1.6 6.5 5"/></svg></span>
-          <div><h3>BE PART OF A TEAM</h3><p>Work alongside other dedicated and passionate members.</p></div>
-        </div>
-        <div class="feature">
-          <span class="fic"><svg viewBox="0 0 20 20"><path d="M4 16V9M10 16V4M16 16v-6"/></svg></span>
-          <div><h3>GAIN EXPERIENCE</h3><p>Build valuable skills in moderation and community management.</p></div>
-        </div>
-        <div class="community-card">
-          <h3>Not just a role. A community.</h3>
-          <p>Wigglesworth is more than a server — it's a family.</p>
+  <section class="chapter-intro" aria-label="Joining the team">
+    <div class="chapter-index"><span>01</span><i></i><span>THE ORDER</span></div>
+    <div class="chapter-copy">
+      <section class="manifesto reveal" id="why">
+        <div class="eyebrow" id="aboutEyebrow">About</div>
+        <h2><span id="aboutTitleA">Steward the world</span><br><em id="aboutTitleB">we build together.</em></h2>
+        <p class="manifesto-lede" id="aboutLede">The best communities are made by people who show up with care, judgment, and imagination. Find the work that feels like yours.</p>
+        <div class="feature-list">
+          <div class="feature"><span class="fic"><svg viewBox="0 0 20 20"><path d="M10 2l2.1 4.4 4.9.6-3.6 3.4.9 4.9-4.3-2.4-4.3 2.4.9-4.9L3 7l4.9-.6z"/></svg></span><div><h3 id="aboutFeatureTitle1">Make an impact</h3><p id="aboutFeatureText1">Help create a safer and better community for everyone.</p></div></div>
+          <div class="feature"><span class="fic"><svg viewBox="0 0 20 20"><circle cx="10" cy="6.5" r="3"/><path d="M3.5 17c.8-3.4 3.4-5 6.5-5s5.7 1.6 6.5 5"/></svg></span><div><h3 id="aboutFeatureTitle2">Stand with a team</h3><p id="aboutFeatureText2">Work alongside dedicated and passionate members.</p></div></div>
+          <div class="feature"><span class="fic"><svg viewBox="0 0 20 20"><path d="M4 16V9M10 16V4M16 16v-6"/></svg></span><div><h3 id="aboutFeatureTitle3">Grow your craft</h3><p id="aboutFeatureText3">Build valuable skills in moderation and community management.</p></div></div>
         </div>
       </section>
-      <section class="panel reveal" id="requirements">
+      <section class="requirements reveal" id="requirements">
         <div class="eyebrow">Requirements</div>
-        <h2>Before you apply</h2>
+        <h2>Before you<br>enter the hall</h2>
         <ul class="req-list">
           <li><span class="rn">I</span><div><b>13 or older</b><p>You must meet the minimum age to join the team.</p></div></li>
           <li><span class="rn">II</span><div><b>Active &amp; present</b><p>Hang around the community regularly, not just at events.</p></div></li>
@@ -694,20 +692,39 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
         </ul>
       </section>
     </div>
-    <div class="col-right" id="apply-form">
-  <section class="panel" id="roleMenu">
-    <div class="eyebrow">Application</div>
-    <h2 style="margin:4px 0 12px">Pick a role to begin</h2>
-    <div id="roleCards" class="role-grid"></div>
+    <aside class="chapter-aside" aria-label="Application process">
+      <span class="aside-rule"></span>
+      <p class="eyebrow">A considered process</p>
+      <p>Choose your calling.<br>Tell us your story.<br><em>We read every word.</em></p>
+      <a href="#apply-form">Explore open roles <span>↘</span></a>
+    </aside>
   </section>
 
-  <div class="panel" id="applyCard" style="display:none">
+  <section class="application-stage" id="apply-form">
+    <div class="stage-heading reveal">
+      <div><div class="chapter-index"><span>02</span><i></i><span>YOUR APPLICATION</span></div><p class="eyebrow">The first step</p><h2>Choose your<br><em>part to play.</em></h2></div>
+      <p class="stage-note">Every role serves the community in a different way. Select the one that best fits you and take your time with the questions.</p>
+    </div>
+    <div class="application-columns">
+      <section class="role-selection" id="roleMenu">
+        <div class="role-selection-head"><span class="eyebrow">Open positions</span><span class="role-count">01 — 04</span></div>
+        <h3>Find your calling</h3>
+        <div id="roleCards" class="role-grid"></div>
+        <p class="selection-foot">Select a role to begin · all applications are reviewed by staff</p>
+      </section>
+
+  <div class="panel application-form-panel" id="applyCard" style="display:none">
     <i class="cnr tl" aria-hidden="true"></i><i class="cnr tr" aria-hidden="true"></i><i class="cnr bl" aria-hidden="true"></i><i class="cnr br" aria-hidden="true"></i>
+    <button class="form-back" type="button" onclick="resetForm()">← All roles</button>
     <div class="role-kicker" id="roleKicker">Application</div>
     <h2 id="roleName" style="margin:4px 0 6px"></h2>
     <p class="subtitle" id="roleIntro"></p>
     <div class="rules" id="appRules" data-dkey="appRules"></div>
-    <form id="modForm" onsubmit="return submitApp(event)"></form>
+    <div class="form-progress" id="applicationProgress" aria-live="polite"><div class="progress-caption"><span>Application progress</span><b id="applicationProgressText">0% complete</b></div><div class="progress-track" role="progressbar" aria-label="Application completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="applicationProgressFill"></span></div></div>
+    <div class="application-workspace">
+      <nav class="application-step-nav" id="applicationStepNav" aria-label="Application sections"></nav>
+      <form id="modForm" onsubmit="return submitApp(event)" novalidate></form>
+    </div>
     <div id="success">
       <h2>Application received</h2>
       <p id="successMsg"></p>
@@ -723,107 +740,51 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <div class="rich" id="bottomText" data-dkey="bottomText"></div>
   </div>
     </div>
-  </div>
+  </section>
 
-  <div class="panel reveal" id="countCard" style="display:none">
-    <div class="eyebrow">Update countdown</div>
-    <h2 id="cdTitle" style="margin:4px 0 10px"></h2>
-    <div class="cd-grid">
-      <div class="cd-cell"><b id="cdD">–</b><span>days</span></div>
-      <div class="cd-cell"><b id="cdH">–</b><span>hrs</span></div>
-      <div class="cd-cell"><b id="cdM">–</b><span>min</span></div>
-      <div class="cd-cell"><b id="cdS">–</b><span>sec</span></div>
-    </div>
+  <div class="panel reveal countdown-panel" id="countCard" style="display:none">
+    <div class="eyebrow">Update countdown</div><h2 id="cdTitle" style="margin:4px 0 10px"></h2>
+    <div class="cd-grid"><div class="cd-cell"><b id="cdD">–</b><span>days</span></div><div class="cd-cell"><b id="cdH">–</b><span>hrs</span></div><div class="cd-cell"><b id="cdM">–</b><span>min</span></div><div class="cd-cell"><b id="cdS">–</b><span>sec</span></div></div>
     <p class="hint" id="cdNote" style="text-align:center"></p>
   </div>
 
-  <div class="panel" id="report">
-    <div class="eyebrow">Staff report</div>
-    <h3 style="margin:4px 0 6px">Report a staff member</h3>
-    <p class="hint">Seen a staff member break the rules? Tell us here. You can stay anonymous — leave your name empty. Attach a picture or short video if you have proof (12MB max each, up to 3).</p>
-    <form id="reportForm" onsubmit="return submitReport(event)">
-      <label>Staff member's name</label>
-      <input id="r_staff" placeholder="Who did this involve?" maxlength="80">
-      <label>Your name (optional)</label>
-      <input id="r_name" placeholder="Leave empty to stay anonymous" maxlength="80">
-      <label>What happened</label>
-      <textarea id="r_details" placeholder="What did they do, when, where…" rows="4"></textarea>
-      <label>Evidence — pictures or video</label>
-      <div id="evdrop">Drop pictures / video here<span>or click to browse · 12MB max each · up to 3</span><input id="r_files" type="file" accept="image/png,image/jpeg,image/gif,image/webp,video/mp4,video/webm" multiple style="display:none"></div>
-      <div id="evList"></div>
-      <div id="evMsg" class="hint"></div>
-      <button class="btn-primary" type="submit">Send report</button>
-    </form>
-    <div id="reportDone" style="display:none;text-align:center;padding:10px 0">
-      <h3 style="margin:6px 0">Report received</h3>
-      <p class="hint">Reference (save it if you want):</p>
-      <div class="appid" id="newReportId">—</div>
-      <div class="row">
-        <button class="btn-small" onclick="copyReportId()">Copy ID</button>
-        <button class="btn-small" onclick="resetReportForm()">Write another</button>
+  <section class="support-stage">
+    <div class="chapter-index"><span>03</span><i></i><span>CARE &amp; SUPPORT</span></div>
+    <div class="support-grid">
+      <div class="panel" id="report">
+        <div class="eyebrow">Staff report</div>
+        <h3 style="margin:4px 0 6px">A concern, heard privately.</h3>
+        <p class="hint">Seen a staff member break the rules? Tell us here. You can stay anonymous — leave your name empty. Attach a picture or short video if you have proof (12MB max each, up to 3).</p>
+        <form id="reportForm" onsubmit="return submitReport(event)">
+          <label>Staff member's name</label><input id="r_staff" placeholder="Who did this involve?" maxlength="80">
+          <label>Your name (optional)</label><input id="r_name" placeholder="Leave empty to stay anonymous" maxlength="80">
+          <label>What happened</label><textarea id="r_details" placeholder="What did they do, when, where…" rows="4"></textarea>
+          <label>Evidence — pictures or video</label><div id="evdrop">Drop pictures / video here<span>or click to browse · 12MB max each · up to 3</span><input id="r_files" type="file" accept="image/png,image/jpeg,image/gif,image/webp,video/mp4,video/webm" multiple style="display:none"></div>
+          <div id="evList"></div><div id="evMsg" class="hint"></div><button class="btn-primary" type="submit">Send report</button>
+        </form>
+        <div id="reportDone" style="display:none;text-align:center;padding:10px 0"><h3 style="margin:6px 0">Report received</h3><p class="hint">Reference (save it if you want):</p><div class="appid" id="newReportId">—</div><div class="row"><button class="btn-small" onclick="copyReportId()">Copy ID</button><button class="btn-small" onclick="resetReportForm()">Write another</button></div></div>
+      </div>
+      <div class="panel" id="contact">
+        <div class="eyebrow" data-dkey="contactEyebrow">Private tickets</div><h3 style="margin:4px 0 6px" data-dkey="contactTitle">Message the staff team</h3>
+        <p class="hint">Sign in is required. Only you and staff see this thread, and staff replies are emailed to your account address. Simple questions may get an instant answer straight away.</p>
+        <form id="ticketForm" onsubmit="return submitTicket(event)"><label>Your name</label><input id="t_name" placeholder="What should we call you?" maxlength="80"><label>Subject</label><input id="t_subject" placeholder="What is this about?" maxlength="120"><label>Message</label><textarea id="t_message" placeholder="Write it here…" rows="4"></textarea><button class="btn-primary" type="submit">Open ticket</button></form>
+        <div id="ticketCreated" style="display:none;text-align:center;padding:10px 0"><h3 style="margin:6px 0">Ticket opened</h3><p class="hint" id="ticketEmailNote">Staff replies will be emailed to your account address.</p><p class="hint">You can also open the thread with this ID:</p><div class="appid" id="newTicketId">—</div><div class="row"><button class="btn-small" onclick="copyTicketId()">Copy ID</button><button class="btn-small" onclick="resetTicketForm()">Write another</button></div></div>
+        <div class="ticket-check"><h3>Check your ticket</h3><div class="row"><input id="ticketInput" placeholder="e.g. TKT-A1B2C3" style="flex:3"><button class="btn-confirm" onclick="checkTicket()" style="flex:1">Open</button></div><div id="ticketResult"></div></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="panel" id="contact">
-    <div class="eyebrow" data-dkey="contactEyebrow">Private tickets</div>
-    <h3 style="margin:4px 0 6px" data-dkey="contactTitle">Message the staff team</h3>
-    <p class="hint">Sign in is required. Only you and staff see this thread, and staff replies are emailed to your account address. Simple questions may get an instant answer straight away.</p>
-    <form id="ticketForm" onsubmit="return submitTicket(event)">
-      <label>Your name</label>
-      <input id="t_name" placeholder="What should we call you?" maxlength="80">
-      <label>Subject</label>
-      <input id="t_subject" placeholder="What is this about?" maxlength="120">
-      <label>Message</label>
-      <textarea id="t_message" placeholder="Write it here…" rows="4"></textarea>
-      <button class="btn-primary" type="submit">Open ticket</button>
-    </form>
-    <div id="ticketCreated" style="display:none;text-align:center;padding:10px 0">
-      <h3 style="margin:6px 0">Ticket opened</h3>
-      <p class="hint" id="ticketEmailNote">Staff replies will be emailed to your account address.</p>
-      <p class="hint">You can also open the thread with this ID:</p>
-      <div class="appid" id="newTicketId">—</div>
-      <div class="row">
-        <button class="btn-small" onclick="copyTicketId()">Copy ID</button>
-        <button class="btn-small" onclick="resetTicketForm()">Write another</button>
+  <section class="answers-stage">
+    <div class="chapter-index"><span>04</span><i></i><span>AFTER YOU APPLY</span></div>
+    <div class="answers-grid">
+      <div class="panel" id="status">
+        <div class="eyebrow" data-dkey="statusEyebrow">Your decision</div><h3 style="margin:4px 0 6px" data-dkey="statusTitle">Check your decision</h3><p class="hint">Enter your Application ID (you got it after submitting). Works for every role.</p>
+        <div class="row"><input id="statusInput" placeholder="e.g. MOD-A1B2C3" style="flex:3"><button class="btn-confirm" onclick="checkStatus()" style="flex:1">Check</button></div><div id="statusResult"></div><p class="emailnote">Decisions are emailed to your account address. <a href="/signin">Manage account</a>.</p>
       </div>
+      <div class="panel" id="accepted" style="display:none"><div class="eyebrow" data-dkey="acceptedEyebrow">Accepted</div><div class="row" style="margin-top:6px;align-items:center"><h3 style="margin:0;flex:3" id="acceptedTitle">New team members</h3><select id="acceptedFilter" onchange="renderApprovedPublic()" style="flex:1;min-width:140px"><option value="">All roles</option></select></div><div class="approved-list" id="approvedList" style="margin-top:10px"></div></div>
+      <div class="panel" id="faq"><div class="eyebrow" data-dkey="faqEyebrow">Before you apply</div><h3 style="margin:4px 0 6px" data-dkey="faqTitle">Good to know</h3><div id="faqList"></div></div>
     </div>
-    <div style="margin-top:18px;border-top:1px dashed var(--line);padding-top:14px">
-      <h3 style="margin:0 0 4px">Check your ticket</h3>
-      <div class="row">
-        <input id="ticketInput" placeholder="e.g. TKT-A1B2C3" style="flex:3">
-        <button class="btn-confirm" onclick="checkTicket()" style="flex:1">Open</button>
-      </div>
-      <div id="ticketResult"></div>
-    </div>
-  </div>
-
-  <div class="panel" id="status">
-    <div class="eyebrow" data-dkey="statusEyebrow">Your decision</div>
-    <h3 style="margin:4px 0 6px" data-dkey="statusTitle">Check your decision</h3>
-    <p class="hint">Enter your Application ID (you got it after submitting). Works for every role.</p>
-    <div class="row">
-      <input id="statusInput" placeholder="e.g. MOD-A1B2C3" style="flex:3">
-      <button class="btn-confirm" onclick="checkStatus()" style="flex:1">Check</button>
-    </div>
-    <div id="statusResult"></div>
-    <p class="emailnote">Decisions are emailed to your account address. <a href="/signin">Manage account</a>.</p>
-  </div>
-
-  <div class="panel" id="accepted" style="display:none">
-    <div class="eyebrow" data-dkey="acceptedEyebrow">Accepted</div>
-    <div class="row" style="margin-top:6px;align-items:center">
-      <h3 style="margin:0;flex:3" id="acceptedTitle">New team members</h3>
-      <select id="acceptedFilter" onchange="renderApprovedPublic()" style="flex:1;min-width:140px"><option value="">All roles</option></select>
-    </div>
-    <div class="approved-list" id="approvedList" style="margin-top:10px"></div>
-  </div>
-
-  <div class="panel" id="faq">
-    <div class="eyebrow" data-dkey="faqEyebrow">Before you apply</div>
-    <h3 style="margin:4px 0 6px" data-dkey="faqTitle">Good to know</h3>
-    <div id="faqList"></div>
-  </div>
+  </section>
 
   <div class="foot" data-dkey="foot">Run by the Wigglesworth staff team — every application gets read and answered.<br><span class="colo">Set in Cinzel &amp; Cormorant Garamond · run by humans</span><br><span class="buildtag" id="buildTag"></span></div>
 
@@ -920,6 +881,25 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     </div>
 
     <div id="tab-texts" class="tabpane">
+      <h3>Homepage About section</h3>
+      <p class="hint">Edit the About headline, introduction, and the three benefit statements shown on the homepage.</p>
+      <label>About eyebrow</label><input id="e_aboutEyebrow" oninput="markDirty()">
+      <label>Headline — first line</label><input id="e_aboutTitleA" oninput="markDirty()">
+      <label>Headline — second line</label><input id="e_aboutTitleB" oninput="markDirty()">
+      <label>Introduction</label><textarea id="e_aboutLede" rows="3" oninput="markDirty()"></textarea>
+      <label>Benefit 1 heading</label><input id="e_aboutFeatureTitle1" oninput="markDirty()">
+      <label>Benefit 1 text</label><textarea id="e_aboutFeatureText1" rows="2" oninput="markDirty()"></textarea>
+      <label>Benefit 2 heading</label><input id="e_aboutFeatureTitle2" oninput="markDirty()">
+      <label>Benefit 2 text</label><textarea id="e_aboutFeatureText2" rows="2" oninput="markDirty()"></textarea>
+      <label>Benefit 3 heading</label><input id="e_aboutFeatureTitle3" oninput="markDirty()">
+      <label>Benefit 3 text</label><textarea id="e_aboutFeatureText3" rows="2" oninput="markDirty()"></textarea>
+      <details class="copy-editor-group">
+        <summary>Edit all other public page text and placeholders</summary>
+        <p class="hint">These saved words are shared with every visitor, including the account page. Role names, application questions, FAQ entries, and the About section above have their own editors.</p>
+        <label for="copySearch">Find text</label><input id="copySearch" type="search" placeholder="Search navigation, forms, requirements…">
+        <div id="publicCopyEditor"></div>
+      </details>
+      <hr>
       <label>Rules / Info box (one per line)</label><textarea id="e_rules" rows="4"></textarea>
       <label>Top Text — shown in the hero (HTML allowed)</label>
       <textarea id="e_top" rows="4" placeholder="A line above the apply button…"></textarea>
@@ -1031,6 +1011,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
   </div>
 </div>
 
+<script src="site-copy.js?v=20261025"></script>
 <script src="app.js"></script>
 <script>
 (function(){
@@ -1072,8 +1053,9 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
         });
       }
     }
-    // gentle entrance for panels (slightly staggered)
-    var els=document.querySelectorAll('.main .panel');
+    // Reveal every observed content section, including editorial sections that
+    // are not panels. Otherwise their initial opacity keeps them hidden forever.
+    var els=document.querySelectorAll('.main .reveal');
     els.forEach(function(el,idx){
       if(!el.classList.contains('reveal'))el.classList.add('reveal');
       el.style.transitionDelay=((idx%3)*70)+'ms';
