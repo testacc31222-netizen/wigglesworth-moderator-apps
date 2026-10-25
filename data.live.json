@@ -3067,6 +3067,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T23:43:38.631Z",
+      "act": "account_login",
+      "id": "acc_1e449e8c121ecfe0ad20bf15",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T23:43:28.984Z",
       "act": "deleted",
       "id": "EVT-GXG4PW",
@@ -3659,12 +3665,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T16:02:41.089Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4174,17 +4174,15 @@
       "email": "kanedfhkh@gmail.com",
       "createdAt": "2026-10-25T23:36:14.332Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_1e449e8c121ecfe0ad20bf15",
       "email": "cr3808999@gmail.com",
-      "hash": "c56261e4978ccc0940e7993c248a1a1ba792e2e4ead69814359da49f9ce11a41",
-      "exp": 1792972344610,
-      "tries": 2,
-      "created": 1792971744610
+      "createdAt": "2026-10-25T23:43:38.631Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
