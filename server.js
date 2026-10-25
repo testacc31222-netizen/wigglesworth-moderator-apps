@@ -795,6 +795,7 @@ function queueMail(db, opts) {
     html: String(opts.html || '').slice(0, 40000),
     kind: cleanStr(opts.kind || 'other', 30),
     appId: cleanStr(opts.appId || '', 40),
+    decisionStatus: cleanStr(opts.decisionStatus || '', 16),
     status: 'queued', attempts: 0, error: '',
     createdAt: new Date().toISOString(), sentAt: '',
   });
@@ -898,7 +899,18 @@ async function flushOutbox() {
       const quota = !result.ok && /quota|too many (times|emails)|daily limit|limit exceeded/i.test(result.error || '');
       if (m2) {
         if (!quota) m2.attempts = (m2.attempts || 0) + 1;
-        if (result.ok) { m2.status = 'sent'; m2.sentAt = new Date().toISOString(); m2.error = ''; }
+        if (result.ok) {
+          m2.status = 'sent'; m2.sentAt = new Date().toISOString(); m2.error = '';
+          // A decision is not notified until the email provider confirms success.
+          if (m2.kind === 'decision' && m2.appId && m2.decisionStatus) {
+            const application = (db2.submissions || []).find(x => x.appId === m2.appId);
+            if (application && application.status === m2.decisionStatus) {
+              application.notifiedStatus = m2.decisionStatus;
+              application.notifiedAt = m2.sentAt;
+            }
+          }
+          console.log('mail delivered to provider', m2.kind, m2.id, result.provider);
+        }
         else { m2.status = (!quota && m2.attempts >= 5) ? 'failed' : 'queued'; m2.error = cleanStr(result.error, 200); }
         saveDB(db2);
       }
@@ -919,13 +931,15 @@ function mailStats(db) {
 function queueDecisionEmail(db, s, force) {
   if (!s.email || s.emailUpdates === false) return false;
   if (!force && s.notifiedStatus === s.status) return false;
+  // Avoid generating duplicate outstanding notifications for the same decision.
+  if (!force && (db.outbox || []).some(m =>
+    m.kind === 'decision' && m.appId === s.appId &&
+    m.decisionStatus === s.status && m.status === 'queued')) return false;
   const mail = decisionEmail(db, s);
-  // notifiedStatus is the real duplicate guard; a timestamp lets a later
-  // re-decision (deny -> approve) send again.
   const key = s.appId + ':' + s.status + ':' + Date.now();
-  const ok = queueMail(db, { ...mail, to: s.email, kind: 'decision', appId: s.appId, key });
-  if (ok) { s.notifiedStatus = s.status; s.notifiedAt = new Date().toISOString(); }
-  return ok;
+  return queueMail(db, { ...mail, to: s.email, kind: 'decision',
+    appId: s.appId, decisionStatus: s.status, key });
+
 }
 function queueReceiptEmail(db, s) {
   if (!s.email || s.emailUpdates === false) return false;
@@ -1877,11 +1891,44 @@ app.post('/api/clientlog', diagLimit, (req, res) => {
   res.json({ ok: true });
 });
 
-app.listen(PORT, HOST, () => {
+// Render's local filesystem is ephemeral. Restore the newest backed-up state
+// before serving requests, otherwise each deploy can reset queued/sent counts
+// to the older database bundled in the repository deployment.
+async function hydrateProductionData() {
+  if (!GH_TOKEN || process.env.PREVIEW_MODE === '1') return;
+  const endpoint = `https://api.github.com/repos/${GH_REPO}/contents/${GH_PATH}?ref=${encodeURIComponent(GH_BRANCH)}`;
+  const response = await fetch(endpoint, { headers: {
+    'User-Agent': 'wigglesworth-apps',
+    Authorization: `Bearer ${GH_TOKEN}`,
+    Accept: 'application/vnd.github+json',
+  }, signal: AbortSignal.timeout(15000) });
+  if (!response.ok) throw new Error('GitHub data restore HTTP ' + response.status);
+  const file = await response.json();
+  if (file.encoding !== 'base64' || typeof file.content !== 'string') throw new Error('GitHub data backup invalid');
+  const decoded = Buffer.from(file.content.replace(/\s/g, ''), 'base64').toString('utf8');
+  const restored = JSON.parse(decoded);
+  if (!restored || typeof restored !== 'object' ||
+      !Array.isArray(restored.submissions) || !Array.isArray(restored.outbox) ||
+      !restored.config || typeof restored.config !== 'object') {
+    throw new Error('GitHub database backup has unexpected shape');
+  }
+  const temp = DATA_FILE + '.startup.tmp';
+  fs.writeFileSync(temp, decoded);
+  fs.renameSync(temp, DATA_FILE);
+  console.log('Restored application data from GitHub backup before accepting requests');
+}
+async function startServer() {
+  try { await hydrateProductionData(); }
+  catch (error) {
+    console.error('GitHub database restore unsuccessful; using local file:', error.message);
+  }
+  app.listen(PORT, HOST, () => {
   console.log(`Moderator site on http://${HOST}:${PORT} (bound to ${HOST} only — home IP not exposed)`);
   console.log(`Discord ticket alerts: ${DISCORD_WEBHOOK_URL ? 'ON' : 'OFF (set DISCORD_WEBHOOK_URL)'}`);
   console.log(`Applicant email: ${mailConfigured() ? 'ON via ' + mailProvider() + ' (' + MAIL_FROM + ')' : 'OFF (set APPS_SCRIPT_URL + APPS_SCRIPT_SECRET, SMTP_USER + SMTP_PASS, or RESEND_API_KEY / BREVO_API_KEY + MAIL_FROM; mail is queued)'}`);
   // Retry anything queued while the service was asleep, then periodically.
   setTimeout(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 4000);
   setInterval(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 5 * 60 * 1000).unref();
-});
+  });
+}
+startServer().catch(error => { console.error('startup error', error); process.exitCode = 1; });
