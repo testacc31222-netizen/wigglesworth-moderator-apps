@@ -2496,26 +2496,6 @@
       "notifiedAt": "2026-10-25T23:26:36.912Z"
     },
     {
-      "appId": "EVT-GXG4PW",
-      "type": "event",
-      "date": "2026-10-25T23:05:10.934Z",
-      "status": "pending",
-      "adminNote": "",
-      "email": "orangemine67@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_07ba6ad1eb8868cd9a06deb4",
-      "notifiedStatus": "",
-      "username": "Endis204",
-      "discord": "Daysvr.",
-      "age": "13",
-      "timezone": "GMT",
-      "experience": "None",
-      "eventidea": "Mini games and hide and seek sort of stuff",
-      "chaos": "I make sure i know what happend before and while it crashed or broke so i can continue from what is happening or happend",
-      "reliable": "Tuesday 8pm GMT",
-      "receiptAt": "2026-10-25T23:05:10.935Z"
-    },
-    {
       "appId": "MOD-JYERJZ",
       "type": "moderator",
       "date": "2026-10-25T23:39:21.908Z",
@@ -3086,6 +3066,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-25T23:43:28.984Z",
+      "act": "deleted",
+      "id": "EVT-GXG4PW",
+      "by": ""
+    },
     {
       "t": "2026-10-25T23:40:14.768Z",
       "act": "deleted",
@@ -3679,12 +3665,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T15:18:24.599Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4201,7 +4181,7 @@
       "email": "cr3808999@gmail.com",
       "hash": "c56261e4978ccc0940e7993c248a1a1ba792e2e4ead69814359da49f9ce11a41",
       "exp": 1792972344610,
-      "tries": 1,
+      "tries": 2,
       "created": 1792971744610
     }
   ],
