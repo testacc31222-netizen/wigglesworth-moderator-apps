@@ -2491,7 +2491,7 @@
       "receiptAt": "2026-10-25T23:04:28.673Z",
       "aiSummary": "Verdict: Weak - unclear answers and questionable experience  \n- Wants to join: Moderator  \n- Experience: None clear, provided gibberish  \n- Availability: Timezone listed as “Hgh” (unknown)  \n- Watch-outs: Age 14, unclear moderation skills, admitted to being banned.",
       "aiSummaryAt": "2026-10-25T23:05:03.772Z",
-      "notifiedAt": "2026-10-25T23:05:45.646Z"
+      "notifiedAt": "2026-10-25T23:26:36.912Z"
     },
     {
       "appId": "EVT-GXG4PW",
@@ -4511,11 +4511,11 @@
       "kind": "decision",
       "appId": "MOD-3XVJ2M",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-25T23:26:35.854Z",
-      "sentAt": ""
+      "sentAt": "2026-10-25T23:26:36.912Z"
     }
   ]
 }
