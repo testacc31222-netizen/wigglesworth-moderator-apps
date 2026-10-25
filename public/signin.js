@@ -9,6 +9,28 @@ let meta = { mailConfigured: true };
 let me = null;
 let mode = 'email';
 let codeEmail = '';
+let redirecting = false;
+
+function safeNext(value) {
+  const raw = String(value || '').trim();
+  if (!raw || !raw.startsWith('/') || raw.startsWith('//') || raw.includes('\\')) return '';
+  try {
+    const u = new URL(raw, location.origin);
+    if (u.origin !== location.origin) return '';
+    if (/^\/api(\/|$)/.test(u.pathname)) return '';
+    if (u.pathname === '/signin' || u.pathname === '/signin.html') return '';
+    return u.pathname + u.search + u.hash;
+  } catch { return ''; }
+}
+const nextUrl = safeNext(new URLSearchParams(location.search).get('next'));
+
+function goNext() {
+  if (!nextUrl || redirecting) return false;
+  redirecting = true;
+  setMsg('dashMsg', 'Signed in. Taking you back…', 'ok');
+  setTimeout(() => location.replace(nextUrl), 350);
+  return true;
+}
 
 function setMsg(box, text, kind) {
   const el = $(box);
@@ -102,7 +124,7 @@ function renderDash() {
 async function loadMe() {
   try {
     const r = await fetch('/api/account/me', { cache: 'no-store' });
-    if (r.ok) { me = await r.json(); renderDash(); return; }
+    if (r.ok) { me = await r.json(); renderDash(); if (nextUrl) goNext(); return; }
     me = null;
   } catch { me = null; }
   showSignedOut();
@@ -175,6 +197,7 @@ async function verifyCode() {
     renderDash();
     $('code').value = '';
     setMsg('dashMsg', 'Signed in. This device will stay signed in for 30 days.', 'ok');
+    goNext();
   } catch {
     setMsg('authMsg', 'Could not reach the server. Try again.', 'err');
   } finally {
@@ -226,6 +249,7 @@ async function recover(e) {
     me = j;
     renderDash();
     setMsg('dashMsg', 'Signed in. Add any other Application IDs below.', 'ok');
+    goNext();
   } catch {
     setMsg('authMsg', 'Could not reach the server. Try again.', 'err');
   } finally {

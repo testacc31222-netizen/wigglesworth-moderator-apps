@@ -196,6 +196,15 @@ app.use((req, res, next) => {
   }
   next();
 });
+// The public site is now account-only. Staff can still reach the editor shell
+// with ?staff=1 and then unlock it with the edit code.
+app.get(['/', '/index.html'], (req, res, next) => {
+  if (req.query.staff === '1') return next();
+  const db = loadDB();
+  if (accountFromReq(req, db)) return next();
+  const nextPath = req.path === '/' ? '/' : '/index.html';
+  return res.redirect(302, '/signin?next=' + encodeURIComponent(nextPath));
+});
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1h', setHeaders(res, filePath) {
   if (/[\\/](index|signin)\.html$/.test(filePath) || /[\\/](app|signin)\.js$/.test(filePath)) {
     res.set('Cache-Control', 'no-store');
@@ -573,6 +582,31 @@ function appsForAccount(db, a) {
 function accountPayload(db, a) {
   return { email: a.email, createdAt: a.createdAt, emailUpdates: a.emailUpdates !== false, apps: appsForAccount(db, a) };
 }
+// Older tickets predate accounts. Their random ticket ID is still the secret,
+// so a signed-in visitor who knows the ID may open them. New tickets are tied
+// to the account that created them.
+function ticketForAccount(t, a) {
+  if (!t || !a) return false;
+  if (t.accountId) return t.accountId === a.id;
+  if (t.email) return normEmail(t.email) === a.email;
+  return true;
+}
+// A signed-in applicant who opens an older ticket with its secret ID can claim
+// it for their account. That lets future staff replies reach their inbox.
+function claimTicketForAccount(db, t, a) {
+  if (!t || !a) return false;
+  let changed = false;
+  if (!t.accountId && (!t.email || normEmail(t.email) === a.email)) {
+    t.accountId = a.id;
+    changed = true;
+  }
+  if (!t.email && t.accountId === a.id) {
+    t.email = a.email;
+    changed = true;
+  }
+  if (changed) saveDB(db);
+  return changed;
+}
 function linkAppToAccount(db, a, appId) {
   const id = cleanStr(appId, 40).trim().toUpperCase();
   if (!validAppId(id)) return { error: 'Enter a valid Application ID (e.g. MOD-ABC123).' };
@@ -589,7 +623,7 @@ function linkAppToAccount(db, a, appId) {
 function escHtml(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
-function mailShell(inner) {
+function mailShell(inner, footer) {
   return '<!doctype html><html><body style="margin:0;padding:0;background:#080809">'
     + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#080809">'
     + '<tr><td align="center" style="padding:0">'
@@ -599,7 +633,7 @@ function mailShell(inner) {
     + '<div style="height:1px;background:#381217;margin:18px 0 26px"></div>'
     + inner
     + '<div style="height:1px;background:#381217;margin:28px 0 16px"></div>'
-    + '<p style="margin:0;font-size:12px;color:#7d7873">You are receiving this because you applied to join the Wigglesworth staff team.</p>'
+    + '<p style="margin:0;font-size:12px;color:#7d7873">' + (footer || 'You are receiving this because you applied to join the Wigglesworth staff team.') + '</p>'
     + '</div></td></tr></table></body></html>';
 }
 function decisionEmail(db, s) {
@@ -654,6 +688,37 @@ function receiptEmail(db, s) {
     + '<p style="margin:0 0 18px;color:#AAA5A0;font-size:13px">We will email you again when there is a decision. Nothing else is needed from you right now.</p>'
     + '<a href="' + escHtml(PUBLIC_URL + '/signin') + '" style="display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Sign in to track it</a>';
   return { subject, text, html: mailShell(inner) };
+}
+function ticketReplyEmail(t, reply) {
+  const link = PUBLIC_URL + '/signin?next=' + encodeURIComponent('/#contact');
+  const subject = 'Re: ' + t.subject + ' [' + t.id + ']';
+  const auto = reply.name === 'Staff (auto)';
+  const intro = auto
+    ? 'An automatic answer was added to your Wigglesworth ticket ' + t.id + ' — ' + t.subject + ':'
+    : 'Staff replied to your Wigglesworth ticket ' + t.id + ' — ' + t.subject + ':';
+  const text = [
+    'Hi ' + t.name + ',', '',
+    intro, '',
+    reply.text, '',
+    'Open the ticket (sign in with ' + t.email + '):',
+    link, '',
+    'Ticket ID: ' + t.id, '',
+    '— Wigglesworth Staff',
+  ].join('\n');
+  const inner = '<h1 style="font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6">Ticket update</h1>'
+    + '<p style="margin:0 0 14px">Hi ' + escHtml(t.name) + ',</p>'
+    + '<p style="margin:0 0 18px">' + (auto ? 'An automatic answer was added to' : 'Staff replied to') + ' your ticket <b>' + escHtml(t.id) + '</b> — ' + escHtml(t.subject) + '.</p>'
+    + '<div style="border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px">'
+    + '<div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:8px">' + (auto ? 'Automatic answer' : 'Staff reply') + '</div>'
+    + '<div style="color:#E6DED4">' + escHtml(reply.text).replace(/\n/g, '<br>') + '</div>'
+    + '</div>'
+    + '<p style="margin:0 0 18px;color:#AAA5A0;font-size:13px">Sign in with <b style="color:#E6DED4">' + escHtml(t.email) + '</b> to open the thread. Ticket ID: <b style="color:#E6DED4">' + escHtml(t.id) + '</b></p>'
+    + '<a href="' + escHtml(link) + '" style="display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Open my ticket</a>';
+  return {
+    subject,
+    text,
+    html: mailShell(inner, 'You are receiving this because you opened a support ticket with Wigglesworth.'),
+  };
 }
 function signInEmail(code) {
   const subject = 'Your Wigglesworth sign-in code';
@@ -817,6 +882,14 @@ function queueReceiptEmail(db, s) {
   if (ok) s.receiptAt = new Date().toISOString();
   return ok;
 }
+function queueTicketReplyEmail(db, t, reply) {
+  if (!t || !t.email || !reply) return false;
+  const mail = ticketReplyEmail(t, reply);
+  return queueMail(db, {
+    ...mail, to: t.email, kind: 'ticket',
+    key: 'ticket:' + t.id + ':' + (t.replies || []).length + ':' + (reply.at || Date.now()),
+  });
+}
 
 const FAQ_STOP = new Set('a,an,the,and,or,but,if,then,so,for,to,of,in,on,at,by,do,does,did,is,are,was,were,be,been,am,i,you,he,she,it,we,they,me,him,her,us,them,my,your,his,our,their,what,when,where,who,whom,which,how,why,can,could,should,would,will,just,very,here,there,this,that,these,those,any,all,anyone,anybody,please,thanks,thank,hi,hello,hey,get,got,have,has,had'.split(','));
 function faqMatch(text, faqs) {
@@ -849,6 +922,8 @@ app.get('/api/config', configLimit, (req, res) => {
 
 app.post('/api/applications', submitLimit, (req, res) => {
   const db = loadDB();
+  const account = accountFromReq(req, db);
+  if (!account) return res.status(401).json({ error: 'Sign in with your email before applying.' });
   const body = req.body && typeof req.body === 'object' ? req.body : {};
   const t = typeById(db, cleanStr(body.type, 40));
   if (!t) return res.status(400).json({ error: 'Pick a role first.' });
@@ -861,17 +936,14 @@ app.post('/api/applications', submitLimit, (req, res) => {
       return res.status(400).json({ error: q.label + ' is too short.' });
     }
   }
-  const accountId = sessionRead(req);
-  const account = accountId ? (db.accounts || []).find(a => a.id === accountId) : null;
-  const email = account ? account.email : normEmail(body.email);
-  if (!email) return res.status(400).json({ error: 'Add a valid email so we can send your decision.' });
+  const email = account.email;
   const entry = {
     appId: genId(t.prefix), type: t.id, date: new Date().toISOString(),
     status: 'pending', adminNote: '', email,
     emailUpdates: body.emailUpdates !== false,
-    accountId: account ? account.id : '', notifiedStatus: '',
+    accountId: account.id, notifiedStatus: '',
   };
-  if (account) account.emailUpdates = entry.emailUpdates;
+  account.emailUpdates = entry.emailUpdates;
   const ids = new Set(t.questions.map(q => q.id));
   for (const q of db.config.applicationTypes.flatMap(x => x.questions)) {
     if (ids.has(q.id)) entry[q.id] = cleanStr(answers[q.id], 3000);
@@ -1042,6 +1114,8 @@ app.post('/api/account/signout', (req, res) => {
 // --- private tickets ---
 app.post('/api/tickets', ticketLimit, (req, res) => {
   const db = loadDB();
+  const account = accountFromReq(req, db);
+  if (!account) return res.status(401).json({ error: 'Sign in with your email before opening a ticket.' });
   const b = req.body && typeof req.body === 'object' ? req.body : {};
   let name = cleanStr(b.name, 80).trim();
   const subject = cleanStr(b.subject, 120).trim();
@@ -1052,28 +1126,36 @@ app.post('/api/tickets', ticketLimit, (req, res) => {
   if (hasSlur(name + ' ' + subject + ' ' + message)) return res.status(400).json({ error: 'Message rejected.' });
   const t = {
     id: genId('TKT'), name, subject, status: 'open', unread: true,
+    email: account.email, accountId: account.id,
     createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
     replies: [{ by: 'user', name, text: message, at: new Date().toISOString() }],
   };
   db.tickets.push(t);
   if (db.tickets.length > 2000) db.tickets = db.tickets.slice(-2000);
+  let autoReply = null;
   const faqHit = faqMatch(subject + ' ' + message, db.config.faq);
   if (faqHit) {
-    t.replies.push({ by: 'staff', name: 'Staff (auto)',
+    autoReply = { by: 'staff', name: 'Staff (auto)',
       text: `Quick answer from our FAQ:\n\n${faqHit.f.a}\n\nStill stuck? Just reply and a human will pick it up.`,
-      at: new Date().toISOString() });
+      at: new Date().toISOString() };
+    t.replies.push(autoReply);
     audit(db, 'auto_faq', t.id, null);
   }
+  const emailed = autoReply ? queueTicketReplyEmail(db, t, autoReply) : false;
   saveDB(db);
+  if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
   discordNotify(`New ticket **${t.id}** — ${t.subject}\nFrom **${t.name}**: ${t.replies[0].text.slice(0, 500)}`);
-  res.json({ id: t.id });
+  res.json({ id: t.id, email: t.email, emailed, mailConfigured: mailConfigured() });
 });
 
 app.get('/api/tickets/:id', statusLimit, (req, res) => {
   if (!validTicketId(req.params.id)) return res.status(404).json({ error: 'Not found' });
   const db = loadDB();
+  const account = accountFromReq(req, db);
+  if (!account) return res.status(401).json({ error: 'Sign in to open your ticket.' });
   const t = db.tickets.find(x => (x.id || '').toUpperCase() === req.params.id.toUpperCase());
-  if (!t) return res.status(404).json({ error: 'Not found' });
+  if (!t || !ticketForAccount(t, account)) return res.status(404).json({ error: 'Not found' });
+  claimTicketForAccount(db, t, account);
   res.json({ id: t.id, name: t.name, subject: t.subject, status: t.status,
              createdAt: t.createdAt, updatedAt: t.updatedAt, replies: t.replies });
 });
@@ -1086,19 +1168,28 @@ app.post('/api/tickets/:id/reply', ticketLimit, (req, res) => {
   const b = req.body && typeof req.body === 'object' ? req.body : {};
   const staff = b.staff === true && isAdmin(req, db);
   if (b.staff === true && !staff) return res.status(401).json({ error: 'Unauthorized' });
-  if (!staff && t.status !== 'open') return res.status(400).json({ error: 'This ticket is closed.' });
+  const account = accountFromReq(req, db);
+  if (!staff) {
+    if (!account) return res.status(401).json({ error: 'Sign in to reply to your ticket.' });
+    if (!ticketForAccount(t, account)) return res.status(404).json({ error: 'Not found' });
+    if (t.status !== 'open') return res.status(400).json({ error: 'This ticket is closed.' });
+    claimTicketForAccount(db, t, account);
+  }
   const text = cleanStr(b.text, 2000).trim();
   if (text.length < 1) return res.status(400).json({ error: 'Empty reply.' });
   if (!staff && hasSlur(text)) return res.status(400).json({ error: 'Reply rejected.' });
   if (t.replies.length >= 200) return res.status(400).json({ error: 'Thread is full.' });
   const name = staff ? 'Staff' : cleanStr(b.name || t.name, 80);
-  t.replies.push({ by: staff ? 'staff' : 'user', name, text, at: new Date().toISOString() });
+  const reply = { by: staff ? 'staff' : 'user', name, text, at: new Date().toISOString() };
+  t.replies.push(reply);
   t.updatedAt = new Date().toISOString();
   t.unread = !staff;
+  const emailed = staff ? queueTicketReplyEmail(db, t, reply) : false;
   if (staff) audit(db, 'ticket_reply', t.id, req);
   saveDB(db);
+  if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
   if (!staff) discordNotify(`Reply on ticket **${t.id}** (${t.subject}) from **${name}**:\n${text.slice(0, 500)}`);
-  res.json({ ok: true });
+  res.json({ ok: true, emailed, mailConfigured: mailConfigured() });
 });
 
 // AI-drafted staff reply (human reviews before sending — nothing auto-sends).
@@ -1142,6 +1233,7 @@ app.get('/api/admin/tickets', adminLimit, (req, res) => {
   res.set('Cache-Control', 'no-store');
   res.json(db.tickets.slice().reverse().slice(0, 1000).map(t => ({
     id: t.id, name: t.name, subject: t.subject, status: t.status, unread: !!t.unread,
+    email: t.email || '', accountId: t.accountId || '',
     createdAt: t.createdAt, updatedAt: t.updatedAt, replies: t.replies,
   })));
 });

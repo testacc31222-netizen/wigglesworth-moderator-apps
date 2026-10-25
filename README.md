@@ -48,10 +48,17 @@ Discord name manually. Delete any `DISCORD_CLIENT_ID`, `DISCORD_CLIENT_SECRET`,
 
 ## Applicant accounts + emailed decisions
 
-Applicants can now sign in at `/signin` to see every application tied to their
+The public site is now account-only: visiting `/` redirects to `/signin`
+until the visitor signs in with an email code (or claims an older application
+with its Application ID). Applications and private tickets also require a
+signed-in account on the server, not just in the browser.
+
+Applicants can sign in at `/signin` to see every application tied to their
 email, read the staff note, and choose whether decisions are emailed.
 
 - The application form collects a required **email** plus an opt-out checkbox.
+  The account email is used, so applicants cannot accidentally submit a
+  different address while signed in.
 - A receipt is emailed on submission. When staff approve or deny, a decision
   email goes out automatically (once, per decision).
 - Sign-in is passwordless: a 6-digit code is emailed and lasts 10 minutes.
@@ -62,6 +69,16 @@ email, read the staff note, and choose whether decisions are emailed.
   "Add an older application" box for the rest.
 - Staff can force a fresh decision email from Applications → **Re-email
   decision**, and see delivery state in Editor → General → **Applicant emails**.
+- Staff can reach the editor shell at `/?staff=1` and unlock it with the edit
+  code. Applicant actions still require an email account.
+
+### Ticket replies by email
+
+New private tickets are linked to the signed-in account and its email.
+When staff reply, the reply is queued to that address with the ticket ID and a
+link back to the private thread. FAQ auto-answers are emailed too. Older tickets
+can be claimed by opening them with their secret ticket ID while signed in; the
+first account that opens one gets future replies by email.
 
 ### Turn on email delivery (Google Apps Script, Gmail SMTP, Resend, or Brevo)
 

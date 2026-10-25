@@ -558,7 +558,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <a href="#why">About</a>
       <a href="#requirements">Requirements</a>
       <a href="#faq">FAQ</a>
-      <a href="/signin">Sign in</a>
+      <a href="/signin">Account</a>
     </nav>
     <div class="nav-actions">
       <button class="btn-staff" onclick="openCodeModal()">Staff</button>
@@ -712,7 +712,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
   <div class="panel" id="contact">
     <div class="eyebrow" data-dkey="contactEyebrow">Private tickets</div>
     <h3 style="margin:4px 0 6px" data-dkey="contactTitle">Message the staff team</h3>
-    <p class="hint">Only you and staff see this thread. No account needed — your ticket ID is the key, keep it private. Simple questions may get an instant answer straight away.</p>
+    <p class="hint">Sign in is required. Only you and staff see this thread, and staff replies are emailed to your account address. Simple questions may get an instant answer straight away.</p>
     <form id="ticketForm" onsubmit="return submitTicket(event)">
       <label>Your name</label>
       <input id="t_name" placeholder="What should we call you?" maxlength="80">
@@ -724,7 +724,8 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     </form>
     <div id="ticketCreated" style="display:none;text-align:center;padding:10px 0">
       <h3 style="margin:6px 0">Ticket opened</h3>
-      <p class="hint">Save this ID — it's the only way back into your thread:</p>
+      <p class="hint" id="ticketEmailNote">Staff replies will be emailed to your account address.</p>
+      <p class="hint">You can also open the thread with this ID:</p>
       <div class="appid" id="newTicketId">—</div>
       <div class="row">
         <button class="btn-small" onclick="copyTicketId()">Copy ID</button>
@@ -750,7 +751,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <button class="btn-confirm" onclick="checkStatus()" style="flex:1">Check</button>
     </div>
     <div id="statusResult"></div>
-    <p class="emailnote">Want the decision emailed to you? <a href="/signin">Sign in or claim your application</a>.</p>
+    <p class="emailnote">Decisions are emailed to your account address. <a href="/signin">Manage account</a>.</p>
   </div>
 
   <div class="panel" id="accepted" style="display:none">

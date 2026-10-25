@@ -1,6 +1,6 @@
 let config = null;
 let account = null;
-const BUILD = '20261024c';
+const BUILD = '20261024d';
 function sendDiag(failed){
   try{
     const tag = document.getElementById('buildTag');
@@ -278,6 +278,7 @@ async function submitApp(e){
   try{
     const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t.id,answers,email,emailUpdates})});
     const j = await r.json();
+    if(r.status===401){ location.href='/signin?next='+encodeURIComponent('/#apply-form'); return false; }
     if(!r.ok) throw new Error(j.error||'Submit failed');
     $('modForm').style.display='none';
     $('success').style.display='block';
@@ -287,12 +288,12 @@ async function submitApp(e){
     if(se){
       if(j.email && j.emailUpdates === false){
         se.style.display='block';
-        se.innerHTML = 'Email updates are off. <a href="/signin">Sign in</a> to check the result at any time.';
+        se.innerHTML = 'Email updates are off. <a href="/signin">Manage account</a> to check the result at any time.';
       } else if(j.email){
         se.style.display='block';
         se.innerHTML = j.mailConfigured
-          ? 'A receipt is on its way to <b>'+esc(j.email)+'</b>. Your decision will be emailed there too. <a href="/signin">Sign in</a>'
-          : 'We saved <b>'+esc(j.email)+'</b> for your decision. <a href="/signin">Sign in</a> to track it.';
+          ? 'A receipt is on its way to <b>'+esc(j.email)+'</b>. Your decision will be emailed there too. <a href="/signin">Manage account</a>'
+          : 'We saved <b>'+esc(j.email)+'</b> for your decision. <a href="/signin">Manage account</a> to track it.';
       } else se.style.display='none';
     }
     renderApprovedPublic();
@@ -702,16 +703,26 @@ async function submitTicket(e){
   try{
     const r = await fetch('/api/tickets',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const j = await r.json();
+    if(r.status===401){ openTicketSignin(); return false; }
     if(!r.ok) throw new Error(j.error||'Failed');
     $('ticketForm').style.display='none';
     $('ticketCreated').style.display='block';
     $('newTicketId').textContent = j.id;
+    const note = $('ticketEmailNote');
+    if(note){
+      const to = j.email || (account && account.email) || 'your account address';
+      note.textContent = j.mailConfigured === false
+        ? 'Email delivery is off right now, so keep this ticket ID to check the thread.'
+        : (j.emailed ? 'An automatic answer has been emailed to ' + to + '. Staff replies will go there too.'
+          : 'Staff replies will be emailed to ' + to + '.');
+    }
   }catch(err){ alert(err.message); }
   finally{ done(); }
   return false;
 }
 function resetTicketForm(){ $('ticketForm').reset(); $('ticketForm').style.display='block'; $('ticketCreated').style.display='none'; }
 function copyTicketId(){ const t=$('newTicketId').textContent; navigator.clipboard?.writeText(t); alert('Copied: '+t); }
+function openTicketSignin(){ location.href='/signin?next='+encodeURIComponent('/#contact'); }
 async function checkTicket(){
   const id = $('ticketInput').value.trim().toUpperCase();
   const box = $('ticketResult'); box.innerHTML='';
@@ -719,6 +730,7 @@ async function checkTicket(){
   const done = busyOn(document.querySelector('#contact .btn-confirm'), 'Opening');
   try{
     const r = await fetch('/api/tickets/'+encodeURIComponent(id));
+    if(r.status===401){ openTicketSignin(); return; }
     if(!r.ok) throw 0;
     currentTicket = await r.json();
     renderUserThread();
@@ -739,6 +751,7 @@ async function userReply(){
   if(!text) return;
   const r = await fetch('/api/tickets/'+currentTicket.id+'/reply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
   const j = await r.json();
+  if(r.status===401){ openTicketSignin(); return; }
   if(!r.ok){ alert(j.error||'Failed'); return; }
   const t2 = await (await fetch('/api/tickets/'+currentTicket.id)).json();
   currentTicket = t2; renderUserThread();
@@ -774,7 +787,7 @@ function renderTicketThread(){
   const t = ticketAdminCache.find(x=>x.id===selectedTicketId);
   if(!t){ box.innerHTML=''; return; }
   const closed = t.status!=='open';
-  box.innerHTML = `<div class="submission"><b>${esc(t.id)}</b> — ${esc(t.subject)} <span class="hint">from ${esc(t.name)} · ${esc(t.createdAt||'')}</span> <span class="status ${closed?'denied':'pending'}">${t.status.toUpperCase()}</span></div>`
+  box.innerHTML = `<div class="submission"><b>${esc(t.id)}</b> — ${esc(t.subject)} <span class="hint">from ${esc(t.name)}${t.email ? ' · ' + esc(t.email) : ' · no email on file'} · ${esc(t.createdAt||'')}</span> <span class="status ${closed?'denied':'pending'}">${t.status.toUpperCase()}</span></div>`
     + threadHTML(t,true)
     + `<label>Reply as staff${closed?' (reopens the ticket)':''}</label><textarea id="t_staffReply" rows="3"></textarea>
     <div class="row"><button class="btn-confirm" onclick="staffReply()">Send</button>
