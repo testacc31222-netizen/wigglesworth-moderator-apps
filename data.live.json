@@ -2931,6 +2931,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T16:06:20.113Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T16:02:41.089Z",
       "act": "config_saved",
       "id": "",
@@ -3521,12 +3527,6 @@
     {
       "t": "2026-10-10T23:17:26.868Z",
       "act": "report_deleted",
-      "id": "RPT-VXEFSH",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T23:17:24.335Z",
-      "act": "report_closed",
       "id": "RPT-VXEFSH",
       "by": ""
     }
