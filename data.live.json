@@ -234,6 +234,10 @@
       "t-home-sb011o-0": {
         "dx": -61,
         "dy": -7
+      },
+      "t-home-1wqvpgh-0": {
+        "dx": 13,
+        "dy": -16
       }
     },
     "decor": [],
@@ -2894,6 +2898,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T22:54:07.998Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T22:54:05.783Z",
       "act": "config_saved",
       "id": "",
@@ -3486,12 +3496,6 @@
       "act": "ai_denied",
       "id": "CC-7TQP8L",
       "by": "Raz"
-    },
-    {
-      "t": "2026-10-17T20:55:30.290Z",
-      "act": "deleted",
-      "id": "CC-NPMDJD",
-      "by": ""
     }
   ],
   "reports": [
