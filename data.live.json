@@ -1336,9 +1336,10 @@
       "schedule": "2-3 weeks",
       "style": "Im a multiple game content, yet i havent post most",
       "strikes": "No Never",
-      "email": "",
+      "email": "kanedfhkh@gmail.com",
       "emailUpdates": true,
-      "notifiedStatus": ""
+      "notifiedStatus": "",
+      "accountId": "acc_423c4a1f1857c94ba035fe64"
     },
     {
       "appId": "MOD-R483PY",
@@ -3086,6 +3087,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T23:37:17.938Z",
+      "act": "account_link",
+      "id": "CC-URSKJS",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T23:36:14.332Z",
       "act": "account_login",
       "id": "acc_423c4a1f1857c94ba035fe64",
@@ -3675,12 +3682,6 @@
     },
     {
       "t": "2026-10-25T07:55:29.774Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T07:46:14.901Z",
       "act": "config_saved",
       "id": "",
       "by": ""
