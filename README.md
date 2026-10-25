@@ -109,7 +109,9 @@ Then set these optional but recommended values:
 - `PUBLIC_URL` = `https://your-custom-domain.com` (used in email links)
 - `MAIL_REPLY_TO` = a staff inbox
 
-Save, wait for the deploy, then Editor → General → **Send test**.
+Save, wait for the deploy, then Editor → General → **Send test**. Auto-deploy is
+off on the live service, so after changing env vars click **Manual Deploy →
+Deploy latest commit** if Render does not redeploy automatically.
 
 Until a provider is configured, nothing is lost: every email is queued in
 `data.live.json` and the editor shows Queued / Sent / Failed counts. The queue
