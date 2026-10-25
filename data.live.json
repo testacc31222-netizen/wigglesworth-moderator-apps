@@ -1517,9 +1517,10 @@
       "why": "I want to be a moderator because i feel like i want to help this server grow as a community and help people.",
       "scenario": "I would calmly tell them to stop, as if they dont, i would ask what to do to a older mod",
       "rulebreak": "No",
-      "email": "",
+      "email": "kanedfhkh@gmail.com",
       "emailUpdates": true,
-      "notifiedStatus": ""
+      "notifiedStatus": "",
+      "accountId": "acc_423c4a1f1857c94ba035fe64"
     },
     {
       "appId": "MOD-4EDNAX",
@@ -3087,6 +3088,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T23:37:35.774Z",
+      "act": "account_link",
+      "id": "MOD-F3Q9HM",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T23:37:17.938Z",
       "act": "account_link",
       "id": "CC-URSKJS",
@@ -3678,12 +3685,6 @@
       "t": "2026-10-25T07:56:28.405Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T07:55:29.774Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
