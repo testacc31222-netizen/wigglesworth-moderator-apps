@@ -111,7 +111,7 @@ function applyConfig(){
   const ab = $('announceBar');
   if(config.announcement){ ab.style.display='block'; ab.textContent = config.announcement; } else ab.style.display='none';
   const bi = $('bannerImg');
-  if(config.bannerImage){ bi.src = config.bannerImage; bi.style.display='block'; } else bi.style.display='none';
+  if(config.showBanner === true && config.bannerImage){ bi.src = config.bannerImage; bi.style.display='block'; } else bi.style.display='none';
   const li = $('logoImg');
   if(config.logoImage){ li.src = config.logoImage; li.style.display='block'; } else li.style.display='none';
   $('topText').innerHTML = rich(config.topText);
@@ -576,6 +576,7 @@ function showEditor(refetch=true){
   $('e_accent').value=config.accent||'#A62C35';
   $('e_bg').value=config.bg||'#080809';
   $('e_bannerUrl').value=config.bannerImage?.startsWith('data:')?'':(config.bannerImage||'');
+  $('e_showBanner').checked=config.showBanner===true;
   $('e_logoUrl').value=config.logoImage?.startsWith('data:')?'':(config.logoImage||'');
   $('e_bgUrl').value=config.backgroundImage?.startsWith('data:')?'':(config.backgroundImage||'');
   $('e_rules').value=config.rules||'';
@@ -680,6 +681,7 @@ function collectEditor(){
   config.accent = $('e_accent').value;
   config.bg = $('e_bg').value;
   const bu = $('e_bannerUrl').value.trim(); if(bu) config.bannerImage = bu;
+  config.showBanner = $('e_showBanner').checked;
   const lu = $('e_logoUrl').value.trim(); if(lu) config.logoImage = lu;
   const gu = $('e_bgUrl').value.trim(); if(gu) config.backgroundImage = gu;
   config.rules = $('e_rules').value;

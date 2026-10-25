@@ -342,6 +342,7 @@ const DEFAULT_CONFIG = {
   accent: '#A62C35', bg: '#080809',
   editCode: 'MOD123',
   showApproved: true, approvedTitle: 'New team members',
+  showBanner: false,
   copy: {},
   about: {
     eyebrow: 'About', titleA: 'Steward the world', titleB: 'we build together.',
@@ -415,6 +416,7 @@ function loadDB() {
   if (!Array.isArray(db.config.faq)) db.config.faq = structuredClone(DEFAULT_CONFIG.faq);
   if (!db.config.copy || typeof db.config.copy !== 'object' || Array.isArray(db.config.copy)) db.config.copy = {};
   if (!db.config.about || typeof db.config.about !== 'object') db.config.about = structuredClone(DEFAULT_CONFIG.about);
+  if (typeof db.config.showBanner !== 'boolean') db.config.showBanner = false;
   if (!db.config.countdown || typeof db.config.countdown !== 'object') {
     db.config.countdown = { show: false, title: 'Update drops in', target: '', endVideo: '' };
   }
@@ -1344,6 +1346,7 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     bg: /^#[0-9a-fA-F]{6}$/.test(c.bg || '') ? c.bg : '#080809',
     editCode: cleanStr(c.editCode, 100) || db.config.editCode,
     showApproved: c.showApproved !== false,
+    showBanner: c.showBanner === undefined ? db.config.showBanner === true : c.showBanner === true,
     approvedTitle: cleanStr(c.approvedTitle, 120),
     about: (() => {
       const a = c.about && typeof c.about === 'object' ? c.about : (db.config.about || DEFAULT_CONFIG.about);
