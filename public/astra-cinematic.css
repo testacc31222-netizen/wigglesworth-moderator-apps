@@ -714,3 +714,74 @@ body::before{
     font-size:clamp(30px,9vw,42px)!important;
   }
 }
+
+
+/* ===== HARD FIX v3: remove legacy chapter width constraints ===== */
+.main-page .chapter-intro{
+  width:100%!important;
+  max-width:none!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(300px,420px)!important;
+  column-gap:clamp(42px,5vw,80px)!important;
+  row-gap:38px!important;
+  align-items:start!important;
+}
+.main-page .chapter-intro>.chapter-index{
+  grid-column:1/-1!important;
+}
+.main-page .chapter-copy{
+  grid-column:1!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(420px,1.25fr) minmax(320px,.75fr)!important;
+  gap:clamp(32px,4vw,64px)!important;
+}
+.main-page .manifesto{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+}
+.main-page .manifesto h2{
+  width:100%!important;
+  max-width:13ch!important;
+  white-space:normal!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  font-size:clamp(42px,4vw,68px)!important;
+}
+.main-page .manifesto-lede{
+  width:100%!important;
+  max-width:34ch!important;
+}
+.main-page .requirements{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+}
+.main-page .chapter-aside{
+  grid-column:2!important;
+  width:100%!important;
+  max-width:420px!important;
+  justify-self:end!important;
+}
+@media(max-width:1200px){
+  .main-page .chapter-intro{
+    grid-template-columns:1fr!important;
+  }
+  .main-page .chapter-copy{
+    grid-column:1!important;
+    grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)!important;
+  }
+  .main-page .chapter-aside{
+    grid-column:1!important;
+    max-width:none!important;
+    justify-self:stretch!important;
+  }
+}
+@media(max-width:900px){
+  .main-page .chapter-copy{
+    grid-template-columns:1fr!important;
+  }
+}
