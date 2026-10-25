@@ -2389,7 +2389,9 @@
       "why": "Dgbuhggtfcfgfgbgfvyhfhfhfhffgdfcfvgf",
       "scenario": "Gggdvhbhchcgvgfgfggfgrhfgvghv",
       "rulebreak": "T",
-      "receiptAt": "2026-10-25T23:04:28.673Z"
+      "receiptAt": "2026-10-25T23:04:28.673Z",
+      "aiSummary": "Verdict: Weak - unclear answers and questionable experience  \n- Wants to join: Moderator  \n- Experience: None clear, provided gibberish  \n- Availability: Timezone listed as “Hgh” (unknown)  \n- Watch-outs: Age 14, unclear moderation skills, admitted to being banned.",
+      "aiSummaryAt": "2026-10-25T23:05:03.772Z"
     }
   ],
   "tickets": [
@@ -2942,6 +2944,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-25T23:05:03.772Z",
+      "act": "ai_summary",
+      "id": "MOD-3XVJ2M",
+      "by": ""
+    },
     {
       "t": "2026-10-25T23:01:46.646Z",
       "act": "account_recover",
@@ -3532,12 +3540,6 @@
     },
     {
       "t": "2026-10-25T07:34:23.327Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T07:34:16.869Z",
       "act": "config_saved",
       "id": "",
       "by": ""
