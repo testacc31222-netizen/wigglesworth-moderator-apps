@@ -67,6 +67,8 @@ email, read the staff note, and choose whether decisions are emailed.
   Application ID. This works even before email delivery is configured and also
   claims older applications that predate accounts. The dashboard has an
   "Add an older application" box for the rest.
+- Support tickets are listed separately in the account dashboard. Entering a
+  `TKT-...` ID in the older-application box opens that private ticket thread.
 - Staff can force a fresh decision email from Applications → **Re-email
   decision**, and see delivery state in Editor → General → **Applicant emails**.
 - Staff can reach the editor shell at `/?staff=1` and unlock it with the edit
@@ -75,9 +77,10 @@ email, read the staff note, and choose whether decisions are emailed.
 ### Ticket replies by email
 
 New private tickets are linked to the signed-in account and its email.
-When staff reply, the reply is queued to that address with the ticket ID and a
-link back to the private thread. FAQ auto-answers are emailed too. Older tickets
-can be claimed by opening them with their secret ticket ID while signed in; the
+Opening a ticket queues a confirmation to that address with its ID and a link
+back to the private thread. When staff reply, the reply is queued to that same
+address; FAQ auto-answers are included in the confirmation. Older tickets can
+be claimed by opening them with their secret ticket ID while signed in; the
 first account that opens one gets future replies by email.
 
 ### Turn on email delivery (Google Apps Script, Gmail SMTP, Resend, or Brevo)
@@ -100,14 +103,16 @@ Google Apps Script is the free option that works on Render's free plan.
          return json({ ok: false, error: 'unauthorized' });
        }
        const opts = {
-         to: data.to,
-         subject: data.subject,
-         body: data.text || '',
          htmlBody: data.html || data.text || '',
          name: data.fromName || 'Wigglesworth Staff',
        };
        if (data.replyTo) opts.replyTo = data.replyTo;
-       MailApp.sendEmail(opts);
+       if (data.fromEmail) {
+         const aliases = GmailApp.getAliases();
+         if (!aliases.includes(data.fromEmail)) throw new Error('fromEmail must be a verified Gmail send-as alias');
+         opts.from = data.fromEmail;
+       }
+       GmailApp.sendEmail(data.to, data.subject, data.text || '', opts);
        return json({ ok: true });
      } catch (err) {
        return json({ ok: false, error: String(err) });
@@ -130,7 +135,11 @@ Google Apps Script is the free option that works on Render's free plan.
    `APPS_SCRIPT_URL` = the web app URL
    `APPS_SCRIPT_SECRET` = the same random string
    Optional: `MAIL_FROM` = `Wigglesworth Staff`, and
-   `MAIL_REPLY_TO` = your Gmail address.
+   `MAIL_REPLY_TO` = the inbox for replies. For a different visible sender
+   address, first add and verify it in Gmail Settings → Accounts → **Send mail
+   as**, then set `MAIL_FROM` to `Wigglesworth Staff <alias@yourdomain.com>`.
+   The Apps Script relay will use it only if Google returns it from
+   `GmailApp.getAliases()`.
 6. Save/redeploy, then Editor → General → **Send test**.
 
 Consumer Gmail allows about 100 recipients/day through Apps Script; the queue

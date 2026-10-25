@@ -68,6 +68,8 @@ async function fetchConfig(){
       if(!config || !Array.isArray(config.applicationTypes) || !config.applicationTypes.length) throw new Error('bad shape');
       config.copy = config.copy && typeof config.copy === 'object' ? config.copy : {};
       if(!publicCopyTargets.length && window.SiteCopy) publicCopyTargets = window.SiteCopy.prepare([document.querySelector('#topnav'), document.querySelector('.container .main'), document.querySelector('footer')], 'home');
+      await loadAccountCopyTargets();
+      registerCopyDesignTargets();
       break;
     }catch(e){
       if(attempt >= 8){ showLoadError(); throw e; }
@@ -135,13 +137,12 @@ function renderFaq(){
   const card = $('faq'), list = $('faqList');
   const items = (config.faq || []).filter(f => f.q || f.a);
   if(!items.length){ card.style.display = 'none'; return; }
-  card.style.display = 'block'; list.innerHTML = '';
+  card.style.display = ''; list.innerHTML = '';
   items.forEach(f=>{
-    const d = document.createElement('div'); d.className = 'faq-item';
-    const b = document.createElement('b'); b.textContent = f.q;
-    const br = document.createElement('br');
-    const s = document.createElement('span'); s.textContent = f.a;
-    d.append(b, br, s); list.appendChild(d);
+    const d = document.createElement('details'); d.className = 'faq-item';
+    const b = document.createElement('summary'); b.textContent = f.q;
+    const s = document.createElement('p'); s.textContent = f.a;
+    d.append(b, s); list.appendChild(d);
   });
 }
 function renderFaqEditor(){
@@ -154,6 +155,21 @@ function renderFaqEditor(){
       <label>Answer</label><textarea rows="2" oninput="config.faq[${i}].a=this.value">${esc(f.a)}</textarea>`;
     w.appendChild(d);
   });
+}
+let accountCopyLoaded = false;
+async function loadAccountCopyTargets(){
+  if(accountCopyLoaded || !window.SiteCopy) return;
+  try{
+    const r = await fetch('/signin.html', {cache:'no-store'});
+    if(!r.ok) return;
+    const doc = new DOMParser().parseFromString(await r.text(),'text/html');
+    const targets = window.SiteCopy.prepare([
+      doc.querySelector('main.account-shell'), doc.querySelector('footer'), doc.querySelector('header.top')
+    ], 'account');
+    targets.forEach(t=>{ t.label='Account · '+t.label; });
+    publicCopyTargets.push(...targets, ...window.SiteCopy.dynamicCatalog());
+    accountCopyLoaded = true;
+  }catch{}
 }
 function renderPublicCopyEditor(){
   const w=$('publicCopyEditor'); if(!w) return;
@@ -216,11 +232,14 @@ function renderTypeCards(){
   config.applicationTypes.forEach(t=>{
     const b = document.createElement('button');
     const closed = t.open === false;
+    b.type = 'button';
     b.className = 'role-card'; b.onclick = ()=>pickType(t.id);
     b.innerHTML = `<span class="tick">${closed ? 'Closed' : esc(t.prefix||'APP')}</span><span><h4>${esc(t.name)} Applications</h4><p>${closed ? 'Not accepting applications right now.' : esc(t.blurb||'')}</p></span><span class="go">→</span>`;
     if(closed) b.style.opacity = '.55';
     w.appendChild(b);
   });
+  const roleCount = document.querySelector('.role-count');
+  if (roleCount) roleCount.textContent = openN + ' open / ' + config.applicationTypes.length + ' roles';
   const s0 = dEl('stat0');
   if(s0 && !(config.layout && config.layout.stat0 && config.layout.stat0.text)) {
     s0.innerHTML = `<b>${openN}</b><span>${openN===1?'role':'roles'} open</span>`;
@@ -562,6 +581,7 @@ function syncImgPreviews(){
   for(const k in map){ const img=$(map[k]); if(!img) continue; if(config[k]){ img.src=config[k]; img.style.display='block'; } else img.style.display='none'; }
 }
 function showEditor(refetch=true){
+  registerCopyDesignTargets();
   $('editor').style.display='block';
   $('e_title').value=config.title;
   $('e_subtitle').value=config.subtitle||'';
@@ -876,9 +896,8 @@ async function submitTicket(e){
     if(note){
       const to = j.email || (account && account.email) || 'your account address';
       note.textContent = j.mailConfigured === false
-        ? 'Email delivery is off right now, so keep this ticket ID to check the thread.'
-        : (j.emailed ? 'An automatic answer has been emailed to ' + to + '. Staff replies will go there too.'
-          : 'Staff replies will be emailed to ' + to + '.');
+        ? 'Email delivery is off right now. Your ticket is saved to your account; keep this ID to check the thread.'
+        : 'A ticket confirmation is on its way to ' + to + '. Staff replies will go there too.';
     }
   }catch(err){ alert(err.message); }
   finally{ done(); }
@@ -1128,6 +1147,16 @@ const DREG = {
   announceBar:{label:'Announcement',tab:'general',field:'e_announce'},
 };
 let designOn=false, selectedKey=null, dragInfo=null, editingEl=false;
+function registerCopyDesignTargets(){
+  publicCopyTargets.forEach(t=>{
+    if(!t || !t.el || !t.el.isConnected) return;
+    t.el.dataset.dkey = t.key;
+    if(!DREG[t.key]) DREG[t.key] = {
+      label: t.label.slice(0, 38) || 'Page text', text: true,
+      copyKey: t.key, copyKind: t.kind, responsiveCopy: true
+    };
+  });
+}
 function dEl(key){ try{ return document.querySelector('[data-dkey="'+CSS.escape(key)+'"]'); }catch{ return null; } }
 function layoutOf(key){ return (config.layout && config.layout[key]) || {}; }
 async function persistConfigQuiet(){
@@ -1145,9 +1174,13 @@ document.addEventListener('pointerdown', e=>{
   if(e.target.closest('#dtoolbar') || e.target.closest('#editor') || e.target.closest('.dlg')) return;
   const t = e.target.closest('[data-dkey]');
   if(!t || !DREG[t.getAttribute('data-dkey')]) return;
+  const key = t.getAttribute('data-dkey');
+  if(window.matchMedia('(max-width: 640px)').matches && DREG[key].responsiveCopy){
+    e.preventDefault(); dSelect(key); return;
+  }
   e.preventDefault();
-  dSelect(t.getAttribute('data-dkey'));
-  dragInfo = { key: t.getAttribute('data-dkey'), sx: e.clientX, sy: e.clientY, moved: false, orig: layoutOf(t.getAttribute('data-dkey')) };
+  dSelect(key);
+  dragInfo = { key, sx: e.clientX, sy: e.clientY, moved: false, orig: layoutOf(key) };
   window.addEventListener('pointermove', dDragMove);
   window.addEventListener('pointerup', dDragEnd, { once: true });
 }, true);
@@ -1182,10 +1215,17 @@ function setLayout(key, patch){
 function applyLayout(){
   renderLayoutList();
   if(!config.layout) return;
+  const compact = window.matchMedia('(max-width: 640px)').matches;
   for(const key in config.layout){
     const el = dEl(key); if(!el || !DREG[key]) continue;
     const L = config.layout[key];
     if(L.hide){ el.style.display = 'none'; continue; }
+    // Desktop drag offsets often collide with neighboring content on phones.
+    // Keep copy in normal document flow at narrow widths; its text edits still apply.
+    if(compact && DREG[key].responsiveCopy){
+      el.style.transform = ''; el.style.fontSize = '';
+      continue;
+    }
     el.style.transform = dTransform(L, L.dx || 0, L.dy || 0);
     if(L.fs) el.style.fontSize = L.fs + 'px';
     if(L.text != null && el.children.length === 0) el.textContent = L.text;
@@ -1209,13 +1249,34 @@ function dEditText(){
   const def = DREG[selectedKey]; if(!def) return;
   if(def.tab){ dGotoTab(); return; }
   const el = dEl(selectedKey); if(!el) return;
+  if(def.copyKind === 'placeholder'){
+    const next = prompt('Edit placeholder text', el.getAttribute('placeholder') || '');
+    if(next === null) return;
+    config.copy = config.copy || {}; config.copy[def.copyKey] = next;
+    el.setAttribute('placeholder', next);
+    const field = $('copy_' + def.copyKey); if(field) field.value = next;
+    markDirty(); return;
+  }
+  const original = el.textContent;
   editingEl = true;
   el.contentEditable = 'true'; el.focus();
   try{ document.execCommand('selectAll', false, null); }catch{}
   el.onblur = ()=>{
-    el.contentEditable = 'false'; el.onblur = null; editingEl = false;
+    el.contentEditable = 'false'; el.onblur = null; el.onkeydown = null; editingEl = false;
     const v = el.textContent.trim();
-    if(def.config){ config[def.config] = v; persistConfigQuiet(); }
+    if(def.copyKey){
+      config.copy = config.copy || {};
+      config.copy[def.copyKey] = v;
+      const field = $('copy_' + def.copyKey);
+      if(field) field.value = v;
+      markDirty();
+    }
+    else if(def.config){
+      config[def.config] = v;
+      const field = def.config === 'title' ? $('e_title') : def.config === 'subtitle' ? $('e_subtitle') : null;
+      if(field) field.value = v;
+      markDirty();
+    }
     else {
       const cur = layoutOf(selectedKey);
       const patch = { text: v };
@@ -1223,7 +1284,13 @@ function dEditText(){
       setLayout(selectedKey, patch);
     }
   };
-  el.onkeydown = (e)=>{ if(e.key === 'Escape'){ el.contentEditable = 'false'; editingEl = false; applyLayout(); } };
+  el.onkeydown = (e)=>{
+    if(e.key === 'Enter' && def.copyKey){ e.preventDefault(); return; }
+    if(e.key === 'Escape'){
+      e.preventDefault(); el.textContent = original; el.contentEditable = 'false';
+      el.onblur = null; el.onkeydown = null; editingEl = false;
+    }
+  };
 }
 function dSize(d){
   const el = dEl(selectedKey); if(!el) return;
@@ -1281,6 +1348,15 @@ function dResetEl(){
     el.style.transform = ''; el.style.fontSize = ''; el.style.display = '';
     if(L.text != null && L.orig != null && el.children.length === 0) el.textContent = L.orig;
   }
+  if(DREG[key] && DREG[key].copyKey){
+    config.copy = config.copy || {};
+    delete config.copy[DREG[key].copyKey];
+    const target = publicCopyTargets.find(t=>t.key === DREG[key].copyKey);
+    if(target && target.el) target.el.textContent = target.value;
+    const field = $('copy_' + DREG[key].copyKey);
+    if(field && target) field.value = target.value;
+    markDirty();
+  }
   if(config.layout){ delete config.layout[key]; persistConfigQuiet(); renderLayoutList(); }
   dSelect(null);
 }
@@ -1321,6 +1397,11 @@ function renderLayoutList(){
     row.append(b1, b2); div.appendChild(row); w.appendChild(div);
   });
 }
+let layoutResizeTimer = null;
+window.addEventListener('resize', ()=>{
+  clearTimeout(layoutResizeTimer);
+  layoutResizeTimer = setTimeout(applyLayout, 90);
+}, { passive: true });
 // stash originals once so Reset can restore reworded text
 document.addEventListener('pointerdown', e=>{
   if(!designOn || !unlocked) return;

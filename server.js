@@ -613,7 +613,13 @@ function appsForAccount(db, a) {
     });
 }
 function accountPayload(db, a) {
-  return { email: a.email, createdAt: a.createdAt, emailUpdates: a.emailUpdates !== false, apps: appsForAccount(db, a) };
+  const tickets = (db.tickets || [])
+    // Do not expose legacy tickets without an account/email association.
+    .filter(t => t.accountId === a.id || (t.email && normEmail(t.email) === a.email))
+    .sort((x, y) => String(y.updatedAt || y.createdAt || '').localeCompare(String(x.updatedAt || x.createdAt || '')))
+    .slice(0, 100)
+    .map(t => ({ id: t.id, subject: t.subject, status: t.status || 'open', createdAt: t.createdAt, updatedAt: t.updatedAt }));
+  return { email: a.email, createdAt: a.createdAt, emailUpdates: a.emailUpdates !== false, apps: appsForAccount(db, a), tickets };
 }
 // Older tickets predate accounts. Their random ticket ID is still the secret,
 // so a signed-in visitor who knows the ID may open them. New tickets are tied
@@ -752,6 +758,30 @@ function ticketReplyEmail(t, reply) {
     text,
     html: mailShell(inner, 'You are receiving this because you opened a support ticket with Wigglesworth.'),
   };
+}
+function ticketOpenedEmail(t, autoReply) {
+  const link = PUBLIC_URL + '/signin?next=' + encodeURIComponent('/?ticket=' + t.id + '#contact');
+  const subject = 'We received your Wigglesworth support ticket [' + t.id + ']';
+  const text = [
+    'Hi ' + t.name + ',', '',
+    'Your support request has been received and a private ticket is open.',
+    'Subject: ' + t.subject,
+    'Ticket ID: ' + t.id, '',
+    ...(autoReply ? ['An automatic answer:', '', autoReply.text, ''] : []),
+    'Staff replies will be emailed to ' + t.email + '.',
+    'Open your ticket: ' + link, '',
+    '— Wigglesworth Staff',
+  ].join('\n');
+  const inner = '<h1 style="font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6">Ticket received</h1>'
+    + '<p style="margin:0 0 14px">Hi ' + escHtml(t.name) + ',</p>'
+    + '<p style="margin:0 0 18px">Your support request has been received and a private ticket is open.</p>'
+    + '<div style="border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px">'
+    + '<div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px">' + escHtml(t.id) + '</div>'
+    + '<div style="font-family:Georgia,serif;font-size:20px;color:#E6DED4">' + escHtml(t.subject) + '</div></div>'
+    + (autoReply ? '<div style="border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px"><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:8px">Automatic answer</div><div style="color:#E6DED4">' + escHtml(autoReply.text).replace(/\n/g, '<br>') + '</div></div>' : '')
+    + '<p style="margin:0 0 18px;color:#AAA5A0;font-size:13px">Staff replies will be emailed to <b style="color:#E6DED4">' + escHtml(t.email) + '</b>.</p>'
+    + '<a href="' + escHtml(link) + '" style="display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Open my ticket</a>';
+  return { subject, text, html: mailShell(inner, 'You are receiving this because you opened a support ticket with Wigglesworth.') };
 }
 function signInEmail(code) {
   const subject = 'Your Wigglesworth sign-in code';
@@ -923,6 +953,11 @@ function queueTicketReplyEmail(db, t, reply) {
     ...mail, to: t.email, kind: 'ticket',
     key: 'ticket:' + t.id + ':' + (t.replies || []).length + ':' + (reply.at || Date.now()),
   });
+}
+function queueTicketOpenedEmail(db, t, autoReply) {
+  if (!t || !t.email) return false;
+  const mail = ticketOpenedEmail(t, autoReply);
+  return queueMail(db, { ...mail, to: t.email, kind: 'ticket', key: 'ticket:' + t.id + ':opened' });
 }
 
 const FAQ_STOP = new Set('a,an,the,and,or,but,if,then,so,for,to,of,in,on,at,by,do,does,did,is,are,was,were,be,been,am,i,you,he,she,it,we,they,me,him,her,us,them,my,your,his,our,their,what,when,where,who,whom,which,how,why,can,could,should,would,will,just,very,here,there,this,that,these,those,any,all,anyone,anybody,please,thanks,thank,hi,hello,hey,get,got,have,has,had'.split(','));
@@ -1175,7 +1210,7 @@ app.post('/api/tickets', ticketLimit, (req, res) => {
     t.replies.push(autoReply);
     audit(db, 'auto_faq', t.id, null);
   }
-  const emailed = autoReply ? queueTicketReplyEmail(db, t, autoReply) : false;
+  const emailed = queueTicketOpenedEmail(db, t, autoReply);
   saveDB(db);
   if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
   discordNotify(`New ticket **${t.id}** — ${t.subject}\nFrom **${t.name}**: ${t.replies[0].text.slice(0, 500)}`);
@@ -1305,7 +1340,8 @@ app.get('/api/admin/applications', adminLimit, (req, res) => {
 function cleanLayout(l) {
   const out = {};
   if (!l || typeof l !== 'object') return out;
-  for (const k of Object.keys(l).slice(0, 30)) {
+  // Keep saved positions for the larger set of copy targets exposed by design mode.
+  for (const k of Object.keys(l).slice(0, 400)) {
     if (!/^[a-zA-Z0-9_-]{1,40}$/.test(k)) continue;
     const v = l[k] || {};
     const e = {};
