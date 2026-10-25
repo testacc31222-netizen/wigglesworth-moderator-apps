@@ -2532,7 +2532,7 @@
       "scenario": "fewfwergbneruygbuherbguhjernguhjernijgenijrnigerfewfwergbneruygbuherbguhjernguhjernijgenijrniger",
       "rulebreak": "fewfwergbneruygbuherbguhjernguhjernijgenijrniger",
       "receiptAt": "2026-10-25T23:06:35.114Z",
-      "notifiedAt": "2026-10-25T23:07:54.650Z"
+      "notifiedAt": "2026-10-25T23:25:10.891Z"
     }
   ],
   "tickets": [
@@ -4495,11 +4495,11 @@
       "kind": "decision",
       "appId": "MOD-NNQT2W",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-25T23:25:09.512Z",
-      "sentAt": ""
+      "sentAt": "2026-10-25T23:25:10.891Z"
     }
   ]
 }
