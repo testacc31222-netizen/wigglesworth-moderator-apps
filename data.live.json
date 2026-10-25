@@ -1833,9 +1833,10 @@
       "why": "I want to be part of this community I want to be helpful because I love helping people and I want to protect people from other people that are toxic, racist, or mean by saying names or other stuff that might harm people and let them know that ur not supposed to say those word because ur breaking the rules so read it again and I’ll explain him what those mean and if he keeps going ones I see him doing that again I have no choice but to record it and send it to the devs or moderation and tell him “unfortunately ur gonna get banned for saying slurs when the moderation people told you to stop even I did”.",
       "scenario": "Ill tell him to stop spamming because I know you don’t wanna get muted or timed out so its best for you to not spam the chat. But if he keeps going then I’ll tell him again “hey dude can you please stop spamming again because I told you not to spawn last time. and again if he keeps going I got no choice but to record it and send it to the devs or moderation and let them know to mute them depends on how meny times he did it.",
       "rulebreak": "No I have not bin banned by any game.",
-      "email": "",
+      "email": "diabmurad31@gmail.com",
       "emailUpdates": true,
-      "notifiedStatus": ""
+      "notifiedStatus": "",
+      "accountId": "acc_17e3964bfd3c80e63eaf61e1"
     },
     {
       "appId": "MOD-EHERLB",
@@ -2881,6 +2882,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T22:53:33.880Z",
+      "act": "account_recover",
+      "id": "MOD-BADS89",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T22:51:34.565Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
@@ -3473,12 +3480,6 @@
       "act": "config_saved",
       "id": "",
       "by": "Raz"
-    },
-    {
-      "t": "2026-10-17T05:52:16.499Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -3951,6 +3952,12 @@
       "id": "acc_6f4cdda9c2a8413e10e97599",
       "email": "testacc31222@gmail.com",
       "createdAt": "2026-10-25T04:23:19.494Z",
+      "emailUpdates": true
+    },
+    {
+      "id": "acc_17e3964bfd3c80e63eaf61e1",
+      "email": "diabmurad31@gmail.com",
+      "createdAt": "2026-10-25T22:53:33.880Z",
       "emailUpdates": true
     }
   ],
