@@ -2156,7 +2156,7 @@
       "type": "moderator",
       "date": "2026-10-25T04:26:06.646Z",
       "status": "pending",
-      "adminNote": "",
+      "adminNote": "This is a test.",
       "email": "testacc31222@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_6f4cdda9c2a8413e10e97599",
@@ -2703,6 +2703,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-25T04:26:24.674Z",
+      "act": "status_pending",
+      "id": "MOD-XDLFTV",
+      "by": ""
+    },
     {
       "t": "2026-10-25T04:23:19.494Z",
       "act": "account_login",
