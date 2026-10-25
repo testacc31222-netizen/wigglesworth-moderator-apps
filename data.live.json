@@ -185,7 +185,12 @@
       "soonLine": "soon.",
       "target": ""
     },
-    "layout": {},
+    "layout": {
+      "foot": {
+        "dx": 5,
+        "dy": -59
+      }
+    },
     "decor": [],
     "applicationTypes": [
       {
@@ -2845,6 +2850,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T07:34:23.327Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:34:16.869Z",
       "act": "config_saved",
       "id": "",
@@ -3436,12 +3447,6 @@
       "t": "2026-10-10T16:35:50.904Z",
       "act": "deleted",
       "id": "MOD-P6T7KY",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:35:04.085Z",
-      "act": "deleted",
-      "id": "MOD-KJ6H4E",
       "by": ""
     }
   ],
