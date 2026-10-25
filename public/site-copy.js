@@ -28,7 +28,7 @@
         acceptNode(node) {
           if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
           const parent = node.parentElement;
-          if (!parent || parent.closest(ignored) || parent.closest('#editor') || parent.closest('#why') || parent.closest('[data-dkey]')) return NodeFilter.FILTER_REJECT;
+          if (!parent || parent.closest(ignored) || parent.closest('#editor') || parent.closest('#why') || parent.closest('.account-crest') || parent.closest('[data-dkey]')) return NodeFilter.FILTER_REJECT;
           if (parent.closest('[data-generated-copy-ignore]')) return NodeFilter.FILTER_REJECT;
           return NodeFilter.FILTER_ACCEPT;
         }
@@ -38,6 +38,7 @@
       nodes.forEach(node => {
         const parent = node.parentElement;
         if (parent.tagName === 'OPTION') { add(parent, node.nodeValue, 'text'); return; }
+        if (parent.tagName === 'SPAN' && parent.children.length === 0) { if (!parent.dataset.copyKey) add(parent, parent.textContent, 'text'); return; }
         const span = document.createElement('span');
         span.className = 'site-copy';
         node.parentNode.insertBefore(span, node);

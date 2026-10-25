@@ -79,7 +79,7 @@
   .lede{color:var(--muted);font-size:16px;line-height:1.75;margin:0 0 30px;max-width:48ch}
   .assurances{list-style:none;margin:0 0 32px;padding:0;border-top:1px solid var(--line-soft)}
   .assurances li{display:flex;gap:16px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line-soft);color:var(--silver);font-size:14px}
-  .assurances span{font-family:var(--font-display);font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--crimson-bright);border:1px solid var(--line-red-soft);border-radius:4px;padding:3px 9px;height:fit-content;white-space:nowrap;background:rgba(116,27,36,.12)}
+  .assurances li > span:first-child{font-family:var(--font-display);font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--crimson-bright);border:1px solid var(--line-red-soft);border-radius:4px;padding:3px 9px;height:fit-content;white-space:nowrap;background:rgba(116,27,36,.12)}
   .small{color:var(--faint);font-size:12px;line-height:1.7;margin:0;max-width:44ch;font-family:var(--font-serif)}
   
   .card{
@@ -253,7 +253,7 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
 @media(max-width:560px){body{padding:0 10px 30px}.top{padding:17px 14px}.brand{font-size:10px;letter-spacing:.2em}.brand svg{width:24px;height:24px}.back{font-size:9px;letter-spacing:.08em}.wrap{padding:36px 10px 42px;gap:29px}.intro{text-align:left}.intro>.eyebrow{justify-content:flex-start}h1{font-size:clamp(40px,11vw,54px);margin-bottom:19px}.lede{font-size:14px;line-height:1.8;margin-bottom:22px}.assurances{margin-bottom:20px}.assurances li{font-size:15px;gap:11px;padding:12px 0}.assurances span{font-size:9px;padding:4px 7px}.small{font-size:13px}.card{padding:26px 20px}.tabs{gap:22px;margin-bottom:22px}.tabs button{font-size:10px;letter-spacing:.15em}.dash-head{flex-direction:row;align-items:center;gap:10px}.dash-head h2{font-size:17px}.ghost{align-self:auto}.app{padding:15px}.app-top{gap:8px}.app h4{font-size:12px;letter-spacing:.07em}.pill{font-size:8px;padding:4px 6px}.row{flex-wrap:nowrap}.row .secondary{padding:0 13px;font-size:10px}footer{padding:17px 10px 24px;font-size:12px;gap:8px}footer span:last-child{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.fog,#embers{display:none!important}}
 </style>
-<link rel="stylesheet" href="/gothic-luxury.css?v=6">
+<link rel="stylesheet" href="/gothic-luxury.css?v=7">
 </head>
 <body class="account-page">
 <div class="atmos" aria-hidden="true">
@@ -280,9 +280,9 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
     <h1>Your application,<br><em>answered.</em></h1>
     <p class="lede">One quiet place for every application you have sent us. Sign in with your email to apply, see where each application stands, read the note from staff, and get ticket replies in your inbox.</p>
     <ul class="assurances">
-      <li><span>I.</span> One account for every role you apply to.</li>
-      <li><span>II.</span> The decision is emailed the moment it is made.</li>
-      <li><span>III.</span> No password to forget — just your email.</li>
+      <li><span class="assurance-index">I.</span> One account for every role you apply to.</li>
+      <li><span class="assurance-index">II.</span> The decision is emailed the moment it is made.</li>
+      <li><span class="assurance-index">III.</span> No password to forget — just your email.</li>
     </ul>
     <p class="small">Every application is read by a person. Emails come from the Wigglesworth staff team, never a bot.</p>
   </section>
@@ -380,7 +380,7 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
   <span>Sign in to open the applications site</span>
 </footer>
 
-<script src="/site-copy.js?v=20261025"></script>
+<script src="/site-copy.js?v=20261025b"></script>
 <script src="/signin.js"></script>
 </body>
 </html>
