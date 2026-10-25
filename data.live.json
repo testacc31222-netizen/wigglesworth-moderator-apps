@@ -2,7 +2,7 @@
   "config": {
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
-    "announcement": "Applications are OPEN, If you lost your key, ping quantummz.",
+    "announcement": "If you want to check what you got, check your spam folder if you can't find it!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -3067,6 +3067,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T23:43:55.051Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T23:43:38.631Z",
       "act": "account_login",
       "id": "acc_1e449e8c121ecfe0ad20bf15",
@@ -3656,12 +3662,6 @@
     },
     {
       "t": "2026-10-25T16:06:35.965Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T16:06:20.113Z",
       "act": "config_saved",
       "id": "",
       "by": ""
