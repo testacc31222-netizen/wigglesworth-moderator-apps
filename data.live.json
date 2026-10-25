@@ -2322,27 +2322,6 @@
       "email": "",
       "emailUpdates": true,
       "notifiedStatus": ""
-    },
-    {
-      "appId": "MOD-XDLFTV",
-      "type": "moderator",
-      "date": "2026-10-25T04:26:06.646Z",
-      "status": "approved",
-      "adminNote": "This is a test.",
-      "email": "testacc31222@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_6f4cdda9c2a8413e10e97599",
-      "notifiedStatus": "approved",
-      "username": "ou4ijebnrkjgnerijgnirj",
-      "discord": "ou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirj",
-      "age": "21",
-      "timezone": "1242348237498237",
-      "experience": "1233123123MGFNEJHRBGIJHBNERIGRE",
-      "why": "GEWRKJGNEIRJGN834B8UB438UGB38U4BG9834BGEHRJBRFJHEBRJHGBERG",
-      "scenario": "GEWRKJGNEIRJGN834B8UB438UGB38U4BG9834BGEHRJBRFJHEBRJHGBERGGEWRKJGNEIRJGN834B8UB438UGB38U4BG9834BGEHRJBRFJHEBRJHGBERGGEWRKJGNEIRJGN834B8UB438UGB38U4BG9834BGEHRJBRFJHEBRJHGBERGGEWRKJGNEIRJGN834B8UB438UGB38U4BG9834BGEHRJBRFJHEBRJHGBERG",
-      "rulebreak": "GEWRKJGNEIRJGN834B8UB438UGB38U4BG9834BGEHRJBRFJHEBRJHGBERGGEWRKJGNEIRJGN834B8UB438UGB38U4BG9834BGEHRJBRFJHEBRJHGBERG",
-      "receiptAt": "2026-10-25T04:26:06.646Z",
-      "notifiedAt": "2026-10-25T04:26:50.604Z"
     }
   ],
   "tickets": [
@@ -2914,6 +2893,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-25T17:24:39.544Z",
+      "act": "deleted",
+      "id": "MOD-XDLFTV",
+      "by": ""
+    },
     {
       "t": "2026-10-25T17:24:36.114Z",
       "act": "deleted",
@@ -3506,12 +3491,6 @@
       "t": "2026-10-11T01:33:12.815Z",
       "act": "ai_denied",
       "id": "MOD-ZSJYBJ",
-      "by": ""
-    },
-    {
-      "t": "2026-10-11T01:32:05.853Z",
-      "act": "ai_approved",
-      "id": "MOD-S4AXF9",
       "by": ""
     }
   ],
