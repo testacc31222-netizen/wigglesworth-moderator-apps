@@ -4535,11 +4535,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-25T23:35:03.745Z",
-      "sentAt": ""
+      "sentAt": "2026-10-25T23:35:04.973Z"
     }
   ]
 }
