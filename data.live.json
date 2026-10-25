@@ -3086,6 +3086,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T23:36:14.332Z",
+      "act": "account_login",
+      "id": "acc_423c4a1f1857c94ba035fe64",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T23:35:16.384Z",
       "act": "account_login",
       "id": "acc_7d0c3e23962045e048eae80b",
@@ -3678,12 +3684,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T07:46:13.518Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4187,17 +4187,15 @@
       "email": "kobeelbert2@gmail.com",
       "createdAt": "2026-10-25T23:35:16.384Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_423c4a1f1857c94ba035fe64",
       "email": "kanedfhkh@gmail.com",
-      "hash": "88685cd9e8eededbeb29d9e15ab8594be7727f0804b955b3ff5362c86fcda05c",
-      "exp": 1792971965889,
-      "tries": 0,
-      "created": 1792971365889
+      "createdAt": "2026-10-25T23:36:14.332Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
