@@ -2,7 +2,7 @@
   "config": {
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
-    "announcement": "Leaving moderator applications open, reading them when the time comes. 👀",
+    "announcement": "Applications are OPEN",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -2845,6 +2845,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T07:33:13.283Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:22:41.181Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
@@ -3436,12 +3442,6 @@
       "t": "2026-10-10T16:34:50.371Z",
       "act": "deleted",
       "id": "MOD-AVZBGE",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:34:48.394Z",
-      "act": "deleted",
-      "id": "MOD-TPTQ3X",
       "by": ""
     }
   ],
