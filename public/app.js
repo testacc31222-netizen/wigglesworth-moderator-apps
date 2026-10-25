@@ -586,7 +586,7 @@ async function renderSubs(){
     const d=document.createElement('div'); d.className='submission';
     let html=`<div class="sub-head"><div class="avatar">${esc(name.slice(0,1).toUpperCase()||'?')}</div>`
       +`<div class="who"><b>${hi(name,qr)}</b><span class="hint">${hi(s.appId||'',qr)} · ${hi(typeName(s.type),qr)} · ${hi((s.date||'').slice(0,16).replace('T',' '),qr)}</span>`
-      +`<span class="hint">${s.email?hi(s.email,qr):'<i>no email on file</i>'}${s.notifiedAt?' · emailed '+(s.notifiedAt||'').slice(0,10):''}</span></div>`
+      +`<span class="hint">${s.email?hi(s.email,qr):'<i>no email on file</i>'}${s.email&&s.emailUpdates===false?' · email updates off':''}${s.notifiedAt?' · decision email logged '+(s.notifiedAt||'').slice(0,10):''}</span></div>`
       +`<span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span></div>`;
     if(s.aiSummary){
       html+=`<div class="ai-summary"><div class="ai-summary-head"><b>AI summary</b><span class="hint">${esc((s.aiSummaryAt||'').slice(0,16).replace('T',' '))}</span></div><div class="ai-summary-body">${esc(s.aiSummary)}</div></div>`;
@@ -598,6 +598,7 @@ async function renderSubs(){
       html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
     html+=`</div>`;
+    html+=`<label>Applicant email (used for the decision):</label><input type="email" value="${esc(s.email||'')}" id="email_${esc(s.appId)}" placeholder="name@example.com">`;
     html+=`<label>Staff note (seen by applicant):</label><input value="${esc(s.adminNote||'')}" id="note_${esc(s.appId)}" placeholder="e.g. Great app, welcome!">`;
     d.innerHTML=html;
     const bar=document.createElement('div'); bar.className='row';
@@ -615,7 +616,10 @@ async function renderSubs(){
       mk('AI Deny','btn-small',()=>aiDecision(s.appId,'denied')),
       mk('Save note','btn-small',async()=>{
         const note=document.getElementById('note_'+s.appId).value;
-        await fetch('/api/admin/applications/'+s.appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({adminNote:note})});
+        const emailEl=document.getElementById('email_'+s.appId);
+        const r=await fetch('/api/admin/applications/'+s.appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({adminNote:note,email:emailEl?emailEl.value:undefined})});
+        const j=await r.json().catch(()=>({}));
+        if(!r.ok){ alert(j.error||'Could not save.'); return; }
         renderSubs();
       }),
       mk('Delete','btn-small',()=>{ if(confirm('Delete ' + dispName(s) + ' (' + s.appId + ') forever?')) delSub(s.appId); })
@@ -628,7 +632,10 @@ async function renderSubs(){
 }
 async function setStatus(appId,st){
   const noteEl = document.getElementById('note_'+appId);
-  await fetch('/api/admin/applications/'+appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({status:st, adminNote: noteEl?noteEl.value:undefined})});
+  const emailEl = document.getElementById('email_'+appId);
+  const r = await fetch('/api/admin/applications/'+appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({status:st, adminNote: noteEl?noteEl.value:undefined, email: emailEl?emailEl.value:undefined})});
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok){ alert(j.error||'Could not save the decision.'); return; }
   renderSubs(); renderApprovedPublic();
 }
 async function aiDecision(appId, decision){

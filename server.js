@@ -181,8 +181,8 @@ const submitLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 10, message: { er
 const adminLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 60, message: { error: 'Too many attempts, slow down.' } });
 const statusLimit = rateLimit({ windowMs: 60 * 1000, max: 30 });
 const configLimit = rateLimit({ windowMs: 60 * 1000, max: 40 });
-const accountLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 8, message: { error: 'Too many sign-in emails. Wait a few minutes.' } });
-const verifyLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, message: { error: 'Too many code attempts. Wait a few minutes.' } });
+const accountLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, message: { error: 'Too many sign-in emails. Wait a few minutes.' } });
+const verifyLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 30, message: { error: 'Too many code attempts. Wait a few minutes.' } });
 const recoverLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 12, message: { error: 'Too many attempts. Wait a few minutes.' } });
 const ticketLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 8, message: { error: 'Too many tickets, try again later.' } });
 // Blunt, tiny abuse filter for public text (matches stay staff-side).
@@ -799,6 +799,7 @@ app.post('/api/applications', submitLimit, (req, res) => {
     emailUpdates: body.emailUpdates !== false,
     accountId: account ? account.id : '', notifiedStatus: '',
   };
+  if (account) account.emailUpdates = entry.emailUpdates;
   const ids = new Set(t.questions.map(q => q.id));
   for (const q of db.config.applicationTypes.flatMap(x => x.questions)) {
     if (ids.has(q.id)) entry[q.id] = cleanStr(answers[q.id], 3000);
@@ -1325,13 +1326,18 @@ app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {
   if (!validAppId(req.params.id)) return res.status(404).json({ error: 'Not found' });
   const s = db.submissions.find(x => x.appId === req.params.id);
   if (!s) return res.status(404).json({ error: 'Not found' });
-  const { status, adminNote } = req.body || {};
+  const { status, adminNote, email } = req.body || {};
   const before = s.status;
   if (status !== undefined) {
     if (!['pending', 'approved', 'denied'].includes(status)) return res.status(400).json({ error: 'Bad status' });
     s.status = status;
   }
   if (adminNote !== undefined) s.adminNote = cleanStr(adminNote, 2000);
+  if (email !== undefined && String(email).trim() !== '') {
+    const em = normEmail(email);
+    if (!em) return res.status(400).json({ error: 'Enter a valid applicant email.' });
+    if (em !== s.email) { s.email = em; s.notifiedStatus = ''; }
+  }
   let emailed = false;
   if (s.status !== before && (s.status === 'approved' || s.status === 'denied')) {
     emailed = queueDecisionEmail(db, s);
