@@ -205,7 +205,9 @@
       },
       "heroEyebrow": {
         "dx": 1,
-        "dy": 15
+        "dy": 15,
+        "text": "APPLICATIONS PAGE",
+        "orig": "Staff Applications"
       }
     },
     "decor": [],
@@ -2867,6 +2869,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T07:45:53.786Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:45:41.256Z",
       "act": "config_saved",
       "id": "",
@@ -3457,12 +3465,6 @@
     {
       "t": "2026-10-10T22:57:55.762Z",
       "act": "status_denied",
-      "id": "MOD-4EDNAX",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T22:57:51.286Z",
-      "act": "ai_denied",
       "id": "MOD-4EDNAX",
       "by": ""
     }
