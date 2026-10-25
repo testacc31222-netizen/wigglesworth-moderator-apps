@@ -63,11 +63,64 @@ email, read the staff note, and choose whether decisions are emailed.
 - Staff can force a fresh decision email from Applications → **Re-email
   decision**, and see delivery state in Editor → General → **Applicant emails**.
 
-### Turn on email delivery (Gmail SMTP, Resend, or Brevo)
+### Turn on email delivery (Google Apps Script, Gmail SMTP, Resend, or Brevo)
 
-Pick **one**. Gmail SMTP is the least paperwork if you do not own a domain.
+Pick **one**. Important: **Render free web services block outbound SMTP ports**
+(25, 465, and 587). Gmail SMTP therefore only works on a paid Render instance.
+Google Apps Script is the free option that works on Render's free plan.
 
-**Gmail SMTP** — no domain and no organization address:
+**Google Apps Script relay** — free, no domain, no organization address:
+
+1. Open <https://script.new> and replace the code with:
+
+   ```js
+   const SECRET = 'PASTE_A_LONG_RANDOM_SECRET';
+
+   function doPost(e) {
+     try {
+       const data = JSON.parse(e.postData.contents);
+       if (!data || data.secret !== SECRET) {
+         return json({ ok: false, error: 'unauthorized' });
+       }
+       const opts = {
+         to: data.to,
+         subject: data.subject,
+         body: data.text || '',
+         htmlBody: data.html || data.text || '',
+         name: data.fromName || 'Wigglesworth Staff',
+       };
+       if (data.replyTo) opts.replyTo = data.replyTo;
+       MailApp.sendEmail(opts);
+       return json({ ok: true });
+     } catch (err) {
+       return json({ ok: false, error: String(err) });
+     }
+   }
+
+   function json(o) {
+     return ContentService.createTextOutput(JSON.stringify(o))
+       .setMimeType(ContentService.MimeType.JSON);
+   }
+   ```
+
+2. Replace `PASTE_A_LONG_RANDOM_SECRET` with a long random string.
+3. **Deploy → New deployment → Web app**.
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+   - Click **Deploy** and authorize Gmail access.
+4. Copy the web app URL (it ends in `/exec`).
+5. On Render add:
+   `APPS_SCRIPT_URL` = the web app URL
+   `APPS_SCRIPT_SECRET` = the same random string
+   Optional: `MAIL_FROM` = `Wigglesworth Staff`, and
+   `MAIL_REPLY_TO` = your Gmail address.
+6. Save/redeploy, then Editor → General → **Send test**.
+
+Consumer Gmail allows about 100 recipients/day through Apps Script; the queue
+retries later if you hit the limit. If you change the script, create a new
+deployment version and update `APPS_SCRIPT_URL` if the URL changes.
+
+**Gmail SMTP** — only after upgrading Render to a paid instance:
 
 1. Turn on 2-Step Verification on the Google account, then open
    Google Account → Security → **App passwords** and create one named
@@ -79,8 +132,6 @@ Pick **one**. Gmail SMTP is the least paperwork if you do not own a domain.
 3. `SMTP_HOST` defaults to `smtp.gmail.com` and `SMTP_PORT` to `587`.
    Use `SMTP_PORT=465` and `SMTP_SECURE=true` only if 587 is blocked.
 4. Save/redeploy, then Editor → General → **Send test**.
-   Gmail allows roughly 500 recipients/day on a free account. Revoke the app
-   password at any time if it leaks.
 
 **Resend** — best if you own a domain:
 
@@ -98,9 +149,9 @@ Pick **one**. Gmail SMTP is the least paperwork if you do not own a domain.
    IP → Senders → add your address and click the confirmation email).
 3. Add `BREVO_API_KEY` = your key and `MAIL_FROM` =
    `Wigglesworth Staff <your-verified-address@gmail.com>` on Render.
-4. If more than one provider is configured, set `MAIL_PROVIDER` = `smtp`,
-   `resend`, or `brevo` to pick one. Otherwise SMTP wins, then Resend, then
-   Brevo.
+4. If more than one provider is configured, set `MAIL_PROVIDER` =
+   `apps_script`, `smtp`, `resend`, or `brevo` to pick one. Otherwise Apps
+   Script wins, then SMTP, then Resend, then Brevo.
 
 Then set these optional but recommended values:
 

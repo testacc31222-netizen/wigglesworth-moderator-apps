@@ -40,11 +40,14 @@ const COUNTDOWN_PUBLIC_URL = (process.env.COUNTDOWN_PUBLIC_URL || 'https://wiggl
 const DISCORD_WEBHOOK_URL = (process.env.DISCORD_WEBHOOK_URL || '').trim();
 const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
 
-// --- Email updates (Resend, Brevo, or Gmail/SMTP) ---------------------------
+// --- Email updates (Google Apps Script, Resend, Brevo, or Gmail/SMTP) ------
 // Set one provider on Render to turn delivery on. Until then, mail is queued
 // in data.live.json and shown to staff, so nothing is lost.
 const MAIL_API_KEY = (process.env.RESEND_API_KEY || '').trim();
 const BREVO_API_KEY = (process.env.BREVO_API_KEY || '').trim();
+const APPS_SCRIPT_URL = (process.env.APPS_SCRIPT_URL || '').trim();
+const APPS_SCRIPT_SECRET = (process.env.APPS_SCRIPT_SECRET || '').trim();
+const APPS_SCRIPT_CONFIGURED = !!(APPS_SCRIPT_URL && APPS_SCRIPT_SECRET);
 const SMTP_USER = (process.env.SMTP_USER || '').trim();
 const SMTP_PASS = (process.env.SMTP_PASS || '').trim();
 const SMTP_HOST = (process.env.SMTP_HOST || (SMTP_USER ? 'smtp.gmail.com' : '')).trim();
@@ -53,14 +56,18 @@ const SMTP_SECURE = String(process.env.SMTP_SECURE || '').toLowerCase() === 'tru
 const SMTP_CONFIGURED = !!(SMTP_HOST && SMTP_USER && SMTP_PASS);
 const MAIL_FROM = (process.env.MAIL_FROM || (SMTP_CONFIGURED
   ? `Wigglesworth Staff <${SMTP_USER}>`
-  : 'Wigglesworth Applications <onboarding@resend.dev>')).trim();
+  : APPS_SCRIPT_CONFIGURED
+    ? 'Wigglesworth Staff'
+    : 'Wigglesworth Applications <onboarding@resend.dev>')).trim();
 const MAIL_REPLY_TO = (process.env.MAIL_REPLY_TO || '').trim();
 const PUBLIC_URL = (process.env.PUBLIC_URL || 'https://wigglesworth-applications.onrender.com').replace(/\/$/, '');
 function mailProvider() {
   const want = String(process.env.MAIL_PROVIDER || '').toLowerCase();
+  if (want === 'apps_script' && APPS_SCRIPT_CONFIGURED) return 'apps_script';
   if (want === 'smtp' && SMTP_CONFIGURED) return 'smtp';
   if (want === 'brevo' && BREVO_API_KEY) return 'brevo';
   if (want === 'resend' && MAIL_API_KEY) return 'resend';
+  if (APPS_SCRIPT_CONFIGURED) return 'apps_script';
   if (SMTP_CONFIGURED) return 'smtp';
   if (MAIL_API_KEY) return 'resend';
   if (BREVO_API_KEY) return 'brevo';
@@ -681,12 +688,42 @@ function queueMail(db, opts) {
 function mailFromParts() {
   const m = /^(.*?)\s*<([^>]+)>$/.exec(MAIL_FROM);
   if (m) return { name: m[1].replace(/^"|"$/g, '').trim() || 'Wigglesworth', email: m[2].trim() };
+  // Apps Script uses the Google account as the sender, so MAIL_FROM can be a name only.
+  if (!MAIL_FROM.includes('@')) return { name: MAIL_FROM || 'Wigglesworth', email: '' };
   return { name: 'Wigglesworth', email: MAIL_FROM };
 }
 async function sendMail(m) {
   const provider = mailProvider();
   if (!provider) return { ok: false, error: 'not_configured' };
   try {
+    if (provider === 'apps_script') {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 25000);
+      try {
+        const from = mailFromParts();
+        const reply = MAIL_REPLY_TO ? (/<([^>]+)>/.exec(MAIL_REPLY_TO) || [null, MAIL_REPLY_TO])[1] : '';
+        const r = await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            secret: APPS_SCRIPT_SECRET, to: m.to, subject: m.subject,
+            text: m.text, html: m.html, fromName: from.name,
+            ...(reply ? { replyTo: reply } : {}),
+          }),
+          signal: ctrl.signal,
+          redirect: 'follow',
+        });
+        const text = await r.text();
+        let detail = text;
+        try {
+          const j = JSON.parse(text);
+          if (j && j.ok === true) return { ok: true, provider };
+          detail = (j && j.error) || text;
+        } catch {}
+        console.error('apps script mail failed', r.status, cleanStr(detail, 300));
+        return { ok: false, error: (r.status + ' ' + cleanStr(detail, 200)).trim() };
+      } finally { clearTimeout(timer); }
+    }
     if (provider === 'smtp') {
       const transport = getSmtpTransport();
       if (!transport) return { ok: false, error: 'not_configured' };
@@ -741,13 +778,15 @@ async function flushOutbox() {
       // Reload before writing so a concurrent request is not clobbered.
       const db2 = loadDB();
       const m2 = (db2.outbox || []).find(x => x.id === m.id);
+      const quota = !result.ok && /quota|too many (times|emails)|daily limit|limit exceeded/i.test(result.error || '');
       if (m2) {
-        m2.attempts = (m2.attempts || 0) + 1;
+        if (!quota) m2.attempts = (m2.attempts || 0) + 1;
         if (result.ok) { m2.status = 'sent'; m2.sentAt = new Date().toISOString(); m2.error = ''; }
-        else { m2.status = m2.attempts >= 5 ? 'failed' : 'queued'; m2.error = cleanStr(result.error, 200); }
+        else { m2.status = (!quota && m2.attempts >= 5) ? 'failed' : 'queued'; m2.error = cleanStr(result.error, 200); }
         saveDB(db2);
       }
       if (!result.ok && result.error === 'not_configured') break;
+      if (quota) break;
     }
   } catch (e) { console.error('outbox flush error', e.message); }
   finally { outboxBusy = false; }
@@ -1390,7 +1429,7 @@ app.post('/api/admin/applications/:id/notify', adminLimit, (req, res) => {
   if (!s) return res.status(404).json({ error: 'Not found' });
   if (!s.email) return res.status(400).json({ error: 'This application has no email on file.' });
   if (!['approved', 'denied'].includes(s.status)) return res.status(400).json({ error: 'Decide the application first.' });
-  if (!mailConfigured()) return res.status(400).json({ error: 'Email delivery is not configured. Set SMTP_USER + SMTP_PASS, RESEND_API_KEY, or BREVO_API_KEY, plus MAIL_FROM.' });
+  if (!mailConfigured()) return res.status(400).json({ error: 'Email delivery is not configured. Set APPS_SCRIPT_URL + APPS_SCRIPT_SECRET, SMTP_USER + SMTP_PASS, RESEND_API_KEY, or BREVO_API_KEY, plus MAIL_FROM.' });
   const queued = queueDecisionEmail(db, s, true);
   audit(db, 'decision_email', s.appId, req);
   saveDB(db);
@@ -1484,7 +1523,7 @@ app.post('/api/admin/mail/test', adminLimit, async (req, res) => {
   const to = normEmail(req.body && req.body.to);
   if (!to) return res.status(400).json({ error: 'Enter a valid destination email.' });
   if (!mailConfigured()) {
-    return res.status(400).json({ error: 'Email delivery is not configured. Set SMTP_USER + SMTP_PASS, RESEND_API_KEY, or BREVO_API_KEY, plus MAIL_FROM on Render.', mailConfigured: false });
+    return res.status(400).json({ error: 'Email delivery is not configured. Set APPS_SCRIPT_URL + APPS_SCRIPT_SECRET, SMTP_USER + SMTP_PASS, RESEND_API_KEY, or BREVO_API_KEY, plus MAIL_FROM on Render.', mailConfigured: false });
   }
   const html = mailShell('<h1 style="font-family:Georgia,serif;font-weight:400;font-size:26px;margin:0 0 16px;color:#F1ECE6">Email test</h1>'
     + '<p style="margin:0 0 12px">This is a test from the Wigglesworth applications site.</p>'
@@ -1674,7 +1713,7 @@ app.post('/api/clientlog', diagLimit, (req, res) => {
 app.listen(PORT, HOST, () => {
   console.log(`Moderator site on http://${HOST}:${PORT} (bound to ${HOST} only — home IP not exposed)`);
   console.log(`Discord ticket alerts: ${DISCORD_WEBHOOK_URL ? 'ON' : 'OFF (set DISCORD_WEBHOOK_URL)'}`);
-  console.log(`Applicant email: ${mailConfigured() ? 'ON via ' + mailProvider() + ' (' + MAIL_FROM + ')' : 'OFF (set SMTP_USER + SMTP_PASS, RESEND_API_KEY, or BREVO_API_KEY + MAIL_FROM; mail is queued)'}`);
+  console.log(`Applicant email: ${mailConfigured() ? 'ON via ' + mailProvider() + ' (' + MAIL_FROM + ')' : 'OFF (set APPS_SCRIPT_URL + APPS_SCRIPT_SECRET, SMTP_USER + SMTP_PASS, or RESEND_API_KEY / BREVO_API_KEY + MAIL_FROM; mail is queued)'}`);
   // Retry anything queued while the service was asleep, then periodically.
   setTimeout(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 4000);
   setInterval(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 5 * 60 * 1000).unref();

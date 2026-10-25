@@ -19,6 +19,10 @@ services:
         sync: false
       - key: BREVO_API_KEY
         sync: false
+      - key: APPS_SCRIPT_URL
+        sync: false
+      - key: APPS_SCRIPT_SECRET
+        sync: false
       - key: SMTP_USER
         sync: false
       - key: SMTP_PASS
