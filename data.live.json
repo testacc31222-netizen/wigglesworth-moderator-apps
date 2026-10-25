@@ -2343,26 +2343,6 @@
       "rulebreak": "GEWRKJGNEIRJGN834B8UB438UGB38U4BG9834BGEHRJBRFJHEBRJHGBERGGEWRKJGNEIRJGN834B8UB438UGB38U4BG9834BGEHRJBRFJHEBRJHGBERG",
       "receiptAt": "2026-10-25T04:26:06.646Z",
       "notifiedAt": "2026-10-25T04:26:50.604Z"
-    },
-    {
-      "appId": "MOD-MPY3EF",
-      "type": "moderator",
-      "date": "2026-10-25T08:16:36.098Z",
-      "status": "pending",
-      "adminNote": "",
-      "email": "testacc31222@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_6f4cdda9c2a8413e10e97599",
-      "notifiedStatus": "",
-      "username": "ou4ijebnrkjgnerijgnirj",
-      "discord": "ou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirjou4ijebnrkjgnerijgnirj",
-      "age": "21",
-      "timezone": "1242348237498237",
-      "experience": "yesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesno",
-      "why": "yesnoyesnoyesnoyesnoyesnoyesno",
-      "scenario": "yesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesnoyesno",
-      "rulebreak": "yesnoyesnoyesnoyesnoyesnoyesnoyesnoyesno",
-      "receiptAt": "2026-10-25T08:16:36.099Z"
     }
   ],
   "tickets": [
@@ -2934,6 +2914,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-25T17:24:36.114Z",
+      "act": "deleted",
+      "id": "MOD-MPY3EF",
+      "by": ""
+    },
     {
       "t": "2026-10-25T17:24:08.413Z",
       "act": "config_saved",
@@ -3526,12 +3512,6 @@
       "t": "2026-10-11T01:32:05.853Z",
       "act": "ai_approved",
       "id": "MOD-S4AXF9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-11T01:30:33.037Z",
-      "act": "ai_denied",
-      "id": "MOD-VH7ML4",
       "by": ""
     }
   ],
