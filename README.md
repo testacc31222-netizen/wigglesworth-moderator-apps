@@ -26,6 +26,7 @@ Everyone (phone + PC) uses the Render link. Approvals update live everywhere.
 - Edit code never sent to public clients (`/api/config` strips it), timing-safe compare, generic `Unauthorized` errors
 - Server-side validation + length caps + control-char stripping on all inputs, ID format checks
 - `EDIT_CODE` env override so the code isn't stored in git; atomic `data.json` writes, 5000-sub cap
+- Applicant sessions are HMAC-signed `HttpOnly` cookies; login codes are hashed, single-use, expire in 10 minutes, and account endpoints are rate-limited + same-origin checked
 
 ## Discord ticket alerts (optional)
 New tickets and ticket replies ping you in Discord:
@@ -42,6 +43,66 @@ Use a staff-only channel: ticket contents are posted there. No webhook = feature
 Removed — the site no longer uses Discord OAuth. Applicants just type their
 Discord name manually. Delete any `DISCORD_CLIENT_ID`, `DISCORD_CLIENT_SECRET`,
 `LINK_SECRET`, `LINK_REDIRECT`, `LINK_REQUIRED` vars from Render if present.
+
+## Applicant accounts + emailed decisions
+
+Applicants can now sign in at `/signin` to see every application tied to their
+email, read the staff note, and choose whether decisions are emailed.
+
+- The application form collects a required **email** plus an opt-out checkbox.
+- A receipt is emailed on submission. When staff approve or deny, a decision
+  email goes out automatically (once, per decision).
+- Sign-in is passwordless: a 6-digit code is emailed and lasts 10 minutes.
+  Sessions are signed, `HttpOnly` cookies that last 30 days.
+- **Application ID fallback:** enter the email you applied with plus your
+  Application ID. This works even before email delivery is configured and also
+  claims older applications that predate accounts. The dashboard has an
+  "Add an older application" box for the rest.
+- Staff can force a fresh decision email from Applications → **Re-email
+  decision**, and see delivery state in Editor → General → **Applicant emails**.
+
+### Turn on email delivery (Resend or Brevo)
+
+No new npm dependency is needed; the server calls the provider's HTTP API
+directly. Pick **one**:
+
+**Resend** — best if you own a domain:
+
+1. Create a free account at resend.com → API Keys → create a key.
+2. Add `RESEND_API_KEY` = `re_...` on Render.
+3. Verify your domain in Resend, then set
+   `MAIL_FROM` = `Wigglesworth Staff <applications@yourdomain.com>`.
+   (`Wigglesworth <onboarding@resend.dev>` only delivers to the email on your
+   Resend account, so it is only useful for a quick test.)
+
+**Brevo** — easier if you only have a Gmail/Outlook address:
+
+1. Create a free account at brevo.com → SMTP & API → API Keys → create a key.
+2. In Brevo, verify the sender address you want to use (Senders domain &
+   IP → Senders → add your address and click the confirmation email).
+3. Add `BREVO_API_KEY` = your key and `MAIL_FROM` =
+   `Wigglesworth Staff <your-verified-address@gmail.com>` on Render.
+4. If both provider keys are present, set `MAIL_PROVIDER` = `brevo` or
+   `resend` to pick one. Otherwise Resend wins.
+
+Then set these optional but recommended values:
+
+- `SESSION_SECRET` = a long random string (keeps sign-ins valid if other
+  secrets change)
+- `PUBLIC_URL` = `https://your-custom-domain.com` (used in email links)
+- `MAIL_REPLY_TO` = a staff inbox
+
+Save, wait for the deploy, then Editor → General → **Send test**.
+
+Until a key is set, nothing is lost: every email is queued in
+`data.live.json` and the editor shows Queued / Sent / Failed counts. The queue
+retries on deploy, every 5 minutes, and when a new message is queued. The
+sign-in page automatically steers people to the Application ID method while
+delivery is off.
+
+**Privacy:** the data file now also holds account emails, hashed login codes,
+and queued email bodies. Keep the GitHub repo private (it already holds
+applications), and never commit a copy of `data.live.json` elsewhere.
 
 ## Files
 

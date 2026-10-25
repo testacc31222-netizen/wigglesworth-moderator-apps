@@ -16,7 +16,8 @@ const RAW_HOST = process.env.HOST || '127.0.0.1';
 const HOST = /^(\d{1,3}\.){3}\d{1,3}$|^(localhost|[a-zA-Z0-9]([a-zA-Z0-9.-]*[a-zA-Z0-9])?)$/.test(RAW_HOST) && RAW_HOST.length < 64
   ? RAW_HOST : '0.0.0.0';
 if (HOST !== RAW_HOST) console.error('Bad HOST env value, falling back to 0.0.0.0');
-const DATA_FILE = path.join(__dirname, 'data.live.json');
+// DATA_FILE can be pointed at a temp copy for safe local testing.
+const DATA_FILE = process.env.DATA_FILE ? path.resolve(process.env.DATA_FILE) : path.join(__dirname, 'data.live.json');
 // Free Render wipes local files on sleep/restart, so every save is mirrored
 // into the GitHub repo itself (needs GITHUB_TOKEN + GITHUB_REPO env vars).
 const GH_TOKEN = process.env.GITHUB_TOKEN || '';
@@ -37,6 +38,25 @@ const COUNTDOWN_PUBLIC_URL = (process.env.COUNTDOWN_PUBLIC_URL || 'https://wiggl
 // Discord staff alerts (ticket created + user replies). URL stays server-side.
 const DISCORD_WEBHOOK_URL = (process.env.DISCORD_WEBHOOK_URL || '').trim();
 const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
+
+// --- Email updates (Resend HTTP API — no SDK, no extra dependency) ----------
+// Set RESEND_API_KEY + MAIL_FROM on Render to turn delivery on. Until then,
+// mail is queued in data.live.json and shown to staff, so nothing is lost.
+const MAIL_API_KEY = (process.env.RESEND_API_KEY || '').trim();
+const BREVO_API_KEY = (process.env.BREVO_API_KEY || '').trim();
+const MAIL_FROM = (process.env.MAIL_FROM || 'Wigglesworth Applications <onboarding@resend.dev>').trim();
+const MAIL_REPLY_TO = (process.env.MAIL_REPLY_TO || '').trim();
+const PUBLIC_URL = (process.env.PUBLIC_URL || 'https://wigglesworth-moderator-applications.onrender.com').replace(/\/$/, '');
+function mailProvider() {
+  const want = String(process.env.MAIL_PROVIDER || '').toLowerCase();
+  if (want === 'brevo' && BREVO_API_KEY) return 'brevo';
+  if (want === 'resend' && MAIL_API_KEY) return 'resend';
+  if (MAIL_API_KEY) return 'resend';
+  if (BREVO_API_KEY) return 'brevo';
+  return '';
+}
+const mailConfigured = () => !!mailProvider();
+
 
 async function discordPost(url, body, attempt = 0) {
   const MAX_ATTEMPTS = 4;
@@ -147,14 +167,23 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1h', setHeaders(res, filePath) {
-  if (filePath.endsWith('index.html') || filePath.endsWith('app.js')) res.set('Cache-Control', 'no-store');
+  if (/[\\/](index|signin)\.html$/.test(filePath) || /[\\/](app|signin)\.js$/.test(filePath)) {
+    res.set('Cache-Control', 'no-store');
+  }
 } }));
+app.get('/signin', (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.sendFile(path.join(__dirname, 'public', 'signin.html'));
+});
 
 const general = rateLimit({ windowMs: 60 * 1000, max: 120 });
 const submitLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 10, message: { error: 'Too many applications, try again later.' } });
 const adminLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 60, message: { error: 'Too many attempts, slow down.' } });
 const statusLimit = rateLimit({ windowMs: 60 * 1000, max: 30 });
 const configLimit = rateLimit({ windowMs: 60 * 1000, max: 40 });
+const accountLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 8, message: { error: 'Too many sign-in emails. Wait a few minutes.' } });
+const verifyLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, message: { error: 'Too many code attempts. Wait a few minutes.' } });
+const recoverLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 12, message: { error: 'Too many attempts. Wait a few minutes.' } });
 const ticketLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 8, message: { error: 'Too many tickets, try again later.' } });
 // Blunt, tiny abuse filter for public text (matches stay staff-side).
 const SLURS = [/\bnigg?[ae]rs?\b/i, /\bf+ag+g+o+t+s?\b/i, /\bkike?s?\b/i, /\bch[i1]nks?\b/i, /\bspi+c+s?\b/i, /\btrann(y|ies)\b/i];
@@ -291,9 +320,12 @@ function loadDB() {
   } catch {
     db = null;
   }
-  if (!db || typeof db !== 'object') return { config: structuredClone(DEFAULT_CONFIG), submissions: [], tickets: [], reports: [], audit: [] };
+  if (!db || typeof db !== 'object') return { config: structuredClone(DEFAULT_CONFIG), submissions: [], tickets: [], reports: [], audit: [], accounts: [], loginCodes: [], outbox: [] };
   if (!db.config || typeof db.config !== 'object') db.config = structuredClone(DEFAULT_CONFIG);
   if (!Array.isArray(db.submissions)) db.submissions = [];
+  if (!Array.isArray(db.accounts)) db.accounts = [];
+  if (!Array.isArray(db.loginCodes)) db.loginCodes = [];
+  if (!Array.isArray(db.outbox)) db.outbox = [];
   // migrate v2 (single mod form) -> v3 (types)
   if (!Array.isArray(db.config.applicationTypes)) {
     const old = db.config;
@@ -308,6 +340,11 @@ function loadDB() {
     }
   }
   for (const s of db.submissions) if (!s.type) s.type = 'moderator';
+  for (const s of db.submissions) {
+    if (typeof s.email !== 'string') s.email = '';
+    if (s.emailUpdates === undefined) s.emailUpdates = true;
+    if (typeof s.notifiedStatus !== 'string') s.notifiedStatus = '';
+  }
   if (!Array.isArray(db.tickets)) db.tickets = [];
   if (!Array.isArray(db.reports)) db.reports = [];
   // fixups for DBs saved before these fields existed
@@ -411,6 +448,304 @@ async function githubPutFile(repo, fpath, buf, message) {
 function displayName(s) {
   return cleanStr(s.discordName || s.discord || s.username || 'Applicant', 80);
 }
+
+// ============================ Applicant accounts ============================
+// Passwordless: a 6-digit code proves the email, plus an Application-ID
+// fallback so people can still get in before mail delivery is configured.
+const SESSION_DAYS = 30;
+function parseCookies(req) {
+  const out = {};
+  for (const bit of String(req.headers.cookie || '').split(';')) {
+    const i = bit.indexOf('=');
+    if (i < 0) continue;
+    const k = bit.slice(0, i).trim();
+    if (!k) continue;
+    const raw = bit.slice(i + 1).trim();
+    try { out[k] = decodeURIComponent(raw); } catch { out[k] = raw; }
+  }
+  return out;
+}
+function sessionKey() {
+  return crypto.createHash('sha256').update(
+    'ws-account|' + (process.env.SESSION_SECRET || '') + '|' + GH_TOKEN + '|' + ENV_EDIT_CODE
+  ).digest();
+}
+function sessionSign(id, exp) {
+  const payload = id + '.' + exp;
+  return payload + '.' + crypto.createHmac('sha256', sessionKey()).update(payload).digest('base64url');
+}
+function sessionRead(req) {
+  const raw = parseCookies(req).ws_account;
+  if (!raw) return null;
+  const bits = raw.split('.');
+  if (bits.length !== 3) return null;
+  const [id, exp, sig] = bits;
+  if (!/^acc_[a-f0-9]{20,40}$/.test(id)) return null;
+  if (!/^\d{10,16}$/.test(exp) || +exp < Date.now()) return null;
+  const want = crypto.createHmac('sha256', sessionKey()).update(id + '.' + exp).digest('base64url');
+  return safeEq(sig, want) ? id : null;
+}
+function setAccountCookie(req, res, id) {
+  const exp = Date.now() + SESSION_DAYS * 86400000;
+  res.cookie('ws_account', sessionSign(id, exp), {
+    httpOnly: true, sameSite: 'lax', secure: !!req.secure,
+    maxAge: SESSION_DAYS * 86400000, path: '/',
+  });
+}
+function clearAccountCookie(res) {
+  res.clearCookie('ws_account', { path: '/' });
+}
+function sameOrigin(req) {
+  const o = req.headers.origin;
+  if (!o) return true;
+  try { const u = new URL(o); return u.host === req.headers.host; } catch { return false; }
+}
+function normEmail(v) {
+  const s = cleanStr(v, 180).trim().toLowerCase();
+  return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(s) ? s : '';
+}
+function hashCode(email, code) {
+  return crypto.createHmac('sha256', sessionKey()).update(email + '|' + code).digest('hex');
+}
+function accountFromReq(req, db) {
+  const id = sessionRead(req);
+  if (!id) return null;
+  return (db.accounts || []).find(a => a.id === id) || null;
+}
+function ensureAccount(db, email) {
+  email = normEmail(email);
+  let a = (db.accounts || []).find(x => x.email === email);
+  if (!a) {
+    a = {
+      id: 'acc_' + crypto.randomBytes(12).toString('hex'),
+      email, createdAt: new Date().toISOString(), emailUpdates: true,
+    };
+    db.accounts.push(a);
+    if (db.accounts.length > 5000) db.accounts = db.accounts.slice(-5000);
+  }
+  // Link anything already submitted with this email.
+  for (const s of db.submissions) if (normEmail(s.email) === email) s.accountId = a.id;
+  return a;
+}
+function appsForAccount(db, a) {
+  return db.submissions
+    .filter(s => s.accountId === a.id || normEmail(s.email) === a.email)
+    .sort((x, y) => String(y.date || '').localeCompare(String(x.date || '')))
+    .map(s => {
+      const t = typeById(db, s.type);
+      return {
+        appId: s.appId, type: s.type, typeName: t ? t.name : s.type,
+        date: s.date, status: s.status || 'pending', adminNote: s.adminNote || '',
+        email: s.email || '', emailUpdates: s.emailUpdates !== false,
+      };
+    });
+}
+function accountPayload(db, a) {
+  return { email: a.email, createdAt: a.createdAt, emailUpdates: a.emailUpdates !== false, apps: appsForAccount(db, a) };
+}
+function linkAppToAccount(db, a, appId) {
+  const id = cleanStr(appId, 40).trim().toUpperCase();
+  if (!validAppId(id)) return { error: 'Enter a valid Application ID (e.g. MOD-ABC123).' };
+  const s = db.submissions.find(x => (x.appId || '').toUpperCase() === id);
+  if (!s) return { error: 'No application found for that ID.' };
+  const em = normEmail(s.email);
+  if (em && em !== a.email) return { error: 'That application is linked to a different email.' };
+  if (!em) { s.email = a.email; s.emailUpdates = s.emailUpdates !== false; }
+  s.accountId = a.id;
+  return { app: s };
+}
+
+// ================================ Email ====================================
+function escHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function mailShell(inner) {
+  return '<!doctype html><html><body style="margin:0;padding:0;background:#080809">'
+    + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#080809">'
+    + '<tr><td align="center" style="padding:0">'
+    + '<div style="width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;'
+    + 'font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65">'
+    + '<div style="font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0">Wigglesworth</div>'
+    + '<div style="height:1px;background:#381217;margin:18px 0 26px"></div>'
+    + inner
+    + '<div style="height:1px;background:#381217;margin:28px 0 16px"></div>'
+    + '<p style="margin:0;font-size:12px;color:#7d7873">You are receiving this because you applied to join the Wigglesworth staff team.</p>'
+    + '</div></td></tr></table></body></html>';
+}
+function decisionEmail(db, s) {
+  const t = typeById(db, s.type);
+  const role = t ? t.name : s.type;
+  const accepted = s.status === 'approved';
+  const word = accepted ? 'Accepted' : 'Not accepted';
+  const name = displayName(s);
+  const note = String(s.adminNote || '').trim();
+  const subject = accepted
+    ? 'You are in — Wigglesworth ' + role + ' application'
+    : 'Update on your Wigglesworth ' + role + ' application';
+  const text = [
+    'Hi ' + name + ',', '',
+    'Your ' + role + ' application (' + s.appId + ') has been reviewed.', '',
+    'Result: ' + word,
+    note ? 'Note from staff: ' + note : '',
+    '', 'You can sign in any time to view your application:',
+    PUBLIC_URL + '/signin', '',
+    '— Wigglesworth Staff',
+  ].filter(l => l !== null).join('\n');
+  const inner = '<h1 style="font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6">Application update</h1>'
+    + '<p style="margin:0 0 14px">Hi ' + escHtml(name) + ',</p>'
+    + '<p style="margin:0 0 20px">Your <b>' + escHtml(role) + '</b> application (<b>' + escHtml(s.appId) + '</b>) has been reviewed.</p>'
+    + '<div style="border:1px solid ' + (accepted ? '#A62C35' : '#2b2b31') + ';background:#111114;padding:18px 20px;margin:0 0 20px">'
+    + '<div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px">Result</div>'
+    + '<div style="font-family:Georgia,serif;font-size:22px;color:' + (accepted ? '#E6DED4' : '#AAA5A0') + '">' + word + '</div>'
+    + (note ? '<div style="margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31"><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px">Note from staff</div>' + escHtml(note).replace(/\n/g, '<br>') + '</div>' : '')
+    + '</div>'
+    + '<p style="margin:0 0 18px;color:#AAA5A0;font-size:13px">Save your Application ID: <b style="color:#E6DED4">' + escHtml(s.appId) + '</b></p>'
+    + '<a href="' + escHtml(PUBLIC_URL + '/signin') + '" style="display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase">View my application</a>';
+  return { subject, text, html: mailShell(inner) };
+}
+function receiptEmail(db, s) {
+  const t = typeById(db, s.type);
+  const role = t ? t.name : s.type;
+  const subject = 'We received your Wigglesworth ' + role + ' application';
+  const text = [
+    'Hi ' + displayName(s) + ',', '',
+    'Your ' + role + ' application (' + s.appId + ') is in the queue.', '',
+    'We will email you again as soon as there is a decision.',
+    'You can sign in any time to check its status:',
+    PUBLIC_URL + '/signin', '',
+    '— Wigglesworth Staff',
+  ].join('\n');
+  const inner = '<h1 style="font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6">Application received</h1>'
+    + '<p style="margin:0 0 14px">Hi ' + escHtml(displayName(s)) + ',</p>'
+    + '<p style="margin:0 0 18px">Your <b>' + escHtml(role) + '</b> application is in the queue and will be read by a human.</p>'
+    + '<div style="border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px">'
+    + '<div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px">Application ID</div>'
+    + '<div style="font-family:Georgia,serif;font-size:20px;color:#E6DED4">' + escHtml(s.appId) + '</div></div>'
+    + '<p style="margin:0 0 18px;color:#AAA5A0;font-size:13px">We will email you again when there is a decision. Nothing else is needed from you right now.</p>'
+    + '<a href="' + escHtml(PUBLIC_URL + '/signin') + '" style="display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase">Sign in to track it</a>';
+  return { subject, text, html: mailShell(inner) };
+}
+function signInEmail(code) {
+  const subject = 'Your Wigglesworth sign-in code';
+  const text = [
+    'Your Wigglesworth sign-in code is ' + code + '.', '',
+    'It expires in 10 minutes. If you did not request it, ignore this email.',
+  ].join('\n');
+  const inner = '<h1 style="font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6">Sign in</h1>'
+    + '<p style="margin:0 0 18px">Use this code to open your applications. It expires in 10 minutes.</p>'
+    + '<div style="border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4">' + code + '</div>'
+    + '<p style="margin:0;color:#AAA5A0;font-size:13px">If you did not request this, you can ignore this email.</p>';
+  return { subject, text, html: mailShell(inner) };
+}
+function queueMail(db, opts) {
+  if (!Array.isArray(db.outbox)) db.outbox = [];
+  if (opts.key && db.outbox.some(m => m.key === opts.key && m.status !== 'failed')) return false;
+  db.outbox.push({
+    id: 'mail_' + crypto.randomBytes(9).toString('hex'),
+    key: cleanStr(opts.key || '', 120),
+    to: normEmail(opts.to),
+    subject: cleanStr(opts.subject, 160),
+    text: String(opts.text || '').slice(0, 12000),
+    html: String(opts.html || '').slice(0, 40000),
+    kind: cleanStr(opts.kind || 'other', 30),
+    appId: cleanStr(opts.appId || '', 40),
+    status: 'queued', attempts: 0, error: '',
+    createdAt: new Date().toISOString(), sentAt: '',
+  });
+  if (db.outbox.length > 1000) db.outbox = db.outbox.slice(-1000);
+  return true;
+}
+function mailFromParts() {
+  const m = /^(.*?)\s*<([^>]+)>$/.exec(MAIL_FROM);
+  if (m) return { name: m[1].replace(/^"|"$/g, '').trim() || 'Wigglesworth', email: m[2].trim() };
+  return { name: 'Wigglesworth', email: MAIL_FROM };
+}
+async function sendMail(m) {
+  const provider = mailProvider();
+  if (!provider) return { ok: false, error: 'not_configured' };
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
+    let url, headers, body;
+    if (provider === 'brevo') {
+      const from = mailFromParts();
+      const reply = MAIL_REPLY_TO ? /<([^>]+)>/.exec(MAIL_REPLY_TO) : null;
+      url = 'https://api.brevo.com/v3/smtp/email';
+      headers = { 'api-key': BREVO_API_KEY, 'Content-Type': 'application/json', Accept: 'application/json' };
+      body = {
+        sender: from, to: [{ email: m.to }], subject: m.subject,
+        htmlContent: m.html, textContent: m.text,
+        ...(MAIL_REPLY_TO ? { replyTo: { email: reply ? reply[1] : MAIL_REPLY_TO } } : {}),
+      };
+    } else {
+      url = 'https://api.resend.com/emails';
+      headers = { Authorization: 'Bearer ' + MAIL_API_KEY, 'Content-Type': 'application/json' };
+      body = {
+        from: MAIL_FROM, to: [m.to], subject: m.subject, text: m.text, html: m.html,
+        ...(MAIL_REPLY_TO ? { reply_to: MAIL_REPLY_TO } : {}),
+      };
+    }
+    const r = await fetch(url, {
+      method: 'POST', headers, body: JSON.stringify(body), signal: ctrl.signal,
+    });
+    clearTimeout(timer);
+    let detail = '';
+    try { const j = await r.json(); detail = (j && (j.message || j.name || (j.error && (j.error.message || j.error)))) || ''; } catch {}
+    if (!r.ok) { console.error('mail send failed', provider, r.status, detail); return { ok: false, error: (r.status + ' ' + detail).trim() }; }
+    return { ok: true, provider };
+  } catch (e) { return { ok: false, error: e.name === 'AbortError' ? 'timeout' : e.message }; }
+}
+let outboxBusy = false;
+async function flushOutbox() {
+  if (!mailConfigured() || outboxBusy) return;
+  outboxBusy = true;
+  try {
+    for (let i = 0; i < 6; i++) {
+      const db = loadDB();
+      const m = (db.outbox || []).find(x => x.status === 'queued' && (x.attempts || 0) < 5);
+      if (!m) break;
+      const result = await sendMail(m);
+      // Reload before writing so a concurrent request is not clobbered.
+      const db2 = loadDB();
+      const m2 = (db2.outbox || []).find(x => x.id === m.id);
+      if (m2) {
+        m2.attempts = (m2.attempts || 0) + 1;
+        if (result.ok) { m2.status = 'sent'; m2.sentAt = new Date().toISOString(); m2.error = ''; }
+        else { m2.status = m2.attempts >= 5 ? 'failed' : 'queued'; m2.error = cleanStr(result.error, 200); }
+        saveDB(db2);
+      }
+      if (!result.ok && result.error === 'not_configured') break;
+    }
+  } catch (e) { console.error('outbox flush error', e.message); }
+  finally { outboxBusy = false; }
+}
+function mailStats(db) {
+  const out = db.outbox || [];
+  const count = st => out.filter(m => m.status === st).length;
+  return {
+    configured: mailConfigured(), provider: mailProvider() || 'none', from: MAIL_FROM,
+    queued: count('queued'), sent: count('sent'), failed: count('failed'),
+  };
+}
+function queueDecisionEmail(db, s, force) {
+  if (!s.email || s.emailUpdates === false) return false;
+  if (!force && s.notifiedStatus === s.status) return false;
+  const mail = decisionEmail(db, s);
+  // notifiedStatus is the real duplicate guard; a timestamp lets a later
+  // re-decision (deny -> approve) send again.
+  const key = s.appId + ':' + s.status + ':' + Date.now();
+  const ok = queueMail(db, { ...mail, to: s.email, kind: 'decision', appId: s.appId, key });
+  if (ok) { s.notifiedStatus = s.status; s.notifiedAt = new Date().toISOString(); }
+  return ok;
+}
+function queueReceiptEmail(db, s) {
+  if (!s.email || s.emailUpdates === false) return false;
+  const mail = receiptEmail(db, s);
+  const ok = queueMail(db, { ...mail, to: s.email, kind: 'receipt', appId: s.appId, key: s.appId + ':receipt' });
+  if (ok) s.receiptAt = new Date().toISOString();
+  return ok;
+}
+
 const FAQ_STOP = new Set('a,an,the,and,or,but,if,then,so,for,to,of,in,on,at,by,do,does,did,is,are,was,were,be,been,am,i,you,he,she,it,we,they,me,him,her,us,them,my,your,his,our,their,what,when,where,who,whom,which,how,why,can,could,should,would,will,just,very,here,there,this,that,these,those,any,all,anyone,anybody,please,thanks,thank,hi,hello,hey,get,got,have,has,had'.split(','));
 function faqMatch(text, faqs) {
   const words = s => (String(s).toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => w.length > 2 && !FAQ_STOP.has(w));
@@ -454,7 +789,16 @@ app.post('/api/applications', submitLimit, (req, res) => {
       return res.status(400).json({ error: q.label + ' is too short.' });
     }
   }
-  const entry = { appId: genId(t.prefix), type: t.id, date: new Date().toISOString(), status: 'pending', adminNote: '' };
+  const accountId = sessionRead(req);
+  const account = accountId ? (db.accounts || []).find(a => a.id === accountId) : null;
+  const email = account ? account.email : normEmail(body.email);
+  if (!email) return res.status(400).json({ error: 'Add a valid email so we can send your decision.' });
+  const entry = {
+    appId: genId(t.prefix), type: t.id, date: new Date().toISOString(),
+    status: 'pending', adminNote: '', email,
+    emailUpdates: body.emailUpdates !== false,
+    accountId: account ? account.id : '', notifiedStatus: '',
+  };
   const ids = new Set(t.questions.map(q => q.id));
   for (const q of db.config.applicationTypes.flatMap(x => x.questions)) {
     if (ids.has(q.id)) entry[q.id] = cleanStr(answers[q.id], 3000);
@@ -462,8 +806,13 @@ app.post('/api/applications', submitLimit, (req, res) => {
   if (hasSlur(Object.values(entry).join(' '))) return res.status(400).json({ error: 'Submission rejected.' });
   db.submissions.push(entry);
   if (db.submissions.length > 5000) db.submissions = db.submissions.slice(-5000);
+  queueReceiptEmail(db, entry);
   saveDB(db);
-  res.json({ appId: entry.appId, type: entry.type, successMessage: t.successMessage || '' });
+  if (mailConfigured()) flushOutbox().catch(e => console.error('outbox error', e.message));
+  res.json({
+    appId: entry.appId, type: entry.type, successMessage: t.successMessage || '',
+    email: entry.email, emailUpdates: entry.emailUpdates, mailConfigured: mailConfigured(),
+  });
 });
 
 app.get('/api/status/:id', statusLimit, (req, res) => {
@@ -487,6 +836,134 @@ app.get('/api/approved', statusLimit, (req, res) => {
     });
   }
   res.json(out.slice(0, 200));
+});
+
+// --- applicant accounts / sign-in -------------------------------------------
+app.get('/api/account/meta', statusLimit, (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.json({ mailConfigured: mailConfigured(), publicUrl: PUBLIC_URL });
+});
+
+app.get('/api/account/me', statusLimit, (req, res) => {
+  const db = loadDB();
+  const a = accountFromReq(req, db);
+  if (!a) { clearAccountCookie(res); return res.status(401).json({ error: 'Not signed in' }); }
+  res.set('Cache-Control', 'no-store');
+  res.json(accountPayload(db, a));
+});
+
+// Step 1: email a 6-digit code. Always answers the same way so the endpoint
+// cannot be used to discover which emails have accounts.
+app.post('/api/account/request-code', accountLimit, (req, res) => {
+  if (!sameOrigin(req)) return res.status(403).json({ error: 'Bad origin' });
+  const db = loadDB();
+  const email = normEmail(req.body && req.body.email);
+  if (!email) return res.status(400).json({ error: 'Enter a valid email address.' });
+  if (!mailConfigured()) {
+    return res.status(503).json({
+      error: 'Email sign-in is not switched on yet. Use your Application ID below.',
+      mailConfigured: false,
+    });
+  }
+  const now = Date.now();
+  db.loginCodes = (db.loginCodes || []).filter(c => c.exp > now);
+  const last = db.loginCodes.filter(c => c.email === email).sort((a, b) => b.created - a.created)[0];
+  if (last && now - last.created < 45000) return res.json({ ok: true, cooldown: true });
+  // Only the newest code should work.
+  db.loginCodes = db.loginCodes.filter(c => c.email !== email);
+  const code = String(crypto.randomInt(0, 1000000)).padStart(6, '0');
+  db.loginCodes.push({ email, hash: hashCode(email, code), exp: now + 10 * 60 * 1000, tries: 0, created: now });
+  if (db.loginCodes.length > 500) db.loginCodes = db.loginCodes.slice(-500);
+  const mail = signInEmail(code);
+  queueMail(db, { ...mail, to: email, kind: 'signin', key: 'signin:' + email + ':' + now });
+  saveDB(db);
+  flushOutbox().catch(e => console.error('outbox error', e.message));
+  res.json({ ok: true });
+});
+
+// Step 2: exchange the code for a 30-day signed session cookie.
+app.post('/api/account/verify-code', verifyLimit, (req, res) => {
+  if (!sameOrigin(req)) return res.status(403).json({ error: 'Bad origin' });
+  const db = loadDB();
+  const email = normEmail(req.body && req.body.email);
+  const code = String((req.body && req.body.code) || '').replace(/\D/g, '').slice(0, 8);
+  if (!email || code.length !== 6) return res.status(400).json({ error: 'Enter the 6-digit code from your email.' });
+  const now = Date.now();
+  const rec = (db.loginCodes || [])
+    .filter(c => c.email === email && c.exp > now)
+    .sort((a, b) => b.created - a.created)[0];
+  if (!rec) return res.status(400).json({ error: 'That code expired. Request a new one.' });
+  if ((rec.tries || 0) >= 6) {
+    db.loginCodes = db.loginCodes.filter(c => c !== rec);
+    saveDB(db);
+    return res.status(429).json({ error: 'Too many wrong attempts. Request a new code.' });
+  }
+  if (!safeEq(rec.hash, hashCode(email, code))) {
+    rec.tries = (rec.tries || 0) + 1;
+    saveDB(db);
+    return res.status(400).json({ error: 'That code is not right. Check the email again.' });
+  }
+  db.loginCodes = (db.loginCodes || []).filter(c => c.email !== email);
+  const a = ensureAccount(db, email);
+  audit(db, 'account_login', a.id, req);
+  saveDB(db);
+  setAccountCookie(req, res, a.id);
+  res.json({ ok: true, ...accountPayload(db, a) });
+});
+
+// Fallback that works even before email delivery is configured: prove the
+// application belongs to you with the Application ID (already the status-check
+// secret) plus the email it was submitted with.
+app.post('/api/account/recover', recoverLimit, (req, res) => {
+  if (!sameOrigin(req)) return res.status(403).json({ error: 'Bad origin' });
+  const db = loadDB();
+  const email = normEmail(req.body && req.body.email);
+  const appId = cleanStr(req.body && req.body.appId, 40).trim().toUpperCase();
+  if (!email) return res.status(400).json({ error: 'Enter a valid email address.' });
+  if (!validAppId(appId)) return res.status(400).json({ error: 'Enter a valid Application ID (e.g. MOD-ABC123).' });
+  const s = db.submissions.find(x => (x.appId || '').toUpperCase() === appId);
+  const mismatch = { error: 'Those details do not match an application.' };
+  if (!s) return res.status(404).json(mismatch);
+  const existing = normEmail(s.email);
+  if (existing && existing !== email) return res.status(404).json(mismatch);
+  if (!existing) { s.email = email; s.emailUpdates = s.emailUpdates !== false; }
+  const a = ensureAccount(db, email);
+  s.accountId = a.id;
+  audit(db, 'account_recover', s.appId, req);
+  saveDB(db);
+  setAccountCookie(req, res, a.id);
+  res.json({ ok: true, ...accountPayload(db, a) });
+});
+
+app.post('/api/account/link', recoverLimit, (req, res) => {
+  if (!sameOrigin(req)) return res.status(403).json({ error: 'Bad origin' });
+  const db = loadDB();
+  const a = accountFromReq(req, db);
+  if (!a) return res.status(401).json({ error: 'Sign in first.' });
+  const result = linkAppToAccount(db, a, req.body && req.body.appId);
+  if (result.error) return res.status(400).json({ error: result.error });
+  audit(db, 'account_link', result.app.appId, req);
+  saveDB(db);
+  res.json({ ok: true, ...accountPayload(db, a) });
+});
+
+app.post('/api/account/prefs', statusLimit, (req, res) => {
+  if (!sameOrigin(req)) return res.status(403).json({ error: 'Bad origin' });
+  const db = loadDB();
+  const a = accountFromReq(req, db);
+  if (!a) return res.status(401).json({ error: 'Sign in first.' });
+  a.emailUpdates = !!(req.body && req.body.emailUpdates);
+  for (const s of db.submissions) {
+    if (s.accountId === a.id || normEmail(s.email) === a.email) s.emailUpdates = a.emailUpdates;
+  }
+  saveDB(db);
+  res.json({ ok: true, ...accountPayload(db, a) });
+});
+
+app.post('/api/account/signout', (req, res) => {
+  if (!sameOrigin(req)) return res.status(403).json({ error: 'Bad origin' });
+  clearAccountCookie(res);
+  res.json({ ok: true });
 });
 
 // --- private tickets ---
@@ -778,9 +1255,11 @@ app.post('/api/admin/applications/:id/decision', aiLimit, async (req, res) => {
     if (!note) return res.status(502).json({ error: 'AI unavailable' });
     s.status = decision;
     s.adminNote = note;
+    const emailed = queueDecisionEmail(db, s);
     audit(db, 'ai_' + decision, s.appId, req);
     saveDB(db);
-    res.json({ ok: true });
+    if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
+    res.json({ ok: true, emailed, mailConfigured: mailConfigured() });
   } catch (e) { console.error('ai decision error', e.message); res.status(502).json({ error: 'AI unavailable' }); }
 });
 
@@ -847,14 +1326,37 @@ app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {
   const s = db.submissions.find(x => x.appId === req.params.id);
   if (!s) return res.status(404).json({ error: 'Not found' });
   const { status, adminNote } = req.body || {};
+  const before = s.status;
   if (status !== undefined) {
     if (!['pending', 'approved', 'denied'].includes(status)) return res.status(400).json({ error: 'Bad status' });
     s.status = status;
   }
   if (adminNote !== undefined) s.adminNote = cleanStr(adminNote, 2000);
+  let emailed = false;
+  if (s.status !== before && (s.status === 'approved' || s.status === 'denied')) {
+    emailed = queueDecisionEmail(db, s);
+  }
   audit(db, 'status_' + s.status, s.appId, req);
   saveDB(db);
-  res.json({ ok: true });
+  if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
+  res.json({ ok: true, emailed, mailConfigured: mailConfigured() });
+});
+
+// Force a fresh decision email (e.g. staff changed the note after deciding).
+app.post('/api/admin/applications/:id/notify', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!validAppId(req.params.id)) return res.status(404).json({ error: 'Not found' });
+  const s = db.submissions.find(x => x.appId === req.params.id);
+  if (!s) return res.status(404).json({ error: 'Not found' });
+  if (!s.email) return res.status(400).json({ error: 'This application has no email on file.' });
+  if (!['approved', 'denied'].includes(s.status)) return res.status(400).json({ error: 'Decide the application first.' });
+  if (!mailConfigured()) return res.status(400).json({ error: 'Email delivery is not configured. Set RESEND_API_KEY (or BREVO_API_KEY) and MAIL_FROM.' });
+  const queued = queueDecisionEmail(db, s, true);
+  audit(db, 'decision_email', s.appId, req);
+  saveDB(db);
+  if (queued) flushOutbox().catch(e => console.error('outbox error', e.message));
+  res.json({ ok: true, queued });
 });
 
 app.delete('/api/admin/applications/:id', adminLimit, (req, res) => {
@@ -891,7 +1393,11 @@ app.get('/api/admin/backup', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   res.set('Cache-Control', 'no-store');
-  res.json({ version: 1, exportedAt: new Date().toISOString(), config: db.config, submissions: db.submissions, tickets: db.tickets || [], reports: db.reports || [] });
+  res.json({
+    version: 1, exportedAt: new Date().toISOString(), config: db.config,
+    submissions: db.submissions, tickets: db.tickets || [], reports: db.reports || [],
+    accounts: db.accounts || [],
+  });
 });
 
 app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req, res) => {
@@ -912,6 +1418,11 @@ app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req
   if (Array.isArray(b.reports)) {
     db.reports = b.reports.filter(r => r && typeof r.id === 'string').slice(-2000);
   }
+  if (Array.isArray(b.accounts)) {
+    db.accounts = b.accounts
+      .filter(a => a && typeof a.id === 'string' && typeof a.email === 'string')
+      .slice(-5000);
+  }
   audit(db, 'restored', String(db.submissions.length), req);
   saveDB(db);
   res.json({ ok: true, submissions: db.submissions.length });
@@ -922,7 +1433,30 @@ app.get('/health', (req, res) => res.json({ ok: true }));
 app.get('/api/admin/sync', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
-  res.json({ github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH, discord: !!DISCORD_WEBHOOK_URL, ai: !!AI_API_KEY });
+  res.json({
+    github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH,
+    discord: !!DISCORD_WEBHOOK_URL, ai: !!AI_API_KEY, mail: mailStats(db),
+  });
+});
+
+app.post('/api/admin/mail/test', adminLimit, async (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  const to = normEmail(req.body && req.body.to);
+  if (!to) return res.status(400).json({ error: 'Enter a valid destination email.' });
+  if (!mailConfigured()) {
+    return res.status(400).json({ error: 'Email delivery is not configured. Set RESEND_API_KEY (or BREVO_API_KEY) and MAIL_FROM on Render.', mailConfigured: false });
+  }
+  const html = mailShell('<h1 style="font-family:Georgia,serif;font-weight:400;font-size:26px;margin:0 0 16px;color:#F1ECE6">Email test</h1>'
+    + '<p style="margin:0 0 12px">This is a test from the Wigglesworth applications site.</p>'
+    + '<p style="margin:0;color:#AAA5A0;font-size:13px">If you can read this, decision emails will deliver the same way.</p>');
+  const result = await sendMail({
+    to, subject: 'Wigglesworth email test',
+    text: 'This is a test from the Wigglesworth applications site. Decision emails will deliver the same way.',
+    html,
+  });
+  if (!result.ok) return res.status(502).json({ error: 'Send failed: ' + result.error });
+  res.json({ ok: true, from: MAIL_FROM });
 });
 
 app.get('/api/admin/config', adminLimit, (req, res) => {
@@ -1101,4 +1635,8 @@ app.post('/api/clientlog', diagLimit, (req, res) => {
 app.listen(PORT, HOST, () => {
   console.log(`Moderator site on http://${HOST}:${PORT} (bound to ${HOST} only — home IP not exposed)`);
   console.log(`Discord ticket alerts: ${DISCORD_WEBHOOK_URL ? 'ON' : 'OFF (set DISCORD_WEBHOOK_URL)'}`);
+  console.log(`Applicant email: ${mailConfigured() ? 'ON via ' + mailProvider() + ' (' + MAIL_FROM + ')' : 'OFF (set RESEND_API_KEY or BREVO_API_KEY + MAIL_FROM; mail is queued)'}`);
+  // Retry anything queued while the service was asleep, then periodically.
+  setTimeout(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 4000);
+  setInterval(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 5 * 60 * 1000).unref();
 });

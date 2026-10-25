@@ -1,5 +1,6 @@
 let config = null;
-const BUILD = '20261017a';
+let account = null;
+const BUILD = '20261024a';
 function sendDiag(failed){
   try{
     const tag = document.getElementById('buildTag');
@@ -210,10 +211,35 @@ function fillRoleHeader(t){
   $('roleIntro').textContent = t.intro || '';
   $('successMsg').textContent = t.successMessage || '';
 }
+async function fetchAccount(){
+  try{
+    const r = await fetch('/api/account/me', { cache:'no-store' });
+    account = r.ok ? await r.json() : null;
+  }catch{ account = null; }
+}
 function renderForm(){
   const t = curType();
   const f = $('modForm'); f.innerHTML=''; f.style.display='block';
   $('success').style.display='none';
+  // Email is a core field (not configurable) so decision emails always have
+  // somewhere to go, even if staff edit the questions.
+  const emLab = document.createElement('label');
+  emLab.className = 'emailcore';
+  emLab.innerHTML = 'Email <span class="req">*</span>';
+  f.appendChild(emLab);
+  const em = document.createElement('input');
+  em.type='email'; em.id='f_email'; em.placeholder='you@example.com'; em.required=true; em.autocomplete='email';
+  if(account && account.email){ em.value = account.email; em.readOnly = true; }
+  f.appendChild(em);
+  if(account && account.email){
+    const note = document.createElement('p'); note.className='emailnote';
+    note.innerHTML = 'Signed in as <b>'+esc(account.email)+'</b>. <a href="/signin">Manage account</a>.';
+    f.appendChild(note);
+  }
+  const opt = document.createElement('label'); opt.className='checkline';
+  const checked = !(account && account.emailUpdates === false);
+  opt.innerHTML = '<input type="checkbox" id="f_email_updates"'+(checked?' checked':'')+'> Email me when my application is reviewed';
+  f.appendChild(opt);
   t.questions.forEach(q=>{
     const lab = document.createElement('label');
     lab.innerHTML = esc(q.label) + (q.required ? ' <span class="req">*</span>' : '');
@@ -244,15 +270,31 @@ async function submitApp(e){
     if((q.id==='why'||q.id==='scenario'||q.id==='bugscenario') && v.length<20){ alert(q.label+' is too short. Give more detail.'); el.focus(); return false; }
     answers[q.id]=v;
   }
+  const emailEl = $('f_email');
+  const email = (emailEl && emailEl.value || '').trim();
+  if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)){ alert('Add a valid email so we can send your decision.'); emailEl && emailEl.focus(); return false; }
+  const emailUpdates = !!($('f_email_updates') && $('f_email_updates').checked);
   const done = busyOn(e.target.querySelector('button[type=submit]'), 'Sending');
   try{
-    const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t.id,answers})});
+    const r = await fetch('/api/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:t.id,answers,email,emailUpdates})});
     const j = await r.json();
     if(!r.ok) throw new Error(j.error||'Submit failed');
     $('modForm').style.display='none';
     $('success').style.display='block';
     $('successMsg').textContent = j.successMessage || t.successMessage || '';
     $('newAppId').textContent = j.appId;
+    const se = $('successEmail');
+    if(se){
+      if(j.email && j.emailUpdates === false){
+        se.style.display='block';
+        se.innerHTML = 'Email updates are off. <a href="/signin">Sign in</a> to check the result at any time.';
+      } else if(j.email){
+        se.style.display='block';
+        se.innerHTML = j.mailConfigured
+          ? 'A receipt is on its way to <b>'+esc(j.email)+'</b>. Your decision will be emailed there too. <a href="/signin">Sign in</a>'
+          : 'We saved <b>'+esc(j.email)+'</b> for your decision. <a href="/signin">Sign in</a> to track it.';
+      } else se.style.display='none';
+    }
     renderApprovedPublic();
   }catch(err){ alert(err.message); }
   finally{ done(); }
@@ -327,6 +369,34 @@ function switchTab(name,btn){
   document.querySelectorAll('.tabpane').forEach(p=>p.classList.remove('active'));
   $('tab-'+name).classList.add('active');
 }
+async function loadMailStatus(){
+  const box=$('mailStatus'); if(!box) return;
+  try{
+    const r=await fetch('/api/admin/sync',{headers:{'x-edit-code':editCode}});
+    if(!r.ok) throw 0;
+    const j=await r.json(); const m=j.mail||{};
+    box.innerHTML = (m.configured
+        ? '<b style="color:#9fc59f">Delivery ON</b> · '+esc(m.provider||'email')+' · from '+esc(m.from||'')
+        : '<b style="color:#d08a92">Delivery OFF</b> — emails are queued only')
+      + '<br>Queued: '+(m.queued||0)+' · Sent: '+(m.sent||0)+' · Failed: '+(m.failed||0);
+  }catch{ box.textContent='Could not load email status.'; }
+}
+async function sendTestMail(){
+  const to=($('mailTestTo').value||'').trim();
+  if(!to){ alert('Enter an email to send the test to.'); return; }
+  const r=await fetch('/api/admin/mail/test',{method:'POST',headers:headers(),body:JSON.stringify({to})});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok){ alert(j.error||'Test failed'); return; }
+  alert('Test sent from '+j.from);
+  loadMailStatus();
+}
+async function notifyApp(appId){
+  const r=await fetch('/api/admin/applications/'+appId+'/notify',{method:'POST',headers:headers()});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok){ alert(j.error||'Could not send'); return; }
+  alert(j.queued?'Decision email queued.':'Nothing queued — check the email settings.');
+  loadMailStatus();
+}
 function toggleCode(){ const i=$('e_code'); i.type=i.type==='password'?'text':'password'; }
 function fileToDataUrl(file,cb){ const r=new FileReader(); r.onload=()=>cb(r.result); r.readAsDataURL(file); }
 function clearImg(k){ config[k]=''; syncImgPreviews(); }
@@ -357,6 +427,7 @@ function showEditor(refetch=true){
   $('e_staffName').value=staffName();
   syncImgPreviews(); renderTypeEditor(); syncQType(); renderQEditor(); renderFaqEditor(); renderDecor(); renderDecorList();
   syncAppTypeFilter();
+  loadMailStatus();
   markClean();
   if(window.__refT) clearInterval(window.__refT);
   window.__refT = setInterval(()=>{
@@ -514,14 +585,15 @@ async function renderSubs(){
     const name = dispName(s);
     const d=document.createElement('div'); d.className='submission';
     let html=`<div class="sub-head"><div class="avatar">${esc(name.slice(0,1).toUpperCase()||'?')}</div>`
-      +`<div class="who"><b>${hi(name,qr)}</b><span class="hint">${hi(s.appId||'',qr)} · ${hi(typeName(s.type),qr)} · ${hi((s.date||'').slice(0,16).replace('T',' '),qr)}</span></div>`
+      +`<div class="who"><b>${hi(name,qr)}</b><span class="hint">${hi(s.appId||'',qr)} · ${hi(typeName(s.type),qr)} · ${hi((s.date||'').slice(0,16).replace('T',' '),qr)}</span>`
+      +`<span class="hint">${s.email?hi(s.email,qr):'<i>no email on file</i>'}${s.notifiedAt?' · emailed '+(s.notifiedAt||'').slice(0,10):''}</span></div>`
       +`<span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span></div>`;
     if(s.aiSummary){
       html+=`<div class="ai-summary"><div class="ai-summary-head"><b>AI summary</b><span class="hint">${esc((s.aiSummaryAt||'').slice(0,16).replace('T',' '))}</span></div><div class="ai-summary-body">${esc(s.aiSummary)}</div></div>`;
     }
     html+=`<div class="qa">`;
     Object.keys(s).forEach(k=>{
-      if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt'].includes(k)) return;
+      if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt','email','emailUpdates','notifiedStatus','notifiedAt','receiptAt','accountId'].includes(k)) return;
       const lbl = qmap[s.type+':'+k] || k;
       html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
@@ -548,6 +620,9 @@ async function renderSubs(){
       }),
       mk('Delete','btn-small',()=>{ if(confirm('Delete ' + dispName(s) + ' (' + s.appId + ') forever?')) delSub(s.appId); })
     );
+    if(s.email && (s.status==='approved'||s.status==='denied')){
+      bar2.insertBefore(mk('Re-email decision','btn-small',()=>notifyApp(s.appId)), bar2.lastChild);
+    }
     d.appendChild(bar); d.appendChild(bar2); w.appendChild(d);
   });
 }
@@ -1216,6 +1291,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
       e.preventDefault();
     }
   });
+  fetchAccount();
   fetchConfig().then(()=>{ pageReady = true; maybeOpenLoader(); })
     .catch(()=>{ pageReady = true; setTimeout(()=>sendDiag(true), 2500); maybeOpenLoader(); });
   try{

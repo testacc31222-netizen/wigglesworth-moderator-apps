@@ -119,6 +119,10 @@ h3{font-family:var(--font-display);font-weight:600;font-size:16px;letter-spacing
 #roleName{font-size:27px;letter-spacing:.04em}
 label{display:block;font-weight:600;margin:20px 0 8px;font-size:12.5px;letter-spacing:.05em;color:#c8c2b8}
 label span.req{color:var(--crimson-bright);margin-left:4px}
+.checkline{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:12.5px;letter-spacing:0;color:var(--muted);margin:12px 0 2px;cursor:pointer}
+.checkline input{width:16px;height:16px;min-height:16px;margin:1px 0 0;flex:0 0 auto;padding:0}
+.emailnote{margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.55}
+.emailnote a{color:#d08a92}
 form label{transition:color .25s ease}
 form label:has(+input:focus),form label:has(+textarea:focus),form label:has(+select:focus){color:var(--crimson-bright)}
 #modForm>label:has(+input:focus)::before,#modForm>label:has(+textarea:focus)::before,#ticketForm>label:has(+input:focus)::before,#ticketForm>label:has(+textarea:focus)::before,#reportForm>label:has(+input:focus)::before,#reportForm>label:has(+textarea:focus)::before{border-color:rgba(193,74,84,.6);box-shadow:0 0 10px rgba(166,44,53,.45)}
@@ -366,6 +370,9 @@ body.design-on [data-dkey]{outline:1.5px dashed rgba(193,74,84,.65);outline-offs
 .approved-list .arow .meta{font-size:12px;color:var(--muted);white-space:nowrap}
 #modForm,#ticketForm,#reportForm{counter-reset:q}
 #modForm>label::before,#ticketForm>label::before,#reportForm>label::before{counter-increment:q;content:"Q" counter(q,decimal-leading-zero);display:inline-block;font-family:var(--font-display);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--crimson-bright);border:1px solid var(--line-red-soft);border-radius:3px;padding:1px 7px;margin-right:10px;background:rgba(116,27,36,.12)}
+#modForm>label.emailcore,#modForm>label.checkline{counter-increment:none}
+#modForm>label.checkline::before{display:none}
+#modForm>label.emailcore::before{content:"@";font-size:12px;letter-spacing:0}
 #editor .tabs{position:sticky;top:0;background:var(--card);z-index:5}
 @media(max-width:960px){
   .content-grid{grid-template-columns:1fr}
@@ -551,6 +558,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <a href="#why">About</a>
       <a href="#requirements">Requirements</a>
       <a href="#faq">FAQ</a>
+      <a href="/signin">Sign in</a>
     </nav>
     <div class="nav-actions">
       <button class="btn-staff" onclick="openCodeModal()">Staff</button>
@@ -649,8 +657,10 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <p id="successMsg"></p>
       <div class="hint">Save your Application ID to check your decision later:</div>
       <div class="appid" id="newAppId">—</div>
+      <p class="emailnote" id="successEmail" style="display:none"></p>
       <div class="row">
         <button class="btn-small" onclick="copyAppId()">Copy ID</button>
+        <a class="btn-small" href="/signin" style="text-decoration:none;display:inline-flex;align-items:center">Sign in for updates</a>
         <button class="btn-small" onclick="resetForm()">Back to roles</button>
       </div>
     </div>
@@ -740,6 +750,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <button class="btn-confirm" onclick="checkStatus()" style="flex:1">Check</button>
     </div>
     <div id="statusResult"></div>
+    <p class="emailnote">Want the decision emailed to you? <a href="/signin">Sign in or claim your application</a>.</p>
   </div>
 
   <div class="panel" id="accepted" style="display:none">
@@ -799,6 +810,13 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <label><input type="checkbox" id="e_showApproved" style="width:auto"> Show public Accepted list</label>
       <label>Accepted list title</label><input id="e_approvedTitle" placeholder="New team members">
       <label>Your staff name (shown in the security log so actions trace to a person)</label><input id="e_staffName" placeholder="e.g. Alex" oninput="sessionStorage.setItem('staff_name', this.value)">
+      <label>Applicant emails</label>
+      <div id="mailStatus" class="hint">Checking delivery…</div>
+      <div class="row" style="margin-top:8px">
+        <input id="mailTestTo" type="email" placeholder="Send a test to…" style="flex:2">
+        <button class="btn-small" onclick="sendTestMail()">Send test</button>
+      </div>
+      <p class="hint">Set <b>RESEND_API_KEY</b> or <b>BREVO_API_KEY</b>, plus <b>MAIL_FROM</b>, on Render to turn delivery on. Until then decisions are queued safely, never lost.</p>
     </div>
 
     <div id="tab-roles" class="tabpane">
