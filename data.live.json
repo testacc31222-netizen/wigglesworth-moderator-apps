@@ -189,7 +189,8 @@
     "layout": {
       "foot": {
         "dx": 10,
-        "dy": -80
+        "dy": -80,
+        "fs": 18
       },
       "heroHint": {
         "dx": 582,
@@ -2931,7 +2932,13 @@
   ],
   "audit": [
     {
-      "t": "2026-10-25T16:11:53.462Z",
+      "t": "2026-10-25T17:23:25.084Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-10-25T17:23:24.534Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -3523,12 +3530,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-10T23:20:04.761Z",
-      "act": "ticket_closed",
-      "id": "TKT-88ULAF",
-      "by": ""
     }
   ],
   "reports": [
@@ -3545,15 +3546,6 @@
     }
   ],
   "diag": [
-    {
-      "t": "2026-10-25T16:11:57.862Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156."
-    },
     {
       "t": "2026-10-25T16:06:39.892Z",
       "build": "20261024d",
@@ -3988,6 +3980,15 @@
     },
     {
       "t": "2026-10-22T22:40:38.477Z",
+      "build": "20261017a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.1.0.26.54.1096616420 C"
+    },
+    {
+      "t": "2026-10-22T22:38:42.208Z",
       "build": "20261017a",
       "hero": true,
       "gated": false,
