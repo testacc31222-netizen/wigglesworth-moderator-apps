@@ -265,7 +265,7 @@ mark{background:rgba(166,44,53,.45);color:inherit;border-radius:3px;padding:0 1p
 .decor-item input[type=range]{padding:0}
 body.design-on [data-dkey]{outline:1.5px dashed rgba(193,74,84,.65);outline-offset:3px;cursor:move}
 .dselected{outline:2px solid rgba(193,74,84,.9)!important;outline-offset:3px}
-#dtoolbar{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;display:flex;gap:6px;align-items:center;background:#141416;border:1px solid var(--line);border-radius:8px;padding:8px 10px;box-shadow:0 16px 44px rgba(0,0,0,.6),0 0 26px rgba(116,27,36,.15);max-width:96vw;flex-wrap:wrap;justify-content:center}
+#dtoolbar{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;display:flex;gap:6px;align-items:center;background:#141416;border:1px solid var(--line);border-radius:8px;padding:8px 10px;box-shadow:0 16px 44px rgba(0,0,0,.6),0 0 26px rgba(116,27,36,.15);max-width:96vw;max-height:min(42svh,320px);overflow-y:auto;flex-wrap:wrap;justify-content:center}
 #dtoolbar b{font-size:12px;color:var(--crimson-bright);margin-right:2px}
 #dtoolbar .btn-small{padding:6px 10px;font-size:12px}
 .dflash{box-shadow:0 0 0 3px rgba(193,74,84,.8)!important}
@@ -275,6 +275,7 @@ body.design-on [data-dkey]{outline:1.5px dashed rgba(193,74,84,.65);outline-offs
 .copy-editor-item{margin:12px 0;padding:10px 0;border-bottom:1px solid var(--line-soft)}
 .copy-editor-item[hidden]{display:none}
 .site-copy{white-space:inherit}
+@media(max-width:640px){#dtoolbar{bottom:max(8px,env(safe-area-inset-bottom));gap:5px;padding:7px;max-width:calc(100vw - 16px)}#dtoolbar .btn-small{min-height:40px;padding:8px 10px}body.design-on [data-copy-key]{cursor:text}.site-copy{overflow-wrap:anywhere}}
 #loader{position:fixed;inset:0;z-index:100;background:#060607;display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center;transition:opacity .45s ease .9s}
 #loader.open{opacity:0;pointer-events:none}
 .split{position:relative;width:min(66vw,300px);aspect-ratio:1/1;animation:floaty 3.4s ease-in-out infinite}
@@ -572,8 +573,8 @@ input:focus,textarea:focus,select:focus{border-color:rgba(193,74,84,.78);box-sha
 @media(max-width:640px){body{padding:0 10px 54px}.container{padding:0 8px}.nav-inner{height:62px;padding:0 14px}.navbar.nav-open .nav-links{top:62px}.nav-actions{gap:7px}.btn-apply{padding:10px 13px;font-size:10px}.hero{min-height:660px;margin:14px 0 20px}.hero::before{inset:8px}.hero-inner{padding:70px 18px 88px}.hero-title{font-size:clamp(39px,11.3vw,62px);letter-spacing:.055em;overflow-wrap:anywhere}.hero-inner .eyebrow{font-size:11px;letter-spacing:.34em}.hero-role{letter-spacing:.28em}.hero-inner .subtitle{font-size:14px}.panel{padding:25px 19px;margin-bottom:16px}.col-left{display:flex;gap:0}#report,#contact,#status,#accepted,#faq,#countCard{margin-top:16px}.role-card{min-height:84px;padding:16px 14px;gap:11px}.role-card .tick{padding:5px 7px;font-size:9px;letter-spacing:.1em}.role-card h4{font-size:12px}.role-card p{font-size:12px}.row{gap:8px}.row input,.row select{min-width:0}#editor .tabs{top:62px;overflow:auto;flex-wrap:nowrap;scrollbar-width:thin}#editor .tabs button{white-space:nowrap}.ed-head{align-items:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.fog,#embers,.specks{display:none!important}.reveal{opacity:1;transform:none}}
 </style>
-<link rel="stylesheet" href="/gothic-luxury.css?v=6">
-<link rel="stylesheet" href="/astra-cinematic.css?v=3">
+<link rel="stylesheet" href="/gothic-luxury.css?v=preview-20261025">
+<link rel="stylesheet" href="/astra-cinematic.css?v=6">
 </head>
 <body class="main-page">
 <script>
@@ -622,11 +623,12 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <a href="#requirements">Requirements</a>
       <a href="#faq">FAQ</a>
       <a href="/signin">Account</a>
+      <button class="nav-staff" type="button" onclick="toggleNav();openCodeModal()">Staff workspace</button>
     </nav>
     <div class="nav-actions">
       <button class="btn-staff" onclick="openCodeModal()">Staff</button>
       <a class="btn-apply" href="#apply-form">Apply</a>
-      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -656,19 +658,32 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <img id="bannerImg" class="heroimg" style="display:none" alt="">
       <div id="abWarn" style="display:none"></div>
       <div class="logo-row"><img id="logoImg" style="display:none" alt=""></div>
+      <div class="hero-heading">
       <div class="eyebrow" data-dkey="heroEyebrow">Staff Applications</div>
       <h1 id="appTitle" class="hero-title display" data-dkey="appTitle">WIGGLESWORTH</h1>
+      <div class="hero-headline" aria-label="Join the Wigglesworth team"><span>JOIN THE</span><span>WIGGLESWORTH</span><strong>TEAM</strong></div>
       <div class="orn" aria-hidden="true"><i></i><b></b><i></i></div>
-      <div class="hero-role">A place in the order awaits</div>
+      </div>
+      <div class="hero-detail">
+      <div class="hero-role">Make a difference. Build a stronger community.</div>
       <p class="subtitle" id="appSubtitle" data-dkey="appSubtitle"></p>
       <div class="rich" id="topText" data-dkey="topText"></div>
       <div class="hero-actions">
         <button class="btn-primary" id="applyBtn" data-dkey="applyBtn" onclick="document.getElementById('apply-form').scrollIntoView({behavior:'smooth'})">Apply Now</button>
-        <p class="hero-note" data-dkey="heroHint">One honest application per role — every entry is read by a human.</p>
+        <a class="hero-secondary" href="#why">Discover the team <span aria-hidden="true">↗</span></a><p class="hero-note" data-dkey="heroHint">Every application is reviewed by real staff.</p>
       </div>
+      </div>
+      <div class="hero-portal" aria-hidden="true"><span></span><i></i></div>
       <div class="hero-seal" aria-label="Wigglesworth staff applications"><span>EST.</span><b>W</b><span>HUMAN<br>REVIEW</span></div>
     </div>
   </section>
+  <div class="benefits-strip" aria-label="Why join Wigglesworth">
+    <div><b>01</b><span><strong>A stronger community</strong><small>Help make Wigglesworth welcoming and safe.</small></span></div>
+    <div><b>02</b><span><strong>Real opportunities</strong><small>Gain experience, grow, and help others.</small></span></div>
+    <div><b>03</b><span><strong>Make a difference</strong><small>Your actions matter to the people who play.</small></span></div>
+  </div>
+
+  <nav class="hero-paths" aria-label="Application shortcuts"><a href="#apply-form"><span data-generated-copy-ignore>01</span> Explore positions <b aria-hidden="true" data-generated-copy-ignore>↗</b></a><a href="/signin"><span data-generated-copy-ignore>02</span> Track an application <b aria-hidden="true" data-generated-copy-ignore>↗</b></a><a href="#requirements"><span data-generated-copy-ignore>03</span> Read the requirements <b aria-hidden="true" data-generated-copy-ignore>↘</b></a></nav>
 
   <section class="chapter-intro" aria-label="Joining the team">
     <div class="chapter-index"><span>01</span><i></i><span>THE ORDER</span></div>
@@ -683,6 +698,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
           <div class="feature"><span class="fic"><svg viewBox="0 0 20 20"><path d="M4 16V9M10 16V4M16 16v-6"/></svg></span><div><h3 id="aboutFeatureTitle3">Grow your craft</h3><p id="aboutFeatureText3">Build valuable skills in moderation and community management.</p></div></div>
         </div>
       </section>
+    </div>
       <section class="requirements reveal" id="requirements">
         <div class="eyebrow">Requirements</div>
         <h2>Before you<br>enter the hall</h2>
@@ -692,7 +708,6 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
           <li><span class="rn">III</span><div><b>Honest answers</b><p>Write your own words — copied or fake answers are denied.</p></div></li>
         </ul>
       </section>
-    </div>
     <aside class="chapter-aside" aria-label="Application process">
       <span class="aside-rule"></span>
       <p class="eyebrow">A considered process</p>
@@ -717,9 +732,11 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
   <div class="panel application-form-panel" id="applyCard" style="display:none">
     <i class="cnr tl" aria-hidden="true"></i><i class="cnr tr" aria-hidden="true"></i><i class="cnr bl" aria-hidden="true"></i><i class="cnr br" aria-hidden="true"></i>
     <button class="form-back" type="button" onclick="resetForm()">← All roles</button>
+    <header class="application-heading">
     <div class="role-kicker" id="roleKicker">Application</div>
     <h2 id="roleName" style="margin:4px 0 6px"></h2>
     <p class="subtitle" id="roleIntro"></p>
+    </header>
     <div class="rules" id="appRules" data-dkey="appRules"></div>
     <div class="form-progress" id="applicationProgress" aria-live="polite"><div class="progress-caption"><span>Application progress</span><b id="applicationProgressText">0% complete</b></div><div class="progress-track" role="progressbar" aria-label="Application completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="applicationProgressFill"></span></div></div>
     <div class="application-workspace">
@@ -751,6 +768,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 
   <section class="support-stage">
     <div class="chapter-index"><span>03</span><i></i><span>CARE &amp; SUPPORT</span></div>
+    <div class="section-introduction"><h2>A community<br><em>that listens.</em></h2><p>Get help with your application, follow a private conversation, or raise a concern with the staff team.</p></div>
     <div class="support-grid">
       <div class="panel" id="report">
         <div class="eyebrow">Staff report</div>
@@ -783,7 +801,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
         <div class="row"><input id="statusInput" placeholder="e.g. MOD-A1B2C3" style="flex:3"><button class="btn-confirm" onclick="checkStatus()" style="flex:1">Check</button></div><div id="statusResult"></div><p class="emailnote">Decisions are emailed to your account address. <a href="/signin">Manage account</a>.</p>
       </div>
       <div class="panel" id="accepted" style="display:none"><div class="eyebrow" data-dkey="acceptedEyebrow">Accepted</div><div class="row" style="margin-top:6px;align-items:center"><h3 style="margin:0;flex:3" id="acceptedTitle">New team members</h3><select id="acceptedFilter" onchange="renderApprovedPublic()" style="flex:1;min-width:140px"><option value="">All roles</option></select></div><div class="approved-list" id="approvedList" style="margin-top:10px"></div></div>
-      <div class="panel" id="faq"><div class="eyebrow" data-dkey="faqEyebrow">Before you apply</div><h3 style="margin:4px 0 6px" data-dkey="faqTitle">Good to know</h3><div id="faqList"></div></div>
+      <div class="panel" id="faq"><div class="faq-heading"><div class="eyebrow" data-dkey="faqEyebrow">Before you apply</div><h3 style="margin:4px 0 6px" data-dkey="faqTitle">Good to know</h3></div><div id="faqList"></div></div>
     </div>
   </section>
 
@@ -800,7 +818,8 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
         <button class="btn-cancel" onclick="lockEditor()">Lock</button>
       </div>
     </div>
-    <div class="tabs">
+    <div class="editor-workspace">
+    <div class="tabs" aria-label="Staff tools">
       <button data-tab="general" class="active" onclick="switchTab('general',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 5h12M2 11h12"/><circle cx="6" cy="5" r="1.8" fill="var(--card)"/><circle cx="10" cy="11" r="1.8" fill="var(--card)"/></svg>General</button>
       <button data-tab="roles" onclick="switchTab('roles',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="5" r="2.5"/><path d="M3 13.5c.6-2.8 2.6-4.2 5-4.2s4.4 1.4 5 4.2"/></svg>Roles</button>
       <button data-tab="design" onclick="switchTab('design',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2s5 5.3 5 8.7a5 5 0 0 1-10 0C3 7.3 8 2 8 2z"/></svg>Design & Pictures</button>
@@ -812,6 +831,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <button data-tab="apps" onclick="switchTab('apps',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5L4 4h8l2 5.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><path d="M2 9.5h12"/></svg>Applications</button>
     </div>
 
+    <div class="editor-content">
     <div id="tab-general" class="tabpane active">
       <div class="row"><button class="btn-confirm" id="designToggle" onclick="toggleDesign()">Select &amp; move on page: OFF</button></div>
       <p class="hint">Design mode: click anything with a dashed outline to select it, drag to move, edit text inline. Changes save automatically.</p>
@@ -978,6 +998,8 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <div class="row">
       <button class="btn-cancel" onclick="lockEditor()">Lock Editor</button>
     </div>
+    </div>
+    </div>
   </div>
   </main>
 </div>
@@ -1014,7 +1036,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </div>
 
 <script src="site-copy.js?v=20261025b"></script>
-<script src="app.js"></script>
+<script src="app.js?v=20261025d"></script>
 <script>
 (function(){
   try{
@@ -1146,7 +1168,19 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     }
   }catch(e){}
 })();
-function toggleNav(){try{document.getElementById('topnav').classList.toggle('nav-open')}catch(e){}}
+function toggleNav(){
+  const nav=document.getElementById('topnav');
+  const open=nav.classList.toggle('nav-open');
+  nav.querySelector('.nav-toggle').setAttribute('aria-expanded',String(open));
+}
+document.getElementById('navLinks').addEventListener('click',function(e){
+  if(e.target.closest('a') && document.getElementById('topnav').classList.contains('nav-open')) toggleNav();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape' && document.getElementById('topnav').classList.contains('nav-open')){
+    toggleNav(); document.querySelector('.nav-toggle').focus();
+  }
+});
 </script>
 </body>
 </html>

@@ -126,6 +126,18 @@ function appCard(a) {
     + '</article>';
 }
 
+function ticketCard(t) {
+  const status = t.status === 'closed' ? 'closed' : 'open';
+  const href = '/?ticket=' + encodeURIComponent(t.id) + '#contact';
+  return '<article class="app ' + (status === 'closed' ? 'denied' : 'pending') + '">'
+    + '<div class="app-top"><div><div class="role">Private support ticket</div>'
+    + '<h4>' + esc(t.id || '') + '</h4><p class="meta">' + esc(t.subject || 'Support request') + '</p></div>'
+    + '<span class="pill ' + (status === 'closed' ? 'denied' : 'pending') + '">' + esc(status) + '</span></div>'
+    + '<p class="meta">Updated ' + esc(fmtDate(t.updatedAt || t.createdAt)) + '</p>'
+    + '<a class="secondary" href="' + esc(href) + '" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none">Open ticket</a>'
+    + '</article>';
+}
+
 function renderDash() {
   if (!me) { showSignedOut(); return; }
   showSignedIn();
@@ -136,6 +148,10 @@ function renderDash() {
   $('appList').innerHTML = apps.length
     ? apps.map(appCard).join('')
     : '<div class="empty">No applications linked yet.<br>Add one below with the Application ID from your confirmation.</div>';
+  const tickets = Array.isArray(me.tickets) ? me.tickets : [];
+  $('ticketList').innerHTML = tickets.length
+    ? tickets.map(ticketCard).join('')
+    : '<div class="empty">No support tickets linked to this account yet.<br>Open the applications site to contact staff.</div>';
   setMsg('dashMsg', '');
 }
 
@@ -278,6 +294,10 @@ async function recover(e) {
 async function linkApp(e) {
   e.preventDefault();
   const appId = ($('linkId').value || '').trim().toUpperCase();
+  if (/^TKT-[A-Z2-9]{6}$/.test(appId)) {
+    location.href = '/?ticket=' + encodeURIComponent(appId) + '#contact';
+    return;
+  }
   if (!/^[A-Z0-9]{2,4}-[A-Z2-9]{6}$/.test(appId)) { setMsg('dashMsg', 'Enter a valid Application ID (e.g. MOD-ABC123).', 'err'); return; }
   const btn = e.target.querySelector('button[type=submit]');
   busy(btn, true, 'Linking…');
@@ -324,6 +344,7 @@ async function signOut() {
   $('signedIn').hidden = true;
   $('updatesPref').checked = true;
   $('appList').innerHTML = '';
+  $('ticketList').innerHTML = '';
   setMode(meta.mailConfigured === false ? 'id' : 'email');
   setMsg('authMsg', 'Signed out.', 'ok');
 }
@@ -334,7 +355,7 @@ $('code').addEventListener('input', e => { e.target.value = e.target.value.repla
 }));
 (async function boot() {
   if (window.SiteCopy) {
-    const targets = window.SiteCopy.prepare([document.querySelector('main.account-shell'), document.querySelector('footer')], 'account');
+    const targets = window.SiteCopy.prepare([document.querySelector('main.account-shell'), document.querySelector('footer'), document.querySelector('header.top')], 'account');
     try {
       const r = await fetch('/api/config', { cache: 'no-store' });
       if (r.ok) { const c = await r.json(); window.SiteCopy.apply(targets, c.copy); }
