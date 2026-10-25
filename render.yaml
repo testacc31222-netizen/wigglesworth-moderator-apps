@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: wigglesworth-moderator-applications
+    name: wigglesworth-applications
     runtime: node
     plan: free
     buildCommand: npm install

@@ -46,7 +46,7 @@ const MAIL_API_KEY = (process.env.RESEND_API_KEY || '').trim();
 const BREVO_API_KEY = (process.env.BREVO_API_KEY || '').trim();
 const MAIL_FROM = (process.env.MAIL_FROM || 'Wigglesworth Applications <onboarding@resend.dev>').trim();
 const MAIL_REPLY_TO = (process.env.MAIL_REPLY_TO || '').trim();
-const PUBLIC_URL = (process.env.PUBLIC_URL || 'https://wigglesworth-moderator-applications.onrender.com').replace(/\/$/, '');
+const PUBLIC_URL = (process.env.PUBLIC_URL || 'https://wigglesworth-applications.onrender.com').replace(/\/$/, '');
 function mailProvider() {
   const want = String(process.env.MAIL_PROVIDER || '').toLowerCase();
   if (want === 'brevo' && BREVO_API_KEY) return 'brevo';

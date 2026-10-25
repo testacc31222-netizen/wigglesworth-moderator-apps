@@ -1,5 +1,7 @@
 # Moderator Applications — Phone + Computer Site (Discord-safe)
 
+**Live site:** https://wigglesworth-applications.onrender.com
+
 DO NOT send your home IP to Discord. Host it on Render (free) and share that link instead — your IP stays hidden.
 
 ## Safe share (do this)
@@ -8,7 +10,7 @@ DO NOT send your home IP to Discord. Host it on Render (free) and share that lin
 2. Go to render.com → New → Web Service → connect the repo.
    - Build: `npm install`, Start: `npm start`, plan Free.
    - Add env var: `EDIT_CODE` = a long random code (e.g. 20+ chars). This becomes your editor password.
-3. You get `https://moderator-site-xxxx.onrender.com` — post THAT in Discord.
+3. You get `https://wigglesworth-applications.onrender.com` — post THAT in Discord.
 4. Change Editor > General > edit code to match, Save.
 
 Everyone (phone + PC) uses the Render link. Approvals update live everywhere.
