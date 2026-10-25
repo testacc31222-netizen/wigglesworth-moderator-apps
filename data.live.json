@@ -175,7 +175,7 @@
     "countdown": {
       "show": false,
       "title": "DAY 3 // DO YOUR TAS...",
-      "endVideo": "https://wigglesworth-countdown.onrender.com/vids/muryhsvc-wqw.mp4",
+      "endVideo": "",
       "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
       "daysLine": "day {d} left till the show.",
       "finalLine": "{h}h {m}m {s}s left.",
@@ -2845,6 +2845,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T07:33:27.226Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:33:13.283Z",
       "act": "config_saved",
       "id": "",
@@ -3436,12 +3442,6 @@
       "t": "2026-10-10T16:34:59.540Z",
       "act": "deleted",
       "id": "MOD-DD9LE9",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:34:50.371Z",
-      "act": "deleted",
-      "id": "MOD-AVZBGE",
       "by": ""
     }
   ],
