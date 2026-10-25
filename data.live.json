@@ -230,6 +230,10 @@
       "t-home-1agfytf-1": {
         "dx": -24,
         "dy": -3
+      },
+      "t-home-sb011o-0": {
+        "dx": -61,
+        "dy": -7
       }
     },
     "decor": [],
@@ -2890,6 +2894,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T22:54:05.783Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T22:54:04.186Z",
       "act": "config_saved",
       "id": "",
@@ -3482,12 +3492,6 @@
       "act": "deleted",
       "id": "CC-NPMDJD",
       "by": ""
-    },
-    {
-      "t": "2026-10-17T20:54:48.785Z",
-      "act": "ai_denied",
-      "id": "CC-7TQP8L",
-      "by": "Raz"
     }
   ],
   "reports": [
