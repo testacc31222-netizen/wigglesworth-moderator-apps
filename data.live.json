@@ -208,6 +208,10 @@
         "dy": 15,
         "text": "APPLICATIONS PAGE",
         "orig": "Staff Applications"
+      },
+      "appSubtitle": {
+        "dx": 73,
+        "dy": -3
       }
     },
     "decor": [],
@@ -2869,6 +2873,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T07:46:01.725Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:45:53.786Z",
       "act": "config_saved",
       "id": "",
@@ -3458,12 +3468,6 @@
     },
     {
       "t": "2026-10-10T22:58:00.041Z",
-      "act": "status_denied",
-      "id": "MOD-4EDNAX",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T22:57:55.762Z",
       "act": "status_denied",
       "id": "MOD-4EDNAX",
       "by": ""
