@@ -10,6 +10,19 @@ const app = express();
 app.disable('x-powered-by');
 app.set('trust proxy', 1);
 
+// Preview environment: public, read-only demo, never read evidence or accept writes.
+if (process.env.PREVIEW_MODE === '1') {
+  app.use((req, res, next) => {
+    res.set('X-Robots-Tag', 'noindex, nofollow');
+    if (req.path === '/evidence' || req.path.startsWith('/evidence/')) return res.sendStatus(404);
+    if (!['GET', 'HEAD', 'OPTIONS'].includes(req.method)) {
+      return res.status(403).json({ error: 'Preview only. No data is submitted or stored.' });
+    }
+    next();
+  });
+}
+
+
 const PORT = process.env.PORT || 3000;
 // HOST must be an IP or plain hostname — anything else falls back safely
 // instead of crashing the deploy (e.g. a token pasted in the wrong field).
@@ -200,6 +213,7 @@ app.use((req, res, next) => {
 // with ?staff=1 and then unlock it with the edit code. Check the decoded path
 // so encoded or repeated-slash variants cannot slip past the gate.
 app.use((req, res, next) => {
+  if (process.env.PREVIEW_MODE === '1') return next();
   if (req.method !== 'GET' && req.method !== 'HEAD') return next();
   let pathname = req.path;
   try { pathname = decodeURIComponent(pathname); } catch { return next(); }
