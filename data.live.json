@@ -173,7 +173,7 @@
       }
     ],
     "countdown": {
-      "show": true,
+      "show": false,
       "title": "👀",
       "endVideo": "",
       "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
@@ -2845,6 +2845,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T07:34:16.869Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T07:33:59.864Z",
       "act": "config_saved",
       "id": "",
@@ -3436,12 +3442,6 @@
       "t": "2026-10-10T16:35:04.085Z",
       "act": "deleted",
       "id": "MOD-KJ6H4E",
-      "by": ""
-    },
-    {
-      "t": "2026-10-10T16:35:01.651Z",
-      "act": "deleted",
-      "id": "MOD-H83PHA",
       "by": ""
     }
   ],
