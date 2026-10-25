@@ -197,12 +197,19 @@ app.use((req, res, next) => {
   next();
 });
 // The public site is now account-only. Staff can still reach the editor shell
-// with ?staff=1 and then unlock it with the edit code.
-app.get(['/', '/index.html'], (req, res, next) => {
+// with ?staff=1 and then unlock it with the edit code. Check the decoded path
+// so encoded or repeated-slash variants cannot slip past the gate.
+app.use((req, res, next) => {
+  if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+  let pathname = req.path;
+  try { pathname = decodeURIComponent(pathname); } catch { return next(); }
+  pathname = pathname.replace(/\/{2,}/g, '/').toLowerCase();
+  if (pathname !== '/' && pathname !== '/index.html') return next();
   if (req.query.staff === '1') return next();
   const db = loadDB();
   if (accountFromReq(req, db)) return next();
-  const nextPath = req.path === '/' ? '/' : '/index.html';
+  const nextPath = req.originalUrl && req.originalUrl.startsWith('/') ? req.originalUrl : (pathname === '/' ? '/' : '/index.html');
+  res.set('Cache-Control', 'no-store');
   return res.redirect(302, '/signin?next=' + encodeURIComponent(nextPath));
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1h', setHeaders(res, filePath) {
@@ -690,7 +697,7 @@ function receiptEmail(db, s) {
   return { subject, text, html: mailShell(inner) };
 }
 function ticketReplyEmail(t, reply) {
-  const link = PUBLIC_URL + '/signin?next=' + encodeURIComponent('/#contact');
+  const link = PUBLIC_URL + '/signin?next=' + encodeURIComponent('/?ticket=' + t.id + '#contact');
   const subject = 'Re: ' + t.subject + ' [' + t.id + ']';
   const auto = reply.name === 'Staff (auto)';
   const intro = auto

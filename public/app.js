@@ -723,6 +723,13 @@ async function submitTicket(e){
 function resetTicketForm(){ $('ticketForm').reset(); $('ticketForm').style.display='block'; $('ticketCreated').style.display='none'; }
 function copyTicketId(){ const t=$('newTicketId').textContent; navigator.clipboard?.writeText(t); alert('Copied: '+t); }
 function openTicketSignin(){ location.href='/signin?next='+encodeURIComponent('/#contact'); }
+function openTicketFromUrl(){
+  let id = '';
+  try{ id = (new URLSearchParams(location.search).get('ticket') || '').trim().toUpperCase(); }catch{ return; }
+  if(!/^TKT-[A-Z2-9]{6}$/.test(id) || !$('ticketInput')) return;
+  $('ticketInput').value = id;
+  checkTicket();
+}
 async function checkTicket(){
   const id = $('ticketInput').value.trim().toUpperCase();
   const box = $('ticketResult'); box.innerHTML='';
@@ -1312,7 +1319,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     }
   });
   fetchAccount();
-  fetchConfig().then(()=>{ pageReady = true; maybeOpenLoader(); })
+  fetchConfig().then(()=>{ pageReady = true; maybeOpenLoader(); openTicketFromUrl(); })
     .catch(()=>{ pageReady = true; setTimeout(()=>sendDiag(true), 2500); maybeOpenLoader(); });
   try{
     // Clear any stale Discord-link leftovers from the old build.
