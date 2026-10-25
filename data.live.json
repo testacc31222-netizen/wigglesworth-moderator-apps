@@ -2358,15 +2358,21 @@
       "name": "Sxr5lblox",
       "subject": "Mod",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-21T12:12:42.006Z",
-      "updatedAt": "2026-10-21T12:12:42.006Z",
+      "updatedAt": "2026-10-25T02:00:40.974Z",
       "replies": [
         {
           "by": "user",
           "name": "Sxr5lblox",
           "text": "When am I getting mod",
           "at": "2026-10-21T12:12:42.006Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey there! We’re still reviewing applications, so it usually takes a few days to hear back. If you haven’t received a response within that time, feel free to ping @mightbeqntmz for an update. Good luck!",
+          "at": "2026-10-25T02:00:40.974Z"
         }
       ]
     },
@@ -2389,6 +2395,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-25T02:00:40.974Z",
+      "act": "ticket_reply",
+      "id": "TKT-FKTG65",
+      "by": ""
+    },
     {
       "t": "2026-10-25T01:59:04.153Z",
       "act": "config_saved",
