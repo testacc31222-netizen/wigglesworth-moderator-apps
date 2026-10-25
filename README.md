@@ -63,10 +63,24 @@ email, read the staff note, and choose whether decisions are emailed.
 - Staff can force a fresh decision email from Applications → **Re-email
   decision**, and see delivery state in Editor → General → **Applicant emails**.
 
-### Turn on email delivery (Resend or Brevo)
+### Turn on email delivery (Gmail SMTP, Resend, or Brevo)
 
-No new npm dependency is needed; the server calls the provider's HTTP API
-directly. Pick **one**:
+Pick **one**. Gmail SMTP is the least paperwork if you do not own a domain.
+
+**Gmail SMTP** — no domain and no organization address:
+
+1. Turn on 2-Step Verification on the Google account, then open
+   Google Account → Security → **App passwords** and create one named
+   `Wigglesworth Render`.
+2. Add these on Render:
+   `SMTP_USER` = `you@gmail.com`
+   `SMTP_PASS` = the 16-character app password
+   `MAIL_FROM` = `Wigglesworth Staff <you@gmail.com>`
+3. `SMTP_HOST` defaults to `smtp.gmail.com` and `SMTP_PORT` to `587`.
+   Use `SMTP_PORT=465` and `SMTP_SECURE=true` only if 587 is blocked.
+4. Save/redeploy, then Editor → General → **Send test**.
+   Gmail allows roughly 500 recipients/day on a free account. Revoke the app
+   password at any time if it leaks.
 
 **Resend** — best if you own a domain:
 
@@ -84,8 +98,9 @@ directly. Pick **one**:
    IP → Senders → add your address and click the confirmation email).
 3. Add `BREVO_API_KEY` = your key and `MAIL_FROM` =
    `Wigglesworth Staff <your-verified-address@gmail.com>` on Render.
-4. If both provider keys are present, set `MAIL_PROVIDER` = `brevo` or
-   `resend` to pick one. Otherwise Resend wins.
+4. If more than one provider is configured, set `MAIL_PROVIDER` = `smtp`,
+   `resend`, or `brevo` to pick one. Otherwise SMTP wins, then Resend, then
+   Brevo.
 
 Then set these optional but recommended values:
 
@@ -96,7 +111,7 @@ Then set these optional but recommended values:
 
 Save, wait for the deploy, then Editor → General → **Send test**.
 
-Until a key is set, nothing is lost: every email is queued in
+Until a provider is configured, nothing is lost: every email is queued in
 `data.live.json` and the editor shows Queued / Sent / Failed counts. The queue
 retries on deploy, every 5 minutes, and when a new message is queued. The
 sign-in page automatically steers people to the Application ID method while

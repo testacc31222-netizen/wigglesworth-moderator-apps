@@ -1,6 +1,6 @@
 let config = null;
 let account = null;
-const BUILD = '20261024a';
+const BUILD = '20261024b';
 function sendDiag(failed){
   try{
     const tag = document.getElementById('buildTag');

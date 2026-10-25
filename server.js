@@ -4,6 +4,7 @@ const path = require('path');
 const crypto = require('crypto');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.disable('x-powered-by');
@@ -39,23 +40,45 @@ const COUNTDOWN_PUBLIC_URL = (process.env.COUNTDOWN_PUBLIC_URL || 'https://wiggl
 const DISCORD_WEBHOOK_URL = (process.env.DISCORD_WEBHOOK_URL || '').trim();
 const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
 
-// --- Email updates (Resend HTTP API — no SDK, no extra dependency) ----------
-// Set RESEND_API_KEY + MAIL_FROM on Render to turn delivery on. Until then,
-// mail is queued in data.live.json and shown to staff, so nothing is lost.
+// --- Email updates (Resend, Brevo, or Gmail/SMTP) ---------------------------
+// Set one provider on Render to turn delivery on. Until then, mail is queued
+// in data.live.json and shown to staff, so nothing is lost.
 const MAIL_API_KEY = (process.env.RESEND_API_KEY || '').trim();
 const BREVO_API_KEY = (process.env.BREVO_API_KEY || '').trim();
-const MAIL_FROM = (process.env.MAIL_FROM || 'Wigglesworth Applications <onboarding@resend.dev>').trim();
+const SMTP_USER = (process.env.SMTP_USER || '').trim();
+const SMTP_PASS = (process.env.SMTP_PASS || '').trim();
+const SMTP_HOST = (process.env.SMTP_HOST || (SMTP_USER ? 'smtp.gmail.com' : '')).trim();
+const SMTP_PORT = Number.parseInt(process.env.SMTP_PORT || '587', 10) || 587;
+const SMTP_SECURE = String(process.env.SMTP_SECURE || '').toLowerCase() === 'true' || SMTP_PORT === 465;
+const SMTP_CONFIGURED = !!(SMTP_HOST && SMTP_USER && SMTP_PASS);
+const MAIL_FROM = (process.env.MAIL_FROM || (SMTP_CONFIGURED
+  ? `Wigglesworth Staff <${SMTP_USER}>`
+  : 'Wigglesworth Applications <onboarding@resend.dev>')).trim();
 const MAIL_REPLY_TO = (process.env.MAIL_REPLY_TO || '').trim();
 const PUBLIC_URL = (process.env.PUBLIC_URL || 'https://wigglesworth-applications.onrender.com').replace(/\/$/, '');
 function mailProvider() {
   const want = String(process.env.MAIL_PROVIDER || '').toLowerCase();
+  if (want === 'smtp' && SMTP_CONFIGURED) return 'smtp';
   if (want === 'brevo' && BREVO_API_KEY) return 'brevo';
   if (want === 'resend' && MAIL_API_KEY) return 'resend';
+  if (SMTP_CONFIGURED) return 'smtp';
   if (MAIL_API_KEY) return 'resend';
   if (BREVO_API_KEY) return 'brevo';
   return '';
 }
 const mailConfigured = () => !!mailProvider();
+let smtpTransport = null;
+function getSmtpTransport() {
+  if (!SMTP_CONFIGURED) return null;
+  if (!smtpTransport) {
+    smtpTransport = nodemailer.createTransport({
+      host: SMTP_HOST, port: SMTP_PORT, secure: SMTP_SECURE,
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
+      connectionTimeout: 15000, greetingTimeout: 15000, socketTimeout: 20000,
+    });
+  }
+  return smtpTransport;
+}
 
 
 async function discordPost(url, body, attempt = 0) {
@@ -664,6 +687,16 @@ async function sendMail(m) {
   const provider = mailProvider();
   if (!provider) return { ok: false, error: 'not_configured' };
   try {
+    if (provider === 'smtp') {
+      const transport = getSmtpTransport();
+      if (!transport) return { ok: false, error: 'not_configured' };
+      const reply = MAIL_REPLY_TO ? (/<([^>]+)>/.exec(MAIL_REPLY_TO) || [null, MAIL_REPLY_TO])[1] : '';
+      const info = await transport.sendMail({
+        from: MAIL_FROM, to: m.to, subject: m.subject, text: m.text, html: m.html,
+        ...(reply ? { replyTo: reply } : {}),
+      });
+      return { ok: true, provider, id: info.messageId || '' };
+    }
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 15000);
     let url, headers, body;
@@ -1357,7 +1390,7 @@ app.post('/api/admin/applications/:id/notify', adminLimit, (req, res) => {
   if (!s) return res.status(404).json({ error: 'Not found' });
   if (!s.email) return res.status(400).json({ error: 'This application has no email on file.' });
   if (!['approved', 'denied'].includes(s.status)) return res.status(400).json({ error: 'Decide the application first.' });
-  if (!mailConfigured()) return res.status(400).json({ error: 'Email delivery is not configured. Set RESEND_API_KEY (or BREVO_API_KEY) and MAIL_FROM.' });
+  if (!mailConfigured()) return res.status(400).json({ error: 'Email delivery is not configured. Set SMTP_USER + SMTP_PASS, RESEND_API_KEY, or BREVO_API_KEY, plus MAIL_FROM.' });
   const queued = queueDecisionEmail(db, s, true);
   audit(db, 'decision_email', s.appId, req);
   saveDB(db);
@@ -1451,7 +1484,7 @@ app.post('/api/admin/mail/test', adminLimit, async (req, res) => {
   const to = normEmail(req.body && req.body.to);
   if (!to) return res.status(400).json({ error: 'Enter a valid destination email.' });
   if (!mailConfigured()) {
-    return res.status(400).json({ error: 'Email delivery is not configured. Set RESEND_API_KEY (or BREVO_API_KEY) and MAIL_FROM on Render.', mailConfigured: false });
+    return res.status(400).json({ error: 'Email delivery is not configured. Set SMTP_USER + SMTP_PASS, RESEND_API_KEY, or BREVO_API_KEY, plus MAIL_FROM on Render.', mailConfigured: false });
   }
   const html = mailShell('<h1 style="font-family:Georgia,serif;font-weight:400;font-size:26px;margin:0 0 16px;color:#F1ECE6">Email test</h1>'
     + '<p style="margin:0 0 12px">This is a test from the Wigglesworth applications site.</p>'
@@ -1641,7 +1674,7 @@ app.post('/api/clientlog', diagLimit, (req, res) => {
 app.listen(PORT, HOST, () => {
   console.log(`Moderator site on http://${HOST}:${PORT} (bound to ${HOST} only — home IP not exposed)`);
   console.log(`Discord ticket alerts: ${DISCORD_WEBHOOK_URL ? 'ON' : 'OFF (set DISCORD_WEBHOOK_URL)'}`);
-  console.log(`Applicant email: ${mailConfigured() ? 'ON via ' + mailProvider() + ' (' + MAIL_FROM + ')' : 'OFF (set RESEND_API_KEY or BREVO_API_KEY + MAIL_FROM; mail is queued)'}`);
+  console.log(`Applicant email: ${mailConfigured() ? 'ON via ' + mailProvider() + ' (' + MAIL_FROM + ')' : 'OFF (set SMTP_USER + SMTP_PASS, RESEND_API_KEY, or BREVO_API_KEY + MAIL_FROM; mail is queued)'}`);
   // Retry anything queued while the service was asleep, then periodically.
   setTimeout(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 4000);
   setInterval(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 5 * 60 * 1000).unref();

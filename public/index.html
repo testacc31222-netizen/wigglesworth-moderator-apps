@@ -816,7 +816,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
         <input id="mailTestTo" type="email" placeholder="Send a test to…" style="flex:2">
         <button class="btn-small" onclick="sendTestMail()">Send test</button>
       </div>
-      <p class="hint">Set <b>RESEND_API_KEY</b> or <b>BREVO_API_KEY</b>, plus <b>MAIL_FROM</b>, on Render to turn delivery on. Until then decisions are queued safely, never lost.</p>
+      <p class="hint">Set <b>SMTP_USER</b> + <b>SMTP_PASS</b> (Gmail), or <b>RESEND_API_KEY</b> / <b>BREVO_API_KEY</b>, plus <b>MAIL_FROM</b>, on Render to turn delivery on. Until then decisions are queued safely, never lost.</p>
     </div>
 
     <div id="tab-roles" class="tabpane">

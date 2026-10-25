@@ -19,6 +19,16 @@ services:
         sync: false
       - key: BREVO_API_KEY
         sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_SECURE
+        value: "false"
       - key: MAIL_PROVIDER
         sync: false
       - key: MAIL_FROM
