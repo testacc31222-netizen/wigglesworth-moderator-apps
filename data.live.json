@@ -634,9 +634,10 @@
       "schedule": "2-9 times a week",
       "style": "About the game trending vr memes and",
       "strikes": "May be some from when i started but since doing wigglesworth no",
-      "email": "",
+      "email": "orangemine67@gmail.com",
       "emailUpdates": true,
-      "notifiedStatus": ""
+      "notifiedStatus": "",
+      "accountId": "acc_07ba6ad1eb8868cd9a06deb4"
     },
     {
       "appId": "MOD-UD235K",
@@ -2922,6 +2923,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T23:01:46.646Z",
+      "act": "account_recover",
+      "id": "CC-99MHFW",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T22:58:12.503Z",
       "act": "account_login",
       "id": "acc_fb83bd5d46e67e1daced0f6f",
@@ -3514,12 +3521,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T07:33:59.864Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4004,6 +4005,12 @@
       "id": "acc_fb83bd5d46e67e1daced0f6f",
       "email": "graysonajack@icloud.com",
       "createdAt": "2026-10-25T22:58:12.503Z",
+      "emailUpdates": true
+    },
+    {
+      "id": "acc_07ba6ad1eb8868cd9a06deb4",
+      "email": "orangemine67@gmail.com",
+      "createdAt": "2026-10-25T23:01:46.646Z",
       "emailUpdates": true
     }
   ],
