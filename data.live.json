@@ -216,7 +216,7 @@
         "orig": "Staff Applications"
       },
       "appSubtitle": {
-        "dx": 123,
+        "dx": 104,
         "dy": -10
       },
       "appTitle": {
@@ -2881,6 +2881,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-25T17:30:44.954Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-25T17:30:35.368Z",
       "act": "config_saved",
       "id": "",
@@ -3470,12 +3476,6 @@
     },
     {
       "t": "2026-10-15T04:03:07.952Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-15T04:02:58.102Z",
       "act": "config_saved",
       "id": "",
       "by": ""
