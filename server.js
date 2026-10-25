@@ -792,6 +792,7 @@ async function sendMail(m) {
           body: JSON.stringify({
             secret: APPS_SCRIPT_SECRET, to: m.to, subject: m.subject,
             text: m.text, html: m.html, fromName: from.name,
+            ...(from.email ? { fromEmail: from.email } : {}),
             ...(reply ? { replyTo: reply } : {}),
           }),
           signal: ctrl.signal,
