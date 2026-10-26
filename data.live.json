@@ -2403,8 +2403,8 @@
       "appId": "CC-XGYBNS",
       "type": "creator",
       "date": "2026-10-22T22:45:34.494Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to join the Wigglesworth community. We appreciate your interest and the effort you’ve put into your application. While we’re not able to accept you at this time, we encourage you to keep creating and gaining experience—there may be opportunities to reapply in the future. Good luck with your content!",
       "username": "BIGBRO",
       "discord": "ThePorterFamalia6_7",
       "age": "18",
@@ -3132,6 +3132,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:41:35.916Z",
+      "act": "ai_denied",
+      "id": "CC-XGYBNS",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T00:52:44.901Z",
       "act": "account_login",
       "id": "acc_d2b633c9a8074a1aca385349",
@@ -3721,12 +3727,6 @@
     },
     {
       "t": "2026-10-25T17:23:27.564Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:23:27.450Z",
       "act": "config_saved",
       "id": "",
       "by": ""
