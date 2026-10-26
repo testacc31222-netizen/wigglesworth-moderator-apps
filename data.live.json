@@ -5200,11 +5200,11 @@
       "kind": "receipt",
       "appId": "MOD-VHDNGD",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T23:19:17.483Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T23:19:19.215Z"
     }
   ]
 }
