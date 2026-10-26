@@ -5106,11 +5106,11 @@
       "kind": "receipt",
       "appId": "MOD-US4RCL",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T22:45:20.086Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T22:45:21.838Z"
     }
   ]
 }
