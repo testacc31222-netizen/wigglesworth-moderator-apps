@@ -2535,7 +2535,9 @@
       "eventidea": "I would do a find the wiggle where you have to find 4 different staff take a pic with them qnd send it in media and staff have to confirm you took it during the event",
       "chaos": "I will keep track of progress on events so i know at what stage we are to continue it the next day or ASAP",
       "reliable": "Tuesday 7-8PM GMT",
-      "receiptAt": "2026-10-26T00:06:27.141Z"
+      "receiptAt": "2026-10-26T00:06:27.141Z",
+      "aiSummary": "Verdict: Weak - limited experience and age concerns  \n- Wants to join: Event Hoster  \n- Experience: None in VR, some Roblox event hosting (hide n seek, tag, squid games)  \n- Availability: Tuesday 7‑8PM GMT only  \n- Watch‑outs: 13‑year‑old, no VR hosting, single narrow slot, minimal event planning detail.",
+      "aiSummaryAt": "2026-10-26T00:19:01.138Z"
     }
   ],
   "tickets": [
@@ -3088,6 +3090,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-26T00:19:01.138Z",
+      "act": "ai_summary",
+      "id": "EVT-39ATNQ",
+      "by": ""
+    },
     {
       "t": "2026-10-26T00:18:30.392Z",
       "act": "ai_summary",
@@ -3678,12 +3686,6 @@
     },
     {
       "t": "2026-10-25T17:23:26.159Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:23:25.973Z",
       "act": "config_saved",
       "id": "",
       "by": ""
