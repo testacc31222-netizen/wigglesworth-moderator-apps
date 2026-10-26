@@ -4919,11 +4919,11 @@
       "kind": "receipt",
       "appId": "MOD-9D75JY",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T02:43:01.598Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T02:43:02.920Z"
     }
   ]
 }
