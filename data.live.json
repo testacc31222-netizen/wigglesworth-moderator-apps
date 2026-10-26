@@ -846,25 +846,6 @@
       "notifiedStatus": ""
     },
     {
-      "appId": "CC-ET2PYD",
-      "type": "creator",
-      "date": "2026-10-01T02:38:53.009Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "Veno",
-      "discord": "Veno",
-      "age": "14",
-      "why": "To help put the community and make the team base bigger",
-      "platform": "YouTube",
-      "channel": "https://youtube.com/@veno-n1z?si=P_oRdAC_NBlqinZt",
-      "schedule": "Twice a week or more",
-      "style": "Like tell people about the game and doing challenges video",
-      "strikes": "No but I got ban once on projects wiggle worth because I was try to be the owner for my video",
-      "email": "",
-      "emailUpdates": true,
-      "notifiedStatus": ""
-    },
-    {
       "appId": "MOD-F5YSMA",
       "type": "moderator",
       "date": "2026-10-01T04:32:24.984Z",
@@ -3133,6 +3114,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:51:34.684Z",
+      "act": "deleted",
+      "id": "CC-ET2PYD",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:51:27.195Z",
       "act": "ai_denied",
       "id": "CC-5RR3GD",
@@ -3724,12 +3711,6 @@
       "t": "2026-10-25T17:25:32.120Z",
       "act": "config_saved",
       "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:25:05.811Z",
-      "act": "ticket_deleted",
-      "id": "TKT-HBW3EF",
       "by": ""
     }
   ],
