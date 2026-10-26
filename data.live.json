@@ -2561,7 +2561,9 @@
       "why": "I want to be moderator because I enjoy being part of the community and want to help keep it safe, friendly, and fun for everyone. I will treat everyone fairly, follow the rules, and help resolve problems calmly without abusing my permissions.",
       "scenario": "First, I would ask the person to stop spamming and remind them of the rules. If they continue, I would collect evidence and follow the server's moderation procedures, such as issuing a warning or using an appropriate timeout. If the behavior continues or becomes disruptive, I would escalate the situation to a senior moderator. I would remain calm and fair throughout the process.",
       "rulebreak": "No, I have never been banned. I try to follow the rules, respect other members, and maintain a positive attitude in the community.",
-      "receiptAt": "2026-10-26T01:21:41.095Z"
+      "receiptAt": "2026-10-26T01:21:41.095Z",
+      "aiSummary": "Verdict: Mixed - limited experience and age may be a concern  \n- Wants to join: Moderator  \n- Experience: Gt2 tag, summer tag buddy, runners, denlem taggers  \n- Availability: ~4h/day, EST  \n- Watch-outs: 13 years old, minimal moderation background, no prior bans but unclear depth of experience.",
+      "aiSummaryAt": "2026-10-26T01:53:15.969Z"
     }
   ],
   "tickets": [
@@ -3114,6 +3116,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-26T01:53:15.969Z",
+      "act": "ai_summary",
+      "id": "MOD-K3CEUA",
+      "by": ""
+    },
     {
       "t": "2026-10-26T01:53:05.413Z",
       "act": "status_approved",
@@ -3704,12 +3712,6 @@
     },
     {
       "t": "2026-10-25T17:26:35.055Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:26:21.056Z",
       "act": "config_saved",
       "id": "",
       "by": ""
