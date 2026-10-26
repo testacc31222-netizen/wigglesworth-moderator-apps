@@ -2311,8 +2311,8 @@
       "appId": "CC-2SEEML",
       "type": "creator",
       "date": "2026-10-20T00:54:57.281Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to join the Wigglesworth community as a Content Creator. We appreciate your enthusiasm and the time you took to submit your application. Keep creating and gaining experience—feel free to reapply in the future when you’ve had a chance to grow even more.",
       "username": "Pwguest",
       "discord": "Sxr5lblox1519",
       "age": "13",
@@ -3132,6 +3132,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:43:34.318Z",
+      "act": "ai_denied",
+      "id": "CC-2SEEML",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:43:30.847Z",
       "act": "ai_denied",
       "id": "CC-3SJT9Q",
@@ -3721,12 +3727,6 @@
     },
     {
       "t": "2026-10-25T17:23:30.024Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:23:29.339Z",
       "act": "config_saved",
       "id": "",
       "by": ""
