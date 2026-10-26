@@ -1959,7 +1959,9 @@
       "email": "diabmurad31@gmail.com",
       "emailUpdates": true,
       "notifiedStatus": "",
-      "accountId": "acc_17e3964bfd3c80e63eaf61e1"
+      "accountId": "acc_17e3964bfd3c80e63eaf61e1",
+      "aiSummary": "Verdict: Mixed - applicant shows enthusiasm but lacks clear experience and has age concerns.  \n- Wants to join: Moderator role, to help protect community.  \n- Experience: Claims bin mods, admin in fan game, former owner; unclear details.  \n- Availability: UK timezone, age 13.  \n- Watch-outs: Underage, vague moderation history, potential lack of accountability.",
+      "aiSummaryAt": "2026-10-26T01:56:12.892Z"
     },
     {
       "appId": "MOD-EHERLB",
@@ -3059,6 +3061,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:56:12.892Z",
+      "act": "ai_summary",
+      "id": "MOD-BADS89",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:55:49.797Z",
       "act": "ai_approved",
       "id": "MOD-EHERLB",
@@ -3648,12 +3656,6 @@
     },
     {
       "t": "2026-10-25T17:27:21.675Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:27:17.168Z",
       "act": "config_saved",
       "id": "",
       "by": ""
