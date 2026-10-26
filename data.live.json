@@ -5166,11 +5166,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T23:13:38.939Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T23:13:40.300Z"
     }
   ]
 }
