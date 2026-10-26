@@ -1338,8 +1338,9 @@
       "strikes": "No Never",
       "email": "kanedfhkh@gmail.com",
       "emailUpdates": true,
-      "notifiedStatus": "",
-      "accountId": "acc_423c4a1f1857c94ba035fe64"
+      "notifiedStatus": "denied",
+      "accountId": "acc_423c4a1f1857c94ba035fe64",
+      "notifiedAt": "2026-10-26T01:48:36.651Z"
     },
     {
       "appId": "MOD-R483PY",
@@ -4787,11 +4788,11 @@
       "kind": "decision",
       "appId": "CC-URSKJS",
       "decisionStatus": "denied",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T01:48:35.369Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T01:48:36.651Z"
     }
   ]
 }
