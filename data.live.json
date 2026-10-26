@@ -4206,7 +4206,15 @@
       "emailUpdates": true
     }
   ],
-  "loginCodes": [],
+  "loginCodes": [
+    {
+      "email": "peytonpompey64@gmail.com",
+      "hash": "cedb2eadf1efe465a89dcd16208e76b371b5ae45f8e647d416961fff426d02d9",
+      "exp": 1792975421193,
+      "tries": 0,
+      "created": 1792974821193
+    }
+  ],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
@@ -4635,6 +4643,22 @@
       "error": "",
       "createdAt": "2026-10-26T00:06:27.141Z",
       "sentAt": "2026-10-26T00:06:28.369Z"
+    },
+    {
+      "id": "mail_851d17a3783cf41bf0",
+      "key": "signin:peytonpompey64@gmail.com:1792974821193",
+      "to": "peytonpompey64@gmail.com",
+      "subject": "Your Wigglesworth sign-in code",
+      "text": "Your Wigglesworth sign-in code is 828092.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">828092</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "signin",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-10-26T00:33:41.194Z",
+      "sentAt": ""
     }
   ]
 }
