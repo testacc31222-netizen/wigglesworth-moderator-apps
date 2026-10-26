@@ -3112,6 +3112,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T00:52:44.901Z",
+      "act": "account_login",
+      "id": "acc_d2b633c9a8074a1aca385349",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T00:33:58.047Z",
       "act": "account_login",
       "id": "acc_6d2f7eba3531b7f0e79d48d5",
@@ -3704,12 +3710,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T17:23:26.350Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4231,17 +4231,15 @@
       "email": "peytonpompey64@gmail.com",
       "createdAt": "2026-10-26T00:33:58.047Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_d2b633c9a8074a1aca385349",
       "email": "isherehelp641@gmail.com",
-      "hash": "c8932cdabada8e9ca838d3efa7c1c8e00050e819e51f0d90ccec38611199faaa",
-      "exp": 1792976543300,
-      "tries": 0,
-      "created": 1792975943300
+      "createdAt": "2026-10-26T00:52:44.901Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
