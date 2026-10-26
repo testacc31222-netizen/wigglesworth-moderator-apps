@@ -3065,6 +3065,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T02:26:45.700Z",
+      "act": "account_login",
+      "id": "acc_d28a47cbb5dae6b1b9158fcb",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T02:10:23.273Z",
       "act": "ai_approved",
       "id": "EVT-M78V5T",
@@ -3657,12 +3663,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T17:28:16.497Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4190,17 +4190,15 @@
       "email": "isherehelp641@gmail.com",
       "createdAt": "2026-10-26T00:52:44.901Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_d28a47cbb5dae6b1b9158fcb",
       "email": "kjlipan25@gmail.com",
-      "hash": "4bde8f9ada5324d817162da525342ec917c7b6a9c9a57f475362bea8d9daccc1",
-      "exp": 1792982183330,
-      "tries": 0,
-      "created": 1792981583330
+      "createdAt": "2026-10-26T02:26:45.700Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
