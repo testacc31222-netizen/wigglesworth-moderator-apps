@@ -1960,10 +1960,11 @@
       "rulebreak": "No I have not bin banned by any game.",
       "email": "diabmurad31@gmail.com",
       "emailUpdates": true,
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "accountId": "acc_17e3964bfd3c80e63eaf61e1",
       "aiSummary": "Verdict: Mixed - applicant shows enthusiasm but lacks clear experience and has age concerns.  \n- Wants to join: Moderator role, to help protect community.  \n- Experience: Claims bin mods, admin in fan game, former owner; unclear details.  \n- Availability: UK timezone, age 13.  \n- Watch-outs: Underage, vague moderation history, potential lack of accountability.",
-      "aiSummaryAt": "2026-10-26T01:56:12.892Z"
+      "aiSummaryAt": "2026-10-26T01:56:12.892Z",
+      "notifiedAt": "2026-10-26T02:02:03.063Z"
     },
     {
       "appId": "MOD-EHERLB",
@@ -4766,11 +4767,11 @@
       "kind": "decision",
       "appId": "MOD-BADS89",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T02:02:01.909Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T02:02:03.063Z"
     }
   ]
 }
