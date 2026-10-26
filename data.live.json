@@ -4891,11 +4891,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T02:40:31.414Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T02:40:32.881Z"
     }
   ]
 }
