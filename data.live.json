@@ -3127,6 +3127,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T07:55:58.354Z",
+      "act": "account_login",
+      "id": "acc_6533e9314ca89f810e4425fd",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T05:14:38.091Z",
       "act": "config_saved",
       "id": "",
@@ -3719,12 +3725,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T17:29:53.445Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4264,6 +4264,12 @@
       "email": "battlekamira@gmail.com",
       "createdAt": "2026-10-26T05:01:48.471Z",
       "emailUpdates": true
+    },
+    {
+      "id": "acc_6533e9314ca89f810e4425fd",
+      "email": "michaelcool699@gmail.com",
+      "createdAt": "2026-10-26T07:55:58.354Z",
+      "emailUpdates": true
     }
   ],
   "loginCodes": [
@@ -4273,13 +4279,6 @@
       "exp": 1793001901572,
       "tries": 0,
       "created": 1793001301572
-    },
-    {
-      "email": "michaelcool699@gmail.com",
-      "hash": "14b8b27b0a175ac22c1c6cf534b336a785333340eb5c6cc313b99d35c716310d",
-      "exp": 1793001917868,
-      "tries": 1,
-      "created": 1793001317868
     }
   ],
   "outbox": [
