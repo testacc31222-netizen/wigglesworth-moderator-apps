@@ -3167,6 +3167,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T23:14:06.901Z",
+      "act": "account_login",
+      "id": "acc_f3e5be8d32e5672d06810da9",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T22:41:18.033Z",
       "act": "account_login",
       "id": "acc_b85e032e2eab96e49e56f65a",
@@ -3759,12 +3765,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T17:29:59.911Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4316,17 +4316,15 @@
       "email": "qwerty1312hu@gmail.com",
       "createdAt": "2026-10-26T22:41:18.033Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_f3e5be8d32e5672d06810da9",
       "email": "avimaelvaldez2@gmail.com",
-      "hash": "f94c0920cc5069c08aa5b33fc1abc1b5b54c70fa9f104b275a7c6fa64e1d4ddc",
-      "exp": 1793057018938,
-      "tries": 0,
-      "created": 1793056418938
+      "createdAt": "2026-10-26T23:14:06.901Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
