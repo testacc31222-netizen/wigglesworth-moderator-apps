@@ -1928,7 +1928,7 @@
       "appId": "MOD-DRVK8G",
       "type": "moderator",
       "date": "2026-10-17T14:38:37.051Z",
-      "status": "pending",
+      "status": "denied",
       "adminNote": "",
       "username": "Trident",
       "discord": "primary787_75955",
@@ -3063,6 +3063,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T02:00:53.538Z",
+      "act": "status_denied",
+      "id": "MOD-DRVK8G",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:56:54.501Z",
       "act": "ai_summary",
       "id": "MOD-DRVK8G",
@@ -3652,12 +3658,6 @@
     },
     {
       "t": "2026-10-25T17:27:27.623Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:27:23.077Z",
       "act": "config_saved",
       "id": "",
       "by": ""
