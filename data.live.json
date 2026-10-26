@@ -5142,11 +5142,11 @@
       "kind": "receipt",
       "appId": "MOD-8AM49S",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T22:50:54.346Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T22:50:55.482Z"
     }
   ]
 }
