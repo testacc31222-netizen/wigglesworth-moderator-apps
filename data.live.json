@@ -4689,11 +4689,11 @@
       "kind": "receipt",
       "appId": "CC-UAWKL2",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T00:36:50.929Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T00:36:52.286Z"
     }
   ]
 }
