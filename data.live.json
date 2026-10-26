@@ -4978,11 +4978,11 @@
       "kind": "receipt",
       "appId": "CC-NZVQ5C",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T05:15:51.472Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T05:15:52.838Z"
     }
   ]
 }
