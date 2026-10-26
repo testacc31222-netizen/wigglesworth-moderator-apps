@@ -2499,7 +2499,7 @@
       "email": "isherehelp641@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_d2b633c9a8074a1aca385349",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "C00LKIDD",
       "discord": "C00LKIDD",
       "age": "13",
@@ -2510,7 +2510,8 @@
       "rulebreak": "No, I have never been banned. I try to follow the rules, respect other members, and maintain a positive attitude in the community.",
       "receiptAt": "2026-10-26T01:21:41.095Z",
       "aiSummary": "Verdict: Mixed - limited experience and age may be a concern  \n- Wants to join: Moderator  \n- Experience: Gt2 tag, summer tag buddy, runners, denlem taggers  \n- Availability: ~4h/day, EST  \n- Watch-outs: 13 years old, minimal moderation background, no prior bans but unclear depth of experience.",
-      "aiSummaryAt": "2026-10-26T01:53:15.969Z"
+      "aiSummaryAt": "2026-10-26T01:53:15.969Z",
+      "notifiedAt": "2026-10-26T02:06:44.833Z"
     }
   ],
   "tickets": [
@@ -4791,11 +4792,11 @@
       "kind": "decision",
       "appId": "MOD-K3CEUA",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T02:06:43.615Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T02:06:44.833Z"
     }
   ]
 }
