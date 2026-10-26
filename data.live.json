@@ -905,8 +905,8 @@
       "appId": "CC-5RR3GD",
       "type": "creator",
       "date": "2026-10-02T18:30:20.015Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to join the Wigglesworth community, Monke.vr. We appreciate your interest and the effort you’ve put into your application. While we’re unable to offer a position at this time, we encourage you to keep creating and gaining experience—feel free to reapply in the future.",
       "username": "Monkevr",
       "discord": "Monke.vr",
       "age": "13",
@@ -3133,6 +3133,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:51:27.195Z",
+      "act": "ai_denied",
+      "id": "CC-5RR3GD",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:50:14.115Z",
       "act": "ai_approved",
       "id": "CC-YSWS2L",
@@ -3722,12 +3728,6 @@
     },
     {
       "t": "2026-10-25T17:25:05.811Z",
-      "act": "ticket_deleted",
-      "id": "TKT-HBW3EF",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:24:58.782Z",
       "act": "ticket_deleted",
       "id": "TKT-HBW3EF",
       "by": ""
