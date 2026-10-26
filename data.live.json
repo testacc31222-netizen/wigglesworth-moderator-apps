@@ -4626,11 +4626,11 @@
       "kind": "receipt",
       "appId": "EVT-39ATNQ",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T00:06:27.141Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T00:06:28.369Z"
     }
   ]
 }
