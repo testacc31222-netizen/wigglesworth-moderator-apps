@@ -2401,24 +2401,6 @@
       "notifiedStatus": ""
     },
     {
-      "appId": "MOD-LY7MHN",
-      "type": "moderator",
-      "date": "2026-10-22T22:50:00.916Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "BIGBRO",
-      "discord": "ThePorterFamalia6_7",
-      "age": "18",
-      "timezone": "5:52",
-      "experience": "Yes many times",
-      "why": "Make the game and discord better",
-      "scenario": "Ban them for 1 day and if the person keeps doing it he will be banned for 1 week do it again and permanent ban",
-      "rulebreak": "No never been banned from discord",
-      "email": "",
-      "emailUpdates": true,
-      "notifiedStatus": ""
-    },
-    {
       "appId": "MOD-JVXZRF",
       "type": "moderator",
       "date": "2026-10-22T22:55:14.488Z",
@@ -3094,6 +3076,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:54:51.395Z",
+      "act": "deleted",
+      "id": "MOD-LY7MHN",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:54:42.800Z",
       "act": "deleted",
       "id": "MOD-3XVJ2M",
@@ -3683,12 +3671,6 @@
     },
     {
       "t": "2026-10-25T17:26:41.826Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:26:38.376Z",
       "act": "config_saved",
       "id": "",
       "by": ""
