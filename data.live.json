@@ -3091,6 +3091,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T00:33:58.047Z",
+      "act": "account_login",
+      "id": "acc_6d2f7eba3531b7f0e79d48d5",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T00:19:01.138Z",
       "act": "ai_summary",
       "id": "EVT-39ATNQ",
@@ -3683,12 +3689,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T17:23:26.159Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4204,17 +4204,15 @@
       "email": "cr3808999@gmail.com",
       "createdAt": "2026-10-25T23:43:38.631Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_6d2f7eba3531b7f0e79d48d5",
       "email": "peytonpompey64@gmail.com",
-      "hash": "cedb2eadf1efe465a89dcd16208e76b371b5ae45f8e647d416961fff426d02d9",
-      "exp": 1792975421193,
-      "tries": 0,
-      "created": 1792974821193
+      "createdAt": "2026-10-26T00:33:58.047Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
