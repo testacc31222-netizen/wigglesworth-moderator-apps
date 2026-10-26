@@ -1927,8 +1927,8 @@
       "appId": "CC-7TQP8L",
       "type": "creator",
       "date": "2026-10-17T12:44:44.418Z",
-      "status": "denied",
-      "adminNote": "Hi Veno,\n\nThank you for applying to be a Content Creator for Wigglesworth. We appreciate the time you took to share your ideas and enthusiasm for the community. At this time we won’t be moving forward with your application, but we encourage you to keep building your content and gaining experience. We hope you’ll consider reapplying in the future. \n\nBest of luck!",
+      "status": "approved",
+      "adminNote": "Hi Veno,Thank you for applying to be a Content Creator for Wigglesworth. We appreciate the time you took to share your ideas and enthusiasm for the community. At this time we won’t be moving forward with your application, but we encourage you to keep building your content and gaining experience. We hope you’ll consider reapplying in the future. Best of luck!",
       "username": "Veno",
       "discord": "VENO",
       "age": "14",
@@ -3132,6 +3132,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:45:53.122Z",
+      "act": "status_approved",
+      "id": "CC-7TQP8L",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:45:45.156Z",
       "act": "ai_denied",
       "id": "CC-YP776J",
@@ -3721,12 +3727,6 @@
     },
     {
       "t": "2026-10-25T17:23:48.670Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:23:30.700Z",
       "act": "config_saved",
       "id": "",
       "by": ""
