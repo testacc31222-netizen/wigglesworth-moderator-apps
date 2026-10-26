@@ -1940,7 +1940,9 @@
       "rulebreak": "No, I have not.",
       "email": "",
       "emailUpdates": true,
-      "notifiedStatus": ""
+      "notifiedStatus": "",
+      "aiSummary": "Verdict: Mixed - limited experience but eager to learn  \n- Wants to join: Moderator role  \n- Experience: None, willing to learn leadership skills  \n- Availability: 5 hours weekdays, all weekend days  \n- Watch-outs: Underage, no prior moderation, vague enforcement plan, potential lack of depth in handling spam.",
+      "aiSummaryAt": "2026-10-26T01:56:54.501Z"
     },
     {
       "appId": "MOD-BADS89",
@@ -3061,6 +3063,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:56:54.501Z",
+      "act": "ai_summary",
+      "id": "MOD-DRVK8G",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:56:12.892Z",
       "act": "ai_summary",
       "id": "MOD-BADS89",
@@ -3650,12 +3658,6 @@
     },
     {
       "t": "2026-10-25T17:27:23.077Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:27:21.675Z",
       "act": "config_saved",
       "id": "",
       "by": ""
