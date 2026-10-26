@@ -2533,6 +2533,26 @@
       "style": "shorts and videos about what games are about and playing games and completing goals I also do streams       ( No vids on the game rn but as soon as I'm home from school tmrw I will be posting like 4 vids in 1 day on this game)",
       "strikes": "Absolutely not",
       "receiptAt": "2026-10-26T02:37:21.440Z"
+    },
+    {
+      "appId": "MOD-9D75JY",
+      "type": "moderator",
+      "date": "2026-10-26T02:43:01.598Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "kjlipan25@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_d28a47cbb5dae6b1b9158fcb",
+      "notifiedStatus": "",
+      "username": "Chillzz",
+      "discord": "chillz_animalcompanycc",
+      "age": "13",
+      "timezone": "EST",
+      "experience": "I have been mod in teriphobia (old fan game) I have been mod in a bunch of games Dm if you want more info on this.",
+      "why": "To help guide new players, help the community, and help solve problems a civil way.",
+      "scenario": "I would fist give them a warning but if they keep spamming I would give them a 5 minute time out",
+      "rulebreak": "Never",
+      "receiptAt": "2026-10-26T02:43:01.598Z"
     }
   ],
   "tickets": [
@@ -4888,6 +4908,22 @@
       "error": "",
       "createdAt": "2026-10-26T02:40:31.414Z",
       "sentAt": "2026-10-26T02:40:32.881Z"
+    },
+    {
+      "id": "mail_af3e521d9662144b89",
+      "key": "MOD-9D75JY:receipt",
+      "to": "kjlipan25@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi chillz_animalcompanycc,\n\nYour Moderator application (MOD-9D75JY) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi chillz_animalcompanycc,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-9D75JY</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-9D75JY",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-10-26T02:43:01.598Z",
+      "sentAt": ""
     }
   ]
 }
