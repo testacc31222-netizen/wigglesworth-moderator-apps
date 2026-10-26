@@ -2455,29 +2455,6 @@
       "notifiedStatus": ""
     },
     {
-      "appId": "MOD-3XVJ2M",
-      "type": "moderator",
-      "date": "2026-10-25T23:04:28.672Z",
-      "status": "approved",
-      "adminNote": "Congratulations VENO!  Your answer about handling spam in chat really stood out to us.  Our staff will reach out soon with the next steps.",
-      "email": "graysonajack@icloud.com",
-      "emailUpdates": true,
-      "accountId": "acc_fb83bd5d46e67e1daced0f6f",
-      "notifiedStatus": "approved",
-      "username": "Veno",
-      "discord": "VENO",
-      "age": "14",
-      "timezone": "Hgh",
-      "experience": "Vjhhdhjm",
-      "why": "Dgbuhggtfcfgfgbgfvyhfhfhfhffgdfcfvgf",
-      "scenario": "Gggdvhbhchcgvgfgfggfgrhfgvghv",
-      "rulebreak": "T",
-      "receiptAt": "2026-10-25T23:04:28.673Z",
-      "aiSummary": "Verdict: Weak - unclear answers and questionable experience  \n- Wants to join: Moderator  \n- Experience: None clear, provided gibberish  \n- Availability: Timezone listed as “Hgh” (unknown)  \n- Watch-outs: Age 14, unclear moderation skills, admitted to being banned.",
-      "aiSummaryAt": "2026-10-25T23:05:03.772Z",
-      "notifiedAt": "2026-10-25T23:26:36.912Z"
-    },
-    {
       "appId": "MOD-JYERJZ",
       "type": "moderator",
       "date": "2026-10-25T23:39:21.908Z",
@@ -3117,6 +3094,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:54:42.800Z",
+      "act": "deleted",
+      "id": "MOD-3XVJ2M",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:53:15.969Z",
       "act": "ai_summary",
       "id": "MOD-K3CEUA",
@@ -3706,12 +3689,6 @@
     },
     {
       "t": "2026-10-25T17:26:38.376Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:26:35.055Z",
       "act": "config_saved",
       "id": "",
       "by": ""
