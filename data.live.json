@@ -4747,11 +4747,11 @@
       "kind": "receipt",
       "appId": "MOD-K3CEUA",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T01:21:41.095Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T01:21:42.332Z"
     }
   ]
 }
