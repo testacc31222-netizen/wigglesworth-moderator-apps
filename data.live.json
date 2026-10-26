@@ -1179,8 +1179,8 @@
       "appId": "CC-YSWS2L",
       "type": "creator",
       "date": "2026-10-04T17:54:16.901Z",
-      "status": "denied",
-      "adminNote": "Take these applications more serious.",
+      "status": "approved",
+      "adminNote": "Congratulations, NINJA.AC! We were thrilled to see your enthusiasm for Animal Company and your playful “wiggle wiggle wiggle” style. Your passion for the game shines through. A staff member will reach out shortly with the next steps. Welcome aboard!",
       "username": "NINJA.AC",
       "discord": "NINJA.AC",
       "age": "124356",
@@ -3133,6 +3133,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:50:14.115Z",
+      "act": "ai_approved",
+      "id": "CC-YSWS2L",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:48:53.839Z",
       "act": "ai_denied",
       "id": "CC-CHA7GM",
@@ -3722,12 +3728,6 @@
     },
     {
       "t": "2026-10-25T17:24:58.782Z",
-      "act": "ticket_deleted",
-      "id": "TKT-HBW3EF",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:24:48.091Z",
       "act": "ticket_deleted",
       "id": "TKT-HBW3EF",
       "by": ""
