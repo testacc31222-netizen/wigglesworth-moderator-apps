@@ -1216,8 +1216,8 @@
       "appId": "CC-CHA7GM",
       "type": "creator",
       "date": "2026-10-04T20:43:58.515Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying, Slimerflap. We appreciate you taking the time to share your work with us. While we can’t offer a spot at this time, we encourage you to keep creating and gaining experience—feel free to reapply in the future.",
       "username": "Slimyflapvr",
       "discord": "Slimerflap",
       "age": "16",
@@ -3133,6 +3133,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:48:53.839Z",
+      "act": "ai_denied",
+      "id": "CC-CHA7GM",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:48:35.369Z",
       "act": "ai_denied",
       "id": "CC-URSKJS",
@@ -3724,12 +3730,6 @@
       "t": "2026-10-25T17:24:48.091Z",
       "act": "ticket_deleted",
       "id": "TKT-HBW3EF",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:24:39.544Z",
-      "act": "deleted",
-      "id": "MOD-XDLFTV",
       "by": ""
     }
   ],
