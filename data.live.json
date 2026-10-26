@@ -1724,8 +1724,8 @@
       "appId": "CC-67K7L6",
       "type": "creator",
       "date": "2026-10-10T23:59:18.816Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to join the Wigglesworth community, mtapolar. We appreciate your interest and the time you spent sharing your background. While we won’t be moving forward with your application at this time, we encourage you to keep building your channel and gaining experience. We hope you’ll consider reapplying in the future.",
       "username": "noxonth",
       "discord": "mtapolar",
       "age": "17",
@@ -3132,6 +3132,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-26T01:48:09.433Z",
+      "act": "ai_denied",
+      "id": "CC-67K7L6",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T01:47:43.830Z",
       "act": "ai_approved",
       "id": "CC-H6V7S8",
@@ -3723,12 +3729,6 @@
       "t": "2026-10-25T17:24:36.114Z",
       "act": "deleted",
       "id": "MOD-MPY3EF",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:24:08.413Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
