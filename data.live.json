@@ -4851,11 +4851,11 @@
       "kind": "receipt",
       "appId": "CC-U9J7ET",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T02:37:21.440Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T02:37:22.581Z"
     }
   ]
 }
