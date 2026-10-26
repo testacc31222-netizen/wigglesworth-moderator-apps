@@ -1977,8 +1977,9 @@
       "rulebreak": "No",
       "email": "jaycep0814@gmail.com",
       "emailUpdates": true,
-      "notifiedStatus": "",
-      "accountId": "acc_5ed2df7c409bd98dad3b4050"
+      "notifiedStatus": "approved",
+      "accountId": "acc_5ed2df7c409bd98dad3b4050",
+      "notifiedAt": "2026-10-26T01:55:51.116Z"
     },
     {
       "appId": "MOD-SGC3MS",
@@ -4745,11 +4746,11 @@
       "kind": "decision",
       "appId": "MOD-EHERLB",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T01:55:49.797Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T01:55:51.116Z"
     }
   ]
 }
