@@ -2513,7 +2513,9 @@
       "why": "I want to be moderator because i want to come back to the Wigglesworth community and try to make things better as you know i was a community manager then i just kind of went away for a little bit but now i want to come back and be better",
       "scenario": "If someone was spamming in chat first i would see who's spamming and why they are spamming then i would take ss so i can have proof just incase they delete the messages then i would ask them 2 times maybe 3 to please stop spamming or i would have to time you out and if they keep doing it i would time them out and tell higher up people",
       "rulebreak": "no",
-      "receiptAt": "2026-10-25T23:39:21.909Z"
+      "receiptAt": "2026-10-25T23:39:21.909Z",
+      "aiSummary": "Verdict: Mixed - some experience but limited details  \n- Wants to join: Moderator role, return to community, improve things  \n- Experience: Past moderation on Wigglesworth project, unclear other roles  \n- Availability: EST, 14 years old, no specific hours given  \n- Watch-outs: Limited moderation experience, no prior bans, age may affect responsibilities.",
+      "aiSummaryAt": "2026-10-26T00:18:30.392Z"
     },
     {
       "appId": "EVT-39ATNQ",
@@ -3086,6 +3088,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-26T00:18:30.392Z",
+      "act": "ai_summary",
+      "id": "MOD-JYERJZ",
+      "by": ""
+    },
     {
       "t": "2026-10-26T00:01:23.079Z",
       "act": "config_saved",
@@ -3676,12 +3684,6 @@
     },
     {
       "t": "2026-10-25T17:23:25.973Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:23:25.084Z",
       "act": "config_saved",
       "id": "",
       "by": ""
