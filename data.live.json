@@ -5002,11 +5002,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T06:50:12.540Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T06:50:14.012Z"
     }
   ]
 }
