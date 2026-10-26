@@ -5041,11 +5041,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-26T07:55:17.868Z",
-      "sentAt": ""
+      "sentAt": "2026-10-26T07:55:19.120Z"
     }
   ]
 }
