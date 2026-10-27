@@ -5275,11 +5275,11 @@
       "kind": "receipt",
       "appId": "CC-EC2WF3",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-27T11:45:05.143Z",
-      "sentAt": ""
+      "sentAt": "2026-10-27T11:45:06.648Z"
     }
   ]
 }
