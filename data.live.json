@@ -5224,11 +5224,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-27T00:19:13.042Z",
-      "sentAt": ""
+      "sentAt": "2026-10-27T00:19:14.381Z"
     }
   ]
 }
