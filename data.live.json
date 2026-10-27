@@ -5408,11 +5408,11 @@
       "kind": "receipt",
       "appId": "EVT-AZFLZW",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-27T23:15:15.676Z",
-      "sentAt": ""
+      "sentAt": "2026-10-27T23:15:17.109Z"
     }
   ]
 }
