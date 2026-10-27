@@ -3187,6 +3187,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-27T11:36:57.874Z",
+      "act": "account_login",
+      "id": "acc_2897abf68c7fc51b8b243784",
+      "by": ""
+    },
+    {
       "t": "2026-10-27T05:33:58.862Z",
       "act": "account_recover",
       "id": "MOD-VHDNGD",
@@ -3779,12 +3785,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T17:30:29.681Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4342,17 +4342,15 @@
       "email": "avimaelvaldez2@gmail.com",
       "createdAt": "2026-10-26T23:14:06.901Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_2897abf68c7fc51b8b243784",
       "email": "boylemon340@gmail.com",
-      "hash": "2f055dda17b8cb1a715fc5c4eddb8434f5994ddd5ea4df4d2f7e4677f368db50",
-      "exp": 1793101554761,
-      "tries": 0,
-      "created": 1793100954761
+      "createdAt": "2026-10-27T11:36:57.874Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
