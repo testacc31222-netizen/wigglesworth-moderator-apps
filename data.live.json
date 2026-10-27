@@ -3208,6 +3208,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-27T23:10:13.011Z",
+      "act": "account_login",
+      "id": "acc_3bf0396ea8d66b9fc426116e",
+      "by": ""
+    },
+    {
       "t": "2026-10-27T21:36:22.173Z",
       "act": "account_login",
       "id": "acc_07ba6ad1eb8868cd9a06deb4",
@@ -3800,12 +3806,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T17:30:44.954Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4380,17 +4380,15 @@
       "email": "boylemon340@gmail.com",
       "createdAt": "2026-10-27T11:36:57.874Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_3bf0396ea8d66b9fc426116e",
       "email": "brignulllogan@gmail.com",
-      "hash": "8f91b6849911b150c0b40920242620baaff52a19644ebd7d01846b0761a85070",
-      "exp": 1793143184376,
-      "tries": 0,
-      "created": 1793142584376
+      "createdAt": "2026-10-27T23:10:13.011Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
