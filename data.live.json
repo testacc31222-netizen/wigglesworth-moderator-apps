@@ -372,7 +372,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -532,7 +532,7 @@
         "intro": "Developers ship real things for players. Show us what you have built.",
         "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -3187,6 +3187,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-27T00:10:17.594Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-10-26T23:14:06.901Z",
       "act": "account_login",
       "id": "acc_f3e5be8d32e5672d06810da9",
@@ -3776,12 +3782,6 @@
     },
     {
       "t": "2026-10-25T17:30:16.801Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:30:12.990Z",
       "act": "config_saved",
       "id": "",
       "by": ""
