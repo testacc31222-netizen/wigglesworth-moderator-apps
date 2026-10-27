@@ -5240,11 +5240,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-27T11:35:54.846Z",
-      "sentAt": ""
+      "sentAt": "2026-10-27T11:35:56.225Z"
     }
   ]
 }
