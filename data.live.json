@@ -5374,11 +5374,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-27T23:09:44.383Z",
-      "sentAt": ""
+      "sentAt": "2026-10-27T23:09:45.803Z"
     }
   ]
 }
