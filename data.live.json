@@ -3187,6 +3187,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-27T05:33:58.862Z",
+      "act": "account_recover",
+      "id": "MOD-VHDNGD",
+      "by": ""
+    },
+    {
       "t": "2026-10-27T00:19:50.277Z",
       "act": "account_login",
       "id": "acc_fb83bd5d46e67e1daced0f6f",
@@ -3776,12 +3782,6 @@
     },
     {
       "t": "2026-10-25T17:30:29.681Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:30:27.214Z",
       "act": "config_saved",
       "id": "",
       "by": ""
