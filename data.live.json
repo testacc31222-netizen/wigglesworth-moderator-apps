@@ -3255,6 +3255,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-29T23:49:44.477Z",
+      "act": "account_login",
+      "id": "acc_c1cc3627f64fc2ab0adf0c9a",
+      "by": ""
+    },
+    {
       "t": "2026-10-29T23:48:50.647Z",
       "act": "config_saved",
       "id": "",
@@ -3847,12 +3853,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T22:53:33.880Z",
-      "act": "account_recover",
-      "id": "MOD-BADS89",
-      "by": ""
     }
   ],
   "reports": [
@@ -4439,17 +4439,15 @@
       "email": "micahhoffman12@gmail.com",
       "createdAt": "2026-10-29T01:43:39.407Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_c1cc3627f64fc2ab0adf0c9a",
       "email": "tfmbrznrevamp2@gmail.com",
-      "hash": "900a240d337157343ef7989f52c86011223b36bf2fcbb698bfd0be4ad408f6d1",
-      "exp": 1793318367480,
-      "tries": 0,
-      "created": 1793317767480
+      "createdAt": "2026-10-29T23:49:44.477Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
