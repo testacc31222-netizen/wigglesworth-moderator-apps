@@ -5467,11 +5467,11 @@
       "kind": "receipt",
       "appId": "CC-96AJ8P",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-29T02:09:57.931Z",
-      "sentAt": ""
+      "sentAt": "2026-10-29T02:09:59.445Z"
     }
   ]
 }
