@@ -5432,11 +5432,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-29T01:43:14.311Z",
-      "sentAt": ""
+      "sentAt": "2026-10-29T01:43:15.597Z"
     }
   ]
 }
