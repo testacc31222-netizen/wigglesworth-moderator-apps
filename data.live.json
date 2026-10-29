@@ -5531,11 +5531,11 @@
       "kind": "receipt",
       "appId": "MOD-U4DDYY",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-29T23:59:02.278Z",
-      "sentAt": ""
+      "sentAt": "2026-10-29T23:59:03.593Z"
     }
   ]
 }
