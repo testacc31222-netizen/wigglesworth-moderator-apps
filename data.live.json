@@ -3215,15 +3215,21 @@
       "name": "Xhuman",
       "subject": "Hamburger",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "createdAt": "2026-10-22T22:59:31.764Z",
-      "updatedAt": "2026-10-22T22:59:31.764Z",
+      "updatedAt": "2026-10-29T03:41:48.414Z",
       "replies": [
         {
           "by": "user",
           "name": "Xhuman",
           "text": "Hamburges are good",
           "at": "2026-10-22T22:59:31.764Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey there! Thanks for reaching out. If you’re interested in applying for a role, just fill out the application form for the role that fits you best. Remember to keep it honest and complete—those are the quickest ways to avoid a denial. Once you submit, you’ll get an Application ID and we’ll get back to you within a few days (or sooner if someone from the team sees it right away). Let me know if you need help with the form or have any other questions!",
+          "at": "2026-10-29T03:41:48.414Z"
         }
       ]
     },
@@ -3248,6 +3254,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-10-29T03:41:48.414Z",
+      "act": "ticket_reply",
+      "id": "TKT-EZNWDD",
+      "by": ""
+    },
     {
       "t": "2026-10-29T01:43:39.408Z",
       "act": "account_login",
@@ -3840,12 +3852,6 @@
       "t": "2026-10-25T22:51:34.565Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T17:31:45.757Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
