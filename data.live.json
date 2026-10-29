@@ -3228,6 +3228,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-29T01:43:39.408Z",
+      "act": "account_login",
+      "id": "acc_1e7fa3d3902dc1c9d7786ddf",
+      "by": ""
+    },
+    {
       "t": "2026-10-27T23:10:13.011Z",
       "act": "account_login",
       "id": "acc_3bf0396ea8d66b9fc426116e",
@@ -3820,12 +3826,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T17:30:49.225Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4406,17 +4406,15 @@
       "email": "brignulllogan@gmail.com",
       "createdAt": "2026-10-27T23:10:13.011Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_1e7fa3d3902dc1c9d7786ddf",
       "email": "micahhoffman12@gmail.com",
-      "hash": "2b30139b483eaa8b542776ee5ed02284b924f2c38740b67c61d6800d5f0dc08a",
-      "exp": 1793238794310,
-      "tries": 0,
-      "created": 1793238194310
+      "createdAt": "2026-10-29T01:43:39.407Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
