@@ -5859,11 +5859,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-30T23:46:32.519Z",
-      "sentAt": ""
+      "sentAt": "2026-10-30T23:46:33.999Z"
     }
   ]
 }
