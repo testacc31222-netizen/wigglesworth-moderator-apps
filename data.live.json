@@ -5755,11 +5755,11 @@
       "kind": "receipt",
       "appId": "MOD-S3ECRW",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-30T15:45:45.770Z",
-      "sentAt": ""
+      "sentAt": "2026-10-30T15:45:47.130Z"
     }
   ]
 }
