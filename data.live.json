@@ -5567,11 +5567,11 @@
       "kind": "receipt",
       "appId": "MOD-TQRZSY",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-30T00:00:34.797Z",
-      "sentAt": ""
+      "sentAt": "2026-10-30T00:00:36.119Z"
     }
   ]
 }
