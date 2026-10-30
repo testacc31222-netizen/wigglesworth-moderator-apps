@@ -3355,6 +3355,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-30T15:42:22.111Z",
+      "act": "account_login",
+      "id": "acc_3231e49106d7982ef5722ae1",
+      "by": ""
+    },
+    {
       "t": "2026-10-30T05:54:58.564Z",
       "act": "account_login",
       "id": "acc_49d18246954cf23e052bb60f",
@@ -3944,12 +3950,6 @@
     },
     {
       "t": "2026-10-25T22:54:04.186Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:02.541Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -4551,17 +4551,15 @@
       "email": "kittyyourgoodboy@gmail.com",
       "createdAt": "2026-10-30T05:54:58.564Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_3231e49106d7982ef5722ae1",
       "email": "3xtracc3@gmail.com",
-      "hash": "fc20ced23ae09d19b544644c18a0b5c956202a02ee2bdec85237e1ef1f951881",
-      "exp": 1793375440706,
-      "tries": 0,
-      "created": 1793374840706
+      "createdAt": "2026-10-30T15:42:22.110Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
