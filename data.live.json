@@ -5639,11 +5639,11 @@
       "kind": "receipt",
       "appId": "MOD-ZM2MHQ",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-30T02:01:41.009Z",
-      "sentAt": ""
+      "sentAt": "2026-10-30T02:01:42.479Z"
     }
   ]
 }
