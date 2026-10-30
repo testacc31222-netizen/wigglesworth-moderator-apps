@@ -3375,6 +3375,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-30T18:49:23.877Z",
+      "act": "account_login",
+      "id": "acc_cb82e153271a266715958498",
+      "by": ""
+    },
+    {
       "t": "2026-10-30T15:42:22.111Z",
       "act": "account_login",
       "id": "acc_3231e49106d7982ef5722ae1",
@@ -3964,12 +3970,6 @@
     },
     {
       "t": "2026-10-25T22:54:05.783Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:04.186Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -4577,17 +4577,15 @@
       "email": "3xtracc3@gmail.com",
       "createdAt": "2026-10-30T15:42:22.110Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_cb82e153271a266715958498",
       "email": "kashgt2024@outlook.com",
-      "hash": "39550aec7bca7ac914586c944ad40d4c51b364a79790b6f0e14b54113c6466a2",
-      "exp": 1793386749814,
-      "tries": 0,
-      "created": 1793386149814
+      "createdAt": "2026-10-30T18:49:23.877Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
