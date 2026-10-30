@@ -5697,11 +5697,11 @@
       "kind": "receipt",
       "appId": "MOD-L37KHL",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-30T06:02:35.400Z",
-      "sentAt": ""
+      "sentAt": "2026-10-30T06:02:36.849Z"
     }
   ]
 }
