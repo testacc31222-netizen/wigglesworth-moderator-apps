@@ -3395,6 +3395,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-30T23:47:08.763Z",
+      "act": "account_login",
+      "id": "acc_5d3ef2438a53b277e0a073a8",
+      "by": ""
+    },
+    {
       "t": "2026-10-30T20:20:48.981Z",
       "act": "account_login",
       "id": "acc_6e3a106cb379cd802d9aa5da",
@@ -3984,12 +3990,6 @@
     },
     {
       "t": "2026-10-25T22:54:08.610Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:07.998Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -4609,17 +4609,15 @@
       "email": "andrew@actonleaders.org",
       "createdAt": "2026-10-30T20:20:48.981Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_5d3ef2438a53b277e0a073a8",
       "email": "palmernik0345@gmail.com",
-      "hash": "2fde99b84b9c1e5e0966697f8ae1726f4f945c40539125864fca2e2bccfc3ec4",
-      "exp": 1793404592518,
-      "tries": 0,
-      "created": 1793403992518
+      "createdAt": "2026-10-30T23:47:08.763Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
