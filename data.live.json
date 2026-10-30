@@ -5835,11 +5835,11 @@
       "kind": "receipt",
       "appId": "MOD-BAU8FC",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-30T20:27:04.901Z",
-      "sentAt": ""
+      "sentAt": "2026-10-30T20:27:06.451Z"
     }
   ]
 }
