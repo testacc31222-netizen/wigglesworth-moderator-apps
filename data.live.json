@@ -5603,11 +5603,11 @@
       "kind": "receipt",
       "appId": "MOD-V4UKFR",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-30T00:18:17.811Z",
-      "sentAt": ""
+      "sentAt": "2026-10-30T00:18:19.083Z"
     }
   ]
 }
