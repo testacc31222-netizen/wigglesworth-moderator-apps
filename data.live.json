@@ -5917,11 +5917,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-31T00:50:51.542Z",
-      "sentAt": ""
+      "sentAt": "2026-10-31T00:50:53.068Z"
     }
   ]
 }
