@@ -5893,11 +5893,11 @@
       "kind": "receipt",
       "appId": "MOD-5VUDJT",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-31T00:00:05.122Z",
-      "sentAt": ""
+      "sentAt": "2026-10-31T00:00:06.429Z"
     }
   ]
 }
