@@ -3435,6 +3435,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-31T18:54:10.146Z",
+      "act": "account_login",
+      "id": "acc_ae7ebd2dfc661d5b3916474a",
+      "by": ""
+    },
+    {
       "t": "2026-10-31T02:28:54.761Z",
       "act": "account_login",
       "id": "acc_df9e3f602662e7221d2a1f86",
@@ -4024,12 +4030,6 @@
     },
     {
       "t": "2026-10-25T22:54:13.494Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:12.227Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -4667,17 +4667,15 @@
       "email": "eliasscabr@gmail.com",
       "createdAt": "2026-10-31T02:28:54.761Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_ae7ebd2dfc661d5b3916474a",
       "email": "shamikametz80@icloud.com",
-      "hash": "f8ea8bbb1df64aac45b5ad8b8cf126109d3f954bfaecc267c7ebc9938507ce47",
-      "exp": 1793473400867,
-      "tries": 0,
-      "created": 1793472800867
+      "createdAt": "2026-10-31T18:54:10.146Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
