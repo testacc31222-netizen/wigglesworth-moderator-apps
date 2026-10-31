@@ -3415,6 +3415,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-31T02:28:54.761Z",
+      "act": "account_login",
+      "id": "acc_df9e3f602662e7221d2a1f86",
+      "by": ""
+    },
+    {
       "t": "2026-10-31T00:56:41.437Z",
       "act": "account_login",
       "id": "acc_a26084ba959dbf9b10e84f1e",
@@ -4004,12 +4010,6 @@
     },
     {
       "t": "2026-10-25T22:54:12.227Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:09.087Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -4641,17 +4641,15 @@
       "email": "glitchvr805@gmail.com",
       "createdAt": "2026-10-31T00:56:41.437Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_df9e3f602662e7221d2a1f86",
       "email": "eliasscabr@gmail.com",
-      "hash": "ee4606cc96a9035c6394b646545eb741eb9a29fc57a26501f79f621426161be2",
-      "exp": 1793414300111,
-      "tries": 0,
-      "created": 1793413700111
+      "createdAt": "2026-10-31T02:28:54.761Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
