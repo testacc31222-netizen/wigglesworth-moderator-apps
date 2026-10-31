@@ -6029,11 +6029,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-10-31T18:53:20.927Z",
-      "sentAt": ""
+      "sentAt": "2026-10-31T18:53:22.346Z"
     }
   ]
 }
