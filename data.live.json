@@ -3415,6 +3415,12 @@
   ],
   "audit": [
     {
+      "t": "2026-10-31T00:56:41.437Z",
+      "act": "account_login",
+      "id": "acc_a26084ba959dbf9b10e84f1e",
+      "by": ""
+    },
+    {
       "t": "2026-10-30T23:47:08.763Z",
       "act": "account_login",
       "id": "acc_5d3ef2438a53b277e0a073a8",
@@ -4004,12 +4010,6 @@
     },
     {
       "t": "2026-10-25T22:54:09.087Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:08.610Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -4635,6 +4635,12 @@
       "email": "palmernik0345@gmail.com",
       "createdAt": "2026-10-30T23:47:08.763Z",
       "emailUpdates": true
+    },
+    {
+      "id": "acc_a26084ba959dbf9b10e84f1e",
+      "email": "glitchvr805@gmail.com",
+      "createdAt": "2026-10-31T00:56:41.437Z",
+      "emailUpdates": true
     }
   ],
   "loginCodes": [
@@ -4644,13 +4650,6 @@
       "exp": 1793408584275,
       "tries": 0,
       "created": 1793407984275
-    },
-    {
-      "email": "glitchvr805@gmail.com",
-      "hash": "5c56814d935ef1f34a3ba46bca222d5e313b4203f8355f13a09275b1b238d140",
-      "exp": 1793408725459,
-      "tries": 0,
-      "created": 1793408125459
     }
   ],
   "outbox": [
