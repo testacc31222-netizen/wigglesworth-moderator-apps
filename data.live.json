@@ -6155,11 +6155,11 @@
       "kind": "receipt",
       "appId": "MOD-AU5YRH",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T14:48:53.634Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T14:48:54.953Z"
     }
   ]
 }
