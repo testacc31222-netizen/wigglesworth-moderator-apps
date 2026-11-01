@@ -3388,6 +3388,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T06:29:34.638Z",
+      "act": "report_closed",
+      "id": "RPT-C8ZZ53",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T06:29:18.566Z",
       "act": "ticket_deleted",
       "id": "TKT-8KBE2K",
@@ -3980,12 +3986,6 @@
       "act": "account_login",
       "id": "acc_fb83bd5d46e67e1daced0f6f",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T22:55:57.922Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
     }
   ],
   "reports": [
@@ -4006,10 +4006,10 @@
       "staffName": "Coolkid",
       "details": "He is 12 addmitted it infront of me and royal heard it he turns 13 next year",
       "files": [],
-      "status": "open",
+      "status": "closed",
       "adminNote": "",
       "createdAt": "2026-10-27T21:37:59.859Z",
-      "updatedAt": "2026-10-27T21:37:59.859Z"
+      "updatedAt": "2026-11-01T06:29:34.638Z"
     }
   ],
   "diag": [
