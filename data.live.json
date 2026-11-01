@@ -2866,7 +2866,7 @@
       "email": "eliasscabr@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_df9e3f602662e7221d2a1f86",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "Ghoststar",
       "discord": "Not sweaty",
       "age": "13",
@@ -2875,7 +2875,8 @@
       "why": "To help out the community by keeping players safe and they don’t harassed or, threaten,",
       "scenario": "Give them a warning to stop spamming",
       "rulebreak": "No",
-      "receiptAt": "2026-10-31T02:34:49.054Z"
+      "receiptAt": "2026-10-31T02:34:49.054Z",
+      "notifiedAt": "2026-11-01T03:49:32.924Z"
     },
     {
       "appId": "MOD-EQXVN2",
@@ -6114,11 +6115,11 @@
       "kind": "decision",
       "appId": "MOD-FZPP5A",
       "decisionStatus": "denied",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T03:49:31.692Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T03:49:32.924Z"
     }
   ]
 }
