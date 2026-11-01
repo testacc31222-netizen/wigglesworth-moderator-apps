@@ -3448,6 +3448,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T23:29:38.969Z",
+      "act": "account_login",
+      "id": "acc_0b97563a70c4b9a77e185e54",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T17:28:14.113Z",
       "act": "account_link",
       "id": "MOD-L37KHL",
@@ -4037,12 +4043,6 @@
     },
     {
       "t": "2026-10-25T23:05:16.722Z",
-      "act": "status_approved",
-      "id": "MOD-3XVJ2M",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:05:16.029Z",
       "act": "status_approved",
       "id": "MOD-3XVJ2M",
       "by": ""
@@ -4681,17 +4681,15 @@
       "email": "reamesjake84@gmail.com",
       "createdAt": "2026-11-01T14:36:41.789Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_0b97563a70c4b9a77e185e54",
       "email": "ejaygray2021@gmail.com",
-      "hash": "2331481238978782e48cf1b3afe50d7615e1e3b93576526571914970f3d9e04a",
-      "exp": 1793576332641,
-      "tries": 1,
-      "created": 1793575732641
+      "createdAt": "2026-11-01T23:29:38.969Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
