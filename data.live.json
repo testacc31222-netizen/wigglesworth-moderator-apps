@@ -2706,7 +2706,7 @@
       "email": "brignulllogan@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_3bf0396ea8d66b9fc426116e",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "PricklyCrab9876",
       "discord": "prickley_07",
       "age": "16",
@@ -2715,7 +2715,8 @@
       "why": "so i can flex on royal just kidding so i can make sure the comunity is safer",
       "scenario": "time out 5min after if they keep doing it day time out",
       "rulebreak": "no i havent yeeeeeaaaattttttt joke",
-      "receiptAt": "2026-10-30T02:01:41.010Z"
+      "receiptAt": "2026-10-30T02:01:41.010Z",
+      "notifiedAt": "2026-11-01T06:28:20.422Z"
     },
     {
       "appId": "MOD-L37KHL",
@@ -6104,11 +6105,11 @@
       "kind": "decision",
       "appId": "MOD-ZM2MHQ",
       "decisionStatus": "denied",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T06:28:19.331Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T06:28:20.422Z"
     }
   ]
 }
