@@ -6127,11 +6127,11 @@
       "kind": "ticket",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T06:29:09.729Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T06:29:10.947Z"
     }
   ]
 }
