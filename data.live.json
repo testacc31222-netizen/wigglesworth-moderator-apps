@@ -6121,11 +6121,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T14:36:14.132Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T14:36:15.557Z"
     }
   ]
 }
