@@ -2768,7 +2768,7 @@
       "email": "palmernik0345@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_5d3ef2438a53b277e0a073a8",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Ballo",
       "discord": "ballomkr",
       "age": "13",
@@ -2779,7 +2779,8 @@
       "rulebreak": "I have never been banned and try my best to follow the rules and get others to as well.",
       "receiptAt": "2026-10-31T00:00:05.122Z",
       "aiSummary": "Verdict: Mixed - limited relevant experience and age concerns  \n- Wants to join: Moderator role  \n- Experience: Claims moderation in obscure games, no specific examples of conflict resolution or policy enforcement  \n- Availability: CST, 5+ hours daily  \n- Watch‑outs: Under 18, vague experience, missing details on handling disputes and policy knowledge.",
-      "aiSummaryAt": "2026-11-01T03:49:41.613Z"
+      "aiSummaryAt": "2026-11-01T03:49:41.613Z",
+      "notifiedAt": "2026-11-01T06:27:54.547Z"
     },
     {
       "appId": "MOD-FZPP5A",
@@ -6087,11 +6088,11 @@
       "kind": "decision",
       "appId": "MOD-5VUDJT",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T06:27:53.178Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T06:27:54.547Z"
     }
   ]
 }
