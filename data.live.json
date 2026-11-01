@@ -3388,6 +3388,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T14:36:41.789Z",
+      "act": "account_login",
+      "id": "acc_104fdb77c91815991af1b99a",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T06:29:41.954Z",
       "act": "report_deleted",
       "id": "RPT-KX7XRA",
@@ -3979,12 +3985,6 @@
       "t": "2026-10-25T23:05:03.772Z",
       "act": "ai_summary",
       "id": "MOD-3XVJ2M",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:01:46.646Z",
-      "act": "account_recover",
-      "id": "CC-99MHFW",
       "by": ""
     }
   ],
@@ -4615,17 +4615,15 @@
       "email": "shamikametz80@icloud.com",
       "createdAt": "2026-10-31T18:54:10.146Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_104fdb77c91815991af1b99a",
       "email": "reamesjake84@gmail.com",
-      "hash": "8a54d1b47ffbc9b5303d869a1c62a9c066bcce4bc9319c1a1751b9d425c60ce5",
-      "exp": 1793544374131,
-      "tries": 0,
-      "created": 1793543774131
+      "createdAt": "2026-11-01T14:36:41.789Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
