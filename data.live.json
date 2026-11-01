@@ -2855,7 +2855,9 @@
       "why": "I have much experience in many different games. Although many are very unknown games, I still am very interested in helping out the community the best I can. Some examples include: Monkirooms, Residue VR, Void Tag, etc.  I am very active playing over 5+ hours on VR alone, but I am still very active on discord and can handle discord reports and in-game report tickets if necessary. I am very focused on content as well, and have well over 800 subscribers and am growing faster everyday. This means I can also post different content going over commonly missed or misunderstood rules or just playing updates and stick justices (if allowed). Thank you for this opportunity and have a blessed day!",
       "scenario": "I kindly give warnings and inform them that it is not appropriate to do so. I will also delete previous messages that were spammed depending on if they are innapropriate or self promo.",
       "rulebreak": "I have never been banned and try my best to follow the rules and get others to as well.",
-      "receiptAt": "2026-10-31T00:00:05.122Z"
+      "receiptAt": "2026-10-31T00:00:05.122Z",
+      "aiSummary": "Verdict: Mixed - limited relevant experience and age concerns  \n- Wants to join: Moderator role  \n- Experience: Claims moderation in obscure games, no specific examples of conflict resolution or policy enforcement  \n- Availability: CST, 5+ hours daily  \n- Watch‑outs: Under 18, vague experience, missing details on handling disputes and policy knowledge.",
+      "aiSummaryAt": "2026-11-01T03:49:41.613Z"
     },
     {
       "appId": "MOD-FZPP5A",
@@ -3475,6 +3477,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T03:49:41.613Z",
+      "act": "ai_summary",
+      "id": "MOD-5VUDJT",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T03:49:31.692Z",
       "act": "ai_denied",
       "id": "MOD-FZPP5A",
@@ -4064,12 +4072,6 @@
     },
     {
       "t": "2026-10-25T22:54:30.028Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:25.865Z",
       "act": "config_saved",
       "id": "",
       "by": ""
