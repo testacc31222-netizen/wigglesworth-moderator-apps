@@ -6098,11 +6098,11 @@
       "kind": "ticket",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T03:29:00.818Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T03:29:02.371Z"
     }
   ]
 }
