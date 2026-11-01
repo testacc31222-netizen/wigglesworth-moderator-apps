@@ -3384,22 +3384,34 @@
       "name": "yeepingaway",
       "subject": "Staff could be untrust with his staff",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "email": "kanedfhkh@gmail.com",
       "accountId": "acc_423c4a1f1857c94ba035fe64",
       "createdAt": "2026-11-01T03:29:00.817Z",
-      "updatedAt": "2026-11-01T03:29:00.817Z",
+      "updatedAt": "2026-11-01T06:29:09.729Z",
       "replies": [
         {
           "by": "user",
           "name": "yeepingaway",
           "text": "he banned me and some other people from a server, for no valid reason. i have image proof of audit logs",
           "at": "2026-11-01T03:29:00.817Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "I’m sorry you’re dealing with this. Could you share the audit‑log screenshot and the exact time the ban occurred? That’ll help us investigate the situation.",
+          "at": "2026-11-01T06:29:09.729Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-11-01T06:29:09.729Z",
+      "act": "ticket_reply",
+      "id": "TKT-MK4P2Z",
+      "by": ""
+    },
     {
       "t": "2026-11-01T06:28:39.070Z",
       "act": "status_denied",
@@ -3990,12 +4002,6 @@
     },
     {
       "t": "2026-10-25T22:55:57.281Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:55:48.654Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -6110,6 +6116,22 @@
       "error": "",
       "createdAt": "2026-11-01T06:28:19.331Z",
       "sentAt": "2026-11-01T06:28:20.422Z"
+    },
+    {
+      "id": "mail_a76af8a4fc460d24a1",
+      "key": "ticket:TKT-MK4P2Z:2:2026-11-01T06:29:09.729Z",
+      "to": "kanedfhkh@gmail.com",
+      "subject": "Re: Staff could be untrust with his staff [TKT-MK4P2Z]",
+      "text": "Hi yeepingaway,\n\nStaff replied to your Wigglesworth ticket TKT-MK4P2Z — Staff could be untrust with his staff:\n\nI’m sorry you’re dealing with this. Could you share the audit‑log screenshot and the exact time the ban occurred? That’ll help us investigate the situation.\n\nOpen the ticket (sign in with kanedfhkh@gmail.com):\nhttps://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-MK4P2Z%23contact\n\nTicket ID: TKT-MK4P2Z\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Ticket update</h1><p style=\"margin:0 0 14px\">Hi yeepingaway,</p><p style=\"margin:0 0 18px\">Staff replied to your ticket <b>TKT-MK4P2Z</b> — Staff could be untrust with his staff.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:8px\">Staff reply</div><div style=\"color:#E6DED4\">I’m sorry you’re dealing with this. Could you share the audit‑log screenshot and the exact time the ban occurred? That’ll help us investigate the situation.</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Sign in with <b style=\"color:#E6DED4\">kanedfhkh@gmail.com</b> to open the thread. Ticket ID: <b style=\"color:#E6DED4\">TKT-MK4P2Z</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-MK4P2Z%23contact\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Open my ticket</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you opened a support ticket with Wigglesworth.</p></div></td></tr></table></body></html>",
+      "kind": "ticket",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-01T06:29:09.729Z",
+      "sentAt": ""
     }
   ]
 }
