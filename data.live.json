@@ -2514,27 +2514,6 @@
       "notifiedAt": "2026-10-26T02:06:44.833Z"
     },
     {
-      "appId": "CC-U9J7ET",
-      "type": "creator",
-      "date": "2026-10-26T02:37:21.440Z",
-      "status": "pending",
-      "adminNote": "",
-      "email": "kjlipan25@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_d28a47cbb5dae6b1b9158fcb",
-      "notifiedStatus": "",
-      "username": "Chillzz",
-      "discord": "chillz_animalcompanycc",
-      "age": "11",
-      "why": "Because I have played this game since the game(s) we're gtag copy(ies) and the staff cosmetic was still the wizard staff I would also post on this game bc there is amazing staff and I love the community / game. I love the updates and I like how in the old game you put fake staff tags out for purchase I loved that idea I even bought the flashlight ya'll had out for sale. I mean if I'm being completely honest I would post on this game everyday.            Thank you for you time,                          sincerely, Chillzvr",
-      "platform": "YouTube",
-      "channel": "www.youtube.com/@Chillzvr97",
-      "schedule": "3 times a week (my new schedule btw)",
-      "style": "shorts and videos about what games are about and playing games and completing goals I also do streams       ( No vids on the game rn but as soon as I'm home from school tmrw I will be posting like 4 vids in 1 day on this game)",
-      "strikes": "Absolutely not",
-      "receiptAt": "2026-10-26T02:37:21.440Z"
-    },
-    {
       "appId": "MOD-9D75JY",
       "type": "moderator",
       "date": "2026-10-26T02:43:01.598Z",
@@ -3460,6 +3439,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T03:56:06.599Z",
+      "act": "deleted",
+      "id": "CC-U9J7ET",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T03:53:56.876Z",
       "act": "ai_approved",
       "id": "CC-96AJ8P",
@@ -4049,12 +4034,6 @@
     },
     {
       "t": "2026-10-25T22:54:46.910Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:42.985Z",
       "act": "config_saved",
       "id": "",
       "by": ""
