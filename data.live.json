@@ -3388,6 +3388,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T06:29:41.954Z",
+      "act": "report_deleted",
+      "id": "RPT-KX7XRA",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T06:29:34.638Z",
       "act": "report_closed",
       "id": "RPT-C8ZZ53",
@@ -3980,26 +3986,9 @@
       "act": "account_recover",
       "id": "CC-99MHFW",
       "by": ""
-    },
-    {
-      "t": "2026-10-25T22:58:12.503Z",
-      "act": "account_login",
-      "id": "acc_fb83bd5d46e67e1daced0f6f",
-      "by": ""
     }
   ],
   "reports": [
-    {
-      "id": "RPT-KX7XRA",
-      "reporter": "Owen call me xhuman though",
-      "staffName": "I forgot (you might know though)",
-      "details": "They banned everyone in the server",
-      "files": [],
-      "status": "open",
-      "adminNote": "",
-      "createdAt": "2026-10-22T22:58:22.902Z",
-      "updatedAt": "2026-10-22T22:58:22.902Z"
-    },
     {
       "id": "RPT-C8ZZ53",
       "reporter": "",
