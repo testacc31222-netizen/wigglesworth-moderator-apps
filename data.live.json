@@ -6267,11 +6267,11 @@
       "kind": "receipt",
       "appId": "EVT-UHW2V4",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T23:09:44.399Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T23:09:46.216Z"
     }
   ]
 }
