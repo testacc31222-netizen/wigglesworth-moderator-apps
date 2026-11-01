@@ -3361,25 +3361,6 @@
       ]
     },
     {
-      "id": "TKT-8KBE2K",
-      "name": "quantummz",
-      "subject": "uhhh game",
-      "status": "open",
-      "unread": true,
-      "email": "testacc31222@gmail.com",
-      "accountId": "acc_6f4cdda9c2a8413e10e97599",
-      "createdAt": "2026-10-25T07:55:45.157Z",
-      "updatedAt": "2026-10-25T07:55:45.157Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "quantummz",
-          "text": "testtesttesttesttesttesttesttesttesttest",
-          "at": "2026-10-25T07:55:45.157Z"
-        }
-      ]
-    },
-    {
       "id": "TKT-MK4P2Z",
       "name": "yeepingaway",
       "subject": "Staff could be untrust with his staff",
@@ -3406,6 +3387,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-11-01T06:29:18.566Z",
+      "act": "ticket_deleted",
+      "id": "TKT-8KBE2K",
+      "by": ""
+    },
     {
       "t": "2026-11-01T06:29:09.729Z",
       "act": "ticket_reply",
@@ -3996,12 +3983,6 @@
     },
     {
       "t": "2026-10-25T22:55:57.922Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:55:57.281Z",
       "act": "config_saved",
       "id": "",
       "by": ""
