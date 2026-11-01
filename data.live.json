@@ -6207,11 +6207,11 @@
       "kind": "receipt",
       "appId": "EVT-MHMYF5",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T17:54:55.306Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T17:54:56.619Z"
     }
   ]
 }
