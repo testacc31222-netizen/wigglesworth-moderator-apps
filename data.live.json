@@ -2795,7 +2795,9 @@
       "why": "i want to be a moderator for this game because i want to gain more experience and i want to help the community and staff members with questions and i will try my hardest to help others understand the rules and guildlines",
       "scenario": "i will first start with asking him to stop spamming and warning him once after that if he keeps going ill give him two more warning after those if he keeps going ill time him out for an hour and tell him to not do it next time",
       "rulebreak": "i have never been banned",
-      "receiptAt": "2026-10-30T06:02:35.400Z"
+      "receiptAt": "2026-10-30T06:02:35.400Z",
+      "aiSummary": "Verdict: Mixed - some experience but limited details  \n- Wants to join: Moderator role  \n- Experience: Past staff for this game, no specifics  \n- Availability: IDT 4-7, can extend  \n- Watch-outs: No ban history, but vague moderation plan and short availability.",
+      "aiSummaryAt": "2026-11-01T03:52:47.717Z"
     },
     {
       "appId": "MOD-BAU8FC",
@@ -3457,6 +3459,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T03:52:47.717Z",
+      "act": "ai_summary",
+      "id": "MOD-L37KHL",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T03:52:40.779Z",
       "act": "deleted",
       "id": "MOD-S3ECRW",
@@ -4046,12 +4054,6 @@
     },
     {
       "t": "2026-10-25T22:54:35.985Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:34.059Z",
       "act": "config_saved",
       "id": "",
       "by": ""
