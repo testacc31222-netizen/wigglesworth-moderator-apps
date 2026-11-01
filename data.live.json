@@ -6231,11 +6231,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T19:53:52.358Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T19:53:53.718Z"
     }
   ]
 }
