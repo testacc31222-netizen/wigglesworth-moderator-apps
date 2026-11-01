@@ -2623,7 +2623,7 @@
       "email": "boylemon340@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_2897abf68c7fc51b8b243784",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "Mimicgt",
       "discord": "Sab_Stealer",
       "age": "15",
@@ -2633,7 +2633,8 @@
       "schedule": "Whenever i can because of school but i try to post every other day",
       "style": "Gorilla tag and stuff like that",
       "strikes": "No",
-      "receiptAt": "2026-10-27T11:45:05.143Z"
+      "receiptAt": "2026-10-27T11:45:05.143Z",
+      "notifiedAt": "2026-11-01T03:57:26.813Z"
     },
     {
       "appId": "EVT-AZFLZW",
@@ -6111,11 +6112,11 @@
       "kind": "decision",
       "appId": "CC-EC2WF3",
       "decisionStatus": "denied",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T03:57:25.593Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T03:57:26.813Z"
     }
   ]
 }
