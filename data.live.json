@@ -6453,11 +6453,11 @@
       "kind": "receipt",
       "appId": "MOD-BCAST2",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T23:53:32.969Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T23:53:34.229Z"
     }
   ]
 }
