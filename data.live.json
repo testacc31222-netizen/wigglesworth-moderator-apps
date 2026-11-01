@@ -3468,6 +3468,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T23:45:10.936Z",
+      "act": "account_login",
+      "id": "acc_392e1d4303961f430540392e",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T23:29:38.969Z",
       "act": "account_login",
       "id": "acc_0b97563a70c4b9a77e185e54",
@@ -4058,12 +4064,6 @@
     {
       "t": "2026-10-25T23:05:45.646Z",
       "act": "decision_email",
-      "id": "MOD-3XVJ2M",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:05:16.722Z",
-      "act": "status_approved",
       "id": "MOD-3XVJ2M",
       "by": ""
     }
@@ -4707,6 +4707,12 @@
       "email": "ejaygray2021@gmail.com",
       "createdAt": "2026-11-01T23:29:38.969Z",
       "emailUpdates": true
+    },
+    {
+      "id": "acc_392e1d4303961f430540392e",
+      "email": "itzwestern12@gmail.com",
+      "createdAt": "2026-11-01T23:45:10.936Z",
+      "emailUpdates": true
     }
   ],
   "loginCodes": [
@@ -4716,13 +4722,6 @@
       "exp": 1793577091414,
       "tries": 0,
       "created": 1793576491414
-    },
-    {
-      "email": "itzwestern12@gmail.com",
-      "hash": "392061164340c7af77b8611a7fc76b8fb1d0df92d73f93587b6b6aed376f9d3d",
-      "exp": 1793577298542,
-      "tries": 0,
-      "created": 1793576698542
     }
   ],
   "outbox": [
