@@ -2798,26 +2798,6 @@
       "receiptAt": "2026-10-30T06:02:35.400Z"
     },
     {
-      "appId": "MOD-S3ECRW",
-      "type": "moderator",
-      "date": "2026-10-30T15:45:45.769Z",
-      "status": "pending",
-      "adminNote": "",
-      "email": "3xtracc3@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_3231e49106d7982ef5722ae1",
-      "notifiedStatus": "",
-      "username": "3xxt3",
-      "discord": "3xxt3",
-      "age": "13",
-      "timezone": "About 1:00PM to 10:00PM",
-      "experience": "Basic experience. Reasonable.",
-      "why": "Help ta community and actuallu i dont wan be mod",
-      "scenario": "NIGGERNIGGERNIGGERNIGGER",
-      "rulebreak": "NO NIGGA",
-      "receiptAt": "2026-10-30T15:45:45.770Z"
-    },
-    {
       "appId": "MOD-BAU8FC",
       "type": "moderator",
       "date": "2026-10-30T20:27:04.900Z",
@@ -3477,6 +3457,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T03:52:40.779Z",
+      "act": "deleted",
+      "id": "MOD-S3ECRW",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T03:49:41.613Z",
       "act": "ai_summary",
       "id": "MOD-5VUDJT",
@@ -4066,12 +4052,6 @@
     },
     {
       "t": "2026-10-25T22:54:34.059Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:30.028Z",
       "act": "config_saved",
       "id": "",
       "by": ""
