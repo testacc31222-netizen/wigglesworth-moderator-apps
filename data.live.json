@@ -2685,7 +2685,7 @@
       "email": "micahhoffman12@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_1e7fa3d3902dc1c9d7786ddf",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "5micahman5",
       "discord": "funnyskeletonman12",
       "age": "14",
@@ -2695,7 +2695,8 @@
       "schedule": "onces every week",
       "style": "i make gorilla tag videos, sfm videos, now im gonna do wigglesworth.",
       "strikes": "No, dead serious",
-      "receiptAt": "2026-10-29T02:09:57.931Z"
+      "receiptAt": "2026-10-29T02:09:57.931Z",
+      "notifiedAt": "2026-11-01T03:53:58.104Z"
     },
     {
       "appId": "MOD-U4DDYY",
@@ -6115,11 +6116,11 @@
       "kind": "decision",
       "appId": "CC-96AJ8P",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-01T03:53:56.876Z",
-      "sentAt": ""
+      "sentAt": "2026-11-01T03:53:58.104Z"
     }
   ]
 }
