@@ -2351,24 +2351,6 @@
       "notifiedStatus": ""
     },
     {
-      "appId": "MOD-V6WEP4",
-      "type": "moderator",
-      "date": "2026-10-22T21:30:41.316Z",
-      "status": "pending",
-      "adminNote": "",
-      "username": "3xxt3",
-      "discord": "3xxt3",
-      "age": "14",
-      "timezone": "2PM - 9/10PM",
-      "experience": "Reasonable experience, knows basic rules, knows how to handle things without it becoming into a bigger problem.",
-      "why": "Just for the fun of it, i want to help this game/community and have a better  and safe area for people to play in to be honest.",
-      "scenario": "Time them out. But if its bad like racial slurs i would consider contacting the higher-ups.",
-      "rulebreak": "No.",
-      "email": "",
-      "emailUpdates": true,
-      "notifiedStatus": ""
-    },
-    {
       "appId": "CC-3SJT9Q",
       "type": "creator",
       "date": "2026-10-22T21:57:08.343Z",
@@ -3440,6 +3422,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-01T06:23:12.268Z",
+      "act": "deleted",
+      "id": "MOD-V6WEP4",
+      "by": ""
+    },
+    {
       "t": "2026-11-01T03:57:25.593Z",
       "act": "ai_denied",
       "id": "CC-EC2WF3",
@@ -4029,12 +4017,6 @@
     },
     {
       "t": "2026-10-25T22:55:01.943Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T22:54:51.217Z",
       "act": "config_saved",
       "id": "",
       "by": ""
