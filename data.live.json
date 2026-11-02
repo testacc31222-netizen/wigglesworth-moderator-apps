@@ -6603,11 +6603,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-02T12:39:18.002Z",
-      "sentAt": ""
+      "sentAt": "2026-11-02T12:39:19.270Z"
     }
   ]
 }
