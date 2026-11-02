@@ -6522,11 +6522,11 @@
       "kind": "receipt",
       "appId": "CC-H4SGKR",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-02T01:24:51.419Z",
-      "sentAt": ""
+      "sentAt": "2026-11-02T01:24:52.970Z"
     }
   ]
 }
