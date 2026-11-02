@@ -3510,6 +3510,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-02T12:40:10.316Z",
+      "act": "account_login",
+      "id": "acc_0554aa90aa543073b8995a6a",
+      "by": ""
+    },
+    {
       "t": "2026-11-02T04:12:53.967Z",
       "act": "account_recover",
       "id": "MOD-L37KHL",
@@ -4101,12 +4107,6 @@
       "t": "2026-10-25T23:25:09.512Z",
       "act": "decision_email",
       "id": "MOD-NNQT2W",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:18:26.843Z",
-      "act": "account_link",
-      "id": "MOD-EHERLB",
       "by": ""
     }
   ],
@@ -4761,17 +4761,15 @@
       "email": "ericblackpanther24@gmail.com",
       "createdAt": "2026-11-01T23:50:04.358Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_0554aa90aa543073b8995a6a",
       "email": "self482934@gmail.com",
-      "hash": "efd9c139acb5633d2d62edf972e92c577b8f6fc46de2c98e5a7f66547e593221",
-      "exp": 1793623758001,
-      "tries": 0,
-      "created": 1793623158001
+      "createdAt": "2026-11-02T12:40:10.316Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
