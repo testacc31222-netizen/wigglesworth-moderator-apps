@@ -6571,11 +6571,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-02T01:52:09.255Z",
-      "sentAt": ""
+      "sentAt": "2026-11-02T01:52:10.538Z"
     }
   ]
 }
