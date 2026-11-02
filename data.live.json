@@ -2933,7 +2933,7 @@
       "email": "palmernik0345@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_5d3ef2438a53b277e0a073a8",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Ballo",
       "discord": "ballomkr",
       "age": "13",
@@ -2943,7 +2943,8 @@
       "schedule": "1-2 times a day",
       "style": "I make skits and/or informational videos but I also make challenge videos",
       "strikes": "a false and appealed copyright strike",
-      "receiptAt": "2026-11-02T01:24:51.419Z"
+      "receiptAt": "2026-11-02T01:24:51.419Z",
+      "notifiedAt": "2026-11-02T01:26:59.288Z"
     }
   ],
   "tickets": [
@@ -6538,11 +6539,11 @@
       "kind": "decision",
       "appId": "CC-H4SGKR",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-02T01:26:57.907Z",
-      "sentAt": ""
+      "sentAt": "2026-11-02T01:26:59.288Z"
     }
   ]
 }
