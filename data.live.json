@@ -3510,6 +3510,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-02T04:12:53.967Z",
+      "act": "account_recover",
+      "id": "MOD-L37KHL",
+      "by": ""
+    },
+    {
       "t": "2026-11-02T03:01:22.776Z",
       "act": "account_recover",
       "id": "MOD-BHUZKM",
@@ -4101,12 +4107,6 @@
       "t": "2026-10-25T23:18:26.843Z",
       "act": "account_link",
       "id": "MOD-EHERLB",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:16:51.897Z",
-      "act": "account_login",
-      "id": "acc_5ed2df7c409bd98dad3b4050",
       "by": ""
     }
   ],
