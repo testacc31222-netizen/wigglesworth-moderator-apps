@@ -3530,6 +3530,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-02T18:48:45.589Z",
+      "act": "account_login",
+      "id": "acc_b64bcf7ce987d9ffab35b020",
+      "by": ""
+    },
+    {
       "t": "2026-11-02T12:40:10.316Z",
       "act": "account_login",
       "id": "acc_0554aa90aa543073b8995a6a",
@@ -4121,12 +4127,6 @@
       "t": "2026-10-25T23:26:35.854Z",
       "act": "decision_email",
       "id": "MOD-3XVJ2M",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:25:09.512Z",
-      "act": "decision_email",
-      "id": "MOD-NNQT2W",
       "by": ""
     }
   ],
@@ -4787,17 +4787,15 @@
       "email": "self482934@gmail.com",
       "createdAt": "2026-11-02T12:40:10.316Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_b64bcf7ce987d9ffab35b020",
       "email": "bullmaximillianojose@gmail.com",
-      "hash": "693c7808213493eb106fb09bef90b2d70ed08c5aca31c7648cda907cbf2bfd65",
-      "exp": 1793645900570,
-      "tries": 0,
-      "created": 1793645300570
+      "createdAt": "2026-11-02T18:48:45.589Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
