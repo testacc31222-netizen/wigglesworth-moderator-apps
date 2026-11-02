@@ -6661,11 +6661,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-02T18:48:20.571Z",
-      "sentAt": ""
+      "sentAt": "2026-11-02T18:48:21.956Z"
     }
   ]
 }
