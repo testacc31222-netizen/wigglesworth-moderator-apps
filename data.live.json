@@ -6587,11 +6587,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-02T02:06:43.662Z",
-      "sentAt": ""
+      "sentAt": "2026-11-02T02:06:45.466Z"
     }
   ]
 }
