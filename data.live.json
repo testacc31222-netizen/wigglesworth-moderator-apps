@@ -6485,11 +6485,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-02T00:27:01.194Z",
-      "sentAt": ""
+      "sentAt": "2026-11-02T00:27:02.686Z"
     }
   ]
 }
