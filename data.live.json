@@ -2911,7 +2911,7 @@
       "status": "pending",
       "adminNote": "",
       "email": "ericblackpanther24@gmail.com",
-      "emailUpdates": false,
+      "emailUpdates": true,
       "accountId": "acc_af61d433191553c364234654",
       "notifiedStatus": "",
       "username": "Ericvr",
@@ -4760,7 +4760,7 @@
       "id": "acc_af61d433191553c364234654",
       "email": "ericblackpanther24@gmail.com",
       "createdAt": "2026-11-01T23:50:04.358Z",
-      "emailUpdates": false
+      "emailUpdates": true
     }
   ],
   "loginCodes": [],
