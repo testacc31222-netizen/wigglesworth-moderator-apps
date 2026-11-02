@@ -6637,11 +6637,11 @@
       "kind": "receipt",
       "appId": "MOD-8UJF7R",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-02T12:42:33.525Z",
-      "sentAt": ""
+      "sentAt": "2026-11-02T12:42:34.990Z"
     }
   ]
 }
