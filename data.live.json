@@ -6883,11 +6883,11 @@
       "kind": "receipt",
       "appId": "CC-PPS275",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-03T20:24:29.856Z",
-      "sentAt": ""
+      "sentAt": "2026-11-03T20:24:31.290Z"
     }
   ]
 }
