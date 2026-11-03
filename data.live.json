@@ -3592,6 +3592,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-03T20:54:45.574Z",
+      "act": "account_login",
+      "id": "acc_ded0c1ea73181b71c9843666",
+      "by": ""
+    },
+    {
       "t": "2026-11-03T20:21:55.671Z",
       "act": "account_login",
       "id": "acc_6d6af007d265ab584d588d2d",
@@ -4183,12 +4189,6 @@
       "t": "2026-10-25T23:43:38.631Z",
       "act": "account_login",
       "id": "acc_1e449e8c121ecfe0ad20bf15",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:43:28.984Z",
-      "act": "deleted",
-      "id": "EVT-GXG4PW",
       "by": ""
     }
   ],
@@ -4873,17 +4873,15 @@
       "email": "jaidenfarq13@gmail.com",
       "createdAt": "2026-11-03T20:06:56.462Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_ded0c1ea73181b71c9843666",
       "email": "elijahhalstead711@gmail.com",
-      "hash": "1af3446a2c4d789234a98c7ee3525bb2a910e6b0c4438421e9f1dc315c28126c",
-      "exp": 1793739795584,
-      "tries": 0,
-      "created": 1793739195584
+      "createdAt": "2026-11-03T20:54:45.574Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
