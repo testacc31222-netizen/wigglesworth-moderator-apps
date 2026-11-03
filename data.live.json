@@ -6800,11 +6800,11 @@
       "kind": "receipt",
       "appId": "MOD-3SBKFQ",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-03T00:52:54.922Z",
-      "sentAt": ""
+      "sentAt": "2026-11-03T00:52:56.628Z"
     }
   ]
 }
