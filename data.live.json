@@ -2,7 +2,7 @@
   "config": {
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
-    "announcement": "If you want to check what you got, check your spam folder if you can't find it!",
+    "announcement": "For everyone that is wondering, STAFF APPLICATIONS ARE CLOSED",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -372,7 +372,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -3571,6 +3571,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-03T01:47:53.838Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-03T00:47:20.681Z",
       "act": "account_login",
       "id": "acc_49dddb73e8f2f888a2def2ad",
@@ -4162,12 +4168,6 @@
       "t": "2026-10-25T23:37:17.938Z",
       "act": "account_link",
       "id": "CC-URSKJS",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:36:14.332Z",
-      "act": "account_login",
-      "id": "acc_423c4a1f1857c94ba035fe64",
       "by": ""
     }
   ],
