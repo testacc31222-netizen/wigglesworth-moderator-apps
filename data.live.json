@@ -6854,11 +6854,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-03T20:21:41.991Z",
-      "sentAt": ""
+      "sentAt": "2026-11-03T20:21:43.606Z"
     }
   ]
 }
