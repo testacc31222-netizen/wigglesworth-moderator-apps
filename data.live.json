@@ -2986,6 +2986,26 @@
       "style": "Clips jukes",
       "strikes": "Nope",
       "receiptAt": "2026-11-02T18:54:13.583Z"
+    },
+    {
+      "appId": "MOD-3SBKFQ",
+      "type": "moderator",
+      "date": "2026-11-03T00:52:54.921Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "rmatthew31@icloud.com",
+      "emailUpdates": true,
+      "accountId": "acc_49dddb73e8f2f888a2def2ad",
+      "notifiedStatus": "",
+      "username": "i forgot will dm you when i get back my vr since it broke",
+      "discord": "kakaguys123",
+      "age": "13",
+      "timezone": "EST(5:00pm-8:00pm)",
+      "experience": "Capu horror ticket helper(3.3k)Cold tag community manager(930)",
+      "why": "I wanna be a moderator because i will get reports and be active every day and also spread good kindness and positivity in the community and no self suicide or any threats because i want whats good for the community and i dont want it to be a bad community and people will leave it for people making fun of them.i will also be helpful when people need my help i will always help them with anything because im sometimes always free and could be active.",
+      "scenario": "If someone was spamming in chat i would go to staff rules or tell a higher up to see if i would time them warn them kick them or ban them for flooding chat with messages .i would not tolerate this because if people are trying to chat to each other he will keep on and keep on ruining it and the people cannot finish their conversation.",
+      "rulebreak": "No i have not been banned before",
+      "receiptAt": "2026-11-03T00:52:54.922Z"
     }
   ],
   "tickets": [
@@ -6769,6 +6789,22 @@
       "error": "",
       "createdAt": "2026-11-03T00:51:55.296Z",
       "sentAt": "2026-11-03T00:51:56.602Z"
+    },
+    {
+      "id": "mail_13c475fef8176d25a8",
+      "key": "MOD-3SBKFQ:receipt",
+      "to": "rmatthew31@icloud.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi kakaguys123,\n\nYour Moderator application (MOD-3SBKFQ) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi kakaguys123,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-3SBKFQ</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-3SBKFQ",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-03T00:52:54.922Z",
+      "sentAt": ""
     }
   ]
 }
