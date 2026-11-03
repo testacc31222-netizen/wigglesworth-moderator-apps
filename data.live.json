@@ -3571,6 +3571,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-03T20:06:56.462Z",
+      "act": "account_login",
+      "id": "acc_6d6af007d265ab584d588d2d",
+      "by": ""
+    },
+    {
       "t": "2026-11-03T01:50:44.227Z",
       "act": "config_saved",
       "id": "",
@@ -4162,12 +4168,6 @@
       "t": "2026-10-25T23:40:14.768Z",
       "act": "deleted",
       "id": "MOD-NNQT2W",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:37:35.774Z",
-      "act": "account_link",
-      "id": "MOD-F3Q9HM",
       "by": ""
     }
   ],
@@ -4846,17 +4846,15 @@
       "email": "rmatthew31@icloud.com",
       "createdAt": "2026-11-03T00:47:20.681Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_6d6af007d265ab584d588d2d",
       "email": "jaidenfarq13@gmail.com",
-      "hash": "f961d8ce5fca31c15461fbba41ff44bb7bad64af72caa1ed3a3cc39b762b96f4",
-      "exp": 1793736997290,
-      "tries": 0,
-      "created": 1793736397290
+      "createdAt": "2026-11-03T20:06:56.462Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
