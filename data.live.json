@@ -3571,6 +3571,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-03T20:21:55.671Z",
+      "act": "account_login",
+      "id": "acc_6d6af007d265ab584d588d2d",
+      "by": ""
+    },
+    {
       "t": "2026-11-03T20:06:56.462Z",
       "act": "account_login",
       "id": "acc_6d6af007d265ab584d588d2d",
@@ -4162,12 +4168,6 @@
       "t": "2026-10-25T23:43:28.984Z",
       "act": "deleted",
       "id": "EVT-GXG4PW",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:40:14.768Z",
-      "act": "deleted",
-      "id": "MOD-NNQT2W",
       "by": ""
     }
   ],
@@ -4854,15 +4854,7 @@
       "emailUpdates": true
     }
   ],
-  "loginCodes": [
-    {
-      "email": "jaidenfarq13@gmail.com",
-      "hash": "61b801eb604b60a277375e474888bff8d354582b905bc4b24732a9ee8d278a32",
-      "exp": 1793737901990,
-      "tries": 0,
-      "created": 1793737301990
-    }
-  ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
