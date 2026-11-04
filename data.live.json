@@ -3592,6 +3592,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-04T17:36:20.028Z",
+      "act": "account_login",
+      "id": "acc_b10d65c677be65be89819db2",
+      "by": ""
+    },
+    {
       "t": "2026-11-03T20:54:45.574Z",
       "act": "account_login",
       "id": "acc_ded0c1ea73181b71c9843666",
@@ -4183,12 +4189,6 @@
       "t": "2026-10-25T23:43:55.051Z",
       "act": "config_saved",
       "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:43:38.631Z",
-      "act": "account_login",
-      "id": "acc_1e449e8c121ecfe0ad20bf15",
       "by": ""
     }
   ],
@@ -4879,17 +4879,15 @@
       "email": "elijahhalstead711@gmail.com",
       "createdAt": "2026-11-03T20:54:45.574Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_b10d65c677be65be89819db2",
       "email": "twixsbat@gmail.com",
-      "hash": "69d754c320390f6dbdde07e3f1192d60f7860e83bc0b39f8b00e652eacb1211e",
-      "exp": 1793814288213,
-      "tries": 0,
-      "created": 1793813688213
+      "createdAt": "2026-11-04T17:36:20.028Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
