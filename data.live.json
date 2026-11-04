@@ -3592,6 +3592,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-04T20:52:17.368Z",
+      "act": "account_login",
+      "id": "acc_268ce2f12b6d73f313ba203e",
+      "by": ""
+    },
+    {
       "t": "2026-11-04T17:36:20.028Z",
       "act": "account_login",
       "id": "acc_b10d65c677be65be89819db2",
@@ -4181,12 +4187,6 @@
     },
     {
       "t": "2026-10-25T23:53:50.561Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:43:55.051Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -4885,17 +4885,15 @@
       "email": "twixsbat@gmail.com",
       "createdAt": "2026-11-04T17:36:20.028Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_268ce2f12b6d73f313ba203e",
       "email": "leolovescomputers@gmail.com",
-      "hash": "a91c504931c3866750fb8e4b80aed6d01249451a03ad18bbbbc389a93ae9c9be",
-      "exp": 1793826014017,
-      "tries": 0,
-      "created": 1793825414017
+      "createdAt": "2026-11-04T20:52:17.368Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
