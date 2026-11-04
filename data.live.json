@@ -6951,11 +6951,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-04T20:50:14.018Z",
-      "sentAt": ""
+      "sentAt": "2026-11-04T20:50:16.181Z"
     }
   ]
 }
