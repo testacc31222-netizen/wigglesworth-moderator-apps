@@ -3634,6 +3634,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-05T21:02:03.330Z",
+      "act": "account_login",
+      "id": "acc_f315978292b9be841a17f08f",
+      "by": ""
+    },
+    {
       "t": "2026-11-05T01:12:59.834Z",
       "act": "account_login",
       "id": "acc_827ae272f611e3c0da0fae5b",
@@ -4225,12 +4231,6 @@
       "t": "2026-10-26T00:18:30.392Z",
       "act": "ai_summary",
       "id": "MOD-JYERJZ",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T00:01:23.079Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
@@ -4939,17 +4939,15 @@
       "email": "turbobeast2535@gmail.com",
       "createdAt": "2026-11-05T01:12:59.834Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_f315978292b9be841a17f08f",
       "email": "magicvr13@gmail.com",
-      "hash": "ba867e0ba138b029694d257f6638c162624f4e1745c83671bca2dcb972121b14",
-      "exp": 1793913108322,
-      "tries": 0,
-      "created": 1793912508322
+      "createdAt": "2026-11-05T21:02:03.330Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
