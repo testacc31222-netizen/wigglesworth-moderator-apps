@@ -7152,11 +7152,11 @@
       "kind": "receipt",
       "appId": "CC-RK7SEX",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-05T21:09:24.588Z",
-      "sentAt": ""
+      "sentAt": "2026-11-05T21:09:26.294Z"
     }
   ]
 }
