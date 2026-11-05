@@ -3655,6 +3655,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-05T23:58:31.598Z",
+      "act": "account_login",
+      "id": "acc_833cd7254503a9bfbc707475",
+      "by": ""
+    },
+    {
       "t": "2026-11-05T21:02:03.330Z",
       "act": "account_login",
       "id": "acc_f315978292b9be841a17f08f",
@@ -4246,12 +4252,6 @@
       "t": "2026-10-26T00:19:01.138Z",
       "act": "ai_summary",
       "id": "EVT-39ATNQ",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T00:18:30.392Z",
-      "act": "ai_summary",
-      "id": "MOD-JYERJZ",
       "by": ""
     }
   ],
@@ -4966,17 +4966,15 @@
       "email": "magicvr13@gmail.com",
       "createdAt": "2026-11-05T21:02:03.330Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_833cd7254503a9bfbc707475",
       "email": "ehs121180@gmail.com",
-      "hash": "4167dcb328993df89c661bfa5519c856d387f1fcf2100940bba8979cc16d8f91",
-      "exp": 1793923664487,
-      "tries": 0,
-      "created": 1793923064487
+      "createdAt": "2026-11-05T23:58:31.598Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
