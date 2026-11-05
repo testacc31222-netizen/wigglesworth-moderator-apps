@@ -7024,11 +7024,11 @@
       "kind": "receipt",
       "appId": "CC-UD6UVF",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-05T01:18:40.125Z",
-      "sentAt": ""
+      "sentAt": "2026-11-05T01:18:41.643Z"
     }
   ]
 }
