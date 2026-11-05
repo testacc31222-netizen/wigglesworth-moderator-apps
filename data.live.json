@@ -3592,6 +3592,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-05T01:12:59.834Z",
+      "act": "account_login",
+      "id": "acc_827ae272f611e3c0da0fae5b",
+      "by": ""
+    },
+    {
       "t": "2026-11-04T20:52:17.368Z",
       "act": "account_login",
       "id": "acc_268ce2f12b6d73f313ba203e",
@@ -4181,12 +4187,6 @@
     },
     {
       "t": "2026-10-26T00:01:23.079Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-10-25T23:53:50.561Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -4891,17 +4891,15 @@
       "email": "leolovescomputers@gmail.com",
       "createdAt": "2026-11-04T20:52:17.368Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_827ae272f611e3c0da0fae5b",
       "email": "turbobeast2535@gmail.com",
-      "hash": "ac754fdea4cdd47a41d13168a0894bd65d3794417d4517f576f7f9417ddab64f",
-      "exp": 1793841759376,
-      "tries": 0,
-      "created": 1793841159376
+      "createdAt": "2026-11-05T01:12:59.834Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
