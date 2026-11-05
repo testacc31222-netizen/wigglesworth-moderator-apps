@@ -7061,11 +7061,11 @@
       "kind": "receipt",
       "appId": "CC-5EHTKF",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-05T01:42:12.999Z",
-      "sentAt": ""
+      "sentAt": "2026-11-05T01:42:14.654Z"
     }
   ]
 }
