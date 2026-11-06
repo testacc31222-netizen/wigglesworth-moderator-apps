@@ -4270,6 +4270,24 @@
   ],
   "diag": [
     {
+      "t": "2026-11-06T01:46:53.322Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-11-06T01:46:53.229Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+    },
+    {
       "t": "2026-11-05T23:58:35.692Z",
       "build": "20261024d",
       "hero": true,
@@ -4694,24 +4712,6 @@
     },
     {
       "t": "2026-11-02T01:58:10.167Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-11-02T01:57:34.132Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-11-02T01:56:59.909Z",
       "build": "20261024d",
       "hero": true,
       "gated": false,
