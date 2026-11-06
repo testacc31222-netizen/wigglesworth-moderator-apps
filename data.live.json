@@ -3079,7 +3079,7 @@
       "email": "magicvr13@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_f315978292b9be841a17f08f",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Magicgt",
       "discord": "itzmagicvrr",
       "age": "13",
@@ -3089,7 +3089,8 @@
       "schedule": "2 or 3 shorts in 2 or 4 days",
       "style": "I make fun gorilla tag content",
       "strikes": "Only one for livestream banned but got it back",
-      "receiptAt": "2026-11-05T21:09:24.588Z"
+      "receiptAt": "2026-11-05T21:09:24.588Z",
+      "notifiedAt": "2026-11-06T22:36:05.168Z"
     }
   ],
   "tickets": [
@@ -7206,11 +7207,11 @@
       "kind": "decision",
       "appId": "CC-RK7SEX",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-06T22:36:03.661Z",
-      "sentAt": ""
+      "sentAt": "2026-11-06T22:36:05.168Z"
     }
   ]
 }
