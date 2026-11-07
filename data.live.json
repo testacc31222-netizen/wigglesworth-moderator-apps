@@ -7253,11 +7253,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-07T17:00:59.906Z",
-      "sentAt": ""
+      "sentAt": "2026-11-07T17:01:01.393Z"
     }
   ]
 }
