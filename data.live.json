@@ -7275,11 +7275,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-07T20:36:58.498Z",
-      "sentAt": ""
+      "sentAt": "2026-11-07T20:37:00.078Z"
     }
   ]
 }
