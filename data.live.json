@@ -3656,6 +3656,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-07T02:04:05.333Z",
+      "act": "account_login",
+      "id": "acc_dd50cbd00567cb2b9db78737",
+      "by": ""
+    },
+    {
       "t": "2026-11-06T22:36:03.661Z",
       "act": "status_approved",
       "id": "CC-RK7SEX",
@@ -4247,12 +4253,6 @@
       "t": "2026-10-26T01:41:35.916Z",
       "act": "ai_denied",
       "id": "CC-XGYBNS",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T00:52:44.901Z",
-      "act": "account_login",
-      "id": "acc_d2b633c9a8074a1aca385349",
       "by": ""
     }
   ],
@@ -4973,17 +4973,15 @@
       "email": "ehs121180@gmail.com",
       "createdAt": "2026-11-05T23:58:31.598Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_dd50cbd00567cb2b9db78737",
       "email": "magiclego75@gmail.com",
-      "hash": "cd83fb17ffa3a5d874459b2083d7ec039cc0ccea2792f909c9119bd93870da23",
-      "exp": 1794017590897,
-      "tries": 0,
-      "created": 1794016990897
+      "createdAt": "2026-11-07T02:04:05.333Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
