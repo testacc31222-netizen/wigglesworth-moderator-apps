@@ -3656,6 +3656,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-07T17:01:23.006Z",
+      "act": "account_login",
+      "id": "acc_c0a3370ea0cbe26b7121c7d6",
+      "by": ""
+    },
+    {
       "t": "2026-11-07T02:04:05.333Z",
       "act": "account_login",
       "id": "acc_dd50cbd00567cb2b9db78737",
@@ -4247,12 +4253,6 @@
       "t": "2026-10-26T01:41:39.177Z",
       "act": "ai_denied",
       "id": "CC-3SJT9Q",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:41:35.916Z",
-      "act": "ai_denied",
-      "id": "CC-XGYBNS",
       "by": ""
     }
   ],
@@ -4979,17 +4979,15 @@
       "email": "magiclego75@gmail.com",
       "createdAt": "2026-11-07T02:04:05.333Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_c0a3370ea0cbe26b7121c7d6",
       "email": "asheriscool966@gmail.com",
-      "hash": "093de59b56c5c7c94057d2ad7224a0a5122c8b723b1f6e38ad241973331c6033",
-      "exp": 1794071459903,
-      "tries": 0,
-      "created": 1794070859903
+      "createdAt": "2026-11-07T17:01:23.006Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
