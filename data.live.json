@@ -3698,6 +3698,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-08T21:24:19.362Z",
+      "act": "account_login",
+      "id": "acc_a85c734eb098b79799deee38",
+      "by": ""
+    },
+    {
       "t": "2026-11-08T17:53:05.080Z",
       "act": "account_login",
       "id": "acc_6584150f51f776b906dc5cdf",
@@ -4289,12 +4295,6 @@
       "t": "2026-10-26T01:45:53.122Z",
       "act": "status_approved",
       "id": "CC-7TQP8L",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:45:45.156Z",
-      "act": "ai_denied",
-      "id": "CC-YP776J",
       "by": ""
     }
   ],
@@ -5039,17 +5039,15 @@
       "email": "noahsvr2016@gmail.com",
       "createdAt": "2026-11-08T04:27:07.584Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_a85c734eb098b79799deee38",
       "email": "thestuntboyzzgaming@gmail.com",
-      "hash": "11f713b7ba4128a404627dd5435f9851e2fe4c638274fb31fc4cae585d91ca83",
-      "exp": 1794173645555,
-      "tries": 0,
-      "created": 1794173045555
+      "createdAt": "2026-11-08T21:24:19.362Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
