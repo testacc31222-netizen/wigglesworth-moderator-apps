@@ -3656,6 +3656,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-08T02:05:30.801Z",
+      "act": "account_login",
+      "id": "acc_0015aa0a0b36df9c2ccfd374",
+      "by": ""
+    },
+    {
       "t": "2026-11-07T17:01:23.006Z",
       "act": "account_login",
       "id": "acc_c0a3370ea0cbe26b7121c7d6",
@@ -4245,12 +4251,6 @@
     },
     {
       "t": "2026-10-26T01:43:30.847Z",
-      "act": "ai_denied",
-      "id": "CC-3SJT9Q",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:41:39.177Z",
       "act": "ai_denied",
       "id": "CC-3SJT9Q",
       "by": ""
@@ -4985,6 +4985,12 @@
       "email": "asheriscool966@gmail.com",
       "createdAt": "2026-11-07T17:01:23.006Z",
       "emailUpdates": true
+    },
+    {
+      "id": "acc_0015aa0a0b36df9c2ccfd374",
+      "email": "cdvr44444@gmail.com",
+      "createdAt": "2026-11-08T02:05:30.800Z",
+      "emailUpdates": true
     }
   ],
   "loginCodes": [
@@ -4994,13 +5000,6 @@
       "exp": 1794103874589,
       "tries": 0,
       "created": 1794103274589
-    },
-    {
-      "email": "cdvr44444@gmail.com",
-      "hash": "c96e4d43f62c0e28548e0c3618f0c1b4d1e2f0ab78efbd7d633950ed9d2ba894",
-      "exp": 1794104074976,
-      "tries": 0,
-      "created": 1794103474976
     }
   ],
   "outbox": [
