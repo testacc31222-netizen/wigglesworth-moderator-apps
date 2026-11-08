@@ -7350,11 +7350,11 @@
       "kind": "receipt",
       "appId": "CC-U4YR9A",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-08T02:15:00.037Z",
-      "sentAt": ""
+      "sentAt": "2026-11-08T02:15:01.468Z"
     }
   ]
 }
