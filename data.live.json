@@ -7473,11 +7473,11 @@
       "kind": "receipt",
       "appId": "CC-EN55HT",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-08T21:21:50.112Z",
-      "sentAt": ""
+      "sentAt": "2026-11-08T21:21:51.670Z"
     }
   ]
 }
