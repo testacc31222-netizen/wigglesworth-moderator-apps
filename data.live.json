@@ -7291,11 +7291,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-08T02:01:14.590Z",
-      "sentAt": ""
+      "sentAt": "2026-11-08T02:01:16.338Z"
     }
   ]
 }
