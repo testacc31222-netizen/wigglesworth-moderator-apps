@@ -4313,6 +4313,15 @@
   ],
   "diag": [
     {
+      "t": "2026-11-08T21:24:23.218Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+    },
+    {
       "t": "2026-11-08T21:00:59.999Z",
       "build": "20261024d",
       "hero": true,
@@ -4746,15 +4755,6 @@
     },
     {
       "t": "2026-11-03T01:47:56.694Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156."
-    },
-    {
-      "t": "2026-11-03T01:47:07.784Z",
       "build": "20261024d",
       "hero": true,
       "gated": false,
