@@ -3677,6 +3677,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-08T04:27:07.584Z",
+      "act": "account_login",
+      "id": "acc_6584150f51f776b906dc5cdf",
+      "by": ""
+    },
+    {
       "t": "2026-11-08T02:05:30.801Z",
       "act": "account_login",
       "id": "acc_0015aa0a0b36df9c2ccfd374",
@@ -4268,12 +4274,6 @@
       "t": "2026-10-26T01:43:34.318Z",
       "act": "ai_denied",
       "id": "CC-2SEEML",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:43:30.847Z",
-      "act": "ai_denied",
-      "id": "CC-3SJT9Q",
       "by": ""
     }
   ],
@@ -5012,17 +5012,15 @@
       "email": "cdvr44444@gmail.com",
       "createdAt": "2026-11-08T02:05:30.800Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_6584150f51f776b906dc5cdf",
       "email": "noahsvr2016@gmail.com",
-      "hash": "1838bad4dde6bfd34f2d084624c9e82cca3c21666865729705c407d80d4e4bc7",
-      "exp": 1794112578581,
-      "tries": 0,
-      "created": 1794111978581
+      "createdAt": "2026-11-08T04:27:07.584Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
