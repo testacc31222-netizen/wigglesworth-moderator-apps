@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="80" viewBox="0 0 340 80" preserveAspectRatio="none" fill="none">
+  <defs>
+    <linearGradient id="fill" x1="170" y1="7" x2="170" y2="73" gradientUnits="userSpaceOnUse"><stop stop-color="#871cb9"/><stop offset=".48" stop-color="#30063f"/><stop offset="1" stop-color="#7621a3"/></linearGradient>
+    <linearGradient id="edge" x1="170" y1="5" x2="170" y2="75" gradientUnits="userSpaceOnUse"><stop stop-color="#f9d4ff"/><stop offset=".45" stop-color="#d56bff"/><stop offset="1" stop-color="#f5bdff"/></linearGradient>
+    <filter id="glow" x="-15%" y="-70%" width="130%" height="240%"><feGaussianBlur stdDeviation="3.4"/></filter>
+  </defs>
+  <path d="M30 8H310L320 17L326 31L335 40L326 49L320 63L310 72H30L20 63L14 49L5 40L14 31L20 17Z" stroke="#d253ff" stroke-width="5" filter="url(#glow)"/>
+  <path d="M30 8H310L320 17L326 31L335 40L326 49L320 63L310 72H30L20 63L14 49L5 40L14 31L20 17Z" fill="url(#fill)" stroke="url(#edge)" stroke-width="1.8"/>
+  <path d="M32 12H308L316 20L322 33L329 40L322 47L316 60L308 68H32L24 60L18 47L11 40L18 33L24 20Z" stroke="#b84be6" stroke-width="1"/>
+  <path d="M34 15H306L313 22L319 35L324 40L319 45L313 58L306 65H34L27 58L21 45L16 40L21 35L27 22Z" stroke="#e7a5ff" stroke-width=".8"/>
+  <path d="m167 8 3-4 3 4-3 4ZM167 72l3-4 3 4-3 4Z" fill="#8824b0" stroke="#f4beff"/>
+  <path d="m25 11 4 4-7 7m293-11-4 4 7 7M25 69l4-4-7-7m293 11-4-4 7-7" stroke="#f4beff" stroke-width="1"/>
+</svg>
