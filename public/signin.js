@@ -80,7 +80,7 @@ function statusWord(status) {
   return status === 'approved' ? 'Accepted' : status === 'denied' ? 'Not accepted' : 'Under review';
 }
 
-function setMode(next) {
+function setMode(next, focusInput = true) {
   mode = next === 'id' ? 'id' : 'email';
   const emailTab = $('tabEmail');
   const idTab = $('tabId');
@@ -91,15 +91,17 @@ function setMode(next) {
   idTab.classList.toggle('active', mode === 'id');
   emailTab.setAttribute('aria-selected', mode === 'email' ? 'true' : 'false');
   idTab.setAttribute('aria-selected', mode === 'id' ? 'true' : 'false');
+  emailTab.tabIndex = mode === 'email' ? 0 : -1;
+  idTab.tabIndex = mode === 'id' ? 0 : -1;
   emailForm.hidden = mode !== 'email';
   idForm.hidden = mode !== 'id';
   setMsg('authMsg', '');
   if (mode === 'id') {
     const e = ($('email').value || '').trim();
     if (e && !$('recEmail').value) $('recEmail').value = e;
-    setTimeout(() => { const el = $('recEmail'); if (el && !el.value) el.focus(); }, 30);
+    if (focusInput) setTimeout(() => { const el = $('recEmail'); if (el && !el.value) el.focus(); }, 30);
   } else {
-    setTimeout(() => { const el = $('email'); if (el && !$('codeStep').hidden) $('code').focus(); else if (el) el.focus(); }, 30);
+    if (focusInput) setTimeout(() => { const el = $('email'); if (el && !$('codeStep').hidden) $('code').focus(); else if (el) el.focus(); }, 30);
   }
 }
 

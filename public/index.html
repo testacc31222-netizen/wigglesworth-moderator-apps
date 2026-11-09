@@ -578,8 +578,10 @@ input:focus,textarea:focus,select:focus{border-color:rgba(193,74,84,.78);box-sha
 <link rel="stylesheet" href="/journey.css?v=20261109">
 <link rel="preload" as="image" href="/journey-ruins.webp">
 <script src="/journey.js?v=20261109" defer></script>
+<link rel="stylesheet" href="/portal-refresh.css?v=20261109c">
+<script src="/portal-ui.js?v=20261109c" defer></script>
 </head>
-<body class="main-page journey-page"><a class="journey-skip" href="#main">Skip to content</a>
+<body class="main-page journey-page portal-refresh"><a class="journey-skip" href="#main">Skip to content</a>
 <script>
 window.__booted=false;window.__fatalShown=false;
 window.__showFatal=function(title,msg){
@@ -787,48 +789,110 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </div>
 </section>  <nav class="hero-paths" aria-label="Application shortcuts"><a href="#apply-form"><span data-generated-copy-ignore>01</span> Explore positions <b aria-hidden="true" data-generated-copy-ignore>↗</b></a><a href="/signin"><span data-generated-copy-ignore>02</span> Track an application <b aria-hidden="true" data-generated-copy-ignore>↗</b></a><a href="#requirements"><span data-generated-copy-ignore>03</span> Read the requirements <b aria-hidden="true" data-generated-copy-ignore>↘</b></a></nav>
 
-  <section id="process" class="chapter-intro" aria-label="Joining the team">
-    <div class="chapter-index"><span>01</span><i></i><span>THE ORDER</span></div>
-    <div class="chapter-copy">
-      <section class="manifesto reveal" id="why">
-        <div class="eyebrow" id="aboutEyebrow">About</div>
-        <h2><span id="aboutTitleA">Steward the world</span><br><em id="aboutTitleB">we build together.</em></h2>
-        <p class="manifesto-lede" id="aboutLede">The best communities are made by people who show up with care, judgment, and imagination. Find the work that feels like yours.</p>
-        <div class="feature-list">
-          <div class="feature"><span class="fic"><svg viewBox="0 0 20 20"><path d="M10 2l2.1 4.4 4.9.6-3.6 3.4.9 4.9-4.3-2.4-4.3 2.4.9-4.9L3 7l4.9-.6z"/></svg></span><div><h3 id="aboutFeatureTitle1">Make an impact</h3><p id="aboutFeatureText1">Help create a safer and better community for everyone.</p></div></div>
-          <div class="feature"><span class="fic"><svg viewBox="0 0 20 20"><circle cx="10" cy="6.5" r="3"/><path d="M3.5 17c.8-3.4 3.4-5 6.5-5s5.7 1.6 6.5 5"/></svg></span><div><h3 id="aboutFeatureTitle2">Stand with a team</h3><p id="aboutFeatureText2">Work alongside dedicated and passionate members.</p></div></div>
-          <div class="feature"><span class="fic"><svg viewBox="0 0 20 20"><path d="M4 16V9M10 16V4M16 16v-6"/></svg></span><div><h3 id="aboutFeatureTitle3">Grow your craft</h3><p id="aboutFeatureText3">Build valuable skills in moderation and community management.</p></div></div>
-        </div>
-      </section>
-    </div>
-      <section class="requirements reveal" id="requirements">
-        <div class="eyebrow">Requirements</div>
-        <h2>Before you<br>enter the hall</h2>
-        <ul class="req-list">
-          <li><span class="rn">I</span><div><b>13 or older</b><p>You must meet the minimum age to join the team.</p></div></li>
-          <li><span class="rn">II</span><div><b>Active &amp; present</b><p>Hang around the community regularly, not just at events.</p></div></li>
-          <li><span class="rn">III</span><div><b>Honest answers</b><p>Write your own words — copied or fake answers are denied.</p></div></li>
-        </ul>
-      </section>
-    <aside class="chapter-aside" aria-label="Application process">
-      <span class="aside-rule"></span>
-      <p class="eyebrow">A considered process</p>
-      <p>Choose your calling.<br>Tell us your story.<br><em>We read every word.</em></p>
-      <a href="#apply-form">Explore open roles <span>↘</span></a>
-    </aside>
-  </section>
-
-  <section class="application-stage" id="apply-form">
-    <div class="stage-heading reveal">
-      <div><div class="chapter-index"><span>02</span><i></i><span>YOUR APPLICATION</span></div><p class="eyebrow">The first step</p><h2>Choose your<br><em>part to play.</em></h2></div>
-      <p class="stage-note">Every role serves the community in a different way. Select the one that best fits you and take your time with the questions.</p>
-    </div>
+<section id="process" class="portal-section portal-community" aria-labelledby="communityHeading">
+<header class="portal-section-heading" data-generated-copy-ignore>
+<h2 id="communityHeading">
+<span id="aboutTitleA">Join the Wigglesworth</span> <em id="aboutTitleB">team</em>
+</h2>
+<p id="aboutLede">Help make Wigglesworth a better place to play.</p>
+</header>
+<div class="portal-community-grid">
+<section id="why" class="portal-community-art" aria-label="Our community">
+<img class="portal-crystals" src="/portal-community.webp" alt="Three amethyst crystals representing community, creativity, and impact" loading="lazy" width="960" height="640">
+<div class="portal-feature-labels">
+<div>
+<h3 id="aboutFeatureTitle1">Support the community</h3>
+<p id="aboutFeatureText1">Help create a safer and better community for everyone.</p>
+</div>
+<div>
+<h3 id="aboutFeatureTitle2">Create experiences</h3>
+<p id="aboutFeatureText2">Work alongside dedicated and passionate members.</p>
+</div>
+<div>
+<h3 id="aboutFeatureTitle3">Make an impact</h3>
+<p id="aboutFeatureText3">Build valuable skills in moderation and community management.</p>
+</div>
+</div>
+<div class="portal-config-copy" hidden>
+<span id="aboutEyebrow">About</span>
+</div>
+</section>
+<section id="requirements" class="portal-requirements">
+<h2>Before you apply</h2>
+<ul>
+<li>
+<svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
+<rect x="3" y="5" width="18" height="16" rx="2"/>
+<path d="M7 2v6m10-6v6M3 11h18"/>
+</svg>
+<div>
+<h3>13 or older</h3>
+<p>You must meet the minimum age to join the team.</p>
+</div>
+</li>
+<li>
+<svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="12" cy="7" r="4"/>
+<path d="M5 22v-3a7 7 0 0 1 14 0v3M3 5a3 3 0 0 0 0 6m18-6a3 3 0 0 1 0 6"/>
+</svg>
+<div>
+<h3>Active in the community</h3>
+<p>Hang around regularly, not just at events.</p>
+</div>
+</li>
+<li>
+<svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
+<path d="m4 15-1 6 6-1L21 8l-5-5ZM13 6l5 5"/>
+</svg>
+<div>
+<h3>Your own honest answers</h3>
+<p>Write your own responses. Copied or fake answers are not accepted.</p>
+</div>
+</li>
+</ul>
+</section>
+</div>
+<div class="portal-process-strip">
+<div>
+<svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="12" cy="7" r="4"/>
+<path d="M5 22v-3a7 7 0 0 1 14 0v3M3 5a3 3 0 0 0 0 6m18-6a3 3 0 0 1 0 6"/>
+</svg>
+<span>
+<b>Choose a role</b>
+<small>Find a position that fits.</small>
+</span>
+</div>
+<div>
+<svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
+<path d="M5 2h9l5 5v15H5ZM14 2v6h5M8 12h8M8 16h8"/>
+</svg>
+<span>
+<b>Fill out your application</b>
+<small>Tell us about yourself.</small>
+</span>
+</div>
+<div>
+<svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
+<rect x="2" y="5" width="20" height="14" rx="2"/>
+<path d="m2 6 10 7L22 6"/>
+</svg>
+<span>
+<b>Hear from staff</b>
+<small>We’ll review it and be in touch.</small>
+</span>
+</div>
+<a class="portal-action" href="#roleMenu" data-journey-link>Explore roles <span aria-hidden="true">→</span>
+</a>
+</div>
+</section>
+  <section class="application-stage portal-section portal-roles" id="apply-form">
+<header class="portal-section-heading"><h2>Find your <em>role</em></h2><p>Choose how you want to help the community.</p></header>
     <div class="application-columns">
       <section class="role-selection" id="roleMenu">
-        <div class="role-selection-head"><span class="eyebrow">Open positions</span><span class="role-count">01 — 04</span></div>
-        <h3>Find your calling</h3>
+        <div class="role-selection-head"><h3>Applications</h3><span class="role-count">Available roles</span></div>
         <div id="roleCards" class="role-grid"></div>
-        <p class="selection-foot">Select a role to begin · all applications are reviewed by staff</p>
+        <p class="selection-foot"><a href="#status">Already applied? Check your status <span aria-hidden="true">→</span></a></p>
       </section>
 
   <div class="panel application-form-panel" id="applyCard" style="display:none">
@@ -868,46 +932,135 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <p class="hint" id="cdNote" style="text-align:center"></p>
   </div>
 
-  <section class="support-stage">
-    <div class="chapter-index"><span>03</span><i></i><span>CARE &amp; SUPPORT</span></div>
-    <div class="section-introduction"><h2>A community<br><em>that listens.</em></h2><p>Get help with your application, follow a private conversation, or raise a concern with the staff team.</p></div>
-    <div class="support-grid">
-      <div class="panel" id="report">
+<section class="support-stage portal-section portal-support" aria-labelledby="supportHeading">
+<header class="portal-section-heading">
+<h2 id="supportHeading">Contact the <em>team</em>
+</h2>
+<p>Get help with your application or report a concern.</p>
+</header>
+<div class="portal-support-grid">
+<aside class="portal-support-rail">
+<div class="portal-support-tabs" role="tablist" aria-label="Contact options" aria-orientation="vertical">
+<button id="support-question-tab" type="button" role="tab" aria-selected="true" aria-controls="contact" data-support-panel="contact">
+<svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
+<path d="M3 3h18v14H9l-6 5ZM7 9h.01m5 0h.01m5 0h.01"/>
+</svg>Ask a question</button>
+<button id="support-report-tab" type="button" role="tab" aria-selected="false" aria-controls="report" tabindex="-1" data-support-panel="report">
+<svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
+<path d="m12 2 9 4v6c0 5-5 8-9 10-4-2-9-5-9-10V6ZM8 12l3 3 5-6"/>
+</svg>Report a staff member</button>
+</div>
+<div class="ticket-check">
+<h3>Have a ticket?</h3>
+<div class="row">
+<input aria-label="Ticket ID" id="ticketInput" placeholder="TKT-ABC234" style="flex:3">
+<button class="btn-confirm" onclick="checkTicket()" style="flex:1">Open</button>
+</div>
+<div id="ticketResult">
+</div>
+</div>
+      <img class="portal-rail-crest" src="/journey-crest.png" alt="" width="180" height="180" loading="lazy">
+</aside>
+<div class="portal-support-content">      <div class="panel portal-support-panel" id="contact" role="tabpanel" aria-labelledby="support-question-tab">
+        <div class="eyebrow" data-dkey="contactEyebrow">Private tickets</div>
+<h3 style="margin:4px 0 6px" data-dkey="contactTitle">Send a private message</h3>
+        <p class="hint">Only you and the staff team can see this conversation. Sign in to send a message and receive replies.</p>
+        <form id="ticketForm" onsubmit="return submitTicket(event)">
+<label for="t_name">Your name</label>
+<input id="t_name" placeholder="What should we call you?" maxlength="80">
+<label for="t_subject">Subject</label>
+<input id="t_subject" placeholder="What is this about?" maxlength="120">
+<label for="t_message">Message</label>
+<textarea id="t_message" placeholder="Write it here…" rows="4">
+</textarea>
+<button class="btn-primary" type="submit">Send message</button>
+</form>
+        <div id="ticketCreated" style="display:none;text-align:center;padding:10px 0">
+<h3 style="margin:6px 0">Ticket opened</h3>
+<p class="hint" id="ticketEmailNote">Staff replies will be emailed to your account address.</p>
+<p class="hint">You can also open the thread with this ID:</p>
+<div class="appid" id="newTicketId">—</div>
+<div class="row">
+<button class="btn-small" onclick="copyTicketId()">Copy ID</button>
+<button class="btn-small" onclick="resetTicketForm()">Write another</button>
+</div>
+</div>
+        </div>      <div class="panel portal-support-panel" id="report" role="tabpanel" aria-labelledby="support-report-tab" hidden>
         <div class="eyebrow">Staff report</div>
-        <h3 style="margin:4px 0 6px">A concern, heard privately.</h3>
-        <p class="hint">Seen a staff member break the rules? Tell us here. You can stay anonymous — leave your name empty. Attach a picture or short video if you have proof (12MB max each, up to 3).</p>
+        <h3 style="margin:4px 0 6px">Report a staff member</h3>
+        <p class="hint">Tell us what happened. You can leave your name blank to stay anonymous.</p>
         <form id="reportForm" onsubmit="return submitReport(event)">
-          <label>Staff member's name</label><input id="r_staff" placeholder="Who did this involve?" maxlength="80">
-          <label>Your name (optional)</label><input id="r_name" placeholder="Leave empty to stay anonymous" maxlength="80">
-          <label>What happened</label><textarea id="r_details" placeholder="What did they do, when, where…" rows="4"></textarea>
-          <label>Evidence — pictures or video</label><div id="evdrop">Drop pictures / video here<span>or click to browse · 12MB max each · up to 3</span><input id="r_files" type="file" accept="image/png,image/jpeg,image/gif,image/webp,video/mp4,video/webm" multiple style="display:none"></div>
-          <div id="evList"></div><div id="evMsg" class="hint"></div><button class="btn-primary" type="submit">Send report</button>
+          <label for="r_staff">Staff member's name</label>
+<input id="r_staff" placeholder="Who did this involve?" maxlength="80">
+          <label for="r_name">Your name (optional)</label>
+<input id="r_name" placeholder="Leave empty to stay anonymous" maxlength="80">
+          <label for="r_details">What happened</label>
+<textarea id="r_details" placeholder="What did they do, when, where…" rows="4">
+</textarea>
+          <label for="r_files">Evidence — pictures or video</label>
+<div id="evdrop" role="button" tabindex="0" aria-label="Upload evidence">Drop pictures / video here<span>or click to browse · 12MB max each · up to 3</span>
+<input id="r_files" type="file" accept="image/png,image/jpeg,image/gif,image/webp,video/mp4,video/webm" multiple style="display:none">
+</div>
+          <div id="evList">
+</div>
+<div id="evMsg" class="hint">
+</div>
+<button class="btn-primary" type="submit">Send report</button>
         </form>
-        <div id="reportDone" style="display:none;text-align:center;padding:10px 0"><h3 style="margin:6px 0">Report received</h3><p class="hint">Reference (save it if you want):</p><div class="appid" id="newReportId">—</div><div class="row"><button class="btn-small" onclick="copyReportId()">Copy ID</button><button class="btn-small" onclick="resetReportForm()">Write another</button></div></div>
+        <div id="reportDone" style="display:none;text-align:center;padding:10px 0">
+<h3 style="margin:6px 0">Report received</h3>
+<p class="hint">Reference (save it if you want):</p>
+<div class="appid" id="newReportId">—</div>
+<div class="row">
+<button class="btn-small" onclick="copyReportId()">Copy ID</button>
+<button class="btn-small" onclick="resetReportForm()">Write another</button>
+</div>
+</div>
       </div>
-      <div class="panel" id="contact">
-        <div class="eyebrow" data-dkey="contactEyebrow">Private tickets</div><h3 style="margin:4px 0 6px" data-dkey="contactTitle">Message the staff team</h3>
-        <p class="hint">Sign in is required. Only you and staff see this thread, and staff replies are emailed to your account address. Simple questions may get an instant answer straight away.</p>
-        <form id="ticketForm" onsubmit="return submitTicket(event)"><label>Your name</label><input id="t_name" placeholder="What should we call you?" maxlength="80"><label>Subject</label><input id="t_subject" placeholder="What is this about?" maxlength="120"><label>Message</label><textarea id="t_message" placeholder="Write it here…" rows="4"></textarea><button class="btn-primary" type="submit">Open ticket</button></form>
-        <div id="ticketCreated" style="display:none;text-align:center;padding:10px 0"><h3 style="margin:6px 0">Ticket opened</h3><p class="hint" id="ticketEmailNote">Staff replies will be emailed to your account address.</p><p class="hint">You can also open the thread with this ID:</p><div class="appid" id="newTicketId">—</div><div class="row"><button class="btn-small" onclick="copyTicketId()">Copy ID</button><button class="btn-small" onclick="resetTicketForm()">Write another</button></div></div>
-        <div class="ticket-check"><h3>Check your ticket</h3><div class="row"><input id="ticketInput" placeholder="e.g. TKT-A1B2C3" style="flex:3"><button class="btn-confirm" onclick="checkTicket()" style="flex:1">Open</button></div><div id="ticketResult"></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="answers-stage">
-    <div class="chapter-index"><span>04</span><i></i><span>AFTER YOU APPLY</span></div>
-    <div class="answers-grid">
-      <div class="panel" id="status">
-        <div class="eyebrow" data-dkey="statusEyebrow">Your decision</div><h3 style="margin:4px 0 6px" data-dkey="statusTitle">Check your decision</h3><p class="hint">Enter your Application ID (you got it after submitting). Works for every role.</p>
-        <div class="row"><input id="statusInput" placeholder="e.g. MOD-A1B2C3" style="flex:3"><button class="btn-confirm" onclick="checkStatus()" style="flex:1">Check</button></div><div id="statusResult"></div><p class="emailnote">Decisions are emailed to your account address. <a href="/signin">Manage account</a>.</p>
-      </div>
-      <div class="panel" id="accepted" style="display:none"><div class="eyebrow" data-dkey="acceptedEyebrow">Accepted</div><div class="row" style="margin-top:6px;align-items:center"><h3 style="margin:0;flex:3" id="acceptedTitle">New team members</h3><select id="acceptedFilter" onchange="renderApprovedPublic()" style="flex:1;min-width:140px"><option value="">All roles</option></select></div><div class="approved-list" id="approvedList" style="margin-top:10px"></div></div>
-      <div class="panel" id="faq"><div class="faq-heading"><div class="eyebrow" data-dkey="faqEyebrow">Before you apply</div><h3 style="margin:4px 0 6px" data-dkey="faqTitle">Good to know</h3></div><div id="faqList"></div></div>
-    </div>
-  </section>
-
-  <div class="journey-footer-links"><a href="#status">Application status</a><a href="#contact">Contact staff</a><button type="button" onclick="openCodeModal()">Staff workspace</button></div><div class="foot" data-dkey="foot">Run by the Wigglesworth staff team — every application gets read and answered.<br><span class="colo">Set in Cinzel &amp; Cormorant Garamond · run by humans</span><br><span class="buildtag" id="buildTag"></span></div>
+</div>
+</div>
+</section>
+<section class="answers-stage portal-section portal-answers">
+<section class="portal-status" id="status" aria-labelledby="statusHeading">
+<img src="/portal-scroll.webp" alt="" width="180" height="180" loading="lazy">
+<div class="portal-status-copy">
+<span class="portal-config-copy" data-dkey="statusEyebrow" hidden>Your decision</span>
+<h2 id="statusHeading" data-dkey="statusTitle">Check your application</h2>
+<p>Enter the Application ID from your confirmation.</p>
+<p class="emailnote">
+<a href="/signin">Or view all your applications in your account.</a>
+</p>
+</div>
+<div class="portal-status-form">
+<label for="statusInput">Application ID</label>
+<div class="row">
+<input id="statusInput" placeholder="MOD-ABC234" autocapitalize="characters" spellcheck="false">
+<button class="btn-confirm" type="button" onclick="checkStatus()">Check status</button>
+</div>
+<div id="statusResult" aria-live="polite">
+</div>
+</div>
+</section>      <div class="panel" id="accepted" style="display:none">
+<div class="eyebrow" data-dkey="acceptedEyebrow">Accepted</div>
+<div class="row" style="margin-top:6px;align-items:center">
+<h3 style="margin:0;flex:3" id="acceptedTitle">New team members</h3>
+<select id="acceptedFilter" onchange="renderApprovedPublic()" style="flex:1;min-width:140px">
+<option value="">All roles</option>
+</select>
+</div>
+<div class="approved-list" id="approvedList" style="margin-top:10px">
+</div>
+</div>
+<section id="faq" class="portal-faq">
+<header class="portal-section-heading">
+<span data-dkey="faqEyebrow" hidden>Before you apply</span>
+<h2 data-dkey="faqTitle">Questions before you apply?</h2>
+</header>
+<div id="faqList">
+</div>
+</section>
+</section>
+  <div class="journey-footer-links"><a href="#status">Application status</a><a href="#contact">Contact staff</a><button type="button" onclick="openCodeModal()">Staff workspace</button></div><div class="foot" data-dkey="foot">Wigglesworth Applications<br><span class="buildtag" id="buildTag"></span></div>
 
   <div class="panel" id="editor">
     <div class="ed-head">
@@ -937,20 +1090,20 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <div id="tab-general" class="tabpane active">
       <div class="row"><button class="btn-confirm" id="designToggle" onclick="toggleDesign()">Select &amp; move on page: OFF</button></div>
       <p class="hint">Design mode: click anything with a dashed outline to select it, drag to move, edit text inline. Changes save automatically.</p>
-      <label>Site Title</label><input id="e_title">
-      <label>Subtitle</label><input id="e_subtitle">
-      <label>Announcement bar (leave empty to hide)</label><input id="e_announce" placeholder="e.g. Applications OPEN for March!">
+      <label for="e_title">Site Title</label><input id="e_title">
+      <label for="e_subtitle">Subtitle</label><input id="e_subtitle">
+      <label for="e_announce">Announcement bar (leave empty to hide)</label><input id="e_announce" placeholder="e.g. Applications OPEN for March!">
       <label><input type="checkbox" id="e_cdShow" style="width:auto"> Show update countdown</label>
-      <label>Countdown title</label><input id="e_cdTitle" placeholder="e.g. Update 2.0 drops in">
-      <label>Countdown date &amp; time (your timezone)</label><input id="e_cdTarget" type="datetime-local">
-      <label>End video — plays when it hits zero (YouTube or .mp4 link, empty for none)</label><input id="e_cdVideo" placeholder="e.g. https://www.youtube.com/watch?v=…">
+      <label for="e_cdTitle">Countdown title</label><input id="e_cdTitle" placeholder="e.g. Update 2.0 drops in">
+      <label for="e_cdTarget">Countdown date &amp; time (your timezone)</label><input id="e_cdTarget" type="datetime-local">
+      <label for="e_cdVideo">End video — plays when it hits zero (YouTube or .mp4 link, empty for none)</label><input id="e_cdVideo" placeholder="e.g. https://www.youtube.com/watch?v=…">
       <p class="hint">All countdown words + spooky ambience are edited on the countdown page itself (tiny edit link, bottom-right).</p>
       <label>Edit Code — used to unlock this editor</label>
       <input id="e_code" type="password" placeholder="Set a private edit code">
       <div class="row"><button class="btn-small" onclick="toggleCode()">Show / Hide code</button></div>
       <label><input type="checkbox" id="e_showApproved" style="width:auto"> Show public Accepted list</label>
-      <label>Accepted list title</label><input id="e_approvedTitle" placeholder="New team members">
-      <label>Your staff name (shown in the security log so actions trace to a person)</label><input id="e_staffName" placeholder="e.g. Alex" oninput="sessionStorage.setItem('staff_name', this.value)">
+      <label for="e_approvedTitle">Accepted list title</label><input id="e_approvedTitle" placeholder="New team members">
+      <label for="e_staffName">Your staff name (shown in the security log so actions trace to a person)</label><input id="e_staffName" placeholder="e.g. Alex" oninput="sessionStorage.setItem('staff_name', this.value)">
       <label>Applicant emails</label>
       <div id="mailStatus" class="hint">Checking delivery…</div>
       <div class="row" style="margin-top:8px">
@@ -966,8 +1119,8 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     </div>
 
     <div id="tab-design" class="tabpane">
-      <label>Accent Color</label><input id="e_accent" type="color">
-      <label>Background Color</label><input id="e_bg" type="color">
+      <label for="e_accent">Accent Color</label><input id="e_accent" type="color">
+      <label for="e_bg">Background Color</label><input id="e_bg" type="color">
       <label>Banner Image (top of page)</label>
       <input id="e_bannerUrl" placeholder="Paste image URL…">
       <input type="file" id="e_bannerFile" accept="image/*">
@@ -1007,16 +1160,16 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <div id="tab-texts" class="tabpane">
       <h3>Homepage About section</h3>
       <p class="hint">Edit the About headline, introduction, and the three benefit statements shown on the homepage.</p>
-      <label>About eyebrow</label><input id="e_aboutEyebrow" oninput="markDirty()">
-      <label>Headline — first line</label><input id="e_aboutTitleA" oninput="markDirty()">
-      <label>Headline — second line</label><input id="e_aboutTitleB" oninput="markDirty()">
-      <label>Introduction</label><textarea id="e_aboutLede" rows="3" oninput="markDirty()"></textarea>
-      <label>Benefit 1 heading</label><input id="e_aboutFeatureTitle1" oninput="markDirty()">
-      <label>Benefit 1 text</label><textarea id="e_aboutFeatureText1" rows="2" oninput="markDirty()"></textarea>
-      <label>Benefit 2 heading</label><input id="e_aboutFeatureTitle2" oninput="markDirty()">
-      <label>Benefit 2 text</label><textarea id="e_aboutFeatureText2" rows="2" oninput="markDirty()"></textarea>
-      <label>Benefit 3 heading</label><input id="e_aboutFeatureTitle3" oninput="markDirty()">
-      <label>Benefit 3 text</label><textarea id="e_aboutFeatureText3" rows="2" oninput="markDirty()"></textarea>
+      <label for="e_aboutEyebrow">About eyebrow</label><input id="e_aboutEyebrow" oninput="markDirty()">
+      <label for="e_aboutTitleA">Headline — first line</label><input id="e_aboutTitleA" oninput="markDirty()">
+      <label for="e_aboutTitleB">Headline — second line</label><input id="e_aboutTitleB" oninput="markDirty()">
+      <label for="e_aboutLede">Introduction</label><textarea id="e_aboutLede" rows="3" oninput="markDirty()"></textarea>
+      <label for="e_aboutFeatureTitle1">Benefit 1 heading</label><input id="e_aboutFeatureTitle1" oninput="markDirty()">
+      <label for="e_aboutFeatureText1">Benefit 1 text</label><textarea id="e_aboutFeatureText1" rows="2" oninput="markDirty()"></textarea>
+      <label for="e_aboutFeatureTitle2">Benefit 2 heading</label><input id="e_aboutFeatureTitle2" oninput="markDirty()">
+      <label for="e_aboutFeatureText2">Benefit 2 text</label><textarea id="e_aboutFeatureText2" rows="2" oninput="markDirty()"></textarea>
+      <label for="e_aboutFeatureTitle3">Benefit 3 heading</label><input id="e_aboutFeatureTitle3" oninput="markDirty()">
+      <label for="e_aboutFeatureText3">Benefit 3 text</label><textarea id="e_aboutFeatureText3" rows="2" oninput="markDirty()"></textarea>
       <details class="copy-editor-group">
         <summary>Edit all other public page text and placeholders</summary>
         <p class="hint">These saved words are shared with every visitor, including the account page. Role names, application questions, FAQ entries, and the About section above have their own editors.</p>
@@ -1024,7 +1177,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
         <div id="publicCopyEditor"></div>
       </details>
       <hr>
-      <label>Rules / Info box (one per line)</label><textarea id="e_rules" rows="4"></textarea>
+      <label for="e_rules">Rules / Info box (one per line)</label><textarea id="e_rules" rows="4"></textarea>
       <label>Top Text — shown in the hero (HTML allowed)</label>
       <textarea id="e_top" rows="4" placeholder="A line above the apply button…"></textarea>
       <label>Bottom Text — shown below the form</label>

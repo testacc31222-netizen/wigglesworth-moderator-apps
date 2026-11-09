@@ -1,0 +1,321 @@
+/* Complete portal: the approved amethyst identity, beyond the home hero. */
+.portal-refresh,.portal-account {
+  --portal-ink:#09030e;--portal-surface:#100619;--portal-line:#763a90;
+  --portal-white:#f8f0fc;--portal-muted:#c9b5d3;--portal-accent:#e0a0ff;
+  --portal-display:Georgia,'Times New Roman',serif;--portal-ui:Inter,system-ui,sans-serif;
+}
+.portal-refresh .portal-section {position:relative;isolation:isolate;max-width:1280px;margin:0 auto;padding:64px 0 72px;color:var(--portal-white)}
+.portal-refresh .main>.portal-section {width:auto;margin-inline:clamp(22px,4vw,65px)}
+.portal-section :is(h2,h3,h4,p) {text-shadow:none}
+.portal-section .portal-section-heading {display:block;text-align:center;margin:0 auto 42px;max-width:940px}
+.portal-section .portal-section-heading h2 {margin:0 0 16px;color:var(--portal-white);font:400 clamp(32px,3.5vw,52px)/1.12 var(--portal-display);letter-spacing:-.025em;text-transform:uppercase}
+.portal-section .portal-section-heading h2 em {font:inherit;color:var(--portal-accent)}
+.portal-section .portal-section-heading p {max-width:820px;margin:0 auto;color:#e1d0e9;font:400 19px/1.55 var(--portal-display)}
+.portal-section .portal-section-heading::after {content:"";display:block;width:150px;height:1px;margin:26px auto 0;background:linear-gradient(90deg,transparent,#d78cf4,transparent)}
+.portal-icon {width:29px;height:29px;flex:none;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linejoin:round;stroke-linecap:round}
+.portal-refresh .journey-config {max-width:none;margin:0 30px;padding:30px 0 0}
+.portal-refresh .journey-config :is(#appTitle,#appSubtitle,.logo-row) {display:none!important}
+.portal-refresh .journey-config #announceBar {width:auto;margin:0 auto;max-width:1050px;padding:15px 22px;background:#16081e;color:#f0d6ff;border:1px solid #ad5ccb;font:400 15px/1.5 var(--portal-ui);letter-spacing:0;transform:none!important;text-align:center;border-radius:4px;box-shadow:inset 0 0 15px #68227b22}
+.portal-refresh .hero-paths {display:flex;justify-content:center;flex-wrap:wrap;gap:26px;margin:0 auto!important;width:auto;padding:26px 18px 14px;border:0;background:none}
+.portal-refresh .hero-paths a {display:flex;align-items:center;gap:8px;width:auto;flex:none;border:0;padding:8px 2px;color:#d5b3e6;font:400 14px/1.4 var(--portal-ui);letter-spacing:0;text-transform:none}
+.portal-refresh .hero-paths a>span[data-generated-copy-ignore] {display:none}
+.portal-refresh .hero-paths a>b {margin-left:6px;color:#d291eb}
+.portal-community-grid {display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:42px;align-items:center}
+.portal-community-art {position:relative;min-width:0;overflow:hidden}
+.portal-crystals {display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent),linear-gradient(#000 80%,transparent);mask-composite:intersect}
+.portal-feature-labels {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:-20px;position:relative;gap:12px;padding:0 5px 12px}
+.portal-feature-labels>div {text-align:center;min-width:0;padding:0 8px}
+.portal-feature-labels>div+div {border-left:1px solid #773e8a88}
+.portal-refresh .portal-feature-labels h3 {margin:0;font:400 19px/1.35 var(--portal-display);text-transform:none;letter-spacing:0;color:#f6e6ff}
+.portal-feature-labels p {display:none}
+.portal-feature-labels p.portal-custom-description {display:block;font:400 14px/1.5 var(--portal-display);color:#c7afd3;margin:10px 0 0}
+.portal-section #aboutTitleB:empty {display:none}
+.portal-requirements {border-left:1px solid #78348d66;padding-left:36px;min-width:0;background:none;box-shadow:none}
+.portal-refresh .portal-requirements h2 {font:400 32px/1.2 var(--portal-display);letter-spacing:0;text-transform:uppercase;margin:0 0 24px}
+.portal-requirements ul {list-style:none;padding:0;margin:0}
+.portal-requirements li {display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-top:1px solid #79378c66}
+.portal-requirements .portal-icon {width:49px;height:49px;padding:11px;border:1px solid #b367d2;border-radius:8px;color:#e9bcff;background:#280d36}
+.portal-refresh .portal-requirements h3 {font:400 22px/1.25 var(--portal-display);margin:0 0 7px;letter-spacing:0;text-transform:none;color:#fff3ff}
+.portal-requirements p {font:400 16px/1.5 var(--portal-display);color:#d6c4df;margin:0}
+.portal-process-strip {display:grid;grid-template-columns:1fr 1.1fr 1fr auto;gap:26px;align-items:center;border:1px solid #9b4cb7;border-radius:8px;padding:27px;margin-top:40px;background:linear-gradient(110deg,#1a0822a6,#100717);box-shadow:0 0 25px #78209b15}
+.portal-process-strip>div {display:flex;gap:15px;align-items:center;min-width:0}
+.portal-process-strip .portal-icon {color:#e1a0f9;width:33px;height:33px}
+.portal-process-strip b {display:block;font:400 19px/1.3 var(--portal-display);color:#f8ebff}
+.portal-process-strip small {display:block;font:400 14px/1.5 var(--portal-display);color:#c8b1d4;margin-top:5px}
+.portal-action,.portal-refresh .portal-section :is(.btn-primary,.btn-confirm,.step-next),.portal-account .primary {
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;
+  padding:13px 28px;border:1px solid #df99f7;color:#fff3ff;text-decoration:none;
+  font:500 17px/1.3 var(--portal-display);text-transform:none;letter-spacing:0;border-radius:4px;
+  background:linear-gradient(125deg,#732594,#290c39);box-shadow:inset 0 0 12px #b545db20,0 0 12px #9b32bb20;
+  cursor:pointer;transition:filter .16s,box-shadow .16s,transform .16s;
+}
+.portal-action:hover,.portal-refresh .portal-section :is(.btn-primary,.btn-confirm,.step-next):hover,.portal-account .primary:hover {filter:brightness(1.15);box-shadow:0 0 18px #a948ce40}
+.portal-process-strip .portal-action {background:url('/journey-button.svg') center/100% 100% no-repeat;border:0;min-height:68px;box-shadow:none;padding:14px 30px;white-space:nowrap}
+.portal-refresh .portal-roles {border-top:1px solid #6e2e8544;padding-top:65px}
+.portal-refresh .portal-roles::before {content:"";position:absolute;inset:0 -35px;z-index:-1;background:linear-gradient(#09030e 0%,#09030e66 40%,#09030e 100%),url('/journey-ruins.webp') center bottom/cover no-repeat;opacity:.33;pointer-events:none}
+.portal-refresh #roleMenu {max-width:1100px;margin:0 auto;padding:0;border:0;background:none;box-shadow:none}
+.portal-refresh .role-selection-head {display:flex;justify-content:space-between;align-items:center;border:0;margin:0 0 20px;padding:0}
+.portal-refresh .role-selection-head h3 {font:400 20px var(--portal-display);color:#e4c9f0;letter-spacing:0;text-transform:none;margin:0}
+.portal-refresh .role-count {display:block;font:400 14px var(--portal-ui);color:#e1b9f1;background:#1e0b2a;border:1px solid #9c5db3;padding:8px 13px;border-radius:4px}
+.portal-refresh .main #roleCards {display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:15px!important}
+.portal-refresh .role-row {position:relative;display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:22px;align-items:center;width:100%;min-height:130px;padding:14px 28px 14px 14px;background:#100618ed;border:1px solid #8e4ba9;border-radius:9px;color:#f8eaff;opacity:1!important;text-align:left;box-shadow:none;transform:none;font-family:var(--portal-ui)}
+.portal-refresh .role-row.is-open {border-color:#ce82f0;background:linear-gradient(100deg,#321143,#12071b 65%);box-shadow:inset 0 0 20px #a845ce10,0 0 20px #9d38c526}
+.portal-refresh .role-row.is-open:hover {border-color:#f0b7ff;transform:translateY(-2px);box-shadow:0 0 25px #a948ce40}
+.portal-refresh .role-row:disabled {cursor:default;filter:none}
+.role-emblem {display:block;width:96px;height:96px;background-image:url('/portal-role-emblems.webp');background-size:400% auto;background-repeat:no-repeat;flex:none}
+.role-emblem-0 {background-position:0 50%}.role-emblem-1 {background-position:33.333333% 50%}.role-emblem-2 {background-position:66.666667% 50%}.role-emblem-3 {background-position:100% 50%}
+.role-emblem-default {background-image:url('/journey-crest.png');background-size:contain;background-position:center}
+.portal-refresh .role-row .role-copy {display:block;min-width:0}
+.portal-refresh .role-row h4 {font:400 25px/1.25 var(--portal-display);letter-spacing:.015em;text-transform:uppercase;color:#f7ecff;margin:0 0 8px}
+.portal-refresh .role-row p {font:400 16px/1.5 var(--portal-display);color:#cebcd8;margin:0}
+.role-row-actions {display:flex;gap:18px;align-items:center;justify-content:flex-end}
+.portal-refresh .role-row .tick {order:0;margin:0;white-space:nowrap;letter-spacing:0;font:400 16px/1.3 var(--portal-display);padding:8px 14px;background:#1c1422;border:1px solid #84718d;border-radius:6px;color:#d8c8df;width:auto;height:auto;min-width:70px;min-height:36px;display:inline-flex;align-items:center;justify-content:center;clip-path:none;aspect-ratio:auto;flex:none}
+.portal-refresh .role-row.is-open .tick {background:#0c2017;border-color:#75b58b;color:#b5f1c9}
+.portal-refresh .role-row .go {position:static;display:flex;align-items:center;justify-content:center;gap:12px;min-width:125px;min-height:56px;padding:10px 24px;margin:0;font:400 19px var(--portal-display);color:#fff0ff;background:url('/journey-button.svg') center/100% 100% no-repeat}
+.portal-refresh .selection-foot {font:400 17px/1.5 var(--portal-display);text-align:center;padding:24px 0 0;margin:0;border:0}
+.portal-refresh .selection-foot a {color:#e6b7fa;text-underline-offset:5px}
+.portal-refresh .portal-support {border-top:1px solid #76388d55;padding-top:65px}
+.portal-support-grid {display:grid;grid-template-columns:minmax(240px,.7fr) minmax(0,1.3fr);gap:42px;align-items:start;max-width:1180px;margin:0 auto}
+.portal-support-rail {min-width:0;border-right:1px solid #8b449e66;padding-right:30px}
+.portal-support-tabs {display:grid;gap:15px}
+.portal-support-tabs button {display:flex;align-items:center;gap:15px;width:100%;min-height:65px;padding:16px 20px;border:1px solid #a766be;border-radius:6px;color:#f1dff9;background:#16091f;text-align:left;font:400 20px/1.3 var(--portal-display);cursor:pointer}
+.portal-support-tabs button[aria-selected="true"] {border-color:#f0acff;background:linear-gradient(120deg,#652283,#22082e);box-shadow:inset 0 0 12px #bd50ed33,0 0 12px #a243c333}
+.portal-support-rail .ticket-check {border-top:1px solid #87419b88;margin:32px 0 0;padding:27px 0 0}
+.portal-support-rail .ticket-check h3 {font:400 25px/1.3 var(--portal-display);color:#f3e1fa;text-transform:none;letter-spacing:0;margin:0 0 15px}
+.portal-support-rail .ticket-check .row {display:flex;gap:9px;align-items:stretch}
+.portal-support-rail .ticket-check .row input {width:0;flex:1!important;min-width:0}
+.portal-refresh .portal-support-rail .ticket-check .row button {flex:none!important;padding:12px 15px;min-width:64px;font-size:15px}
+.portal-rail-crest {display:block;width:min(170px,70%);height:auto;margin:35px auto;opacity:.28;filter:drop-shadow(0 0 15px #9d36d555)}
+.portal-support-content {min-width:0}
+.portal-refresh .portal-support-panel {border:0;border-radius:0;background:none;padding:0;box-shadow:none;margin:0;overflow:visible}
+.portal-refresh #contact,.portal-refresh #report {background:none;border:0;padding:0;box-shadow:none;margin:0}
+.portal-refresh #contact>h3,.portal-refresh #report>h3 {color:#f6e4ff;font:400 clamp(25px,2.5vw,36px)/1.2 var(--portal-display)!important}
+.portal-refresh #contact :is(input,textarea,select),.portal-refresh #report :is(input,textarea,select),.portal-refresh #status input,.portal-refresh #ticketInput,.portal-refresh #modForm :is(input,textarea,select) {background:#100818;border:1px solid #9354a9;color:#fff3ff;font:400 16px/1.45 var(--portal-ui)}
+.portal-support-panel[hidden] {display:none!important}
+.portal-refresh .portal-support-panel::before,.portal-refresh .portal-support-panel::after {display:none}
+.portal-support-panel>.eyebrow {display:none}
+.portal-refresh .portal-support-panel>h3 {color:#f6e4ff;font:400 clamp(25px,2.5vw,36px)/1.2 var(--portal-display)!important;letter-spacing:0;text-transform:uppercase;margin:0 0 13px!important}
+.portal-refresh .portal-support-panel>.hint {font:400 17px/1.5 var(--portal-display);color:#d2bddb;margin:0 0 25px}
+.portal-refresh .portal-section :is(input,textarea,select),.portal-account :is(input,textarea,select) {background:#100818;border:1px solid #9354a9;color:#fff3ff;border-radius:5px!important;min-height:49px;padding:12px 15px;font:400 16px/1.45 var(--portal-ui);letter-spacing:0;box-shadow:none;max-width:100%}
+.portal-refresh .portal-section textarea {min-height:150px;resize:vertical}
+.portal-refresh .portal-section :is(input,textarea)::placeholder,.portal-account input::placeholder {color:#a990b5;opacity:1}
+.portal-refresh .portal-section label,.portal-account label {font:500 14px/1.5 var(--portal-ui);letter-spacing:0;color:#f1e1f8;text-transform:none;margin:20px 0 8px}
+.portal-refresh :is(#reportForm,#ticketForm,#modForm)>label::before {display:none}
+.portal-refresh :is(#reportForm,#ticketForm)>.btn-primary {display:flex;width:100%;max-width:430px;min-height:70px;margin:25px auto 0;background:url('/journey-button.svg') center/100% 100% no-repeat;border:0;font:400 22px/1.3 var(--portal-display);box-shadow:none}
+.portal-refresh #evdrop {background:#160a20;border:1px dashed #a871bd;color:#e8d1f1;font:400 16px/1.5 var(--portal-ui);border-radius:6px;padding:22px 16px}
+.portal-refresh #evdrop span {color:#bea4cc;font:400 13px/1.5 var(--portal-ui);margin-top:5px}
+.portal-refresh .portal-answers {padding-top:50px;border-top:1px solid #78358e55}
+.portal-status {display:grid;grid-template-columns:130px minmax(220px,1fr) minmax(280px,1.1fr);gap:25px;align-items:center;background:linear-gradient(110deg,#230d30,#100718);border:1px solid #af65cc;border-radius:10px;padding:25px 30px;box-shadow:0 0 18px #7823981c}
+.portal-refresh #status {position:relative;top:auto;align-self:auto;background:linear-gradient(110deg,#230d30,#100718);border:1px solid #af65cc;padding:25px 30px}
+.portal-status>img {width:130px;height:145px;object-fit:contain}
+.portal-status-copy h2 {font:400 29px/1.15 var(--portal-display);letter-spacing:0;color:#f7e8ff;text-transform:uppercase;margin:0 0 12px}
+.portal-status-copy p {font:400 16px/1.5 var(--portal-display);color:#d9c1e5;margin:0}
+.portal-status-copy .emailnote {font-size:14px;margin-top:10px}.portal-status-copy a {color:#dfabf4}
+.portal-status-form {min-width:0}.portal-status-form>label {display:block;margin:0 0 9px!important}
+.portal-status-form .row {display:flex;gap:12px;align-items:stretch;margin:0}
+.portal-status-form input {flex:1;min-width:0;width:0}
+.portal-refresh .portal-status-form button {flex:none;padding:12px 18px;min-width:120px}
+.portal-refresh #statusResult {font:400 15px/1.5 var(--portal-ui);color:#ead6f4;overflow-wrap:anywhere}
+.portal-refresh .portal-faq {margin:62px auto 0;max-width:1100px;border:0;background:none;padding:0}
+.portal-refresh #faq {display:block;grid-template-columns:none;gap:0;max-width:1100px;margin:62px auto 0;border:0;background:none;padding:0}
+.portal-refresh #faq [data-dkey="faqTitle"] {transform:none!important}
+.portal-refresh .portal-faq .portal-section-heading h2 {font-size:clamp(29px,3.3vw,43px)}
+.portal-refresh #faqList {display:grid;gap:14px}
+.portal-refresh .faq-item {background:#15091fee;border:1px solid #8e4ca6;border-radius:7px;margin:0;padding:0 25px;box-shadow:none}
+.portal-refresh #faqList>.faq-item {display:block;background:#15091fee;border:1px solid #8e4ca6!important;border-radius:7px!important;margin:0;padding:0 25px;box-shadow:none}
+.portal-refresh #faqList>.faq-item[open] {border-color:#d38af0!important;box-shadow:0 0 15px #a23bc02a}
+.portal-refresh .faq-item[open] {border-color:#d38af0;box-shadow:0 0 15px #a23bc02a}
+.portal-refresh .faq-item summary {position:relative;list-style:none;display:block;font:400 23px/1.35 var(--portal-display);color:#f9eaff;padding:22px 40px 22px 0;cursor:pointer;letter-spacing:0}
+.portal-refresh .faq-item summary::-webkit-details-marker {display:none}
+.portal-refresh .faq-item summary::before {display:none}
+.portal-refresh .faq-item summary::after {content:"+";position:absolute;right:0;top:18px;font:400 30px/1 var(--portal-ui);color:#e4b4f7;background:none;transform:none;width:auto;height:auto}
+.portal-refresh .faq-item[open] summary::after {content:"−"}
+.portal-refresh .faq-item p {border-top:1px solid #7b409055;padding:18px 0 23px;margin:0;color:#dbc8e5;font:400 17px/1.65 var(--portal-display);max-width:none}
+.portal-refresh .journey-footer-links {border-top:1px solid #8b469e66;padding-top:28px;margin-top:10px;gap:12px 30px}
+.portal-refresh .journey-footer-links :is(a,button) {font:400 15px var(--portal-display);color:#d8b4e9;text-underline-offset:4px}
+.portal-refresh .main>.foot {font:400 14px/1.6 var(--portal-ui);color:#aa8ab9;letter-spacing:0;text-transform:none;max-width:75%;margin-top:42px}
+.portal-refresh .buildtag {display:none}
+/* The active application is part of the same visual system. */
+.portal-refresh #applyCard {background:#11071b;border:1px solid #85479e;border-radius:8px;padding:30px;box-shadow:none}
+.portal-refresh #applyCard .cnr {display:none}
+.portal-refresh #applyCard #roleName {font:400 clamp(28px,3.5vw,44px)/1.15 var(--portal-display)!important;letter-spacing:0;color:#f6e7ff}
+.portal-refresh #applyCard :is(.role-kicker,.form-section-number,.step-link-number) {color:#d497ef}
+.portal-refresh #applyCard :is(.form-progress,.application-workspace,.form-section-heading,.form-step-actions) {border-color:#713c8666;background:none}
+.portal-refresh #applyCard .form-section-heading h3 {font:400 25px var(--portal-display);letter-spacing:0;color:#f3e0fc}
+.portal-refresh #applyCard :is(.hint,.subtitle,.form-section-heading p,.emailnote) {color:#ccb4d7;font:400 15px/1.55 var(--portal-ui)}
+.portal-refresh #applicationStepNav {background:#100618;border-color:#73388855}
+.portal-refresh #modForm {background:#100618}
+.portal-refresh #applicationStepNav .step-link {color:#c8afd6;border-color:#63337966;background:none;text-transform:none;letter-spacing:0;font-family:var(--portal-ui)}
+.portal-refresh #applicationStepNav .step-link.active {background:#3b154c;color:#fbeaff;border-color:#ca7ce8}
+.portal-refresh .progress-track {background:#281334}.portal-refresh #applicationProgressFill {background:linear-gradient(90deg,#8429a9,#d587fb)}
+.portal-refresh .portal-section :is(.step-previous,.btn-small,.form-back) {background:#1c0b28;border:1px solid #8b4ba6;color:#e5c2f5;text-transform:none;letter-spacing:0;min-height:44px;font:400 15px/1.4 var(--portal-ui);border-radius:4px}
+/* Account entry and dashboard. */
+body.portal-account {display:block;padding:0;background:#09030e!important;background-image:radial-gradient(ellipse at 55% 35%,#28103466,transparent 70%)!important;color:#f5e8fb;min-height:100vh;font-family:var(--portal-ui)}
+.portal-account :is(.atmos,.fog,#embers,.account-architecture,.account-card>.cnr) {display:none!important}
+.portal-account::before,.portal-account::after {display:none!important}
+.portal-account .top {position:relative;z-index:5;width:100%;max-width:none;min-height:94px;padding:12px 36px;display:flex;justify-content:space-between;align-items:center;gap:20px;background:#0b0410;border-bottom:1px solid #703283}
+.portal-account .brand {display:flex;gap:17px;align-items:center;color:#f9efff;font:400 25px/1.2 var(--portal-display);letter-spacing:.015em;text-decoration:none;text-transform:none}
+.portal-account .brand img {width:76px;height:68px;object-fit:contain}
+.portal-account .brand small {display:block;font:400 13px/1.7 var(--portal-display);letter-spacing:.4em;color:#d49ce9;text-align:center}
+.portal-account .back {color:#f4e0ff;font:400 16px/1.4 var(--portal-display);letter-spacing:0;text-transform:none;padding:12px 20px;border:1px solid #b670d2;background:#1f0b2c;border-radius:5px;text-decoration:none}
+.portal-account .account-shell {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:50px!important;align-items:center;width:100%;max-width:1440px;margin:0 auto;padding:45px 50px 55px!important;min-height:calc(100svh - 170px)}
+.portal-account .account-intro.portal-welcome {position:relative!important;isolation:isolate;display:flex!important;align-items:center;justify-content:center;min-height:650px;padding:0!important;margin:0;border:0;background:none;border-radius:0;text-align:center;overflow:hidden}
+.portal-account .portal-welcome::before,.portal-account .portal-welcome::after {display:none}
+.portal-welcome-art {position:absolute;inset:0 -20px;z-index:-1;background:url('/journey-ruins.webp') center/cover no-repeat;mask-image:radial-gradient(ellipse at center,#000 45%,#000b8 70%,transparent 100%)}
+.portal-account .portal-welcome-copy {width:100%;padding:30px 15px}
+.portal-account .account-intro h1 {color:#f7e9ff;font:400 clamp(35px,3.4vw,52px)/1.15 var(--portal-display)!important;letter-spacing:-.02em;margin:0;text-transform:uppercase;overflow-wrap:normal}
+.portal-account .portal-welcome-copy p {font:400 19px/1.5 var(--portal-display);color:#f2e4f9;margin:20px auto;max-width:420px}
+.portal-small-rule {display:flex;align-items:center;gap:12px;width:180px;margin:22px auto;color:#edb5ff;font:24px/1 var(--portal-display);text-shadow:0 0 7px #c94ef8}
+.portal-small-rule::before,.portal-small-rule::after {content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#db8cf6)}
+.portal-small-rule::after {transform:rotate(180deg)}
+.portal-account .auth {min-width:0;width:100%;max-width:650px;margin:0 auto;align-self:center}
+.portal-account .account-card {position:relative;border:1px solid #b36ace!important;background:linear-gradient(145deg,#1b0a25,#0e0616)!important;border-radius:10px!important;padding:40px!important;box-shadow:inset 0 0 35px #66217c0f,0 0 20px #79259412;color:#f5e4ff}
+.portal-account .account-card::before {content:"◇";display:block;position:absolute;left:calc(50% - 12px);top:-14px;width:24px;background:#110719;text-align:center;color:#e3a5fa;font:24px/1 var(--portal-display);height:28px}
+.portal-account .tabs {display:flex;gap:0;padding:0;margin:0 0 32px;border:1px solid #a760bf;border-radius:6px;overflow:hidden;background:#110719}
+.portal-account .tabs button {flex:1;min-height:56px;min-width:0;margin:0;padding:13px 12px;color:#d8c2e5;background:none;border:0;border-radius:0;font:400 20px/1.3 var(--portal-display);letter-spacing:0;text-transform:none;cursor:pointer}
+.portal-account .account-card .tabs button.active {background:linear-gradient(135deg,#702293,#2d0c3d);color:#fff2ff;box-shadow:inset 0 0 0 1px #e69cff,inset 0 0 14px #b34ee344}
+.portal-account .field {margin:0 0 20px}
+.portal-account label {display:block;font:400 19px/1.4 var(--portal-display);margin:0 0 12px;color:#f4e5fa}
+.portal-account .account-card input {width:100%;background:#110819!important;border:1px solid #955aaa!important;border-radius:5px!important;color:#f8efff;min-height:54px;padding:14px 17px;font:400 16px/1.4 var(--portal-ui)}
+.portal-account .account-card .primary {display:flex;width:100%;background:url('/journey-button.svg') center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;min-height:78px;margin-top:28px;font:400 22px/1.3 var(--portal-display);padding:18px 30px;box-shadow:none;text-transform:none;letter-spacing:0;color:#fff1ff}
+.portal-account .hint {color:#c4abcf;font:400 14px/1.6 var(--portal-ui);text-align:center;margin:20px 0 0}
+.portal-account .notice {background:#251030;border:1px solid #b16acd;color:#eed6fa;border-radius:5px;font:400 14px/1.6 var(--portal-ui);padding:14px;margin-bottom:24px}
+.portal-account :is(.textbtn,.inline,.textbtn:hover,.inline:hover) {background:none;color:#dcadf2;font-family:var(--portal-ui);letter-spacing:0;text-transform:none}
+.portal-account .msg {font:400 15px/1.5 var(--portal-ui);color:#e2beeF;overflow-wrap:anywhere}
+.portal-account footer {display:flex;flex-wrap:wrap;justify-content:space-between;gap:15px;max-width:1340px;margin:0 auto;padding:24px 35px;color:#b69ac5;border-top:1px solid #72348777;font:400 13px/1.5 var(--portal-ui)}
+.portal-account .account-shell:has(#signedIn:not([hidden])) {grid-template-columns:minmax(0,1fr)!important;min-height:0}
+.portal-account .account-shell:has(#signedIn:not([hidden])) .account-intro.portal-welcome {display:none!important}
+.portal-account .account-shell:has(#signedIn:not([hidden])) .auth {max-width:1100px}
+.portal-account .account-card .app {background:#180b22;border:1px solid #794293;border-left:3px solid #b77bce;color:#e8d3f2;border-radius:6px;padding:20px}
+.portal-account .account-card .app h4 {font:400 23px var(--portal-display);color:#f6e7ff;letter-spacing:0;overflow-wrap:anywhere}
+.portal-account .account-card :is(.meta,.empty,.pref span,.note,.small) {color:#c9b1d5;font:400 14px/1.6 var(--portal-ui)}
+.portal-account .account-card .role {color:#d39feb;font:500 14px var(--portal-ui);text-transform:none;letter-spacing:0}
+.portal-account .account-card :is(.secondary,.ghost) {background:#281036;border:1px solid #a569bd;color:#f0d9fb;text-transform:none;letter-spacing:0;border-radius:4px!important;min-height:44px;font:400 15px var(--portal-ui);padding:10px 16px}
+.portal-account #acctEmail {font:400 24px var(--portal-display);color:#f6e8ff;overflow-wrap:anywhere;letter-spacing:0;text-transform:none}
+.portal-account .pref input {width:18px;height:18px;min-height:0;flex:none;padding:0;accent-color:#bd68df}
+.portal-account .pref {display:flex;align-items:flex-start;gap:12px}
+.portal-account .pill {border-color:#9770aa;color:#e5c8f2;background:#2b113b;letter-spacing:0;text-transform:none;font:500 12px var(--portal-ui)}
+.portal-account :is(a,button,input,textarea,select):focus-visible,.portal-refresh .portal-section :is(a,button,input,textarea,select,summary,[tabindex]):focus-visible {outline:2px solid #f4beff;outline-offset:4px;box-shadow:0 0 0 6px #33123e}
+.portal-account [hidden],.portal-refresh .portal-section [hidden] {display:none!important}
+.portal-refresh .nav-links {scrollbar-color:#7d4390 #100617;scrollbar-width:thin}
+@media(max-width:1250px) {
+  .portal-process-strip {grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .portal-process-strip>.portal-action {grid-column:1/-1;justify-self:center;min-width:220px}
+  .portal-status {grid-template-columns:110px minmax(0,1fr);gap:20px}
+  .portal-status>img {width:110px;height:120px}
+  .portal-status-form {grid-column:1/-1;padding-top:10px}
+  .portal-account .account-shell {gap:25px!important;padding-inline:30px!important}
+  .portal-account .account-card {padding:30px!important}
+}
+@media(max-width:1000px) {
+  .portal-community-grid {gap:22px;grid-template-columns:1fr}
+  .portal-community-art {max-width:650px;margin:0 auto;width:100%}
+  .portal-requirements {border:0;padding:15px 0 0}
+  .portal-requirements ul {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .portal-requirements li {display:block;padding-top:20px}
+  .portal-requirements .portal-icon {margin-bottom:14px}
+  .portal-refresh .portal-requirements h3 {font-size:20px}
+  .portal-support-grid {grid-template-columns:230px minmax(0,1fr);gap:25px}
+  .portal-support-rail {padding-right:22px}
+  .portal-support-tabs button {padding:13px;font-size:18px;gap:10px}
+  .portal-support-rail .ticket-check .row {flex-direction:column}
+  .portal-support-rail .ticket-check .row input {width:100%}
+  .portal-refresh .role-row {grid-template-columns:80px minmax(0,1fr) auto;gap:15px;padding-right:20px}
+  .role-emblem {width:80px;height:80px}
+  .role-row-actions {flex-direction:column;gap:9px;align-items:center}
+  .portal-refresh .role-row h4 {font-size:22px}
+  .portal-account .account-shell {grid-template-columns:minmax(0,1fr)!important;gap:0!important;padding:0 22px 45px!important}
+  .portal-account .account-intro.portal-welcome {min-height:320px;width:100%;max-width:750px;justify-self:center;align-items:flex-end}
+  .portal-welcome-art {inset:0;background-size:cover;background-position:center 30%;mask-image:linear-gradient(#000 65%,transparent)}
+  .portal-account .portal-welcome-copy {padding:145px 15px 30px}
+  .portal-account .account-intro h1 {font-size:40px!important}
+  .portal-account .portal-welcome-copy p {font-size:17px;margin:15px auto}
+  .portal-small-rule {margin:12px auto}
+  .portal-account .auth {max-width:650px}
+}
+@media(max-width:760px) {
+  .portal-refresh .portal-section {padding:44px 0 50px}
+  .portal-refresh .main>.portal-section {margin-inline:20px}
+  .portal-refresh .portal-roles::before {inset:0}
+  .portal-section .portal-section-heading {margin-bottom:28px}
+  .portal-section .portal-section-heading p {font-size:17px}
+  .portal-refresh .journey-config {margin-inline:20px;padding-top:20px}
+  .portal-refresh .journey-config #announceBar {font-size:14px;padding:13px}
+  .portal-refresh .hero-paths {gap:10px 22px;padding-bottom:5px}
+  .portal-feature-labels {gap:5px;margin-top:-10px;padding:0}
+  .portal-feature-labels>div {padding:0 6px}
+  .portal-refresh .portal-feature-labels h3 {font-size:16px}
+  .portal-requirements ul {grid-template-columns:1fr;gap:0}
+  .portal-requirements li {display:flex;padding:20px 0}
+  .portal-requirements .portal-icon {margin:0}
+  .portal-process-strip {grid-template-columns:1fr;gap:22px;padding:24px;margin-top:24px}
+  .portal-process-strip>.portal-action {grid-column:auto;width:100%}
+  .portal-refresh .role-row {grid-template-columns:68px minmax(0,1fr);gap:10px 13px;padding:16px;min-height:150px}
+  .role-emblem {width:68px;height:68px}
+  .portal-refresh .role-row h4 {font-size:21px;text-transform:none;margin-bottom:5px}
+  .portal-refresh .role-row p {font-size:15px}
+  .role-row-actions {grid-column:2;flex-direction:row;justify-content:flex-start;gap:16px}
+  .portal-refresh .role-row .tick {font-size:14px;padding:5px 10px}
+  .portal-refresh .role-row .go {font-size:17px;min-height:47px;min-width:105px;padding:10px 20px}
+  .portal-refresh .role-selection-head h3 {font-size:18px}
+  .portal-refresh .role-count {font-size:12px}
+  .portal-support-grid {grid-template-columns:minmax(0,1fr);gap:28px}
+  .portal-support-rail {display:flex;flex-direction:column;border:0;padding:0}
+  .portal-support-tabs {grid-template-columns:1fr 1fr;gap:10px}
+  .portal-support-tabs button {font-size:17px;min-height:65px;padding:12px;gap:9px}
+  .portal-support-tabs .portal-icon {width:24px;height:24px}
+  .portal-rail-crest {display:none}
+  .portal-support-rail .ticket-check {order:2;padding:20px 0;margin-top:22px;border-bottom:1px solid #763a8b66}
+  .portal-support-rail .ticket-check .row {flex-direction:row}
+  .portal-support-rail .ticket-check .row input {width:0}
+  .portal-support-rail .ticket-check h3 {font-size:21px}
+  .portal-refresh .portal-support-panel>h3 {font-size:26px!important}
+  .portal-status {grid-template-columns:80px minmax(0,1fr);padding:22px 18px;gap:15px}
+  .portal-status>img {width:80px;height:100px}
+  .portal-status-copy h2 {font-size:25px}
+  .portal-status-copy p {font-size:15px}
+  .portal-status-form .row {gap:8px}
+  .portal-refresh .portal-status-form button {min-width:98px;padding:10px 12px;font-size:15px}
+  .portal-refresh .portal-faq {margin-top:42px}
+  .portal-refresh .faq-item {padding-inline:18px}
+  .portal-refresh .faq-item summary {font-size:21px;padding-block:20px}
+  .portal-refresh .faq-item p {font-size:16px}
+  .portal-refresh #applyCard {padding:21px 17px}
+  .portal-account .top {padding:13px 18px;min-height:78px;gap:14px}
+  .portal-account .brand {font-size:17px;gap:9px}
+  .portal-account .brand img {width:46px;height:48px}
+  .portal-account .brand small {font-size:10px;letter-spacing:.25em}
+  .portal-account .back {padding:10px;font-size:13px;max-width:130px;text-align:center}
+  .portal-account .account-shell {padding-inline:20px!important}
+  .portal-account .account-card {padding:25px 20px!important}
+  .portal-account .tabs button {font-size:18px;min-height:52px}
+  .portal-account .account-card .primary {font-size:19px;min-height:70px;padding-inline:25px}
+  .portal-account .account-intro.portal-welcome {min-height:310px}
+  .portal-account .account-intro h1 {font-size:34px!important}
+  .portal-account .account-shell:has(#signedIn:not([hidden])) {padding-top:30px!important}
+  .portal-account .dash-head {display:flex;flex-wrap:wrap;gap:15px;align-items:flex-start}
+  .portal-account .account-card .app h4 {font-size:20px}
+  .portal-account .dashboard-grid {display:grid;grid-template-columns:1fr;gap:28px}
+  .portal-account .linkbox .row {display:flex;flex-wrap:wrap;gap:10px}
+  .portal-account .linkbox .row input {min-width:0;width:100%;flex:1}
+  .portal-account footer {padding:22px;font-size:12px}
+}
+@media(max-width:360px) {
+  .portal-refresh .main>.portal-section {margin-inline:16px}
+  .portal-refresh .role-row {padding:13px;grid-template-columns:55px minmax(0,1fr);gap:10px}
+  .role-emblem {width:55px;height:55px}
+  .portal-refresh .role-row h4 {font-size:20px}
+  .portal-refresh .role-row .go {min-width:90px;padding-inline:17px}
+  .role-row-actions {gap:9px}
+  .portal-support-tabs button {font-size:15px;gap:8px}
+  .portal-support-tabs .portal-icon {width:20px;height:20px}
+  .portal-status {grid-template-columns:1fr}.portal-status>img {display:none}.portal-status-form {grid-column:auto}
+  .portal-account .top {padding-inline:12px;gap:8px}
+  .portal-account .brand {font-size:14px;gap:7px}.portal-account .brand img {width:36px}
+  .portal-account .back {max-width:105px;font-size:12px}
+  .portal-account .account-shell {padding-inline:16px!important}
+  .portal-account .account-card {padding:24px 16px!important}
+}
+@media(prefers-reduced-motion:reduce) {
+  .portal-account *, .portal-account *::before,.portal-account *::after,.portal-refresh .portal-section *, .portal-refresh .portal-section *::before,.portal-refresh .portal-section *::after {animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}

@@ -119,7 +119,25 @@ function applyConfig(){
   $('topText').innerHTML = rich(config.topText);
   if(window.SiteCopy) window.SiteCopy.apply(publicCopyTargets, config.copy);
   const about = Object.assign({}, DEFAULT_ABOUT, config.about || {});
-  Object.keys(DEFAULT_ABOUT).forEach(k=>{ const el=$('about'+k[0].toUpperCase()+k.slice(1)); if(el) el.textContent=about[k]; });
+  // Refresh legacy default marketing copy without overwriting saved staff edits.
+  const publicAbout = { ...about };
+  const refreshedAbout = {
+    titleA:'Join the Wigglesworth',
+    titleB:about.titleA === DEFAULT_ABOUT.titleA ? 'team' : '',
+    lede:'Help make Wigglesworth a better place to play.',
+    featureTitle1:'Support the community',
+    featureTitle2:'Create experiences',
+    featureTitle3:'Make an impact',
+  };
+  Object.keys(refreshedAbout).forEach(k=>{
+    if(about[k] === DEFAULT_ABOUT[k]) publicAbout[k] = refreshedAbout[k];
+  });
+  Object.keys(DEFAULT_ABOUT).forEach(k=>{
+    const el=$('about'+k[0].toUpperCase()+k.slice(1));
+    if(!el) return;
+    el.textContent=publicAbout[k];
+    if(/^featureText/.test(k)) el.classList.toggle('portal-custom-description', about[k] !== DEFAULT_ABOUT[k]);
+  });
   renderCountdown(); renderFaq(); renderTypeCards(); renderApprovedPublic(); renderDecor(); applyLayout();
   try{
     const hero = $('apply');
@@ -233,13 +251,16 @@ function renderTypeCards(){
     const b = document.createElement('button');
     const closed = t.open === false;
     b.type = 'button';
-    b.className = 'role-card'; b.onclick = ()=>pickType(t.id);
-    b.innerHTML = `<span class="tick">${closed ? 'Closed' : esc(t.prefix||'APP')}</span><span><h4>${esc(t.name)} Applications</h4><p>${closed ? 'Not accepting applications right now.' : esc(t.blurb||'')}</p></span><span class="go">→</span>`;
-    if(closed) b.style.opacity = '.55';
+    b.className = 'role-card role-row' + (closed ? ' is-closed' : ' is-open');
+    b.dataset.roleId = t.id;
+    b.disabled = closed;
+    b.onclick = ()=>pickType(t.id);
+    const emblem = ['moderator','content','developer','event'].findIndex(key => String(t.id + ' ' + t.name).toLowerCase().includes(key));
+    b.innerHTML = `<span class="role-emblem role-emblem-${emblem < 0 ? 'default' : emblem}" aria-hidden="true"></span><span class="role-copy"><h4>${esc(t.name)}</h4><p>${esc(t.blurb || (closed ? 'Applications are currently closed.' : 'Help the Wigglesworth community.'))}</p></span><span class="role-row-actions"><span class="tick">${closed ? 'Closed' : 'Open'}</span>${closed ? '' : '<span class="go">Apply <span aria-hidden="true">→</span></span>'}</span>`;
     w.appendChild(b);
   });
   const roleCount = document.querySelector('.role-count');
-  if (roleCount) roleCount.textContent = openN + ' open / ' + config.applicationTypes.length + ' roles';
+  if (roleCount) roleCount.textContent = openN + (openN === 1 ? ' role open' : ' roles open');
   const s0 = dEl('stat0');
   if(s0 && !(config.layout && config.layout.stat0 && config.layout.stat0.text)) {
     s0.innerHTML = `<b>${openN}</b><span>${openN===1?'role':'roles'} open</span>`;
@@ -917,7 +938,7 @@ async function checkTicket(){
   const id = $('ticketInput').value.trim().toUpperCase();
   const box = $('ticketResult'); box.innerHTML='';
   if(!id) return;
-  const done = busyOn(document.querySelector('#contact .btn-confirm'), 'Opening');
+  const done = busyOn(document.querySelector('.ticket-check .btn-confirm'), 'Opening');
   try{
     const r = await fetch('/api/tickets/'+encodeURIComponent(id));
     if(r.status===401){ openTicketSignin(); return; }

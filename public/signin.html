@@ -54,7 +54,7 @@
   @keyframes fall{0%{transform:translate3d(0,0,0);opacity:0}8%{opacity:.5}80%{opacity:.3}100%{transform:translate3d(2.6vw,110vh,0);opacity:0}}
   @media (prefers-reduced-motion:reduce){.fog,#embers{animation:none!important;display:none}}
   ::selection{background:rgba(116,27,36,.92);color:#f4efe7}
-  
+
   .top{
     position:relative;z-index:40;max-width:1180px;margin:0 auto;padding:20px clamp(20px,5vw,48px);
     display:flex;align-items:center;justify-content:space-between;gap:20px;
@@ -64,7 +64,7 @@
   .brand svg{width:24px;height:24px;flex:none}
   .back{color:var(--muted);text-decoration:none;font-family:var(--font-serif);font-size:15px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;transition:color .2s}
   .back:hover{color:var(--ivory)}
-  
+
   .wrap{
     position:relative;z-index:2;max-width:1180px;margin:0 auto;
     padding:clamp(40px,8vh,100px) clamp(20px,5vw,48px);
@@ -81,7 +81,7 @@
   .assurances li{display:flex;gap:16px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line-soft);color:var(--silver);font-size:14px}
   .assurances li > span:first-child{font-family:var(--font-display);font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--crimson-bright);border:1px solid var(--line-red-soft);border-radius:4px;padding:3px 9px;height:fit-content;white-space:nowrap;background:rgba(116,27,36,.12)}
   .small{color:var(--faint);font-size:12px;line-height:1.7;margin:0;max-width:44ch;font-family:var(--font-serif)}
-  
+
   .card{
     position:relative;background:var(--card);
     border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,4vw,38px);
@@ -95,7 +95,7 @@
   .cnr.tr{top:9px;right:9px;transform:rotate(90deg)}
   .cnr.br{bottom:9px;right:9px;transform:rotate(180deg)}
   .cnr.bl{bottom:9px;left:9px;transform:rotate(270deg)}
-  
+
   .tabs{display:flex;gap:26px;border-bottom:1px solid var(--line-soft);margin:0 0 26px}
   .tabs button{
     position:relative;background:none;border:0;color:var(--faint);padding:0 0 13px;
@@ -106,7 +106,7 @@
   .tabs button.active{color:var(--ivory)}
   .tabs button.active::after{transform:scaleX(1)}
   .tabs button:hover{color:var(--silver)}
-  
+
   .notice{
     border:1px solid rgba(166,44,53,.42);background:rgba(116,27,36,.14);
     color:#d9b9bc;font-size:12.5px;line-height:1.6;padding:11px 14px;margin:0 0 20px;border-radius:6px;
@@ -143,7 +143,7 @@
   .msg.err{color:#e0a7ab;border-left:1px solid var(--red);padding-left:11px}
   .msg.ok{color:#b9d0bd;border-left:1px solid #6f9078;padding-left:11px}
   .msg.busy{color:var(--muted);border-left:1px solid var(--line);padding-left:11px}
-  
+
   .dash-head{display:flex;align-items:start;justify-content:space-between;gap:18px;margin-bottom:22px}
   .dash-head .eyebrow{margin-bottom:6px;font-size:10.5px}
   .dash-head h2{font-family:var(--font-display);font-weight:500;font-size:clamp(20px,2.3vw,26px);line-height:1.25;margin:0;word-break:break-word;color:var(--ivory)}
@@ -181,11 +181,11 @@
   .row{display:flex;gap:9px;align-items:stretch}
   .row input{flex:1;min-width:0}
   .row .secondary{width:auto;flex:0 0 auto;margin:0;padding:0 18px;height:48px;letter-spacing:.16em}
-  
+
   footer{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:24px clamp(20px,5vw,48px) 34px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--faint);font-size:11px;letter-spacing:.04em;width:100%}
   footer a{color:var(--muted);text-decoration:none;transition:color .2s}
   footer a:hover{color:var(--ivory)}
-  
+
   @media(max-width:900px){
     .wrap{grid-template-columns:1fr;gap:38px;min-height:0;padding-top:46px;text-align:center}
     .intro{max-width:none;margin:0 auto}
@@ -255,8 +255,10 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
 </style>
 <link rel="stylesheet" href="/gothic-luxury.css?v=preview-20261025">
 <link rel="stylesheet" href="/astra-cinematic.css?v=6">
+<link rel="stylesheet" href="/portal-refresh.css?v=20261109c">
+<script src="/portal-ui.js?v=20261109c" defer></script>
 </head>
-<body class="account-page">
+<body class="account-page portal-account">
 <div class="atmos" aria-hidden="true">
   <div class="moon"></div>
   <div class="haze"></div>
@@ -266,35 +268,12 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
 <div class="fog" aria-hidden="true"><span class="f1"></span><span class="f2"></span><span class="f3"></span></div>
 <div id="embers" aria-hidden="true"></div>
 
-<header class="top">
-  <a class="brand" href="/" aria-label="Wigglesworth home">
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="7" y="7" width="18" height="18" transform="rotate(45 16 16)" stroke="#AAA5A0" stroke-opacity=".65"/><rect x="11.5" y="11.5" width="9" height="9" transform="rotate(45 16 16)" fill="#741B24" stroke="#C14A54"/><circle cx="16" cy="16" r="1.9" fill="#E6DED4"/></svg>
-    <span>WIGGLESWORTH</span>
-  </a>
-  <a class="back" href="/">← Back to applications</a>
-</header>
+<header class="top"><a class="brand" href="/" aria-label="Wigglesworth Applications home"><img src="/journey-crest.png" alt="" width="76" height="76"><span>WIGGLESWORTH<small>APPLICATIONS</small></span></a><a class="back portal-outline" href="/">← Back to applications</a></header>
 
 <main class="wrap account-shell">
-  <section class="intro account-intro">
-    <div class="account-architecture" aria-hidden="true"></div>
-    <div class="account-welcome">
-    <div class="account-crest" aria-hidden="true"><span>W</span></div>
-    <p class="eyebrow">Applicant account · private portal</p>
-    <h1>Your application,<br><em>answered.</em></h1>
-    <p class="lede">One quiet place for every application you have sent us. Sign in with your email to apply, see where each application stands, read the note from staff, and get ticket replies in your inbox.</p>
-    </div>
-    <div class="account-guide">
-    <ul class="assurances">
-      <li><span class="assurance-index">I.</span> One account for every role you apply to.</li>
-      <li><span class="assurance-index">II.</span> The decision is emailed the moment it is made.</li>
-      <li><span class="assurance-index">III.</span> No password to forget — just your email.</li>
-    </ul>
-    <p class="small">Every application is read by a person. Emails come from the Wigglesworth staff team, never a bot.</p>
-    </div>
-  </section>
-
+<section class="intro account-intro portal-welcome"><div class="portal-welcome-art" aria-hidden="true"></div><div class="portal-welcome-copy"><h1>Welcome back</h1><div class="portal-small-rule" aria-hidden="true">◇</div><p>Sign in to apply and track your application.</p></div></section>
   <section class="auth" aria-label="Sign in">
-    <div class="auth-heading"><span class="chapter-index"><span>01</span><i></i><span>YOUR ACCOUNT</span></span><p>A quiet place to follow what comes next.</p></div>
+
     <div class="card account-card">
       <i class="cnr tl"></i><i class="cnr tr"></i><i class="cnr bl"></i><i class="cnr br"></i>
 
@@ -314,8 +293,8 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
               <label for="email">Email address</label>
               <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
             </div>
-            <button class="primary" id="sendCodeBtn" type="submit">Email me a code</button>
-            <p class="hint">A 6-digit code arrives in a moment. It expires in 10 minutes and can only be used once.</p>
+            <button class="primary" id="sendCodeBtn" type="submit">Send a sign-in code</button>
+            <p class="hint">Your code expires in 10 minutes.</p>
           </div>
 
           <div id="codeStep" hidden>
@@ -337,7 +316,7 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
           </div>
           <div class="field">
             <label for="recApp">Application ID</label>
-            <input id="recApp" name="appId" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="MOD-ABC123" required>
+            <input id="recApp" name="appId" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="MOD-ABC234" required>
           </div>
           <button class="primary" id="recoverBtn" type="submit">Sign in</button>
           <p class="hint">Use the ID from your submission confirmation. Signing in also links older applications to this account.</p>
@@ -374,7 +353,7 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
         <form class="linkbox" id="linkForm" onsubmit="linkApp(event)" novalidate>
           <label for="linkId">Add an older application</label>
           <div class="row">
-            <input id="linkId" name="appId" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="MOD-ABC123">
+            <input id="linkId" name="appId" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="MOD-ABC234">
             <button class="secondary" type="submit">Link</button>
           </div>
           <p class="hint">Submitted before accounts existed? Add its Application ID here. Enter a TKT- ticket ID to open that private thread instead.</p>
@@ -387,7 +366,7 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
 </main>
 
 <footer>
-  <span>Wigglesworth staff applications · read by humans</span>
+  <span>Wigglesworth Applications</span>
   <span>Sign in to open the applications site</span>
 </footer>
 
