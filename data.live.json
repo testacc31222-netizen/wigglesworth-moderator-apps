@@ -7511,11 +7511,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-09T05:36:17.669Z",
-      "sentAt": ""
+      "sentAt": "2026-11-09T05:36:19.478Z"
     }
   ]
 }
