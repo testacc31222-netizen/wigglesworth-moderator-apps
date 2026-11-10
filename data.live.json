@@ -7549,11 +7549,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-10T01:17:57.841Z",
-      "sentAt": ""
+      "sentAt": "2026-11-10T01:17:59.316Z"
     }
   ]
 }
