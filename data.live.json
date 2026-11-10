@@ -7702,11 +7702,11 @@
       "kind": "receipt",
       "appId": "CC-L4FGF2",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-10T19:17:32.712Z",
-      "sentAt": ""
+      "sentAt": "2026-11-10T19:17:35.027Z"
     }
   ]
 }
