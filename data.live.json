@@ -3698,6 +3698,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-10T19:13:27.139Z",
+      "act": "account_login",
+      "id": "acc_8aab99026de514653f15f93f",
+      "by": ""
+    },
+    {
       "t": "2026-11-10T01:32:58.367Z",
       "act": "account_login",
       "id": "acc_bc25e2b983b44850c790cc99",
@@ -4289,12 +4295,6 @@
       "t": "2026-10-26T01:48:35.369Z",
       "act": "ai_denied",
       "id": "CC-URSKJS",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:48:09.433Z",
-      "act": "ai_denied",
-      "id": "CC-67K7L6",
       "by": ""
     }
   ],
@@ -5057,17 +5057,15 @@
       "email": "jamisoncole96@gmail.com",
       "createdAt": "2026-11-10T01:32:58.366Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_8aab99026de514653f15f93f",
       "email": "r97398283@gmail.com",
-      "hash": "565c92025112f74d01bb8c609ecc08066cae4294b76e28ae4dff5f2e57d170ab",
-      "exp": 1794338551612,
-      "tries": 0,
-      "created": 1794337951612
+      "createdAt": "2026-11-10T19:13:27.138Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
