@@ -7619,11 +7619,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-10T04:01:27.620Z",
-      "sentAt": ""
+      "sentAt": "2026-11-10T04:01:29.370Z"
     }
   ]
 }
