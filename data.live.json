@@ -4355,6 +4355,15 @@
   ],
   "diag": [
     {
+      "t": "2026-11-11T03:00:00.364Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.1.0.32.54.1101200317 C"
+    },
+    {
       "t": "2026-11-11T02:31:40.734Z",
       "build": "20261024d",
       "hero": true,
@@ -4788,15 +4797,6 @@
     },
     {
       "t": "2026-11-03T21:44:38.551Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/154.1.0.32.54.1101200317 C"
-    },
-    {
-      "t": "2026-11-03T20:54:50.209Z",
       "build": "20261024d",
       "hero": true,
       "gated": false,
