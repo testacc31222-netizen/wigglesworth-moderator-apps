@@ -3740,6 +3740,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-11T18:05:07.519Z",
+      "act": "account_login",
+      "id": "acc_a4e73af5cd3eceefab422bb8",
+      "by": ""
+    },
+    {
       "t": "2026-11-11T02:31:36.809Z",
       "act": "account_login",
       "id": "acc_d36a262fcce002b2b84d4e94",
@@ -4331,12 +4337,6 @@
       "t": "2026-10-26T01:50:14.115Z",
       "act": "ai_approved",
       "id": "CC-YSWS2L",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:48:53.839Z",
-      "act": "ai_denied",
-      "id": "CC-CHA7GM",
       "by": ""
     }
   ],
@@ -5111,17 +5111,15 @@
       "email": "dakotaphillup@gmail.com",
       "createdAt": "2026-11-11T02:31:36.808Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_a4e73af5cd3eceefab422bb8",
       "email": "negriuke19@gmail.com",
-      "hash": "3dfa309ee07929dba7a1c67b0e5c283d8931e11dde597e779d6560aab6098e7d",
-      "exp": 1794420857270,
-      "tries": 0,
-      "created": 1794420257270
+      "createdAt": "2026-11-11T18:05:07.519Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
