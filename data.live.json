@@ -7852,11 +7852,11 @@
       "kind": "receipt",
       "appId": "CC-GNTNJ8",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-11T18:11:08.908Z",
-      "sentAt": ""
+      "sentAt": "2026-11-11T18:11:10.125Z"
     }
   ]
 }
