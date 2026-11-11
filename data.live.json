@@ -3719,6 +3719,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-11T02:31:36.809Z",
+      "act": "account_login",
+      "id": "acc_d36a262fcce002b2b84d4e94",
+      "by": ""
+    },
+    {
       "t": "2026-11-10T19:13:27.139Z",
       "act": "account_login",
       "id": "acc_8aab99026de514653f15f93f",
@@ -4310,12 +4316,6 @@
       "t": "2026-10-26T01:48:53.839Z",
       "act": "ai_denied",
       "id": "CC-CHA7GM",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:48:35.369Z",
-      "act": "ai_denied",
-      "id": "CC-URSKJS",
       "by": ""
     }
   ],
@@ -5084,17 +5084,15 @@
       "email": "r97398283@gmail.com",
       "createdAt": "2026-11-10T19:13:27.138Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_d36a262fcce002b2b84d4e94",
       "email": "dakotaphillup@gmail.com",
-      "hash": "67be6edde7e13e7f90e809a6c3c55d7f8005888a8f0dd47d9481d970d3809e86",
-      "exp": 1794364867845,
-      "tries": 0,
-      "created": 1794364267845
+      "createdAt": "2026-11-11T02:31:36.808Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
