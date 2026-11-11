@@ -7817,11 +7817,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-11T18:04:17.271Z",
-      "sentAt": ""
+      "sentAt": "2026-11-11T18:04:19.004Z"
     }
   ]
 }
