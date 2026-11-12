@@ -3761,6 +3761,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-12T13:04:45.006Z",
+      "act": "account_login",
+      "id": "acc_6584150f51f776b906dc5cdf",
+      "by": ""
+    },
+    {
       "t": "2026-11-12T01:35:58.369Z",
       "act": "account_login",
       "id": "acc_13bece59c8b0831afd02a7f9",
@@ -4352,12 +4358,6 @@
       "t": "2026-10-26T01:51:34.684Z",
       "act": "deleted",
       "id": "CC-ET2PYD",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:51:27.195Z",
-      "act": "ai_denied",
-      "id": "CC-5RR3GD",
       "by": ""
     }
   ],
@@ -5146,15 +5146,7 @@
       "emailUpdates": true
     }
   ],
-  "loginCodes": [
-    {
-      "email": "noahsvr2016@gmail.com",
-      "hash": "bd8722bc2847ecd1d16fdd6fcbbe093a756e1e8114ba728163e85acfb3d0114f",
-      "exp": 1794489238424,
-      "tries": 0,
-      "created": 1794488638424
-    }
-  ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
