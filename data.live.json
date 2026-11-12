@@ -7951,11 +7951,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-12T23:29:57.115Z",
-      "sentAt": ""
+      "sentAt": "2026-11-12T23:29:58.325Z"
     }
   ]
 }
