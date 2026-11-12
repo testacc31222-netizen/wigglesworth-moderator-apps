@@ -7927,11 +7927,11 @@
       "kind": "receipt",
       "appId": "CC-HMTG6N",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-12T15:28:30.966Z",
-      "sentAt": ""
+      "sentAt": "2026-11-12T15:28:32.387Z"
     }
   ]
 }
