@@ -3761,6 +3761,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-12T01:35:58.369Z",
+      "act": "account_login",
+      "id": "acc_13bece59c8b0831afd02a7f9",
+      "by": ""
+    },
+    {
       "t": "2026-11-11T18:05:07.519Z",
       "act": "account_login",
       "id": "acc_a4e73af5cd3eceefab422bb8",
@@ -4352,12 +4358,6 @@
       "t": "2026-10-26T01:51:27.195Z",
       "act": "ai_denied",
       "id": "CC-5RR3GD",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:50:14.115Z",
-      "act": "ai_approved",
-      "id": "CC-YSWS2L",
       "by": ""
     }
   ],
@@ -5138,17 +5138,15 @@
       "email": "negriuke19@gmail.com",
       "createdAt": "2026-11-11T18:05:07.519Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_13bece59c8b0831afd02a7f9",
       "email": "joshu1963@icloud.com",
-      "hash": "78d123f63872b89bc37126a655c3839834df2fb70e09ce9cc8668702fb668e75",
-      "exp": 1794447880503,
-      "tries": 0,
-      "created": 1794447280503
+      "createdAt": "2026-11-12T01:35:58.369Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
