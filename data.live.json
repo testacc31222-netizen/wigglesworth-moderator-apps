@@ -246,7 +246,8 @@
       "u-stp3ry": "No applications linked yet.",
       "u-o2xyix": "Add one below with the Application ID from your confirmation.",
       "u-1oijt9r": "No support tickets linked to this account yet.",
-      "u-megrz3": "Open the applications site to contact staff."
+      "u-megrz3": "Open the applications site to contact staff.",
+      "t-home-2x51ce-0": "Play, enjoy, and help shape the community."
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -360,6 +361,10 @@
       "t-home-12m6v5h-0": {
         "dx": -275,
         "dy": -29
+      },
+      "t-home-1gefuuw-0": {
+        "dx": 7,
+        "dy": -14
       }
     },
     "decor": [],
@@ -3803,6 +3808,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-13T05:12:00.443Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-13T04:45:32.725Z",
       "act": "account_login",
       "id": "acc_df9e3f602662e7221d2a1f86",
@@ -4394,12 +4405,6 @@
       "t": "2026-10-26T01:54:51.395Z",
       "act": "deleted",
       "id": "MOD-LY7MHN",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:54:42.800Z",
-      "act": "deleted",
-      "id": "MOD-3XVJ2M",
       "by": ""
     }
   ],
