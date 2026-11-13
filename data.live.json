@@ -3895,6 +3895,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-13T21:38:10.759Z",
+      "act": "account_login",
+      "id": "acc_5f0dec1645ec186ba85069bd",
+      "by": ""
+    },
+    {
       "t": "2026-11-13T14:28:37.221Z",
       "act": "account_login",
       "id": "acc_a5a1a9d11aeff3b3ec3e7865",
@@ -4486,12 +4492,6 @@
       "t": "2026-10-26T02:08:03.460Z",
       "act": "ai_approved",
       "id": "EVT-BRV5V7",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T02:06:43.615Z",
-      "act": "ai_approved",
-      "id": "MOD-K3CEUA",
       "by": ""
     }
   ],
@@ -5296,17 +5296,15 @@
       "email": "christine@buckinghamfamily.net",
       "createdAt": "2026-11-13T14:28:37.220Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_5f0dec1645ec186ba85069bd",
       "email": "kvance4615@gmail.com",
-      "hash": "af262d8236eee68ca976a3b2b24afdc67aa4c9b196e4b6bcc1fbd1015868dcbd",
-      "exp": 1794606449378,
-      "tries": 0,
-      "created": 1794605849378
+      "createdAt": "2026-11-13T21:38:10.759Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
