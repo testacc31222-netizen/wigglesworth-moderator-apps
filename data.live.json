@@ -8220,11 +8220,11 @@
       "kind": "receipt",
       "appId": "CC-DFDU9M",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T05:26:41.675Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T05:26:43.207Z"
     }
   ]
 }
