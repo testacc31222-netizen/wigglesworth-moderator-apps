@@ -48,7 +48,7 @@ body.cinema-page {background:var(--calm-bg)!important;color:var(--calm-text)}
 .eye-gameplay {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;clip-path:circle(var(--aperture) at var(--eye-x,50%) var(--eye-y,50%));visibility:hidden}
 .film-visible .eye-gameplay {visibility:visible}
 .eye-apply {position:absolute;z-index:5;bottom:5%;left:50%;transform:translateX(-50%);padding:12px 30px;min-height:46px;border-radius:30px;background:#eee8dc;color:#142e2e!important;font:500 14px Manrope,sans-serif;display:flex;align-items:center;text-decoration:none}
-.eye-scroll {position:absolute;right:3.5vw;bottom:6%;z-index:5;color:#eee8dc!important;font:500 11px Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;opacity:var(--copy-opacity)}
+.eye-scroll {position:absolute;right:3.5vw;bottom:6%;z-index:5;color:#eee8dc!important;font:500 11px Manrope,sans-serif;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;opacity:var(--copy-opacity);border:0;background:none;padding:12px 0;min-height:44px;cursor:pointer}
 .eye-scroll::before {content:"";display:inline-block;width:90px;height:1px;background:#b6b6a9;vertical-align:middle;margin-right:22px}
 .eye-film-controls {position:absolute;bottom:6%;left:3.5vw;right:3.5vw;z-index:5;display:flex;justify-content:space-between;align-items:center;opacity:0;visibility:hidden;font-size:12px}
 .film-visible .eye-film-controls {opacity:1;visibility:visible}
