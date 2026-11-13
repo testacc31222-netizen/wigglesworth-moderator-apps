@@ -3217,6 +3217,27 @@
       "style": "Vr",
       "strikes": "No unfortanally",
       "receiptAt": "2026-11-12T15:28:30.966Z"
+    },
+    {
+      "appId": "CC-49LXN7",
+      "type": "creator",
+      "date": "2026-11-13T03:29:31.812Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "eliasscabr@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_df9e3f602662e7221d2a1f86",
+      "notifiedStatus": "",
+      "username": "Ghoststar",
+      "discord": "Not swetty",
+      "age": "13",
+      "why": "I love the game and it inspired me to experience more about the game and help out the community by doing content to make the game bigger and to help out the community by showing support to the game.",
+      "platform": "TikTok",
+      "channel": "https://www.tiktok.com/@tiktokzazu1?_r=1&_t=ZT-9BMO1s3yQO5",
+      "schedule": "I don’t stream",
+      "style": "Updates and sometimes be the imposter and imposter",
+      "strikes": "No",
+      "receiptAt": "2026-11-13T03:29:31.813Z"
     }
   ],
   "tickets": [
@@ -8040,6 +8061,22 @@
       "error": "",
       "createdAt": "2026-11-13T02:07:54.959Z",
       "sentAt": "2026-11-13T02:07:56.594Z"
+    },
+    {
+      "id": "mail_729374ba6e8e73548e",
+      "key": "CC-49LXN7:receipt",
+      "to": "eliasscabr@gmail.com",
+      "subject": "We received your Wigglesworth Content Creator application",
+      "text": "Hi Not swetty,\n\nYour Content Creator application (CC-49LXN7) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi Not swetty,</p><p style=\"margin:0 0 18px\">Your <b>Content Creator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">CC-49LXN7</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "CC-49LXN7",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-13T03:29:31.813Z",
+      "sentAt": ""
     }
   ]
 }
