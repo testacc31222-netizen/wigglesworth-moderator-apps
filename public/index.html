@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#080809">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -578,8 +578,10 @@ input:focus,textarea:focus,select:focus{border-color:rgba(193,74,84,.78);box-sha
 <script src="/journey.js?v=20261109" defer></script>
 <link rel="stylesheet" href="/calm.css?v=20261112">
 <script src="/portal-ui.js?v=20261112" defer></script>
+<link rel="stylesheet" href="/cinema.css?v=20261113">
+<script src="/cinema.js?v=20261113" defer></script>
 </head>
-<body class="main-page journey-page portal-refresh calm-page"><a class="journey-skip" href="#main">Skip to content</a>
+<body class="main-page journey-page portal-refresh calm-page cinema-page"><a class="journey-skip" href="#main">Skip to content</a>
 <script>
 window.__booted=false;window.__fatalShown=false;
 window.__showFatal=function(title,msg){
@@ -675,7 +677,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 <button type="button" onclick="openCodeModal()">Staff workspace</button>
 </div>
 </nav>
-<div class="nav-actions">
+<div class="nav-actions"><a class="cinema-play-nav" href="https://www.meta.com/en-gb/experiences/wigglesworth/25557330417282971/" target="_blank" rel="noopener noreferrer">Play Wigglesworth ↗</a>
 <a class="journey-signin" href="/signin">
 <svg class="j-icon" viewBox="0 0 24 24" aria-hidden="true">
 <circle cx="12" cy="7" r="4"/>
@@ -727,11 +729,15 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 
 
 
-<section class="hero journey-hero" id="apply" aria-labelledby="journeyHeading">
-<div class="journey-hero-content" data-generated-copy-ignore>
-<h1 id="journeyHeading">Join the Wigglesworth team</h1>
-<p class="journey-description">Choose a role below. Take your time with the questions, then check your application for updates.</p>
-<a class="calm-text-link" id="applyBtn" data-dkey="applyBtn" href="#roleMenu" data-journey-link>Explore roles <span aria-hidden="true">↗</span></a>
+<section class="eye-journey" id="apply" aria-labelledby="journeyHeading">
+<div class="eye-stage">
+<img class="eye-character" src="/wigglesworth-character.png" width="1254" height="1254" alt="Wigglesworth character" fetchpriority="high">
+<div class="eye-copy" data-generated-copy-ignore><h1 id="journeyHeading"><span>A world</span><span>of our own.</span></h1>
+<div class="eye-intro"><p>Play Wigglesworth.<br>Help shape what comes next.</p><a id="applyBtn" data-dkey="applyBtn" href="#roleMenu" data-journey-link>Explore roles ↗</a></div></div>
+<video class="eye-gameplay" id="heroGameplay" data-silent-video data-src="/wigglesworth-gameplay.mp4" poster="/wigglesworth-gameplay-poster.png" muted loop playsinline preload="none" aria-label="Wigglesworth gameplay, silent"></video>
+<div class="eye-film-controls"><span>Wigglesworth / In game</span><button id="heroPlayback" type="button" data-video-control="heroGameplay">Play gameplay</button></div>
+<a class="eye-apply" href="#roleMenu" data-journey-link>Apply now ↗</a>
+<a class="eye-scroll" href="#roleMenu" data-journey-link>Scroll to enter <span aria-hidden="true">↓</span></a>
 </div></section>
 <section class="journey-config" aria-label="Community announcements">
 <div id="announceBar" class="announce" data-dkey="announceBar" style="display:none">
@@ -849,7 +855,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </section>
 
 </div>
-<h3 class="calm-process-heading">What happens next</h3><div class="portal-process-strip">
+<div class="cinema-community"><div><h3>Inside Wigglesworth</h3><p>Play, create, and help shape the community.</p><a class="cinema-play" href="https://www.meta.com/en-gb/experiences/wigglesworth/25557330417282971/" target="_blank" rel="noopener noreferrer">Play Wigglesworth ↗</a></div><figure><video id="communityGameplay" data-silent-video data-src="/wigglesworth-community.mp4" poster="/wigglesworth-community-poster.png" muted loop playsinline preload="none" aria-label="Community gameplay, silent"></video><figcaption>In game<button type="button" data-video-control="communityGameplay">Play video</button></figcaption></figure></div><h3 class="calm-process-heading">What happens next</h3><div class="portal-process-strip">
 <div>
 <svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
 <circle cx="12" cy="7" r="4"/>
