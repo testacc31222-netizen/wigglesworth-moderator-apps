@@ -8028,11 +8028,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T00:19:16.036Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T00:19:17.619Z"
     }
   ]
 }
