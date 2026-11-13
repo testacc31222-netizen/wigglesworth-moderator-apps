@@ -8357,11 +8357,11 @@
       "kind": "receipt",
       "appId": "CC-WAH4R3",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T21:52:06.466Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T21:52:07.740Z"
     }
   ]
 }
