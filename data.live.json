@@ -8429,11 +8429,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T23:46:31.503Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T23:46:33.027Z"
     }
   ]
 }
