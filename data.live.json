@@ -3916,6 +3916,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-13T23:54:00.648Z",
+      "act": "account_login",
+      "id": "acc_b4462de131bfbf529d3178e0",
+      "by": ""
+    },
+    {
       "t": "2026-11-13T21:38:10.759Z",
       "act": "account_login",
       "id": "acc_5f0dec1645ec186ba85069bd",
@@ -4507,12 +4513,6 @@
       "t": "2026-10-26T02:10:23.273Z",
       "act": "ai_approved",
       "id": "EVT-M78V5T",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T02:08:03.460Z",
-      "act": "ai_approved",
-      "id": "EVT-BRV5V7",
       "by": ""
     }
   ],
@@ -5323,6 +5323,12 @@
       "email": "kvance4615@gmail.com",
       "createdAt": "2026-11-13T21:38:10.759Z",
       "emailUpdates": true
+    },
+    {
+      "id": "acc_b4462de131bfbf529d3178e0",
+      "email": "escobarjesed2016@gmail.com",
+      "createdAt": "2026-11-13T23:54:00.648Z",
+      "emailUpdates": true
     }
   ],
   "loginCodes": [
@@ -5332,13 +5338,6 @@
       "exp": 1794614191503,
       "tries": 0,
       "created": 1794613591503
-    },
-    {
-      "email": "escobarjesed2016@gmail.com",
-      "hash": "3ae2416da309eb66751380ebe0dc122c7e55932659c5b8257e65ec0b5c167320",
-      "exp": 1794614512908,
-      "tries": 0,
-      "created": 1794613912908
     }
   ],
   "outbox": [
