@@ -8072,11 +8072,11 @@
       "kind": "receipt",
       "appId": "CC-49LXN7",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T03:29:31.813Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T03:29:33.527Z"
     }
   ]
 }
