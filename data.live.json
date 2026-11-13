@@ -8252,11 +8252,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T14:28:12.179Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T14:28:13.616Z"
     }
   ]
 }
