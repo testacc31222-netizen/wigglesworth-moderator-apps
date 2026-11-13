@@ -1,0 +1,22 @@
+/* Staff-only editorial workspace. */
+.cinema-page #editor {padding:40px;background:#f5f0e5;border:1px solid #a8b8ad;border-radius:8px;box-shadow:0 18px 60px #18362d0a}
+.cinema-page #editor .ed-head {padding-bottom:28px;border-bottom:1px solid #b9c2b9;margin-bottom:28px}
+.cinema-page #editor h2 {font:300 38px/1.2 Manrope,sans-serif}
+.cinema-page #editor h3 {font:400 25px/1.4 Manrope,sans-serif;margin-block:28px 18px}
+.cinema-page #editor .tabs {gap:8px;padding:12px;background:#eee9de;border-radius:6px}
+.cinema-page #editor .tabs button {min-height:46px;padding:12px 18px;border:1px solid transparent;background:transparent;color:#36554c;border-radius:4px}
+.cinema-page #editor .tabs button.active {background:#214e47;color:#fff;border-color:#214e47}
+.cinema-page #editor .toolbar {display:flex;flex-wrap:wrap;gap:14px;margin-block:18px}
+.cinema-page #editor label {color:#294b41;font-weight:500}
+.cinema-page #editor input,.cinema-page #editor textarea,.cinema-page #editor select {font-weight:400;line-height:1.6}
+.cinema-page #editor .submission {padding:25px;margin-bottom:20px;border:1px solid #b1c0b5;border-radius:6px;background:#faf7ef}
+.cinema-page #editor .sub-head {gap:18px;align-items:center;padding-bottom:18px;border-bottom:1px solid #d0d8ce}
+.cinema-page #editor .avatar {background:#d9e5db;color:#214e47;border:0;border-radius:50%}
+.cinema-page #editor .copy-editor-item {padding:20px 0;border-bottom:1px solid #ccd4c8;background:transparent}
+.cinema-page #editor .copy-editor-item label {font-size:13px;margin-bottom:10px}
+.cinema-page #editor .staff-overview {padding:22px 26px;background:#dde7dc;border-left:3px solid #9d653e;color:#24483e;font-size:15px;line-height:1.8}
+.staff-quick-actions {display:flex;gap:12px;flex-wrap:wrap}
+.cinema-page #editor .staff-sort {display:flex;gap:10px;align-items:center;margin:0;min-width:220px;font-size:13px}
+.staff-sort select {flex:1}
+.cinema-page #editor .status {font-size:11px;padding:6px 10px;border-radius:3px}
+@media(max-width:760px){.cinema-page #editor{padding:20px}.cinema-page #editor h2{font-size:30px}.cinema-page #editor .toolbar>*{min-width:0!important;max-width:100%;flex-basis:100%!important}.cinema-page #editor .staff-sort{flex-wrap:wrap}.cinema-page #editor .submission{padding:18px}.cinema-page #editor .sub-head{flex-wrap:wrap}.cinema-page #editor .tabs{overflow:auto}}

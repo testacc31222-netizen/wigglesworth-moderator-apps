@@ -580,6 +580,7 @@ input:focus,textarea:focus,select:focus{border-color:rgba(193,74,84,.78);box-sha
 <script src="/portal-ui.js?v=20261112" defer></script>
 <link rel="stylesheet" href="/cinema.css?v=20261113b">
 <script src="/cinema.js?v=20261113b" defer></script>
+<link rel="stylesheet" href="/staff-workspace.css?v=20261113">
 </head>
 <body class="main-page journey-page portal-refresh calm-page cinema-page"><a class="journey-skip" href="#main">Skip to content</a>
 <script>
@@ -732,12 +733,12 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 <section class="eye-journey" id="apply" aria-labelledby="journeyHeading">
 <div class="eye-stage">
 <img class="eye-character" src="/wigglesworth-character.png" width="1254" height="1254" alt="Wigglesworth character" fetchpriority="high">
-<div class="eye-copy" data-generated-copy-ignore><h1 id="journeyHeading"><span>A world</span><span>of our own.</span></h1>
+<div class="eye-copy"><h1 id="journeyHeading"><span>A world</span><span>of our own.</span></h1>
 <div class="eye-intro"><p>Play Wigglesworth.<br>Help shape what comes next.</p><a id="applyBtn" data-dkey="applyBtn" href="#roleMenu" data-journey-link>Explore roles ↗</a></div></div>
 <video class="eye-gameplay" id="heroGameplay" data-silent-video data-src="/wigglesworth-gameplay.mp4" poster="/wigglesworth-gameplay-poster.png" muted loop playsinline preload="none" aria-label="Wigglesworth gameplay, silent"></video>
 <div class="eye-film-controls"><span>Wigglesworth / In game</span><button id="heroPlayback" type="button" data-video-control="heroGameplay">Play gameplay</button></div>
 <a class="eye-apply" href="#roleMenu" data-journey-link>Apply now ↗</a>
-<button class="eye-scroll" type="button" data-generated-copy-ignore>Scroll to enter <span aria-hidden="true">↓</span></button>
+<button class="eye-scroll" type="button">Scroll to enter <span aria-hidden="true">↓</span></button>
 </div></section>
 <section class="journey-config" aria-label="Community announcements">
 <div id="announceBar" class="announce" data-dkey="announceBar" style="display:none">
@@ -755,7 +756,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </div>
 </section>
   <section class="application-stage portal-section portal-roles" id="apply-form">
-<header class="portal-section-heading" data-generated-copy-ignore><h2>Roles</h2><p>Find the position that fits your skills.</p></header>
+<header class="portal-section-heading"><h2>Roles</h2><p>Find the position that fits your skills.</p></header>
     <div class="application-columns"><div class="calm-role-workspace">
       <section class="role-selection" id="roleMenu">
         <div class="role-selection-head"><span>Available positions</span><span class="role-count">Available roles</span></div>
@@ -1136,7 +1137,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
         <summary>Edit all other public page text and placeholders</summary>
         <p class="hint">These saved words are shared with every visitor, including the account page. Role names, application questions, FAQ entries, and the About section above have their own editors.</p>
         <label for="copySearch">Find text</label><input id="copySearch" type="search" placeholder="Search navigation, forms, requirements…">
-        <div id="publicCopyEditor"></div>
+        <p class="hint">Edit public wording here, including the opening headline. Use the Roles, Questions and General tabs for their managed content. Save All Changes publishes saved wording to everyone; visitors see it when they reopen or refresh the page.</p><div id="publicCopyEditor"></div>
       </details>
       <hr>
       <label for="e_rules">Rules / Info box (one per line)</label><textarea id="e_rules" rows="4"></textarea>
@@ -1189,13 +1190,13 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     </div>
 
     <div id="tab-apps" class="tabpane">
-      <div id="auditLog" style="margin-bottom:10px"></div>
+      <p id="staffOverview" class="staff-overview" role="status"></p><div class="staff-quick-actions"><button type="button" class="btn-small" onclick="document.getElementById('appFilter').value='pending';renderSubs()">Needs review</button><button type="button" class="btn-small" onclick="document.getElementById('appSearch').value='';document.getElementById('appFilter').value='';document.getElementById('appTypeFilter').value='';renderSubs()">Clear filters</button></div><div id="auditLog" style="margin-bottom:10px"></div>
       <div class="toolbar">
         <input id="appSearch" placeholder="Find someone — name, ID, any answer word…" oninput="renderSubs()" style="flex:1;min-width:220px">
       </div>
       <div class="toolbar">
         <select id="appTypeFilter" onchange="renderSubs()" style="flex:1"><option value="">All roles</option></select>
-        <select id="appFilter" onchange="renderSubs()" style="flex:1"><option value="">All</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="denied">Denied</option></select>
+        <label class="staff-sort" for="appSort">Date order<select id="appSort" onchange="renderSubs()"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></label><select id="appFilter" onchange="renderSubs()" style="flex:1"><option value="">All</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="denied">Denied</option></select>
       </div>
       <div class="toolbar">
         <button class="btn-small" onclick="exportCSV()">Export CSV</button>
@@ -1253,7 +1254,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </div>
 
 <script src="site-copy.js?v=20261025b"></script>
-<script src="app.js?v=20261112"></script>
+<script src="app.js?v=staff-20261113"></script>
 <script>
 function toggleNav(){
   const nav=document.getElementById('topnav');

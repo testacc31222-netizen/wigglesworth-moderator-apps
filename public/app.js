@@ -782,6 +782,14 @@ async function renderSubs(){
     if(q && !JSON.stringify(s).toLowerCase().includes(q)) return false;
     return true;
   });
+  const oldest = $('appSort')?.value === 'oldest';
+  shown.sort((a,b)=>{
+    const time = value => Number.isFinite(Date.parse(value)) ? Date.parse(value) : 0;
+    const delta = time(a.date)-time(b.date);
+    return oldest ? delta : -delta;
+  });
+  const overview = $('staffOverview');
+  if(overview) overview.textContent = `${subs.length} applications · ${subs.filter(s=>s.status==='pending').length} awaiting review · ${subs.filter(s=>s.status==='approved').length} accepted · ${subs.filter(s=>s.status==='denied').length} denied`;
   $('subCount').textContent = shown.length + ' of ' + subs.length;
   const w=$('subs'); w.innerHTML = shown.length?'':'<p class="hint">No matches. Try a name, ID, or any answer word.</p>';
   const qmap = {};
