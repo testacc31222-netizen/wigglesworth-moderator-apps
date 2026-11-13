@@ -3803,6 +3803,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-13T04:45:32.725Z",
+      "act": "account_login",
+      "id": "acc_df9e3f602662e7221d2a1f86",
+      "by": ""
+    },
+    {
       "t": "2026-11-13T02:08:53.275Z",
       "act": "account_login",
       "id": "acc_34ae6fefad9e2f9b4c35c5d3",
@@ -4394,12 +4400,6 @@
       "t": "2026-10-26T01:54:42.800Z",
       "act": "deleted",
       "id": "MOD-3XVJ2M",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:53:15.969Z",
-      "act": "ai_summary",
-      "id": "MOD-K3CEUA",
       "by": ""
     }
   ],
@@ -5200,15 +5200,7 @@
       "emailUpdates": true
     }
   ],
-  "loginCodes": [
-    {
-      "email": "eliasscabr@gmail.com",
-      "hash": "c0dc4f8385e611fa83bc2087f0b1dc42aa33d5999ae1dac22f863d7d8785607e",
-      "exp": 1794545625677,
-      "tries": 0,
-      "created": 1794545025677
-    }
-  ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
