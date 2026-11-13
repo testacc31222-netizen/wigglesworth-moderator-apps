@@ -3252,23 +3252,6 @@
   ],
   "tickets": [
     {
-      "id": "TKT-6WLBB2",
-      "name": "ConnCheck",
-      "subject": "Delivery test",
-      "status": "open",
-      "unread": true,
-      "createdAt": "2026-10-02T04:52:32.412Z",
-      "updatedAt": "2026-10-02T04:52:32.412Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "ConnCheck",
-          "text": "Staff - this is an automated delivery test, safe to delete",
-          "at": "2026-10-02T04:52:32.412Z"
-        }
-      ]
-    },
-    {
       "id": "TKT-DP4J9Y",
       "name": "Kgy",
       "subject": "I want to be a moderator",
@@ -3812,6 +3795,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-11-13T05:12:30.841Z",
+      "act": "ticket_deleted",
+      "id": "TKT-6WLBB2",
+      "by": ""
+    },
     {
       "t": "2026-11-13T05:12:08.223Z",
       "act": "config_saved",
@@ -4403,12 +4392,6 @@
     {
       "t": "2026-10-26T02:00:53.538Z",
       "act": "status_denied",
-      "id": "MOD-DRVK8G",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:56:54.501Z",
-      "act": "ai_summary",
       "id": "MOD-DRVK8G",
       "by": ""
     }
