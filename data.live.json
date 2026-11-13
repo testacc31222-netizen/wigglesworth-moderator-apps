@@ -8397,11 +8397,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T23:36:57.707Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T23:36:59.167Z"
     }
   ]
 }
