@@ -49,4 +49,34 @@
     window.setMode(target.id === 'tabId' ? 'id' : 'email', false);
     target.focus();
   }));
+  // One delegated listener and one frame at a time, only while a mouse is over a role.
+  // Native cursor, keyboard focus and touch interactions remain unchanged.
+  const hoverMotion = matchMedia('(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference)');
+  let hoverTarget = null, hoverFrame = 0, pointerX = 0, pointerY = 0;
+  function clearHover() {
+    cancelAnimationFrame(hoverFrame); hoverFrame = 0;
+    if (hoverTarget) {
+      hoverTarget.style.removeProperty('--pointer-x');
+      hoverTarget.style.removeProperty('--pointer-y');
+    }
+    hoverTarget = null;
+  }
+  document.addEventListener('pointermove', event => {
+    if (!hoverMotion.matches || event.pointerType !== 'mouse') return;
+    const target = event.target.closest('.role-row.is-open');
+    if (target !== hoverTarget) { clearHover(); hoverTarget = target; }
+    if (!target) return;
+    pointerX = event.clientX; pointerY = event.clientY;
+    if (hoverFrame) return;
+    hoverFrame = requestAnimationFrame(() => {
+      hoverFrame = 0;
+      if (!hoverTarget) return;
+      const rect = hoverTarget.getBoundingClientRect();
+      hoverTarget.style.setProperty('--pointer-x', `${Math.round(pointerX - rect.left)}px`);
+      hoverTarget.style.setProperty('--pointer-y', `${Math.round(pointerY - rect.top)}px`);
+    });
+  }, {passive:true});
+  document.documentElement.addEventListener('pointerleave', clearHover);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) clearHover(); });
+  hoverMotion.addEventListener('change', clearHover);
 })();

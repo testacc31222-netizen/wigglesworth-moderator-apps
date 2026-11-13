@@ -255,8 +255,7 @@ function renderTypeCards(){
     b.dataset.roleId = t.id;
     b.disabled = closed;
     b.onclick = ()=>pickType(t.id);
-    const emblem = ['moderator','content','developer','event'].findIndex(key => String(t.id + ' ' + t.name).toLowerCase().includes(key));
-    b.innerHTML = `<span class="role-emblem role-emblem-${emblem < 0 ? 'default' : emblem}" aria-hidden="true"></span><span class="role-copy"><h4>${esc(t.name)}</h4><p>${esc(t.blurb || (closed ? 'Applications are currently closed.' : 'Help the Wigglesworth community.'))}</p></span><span class="role-row-actions"><span class="tick">${closed ? 'Closed' : 'Open'}</span>${closed ? '' : '<span class="go">Apply <span aria-hidden="true">→</span></span>'}</span>`;
+    b.innerHTML = `<span class="role-copy"><h4>${esc(t.name)}</h4><p>${esc(t.blurb || (closed ? 'Applications are currently closed.' : 'Help the Wigglesworth community.'))}</p></span><span class="role-row-actions"><span class="tick">${closed ? 'Closed' : 'Open'}</span>${closed ? '' : '<span class="go">View role <span aria-hidden="true">↗</span></span>'}</span>`;
     w.appendChild(b);
   });
   const roleCount = document.querySelector('.role-count');

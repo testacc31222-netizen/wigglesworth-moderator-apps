@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#080809">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -575,13 +575,11 @@ input:focus,textarea:focus,select:focus{border-color:rgba(193,74,84,.78);box-sha
 </style>
 <link rel="stylesheet" href="/gothic-luxury.css?v=preview-20261025">
 <link rel="stylesheet" href="/astra-cinematic.css?v=6">
-<link rel="stylesheet" href="/journey.css?v=20261109">
-<link rel="preload" as="image" href="/journey-ruins.webp">
 <script src="/journey.js?v=20261109" defer></script>
-<link rel="stylesheet" href="/portal-refresh.css?v=20261109c">
-<script src="/portal-ui.js?v=20261109c" defer></script>
+<link rel="stylesheet" href="/calm.css?v=20261112">
+<script src="/portal-ui.js?v=20261112" defer></script>
 </head>
-<body class="main-page journey-page portal-refresh"><a class="journey-skip" href="#main">Skip to content</a>
+<body class="main-page journey-page portal-refresh calm-page"><a class="journey-skip" href="#main">Skip to content</a>
 <script>
 window.__booted=false;window.__fatalShown=false;
 window.__showFatal=function(title,msg){
@@ -630,8 +628,8 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </span>
 </button>
 <a class="brand" href="#apply" aria-label="Wigglesworth Applications home">
-<img class="journey-crest" src="/journey-crest.png" alt="" width="80" height="80">
-<span>WIGGLESWORTH<small>APPLICATIONS</small>
+<span class="calm-monogram" aria-hidden="true">W</span>
+<span>Wigglesworth <small>Applications</small>
 </span>
 </a>
 <nav class="nav-links" id="navLinks" aria-label="Main navigation">
@@ -730,49 +728,11 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 
 
 <section class="hero journey-hero" id="apply" aria-labelledby="journeyHeading">
-<div class="journey-art" aria-hidden="true">
-</div>
 <div class="journey-hero-content" data-generated-copy-ignore>
-<p class="journey-kicker">WIGGLESWORTH APPLICATIONS</p>
-<h1 id="journeyHeading">
-<span class="journey-line">YOUR JOURNEY</span>
-<br>STARTS <em>HERE.</em>
-</h1>
-<p class="journey-description">Apply to join the Wigglesworth team and help<br class="desktop-break"> shape the future of our community.</p>
-<div class="journey-actions">
-<a class="journey-primary" id="applyBtn" data-dkey="applyBtn" href="#apply-form">Apply Now</a>
-<a class="journey-secondary" href="#process">
-<svg class="j-icon" viewBox="0 0 24 24" aria-hidden="true">
-<circle cx="12" cy="12" r="10"/>
-<path d="M12 11v7M12 6h.01"/>
-</svg>
-<span>Learn More</span>
-</a>
-</div>
-<div class="journey-highlights" aria-label="Why join Wigglesworth">
-<div>
-<svg class="j-icon" viewBox="0 0 24 24" aria-hidden="true">
-<circle cx="12" cy="7" r="4"/>
-<path d="M5 22v-3a7 7 0 0 1 14 0v3ZM4 5a3 3 0 0 0 0 6m16-6a3 3 0 0 1 0 6M3 15a5 5 0 0 0-2 4v2h2m18-6a5 5 0 0 1 2 4v2h-2"/>
-</svg>
-<p>Support<br>the Community</p>
-</div>
-<div>
-<svg class="j-icon" viewBox="0 0 24 24" aria-hidden="true">
-<path d="m2 7 10-5 10 5-10 5ZM2 12l10 5 10-5M2 17l10 5 10-5"/>
-</svg>
-<p>Create<br>Experiences</p>
-</div>
-<div>
-<svg class="j-icon" viewBox="0 0 24 24" aria-hidden="true">
-<path d="m12 2 3 6 7 1-5 5 1 8-6-4-6 4 1-8-5-5 7-1Z"/>
-</svg>
-<p>Make<br>an Impact</p>
-</div>
-</div>
-</div>
-<div class="journey-mobile-ornament" aria-hidden="true">◇</div>
-</section>
+<h1 id="journeyHeading">Join the Wigglesworth team</h1>
+<p class="journey-description">Choose a role below. Take your time with the questions, then check your application for updates.</p>
+<a class="calm-text-link" id="applyBtn" data-dkey="applyBtn" href="#roleMenu" data-journey-link>Explore roles <span aria-hidden="true">↗</span></a>
+</div></section>
 <section class="journey-config" aria-label="Community announcements">
 <div id="announceBar" class="announce" data-dkey="announceBar" style="display:none">
 </div>
@@ -787,37 +747,45 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </p>
 <div class="rich" id="topText" data-dkey="topText">
 </div>
-</section>  <nav class="hero-paths" aria-label="Application shortcuts"><a href="#apply-form"><span data-generated-copy-ignore>01</span> Explore positions <b aria-hidden="true" data-generated-copy-ignore>↗</b></a><a href="/signin"><span data-generated-copy-ignore>02</span> Track an application <b aria-hidden="true" data-generated-copy-ignore>↗</b></a><a href="#requirements"><span data-generated-copy-ignore>03</span> Read the requirements <b aria-hidden="true" data-generated-copy-ignore>↘</b></a></nav>
-
-<section id="process" class="portal-section portal-community" aria-labelledby="communityHeading">
-<header class="portal-section-heading" data-generated-copy-ignore>
-<h2 id="communityHeading">
-<span id="aboutTitleA">Join the Wigglesworth</span> <em id="aboutTitleB">team</em>
-</h2>
-<p id="aboutLede">Help make Wigglesworth a better place to play.</p>
-</header>
-<div class="portal-community-grid">
-<section id="why" class="portal-community-art" aria-label="Our community">
-<img class="portal-crystals" src="/portal-community.webp" alt="Three amethyst crystals representing community, creativity, and impact" loading="lazy" width="960" height="640">
-<div class="portal-feature-labels">
-<div>
-<h3 id="aboutFeatureTitle1">Support the community</h3>
-<p id="aboutFeatureText1">Help create a safer and better community for everyone.</p>
-</div>
-<div>
-<h3 id="aboutFeatureTitle2">Create experiences</h3>
-<p id="aboutFeatureText2">Work alongside dedicated and passionate members.</p>
-</div>
-<div>
-<h3 id="aboutFeatureTitle3">Make an impact</h3>
-<p id="aboutFeatureText3">Build valuable skills in moderation and community management.</p>
-</div>
-</div>
-<div class="portal-config-copy" hidden>
-<span id="aboutEyebrow">About</span>
-</div>
 </section>
-<section id="requirements" class="portal-requirements">
+  <section class="application-stage portal-section portal-roles" id="apply-form">
+<header class="portal-section-heading" data-generated-copy-ignore><h2>Roles</h2><p>Find the position that fits your skills.</p></header>
+    <div class="application-columns"><div class="calm-role-workspace">
+      <section class="role-selection" id="roleMenu">
+        <div class="role-selection-head"><span>Available positions</span><span class="role-count">Available roles</span></div>
+        <div id="roleCards" class="role-grid"></div>
+        <p class="selection-foot"><a href="#status">Already applied? Check your status <span aria-hidden="true">→</span></a></p>
+      </section>
+
+  <div class="panel application-form-panel" id="applyCard" style="display:none">
+    <i class="cnr tl" aria-hidden="true"></i><i class="cnr tr" aria-hidden="true"></i><i class="cnr bl" aria-hidden="true"></i><i class="cnr br" aria-hidden="true"></i>
+    <button class="form-back" type="button" onclick="resetForm()">← All roles</button>
+    <header class="application-heading">
+    <div class="role-kicker" id="roleKicker">Application</div>
+    <h2 id="roleName" style="margin:4px 0 6px"></h2>
+    <p class="subtitle" id="roleIntro"></p>
+    </header>
+    <div class="rules" id="appRules" data-dkey="appRules"></div>
+    <div class="form-progress" id="applicationProgress" aria-live="polite"><div class="progress-caption"><span>Application progress</span><b id="applicationProgressText">0% complete</b></div><div class="progress-track" role="progressbar" aria-label="Application completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="applicationProgressFill"></span></div></div>
+    <div class="application-workspace">
+      <nav class="application-step-nav" id="applicationStepNav" aria-label="Application sections"></nav>
+      <form id="modForm" onsubmit="return submitApp(event)" novalidate></form>
+    </div>
+    <div id="success">
+      <h2>Application received</h2>
+      <p id="successMsg"></p>
+      <div class="hint">Save your Application ID to check your decision later:</div>
+      <div class="appid" id="newAppId">—</div>
+      <p class="emailnote" id="successEmail" style="display:none"></p>
+      <div class="row">
+        <button class="btn-small" onclick="copyAppId()">Copy ID</button>
+        <a class="btn-small" href="/signin" style="text-decoration:none;display:inline-flex;align-items:center">Sign in for updates</a>
+        <button class="btn-small" onclick="resetForm()">Back to roles</button>
+      </div>
+    </div>
+    <div class="rich" id="bottomText" data-dkey="bottomText"></div>
+  </div>
+    </div><aside class="calm-role-aside"><section id="requirements" class="portal-requirements">
 <h2>Before you apply</h2>
 <ul>
 <li>
@@ -850,9 +818,38 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </div>
 </li>
 </ul>
-</section>
+</section><div class="calm-returning"><h3>Already applied?</h3><p>Sign in to see your applications and messages from staff.</p><a href="/signin">View your account <span aria-hidden="true">↗</span></a></div></aside></div>
+  </section>
+<section id="process" class="portal-section portal-community" aria-labelledby="communityHeading">
+<header class="portal-section-heading" data-generated-copy-ignore>
+<h2 id="communityHeading">
+<span id="aboutTitleA">Join the Wigglesworth</span> <em id="aboutTitleB">team</em>
+</h2>
+<p id="aboutLede">Help make Wigglesworth a better place to play.</p>
+</header>
+<div class="portal-community-grid">
+<section id="why" class="portal-community-art" aria-label="Our community">
+<div class="portal-feature-labels">
+<div>
+<h3 id="aboutFeatureTitle1">Support the community</h3>
+<p id="aboutFeatureText1">Help create a safer and better community for everyone.</p>
 </div>
-<div class="portal-process-strip">
+<div>
+<h3 id="aboutFeatureTitle2">Create experiences</h3>
+<p id="aboutFeatureText2">Work alongside dedicated and passionate members.</p>
+</div>
+<div>
+<h3 id="aboutFeatureTitle3">Make an impact</h3>
+<p id="aboutFeatureText3">Build valuable skills in moderation and community management.</p>
+</div>
+</div>
+<div class="portal-config-copy" hidden>
+<span id="aboutEyebrow">About</span>
+</div>
+</section>
+
+</div>
+<h3 class="calm-process-heading">What happens next</h3><div class="portal-process-strip">
 <div>
 <svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true">
 <circle cx="12" cy="7" r="4"/>
@@ -886,45 +883,6 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </a>
 </div>
 </section>
-  <section class="application-stage portal-section portal-roles" id="apply-form">
-<header class="portal-section-heading"><h2>Find your <em>role</em></h2><p>Choose how you want to help the community.</p></header>
-    <div class="application-columns">
-      <section class="role-selection" id="roleMenu">
-        <div class="role-selection-head"><h3>Applications</h3><span class="role-count">Available roles</span></div>
-        <div id="roleCards" class="role-grid"></div>
-        <p class="selection-foot"><a href="#status">Already applied? Check your status <span aria-hidden="true">→</span></a></p>
-      </section>
-
-  <div class="panel application-form-panel" id="applyCard" style="display:none">
-    <i class="cnr tl" aria-hidden="true"></i><i class="cnr tr" aria-hidden="true"></i><i class="cnr bl" aria-hidden="true"></i><i class="cnr br" aria-hidden="true"></i>
-    <button class="form-back" type="button" onclick="resetForm()">← All roles</button>
-    <header class="application-heading">
-    <div class="role-kicker" id="roleKicker">Application</div>
-    <h2 id="roleName" style="margin:4px 0 6px"></h2>
-    <p class="subtitle" id="roleIntro"></p>
-    </header>
-    <div class="rules" id="appRules" data-dkey="appRules"></div>
-    <div class="form-progress" id="applicationProgress" aria-live="polite"><div class="progress-caption"><span>Application progress</span><b id="applicationProgressText">0% complete</b></div><div class="progress-track" role="progressbar" aria-label="Application completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="applicationProgressFill"></span></div></div>
-    <div class="application-workspace">
-      <nav class="application-step-nav" id="applicationStepNav" aria-label="Application sections"></nav>
-      <form id="modForm" onsubmit="return submitApp(event)" novalidate></form>
-    </div>
-    <div id="success">
-      <h2>Application received</h2>
-      <p id="successMsg"></p>
-      <div class="hint">Save your Application ID to check your decision later:</div>
-      <div class="appid" id="newAppId">—</div>
-      <p class="emailnote" id="successEmail" style="display:none"></p>
-      <div class="row">
-        <button class="btn-small" onclick="copyAppId()">Copy ID</button>
-        <a class="btn-small" href="/signin" style="text-decoration:none;display:inline-flex;align-items:center">Sign in for updates</a>
-        <button class="btn-small" onclick="resetForm()">Back to roles</button>
-      </div>
-    </div>
-    <div class="rich" id="bottomText" data-dkey="bottomText"></div>
-  </div>
-    </div>
-  </section>
 
   <div class="panel reveal countdown-panel" id="countCard" style="display:none">
     <div class="eyebrow">Update countdown</div><h2 id="cdTitle" style="margin:4px 0 10px"></h2>
@@ -959,7 +917,6 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 <div id="ticketResult">
 </div>
 </div>
-      <img class="portal-rail-crest" src="/journey-crest.png" alt="" width="180" height="180" loading="lazy">
 </aside>
 <div class="portal-support-content">      <div class="panel portal-support-panel" id="contact" role="tabpanel" aria-labelledby="support-question-tab">
         <div class="eyebrow" data-dkey="contactEyebrow">Private tickets</div>
@@ -1022,7 +979,6 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </section>
 <section class="answers-stage portal-section portal-answers">
 <section class="portal-status" id="status" aria-labelledby="statusHeading">
-<img src="/portal-scroll.webp" alt="" width="180" height="180" loading="lazy">
 <div class="portal-status-copy">
 <span class="portal-config-copy" data-dkey="statusEyebrow" hidden>Your decision</span>
 <h2 id="statusHeading" data-dkey="statusTitle">Check your application</h2>
@@ -1291,138 +1247,8 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </div>
 
 <script src="site-copy.js?v=20261025b"></script>
-<script src="app.js?v=20261025d"></script>
+<script src="app.js?v=20261112"></script>
 <script>
-(function(){
-  try{
-    var reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
-    // falling ash (lightweight, skipped for reduced motion)
-    if(!reduced){
-      var box=document.getElementById('embers');
-      for(var i=0;i<26;i++){
-        var s=document.createElement('i');
-        var sz=1.4+Math.random()*2.2;
-        s.style.width=s.style.height=sz.toFixed(1)+'px';
-        s.style.left=(Math.random()*100)+'vw';
-        s.style.background=Math.random()<.28?'rgba(166,44,53,.55)':'rgba(184,177,167,.5)';
-        s.style.animationDuration=(11+Math.random()*15)+'s';
-        s.style.animationDelay=(-Math.random()*22)+'s';
-        box.appendChild(s);
-      }
-      // hero dust motes drifting at three depths
-      var sp=document.querySelector('.specks');
-      if(sp){
-        var bands=[{n:6,sz:[1,1.6],blur:1,o:.22,wx:1.4,wy:12,dur:48},{n:5,sz:[1.8,2.4],blur:.4,o:.3,wx:2.6,wy:20,dur:36},{n:4,sz:[2.6,3.4],blur:0,o:.42,wx:4,wy:28,dur:26}];
-        if(window.innerWidth<640)bands=bands.slice(0,2);
-        bands.forEach(function(band){
-          for(var k=0;k<band.n;k++){
-            var m=document.createElement('i');
-            var ms=band.sz[0]+Math.random()*(band.sz[1]-band.sz[0]);
-            m.style.width=m.style.height=ms.toFixed(1)+'px';
-            m.style.left=(4+Math.random()*92)+'%';
-            m.style.top=(10+Math.random()*78)+'%';
-            if(band.blur)m.style.filter='blur('+band.blur+'px)';
-            m.style.setProperty('--o',(band.o*(.7+Math.random()*.5)).toFixed(2));
-            m.style.setProperty('--d',(band.dur+Math.random()*14).toFixed(1)+'s');
-            m.style.setProperty('--dl',(-Math.random()*60).toFixed(1)+'s');
-            m.style.setProperty('--wx',((Math.random()<.5?-1:1)*(band.wx+Math.random()*1.6)).toFixed(2)+'vw');
-            m.style.setProperty('--wy',(Math.random()<.72?-(band.wy+Math.random()*8):(band.wy*.5+Math.random()*8)).toFixed(1)+'vh');
-            sp.appendChild(m);
-          }
-        });
-      }
-    }
-    // Reveal every observed content section, including editorial sections that
-    // are not panels. Otherwise their initial opacity keeps them hidden forever.
-    var els=document.querySelectorAll('.main .reveal');
-    els.forEach(function(el,idx){
-      if(!el.classList.contains('reveal'))el.classList.add('reveal');
-      el.style.transitionDelay=((idx%3)*70)+'ms';
-    });
-    if('IntersectionObserver' in window){
-      var io=new IntersectionObserver(function(es){
-        es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-      },{threshold:.06});
-      els.forEach(function(el){io.observe(el)});
-    }else{els.forEach(function(el){el.classList.add('in')})}
-    // close mobile nav on link tap
-    var nl=document.getElementById('navLinks');
-    if(nl)nl.addEventListener('click',function(e){if(e.target.tagName==='A')document.getElementById('topnav').classList.remove('nav-open')});
-    if(!reduced){
-      var hero=document.querySelector('.hero');
-      var scene=hero?hero.querySelector('.scene'):null;
-      // subtle cursor + scroll parallax on the scene layers (CSS reads these vars)
-      if(hero&&scene){
-        var mx=0,my=0,tx=0,ty=0,sc=0,tsc=0,running=false,inView=true;
-        var paint=function(){
-          scene.style.setProperty('--mx',mx.toFixed(3));
-          scene.style.setProperty('--my',my.toFixed(3));
-          scene.style.setProperty('--sc',sc.toFixed(2));
-        };
-        var tick=function(){
-          mx+=(tx-mx)*.055;my+=(ty-my)*.055;sc+=(tsc-sc)*.14;paint();
-          if(Math.abs(mx-tx)>.002||Math.abs(my-ty)>.002||Math.abs(sc-tsc)>.2){requestAnimationFrame(tick)}else{running=false}
-        };
-        var kick=function(){if(!running&&inView&&!document.hidden){running=true;requestAnimationFrame(tick)}};
-        window.addEventListener('pointermove',function(e){
-          if(e.pointerType&&e.pointerType!=='mouse')return;
-          tx=(e.clientX/window.innerWidth-.5)*2;ty=(e.clientY/window.innerHeight-.5)*2;kick();
-        },{passive:true});
-        var onScroll=function(){
-          var r=hero.getBoundingClientRect();
-          tsc=Math.max(0,Math.min(100,(-r.top/Math.max(1,r.offsetHeight))*100));
-          kick();
-        };
-        window.addEventListener('scroll',onScroll,{passive:true});
-        onScroll();paint();kick();
-        if('IntersectionObserver' in window){
-          new IntersectionObserver(function(es){inView=es[0].isIntersecting;if(inView)kick()},{threshold:0}).observe(hero);
-        }
-        document.addEventListener('visibilitychange',function(){if(!document.hidden)kick()});
-      }
-      // torchlight glow following the cursor across the navbar
-      var nav=document.getElementById('topnav');
-      if(nav)nav.addEventListener('pointermove',function(e){
-        if(e.pointerType&&e.pointerType!=='mouse')return;
-        var r=nav.getBoundingClientRect();
-        nav.style.setProperty('--nx',((e.clientX-r.left)/r.width*100).toFixed(2)+'%');
-        nav.style.setProperty('--ny',(e.clientY-r.top).toFixed(0)+'px');
-      },{passive:true});
-      // bats crossing the sky now and then
-      if(scene){
-        var bats=0;
-        var batSVG='<svg viewBox="0 0 48 22"><path class="wl" d="M24 11C20 5 12 2.4 2.4 6.2c3.8 1.8 5.8 4 5 7.2 1.5-2.2 5.2-2.4 7.6-.4 1.6 1.3 3.6 2.4 6.2 2.4z"/><path class="wr" d="M24 11c4-6 12-8.6 21.6-4.8-3.8 1.8-5.8 4-5 7.2-1.5-2.2-5.2-2.4-7.6-.4-1.6 1.3-3.6 2.4-6.2 2.4z"/><ellipse cx="24" cy="12.4" rx="2.6" ry="3.6"/><circle cx="23" cy="8.6" r=".75" fill="#C14A54" stroke="none"/><circle cx="25" cy="8.6" r=".75" fill="#C14A54" stroke="none"/></svg>';
-        var spawnBat=function(){
-          if(document.hidden||bats>1)return;
-          var b=document.createElement('div');
-          b.className='bat'+(Math.random()<.34?' rev':'');
-          b.style.width=(24+Math.random()*20).toFixed(0)+'px';
-          b.style.top=(6+Math.random()*30).toFixed(0)+'%';
-          b.style.setProperty('--bd',(26+Math.random()*26).toFixed(0)+'s');
-          b.style.setProperty('--fs',(.46+Math.random()*.34).toFixed(2)+'s');
-          b.innerHTML=batSVG;
-          scene.appendChild(b);bats++;
-          b.addEventListener('animationend',function(){bats--;b.remove()});
-        };
-        setTimeout(function batLoop(){spawnBat();setTimeout(batLoop,16000+Math.random()*26000)},7000+Math.random()*6000);
-      }
-      // smooth glide-in whenever an application pane appears
-      ['roleMenu','applyCard','success','countCard','accepted','reportDone','ticketCreated'].forEach(function(id){
-        var el=document.getElementById(id);
-        if(!el)return;
-        var wasVisible=getComputedStyle(el).display!=='none';
-        el.addEventListener('animationend',function(ev){if(ev.target===el&&ev.animationName==='paneIn')el.classList.remove('pane-in')});
-        if('MutationObserver' in window){
-          new MutationObserver(function(){
-            var vis=getComputedStyle(el).display!=='none';
-            if(vis&&!wasVisible)el.classList.add('pane-in');
-            wasVisible=vis;
-          }).observe(el,{attributes:true,attributeFilter:['style']});
-        }
-      });
-    }
-  }catch(e){}
-})();
 function toggleNav(){
   const nav=document.getElementById('topnav');
   const open=nav.classList.toggle('nav-open');
