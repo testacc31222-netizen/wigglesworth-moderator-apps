@@ -8322,11 +8322,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T21:37:29.378Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T21:37:30.736Z"
     }
   ]
 }
