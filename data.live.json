@@ -247,7 +247,8 @@
       "u-o2xyix": "Add one below with the Application ID from your confirmation.",
       "u-1oijt9r": "No support tickets linked to this account yet.",
       "u-megrz3": "Open the applications site to contact staff.",
-      "t-home-2x51ce-0": "Play, enjoy, and help shape the community."
+      "t-home-2x51ce-0": "Play, enjoy, and help shape the community.",
+      "t-home-1ab3u47-0": "What happens next"
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -367,8 +368,8 @@
         "dy": -14
       },
       "t-home-1ab3u47-0": {
-        "dx": 31,
-        "dy": 45
+        "dx": 58,
+        "dy": 66
       }
     },
     "decor": [],
@@ -3812,6 +3813,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-13T05:12:08.223Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-13T05:12:04.793Z",
       "act": "config_saved",
       "id": "",
@@ -4403,12 +4410,6 @@
       "t": "2026-10-26T01:56:54.501Z",
       "act": "ai_summary",
       "id": "MOD-DRVK8G",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T01:56:12.892Z",
-      "act": "ai_summary",
-      "id": "MOD-BADS89",
       "by": ""
     }
   ],
