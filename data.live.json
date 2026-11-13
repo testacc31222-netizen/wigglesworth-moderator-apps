@@ -8381,11 +8381,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T23:32:35.470Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T23:32:36.980Z"
     }
   ]
 }
