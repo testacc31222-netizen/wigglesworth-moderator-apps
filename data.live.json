@@ -8183,11 +8183,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-13T05:15:18.206Z",
-      "sentAt": ""
+      "sentAt": "2026-11-13T05:15:19.576Z"
     }
   ]
 }
