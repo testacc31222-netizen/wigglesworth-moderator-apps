@@ -9440,11 +9440,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T21:02:29.599Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T21:02:31.392Z"
     }
   ]
 }
