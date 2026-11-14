@@ -1,0 +1,79 @@
+/* Copper and ice light on midnight surfaces. Static gradients avoid paint-heavy motion. */
+:root{
+ --ambient-text:#e6e9ed;--ambient-muted:#b3bfcd;--ambient-line:#435365;
+ --ambient-base:#0c1522;--ambient-raised:#142234;--ambient-link:#b9def5;
+ --ambient-light:radial-gradient(ellipse at 0% 12%,#bc652c30,transparent 58%),radial-gradient(ellipse at 100% 80%,#64b5ed30,transparent 60%),linear-gradient(125deg,#19171d,#0c1522 55%,#102238);
+ --calm-bg:var(--ambient-base);--calm-surface:var(--ambient-raised);--calm-text:var(--ambient-text);--calm-muted:var(--ambient-muted);--calm-line:var(--ambient-line);--calm-link:var(--ambient-link);--calm-accent:#25445e;
+ --muted:var(--ambient-muted);--silver:var(--ambient-muted);--faint:var(--ambient-muted);--ivory:var(--ambient-text);--text:var(--ambient-text);
+}
+body.cinema-page,body.cinema-page.application-focus{background:var(--ambient-base)!important;color:var(--ambient-text);color-scheme:dark}
+.cinema-page :is(.game-showcase,.community-spread,.journey-config,#apply-form,.portal-support,.portal-answers){background:var(--ambient-light);color:var(--ambient-text)}
+.cinema-page .world-editorial{background:var(--ambient-light)}
+.cinema-page .game-showcase{background:var(--ambient-base)}
+.cinema-page :is(.world-editorial,.community-title) h2,.cinema-page .portal-section-heading h2,.cinema-page .portal-support-panel h3,.cinema-page .portal-status h2,.cinema-page .portal-faq h2{color:var(--ambient-text)}
+.cinema-page :is(.world-note,.community-note,.roles-heading) p,.cinema-page .chapter-index,.cinema-page .portal-section-heading p{color:var(--ambient-muted)}
+.cinema-page :is(.world-note,.community-note) a{color:#edbd97}
+.cinema-page :is(.navbar,.journey-bottom),.cinema-page.cinema-paper .navbar,.cinema-page.application-focus .navbar{background:#0c1522f2;color:var(--ambient-text);border-color:#7ba7c044}
+.cinema-page.cinema-paper .cinema-play-nav,.cinema-page.application-focus .cinema-play-nav{color:#edbd97!important;border-color:#c48e6266}
+.cinema-page .nav-links>a[aria-current],.cinema-page.cinema-paper .nav-links>a[aria-current]{box-shadow:inset 0 -1px #c89873}
+.cinema-page .navbar .brand,.cinema-page .journey-signin{color:var(--ambient-text)!important}
+.cinema-page .journey-bottom a{color:#bac8d6}
+.cinema-page .journey-bottom a[aria-current]{background:#1d3044;color:#dfecf6}
+.cinema-page .eye-intro .hero-discover,.cinema-page .ending-actions a:first-child{background:linear-gradient(120deg,#51352b,#303349 60%,#25475b);border-color:#b8927277;color:#f1e7dc}
+.cinema-page .eye-intro .hero-discover:hover,.cinema-page .ending-actions a:first-child:hover{border-color:#c3dced}
+.cinema-page .detail-apply{background:linear-gradient(120deg,#56392c,#223e57);color:#f1e8dc;border-color:#a8c7dd88}
+.cinema-page .role-row,.cinema-page .role-row:last-child{border-color:var(--ambient-line)}
+.cinema-page .role-row h4{color:var(--ambient-text)}
+.cinema-page .role-row .role-copy p,.cinema-page .role-row .tick{color:var(--ambient-muted)}
+.cinema-page .role-row .go{color:#c6e1f3}
+.cinema-page .role-row .role-sigil{color:#e5b087}
+.cinema-page .role-row.is-closed :is(h4,.role-sigil,.tick){color:#a0adbb}
+.cinema-page .role-row.is-open:is(:hover,.role-selected){background:linear-gradient(100deg,#a55c2521,#6ab5ee16);border-color:#8ba9be;box-shadow:inset 2px 0 #c48e62}
+.cinema-page .role-row.is-open:hover .role-sigil{color:#c7e1f4}
+.cinema-page .role-detail{background:radial-gradient(ellipse at top left,#ad652421,transparent 65%),#101e2d;border-top:1px solid #a7c5d74d}
+.cinema-page :is(.portal-support,.portal-answers,.portal-faq,.portal-status,.application-heading,.application-workspace,.form-step-actions){border-color:var(--ambient-line)}
+.cinema-page :is(input:not([type=checkbox]):not([type=radio]),textarea,select),.cinema-page #modForm :is(input,textarea,select){background:#0d1928!important;color:var(--ambient-text);border-color:#62798e}
+.cinema-page :is(input,textarea)::placeholder{color:#a4b1c0;opacity:1}
+.cinema-page :is(input,textarea,select):focus{border-color:#b9d9ef;box-shadow:0 0 0 2px #87bedb19}
+.cinema-page :is(a,button,input,textarea,select,summary,[tabindex]):focus-visible{outline-color:#b5d6ee}
+.cinema-page :is(.panel,.card,.dlg,.modal-box,.dialog,.modal-card,.codebox){background:var(--ambient-raised);color:var(--ambient-text);border-color:var(--ambient-line)}
+.cinema-page :is(.btn-small,.secondary,.ghost,.step-previous,.form-back){background:#16273a;color:#dce7ef;border-color:#71889c}
+.cinema-page :is(.btn-small,.secondary,.ghost,.step-previous,.form-back):hover{background:#25394b;border-color:#cc9c77}
+.cinema-page :is(.btn-primary,.btn-confirm,.primary,.step-next,.step-submit){color:#eef3f7;border-color:#7197b2}
+.cinema-page .application-form-panel,.cinema-page .portal-support-panel{background:transparent}
+.cinema-page #applyCard :is(#roleName,#roleIntro),.cinema-page .form-section-heading h3{color:var(--ambient-text)}
+.cinema-page :is(.step-link-number,.form-section-heading p,#bottomText){color:var(--ambient-muted)}
+.cinema-page .step-link{color:var(--ambient-muted);border-color:var(--ambient-line)}
+.cinema-page :is(.step-link.active,.portal-support-tabs [aria-selected=true]){background:#25394c;color:#e4edf4;border-left-color:#adcee5}
+.cinema-page .step-link-mark{border-color:#a4c0d3;box-shadow:none}
+.cinema-page .step-link.active .step-link-mark{background:#c59a78;box-shadow:none}
+.cinema-page :is(.rules,.notice,.appid){background:#172a3a;color:#d1dde6;border-color:#70899d}
+.cinema-page .progress-track{background:#344452}
+.cinema-page #applicationProgressFill{background:linear-gradient(90deg,#c18b60,#91c6e6)}
+.cinema-page #evdrop{background:#112033;color:var(--ambient-text);border-color:#7c96aa}
+.cinema-page #evdrop span{color:var(--ambient-muted)}
+.cinema-page #success h2{color:var(--ambient-text)!important}
+.cinema-page #success .appid{color:#c6e1f3;border-color:#647f93}
+.cinema-page :is(.empty,.status-box,.submission,.ticket-row,.reply){background:#142538;color:#d3dfeb;border-color:#526c81}
+.cinema-page .status.pending{background:#3b3023;color:#f1d3a2;border-color:#a38a61}
+.cinema-page :is(.status.approved,.status.accepted){background:#17352f;color:#b9e2ce;border-color:#669f87}
+.cinema-page .status.denied{background:#3c2631;color:#f0c0d0;border-color:#ae7c8d}
+.cinema-page #announceBar{background:linear-gradient(100deg,#7a48242c,#64b5ed14);color:#ecc5a6;border-color:#ba916d}
+.cinema-page.portal-account .account-shell{background:var(--ambient-light)}
+.cinema-page.portal-account .top{background:#0c1522;color:var(--ambient-text);border-color:var(--ambient-line)}
+.cinema-page.portal-account .top .brand{color:var(--ambient-text)}
+.cinema-page.portal-account .account-card{background:transparent!important}
+.cinema-page.portal-account .account-card .tabs button{color:var(--ambient-muted)}
+.cinema-page.portal-account .account-card .tabs button.active{color:#d8e9f5;border-color:#c4926d}
+.cinema-page.portal-account :is(.app,.empty,.notice,.msg){background:#142538;color:#d3dfeb;border-color:#526c81}
+.cinema-page.portal-account .app{background:transparent}
+.cinema-page.portal-account .pill.pending{color:#f1d3a2;border-color:#a38a61}
+.cinema-page.portal-account .pill.approved{color:#b9e2ce;border-color:#669f87}
+.cinema-page.portal-account .pill.denied{color:#f0c0d0;border-color:#ae7c8d}
+.cinema-page #editor{background:var(--ambient-light);border-color:var(--ambient-line);box-shadow:none}
+.cinema-page #editor .tabs{background:#122236}
+.cinema-page #editor :is(.tabs button,label){color:#c1d0de}
+.cinema-page #editor :is(.tabs button.active,.tab.active){background:#29415a;color:#edf2f6;border-color:#87a6bc}
+.cinema-page #editor :is(.submission,.staff-overview,.avatar){background:#142a3c;color:#d9e6ef;border-color:#647f93}
+.cinema-page #editor :is(.ed-head,.sub-head,.copy-editor-item){border-color:var(--ambient-line)}
+@media(max-width:760px){.cinema-page .journey-bottom{background:#0c1522f5;border-color:#526b805c}.cinema-page .journey-bottom a[aria-current]{color:#e5eff7;background:#20364b}.cinema-page .navbar.nav-open .nav-links{background:#101c2a}}
