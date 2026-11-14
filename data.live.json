@@ -3958,6 +3958,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-14T05:08:42.090Z",
+      "act": "account_login",
+      "id": "acc_847396fd73cdf3ab6d405021",
+      "by": ""
+    },
+    {
       "t": "2026-11-14T01:14:31.952Z",
       "act": "account_login",
       "id": "acc_8e5f5102303f79f8c246f976",
@@ -4549,12 +4555,6 @@
       "t": "2026-10-26T05:01:48.471Z",
       "act": "account_login",
       "id": "acc_14fcc57ac64fe148e2e31233",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T02:40:42.372Z",
-      "act": "account_login",
-      "id": "acc_7d0c3e23962045e048eae80b",
       "by": ""
     }
   ],
@@ -5377,6 +5377,12 @@
       "email": "durden.isaac@icloud.com",
       "createdAt": "2026-11-14T01:14:31.952Z",
       "emailUpdates": true
+    },
+    {
+      "id": "acc_847396fd73cdf3ab6d405021",
+      "email": "duckyboy1172@gmail.com",
+      "createdAt": "2026-11-14T05:08:42.089Z",
+      "emailUpdates": true
     }
   ],
   "loginCodes": [
@@ -5393,13 +5399,6 @@
       "exp": 1794633007991,
       "tries": 0,
       "created": 1794632407991
-    },
-    {
-      "email": "duckyboy1172@gmail.com",
-      "hash": "62076d22fd1f8c4c4da92dbd8a6e08b20d2fb34590909223e35a2e2a05f21240",
-      "exp": 1794633426934,
-      "tries": 1,
-      "created": 1794632826934
     }
   ],
   "outbox": [
