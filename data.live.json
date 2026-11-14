@@ -3146,7 +3146,7 @@
       "email": "rmatthew31@icloud.com",
       "emailUpdates": true,
       "accountId": "acc_49dddb73e8f2f888a2def2ad",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "Zaki",
       "discord": "kakaguys123",
       "age": "13",
@@ -3156,7 +3156,8 @@
       "schedule": "3-4 times a week",
       "style": "I used to make gtag copy content but now i am making content for this game more",
       "strikes": "I got a warning once for commenting the b word in a comment",
-      "receiptAt": "2026-11-05T01:42:12.999Z"
+      "receiptAt": "2026-11-05T01:42:12.999Z",
+      "notifiedAt": "2026-11-14T05:21:48.458Z"
     },
     {
       "appId": "CC-RK7SEX",
@@ -8849,11 +8850,11 @@
       "kind": "decision",
       "appId": "CC-5EHTKF",
       "decisionStatus": "denied",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T05:21:47.241Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T05:21:48.458Z"
     }
   ]
 }
