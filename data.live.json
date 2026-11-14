@@ -3916,6 +3916,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-14T00:25:33.372Z",
+      "act": "account_login",
+      "id": "acc_6f4cdda9c2a8413e10e97599",
+      "by": ""
+    },
+    {
       "t": "2026-11-13T23:54:00.648Z",
       "act": "account_login",
       "id": "acc_b4462de131bfbf529d3178e0",
@@ -4507,12 +4513,6 @@
       "t": "2026-10-26T02:26:45.700Z",
       "act": "account_login",
       "id": "acc_d28a47cbb5dae6b1b9158fcb",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T02:10:23.273Z",
-      "act": "ai_approved",
-      "id": "EVT-M78V5T",
       "by": ""
     }
   ],
@@ -5331,15 +5331,7 @@
       "emailUpdates": true
     }
   ],
-  "loginCodes": [
-    {
-      "email": "testacc31222@gmail.com",
-      "hash": "8ba63e26f3ce319b8c4796e18bdc87d7abe067e8afc68cab3f87a0d298414084",
-      "exp": 1794616508109,
-      "tries": 0,
-      "created": 1794615908109
-    }
-  ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
