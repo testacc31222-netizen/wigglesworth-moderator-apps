@@ -3125,7 +3125,7 @@
       "email": "turbobeast2535@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_827ae272f611e3c0da0fae5b",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "R4",
       "discord": "r4_real",
       "age": "14",
@@ -3135,7 +3135,8 @@
       "schedule": "Everyday around 4pm - 9pm",
       "style": "I make high quality, or sometimes I make medium content / a little less effort than high quality, but I will still spend 30 minutes - 1 hour editing.",
       "strikes": "Yes",
-      "receiptAt": "2026-11-05T01:18:40.125Z"
+      "receiptAt": "2026-11-05T01:18:40.125Z",
+      "notifiedAt": "2026-11-14T05:22:09.772Z"
     },
     {
       "appId": "CC-5EHTKF",
@@ -8866,11 +8867,11 @@
       "kind": "decision",
       "appId": "CC-UD6UVF",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T05:22:08.554Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T05:22:09.772Z"
     }
   ]
 }
