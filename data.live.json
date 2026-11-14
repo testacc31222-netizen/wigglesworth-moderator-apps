@@ -3640,6 +3640,26 @@
       "scenario": "Give them a warning to stop spamming if they don't agree I time them out for 10 minutes",
       "rulebreak": "I have been banned from other games I have never been banned from this game but I've been banned from one game and that game was chimp taggers because I never knew the rules there was no rule board so I casually thought I'm going to click speed boost button because they had that in the game and I didn't see a rule board in sight so when I was using it in tag someone told me to turn it off but right before I could a moderator saw me using it and banned me for 3 days",
       "receiptAt": "2026-11-14T18:34:08.907Z"
+    },
+    {
+      "appId": "MOD-SCJT9K",
+      "type": "moderator",
+      "date": "2026-11-14T18:52:39.551Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "elijahhalstead711@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_ded0c1ea73181b71c9843666",
+      "notifiedStatus": "",
+      "username": "Tempest",
+      "discord": "Victor67823",
+      "age": "13",
+      "timezone": "5hrs",
+      "experience": "None",
+      "why": "I will be active every weekend and i would help the community",
+      "scenario": "Give them 3 warnings and if they don't stop i will contact quantum",
+      "rulebreak": "No BC i never did anything bad to get banned",
+      "receiptAt": "2026-11-14T18:52:39.551Z"
     }
   ],
   "tickets": [
@@ -9385,6 +9405,22 @@
       "error": "",
       "createdAt": "2026-11-14T18:34:08.907Z",
       "sentAt": "2026-11-14T18:34:10.713Z"
+    },
+    {
+      "id": "mail_726d926cfa609a6136",
+      "key": "MOD-SCJT9K:receipt",
+      "to": "elijahhalstead711@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi Victor67823,\n\nYour Moderator application (MOD-SCJT9K) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi Victor67823,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-SCJT9K</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-SCJT9K",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-14T18:52:39.551Z",
+      "sentAt": ""
     }
   ]
 }
