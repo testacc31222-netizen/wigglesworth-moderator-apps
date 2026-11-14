@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const journey = document.querySelector('.eye-journey');
-  const homeEntry = journey && (!location.hash || location.hash === '#apply') && !new URLSearchParams(location.search).has('ticket');
+  const homeEntry = journey && (!location.hash || ['#apply','#discover'].includes(location.hash)) && !new URLSearchParams(location.search).has('ticket');
   if (homeEntry) history.scrollRestoration = 'manual';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const saveData = navigator.connection?.saveData;
@@ -73,15 +73,15 @@
   if (homeEntry) {
     resetOpening();
     addEventListener('pageshow',()=>{
-      if (!location.hash || location.hash === '#apply') resetOpening();
+      if (!location.hash || ['#apply','#discover'].includes(location.hash)) resetOpening();
     });
   }
   if (journey) {
     document.addEventListener('click',event=>{
-      const home = event.target.closest('a[href="#apply"]');
+      const home = event.target.closest('a[href="#apply"],a[href="#discover"]');
       if (!home) return;
       event.preventDefault();
-      history.replaceState(null,'',location.pathname+location.search+'#apply');
+      history.replaceState(null,'',location.pathname+location.search+home.hash);
       resetOpening();
     },true);
     journey.querySelector('.eye-scroll').addEventListener('click',()=>{
@@ -101,6 +101,6 @@
   const reveals = new IntersectionObserver(entries => entries.forEach(entry => {
     if (entry.isIntersecting) { entry.target.classList.add('cinema-entered'); reveals.unobserve(entry.target); }
   }), {threshold:0.08});
-  document.querySelectorAll('.portal-section-heading,.portal-process-strip,.cinema-community').forEach(el=>reveals.observe(el));
+  document.querySelectorAll('.portal-section-heading,.portal-process-strip,.cinema-community,.showcase-intro,.showcase-film,.showcase-join').forEach(el=>reveals.observe(el));
   render();
 })();

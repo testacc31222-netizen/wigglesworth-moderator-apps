@@ -1,0 +1,26 @@
+.discover-anchor {position:absolute;inset:0 auto auto 0;scroll-margin-top:0!important}
+.cinema-page .eye-intro {max-width:420px}
+.eye-intro-actions {display:flex;gap:25px;flex-wrap:wrap;align-items:center}
+.cinema-page .eye-intro .hero-play {color:#f0d3b5;border-color:#d78e5b88}
+.cinema-page .showcase-apply-shortcut {position:fixed;right:28px;bottom:24px;z-index:55;display:flex;align-items:center;justify-content:center;min-height:48px;padding:13px 24px;background:#17283d;color:#f5f0e5;border:1px solid #a8d7f455;border-radius:30px;font:500 13px Manrope,sans-serif;text-decoration:none;box-shadow:0 4px 18px #080e1c12}
+.cinema-page .showcase-apply-shortcut:hover {border-color:#d78e5b;background:#21384e}
+.game-showcase {background:#080e1c;color:#f5f0e5;padding:120px max(30px,calc((100vw - 1320px)/2));overflow:hidden}
+.showcase-intro,.showcase-join {display:grid;grid-template-columns:1.2fr 1fr;gap:100px;align-items:center}
+.cinema-page .game-showcase h2 {font:300 clamp(42px,5.7vw,82px)/1.08 Manrope,sans-serif;letter-spacing:-.05em;color:#f5f0e5;margin:0}
+.cinema-page .game-showcase p {color:#c0cad5;max-width:490px;font-size:16px;line-height:1.9;margin:0 0 25px}
+.cinema-page .game-showcase a {display:inline-flex;align-items:center;min-height:44px;color:#c6def0;font-size:14px;text-underline-offset:8px}
+.showcase-film {margin:80px 0 110px}
+.showcase-film video {display:block;width:100%;aspect-ratio:854/480;object-fit:cover;background:#080e1c}
+.showcase-film figcaption {display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid #a8d7f42b;font-size:12px;color:#bac9d9}
+.showcase-film button {background:none;border:1px solid #9cb6ce66;border-radius:3px;color:#f5f0e5;min-height:44px;padding:10px 18px;font:500 12px Manrope,sans-serif}
+.game-showcase .showcase-community {padding:0 0 100px;margin:0;border:0;grid-template-columns:minmax(0,1fr) minmax(240px,360px);gap:110px}
+.cinema-page .game-showcase h3 {color:#f5f0e5;font-size:clamp(34px,4.5vw,60px);font-weight:300}
+.game-showcase .cinema-community figcaption {color:#bac9d9}
+.game-showcase .cinema-community figcaption button {color:#f5f0e5;border-color:#9cb6ce66}
+.showcase-join {padding-top:100px;border-top:1px solid #a8d7f42b}
+.showcase-join>div {display:flex;flex-wrap:wrap;gap:8px 30px}
+.showcase-join p {flex-basis:100%}
+.cinema-page.cinema-paper .navbar {background:#f5f0e5f5}
+.cinema-page .game-showcase :focus-visible {outline:2px solid #a8d7f4;outline-offset:5px}
+@media(max-width:760px){.game-showcase{padding:65px 22px}.showcase-intro,.showcase-join{grid-template-columns:1fr;gap:30px}.cinema-page .game-showcase h2{font-size:46px}.cinema-page .game-showcase p{font-size:14px}.showcase-film{margin:40px 0 65px}.showcase-film figcaption{align-items:flex-start;font-size:11px}.game-showcase .showcase-community{grid-template-columns:1fr;gap:30px;padding-bottom:60px}.showcase-join{padding-top:60px}.cinema-page .journey-bottom{grid-template-columns:repeat(4,minmax(0,1fr))}.cinema-page .showcase-apply-shortcut{bottom:calc(88px + env(safe-area-inset-bottom));right:16px;min-height:44px;font-size:12px;padding:11px 18px}.eye-intro-actions{gap:10px 20px}.cinema-page .eye-intro a{font-size:12px}.cinema-page .eye-intro{bottom:13%}}
+@media(prefers-reduced-motion:reduce){.game-showcase *,.showcase-apply-shortcut{animation:none!important;transition:none!important}}

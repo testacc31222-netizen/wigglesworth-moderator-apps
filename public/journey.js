@@ -6,7 +6,8 @@
   const header = document.getElementById('topnav');
   const toggle = document.querySelector('.nav-toggle');
   function select(hash) {
-    const target = hash || '#apply';
+    const raw = hash || '#apply';
+    const target = ['#apply','#game-world'].includes(raw) ? '#discover' : raw === '#apply-form' ? '#roleMenu' : raw;
     links.forEach(link => {
       if (link.getAttribute('href') === target) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
@@ -24,7 +25,7 @@
     closeMenu();
     select(link.hash);
     if (fromDrawer) {
-      const target = document.querySelector(link.hash);
+      const target = document.querySelector(link.hash === '#discover' ? '#apply' : link.hash);
       if (target) { target.setAttribute('tabindex', '-1'); target.focus({preventScroll:true}); }
     }
   }));
@@ -46,7 +47,7 @@
     toggle.setAttribute('aria-label', toggle.getAttribute('aria-expanded') === 'true' ? 'Close navigation' : 'Open navigation');
   }).observe(toggle, {attributes:true, attributeFilter:['aria-expanded']});
   if ('IntersectionObserver' in window) {
-    const sections = ['apply', 'roleMenu', 'apply-form', 'process', 'faq'].map(id => document.getElementById(id)).filter(Boolean);
+    const sections = ['apply', 'game-world', 'roleMenu', 'apply-form', 'process', 'faq'].map(id => document.getElementById(id)).filter(Boolean);
     const positions = new Map();
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => positions.set(entry.target.id, entry.isIntersecting));
