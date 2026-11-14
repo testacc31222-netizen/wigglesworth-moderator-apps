@@ -3410,6 +3410,27 @@
       "style": "i make vr videos of random games and i just started like making content on wigglesworth im editing vids everyday",
       "strikes": "no",
       "receiptAt": "2026-11-14T01:23:29.127Z"
+    },
+    {
+      "appId": "CC-MZNSY3",
+      "type": "creator",
+      "date": "2026-11-14T05:14:14.475Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "duckyboy1172@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_847396fd73cdf3ab6d405021",
+      "notifiedStatus": "",
+      "username": "Mintvrfr",
+      "discord": "MintFrVr",
+      "age": "13",
+      "why": "I think the game is very well made and honestly I think I’d be a great add to the community",
+      "platform": "YouTube",
+      "channel": "@MintVrFr",
+      "schedule": "At least twice a week",
+      "style": "I make kind of funny content and my whole goal is to make people laugh and people to have fun",
+      "strikes": "No",
+      "receiptAt": "2026-11-14T05:14:14.476Z"
     }
   ],
   "tickets": [
@@ -8750,6 +8771,22 @@
       "error": "",
       "createdAt": "2026-11-14T05:14:07.302Z",
       "sentAt": "2026-11-14T05:14:08.635Z"
+    },
+    {
+      "id": "mail_068a7766844ee75bca",
+      "key": "CC-MZNSY3:receipt",
+      "to": "duckyboy1172@gmail.com",
+      "subject": "We received your Wigglesworth Content Creator application",
+      "text": "Hi MintFrVr,\n\nYour Content Creator application (CC-MZNSY3) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi MintFrVr,</p><p style=\"margin:0 0 18px\">Your <b>Content Creator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">CC-MZNSY3</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "CC-MZNSY3",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-14T05:14:14.476Z",
+      "sentAt": ""
     }
   ]
 }
