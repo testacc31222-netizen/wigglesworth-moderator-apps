@@ -3580,6 +3580,26 @@
       "scenario": "So first i will warn them and if they keep continuing i will time them out and if they continue after the timeout i will let a higher up deal with it",
       "rulebreak": "Yes bc i was mad and said f u to someone",
       "receiptAt": "2026-11-14T15:50:17.422Z"
+    },
+    {
+      "appId": "MOD-B8C88N",
+      "type": "moderator",
+      "date": "2026-11-14T16:25:09.223Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "magicvr13@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_f315978292b9be841a17f08f",
+      "notifiedStatus": "",
+      "username": "Magicgt",
+      "discord": "itzmagicvrr",
+      "age": "13",
+      "timezone": "2-4 hours",
+      "experience": "None but I am a wigglesworth content creator",
+      "why": "I have been seeing a lot of people cursing, toxicity, and N word spam and I am day one and I know the responsibilities I have to do when being a moderator in a game. I love this game and would love to be a part of the wigglesworth staff team!",
+      "scenario": "1. I would say \"Please don't blow up the chat because people might get annoyed from too much notifications2.  I would say \"Please stop it or you will have to face a consequence3.  I would say \"This is your final warning so stop it!4. \"This has gone too far you will have your consequence",
+      "rulebreak": "In this game or any other game, I have not been banned",
+      "receiptAt": "2026-11-14T16:25:09.224Z"
     }
   ],
   "tickets": [
@@ -9223,6 +9243,22 @@
       "error": "",
       "createdAt": "2026-11-14T16:10:53.968Z",
       "sentAt": "2026-11-14T16:10:55.244Z"
+    },
+    {
+      "id": "mail_3d0c3f8204a3969a5c",
+      "key": "MOD-B8C88N:receipt",
+      "to": "magicvr13@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi itzmagicvrr,\n\nYour Moderator application (MOD-B8C88N) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi itzmagicvrr,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-B8C88N</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-B8C88N",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-14T16:25:09.224Z",
+      "sentAt": ""
     }
   ]
 }
