@@ -9007,11 +9007,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T14:47:43.644Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T14:47:45.189Z"
     }
   ]
 }
