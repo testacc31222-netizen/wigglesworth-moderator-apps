@@ -9078,11 +9078,11 @@
       "kind": "receipt",
       "appId": "MOD-F487A6",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T15:25:39.180Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T15:25:40.462Z"
     }
   ]
 }
