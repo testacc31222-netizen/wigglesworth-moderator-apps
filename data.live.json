@@ -9416,11 +9416,11 @@
       "kind": "receipt",
       "appId": "MOD-SCJT9K",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T18:52:39.551Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T18:52:40.946Z"
     }
   ]
 }
