@@ -4309,6 +4309,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-14T22:58:41.859Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
       "t": "2026-11-14T21:02:45.766Z",
       "act": "account_login",
       "id": "acc_bc9472f64e82b3269669d325",
@@ -4900,12 +4906,6 @@
       "t": "2026-10-29T23:49:44.477Z",
       "act": "account_login",
       "id": "acc_c1cc3627f64fc2ab0adf0c9a",
-      "by": ""
-    },
-    {
-      "t": "2026-10-29T23:48:50.647Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
@@ -5752,17 +5752,15 @@
       "email": "taber4289@gmail.com",
       "createdAt": "2026-11-14T21:02:45.766Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_d235da1c2e7996fe90c8970d",
       "email": "masonwebb2399@gmail.com",
-      "hash": "16f0a1c718c6c4dd1b4d1a503fa596bafd31290c9d84ccc72e9ab3f2d89fdb14",
-      "exp": 1794697694706,
-      "tries": 0,
-      "created": 1794697094706
+      "createdAt": "2026-11-14T22:58:41.859Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
