@@ -9498,11 +9498,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T22:54:45.963Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T22:54:47.567Z"
     }
   ]
 }
