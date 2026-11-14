@@ -3310,12 +3310,12 @@
       "appId": "CC-49LXN7",
       "type": "creator",
       "date": "2026-11-13T03:29:31.812Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Hey Not swetty,\n\nCongratulations on being accepted as a Content Creator for Wigglesworth! We were especially excited to see your enthusiasm for the game and how you plan to share updates and even play the role of the imposter—that creative twist really stood out. Our staff will reach out soon with the next steps. Welcome aboard!",
       "email": "eliasscabr@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_df9e3f602662e7221d2a1f86",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Ghoststar",
       "discord": "Not swetty",
       "age": "13",
@@ -3325,7 +3325,8 @@
       "schedule": "I don’t stream",
       "style": "Updates and sometimes be the imposter and imposter",
       "strikes": "No",
-      "receiptAt": "2026-11-13T03:29:31.813Z"
+      "receiptAt": "2026-11-13T03:29:31.813Z",
+      "notifiedAt": "2026-11-14T05:21:00.483Z"
     },
     {
       "appId": "CC-DFDU9M",
@@ -4005,6 +4006,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-14T05:20:59.199Z",
+      "act": "ai_approved",
+      "id": "CC-49LXN7",
+      "by": ""
+    },
+    {
       "t": "2026-11-14T05:20:45.541Z",
       "act": "ai_approved",
       "id": "CC-DFDU9M",
@@ -4596,12 +4603,6 @@
       "t": "2026-10-26T22:41:18.033Z",
       "act": "account_login",
       "id": "acc_b85e032e2eab96e49e56f65a",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T07:55:58.354Z",
-      "act": "account_login",
-      "id": "acc_6533e9314ca89f810e4425fd",
       "by": ""
     }
   ],
@@ -8804,6 +8805,22 @@
       "error": "",
       "createdAt": "2026-11-14T05:20:45.541Z",
       "sentAt": "2026-11-14T05:20:46.849Z"
+    },
+    {
+      "id": "mail_14cfbd025c887df104",
+      "key": "CC-49LXN7:approved:1794633659199",
+      "to": "eliasscabr@gmail.com",
+      "subject": "You are in — Wigglesworth Content Creator application",
+      "text": "Hi Not swetty,\n\nYour Content Creator application (CC-49LXN7) has been reviewed.\n\nResult: Accepted\nNote from staff: Hey Not swetty,\n\nCongratulations on being accepted as a Content Creator for Wigglesworth! We were especially excited to see your enthusiasm for the game and how you plan to share updates and even play the role of the imposter—that creative twist really stood out. Our staff will reach out soon with the next steps. Welcome aboard!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi Not swetty,</p><p style=\"margin:0 0 20px\">Your <b>Content Creator</b> application (<b>CC-49LXN7</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Hey Not swetty,<br><br>Congratulations on being accepted as a Content Creator for Wigglesworth! We were especially excited to see your enthusiasm for the game and how you plan to share updates and even play the role of the imposter—that creative twist really stood out. Our staff will reach out soon with the next steps. Welcome aboard!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">CC-49LXN7</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "CC-49LXN7",
+      "decisionStatus": "approved",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-14T05:20:59.199Z",
+      "sentAt": "2026-11-14T05:21:00.483Z"
     }
   ]
 }
