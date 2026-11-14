@@ -9580,11 +9580,11 @@
       "kind": "receipt",
       "appId": "MOD-L6BWH6",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T23:04:55.740Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T23:04:57.007Z"
     }
   ]
 }
