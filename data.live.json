@@ -9042,11 +9042,11 @@
       "kind": "receipt",
       "appId": "CC-U92G2J",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T14:51:33.629Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T14:51:35.051Z"
     }
   ]
 }
