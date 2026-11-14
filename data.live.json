@@ -4249,6 +4249,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-14T18:25:38.947Z",
+      "act": "account_login",
+      "id": "acc_ef404cc0a2659a84415bfb1c",
+      "by": ""
+    },
+    {
       "t": "2026-11-14T16:10:53.969Z",
       "act": "ticket_reply",
       "id": "TKT-D6S8YC",
@@ -4840,12 +4846,6 @@
       "t": "2026-10-29T03:41:48.414Z",
       "act": "ticket_reply",
       "id": "TKT-EZNWDD",
-      "by": ""
-    },
-    {
-      "t": "2026-10-29T01:43:39.408Z",
-      "act": "account_login",
-      "id": "acc_1e7fa3d3902dc1c9d7786ddf",
       "by": ""
     }
   ],
@@ -5680,17 +5680,15 @@
       "email": "aaronsmith3952@gmail.com",
       "createdAt": "2026-11-14T14:48:00.655Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_ef404cc0a2659a84415bfb1c",
       "email": "andrysikhome1@gmail.com",
-      "hash": "e710abb852d38ae72ef22a8de83058660fff5fc6b2edbece129223f305d6da1d",
-      "exp": 1794681319572,
-      "tries": 0,
-      "created": 1794680719572
+      "createdAt": "2026-11-14T18:25:38.946Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
