@@ -3331,8 +3331,8 @@
       "appId": "CC-DFDU9M",
       "type": "creator",
       "date": "2026-11-13T05:26:41.674Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Hi BryceGT,\n\nCongratulations! We’re excited to welcome you to the Wigglesworth community. Your plan to produce entertaining, informational videos and your impressive 35k+ views on long‑form content really stood out. The staff will reach out soon with next steps. Looking forward to seeing your content help bring Wigglesworth back to the top!",
       "email": "rszagz2012@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_f6c5479bb79b112d5f17785e",
@@ -4004,6 +4004,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-14T05:20:45.541Z",
+      "act": "ai_approved",
+      "id": "CC-DFDU9M",
+      "by": ""
+    },
+    {
       "t": "2026-11-14T05:14:07.302Z",
       "act": "ticket_reply",
       "id": "TKT-FNCGNH",
@@ -4595,12 +4601,6 @@
       "t": "2026-10-26T07:55:58.354Z",
       "act": "account_login",
       "id": "acc_6533e9314ca89f810e4425fd",
-      "by": ""
-    },
-    {
-      "t": "2026-10-26T05:14:38.091Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
@@ -8787,6 +8787,22 @@
       "error": "",
       "createdAt": "2026-11-14T05:14:14.476Z",
       "sentAt": "2026-11-14T05:14:15.460Z"
+    },
+    {
+      "id": "mail_5d070ff3565f39fbad",
+      "key": "CC-DFDU9M:approved:1794633645541",
+      "to": "rszagz2012@gmail.com",
+      "subject": "You are in — Wigglesworth Content Creator application",
+      "text": "Hi thebrycegt,\n\nYour Content Creator application (CC-DFDU9M) has been reviewed.\n\nResult: Accepted\nNote from staff: Hi BryceGT,\n\nCongratulations! We’re excited to welcome you to the Wigglesworth community. Your plan to produce entertaining, informational videos and your impressive 35k+ views on long‑form content really stood out. The staff will reach out soon with next steps. Looking forward to seeing your content help bring Wigglesworth back to the top!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi thebrycegt,</p><p style=\"margin:0 0 20px\">Your <b>Content Creator</b> application (<b>CC-DFDU9M</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Hi BryceGT,<br><br>Congratulations! We’re excited to welcome you to the Wigglesworth community. Your plan to produce entertaining, informational videos and your impressive 35k+ views on long‑form content really stood out. The staff will reach out soon with next steps. Looking forward to seeing your content help bring Wigglesworth back to the top!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">CC-DFDU9M</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "CC-DFDU9M",
+      "decisionStatus": "approved",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-14T05:20:45.541Z",
+      "sentAt": ""
     }
   ]
 }
