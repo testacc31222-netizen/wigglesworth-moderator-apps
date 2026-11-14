@@ -8641,11 +8641,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T05:00:07.992Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T05:00:09.499Z"
     }
   ]
 }
