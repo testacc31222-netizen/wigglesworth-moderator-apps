@@ -9474,11 +9474,11 @@
       "kind": "receipt",
       "appId": "MOD-M5Y9TR",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T21:10:00.736Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T21:10:02.209Z"
     }
   ]
 }
