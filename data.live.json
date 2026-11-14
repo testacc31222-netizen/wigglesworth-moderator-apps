@@ -3380,7 +3380,7 @@
       "email": "shamikametz80@icloud.com",
       "emailUpdates": true,
       "accountId": "acc_ae7ebd2dfc661d5b3916474a",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Quan",
       "discord": "quandrizz.gapped",
       "age": "13",
@@ -3390,7 +3390,8 @@
       "schedule": "Twice a week",
       "style": "I make interesting wigglesworth videos for example I made a video on how to get moderator in wigglesworth and the video blew up. I also make funny videos and I'm thinking about making skits.",
       "strikes": "No",
-      "receiptAt": "2026-11-14T00:41:16.739Z"
+      "receiptAt": "2026-11-14T00:41:16.739Z",
+      "notifiedAt": "2026-11-14T05:21:12.986Z"
     },
     {
       "appId": "CC-LU2LP2",
@@ -8832,11 +8833,11 @@
       "kind": "decision",
       "appId": "CC-HMRDVY",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T05:21:11.741Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T05:21:12.986Z"
     }
   ]
 }
