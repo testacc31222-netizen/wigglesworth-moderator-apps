@@ -8520,11 +8520,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T01:14:09.130Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T01:14:10.634Z"
     }
   ]
 }
