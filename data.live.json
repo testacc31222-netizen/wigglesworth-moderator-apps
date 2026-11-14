@@ -8555,11 +8555,11 @@
       "kind": "receipt",
       "appId": "CC-LU2LP2",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T01:23:29.127Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T01:23:30.606Z"
     }
   ]
 }
