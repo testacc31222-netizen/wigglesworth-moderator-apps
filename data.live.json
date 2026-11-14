@@ -9330,11 +9330,11 @@
       "kind": "receipt",
       "appId": "MOD-T9F4DD",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T16:33:09.422Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T16:33:10.894Z"
     }
   ]
 }
