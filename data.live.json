@@ -3600,6 +3600,26 @@
       "scenario": "1. I would say \"Please don't blow up the chat because people might get annoyed from too much notifications2.  I would say \"Please stop it or you will have to face a consequence3.  I would say \"This is your final warning so stop it!4. \"This has gone too far you will have your consequence",
       "rulebreak": "In this game or any other game, I have not been banned",
       "receiptAt": "2026-11-14T16:25:09.224Z"
+    },
+    {
+      "appId": "MOD-T9F4DD",
+      "type": "moderator",
+      "date": "2026-11-14T16:33:09.421Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "turbobeast2535@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_827ae272f611e3c0da0fae5b",
+      "notifiedStatus": "",
+      "username": "R4",
+      "discord": "r4_real",
+      "age": "14",
+      "timezone": "CDT 4-7 Hours",
+      "experience": "R.C Brains, Monkey Jumpers V3, Crunka, Site 9",
+      "why": "I want to be a moderator because I have tons of experience in the moderating section of vr and I will devote as much as I can to moderating wiggles worth such as staying on as much as I can, gathering tons of reports and helping players out whether that be in the game or the discord I truly love wiggles worth playing with my friends and having as much fun as I can so it's easy to play long periods of time without realizing.",
+      "scenario": "I would start by asking them to stop and if they keep doing it, I'll time them out depending on what their spamming. If it's NSFW or spamming other things that should not be spammed it could go up to a ban or a longer time out. If I could get a higher up to ban the person, I would do that if not I would time them out for a good amount of time",
+      "rulebreak": "No",
+      "receiptAt": "2026-11-14T16:33:09.422Z"
     }
   ],
   "tickets": [
@@ -9299,6 +9319,22 @@
       "error": "",
       "createdAt": "2026-11-14T16:31:46.897Z",
       "sentAt": "2026-11-14T16:31:48.325Z"
+    },
+    {
+      "id": "mail_fb37fccb43b2f2210a",
+      "key": "MOD-T9F4DD:receipt",
+      "to": "turbobeast2535@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi r4_real,\n\nYour Moderator application (MOD-T9F4DD) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi r4_real,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-T9F4DD</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-T9F4DD",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-14T16:33:09.422Z",
+      "sentAt": ""
     }
   ]
 }
