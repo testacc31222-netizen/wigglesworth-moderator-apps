@@ -1,0 +1,39 @@
+/* Light is an accent, never a layer over the original character image. */
+:root {--night:#080e1c;--ice:#a8d7f4;--copper:#d78e5b;--calm-text:#17283d;--calm-muted:#536172;--calm-accent:#243e5c;--calm-link:#294f72;--calm-line:#bdc4c8}
+.cinema-page .navbar {background:linear-gradient(#080e1c88,transparent)}
+.cinema-page.cinema-paper .navbar {background:#f5f0e5f7;color:#17283d}
+.cinema-page .nav-links>a[aria-current] {text-decoration:none;box-shadow:inset 0 -1px #a8d7f4}
+.cinema-page.cinema-paper .nav-links>a[aria-current] {box-shadow:inset 0 -1px #9a5d35}
+.cinema-page .nav-links>a:hover {text-decoration:none;box-shadow:inset 0 -1px #d78e5b}
+.cinema-page .eye-intro a {color:#b5d9f0;border-color:#a8d7f466}
+.cinema-page .eye-character {image-rendering:auto;backface-visibility:hidden}
+.cinema-page .eye-journey {overflow-anchor:none}
+.cinema-page .eye-gameplay {mask-image:radial-gradient(circle at var(--eye-x,50%) var(--eye-y,50%),#000 max(0px,calc(var(--aperture) - 28px)),transparent var(--aperture));-webkit-mask-image:radial-gradient(circle at var(--eye-x,50%) var(--eye-y,50%),#000 max(0px,calc(var(--aperture) - 28px)),transparent var(--aperture))}
+.cinema-page .portal-section {padding-block:110px}
+.cinema-page .portal-section-heading {max-width:1100px;margin-bottom:52px}
+.cinema-page .portal-section-heading h2 {font-weight:300;line-height:1.13}
+.cinema-page :is(.btn-primary,.btn-confirm,.btn-small,.step-next,.step-previous,.primary,.secondary,.ghost):hover {box-shadow:none;filter:none;transform:none}
+.cinema-page :is(.btn-primary,.btn-confirm,.primary,.step-next):hover {background:#1c354f!important;border-color:#769bb8}
+.cinema-page :is(input,textarea,select):focus {box-shadow:0 0 0 2px #a8d7f42b;border-color:#537c9d}
+.cinema-page :is(a,button,input,textarea,select,summary,[tabindex]):focus-visible {outline-color:#8c532d}
+.cinema-page .eye-stage :focus-visible,.cinema-page:not(.cinema-paper) .navbar :focus-visible {outline-color:#a8d7f4}
+.cinema-page .role-row {grid-template-columns:46px minmax(0,1fr) auto;gap:24px;border-bottom-color:#bec7cb;padding:30px 16px;transition:background-color .25s,border-color .25s;box-shadow:none}
+.role-sigil {display:grid;place-items:center;width:42px;height:48px;color:#3e5870;border:1px solid #9eafb93d;border-radius:2px}
+.role-sigil svg {width:25px;height:25px;stroke:currentColor;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}
+.cinema-page .role-row h4,.cinema-page .portal-requirements h2,.cinema-page .calm-returning h3 {color:#17283d}
+.cinema-page .role-row .go {background:#243e5c;transition:background-color .2s}
+.cinema-page .role-row.is-closed h4 {color:#536172}
+.cinema-page .role-row.is-closed .role-sigil {color:#6d7c88}
+.cinema-page .role-row.is-open:hover {background:#eaf0ef;box-shadow:inset 1px 0 #b97948;border-color:#8fa9bb;transform:none}
+.cinema-page .role-row.is-open:hover .role-sigil {border-color:#9abbd1;color:#243e5c}
+.cinema-page .role-row.is-open:hover .go {background:#1c354f}
+.cinema-page .role-row:disabled {opacity:1}
+.cinema-page #applyCard {animation:role-arrival .45s cubic-bezier(.2,.65,.3,1)}
+.cinema-page .application-heading {padding-bottom:26px;border-bottom:1px solid #bdc4c8}
+.cinema-page .application-workspace {border-color:#bdc4c8}
+.cinema-page :is(.step-link.active,.portal-support-tabs [aria-selected=true]) {background:#e1e9ec;border-left-color:#365977;color:#17283d}
+.cinema-page #applicationProgressFill {background:#416885}
+@keyframes role-arrival {from{transform:translateY(14px)}to{transform:none}}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.cinema-page .role-row.is-open:hover {background-image:radial-gradient(220px circle at var(--pointer-x,50%) var(--pointer-y,50%),#a8d7f41a,transparent)}}
+@media(max-width:760px){.cinema-page .portal-section{padding-block:64px}.cinema-page .portal-section-heading{margin-bottom:34px}.cinema-page .role-row{grid-template-columns:30px minmax(0,1fr) auto;gap:12px;padding:25px 0}.role-sigil{width:30px;height:38px}.role-sigil svg{width:22px;height:22px}.cinema-page .role-row h4{font-size:20px}.cinema-page .role-row .go{padding:10px;font-size:12px}.cinema-page .nav-links{background:#0d1728}.cinema-page .journey-bottom a[aria-current]{background:#dce6ed;color:#17283d}}
+@media(prefers-reduced-motion:reduce){.cinema-page *,.cinema-page *::before,.cinema-page *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.cinema-page .eye-gameplay{mask-image:none;-webkit-mask-image:none}}

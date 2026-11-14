@@ -255,8 +255,20 @@ function renderTypeCards(){
     b.dataset.roleId = t.id;
     b.disabled = closed;
     b.onclick = ()=>pickType(t.id);
+    const emblems = {
+      moderator:'M12 3 20 6v6c0 4-4 7-8 9-4-2-8-5-8-9V6ZM8 12l3 3 5-6',
+      content:'M4 5h16v14H4ZM10 9l5 3-5 3Z',
+      developer:'m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18',
+      event:'M4 5h16v16H4ZM4 10h16M8 2v6m8-6v6M8 14h2m4 0h2'
+    };
+    const emblemKey = Object.keys(emblems).find(key => `${t.id} ${t.name}`.toLowerCase().includes(key));
+    const emblem = document.createElement('span');
+    emblem.className = 'role-sigil';
+    emblem.setAttribute('aria-hidden','true');
+    emblem.innerHTML = `<svg viewBox="0 0 24 24" fill="none"><path d="${emblems[emblemKey] || 'm12 3 9 9-9 9-9-9Z'}"/></svg>`;
     b.innerHTML = `<span class="role-copy"><h4>${esc(t.name)}</h4><p>${esc(t.blurb || (closed ? 'Applications are currently closed.' : 'Help the Wigglesworth community.'))}</p></span><span class="role-row-actions"><span class="tick">${closed ? 'Closed' : 'Open'}</span>${closed ? '' : '<span class="go">View role <span aria-hidden="true">↗</span></span>'}</span>`;
     w.appendChild(b);
+    b.prepend(emblem);
   });
   const roleCount = document.querySelector('.role-count');
   if (roleCount) roleCount.textContent = openN + (openN === 1 ? ' role open' : ' roles open');

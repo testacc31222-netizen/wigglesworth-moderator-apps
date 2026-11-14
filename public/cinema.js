@@ -46,7 +46,8 @@
     journey.style.setProperty('--eye-progress', scaleProgress.toFixed(4));
     journey.style.setProperty('--eye-scale', (1 + 13 * scaleProgress ** 2.2).toFixed(4));
     journey.style.setProperty('--copy-opacity', String(Math.max(0,1-progress/0.38)));
-    journey.style.setProperty('--aperture', `${Math.max(0,(progress-0.64)/0.3)*150}vmax`);
+    const reveal = Math.max(0,Math.min(1,(progress-0.64)/0.3));
+    journey.style.setProperty('--aperture', `${reveal*reveal*(3-2*reveal)*150}vmax`);
     journey.style.setProperty('--eye-x', `${innerWidth / 2 + .19 * innerHeight * (1-scaleProgress)}px`);
     journey.style.setProperty('--eye-y', `${innerHeight * (.52-.02*scaleProgress)}px`);
     journey.querySelector('.eye-copy').inert = progress > .38;
@@ -63,6 +64,11 @@
   function resetOpening() {
     window.scrollTo({top:0,left:0,behavior:'instant'});
     render();
+    // Cancel a compositor scroll still settling from wheel/anchor navigation.
+    requestAnimationFrame(()=>{
+      window.scrollTo({top:0,left:0,behavior:'instant'});
+      render();
+    });
   }
   if (homeEntry) {
     resetOpening();
