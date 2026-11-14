@@ -9114,11 +9114,11 @@
       "kind": "receipt",
       "appId": "MOD-DRMETV",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T15:50:17.422Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T15:50:19.037Z"
     }
   ]
 }
