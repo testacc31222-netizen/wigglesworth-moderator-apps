@@ -4174,11 +4174,11 @@
       "name": "Zaki",
       "subject": "New test",
       "status": "open",
-      "unread": false,
+      "unread": true,
       "email": "rmatthew31@icloud.com",
       "accountId": "acc_49dddb73e8f2f888a2def2ad",
       "createdAt": "2026-11-14T16:09:33.164Z",
-      "updatedAt": "2026-11-14T16:10:53.968Z",
+      "updatedAt": "2026-11-14T16:12:28.794Z",
       "replies": [
         {
           "by": "user",
@@ -4191,6 +4191,12 @@
           "name": "Staff",
           "text": "Hey there! Thanks for reaching out and for your enthusiasm—it's great to hear you love the game! If you’re thinking about applying for a role, just let us know which one interests you (Moderator, Content Creator, Developer, or Event Hoster) and we’ll guide you through the next steps. If you have any questions about the application process or need help with anything else, feel free to ask!",
           "at": "2026-11-14T16:10:53.968Z"
+        },
+        {
+          "by": "user",
+          "name": "Zaki",
+          "text": "Ok",
+          "at": "2026-11-14T16:12:28.794Z"
         }
       ]
     }
