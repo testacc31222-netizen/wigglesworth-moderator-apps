@@ -4092,6 +4092,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-14T14:48:00.655Z",
+      "act": "account_login",
+      "id": "acc_c9ae6553eba5ea3121e78d05",
+      "by": ""
+    },
+    {
       "t": "2026-11-14T07:26:43.740Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
@@ -4683,12 +4689,6 @@
       "t": "2026-10-27T23:10:13.011Z",
       "act": "account_login",
       "id": "acc_3bf0396ea8d66b9fc426116e",
-      "by": ""
-    },
-    {
-      "t": "2026-10-27T21:36:22.173Z",
-      "act": "account_login",
-      "id": "acc_07ba6ad1eb8868cd9a06deb4",
       "by": ""
     }
   ],
@@ -5517,17 +5517,15 @@
       "email": "duckyboy1172@gmail.com",
       "createdAt": "2026-11-14T05:08:42.089Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_c9ae6553eba5ea3121e78d05",
       "email": "aaronsmith3952@gmail.com",
-      "hash": "02bb6775fe07b0333ae1aae107d1beffddcee6bbd6309e91a6e240d40da37ae4",
-      "exp": 1794668263644,
-      "tries": 0,
-      "created": 1794667663644
+      "createdAt": "2026-11-14T14:48:00.655Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
