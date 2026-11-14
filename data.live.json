@@ -3336,7 +3336,7 @@
       "email": "rszagz2012@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_f6c5479bb79b112d5f17785e",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "BryceGT",
       "discord": "thebrycegt",
       "age": "15",
@@ -3346,7 +3346,8 @@
       "schedule": "soon to be 4 times a week",
       "style": "Entertaining Informational Videos and Promotional Videos showing games and their features and just helping growing player bases to their full potential",
       "strikes": "No.",
-      "receiptAt": "2026-11-13T05:26:41.675Z"
+      "receiptAt": "2026-11-13T05:26:41.675Z",
+      "notifiedAt": "2026-11-14T05:20:46.849Z"
     },
     {
       "appId": "CC-WAH4R3",
@@ -8798,11 +8799,11 @@
       "kind": "decision",
       "appId": "CC-DFDU9M",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T05:20:45.541Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T05:20:46.849Z"
     }
   ]
 }
