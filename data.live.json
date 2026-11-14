@@ -9254,11 +9254,11 @@
       "kind": "receipt",
       "appId": "MOD-B8C88N",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T16:25:09.224Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T16:25:11.013Z"
     }
   ]
 }
