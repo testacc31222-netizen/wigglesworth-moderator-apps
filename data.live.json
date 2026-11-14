@@ -9380,11 +9380,11 @@
       "kind": "receipt",
       "appId": "MOD-MTUMQN",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T18:34:08.907Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T18:34:10.713Z"
     }
   ]
 }
