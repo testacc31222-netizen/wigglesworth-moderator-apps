@@ -50,7 +50,10 @@ body.cinema-page{background:var(--paper)!important;color:var(--ink)}
 .showcase-film video{display:block;width:100%;height:76svh;min-height:420px;max-height:900px;object-fit:cover}
 .showcase-film figcaption{padding:25px 2vw 0;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--paper);font-size:14px}
 .showcase-film figcaption small{display:block;color:#aab7c2;font-size:10px;margin-top:7px;letter-spacing:.08em;text-transform:uppercase}
+.cinema-page .showcase-film .footage-source{display:inline-flex;align-items:center;min-height:24px;color:#c8dfef;text-underline-offset:4px}
+.cinema-page .showcase-film .footage-source:hover{color:#edc6a8}
 .cinema-page :is(.showcase-film,.community-spread) figcaption button{background:transparent;border:1px solid currentColor;min-height:44px;padding:11px 16px;color:inherit;font:500 11px Manrope,sans-serif;border-radius:0}
+.cinema-page .showcase-film figcaption button{position:absolute;top:20px;right:5vw;background:#080e19df;color:#f2eee5}
 .community-spread{padding:140px 9vw 150px;display:grid;grid-template-columns:1.2fr 1fr;gap:70px 8vw;position:relative;background:var(--paper)}
 .community-title{align-self:start;padding-top:40px}
 .community-title .chapter-index{margin-bottom:45px}
