@@ -254,7 +254,9 @@ function renderTypeCards(){
     b.className = 'role-card role-row' + (closed ? ' is-closed' : ' is-open');
     b.dataset.roleId = t.id;
     b.disabled = closed;
-    b.onclick = ()=>pickType(t.id);
+    b.onclick = ()=>showRoleDetail(t.id);
+    b.setAttribute("aria-controls","roleDetail");
+    b.setAttribute("aria-expanded","false");
     const emblems = {
       moderator:'M12 3 20 6v6c0 4-4 7-8 9-4-2-8-5-8-9V6ZM8 12l3 3 5-6',
       content:'M4 5h16v14H4ZM10 9l5 3-5 3Z',
@@ -282,14 +284,32 @@ function toggleApplyMenu(){
   m.style.display = m.style.display === 'none' ? 'block' : 'none';
   if (m.style.display === 'block'){ renderTypeCards(); m.scrollIntoView({ behavior:'smooth', block:'start' }); }
 }
+function showRoleDetail(id){
+  const t = config.applicationTypes.find(role=>role.id===id);
+  if(!t || t.open===false) return;
+  const detail = $('roleDetail');
+  $('roleDetailTitle').textContent=t.name;
+  $('roleDetailIntro').textContent=t.intro || t.blurb || '';
+  $('roleDetailContribution').textContent=t.blurb || t.intro || 'Help the Wigglesworth community.';
+  $('roleDetailApply').onclick=()=>pickType(id);
+  document.querySelectorAll('#roleCards button').forEach(b=>{
+    b.setAttribute('aria-expanded',String(b.dataset.roleId===id));
+    b.classList.toggle('role-selected',b.dataset.roleId===id);
+  });
+  detail.hidden=false;
+  detail.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});
+  $('roleDetailTitle').focus({preventScroll:true});
+}
 function pickType(id, noScroll){
   currentTypeId = id;
   const t = curType();
   if(t.open === false){ alert(t.name + ' applications are currently closed.'); return; }
+  document.body.classList.add('application-focus');
+  document.body.classList.remove('application-received');
   $('roleMenu').style.display = 'none';
   $('applyCard').style.display = 'block';
   fillRoleHeader(t); renderForm();
-  if(!noScroll) $('applyCard').scrollIntoView({ behavior:'smooth', block:'start' });
+  if(!noScroll){ $('applyCard').scrollIntoView({ behavior:'instant', block:'start' }); $('roleName').setAttribute('tabindex','-1'); $('roleName').focus({preventScroll:true}); }
 }
 function fillRoleHeader(t){
   $('roleKicker').textContent = (t.name || 'Application').toUpperCase() + ' APPLICATION';
@@ -489,6 +509,8 @@ async function submitApp(e){
     if(!r.ok) throw new Error(j.error||'Submit failed');
     $('modForm').style.display='none';
     $('success').style.display='block';
+    document.body.classList.add('application-received');
+    $('success').setAttribute('tabindex','-1'); $('success').focus();
     $('successMsg').textContent = j.successMessage || t.successMessage || '';
     $('newAppId').textContent = j.appId;
     const se = $('successEmail');
@@ -508,10 +530,14 @@ async function submitApp(e){
   finally{ done(); }
   return false;
 }
-function resetForm(){
+function resetForm(noScroll=false){
+  document.body.classList.remove('application-focus','application-received');
+  if($('roleDetail')) $('roleDetail').hidden=true;
   $('applyCard').style.display='none';
   $('roleMenu').style.display='block'; renderTypeCards();
-  document.getElementById('roleMenu').scrollIntoView({ behavior:'smooth' });
+  const previousRole = Array.from(document.querySelectorAll('#roleCards button')).find(button=>button.dataset.roleId===currentTypeId && !button.disabled);
+  if(previousRole && !noScroll) previousRole.focus({preventScroll:true});
+  if(!noScroll) document.getElementById('roleMenu').scrollIntoView({ behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth' });
 }
 function copyAppId(){ const t=$('newAppId').textContent; navigator.clipboard?.writeText(t); alert('Copied: '+t); }
 

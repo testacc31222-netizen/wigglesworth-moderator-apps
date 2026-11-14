@@ -18,6 +18,7 @@
     toggle.setAttribute('aria-expanded', 'false');
   }
   [...new Set([...links, ...drawerLinks])].forEach(link => link.addEventListener('click', () => {
+    if (document.body.classList.contains('application-focus')) window.resetForm(true);
     if (link.hash === '#roleMenu' && document.getElementById('roleMenu').style.display === 'none') {
       window.resetForm();
     }
@@ -47,7 +48,7 @@
     toggle.setAttribute('aria-label', toggle.getAttribute('aria-expanded') === 'true' ? 'Close navigation' : 'Open navigation');
   }).observe(toggle, {attributes:true, attributeFilter:['aria-expanded']});
   if ('IntersectionObserver' in window) {
-    const sections = ['apply', 'game-world', 'roleMenu', 'apply-form', 'process', 'faq'].map(id => document.getElementById(id)).filter(Boolean);
+    const sections = ['apply', 'game-world', 'community', 'roleMenu', 'apply-form', 'process', 'faq'].map(id => document.getElementById(id)).filter(Boolean);
     const positions = new Map();
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => positions.set(entry.target.id, entry.isIntersecting));

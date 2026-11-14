@@ -42,22 +42,28 @@
     if (!journey) return;
     const rect = journey.getBoundingClientRect();
     const progress = reduced.matches ? 0 : Math.max(0,Math.min(1,-rect.top / Math.max(1,rect.height-innerHeight)));
-    const scaleProgress = Math.min(1,progress / 0.85);
+    const scaleProgress = Math.min(1,progress / 0.64);
     journey.style.setProperty('--eye-progress', scaleProgress.toFixed(4));
-    journey.style.setProperty('--eye-scale', (1 + 13 * scaleProgress ** 2.2).toFixed(4));
-    journey.style.setProperty('--copy-opacity', String(Math.max(0,1-progress/0.38)));
-    const reveal = Math.max(0,Math.min(1,(progress-0.64)/0.3));
+    journey.style.setProperty('--eye-scale', (1 + 11 * scaleProgress ** 2.4).toFixed(4));
+    journey.style.setProperty('--copy-opacity', String(Math.max(0,1-progress/0.26)));
+    const smooth = (from,to) => { const x=Math.max(0,Math.min(1,(progress-from)/(to-from))); return x*x*(3-2*x); };
+    journey.style.setProperty('--darkness', smooth(.42,.62).toFixed(4));
+    journey.style.setProperty('--passage', (smooth(.32,.43)*(1-smooth(.49,.6))).toFixed(4));
+    journey.style.setProperty('--film-opacity', smooth(.74,.9).toFixed(4));
+    const reveal = Math.max(0,Math.min(1,(progress-0.7)/0.2));
     journey.style.setProperty('--aperture', `${reveal*reveal*(3-2*reveal)*150}vmax`);
-    journey.style.setProperty('--eye-x', `${innerWidth / 2 + .19 * innerHeight * (1-scaleProgress)}px`);
+    const characterOffset = innerWidth > 760 ? .15 * innerWidth : 0;
+    journey.style.setProperty('--eye-x', `${innerWidth / 2 + (characterOffset + .19 * innerHeight) * (1-scaleProgress)}px`);
     journey.style.setProperty('--eye-y', `${innerHeight * (.52-.02*scaleProgress)}px`);
-    journey.querySelector('.eye-copy').inert = progress > .38;
+    journey.querySelector('.eye-copy').inert = progress > .26;
     const scrollHint = journey.querySelector('.eye-scroll');
     scrollHint.inert = progress > .25;
     scrollHint.hidden = progress > .38;
-    journey.classList.toggle('film-visible', progress > 0.64);
-    document.body.classList.toggle('cinema-paper', rect.bottom <= innerHeight + 30);
+    journey.classList.toggle('film-visible', progress > 0.7);
+    const surface = document.elementFromPoint(innerWidth/2, Math.min(100,innerHeight/3));
+    document.body.classList.toggle('cinema-paper', !!surface?.closest('.world-editorial,.community-spread,#apply-form,.portal-support,.portal-answers,.journey-config'));
     const hero = document.getElementById('heroGameplay');
-    if (hero && progress > 0.62 && rect.bottom > 0) play(hero);
+    if (hero && progress > 0.7 && rect.bottom > 0 && !document.body.classList.contains('application-focus')) play(hero);
     else hero?.pause();
   }
   function schedule() { if (!frame) frame = requestAnimationFrame(render); }
@@ -81,6 +87,7 @@
       const home = event.target.closest('a[href="#apply"],a[href="#discover"]');
       if (!home) return;
       event.preventDefault();
+      if (document.body.classList.contains('application-focus')) window.resetForm(true);
       history.replaceState(null,'',location.pathname+location.search+home.hash);
       resetOpening();
     },true);
@@ -101,6 +108,6 @@
   const reveals = new IntersectionObserver(entries => entries.forEach(entry => {
     if (entry.isIntersecting) { entry.target.classList.add('cinema-entered'); reveals.unobserve(entry.target); }
   }), {threshold:0.08});
-  document.querySelectorAll('.portal-section-heading,.portal-process-strip,.cinema-community,.showcase-intro,.showcase-film,.showcase-join').forEach(el=>reveals.observe(el));
+  document.querySelectorAll('.portal-section-heading,.portal-process-strip,.world-editorial,.community-title,.community-note,.showcase-film,.campaign-ending>div').forEach(el=>reveals.observe(el));
   render();
 })();
