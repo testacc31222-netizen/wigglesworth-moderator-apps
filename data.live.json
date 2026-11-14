@@ -8919,11 +8919,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T07:26:24.571Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T07:26:25.991Z"
     }
   ]
 }
