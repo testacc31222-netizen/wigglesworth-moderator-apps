@@ -8689,11 +8689,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T05:07:06.935Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T05:07:08.274Z"
     }
   ]
 }
