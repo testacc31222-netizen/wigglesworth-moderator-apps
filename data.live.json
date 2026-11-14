@@ -9184,11 +9184,11 @@
       "kind": "ticket",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-14T16:09:33.165Z",
-      "sentAt": ""
+      "sentAt": "2026-11-14T16:09:34.485Z"
     }
   ]
 }
