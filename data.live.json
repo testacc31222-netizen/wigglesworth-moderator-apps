@@ -4329,6 +4329,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-14T23:58:32.877Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
       "t": "2026-11-14T22:58:41.859Z",
       "act": "account_login",
       "id": "acc_d235da1c2e7996fe90c8970d",
@@ -4920,12 +4926,6 @@
       "t": "2026-10-30T05:54:58.564Z",
       "act": "account_login",
       "id": "acc_49d18246954cf23e052bb60f",
-      "by": ""
-    },
-    {
-      "t": "2026-10-29T23:49:44.477Z",
-      "act": "account_login",
-      "id": "acc_c1cc3627f64fc2ab0adf0c9a",
       "by": ""
     }
   ],
@@ -5780,15 +5780,7 @@
       "emailUpdates": true
     }
   ],
-  "loginCodes": [
-    {
-      "email": "masonwebb2399@gmail.com",
-      "hash": "3cffed07ae0e1d6896d17ce2588c49c8b98c28bd1f1a0bdaceec0bcb0514f746",
-      "exp": 1794701278549,
-      "tries": 0,
-      "created": 1794700678549
-    }
-  ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
