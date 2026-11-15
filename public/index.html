@@ -581,7 +581,7 @@ input:focus,textarea:focus,select:focus{border-color:rgba(193,74,84,.78);box-sha
 <link rel="stylesheet" href="/cinema.css?v=20261113b">
 <script src="/cinema.js?v=campaign-20261113" defer></script>
 <link rel="stylesheet" href="/staff-workspace.css?v=20261113">
-<link rel="stylesheet" href="/staff-profiles.css?v=20261114c">
+<link rel="stylesheet" href="/staff-profiles.css?v=20261114d">
 <link rel="stylesheet" href="/atmosphere.css?v=20261113">
 <link rel="stylesheet" href="/campaign.css?v=world-reel-20261114">
 <link rel="stylesheet" href="/ambient.css?v=20261114">
@@ -1094,6 +1094,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 <label for="team_name">Name</label><input id="team_name" maxlength="60" required>
 <label for="team_role">Role / title</label><input id="team_role" maxlength="80">
 <label for="team_bio">Short introduction</label><textarea id="team_bio" maxlength="240"></textarea>
+<label for="team_cardSize">Profile card size</label><select id="team_cardSize"><option value="standard">Standard</option><option value="large">Large — extra space and a bigger photo</option></select>
 <label for="team_details">Full profile — shown when visitors click this person</label><textarea id="team_details" maxlength="3000" rows="6"></textarea><label><input id="team_featured" type="checkbox"> Highlight this profile with a flowing glow</label><label for="team_glowColor">Glow color</label><input id="team_glowColor" type="color" value="#99d8f5">
 <label for="team_photo">Profile photo HTTPS URL (or upload below)</label><input id="team_photo">
 <label for="team_upload">Upload profile photo</label><input id="team_upload" type="file" accept="image/png,image/jpeg,image/webp" onchange="StaffProfiles.upload(event)">
@@ -1275,7 +1276,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </div>
 
 <script src="site-copy.js?v=20261025b"></script>
-<script src="/staff-profiles.js?v=20261114c"></script>
+<script src="/staff-profiles.js?v=20261114d"></script>
 <script src="app.js?v=campaign-20261114"></script>
 <script>
 function toggleNav(){

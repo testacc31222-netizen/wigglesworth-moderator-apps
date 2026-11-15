@@ -21,7 +21,7 @@ function clean(value) {
     if (!link) throw new Error('Social links must use a complete HTTPS URL.');
     return { label: text(s.label, 30) || 'Website', url: link };
   });
-  return { name: text(value.name, 60), role: text(value.role, 80), bio: text(value.bio, 240), details: text(value.details, 3000), featured: value.featured === true, glowColor: /^#[0-9a-f]{6}$/i.test(value.glowColor || '') ? value.glowColor : '#99d8f5', photo, badges, socials, visible: value.visible !== false };
+  return { name: text(value.name, 60), role: text(value.role, 80), bio: text(value.bio, 240), details: text(value.details, 3000), featured: value.featured === true, cardSize: value.cardSize === 'large' ? 'large' : 'standard', glowColor: /^#[0-9a-f]{6}$/i.test(value.glowColor || '') ? value.glowColor : '#99d8f5', photo, badges, socials, visible: value.visible !== false };
 }
 function routes(app, { loadDB, saveDB, isAdmin, adminLimit, audit }) {
   app.post('/api/admin/staff-profile-order', adminLimit, (req, res) => {

@@ -9,6 +9,7 @@ window.StaffProfiles = (() => {
     section.hidden = !members.length; grid.replaceChildren();
     members.forEach(p => {
       const card = node('article', '', 'team-card');
+      if(p.cardSize === 'large') card.classList.add('team-card-large');
       if(p.featured) { card.classList.add('team-featured'); card.style.setProperty('--team-glow', /^#[0-9a-f]{6}$/i.test(p.glowColor || '') ? p.glowColor : '#99d8f5'); }
       if (p.photo) { const img = node('img', '', 'team-avatar'); img.src = p.photo; img.alt = ''; img.loading = 'lazy'; img.width = 92; img.height = 92; card.append(img); }
       else card.append(node('span', p.name.slice(0, 1).toUpperCase(), 'team-avatar'));
@@ -73,7 +74,7 @@ window.StaffProfiles = (() => {
   function editProfile(p = {}) {
     editing = p.id || 'new'; const form = byId('teamEditForm'); form.hidden = false;
     for (const key of ['name','role','bio','photo','details']) byId('team_'+key).value = p[key] || '';
-    byId('team_featured').checked=!!p.featured;byId('team_glowColor').value=p.glowColor || '#99d8f5';
+    byId('team_cardSize').value=p.cardSize || 'standard';byId('team_featured').checked=!!p.featured;byId('team_glowColor').value=p.glowColor || '#99d8f5';
     byId('team_visible').checked = p.visible !== false;
     badgeDraft = (p.badges || []).map(b => ({...b})); badgeEditor();
     byId('team_socials').value = (p.socials || []).map(s => s.label + ' | ' + s.url).join('\n');
@@ -92,7 +93,7 @@ window.StaffProfiles = (() => {
       if (badgeDraft.some(b=>!b.label.trim())) throw Error('Give each badge a name, or remove the empty badge.');
       const p = { visible: byId('team_visible').checked, badges: badgeDraft.map(b=>({...b})), socials: socials() };
       for (const key of ['name','role','bio','photo','details']) p[key] = byId('team_'+key).value.trim();
-      p.featured=byId('team_featured').checked;p.glowColor=byId('team_glowColor').value;
+      p.cardSize=byId('team_cardSize').value;p.featured=byId('team_featured').checked;p.glowColor=byId('team_glowColor').value;
       if (new Blob([JSON.stringify(p)]).size > 190000) throw Error('These images are too large together. Use smaller badge images or HTTPS image links.');
       const r = await fetch('/api/admin/staff-profiles/'+encodeURIComponent(editing), {method:'PUT',headers:headers(),body:JSON.stringify(p)});
       const j = await r.json(); if (!r.ok) throw Error(j.error || 'Could not save.');
