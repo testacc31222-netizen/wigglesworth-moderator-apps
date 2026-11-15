@@ -10027,11 +10027,11 @@
       "kind": "receipt",
       "appId": "MOD-CQVCWD",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T14:54:37.308Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T14:54:38.862Z"
     }
   ]
 }
