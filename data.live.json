@@ -3907,7 +3907,7 @@
       "email": "rszagz2012@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_f6c5479bb79b112d5f17785e",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "BRYCEGT",
       "discord": "thebrycegt",
       "age": "15",
@@ -3918,7 +3918,8 @@
       "rulebreak": "No",
       "receiptAt": "2026-11-15T02:23:41.901Z",
       "aiSummary": "Verdict: Mixed - applicant has prior moderation but is under 18 and limited availability.  \n- Wants to join: Moderator role.  \n- Experience: Former Head Moderator, Trial Admin, and game moderator since 2022.  \n- Availability: After 3:39PM CST Tue‑Fri, any time weekends.  \n- Watch‑outs: Under 18, limited weekday hours, no ban history.",
-      "aiSummaryAt": "2026-11-15T21:58:38.606Z"
+      "aiSummaryAt": "2026-11-15T21:58:38.606Z",
+      "notifiedAt": "2026-11-15T22:09:49.058Z"
     },
     {
       "appId": "MOD-NZZPQY",
@@ -10332,11 +10333,11 @@
       "kind": "decision",
       "appId": "MOD-NDSE77",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T22:09:47.544Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T22:09:49.058Z"
     }
   ]
 }
