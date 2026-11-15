@@ -4492,25 +4492,6 @@
       ]
     },
     {
-      "id": "TKT-2Y49NN",
-      "name": "Zaki",
-      "subject": "Test",
-      "status": "closed",
-      "unread": true,
-      "email": "rmatthew31@icloud.com",
-      "accountId": "acc_49dddb73e8f2f888a2def2ad",
-      "createdAt": "2026-11-14T16:08:26.320Z",
-      "updatedAt": "2026-11-15T06:27:44.603Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "Zaki",
-          "text": "Quantumz wnted me to test",
-          "at": "2026-11-14T16:08:26.320Z"
-        }
-      ]
-    },
-    {
       "id": "TKT-D6S8YC",
       "name": "Zaki",
       "subject": "New test",
@@ -4555,6 +4536,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-11-15T06:27:46.590Z",
+      "act": "ticket_deleted",
+      "id": "TKT-2Y49NN",
+      "by": ""
+    },
     {
       "t": "2026-11-15T06:27:44.603Z",
       "act": "ticket_closed",
@@ -5147,12 +5134,6 @@
       "t": "2026-11-03T20:06:56.462Z",
       "act": "account_login",
       "id": "acc_6d6af007d265ab584d588d2d",
-      "by": ""
-    },
-    {
-      "t": "2026-11-03T01:50:44.227Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
