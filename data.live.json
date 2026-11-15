@@ -4542,6 +4542,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T06:31:01.209Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T06:30:35.683Z",
       "act": "staff_profile_saved",
       "id": "15f0045d-9d67-4640-8c74-5b334f0e9da9",
@@ -5133,12 +5139,6 @@
       "t": "2026-11-07T02:04:05.333Z",
       "act": "account_login",
       "id": "acc_dd50cbd00567cb2b9db78737",
-      "by": ""
-    },
-    {
-      "t": "2026-11-06T22:36:03.661Z",
-      "act": "status_approved",
-      "id": "CC-RK7SEX",
       "by": ""
     }
   ],
