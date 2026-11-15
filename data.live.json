@@ -4607,6 +4607,25 @@
           "at": "2026-11-15T06:27:19.554Z"
         }
       ]
+    },
+    {
+      "id": "TKT-Q5XN8H",
+      "name": "Snucky",
+      "subject": "A person who was saying the n-word and swearing",
+      "status": "open",
+      "unread": true,
+      "email": "vr24u69@gmail.com",
+      "accountId": "acc_c28835c428c5a2a8427d91ce",
+      "createdAt": "2026-11-15T19:55:58.909Z",
+      "updatedAt": "2026-11-15T19:55:58.909Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Snucky",
+          "text": "I have video proof that someone was saying the n-word and being rude and a picture of there username get back to be when you can. Have a great day!",
+          "at": "2026-11-15T19:55:58.909Z"
+        }
+      ]
     }
   ],
   "audit": [
@@ -10141,6 +10160,22 @@
       "error": "",
       "createdAt": "2026-11-15T16:27:27.686Z",
       "sentAt": "2026-11-15T16:27:29.237Z"
+    },
+    {
+      "id": "mail_5362ca0cd439148d9a",
+      "key": "ticket:TKT-Q5XN8H:opened",
+      "to": "vr24u69@gmail.com",
+      "subject": "We received your Wigglesworth support ticket [TKT-Q5XN8H]",
+      "text": "Hi Snucky,\n\nYour support request has been received and a private ticket is open.\nSubject: A person who was saying the n-word and swearing\nTicket ID: TKT-Q5XN8H\n\nStaff replies will be emailed to vr24u69@gmail.com.\nOpen your ticket: https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-Q5XN8H%23contact\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Ticket received</h1><p style=\"margin:0 0 14px\">Hi Snucky,</p><p style=\"margin:0 0 18px\">Your support request has been received and a private ticket is open.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">TKT-Q5XN8H</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">A person who was saying the n-word and swearing</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Staff replies will be emailed to <b style=\"color:#E6DED4\">vr24u69@gmail.com</b>.</p><a href=\"https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-Q5XN8H%23contact\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Open my ticket</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you opened a support ticket with Wigglesworth.</p></div></td></tr></table></body></html>",
+      "kind": "ticket",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-15T19:55:58.910Z",
+      "sentAt": ""
     }
   ]
 }
