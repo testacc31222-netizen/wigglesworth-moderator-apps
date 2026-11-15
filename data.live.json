@@ -4516,6 +4516,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T06:09:48.150Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T06:09:44.828Z",
       "act": "staff_profiles_reordered",
       "id": "",
@@ -5107,12 +5113,6 @@
       "t": "2026-11-01T06:28:19.331Z",
       "act": "ai_denied",
       "id": "MOD-ZM2MHQ",
-      "by": ""
-    },
-    {
-      "t": "2026-11-01T06:27:53.178Z",
-      "act": "ai_approved",
-      "id": "MOD-5VUDJT",
       "by": ""
     }
   ],
