@@ -4610,6 +4610,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T16:16:10.306Z",
+      "act": "account_link",
+      "id": "CC-N89NSY",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T16:14:40.391Z",
       "act": "account_login",
       "id": "acc_c28835c428c5a2a8427d91ce",
@@ -5201,12 +5207,6 @@
       "t": "2026-11-13T04:45:32.725Z",
       "act": "account_login",
       "id": "acc_df9e3f602662e7221d2a1f86",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T02:08:53.275Z",
-      "act": "account_login",
-      "id": "acc_34ae6fefad9e2f9b4c35c5d3",
       "by": ""
     }
   ],
