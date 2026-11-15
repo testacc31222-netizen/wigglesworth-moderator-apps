@@ -4,7 +4,7 @@
       {
         "name": "Quantummz",
         "role": "Co-Owner",
-        "bio": "",
+        "bio": "Your World.\nYour Next Move.",
         "details": "",
         "featured": true,
         "placement": "center",
@@ -4544,6 +4544,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T06:35:34.504Z",
+      "act": "staff_profile_saved",
+      "id": "15f0045d-9d67-4640-8c74-5b334f0e9da9",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T06:31:47.371Z",
       "act": "staff_profile_saved",
       "id": "11e13507-3019-49c5-b802-722df2aaff04",
@@ -5135,12 +5141,6 @@
       "t": "2026-11-08T21:24:19.362Z",
       "act": "account_login",
       "id": "acc_a85c734eb098b79799deee38",
-      "by": ""
-    },
-    {
-      "t": "2026-11-08T17:53:05.080Z",
-      "act": "account_login",
-      "id": "acc_6584150f51f776b906dc5cdf",
       "by": ""
     }
   ],
