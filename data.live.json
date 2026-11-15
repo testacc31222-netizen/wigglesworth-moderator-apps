@@ -9971,11 +9971,11 @@
       "kind": "receipt",
       "appId": "MOD-ZGW93U",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T23:13:17.814Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T23:13:19.491Z"
     }
   ]
 }
