@@ -10231,11 +10231,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T20:26:11.818Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T20:26:13.297Z"
     }
   ]
 }
