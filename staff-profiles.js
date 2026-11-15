@@ -10,6 +10,8 @@ function clean(value) {
   const text = (v, n) => typeof v === 'string' ? v.trim().slice(0, n) : '';
   if (!value || !text(value.name, 60)) throw new Error('Enter a staff name.');
   const photo = url(value.photo, true);
+  const banner = url(value.banner, true);
+  if (value.banner && !banner) throw new Error('Use an HTTPS banner URL or an uploaded PNG, JPEG or WebP under 70 KB.');
   if (value.photo && !photo) throw new Error('Use an HTTPS image URL or an uploaded PNG, JPEG or WebP.');
   const badges = (Array.isArray(value.badges) ? value.badges : []).slice(0, 8).map(b => {
     const image = url(b.image, true);
@@ -21,7 +23,7 @@ function clean(value) {
     if (!link) throw new Error('Social links must use a complete HTTPS URL.');
     return { label: text(s.label, 30) || 'Website', url: link };
   });
-  return { name: text(value.name, 60), role: text(value.role, 80), bio: text(value.bio, 240), details: text(value.details, 3000), featured: value.featured === true, cardSize: value.cardSize === 'large' ? 'large' : 'standard', glowColor: /^#[0-9a-f]{6}$/i.test(value.glowColor || '') ? value.glowColor : '#99d8f5', photo, badges, socials, visible: value.visible !== false };
+  return { name: text(value.name, 60), role: text(value.role, 80), bio: text(value.bio, 240), details: text(value.details, 3000), featured: value.featured === true, cardSize: value.cardSize === 'large' ? 'large' : 'standard', glowColor: /^#[0-9a-f]{6}$/i.test(value.glowColor || '') ? value.glowColor : '#99d8f5', photo, banner, badges, socials, visible: value.visible !== false };
 }
 function routes(app, { loadDB, saveDB, isAdmin, adminLimit, audit }) {
   app.post('/api/admin/staff-profile-order', adminLimit, (req, res) => {

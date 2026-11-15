@@ -9,6 +9,7 @@ window.StaffProfiles = (() => {
     section.hidden = !members.length; grid.replaceChildren();
     members.forEach(p => {
       const card = node('article', '', 'team-card');
+      if(p.banner) { const img=node('img','','team-banner');img.src=p.banner;img.alt='';img.loading='lazy';card.prepend(img);card.classList.add('team-has-banner'); }
       if(p.cardSize === 'large') card.classList.add('team-card-large');
       if(p.featured) { card.classList.add('team-featured'); card.style.setProperty('--team-glow', /^#[0-9a-f]{6}$/i.test(p.glowColor || '') ? p.glowColor : '#99d8f5'); }
       if (p.photo) { const img = node('img', '', 'team-avatar'); img.src = p.photo; img.alt = ''; img.loading = 'lazy'; img.width = 92; img.height = 92; card.append(img); }
@@ -49,6 +50,7 @@ window.StaffProfiles = (() => {
   function details(p,trigger) {
     const dialog=node('dialog','','team-detail');dialog.setAttribute('aria-label',p.name+' profile');
     const close=node('button','Close ×','team-more');close.type='button';close.onclick=()=>dialog.close();dialog.append(close);
+    if(p.banner){const img=node('img','','team-banner');img.src=p.banner;img.alt='';dialog.append(img);}
     if(p.photo){const img=node('img','','team-avatar');img.src=p.photo;img.alt='';dialog.append(img);}
     dialog.append(node('h2',p.name),node('p',p.role,'team-role'),node('p',p.details || p.bio || 'More about this team member is coming soon.','team-detail-copy'));
     const badges=node('div','','team-badges');(p.badges||[]).forEach(b=>{const el=node('span',b.label,'team-badge');if(b.image){const img=node('img');img.src=b.image;img.alt='';el.prepend(img);}badges.append(el);});dialog.append(badges);
@@ -73,8 +75,9 @@ window.StaffProfiles = (() => {
   function addBadge() { if (badgeDraft.length < 8) { badgeDraft.push({label:'',image:''}); badgeEditor(); } }
   function editProfile(p = {}) {
     editing = p.id || 'new'; const form = byId('teamEditForm'); form.hidden = false;
-    for (const key of ['name','role','bio','photo','details']) byId('team_'+key).value = p[key] || '';
+    for (const key of ['name','role','bio','photo','details','banner']) byId('team_'+key).value = p[key] || '';
     byId('team_cardSize').value=p.cardSize || 'standard';byId('team_featured').checked=!!p.featured;byId('team_glowColor').value=p.glowColor || '#99d8f5';
+    bannerPreview();
     byId('team_visible').checked = p.visible !== false;
     badgeDraft = (p.badges || []).map(b => ({...b})); badgeEditor();
     byId('team_socials').value = (p.socials || []).map(s => s.label + ' | ' + s.url).join('\n');
@@ -92,7 +95,7 @@ window.StaffProfiles = (() => {
     try {
       if (badgeDraft.some(b=>!b.label.trim())) throw Error('Give each badge a name, or remove the empty badge.');
       const p = { visible: byId('team_visible').checked, badges: badgeDraft.map(b=>({...b})), socials: socials() };
-      for (const key of ['name','role','bio','photo','details']) p[key] = byId('team_'+key).value.trim();
+      for (const key of ['name','role','bio','photo','details','banner']) p[key] = byId('team_'+key).value.trim();
       p.cardSize=byId('team_cardSize').value;p.featured=byId('team_featured').checked;p.glowColor=byId('team_glowColor').value;
       if (new Blob([JSON.stringify(p)]).size > 190000) throw Error('These images are too large together. Use smaller badge images or HTTPS image links.');
       const r = await fetch('/api/admin/staff-profiles/'+encodeURIComponent(editing), {method:'PUT',headers:headers(),body:JSON.stringify(p)});
@@ -119,5 +122,21 @@ window.StaffProfiles = (() => {
       byId('team_photo').value = await imageData(file,240,true);
     } catch(e) { byId('teamMessage').textContent = e.message; } finally { event.target.value = ''; }
   }
-  return { render, editor, editProfile, save, remove, upload, addBadge };
+  function bannerPreview() {
+    const img=byId('teamBannerPreview'),value=byId('team_banner').value.trim();img.hidden=!value;if(value)img.src=value;else img.removeAttribute('src');
+  }
+  function clearBanner(){byId('team_banner').value='';bannerPreview();}
+  async function uploadBanner(event){
+    const file=event.target.files[0];if(!file)return;
+    try{
+      if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>10000000)throw Error('Choose a PNG, JPEG or WebP smaller than 10 MB.');
+      const bitmap=await createImageBitmap(file);const canvas=document.createElement('canvas');canvas.width=960;canvas.height=320;
+      const ratio=Math.max(960/bitmap.width,320/bitmap.height),w=bitmap.width*ratio,h=bitmap.height*ratio;
+      canvas.getContext('2d').drawImage(bitmap,(960-w)/2,(320-h)/2,w,h);bitmap.close();
+      let data='';for(const quality of [.8,.65,.5,.35]){data=canvas.toDataURL('image/webp',quality);if(data.length<=70000)break;}
+      if(data.length>70000)throw Error('This banner is too detailed. Choose a simpler or smaller image.');
+      byId('team_banner').value=data;bannerPreview();
+    }catch(e){byId('teamMessage').textContent=e.message;}finally{event.target.value='';}
+  }
+  return { render, editor, editProfile, save, remove, upload, addBadge, bannerPreview, clearBanner, uploadBanner };
 })();
