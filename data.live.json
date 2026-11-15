@@ -3978,12 +3978,12 @@
       "appId": "CC-MMQJF4",
       "type": "creator",
       "date": "2026-11-15T16:05:59.198Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Hi keff0557,\n\nCongratulations on being accepted as a Content Creator for Wigglesworth! We were especially impressed by your commitment to posting twice a week and your enthusiasm for bringing new players into the game. A staff member will reach out shortly with the next steps. Welcome aboard!",
       "email": "manning.gavin1@icloud.com",
       "emailUpdates": true,
       "accountId": "acc_423a1f9a39beaef9ea8e4185",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "@KEFF_84",
       "discord": "keff0557",
       "age": "13",
@@ -3993,7 +3993,8 @@
       "schedule": "Ill post two times a week",
       "style": "I like to make engaging content and attract more players to the games i play. I post long forms short forms and make posts.",
       "strikes": "I do not believe i have gotten any strikes on my channel.",
-      "receiptAt": "2026-11-15T16:05:59.199Z"
+      "receiptAt": "2026-11-15T16:05:59.199Z",
+      "notifiedAt": "2026-11-15T16:27:29.237Z"
     }
   ],
   "tickets": [
@@ -4610,6 +4611,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T16:27:27.686Z",
+      "act": "ai_approved",
+      "id": "CC-MMQJF4",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T16:16:10.306Z",
       "act": "account_link",
       "id": "CC-N89NSY",
@@ -5202,12 +5209,6 @@
       "act": "config_saved",
       "id": "",
       "by": ""
-    },
-    {
-      "t": "2026-11-13T04:45:32.725Z",
-      "act": "account_login",
-      "id": "acc_df9e3f602662e7221d2a1f86",
-      "by": ""
     }
   ],
   "reports": [
@@ -5224,6 +5225,15 @@
     }
   ],
   "diag": [
+    {
+      "t": "2026-11-15T16:27:28.693Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
+    },
     {
       "t": "2026-11-15T16:26:33.210Z",
       "build": "20261024d",
@@ -5664,15 +5674,6 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-11-14T18:10:17.439Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
     }
   ],
   "accounts": [
@@ -10124,6 +10125,22 @@
       "error": "",
       "createdAt": "2026-11-15T16:14:09.088Z",
       "sentAt": "2026-11-15T16:14:10.609Z"
+    },
+    {
+      "id": "mail_abce9c8d51a8d35662",
+      "key": "CC-MMQJF4:approved:1794760047686",
+      "to": "manning.gavin1@icloud.com",
+      "subject": "You are in — Wigglesworth Content Creator application",
+      "text": "Hi keff0557,\n\nYour Content Creator application (CC-MMQJF4) has been reviewed.\n\nResult: Accepted\nNote from staff: Hi keff0557,\n\nCongratulations on being accepted as a Content Creator for Wigglesworth! We were especially impressed by your commitment to posting twice a week and your enthusiasm for bringing new players into the game. A staff member will reach out shortly with the next steps. Welcome aboard!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi keff0557,</p><p style=\"margin:0 0 20px\">Your <b>Content Creator</b> application (<b>CC-MMQJF4</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Hi keff0557,<br><br>Congratulations on being accepted as a Content Creator for Wigglesworth! We were especially impressed by your commitment to posting twice a week and your enthusiasm for bringing new players into the game. A staff member will reach out shortly with the next steps. Welcome aboard!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">CC-MMQJF4</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "CC-MMQJF4",
+      "decisionStatus": "approved",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-15T16:27:27.686Z",
+      "sentAt": "2026-11-15T16:27:29.237Z"
     }
   ]
 }
