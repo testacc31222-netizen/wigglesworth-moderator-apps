@@ -10207,11 +10207,11 @@
       "kind": "receipt",
       "appId": "MOD-WZZAV2",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T20:21:42.503Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T20:21:43.970Z"
     }
   ]
 }
