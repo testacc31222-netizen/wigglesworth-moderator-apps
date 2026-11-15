@@ -4650,6 +4650,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T20:28:34.154Z",
+      "act": "account_login",
+      "id": "acc_c10235092f2e9df99852c815",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T16:27:27.686Z",
       "act": "ai_approved",
       "id": "CC-MMQJF4",
@@ -5239,12 +5245,6 @@
     },
     {
       "t": "2026-11-13T05:12:03.746Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:00.443Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -6117,17 +6117,15 @@
       "email": "manning.gavin1@icloud.com",
       "createdAt": "2026-11-15T16:00:39.974Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_c10235092f2e9df99852c815",
       "email": "crbookreader11@gmail.com",
-      "hash": "433ece04e2af0beae396a9719386696701a2c33d7b851e11ed52f7627c489a2f",
-      "exp": 1794775029650,
-      "tries": 1,
-      "created": 1794774429650
+      "createdAt": "2026-11-15T20:28:34.154Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
