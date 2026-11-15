@@ -3914,7 +3914,9 @@
       "why": "I want to become moderator because I want to make sure that Wigglesworth has the best possible community and make it as fun as possible. I ensure you that every player will following the rules and not ruining the experience for other players. I'd like to also make Staff Justice videos which can grow the games play base a lot as seen in the past. You should choose me because out of all the other applicants you have seen what I have done before and know that I am willing to put in the time and effort to make sure everything is going correctly.",
       "scenario": "The chat has a 5 second slow mode to mostly prevent spam but if I start to see constant repeated messages nonstop then I will ask the person to stop and if they decide to continue then further action will be taken such as timing them out. If a user spams in any other channel that doesn't have a slow mode such as Media then i would most likely instantly time them out because of the mass chat flood it would cause.",
       "rulebreak": "No",
-      "receiptAt": "2026-11-15T02:23:41.901Z"
+      "receiptAt": "2026-11-15T02:23:41.901Z",
+      "aiSummary": "Verdict: Mixed - applicant has prior moderation but is under 18 and limited availability.  \n- Wants to join: Moderator role.  \n- Experience: Former Head Moderator, Trial Admin, and game moderator since 2022.  \n- Availability: After 3:39PM CST Tue‑Fri, any time weekends.  \n- Watch‑outs: Under 18, limited weekday hours, no ban history.",
+      "aiSummaryAt": "2026-11-15T21:58:38.606Z"
     },
     {
       "appId": "MOD-NZZPQY",
@@ -4677,6 +4679,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T21:58:38.606Z",
+      "act": "ai_summary",
+      "id": "MOD-NDSE77",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T21:57:32.532Z",
       "act": "staff_profile_saved",
       "id": "f4c130ca-5349-406a-831d-c9625dc0adc1",
@@ -5266,12 +5274,6 @@
     },
     {
       "t": "2026-11-13T05:12:04.793Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:04.329Z",
       "act": "config_saved",
       "id": "",
       "by": ""
