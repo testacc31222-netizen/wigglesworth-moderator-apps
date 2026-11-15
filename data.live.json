@@ -9632,11 +9632,11 @@
       "kind": "receipt",
       "appId": "MOD-NDSE77",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T02:23:41.901Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T02:23:43.609Z"
     }
   ]
 }
