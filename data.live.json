@@ -4516,6 +4516,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T05:59:43.008Z",
+      "act": "account_login",
+      "id": "acc_eece36503c966b141f167022",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T05:59:23.726Z",
       "act": "staff_profile_saved",
       "id": "15f0045d-9d67-4640-8c74-5b334f0e9da9",
@@ -5107,12 +5113,6 @@
       "t": "2026-11-01T03:56:06.599Z",
       "act": "deleted",
       "id": "CC-U9J7ET",
-      "by": ""
-    },
-    {
-      "t": "2026-11-01T03:53:56.876Z",
-      "act": "ai_approved",
-      "id": "CC-96AJ8P",
       "by": ""
     }
   ],
@@ -5965,17 +5965,15 @@
       "email": "masonwebb2399@gmail.com",
       "createdAt": "2026-11-14T22:58:41.859Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_eece36503c966b141f167022",
       "email": "prism1donyt@gmail.com",
-      "hash": "b6c8235656da372a19c5708a4ef11cd94179e47e4788075b0dd3d1279bca9aa3",
-      "exp": 1794722870325,
-      "tries": 0,
-      "created": 1794722270325
+      "createdAt": "2026-11-15T05:59:43.008Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
