@@ -4495,12 +4495,12 @@
       "id": "TKT-2Y49NN",
       "name": "Zaki",
       "subject": "Test",
-      "status": "open",
+      "status": "closed",
       "unread": true,
       "email": "rmatthew31@icloud.com",
       "accountId": "acc_49dddb73e8f2f888a2def2ad",
       "createdAt": "2026-11-14T16:08:26.320Z",
-      "updatedAt": "2026-11-14T16:08:26.320Z",
+      "updatedAt": "2026-11-15T06:27:44.603Z",
       "replies": [
         {
           "by": "user",
@@ -4555,6 +4555,12 @@
     }
   ],
   "audit": [
+    {
+      "t": "2026-11-15T06:27:44.603Z",
+      "act": "ticket_closed",
+      "id": "TKT-2Y49NN",
+      "by": ""
+    },
     {
       "t": "2026-11-15T06:27:19.554Z",
       "act": "ticket_reply",
@@ -5145,12 +5151,6 @@
     },
     {
       "t": "2026-11-03T01:50:44.227Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-03T01:47:53.838Z",
       "act": "config_saved",
       "id": "",
       "by": ""
