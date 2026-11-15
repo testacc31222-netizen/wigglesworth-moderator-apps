@@ -9991,11 +9991,11 @@
       "kind": "receipt",
       "appId": "CC-N89NSY",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T14:46:30.568Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T14:46:32.012Z"
     }
   ]
 }
