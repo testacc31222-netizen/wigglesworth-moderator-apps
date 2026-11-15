@@ -4682,6 +4682,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T22:17:34.576Z",
+      "act": "account_login",
+      "id": "acc_ac13e2bacee1a30824a5aac4",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T22:09:47.545Z",
       "act": "ai_approved",
       "id": "MOD-NDSE77",
@@ -5273,12 +5279,6 @@
       "t": "2026-11-13T05:13:33.539Z",
       "act": "config_saved",
       "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:30.841Z",
-      "act": "ticket_deleted",
-      "id": "TKT-6WLBB2",
       "by": ""
     }
   ],
@@ -6155,17 +6155,15 @@
       "email": "crbookreader11@gmail.com",
       "createdAt": "2026-11-15T20:28:34.154Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_ac13e2bacee1a30824a5aac4",
       "email": "koenbrandenburg5@gmail.com",
-      "hash": "a635420cdc585b24f0c0b0a1945e84f4e9cbe0bab51947f168642e53e993e791",
-      "exp": 1794781593562,
-      "tries": 0,
-      "created": 1794780993562
+      "createdAt": "2026-11-15T22:17:34.576Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
