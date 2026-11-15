@@ -3906,7 +3906,7 @@
       "email": "prism1donyt@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_eece36503c966b141f167022",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Prism",
       "discord": "Prism__1D",
       "age": "10",
@@ -3917,7 +3917,8 @@
       "rulebreak": "Yes because of a meanie",
       "receiptAt": "2026-11-15T06:23:17.848Z",
       "aiSummary": "Verdict: Weak - limited experience and availability, minor concerns.  \n- Wants to join: Moderator  \n- Experience: Tag game, other game, no real moderation history  \n- Availability: 0 hours, no timezone info  \n- Watch-outs: Age 10, no availability, has been banned, simplistic approach to moderation.",
-      "aiSummaryAt": "2026-11-15T06:23:38.108Z"
+      "aiSummaryAt": "2026-11-15T06:23:38.108Z",
+      "notifiedAt": "2026-11-15T06:23:51.856Z"
     }
   ],
   "tickets": [
@@ -9900,11 +9901,11 @@
       "kind": "decision",
       "appId": "MOD-NZZPQY",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T06:23:50.404Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T06:23:51.856Z"
     }
   ]
 }
