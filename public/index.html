@@ -581,7 +581,7 @@ input:focus,textarea:focus,select:focus{border-color:rgba(193,74,84,.78);box-sha
 <link rel="stylesheet" href="/cinema.css?v=20261113b">
 <script src="/cinema.js?v=campaign-20261113" defer></script>
 <link rel="stylesheet" href="/staff-workspace.css?v=20261113">
-<link rel="stylesheet" href="/staff-profiles.css?v=20261114">
+<link rel="stylesheet" href="/staff-profiles.css?v=20261114b">
 <link rel="stylesheet" href="/atmosphere.css?v=20261113">
 <link rel="stylesheet" href="/campaign.css?v=world-reel-20261114">
 <link rel="stylesheet" href="/ambient.css?v=20261114">
@@ -1096,8 +1096,8 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 <label for="team_bio">Short introduction</label><textarea id="team_bio" maxlength="240"></textarea>
 <label for="team_photo">Profile photo HTTPS URL (or upload below)</label><input id="team_photo">
 <label for="team_upload">Upload profile photo</label><input id="team_upload" type="file" accept="image/png,image/jpeg,image/webp" onchange="StaffProfiles.upload(event)">
-<label for="team_badges">Badges — one per line: label | optional HTTPS image URL</label><textarea id="team_badges" placeholder="Founder&#10;Moderator | https://example.com/badge.png"></textarea>
-<label for="team_socials">Social links — one per line: platform | HTTPS URL</label><textarea id="team_socials" placeholder="YouTube | https://youtube.com/@yourname&#10;TikTok | https://tiktok.com/@yourname"></textarea>
+<label>Badges</label><p class="hint">Add a badge name and choose its image from your device. Up to 8 badges.</p><div id="teamBadgeList"></div><button id="teamAddBadge" type="button" class="btn-small" onclick="StaffProfiles.addBadge()">+ Add badge</button>
+<label for="team_socials">Social links — paste one HTTPS link per line (platform name optional)</label><textarea id="team_socials" placeholder="YouTube | https://youtube.com/@yourname&#10;TikTok | https://tiktok.com/@yourname"></textarea>
 <label><input id="team_visible" type="checkbox" checked> Show this profile on the site</label>
 <div class="row"><button id="teamSave" type="submit" class="btn-confirm">Save profile</button><button type="button" class="btn-small" onclick="document.getElementById('teamEditForm').hidden=true">Cancel</button><button id="teamDelete" type="button" class="btn-small" onclick="StaffProfiles.remove()">Remove profile</button></div>
 </form><p id="teamMessage" class="team-message" role="status" aria-live="polite"></p></div>
@@ -1274,7 +1274,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </div>
 
 <script src="site-copy.js?v=20261025b"></script>
-<script src="/staff-profiles.js?v=20261114"></script>
+<script src="/staff-profiles.js?v=20261114b"></script>
 <script src="app.js?v=campaign-20261114"></script>
 <script>
 function toggleNav(){

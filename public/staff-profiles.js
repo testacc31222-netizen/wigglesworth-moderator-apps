@@ -37,19 +37,41 @@ window.StaffProfiles = (() => {
     if (!list.children.length) list.append(node('p', 'No staff cards yet. Add your first profile below.', 'hint'));
   }
   let editing = 'new';
+  let badgeDraft = [];
+  function badgeEditor() {
+    const list = byId('teamBadgeList'); list.replaceChildren();
+    badgeDraft.forEach((badge, i) => {
+      const row = node('div', '', 'team-badge-edit');
+      if (badge.image) { const preview = node('img'); preview.src = badge.image; preview.alt = 'Badge preview'; row.append(preview); }
+      const label = node('input'); label.value = badge.label; label.maxLength = 40; label.placeholder = 'Badge name'; label.setAttribute('aria-label','Badge '+(i+1)+' name'); label.oninput = () => badge.label = label.value;
+      const file = node('input'); file.type = 'file'; file.accept = 'image/png,image/jpeg,image/webp'; file.setAttribute('aria-label','Choose image for badge '+(i+1));
+      file.onchange = async () => { if (!file.files[0]) return; try { badge.image = await imageData(file.files[0], 96, false); badgeEditor(); } catch(e) { byId('teamMessage').textContent = e.message; } };
+      const remove = node('button','Remove','btn-small'); remove.type = 'button'; remove.onclick = () => { badgeDraft.splice(i,1); badgeEditor(); };
+      row.append(label,file,remove); list.append(row);
+    });
+    byId('teamAddBadge').disabled = badgeDraft.length >= 8;
+  }
+  function addBadge() { if (badgeDraft.length < 8) { badgeDraft.push({label:'',image:''}); badgeEditor(); } }
   function editProfile(p = {}) {
     editing = p.id || 'new'; const form = byId('teamEditForm'); form.hidden = false;
     for (const key of ['name','role','bio','photo']) byId('team_'+key).value = p[key] || '';
     byId('team_visible').checked = p.visible !== false;
-    byId('team_badges').value = (p.badges || []).map(b => b.label + (b.image ? ' | ' + b.image : '')).join('\n');
+    badgeDraft = (p.badges || []).map(b => ({...b})); badgeEditor();
     byId('team_socials').value = (p.socials || []).map(s => s.label + ' | ' + s.url).join('\n');
     byId('teamDelete').hidden = !p.id; byId('teamMessage').textContent = ''; byId('team_name').focus();
   }
-  function lines(id, keys) { return byId(id).value.split('\n').filter(s => s.trim()).map(line => { const parts = line.split('|'); return { [keys[0]]: parts.shift().trim(), [keys[1]]: parts.join('|').trim() }; }); }
+  function socials() {
+    return byId('team_socials').value.split('\n').filter(s=>s.trim()).map(line=>{
+      const parts=line.split('|'); let label=parts.length>1?parts.shift().trim():''; const url=parts.join('|').trim();
+      if(!label) { try { const host=new URL(url).hostname.replace(/^www\./,''); label=host==='youtu.be'||host==='youtube.com'?'YouTube':host==='tiktok.com'?'TikTok':host==='instagram.com'?'Instagram':host==='discord.gg'||host==='discord.com'?'Discord':host==='x.com'||host==='twitter.com'?'X':host; } catch { label='Website'; } }
+      return {label,url};
+    });
+  }
   async function save(event) {
     event.preventDefault(); const message = byId('teamMessage'), button = byId('teamSave'); button.disabled = true;
     try {
-      const p = { visible: byId('team_visible').checked, badges: lines('team_badges',['label','image']), socials: lines('team_socials',['label','url']) };
+      if (badgeDraft.some(b=>!b.label.trim())) throw Error('Give each badge a name, or remove the empty badge.');
+      const p = { visible: byId('team_visible').checked, badges: badgeDraft.map(b=>({...b})), socials: socials() };
       for (const key of ['name','role','bio','photo']) p[key] = byId('team_'+key).value.trim();
       if (new Blob([JSON.stringify(p)]).size > 190000) throw Error('These images are too large together. Use smaller badge images or HTTPS image links.');
       const r = await fetch('/api/admin/staff-profiles/'+encodeURIComponent(editing), {method:'PUT',headers:headers(),body:JSON.stringify(p)});
@@ -62,14 +84,19 @@ window.StaffProfiles = (() => {
     try { const r = await fetch('/api/admin/staff-profiles/'+encodeURIComponent(editing),{method:'DELETE',headers:headers()}); const j = await r.json(); if(!r.ok) throw Error(j.error); config.staffProfiles = j.profiles; render(); editor(); byId('teamEditForm').hidden = true; }
     catch(e) { byId('teamMessage').textContent = e.message || 'Could not remove profile.'; }
   }
+  async function imageData(file, size, crop) {
+      if (!['image/png','image/jpeg','image/webp'].includes(file.type) || file.size > 10000000) throw Error('Choose a PNG, JPEG or WebP smaller than 10 MB.');
+      const bitmap = await createImageBitmap(file); const canvas = document.createElement('canvas'); canvas.width = canvas.height = size;
+      const ctx=canvas.getContext('2d');
+      if(crop) { const side=Math.min(bitmap.width,bitmap.height); ctx.drawImage(bitmap,(bitmap.width-side)/2,(bitmap.height-side)/2,side,side,0,0,size,size); }
+      else { const ratio=Math.min(size/bitmap.width,size/bitmap.height); const w=bitmap.width*ratio,h=bitmap.height*ratio; ctx.drawImage(bitmap,(size-w)/2,(size-h)/2,w,h); }
+      bitmap.close(); return canvas.toDataURL('image/webp',.78);
+  }
   async function upload(event) {
     const file = event.target.files[0]; if (!file) return;
     try {
-      if (!['image/png','image/jpeg','image/webp'].includes(file.type) || file.size > 10000000) throw Error('Choose a PNG, JPEG or WebP smaller than 10 MB.');
-      const bitmap = await createImageBitmap(file); const canvas = document.createElement('canvas'); canvas.width = canvas.height = 240;
-      const side = Math.min(bitmap.width,bitmap.height); canvas.getContext('2d').drawImage(bitmap,(bitmap.width-side)/2,(bitmap.height-side)/2,side,side,0,0,240,240); bitmap.close();
-      byId('team_photo').value = canvas.toDataURL('image/webp',.78);
+      byId('team_photo').value = await imageData(file,240,true);
     } catch(e) { byId('teamMessage').textContent = e.message; } finally { event.target.value = ''; }
   }
-  return { render, editor, editProfile, save, remove, upload };
+  return { render, editor, editProfile, save, remove, upload, addBadge };
 })();
