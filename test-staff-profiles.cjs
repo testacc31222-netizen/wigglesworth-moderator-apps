@@ -7,6 +7,7 @@ const { clean, url } = require('./staff-profiles');
 assert.equal(clean({name:'Alex',cardSize:'large'}).cardSize,'large');assert.equal(clean({name:'Alex',cardSize:'invalid'}).cardSize,'standard');
 assert.equal(clean({name:'Alex',banner:'https://example.com/banner.png'}).banner,'https://example.com/banner.png');assert.throws(()=>clean({name:'Alex',banner:'javascript:alert(1)'}));
 assert.equal(clean({name:'Alex',placement:'center'}).placement,'center');assert.equal(clean({name:'Alex',placement:'invalid'}).placement,'team');
+assert.equal(clean({name:'Alex',clip:{url:'https://youtu.be/RpjntELmgQc?t=22'}}).clip.start,22);assert.equal(clean({name:'Alex',clip:{url:'https://youtube.com/shorts/RpjntELmgQc'}}).clip.youtubeId,'RpjntELmgQc');assert.equal(clean({name:'Alex',clip:{url:'https://example.com/clip.mp4'}}).clip.kind,'video');assert.throws(()=>clean({name:'Alex',clip:{url:'javascript:alert(1)'}}));
 assert.equal(url('javascript:alert(1)'), '');
 assert.equal(url('https://user:password@example.com'), '');
 assert.throws(() => clean({name:'A',socials:[{url:'javascript:alert(1)'}]}));

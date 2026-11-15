@@ -20,6 +20,10 @@ window.StaffProfiles = (() => {
       const badges = node('div', '', 'team-badges');
       (p.badges || []).forEach(b => { const badge = node('span', '', 'team-badge'); if (b.image) { const img = node('img'); img.src = b.image; img.alt = ''; img.loading = 'lazy'; badge.append(img); } badge.append(document.createTextNode(b.label)); badges.append(badge); });
       card.append(badges);
+      if(p.clip?.url) {
+        const play=node('button','▶ Watch clip','team-more');play.type='button';play.setAttribute('aria-label','Play '+p.name+' clip');play.onclick=()=>playClip(p,play);card.append(play);card.classList.add('team-has-clip');
+        card.addEventListener('click',e=>{if(!e.target.closest('a,button'))playClip(p,play);});
+      }
       if (p.socials?.length) { const links = node('nav', '', 'team-socials'); links.setAttribute('aria-label', p.name + ' social links'); p.socials.forEach(s => { const a = node('a', s.label + ' ↗'); a.href = s.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.setAttribute('aria-label', p.name + ' on ' + s.label + ' (opens in new tab)'); links.append(a); }); card.append(links); }
       let frame = 0;
       card.addEventListener('pointermove', event => {
@@ -43,6 +47,17 @@ window.StaffProfiles = (() => {
     if (!list.children.length) list.append(node('p', 'No staff cards yet. Add your first profile below.', 'hint'));
   }
   let editing = 'new';
+  function playClip(p,trigger) {
+    const dialog=node('dialog','','team-clip-dialog');dialog.setAttribute('aria-label',p.name+' clip');
+    const close=node('button','Close ×','team-more');close.type='button';close.onclick=()=>dialog.close();dialog.append(close,node('h2',p.name+' · a moment in Wigglesworth'));
+    if(p.clip.kind==='youtube' && /^[\w-]{11}$/.test(p.clip.youtubeId || '')) {
+      const frame=node('iframe');frame.src='https://www.youtube-nocookie.com/embed/'+p.clip.youtubeId+'?autoplay=1&rel=0&start='+Math.max(0,Number(p.clip.start)||0);frame.title=p.name+' YouTube clip';frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;dialog.append(frame);
+      dialog.append(node('p','If this video cannot be embedded, open it on YouTube.','hint'));const a=node('a','Open on YouTube ↗','team-more');a.href=p.clip.url;a.target='_blank';a.rel='noopener noreferrer';dialog.append(a);
+    } else {const video=node('video');video.src=p.clip.url;video.controls=true;video.playsInline=true;video.autoplay=true;video.preload='metadata';video.addEventListener('error',()=>{notice.textContent='The clip could not load yet. Recently uploaded videos may take a minute to become available.';});const notice=node('p','','hint');dialog.append(video,notice);}
+    dialog.addEventListener('close',()=>{dialog.querySelector('video')?.pause();dialog.querySelector('iframe')?.remove();dialog.remove();if(trigger.isConnected)trigger.focus();});
+    dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+    document.body.append(dialog);dialog.showModal();close.focus();
+  }
   async function move(id,delta) {
     const ids=config.staffProfiles.map(p=>p.id), i=ids.indexOf(id); [ids[i],ids[i+delta]]=[ids[i+delta],ids[i]];
     try { const r=await fetch('/api/admin/staff-profile-order',{method:'POST',headers:headers(),body:JSON.stringify({ids})});const j=await r.json();if(!r.ok)throw Error(j.error);config.staffProfiles=j.profiles;render();editor();byId('teamMessage').textContent='Profile order saved.'; } catch(e){byId('teamMessage').textContent=e.message;}
@@ -67,6 +82,7 @@ window.StaffProfiles = (() => {
     for (const key of ['name','role','bio','photo','details','banner']) byId('team_'+key).value = p[key] || '';
     byId('team_placement').value=p.placement || 'team';byId('team_cardSize').value=p.cardSize || 'standard';byId('team_featured').checked=!!p.featured;byId('team_glowColor').value=p.glowColor || '#99d8f5';
     bannerPreview();
+    byId('team_clipUrl').value=p.clip?.url || '';
     byId('team_visible').checked = p.visible !== false;
     badgeDraft = (p.badges || []).map(b => ({...b})); badgeEditor();
     byId('team_socials').value = (p.socials || []).map(s => s.label + ' | ' + s.url).join('\n');
@@ -86,6 +102,7 @@ window.StaffProfiles = (() => {
       const p = { visible: byId('team_visible').checked, badges: badgeDraft.map(b=>({...b})), socials: socials() };
       for (const key of ['name','role','bio','photo','details','banner']) p[key] = byId('team_'+key).value.trim();
       p.placement=byId('team_placement').value;p.cardSize=byId('team_cardSize').value;p.featured=byId('team_featured').checked;p.glowColor=byId('team_glowColor').value;
+      p.clip=byId('team_clipUrl').value.trim()?{url:byId('team_clipUrl').value.trim()}:null;
       if (new Blob([JSON.stringify(p)]).size > 190000) throw Error('These images are too large together. Use smaller badge images or HTTPS image links.');
       const r = await fetch('/api/admin/staff-profiles/'+encodeURIComponent(editing), {method:'PUT',headers:headers(),body:JSON.stringify(p)});
       const j = await r.json(); if (!r.ok) throw Error(j.error || 'Could not save.');
@@ -127,5 +144,11 @@ window.StaffProfiles = (() => {
       byId('team_banner').value=data;bannerPreview();
     }catch(e){byId('teamMessage').textContent=e.message;}finally{event.target.value='';}
   }
-  return { render, editor, editProfile, save, remove, upload, addBadge, bannerPreview, clearBanner, uploadBanner };
+  async function uploadClip(event){
+    const file=event.target.files[0];if(!file)return;const save=byId('teamSave'),message=byId('teamMessage');save.disabled=true;event.target.disabled=true;
+    try{if(!['video/mp4','video/webm'].includes(file.type)||file.size>60000000)throw Error('Choose an MP4 or WebM video smaller than 60 MB.');message.textContent='Uploading clip… keep this page open.';
+      const r=await fetch('/api/admin/upload-video',{method:'POST',headers:{...headers(),'Content-Type':file.type},body:file});const j=await r.json();if(!r.ok)throw Error(j.error || 'Upload failed.');byId('team_clipUrl').value=j.rawUrl || j.url;message.textContent='Clip uploaded. Save this profile to attach it. It may take a minute to become playable.';
+    }catch(e){message.textContent=e.message;}finally{save.disabled=false;event.target.disabled=false;event.target.value='';}
+  }
+  return { render, editor, editProfile, save, remove, upload, addBadge, bannerPreview, clearBanner, uploadBanner, uploadClip };
 })();

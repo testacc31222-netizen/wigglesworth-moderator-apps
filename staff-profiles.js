@@ -10,6 +10,18 @@ function clean(value) {
   const text = (v, n) => typeof v === 'string' ? v.trim().slice(0, n) : '';
   if (!value || !text(value.name, 60)) throw new Error('Enter a staff name.');
   const photo = url(value.photo, true);
+  let clip = null;
+  if (value.clip?.url) {
+    const link=url(value.clip.url);if(!link)throw new Error('Use a complete HTTPS clip URL.');
+    const u=new URL(link),host=u.hostname.replace(/^www\./,'');
+    if(['youtube.com','m.youtube.com','youtu.be'].includes(host)) {
+      const id=host==='youtu.be'?u.pathname.split('/')[1]:u.searchParams.get('v') || (/^\/(shorts|embed)\//.test(u.pathname)?u.pathname.split('/')[2]:'');
+      if(!/^[a-zA-Z0-9_-]{11}$/.test(id || ''))throw new Error('Enter a YouTube video or Shorts link.');
+      const stamp=u.searchParams.get('t') || u.searchParams.get('start') || '0';
+      const start=/^\d+$/.test(stamp)?Number(stamp):[...stamp.matchAll(/(\d+)(h|m|s)/g)].reduce((sum,m)=>sum+Number(m[1])*({h:3600,m:60,s:1}[m[2]]),0);
+      clip={kind:'youtube',url:link,youtubeId:id,start:Math.min(start,86400)};
+    } else clip={kind:'video',url:link};
+  }
   const banner = url(value.banner, true);
   if (value.banner && !banner) throw new Error('Use an HTTPS banner URL or an uploaded PNG, JPEG or WebP under 70 KB.');
   if (value.photo && !photo) throw new Error('Use an HTTPS image URL or an uploaded PNG, JPEG or WebP.');
@@ -23,7 +35,7 @@ function clean(value) {
     if (!link) throw new Error('Social links must use a complete HTTPS URL.');
     return { label: text(s.label, 30) || 'Website', url: link };
   });
-  return { name: text(value.name, 60), role: text(value.role, 80), bio: text(value.bio, 240), details: text(value.details, 3000), featured: value.featured === true, placement: ['left','center','right'].includes(value.placement) ? value.placement : 'team', cardSize: value.cardSize === 'large' ? 'large' : 'standard', glowColor: /^#[0-9a-f]{6}$/i.test(value.glowColor || '') ? value.glowColor : '#99d8f5', photo, banner, badges, socials, visible: value.visible !== false };
+  return { name: text(value.name, 60), role: text(value.role, 80), bio: text(value.bio, 240), details: text(value.details, 3000), featured: value.featured === true, placement: ['left','center','right'].includes(value.placement) ? value.placement : 'team', cardSize: value.cardSize === 'large' ? 'large' : 'standard', glowColor: /^#[0-9a-f]{6}$/i.test(value.glowColor || '') ? value.glowColor : '#99d8f5', photo, banner, clip, badges, socials, visible: value.visible !== false };
 }
 function routes(app, { loadDB, saveDB, isAdmin, adminLimit, audit }) {
   app.post('/api/admin/staff-profile-order', adminLimit, (req, res) => {

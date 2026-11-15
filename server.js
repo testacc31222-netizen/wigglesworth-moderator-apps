@@ -176,6 +176,8 @@ app.use(helmet({
       objectSrc: ["'none'"],
       baseUri: ["'self'"],
       frameAncestors: ["'none'"],
+      frameSrc: ['https://www.youtube-nocookie.com'],
+      mediaSrc: ["'self'", 'https:'],
       upgradeInsecureRequests: [],
     },
   },
@@ -1761,7 +1763,7 @@ app.post('/api/admin/upload-video', uploadLimit, express.raw({ type: ['video/*',
   } catch (e) { console.error('video store error', e.message); return res.status(502).json({ error: 'Video store failed' }); }
   audit(db, 'video_upload', name, req);
   saveDB(db);
-  res.json({ url: `${COUNTDOWN_PUBLIC_URL}/${name}` });
+  res.json({ url: `${COUNTDOWN_PUBLIC_URL}/${name}`, rawUrl: `https://raw.githubusercontent.com/${GH_CD_REPO}/${GH_BRANCH}/${name}` });
 });
 
 function detectImage(buf) {
