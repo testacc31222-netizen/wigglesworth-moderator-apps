@@ -25,6 +25,12 @@ async function call(route,method='GET',body,authorized=true) {
   assert.equal((await call('/api/admin/staff-profiles/new','PUT',{name:'Alex',socials:[{url:'javascript:alert(1)'}]})).status,400);
   const response=await call('/api/admin/staff-profiles/new','PUT',{name:'Alex',role:'Moderator',badges:[{label:'Active staff'}],socials:[{label:'YouTube',url:'https://youtube.com/@example'}]});
   assert.equal(response.status,200);const {profiles}=await response.json();const id=profiles[0].id;
+  const second=await (await call('/api/admin/staff-profiles/new','PUT',{name:'Riley',featured:true,glowColor:'#ff7700',details:'A longer profile.'})).json();const secondId=second.profiles[1].id;
+  assert.equal(second.profiles[1].glowColor,'#ff7700');assert.equal(second.profiles[1].details,'A longer profile.');
+  assert.equal((await call('/api/admin/staff-profile-order','POST',{ids:[secondId,id]},false)).status,401);
+  assert.equal((await call('/api/admin/staff-profile-order','POST',{ids:[id,id]})).status,409);
+  const reordered=await (await call('/api/admin/staff-profile-order','POST',{ids:[secondId,id]})).json();assert.equal(reordered.profiles[0].id,secondId);
+  await call('/api/admin/staff-profiles/'+secondId,'DELETE');
   const publicConfig=await (await call('/api/config')).json();assert.equal(publicConfig.staffProfiles[0].name,'Alex');assert.equal(publicConfig.editCode,undefined);
   const full=await (await call('/api/admin/config')).json();delete full.staffProfiles;
   assert.equal((await call('/api/admin/config','POST',full)).status,200);

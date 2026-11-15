@@ -14,6 +14,13 @@ const fs=require('node:fs');const assert=require('node:assert/strict');
  await page.addScriptTag({content:fs.readFileSync('public/staff-profiles.js','utf8')});
  await page.evaluate(()=>{StaffProfiles.render();StaffProfiles.editor();});
  assert.equal(await page.locator('.team-card').count(),4);
+ await page.evaluate(()=>{config.staffProfiles[0].featured=true;config.staffProfiles[0].glowColor='#ff7700';config.staffProfiles[0].details='A longer biography for Alex.';StaffProfiles.render();});
+ assert.equal(await page.locator('.team-featured').count(),1);
+ await page.getByRole('button',{name:'View Alex profile',exact:true}).click();await page.getByRole('dialog',{name:'Alex profile',exact:true}).waitFor();assert.equal(await page.locator('.team-detail-copy').textContent(),'A longer biography for Alex.');await page.keyboard.press('Escape');await page.locator('dialog').waitFor({state:'detached'});
+ await page.route('**/api/admin/staff-profile-order',route=>{const ids=route.request().postDataJSON().ids;return route.fulfill({json:{profiles:ids.map(id=>({id,name:id==='0'?'Alex':'Member '+id,badges:[],socials:[]}))}});});
+ await page.getByRole('button',{name:'Move down Alex',exact:true}).click();await page.waitForFunction(()=>config.staffProfiles[1].id==='0');assert.equal(await page.locator('.team-card h3').nth(1).textContent(),'Alex');
+ await page.evaluate(()=>{const i=config.staffProfiles.findIndex(p=>p.id==='0');const [p]=config.staffProfiles.splice(i,1);config.staffProfiles.unshift(p);p.badges=[{label:'Active staff'}];StaffProfiles.render();StaffProfiles.editor();});
+
  await page.setViewportSize({width:1440,height:1000});await page.screenshot({path:'docs/team-profiles-desktop.png',fullPage:true});
  await page.locator('.team-card').first().hover({position:{x:30,y:30}});await page.waitForTimeout(150);
  assert.notEqual(await page.locator('.team-card').first().evaluate(e=>e.style.getPropertyValue('--ry')),'0deg');

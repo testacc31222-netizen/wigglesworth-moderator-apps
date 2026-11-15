@@ -9,6 +9,7 @@ window.StaffProfiles = (() => {
     section.hidden = !members.length; grid.replaceChildren();
     members.forEach(p => {
       const card = node('article', '', 'team-card');
+      if(p.featured) { card.classList.add('team-featured'); card.style.setProperty('--team-glow', /^#[0-9a-f]{6}$/i.test(p.glowColor || '') ? p.glowColor : '#99d8f5'); }
       if (p.photo) { const img = node('img', '', 'team-avatar'); img.src = p.photo; img.alt = ''; img.loading = 'lazy'; img.width = 92; img.height = 92; card.append(img); }
       else card.append(node('span', p.name.slice(0, 1).toUpperCase(), 'team-avatar'));
       card.append(node('h3', p.name), node('p', p.role, 'team-role'));
@@ -16,6 +17,8 @@ window.StaffProfiles = (() => {
       const badges = node('div', '', 'team-badges');
       (p.badges || []).forEach(b => { const badge = node('span', '', 'team-badge'); if (b.image) { const img = node('img'); img.src = b.image; img.alt = ''; img.loading = 'lazy'; badge.append(img); } badge.append(document.createTextNode(b.label)); badges.append(badge); });
       card.append(badges);
+      const more=node('button','View profile ↗','team-more'); more.type='button'; more.setAttribute('aria-label','View '+p.name+' profile'); more.onclick=()=>details(p,more); card.append(more);
+      card.addEventListener('click',e=>{if(!e.target.closest('a,button')) details(p,more);});
       if (p.socials?.length) { const links = node('nav', '', 'team-socials'); links.setAttribute('aria-label', p.name + ' social links'); p.socials.forEach(s => { const a = node('a', s.label + ' ↗'); a.href = s.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.setAttribute('aria-label', p.name + ' on ' + s.label + ' (opens in new tab)'); links.append(a); }); card.append(links); }
       let frame = 0;
       card.addEventListener('pointermove', event => {
@@ -30,13 +33,28 @@ window.StaffProfiles = (() => {
   function editor() {
     const list = byId('teamEditorList'); if (!list || !config) return;
     list.replaceChildren();
-    (config.staffProfiles || []).forEach(p => {
+    (config.staffProfiles || []).forEach((p,i) => {
       const row = node('div', '', 'team-editor-row'); row.append(node('span', p.name + (p.visible === false ? ' · Hidden' : '')));
       const edit = node('button', 'Edit', 'btn-small'); edit.type = 'button'; edit.onclick = () => editProfile(p); row.append(edit); list.append(row);
+      for(const [label,delta] of [['Move up',-1],['Move down',1]]) { const b=node('button',delta<0?'↑':'↓','btn-small'); b.type='button';b.setAttribute('aria-label',label+' '+p.name); b.disabled=i+delta<0 || i+delta>=config.staffProfiles.length; b.onclick=()=>move(p.id,delta); row.append(b); }
     });
     if (!list.children.length) list.append(node('p', 'No staff cards yet. Add your first profile below.', 'hint'));
   }
   let editing = 'new';
+  async function move(id,delta) {
+    const ids=config.staffProfiles.map(p=>p.id), i=ids.indexOf(id); [ids[i],ids[i+delta]]=[ids[i+delta],ids[i]];
+    try { const r=await fetch('/api/admin/staff-profile-order',{method:'POST',headers:headers(),body:JSON.stringify({ids})});const j=await r.json();if(!r.ok)throw Error(j.error);config.staffProfiles=j.profiles;render();editor();byId('teamMessage').textContent='Profile order saved.'; } catch(e){byId('teamMessage').textContent=e.message;}
+  }
+  function details(p,trigger) {
+    const dialog=node('dialog','','team-detail');dialog.setAttribute('aria-label',p.name+' profile');
+    const close=node('button','Close ×','team-more');close.type='button';close.onclick=()=>dialog.close();dialog.append(close);
+    if(p.photo){const img=node('img','','team-avatar');img.src=p.photo;img.alt='';dialog.append(img);}
+    dialog.append(node('h2',p.name),node('p',p.role,'team-role'),node('p',p.details || p.bio || 'More about this team member is coming soon.','team-detail-copy'));
+    const badges=node('div','','team-badges');(p.badges||[]).forEach(b=>{const el=node('span',b.label,'team-badge');if(b.image){const img=node('img');img.src=b.image;img.alt='';el.prepend(img);}badges.append(el);});dialog.append(badges);
+    (p.socials||[]).forEach(s=>{const a=node('a',s.label+' ↗','team-more');a.href=s.url;a.target='_blank';a.rel='noopener noreferrer';dialog.append(a);});
+    dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus();});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+    document.body.append(dialog);dialog.showModal();close.focus();
+  }
   let badgeDraft = [];
   function badgeEditor() {
     const list = byId('teamBadgeList'); list.replaceChildren();
@@ -54,7 +72,8 @@ window.StaffProfiles = (() => {
   function addBadge() { if (badgeDraft.length < 8) { badgeDraft.push({label:'',image:''}); badgeEditor(); } }
   function editProfile(p = {}) {
     editing = p.id || 'new'; const form = byId('teamEditForm'); form.hidden = false;
-    for (const key of ['name','role','bio','photo']) byId('team_'+key).value = p[key] || '';
+    for (const key of ['name','role','bio','photo','details']) byId('team_'+key).value = p[key] || '';
+    byId('team_featured').checked=!!p.featured;byId('team_glowColor').value=p.glowColor || '#99d8f5';
     byId('team_visible').checked = p.visible !== false;
     badgeDraft = (p.badges || []).map(b => ({...b})); badgeEditor();
     byId('team_socials').value = (p.socials || []).map(s => s.label + ' | ' + s.url).join('\n');
@@ -72,7 +91,8 @@ window.StaffProfiles = (() => {
     try {
       if (badgeDraft.some(b=>!b.label.trim())) throw Error('Give each badge a name, or remove the empty badge.');
       const p = { visible: byId('team_visible').checked, badges: badgeDraft.map(b=>({...b})), socials: socials() };
-      for (const key of ['name','role','bio','photo']) p[key] = byId('team_'+key).value.trim();
+      for (const key of ['name','role','bio','photo','details']) p[key] = byId('team_'+key).value.trim();
+      p.featured=byId('team_featured').checked;p.glowColor=byId('team_glowColor').value;
       if (new Blob([JSON.stringify(p)]).size > 190000) throw Error('These images are too large together. Use smaller badge images or HTTPS image links.');
       const r = await fetch('/api/admin/staff-profiles/'+encodeURIComponent(editing), {method:'PUT',headers:headers(),body:JSON.stringify(p)});
       const j = await r.json(); if (!r.ok) throw Error(j.error || 'Could not save.');
