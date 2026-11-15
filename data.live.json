@@ -4519,6 +4519,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T06:11:46.264Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T06:11:43.834Z",
       "act": "staff_profiles_reordered",
       "id": "",
@@ -5110,12 +5116,6 @@
       "t": "2026-11-02T01:26:57.907Z",
       "act": "ai_approved",
       "id": "CC-H4SGKR",
-      "by": ""
-    },
-    {
-      "t": "2026-11-02T00:00:33.502Z",
-      "act": "account_link",
-      "id": "MOD-BCAST2",
       "by": ""
     }
   ],
