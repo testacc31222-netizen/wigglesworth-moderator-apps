@@ -3915,7 +3915,9 @@
       "why": "To be able to ban bad people",
       "scenario": "Ban them permanently",
       "rulebreak": "Yes because of a meanie",
-      "receiptAt": "2026-11-15T06:23:17.848Z"
+      "receiptAt": "2026-11-15T06:23:17.848Z",
+      "aiSummary": "Verdict: Weak - limited experience and availability, minor concerns.  \n- Wants to join: Moderator  \n- Experience: Tag game, other game, no real moderation history  \n- Availability: 0 hours, no timezone info  \n- Watch-outs: Age 10, no availability, has been banned, simplistic approach to moderation.",
+      "aiSummaryAt": "2026-11-15T06:23:38.108Z"
     }
   ],
   "tickets": [
@@ -4545,6 +4547,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T06:23:38.108Z",
+      "act": "ai_summary",
+      "id": "MOD-NZZPQY",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T06:23:08.317Z",
       "act": "config_saved",
       "id": "",
@@ -5136,12 +5144,6 @@
       "t": "2026-11-02T12:40:10.316Z",
       "act": "account_login",
       "id": "acc_0554aa90aa543073b8995a6a",
-      "by": ""
-    },
-    {
-      "t": "2026-11-02T04:12:53.967Z",
-      "act": "account_recover",
-      "id": "MOD-L37KHL",
       "by": ""
     }
   ],
