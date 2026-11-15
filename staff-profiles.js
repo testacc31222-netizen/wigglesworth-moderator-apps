@@ -23,7 +23,7 @@ function clean(value) {
     if (!link) throw new Error('Social links must use a complete HTTPS URL.');
     return { label: text(s.label, 30) || 'Website', url: link };
   });
-  return { name: text(value.name, 60), role: text(value.role, 80), bio: text(value.bio, 240), details: text(value.details, 3000), featured: value.featured === true, cardSize: value.cardSize === 'large' ? 'large' : 'standard', glowColor: /^#[0-9a-f]{6}$/i.test(value.glowColor || '') ? value.glowColor : '#99d8f5', photo, banner, badges, socials, visible: value.visible !== false };
+  return { name: text(value.name, 60), role: text(value.role, 80), bio: text(value.bio, 240), details: text(value.details, 3000), featured: value.featured === true, placement: ['left','center','right'].includes(value.placement) ? value.placement : 'team', cardSize: value.cardSize === 'large' ? 'large' : 'standard', glowColor: /^#[0-9a-f]{6}$/i.test(value.glowColor || '') ? value.glowColor : '#99d8f5', photo, banner, badges, socials, visible: value.visible !== false };
 }
 function routes(app, { loadDB, saveDB, isAdmin, adminLimit, audit }) {
   app.post('/api/admin/staff-profile-order', adminLimit, (req, res) => {
@@ -41,6 +41,7 @@ function routes(app, { loadDB, saveDB, isAdmin, adminLimit, audit }) {
       if (req.params.id !== 'new' && index < 0) return res.status(404).json({ error: 'Profile not found' });
       if (req.params.id === 'new' && profiles.length >= 40) return res.status(400).json({ error: 'Maximum 40 profiles.' });
       const profile = { ...clean(req.body), id: index < 0 ? crypto.randomUUID() : profiles[index].id };
+      if (profile.placement !== 'team' && profiles.some(p => p.id !== profile.id && p.placement === profile.placement)) return res.status(409).json({error:'That podium position is occupied. Move its current profile to the team grid first.'});
       if (index < 0) profiles.push(profile); else profiles[index] = profile;
       db.config.staffProfiles = profiles; audit(db, 'staff_profile_saved', profile.id, req); saveDB(db);
       res.json({ profiles });

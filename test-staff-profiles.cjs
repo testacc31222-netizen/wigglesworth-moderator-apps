@@ -6,6 +6,7 @@ const path = require('node:path');
 const { clean, url } = require('./staff-profiles');
 assert.equal(clean({name:'Alex',cardSize:'large'}).cardSize,'large');assert.equal(clean({name:'Alex',cardSize:'invalid'}).cardSize,'standard');
 assert.equal(clean({name:'Alex',banner:'https://example.com/banner.png'}).banner,'https://example.com/banner.png');assert.throws(()=>clean({name:'Alex',banner:'javascript:alert(1)'}));
+assert.equal(clean({name:'Alex',placement:'center'}).placement,'center');assert.equal(clean({name:'Alex',placement:'invalid'}).placement,'team');
 assert.equal(url('javascript:alert(1)'), '');
 assert.equal(url('https://user:password@example.com'), '');
 assert.throws(() => clean({name:'A',socials:[{url:'javascript:alert(1)'}]}));
@@ -27,7 +28,8 @@ async function call(route,method='GET',body,authorized=true) {
   assert.equal((await call('/api/admin/staff-profiles/new','PUT',{name:'Alex',socials:[{url:'javascript:alert(1)'}]})).status,400);
   const response=await call('/api/admin/staff-profiles/new','PUT',{name:'Alex',role:'Moderator',badges:[{label:'Active staff'}],socials:[{label:'YouTube',url:'https://youtube.com/@example'}]});
   assert.equal(response.status,200);const {profiles}=await response.json();const id=profiles[0].id;
-  const second=await (await call('/api/admin/staff-profiles/new','PUT',{name:'Riley',featured:true,glowColor:'#ff7700',details:'A longer profile.'})).json();const secondId=second.profiles[1].id;
+  const second=await (await call('/api/admin/staff-profiles/new','PUT',{name:'Riley',placement:'center',featured:true,glowColor:'#ff7700',details:'A longer profile.'})).json();const secondId=second.profiles[1].id;
+  assert.equal((await call('/api/admin/staff-profiles/'+id,'PUT',{name:'Alex',placement:'center'})).status,409,'occupied podium slots cannot overwrite another profile');
   assert.equal(second.profiles[1].glowColor,'#ff7700');assert.equal(second.profiles[1].details,'A longer profile.');
   assert.equal((await call('/api/admin/staff-profile-order','POST',{ids:[secondId,id]},false)).status,401);
   assert.equal((await call('/api/admin/staff-profile-order','POST',{ids:[id,id]})).status,409);
