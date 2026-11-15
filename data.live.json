@@ -4589,6 +4589,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T16:00:39.974Z",
+      "act": "account_login",
+      "id": "acc_423a1f9a39beaef9ea8e4185",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T15:51:16.853Z",
       "act": "ai_approved",
       "id": "CC-N89NSY",
@@ -5181,12 +5187,6 @@
       "act": "account_login",
       "id": "acc_0af80c2c357a047b43da202f",
       "by": ""
-    },
-    {
-      "t": "2026-11-12T17:22:17.037Z",
-      "act": "account_recover",
-      "id": "CC-HMTG6N",
-      "by": ""
     }
   ],
   "reports": [
@@ -5203,6 +5203,15 @@
     }
   ],
   "diag": [
+    {
+      "t": "2026-11-15T16:00:44.090Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
+    },
     {
       "t": "2026-11-15T15:49:26.965Z",
       "build": "20261024d",
@@ -5643,15 +5652,6 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
-    },
-    {
-      "t": "2026-11-14T16:12:42.273Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
     }
   ],
   "accounts": [
@@ -6050,17 +6050,15 @@
       "email": "vr24u69@gmail.com",
       "createdAt": "2026-11-15T14:41:47.472Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_423a1f9a39beaef9ea8e4185",
       "email": "manning.gavin1@icloud.com",
-      "hash": "d121df2826ecfdfa84cf560b203638ac954475dce12ec14797c98593c1182592",
-      "exp": 1794758999341,
-      "tries": 0,
-      "created": 1794758399341
+      "createdAt": "2026-11-15T16:00:39.974Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
