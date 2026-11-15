@@ -51,9 +51,9 @@ window.StaffProfiles = (() => {
     const dialog=node('dialog','','team-clip-dialog');dialog.setAttribute('aria-label',p.name+' clip');
     const close=node('button','Close ×','team-more');close.type='button';close.onclick=()=>dialog.close();dialog.append(close,node('h2',p.name+' · a moment in Wigglesworth'));
     if(p.clip.kind==='youtube' && /^[\w-]{11}$/.test(p.clip.youtubeId || '')) {
-      const frame=node('iframe');frame.src='https://www.youtube-nocookie.com/embed/'+p.clip.youtubeId+'?autoplay=1&rel=0&start='+Math.max(0,Number(p.clip.start)||0);frame.title=p.name+' YouTube clip';frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;dialog.append(frame);
+      const frame=node('iframe');frame.src='https://www.youtube-nocookie.com/embed/'+p.clip.youtubeId+'?autoplay=1&rel=0&start='+Math.max(0,Number(p.clip.start)||0);frame.title=p.name+' YouTube clip';frame.referrerPolicy='strict-origin-when-cross-origin';frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;dialog.append(frame);
       dialog.append(node('p','If this video cannot be embedded, open it on YouTube.','hint'));const a=node('a','Open on YouTube ↗','team-more');a.href=p.clip.url;a.target='_blank';a.rel='noopener noreferrer';dialog.append(a);
-    } else {const video=node('video');video.src=p.clip.url;video.controls=true;video.playsInline=true;video.autoplay=true;video.preload='metadata';video.addEventListener('error',()=>{notice.textContent='The clip could not load yet. Recently uploaded videos may take a minute to become available.';});const notice=node('p','','hint');dialog.append(video,notice);}
+    } else {const video=node('video');video.src=p.clip.url;video.controls=true;video.playsInline=true;video.autoplay=true;video.preload='metadata';video.addEventListener('loadedmetadata',()=>{video.currentTime=Math.min(Number(p.clip.start)||0,Number.isFinite(video.duration)?video.duration:86400);});video.addEventListener('error',()=>{notice.textContent='The clip could not load yet. Recently uploaded videos may take a minute to become available.';});const notice=node('p','','hint');dialog.append(video,notice);}
     dialog.addEventListener('close',()=>{dialog.querySelector('video')?.pause();dialog.querySelector('iframe')?.remove();dialog.remove();if(trigger.isConnected)trigger.focus();});
     dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
     document.body.append(dialog);dialog.showModal();close.focus();
@@ -82,7 +82,7 @@ window.StaffProfiles = (() => {
     for (const key of ['name','role','bio','photo','details','banner']) byId('team_'+key).value = p[key] || '';
     byId('team_placement').value=p.placement || 'team';byId('team_cardSize').value=p.cardSize || 'standard';byId('team_featured').checked=!!p.featured;byId('team_glowColor').value=p.glowColor || '#99d8f5';
     bannerPreview();
-    byId('team_clipUrl').value=p.clip?.url || '';
+    stopPreview();byId('team_clipUrl').value=p.clip?.url || '';byId('team_clipStart').value=p.clip?.start ?? '';
     byId('team_visible').checked = p.visible !== false;
     badgeDraft = (p.badges || []).map(b => ({...b})); badgeEditor();
     byId('team_socials').value = (p.socials || []).map(s => s.label + ' | ' + s.url).join('\n');
@@ -102,11 +102,11 @@ window.StaffProfiles = (() => {
       const p = { visible: byId('team_visible').checked, badges: badgeDraft.map(b=>({...b})), socials: socials() };
       for (const key of ['name','role','bio','photo','details','banner']) p[key] = byId('team_'+key).value.trim();
       p.placement=byId('team_placement').value;p.cardSize=byId('team_cardSize').value;p.featured=byId('team_featured').checked;p.glowColor=byId('team_glowColor').value;
-      p.clip=byId('team_clipUrl').value.trim()?{url:byId('team_clipUrl').value.trim()}:null;
+      p.clip=byId('team_clipUrl').value.trim()?{url:byId('team_clipUrl').value.trim(),start:byId('team_clipStart').value}:null;
       if (new Blob([JSON.stringify(p)]).size > 190000) throw Error('These images are too large together. Use smaller badge images or HTTPS image links.');
       const r = await fetch('/api/admin/staff-profiles/'+encodeURIComponent(editing), {method:'PUT',headers:headers(),body:JSON.stringify(p)});
       const j = await r.json(); if (!r.ok) throw Error(j.error || 'Could not save.');
-      config.staffProfiles = j.profiles; render(); editor(); byId('teamEditForm').hidden = true; message.textContent = 'Saved. Everyone viewing the site will see this profile after reloading.';
+      config.staffProfiles = j.profiles; render(); editor(); stopPreview();byId('teamEditForm').hidden = true; message.textContent = 'Saved. Everyone viewing the site will see this profile after reloading.';
     } catch(e) { message.textContent = e.message; } finally { button.disabled = false; }
   }
   async function remove() {
@@ -144,11 +144,38 @@ window.StaffProfiles = (() => {
       byId('team_banner').value=data;bannerPreview();
     }catch(e){byId('teamMessage').textContent=e.message;}finally{event.target.value='';}
   }
+  let previewPlayer=null,previewVideo=null,previewVersion=0,youtubeReady;
+  function stopPreview(){previewVersion++;try{previewPlayer?.destroy();}catch{}previewPlayer=null;previewVideo?.pause();previewVideo=null;byId('teamClipPreview')?.replaceChildren();if(byId('teamUseTime'))byId('teamUseTime').disabled=true;}
+  function loadYouTube(){
+    if(window.YT?.Player)return Promise.resolve();
+    if(!youtubeReady)youtubeReady=new Promise((resolve,reject)=>{
+      const timer=setTimeout(()=>{youtubeReady=null;reject(Error('YouTube did not load. Try again or enter the start time manually.'));},15000);
+      const prior=window.onYouTubeIframeAPIReady;window.onYouTubeIframeAPIReady=()=>{clearTimeout(timer);if(prior)prior();resolve();};
+      const script=node('script');script.src='https://www.youtube.com/iframe_api';script.onerror=()=>{clearTimeout(timer);youtubeReady=null;reject(Error('Could not load YouTube. Enter the start time manually or try again.'));};document.head.append(script);
+    });return youtubeReady;
+  }
+  async function previewClip(){
+    stopPreview();const version=previewVersion,box=byId('teamClipPreview'),message=byId('teamMessage');message.textContent='';
+    try{
+      const u=new URL(byId('team_clipUrl').value.trim());if(u.protocol!=='https:')throw Error('Paste a complete HTTPS video link first.');
+      const host=u.hostname.replace(/^www\./,'');const stamp=u.searchParams.get('t')||u.searchParams.get('start')||'0';const fromLink=/^\d+$/.test(stamp)?Number(stamp):[...stamp.matchAll(/(\d+)(h|m|s)/g)].reduce((sum,m)=>sum+Number(m[1])*({h:3600,m:60,s:1}[m[2]]),0);const start=Math.max(0,byId('team_clipStart').value===''?fromLink:Number(byId('team_clipStart').value)||0);
+      if(['youtube.com','m.youtube.com','youtu.be'].includes(host)){
+        const id=host==='youtu.be'?u.pathname.split('/')[1]:u.searchParams.get('v') || u.pathname.split('/')[2];if(!/^[\w-]{11}$/.test(id||''))throw Error('Paste a YouTube video or Shorts link.');
+        message.textContent='Loading video preview…';await loadYouTube();if(version!==previewVersion)return;
+        const frame=node('iframe');frame.src='https://www.youtube-nocookie.com/embed/'+id+'?enablejsapi=1&rel=0&start='+start+'&origin='+encodeURIComponent(location.origin);frame.title='Clip timestamp preview';frame.referrerPolicy='strict-origin-when-cross-origin';frame.allow='encrypted-media; fullscreen';frame.allowFullscreen=true;box.append(frame);
+        previewPlayer=new YT.Player(frame,{events:{onReady:()=>{if(version===previewVersion){byId('teamUseTime').disabled=false;message.textContent='Scrub through the video, then choose Use current time.';}},onError:()=>{message.textContent='YouTube cannot play this video here. Try another link or enter a start time manually.';}}});
+      }else{
+        const video=node('video');video.src=u.href;video.controls=true;video.playsInline=true;video.preload='metadata';previewVideo=video;box.append(video);
+        video.onloadedmetadata=()=>{video.currentTime=Math.min(start,Number.isFinite(video.duration)?video.duration:start);byId('teamUseTime').disabled=false;};video.onerror=()=>{message.textContent='This video could not be loaded. Check the link or try an MP4/WebM upload.';};
+      }
+    }catch(e){if(version===previewVersion)message.textContent=e.message;}
+  }
+  function useCurrentTime(){const value=previewPlayer?.getCurrentTime?.() ?? previewVideo?.currentTime;if(!Number.isFinite(value))return;byId('team_clipStart').value=Math.floor(value);byId('teamMessage').textContent='Start time set to '+Math.floor(value)+' seconds. Save the profile to keep it.';previewPlayer?.pauseVideo?.();previewVideo?.pause();}
   async function uploadClip(event){
     const file=event.target.files[0];if(!file)return;const save=byId('teamSave'),message=byId('teamMessage');save.disabled=true;event.target.disabled=true;
     try{if(!['video/mp4','video/webm'].includes(file.type)||file.size>60000000)throw Error('Choose an MP4 or WebM video smaller than 60 MB.');message.textContent='Uploading clip… keep this page open.';
-      const r=await fetch('/api/admin/upload-video',{method:'POST',headers:{...headers(),'Content-Type':file.type},body:file});const j=await r.json();if(!r.ok)throw Error(j.error || 'Upload failed.');byId('team_clipUrl').value=j.rawUrl || j.url;message.textContent='Clip uploaded. Save this profile to attach it. It may take a minute to become playable.';
+      const r=await fetch('/api/admin/upload-video',{method:'POST',headers:{...headers(),'Content-Type':file.type},body:file});const j=await r.json();if(!r.ok)throw Error(j.error || 'Upload failed.');stopPreview();byId('team_clipStart').value='';byId('team_clipUrl').value=j.rawUrl || j.url;message.textContent='Clip uploaded. Save this profile to attach it. It may take a minute to become playable.';
     }catch(e){message.textContent=e.message;}finally{save.disabled=false;event.target.disabled=false;event.target.value='';}
   }
-  return { render, editor, editProfile, save, remove, upload, addBadge, bannerPreview, clearBanner, uploadBanner, uploadClip };
+  return { render, editor, editProfile, save, remove, upload, addBadge, bannerPreview, clearBanner, uploadBanner, uploadClip, previewClip, stopPreview, useCurrentTime };
 })();

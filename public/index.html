@@ -581,7 +581,7 @@ input:focus,textarea:focus,select:focus{border-color:rgba(193,74,84,.78);box-sha
 <link rel="stylesheet" href="/cinema.css?v=20261113b">
 <script src="/cinema.js?v=campaign-20261113" defer></script>
 <link rel="stylesheet" href="/staff-workspace.css?v=20261113">
-<link rel="stylesheet" href="/staff-profiles.css?v=20261114h">
+<link rel="stylesheet" href="/staff-profiles.css?v=20261114i">
 <link rel="stylesheet" href="/atmosphere.css?v=20261113">
 <link rel="stylesheet" href="/campaign.css?v=world-reel-20261114">
 <link rel="stylesheet" href="/ambient.css?v=20261114">
@@ -1094,7 +1094,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 <label for="team_name">Name</label><input id="team_name" maxlength="60" required>
 <label for="team_role">Role / title</label><input id="team_role" maxlength="80">
 <label for="team_bio">Short introduction</label><textarea id="team_bio" maxlength="240"></textarea>
-<label for="team_clipUrl">Funny clip — YouTube link or uploaded video</label><input id="team_clipUrl" type="url" placeholder="https://youtube.com/watch?v=…"><label for="team_clipUpload">Choose a video from your device</label><input id="team_clipUpload" type="file" accept="video/mp4,video/webm" onchange="StaffProfiles.uploadClip(event)"><p class="hint">MP4 or WebM, up to 60 MB. YouTube Shorts and timestamped links work too. Leave the link empty to remove the clip.</p>
+<label for="team_clipUrl">Funny clip — YouTube link or uploaded video</label><input id="team_clipUrl" oninput="StaffProfiles.stopPreview();document.getElementById('team_clipStart').value=''" type="url" placeholder="https://youtube.com/watch?v=…"><div class="row"><button type="button" class="btn-small" onclick="StaffProfiles.previewClip()">Preview video / pick timestamp</button><button id="teamUseTime" type="button" class="btn-small" disabled onclick="StaffProfiles.useCurrentTime()">Use current time</button></div><div id="teamClipPreview" class="team-clip-preview"></div><label for="team_clipStart">Start time (seconds)</label><input id="team_clipStart" type="number" min="0" max="86400" step="1" placeholder="Start of video"><p class="hint">Scrub in the preview, click Use current time, then Save profile. You can also enter seconds manually.</p><label for="team_clipUpload">Choose a video from your device</label><input id="team_clipUpload" type="file" accept="video/mp4,video/webm" onchange="StaffProfiles.uploadClip(event)"><p class="hint">MP4 or WebM, up to 60 MB. YouTube Shorts and timestamped links work too. Leave the link empty to remove the clip.</p>
 <label for="team_placement">Card placement — choose who gets a podium card</label><select id="team_placement"><option value="team">Team grid</option><option value="left">Podium — left</option><option value="center">Podium — center (largest)</option><option value="right">Podium — right</option></select><p class="hint">One person per podium position. The center is highest; all other staff stay in the team grid.</p>
 <label for="team_cardSize">Profile card size</label><select id="team_cardSize"><option value="standard">Standard</option><option value="large">Large — extra space and a bigger photo</option></select>
 <textarea id="team_details" maxlength="3000" hidden></textarea><label><input id="team_featured" type="checkbox"> Highlight this profile with a flowing glow</label><label for="team_glowColor">Glow color</label><input id="team_glowColor" type="color" value="#99d8f5">
@@ -1104,7 +1104,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 <label>Badges</label><p class="hint">Add a badge name and choose its image from your device. Up to 8 badges.</p><div id="teamBadgeList"></div><button id="teamAddBadge" type="button" class="btn-small" onclick="StaffProfiles.addBadge()">+ Add badge</button>
 <label for="team_socials">Social links — paste one HTTPS link per line (platform name optional)</label><textarea id="team_socials" placeholder="YouTube | https://youtube.com/@yourname&#10;TikTok | https://tiktok.com/@yourname"></textarea>
 <label><input id="team_visible" type="checkbox" checked> Show this profile on the site</label>
-<div class="row"><button id="teamSave" type="submit" class="btn-confirm">Save profile</button><button type="button" class="btn-small" onclick="document.getElementById('teamEditForm').hidden=true">Cancel</button><button id="teamDelete" type="button" class="btn-small" onclick="StaffProfiles.remove()">Remove profile</button></div>
+<div class="row"><button id="teamSave" type="submit" class="btn-confirm">Save profile</button><button type="button" class="btn-small" onclick="StaffProfiles.stopPreview();document.getElementById('teamEditForm').hidden=true">Cancel</button><button id="teamDelete" type="button" class="btn-small" onclick="StaffProfiles.remove()">Remove profile</button></div>
 </form><p id="teamMessage" class="team-message" role="status" aria-live="polite"></p></div>
     <div id="tab-design" class="tabpane">
       <label for="e_accent">Accent Color</label><input id="e_accent" type="color">
@@ -1279,7 +1279,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </div>
 
 <script src="site-copy.js?v=20261025b"></script>
-<script src="/staff-profiles.js?v=20261114h"></script>
+<script src="/staff-profiles.js?v=20261114i"></script>
 <script src="app.js?v=campaign-20261114"></script>
 <script>
 function toggleNav(){

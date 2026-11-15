@@ -20,7 +20,10 @@ function clean(value) {
       const stamp=u.searchParams.get('t') || u.searchParams.get('start') || '0';
       const start=/^\d+$/.test(stamp)?Number(stamp):[...stamp.matchAll(/(\d+)(h|m|s)/g)].reduce((sum,m)=>sum+Number(m[1])*({h:3600,m:60,s:1}[m[2]]),0);
       clip={kind:'youtube',url:link,youtubeId:id,start:Math.min(start,86400)};
-    } else clip={kind:'video',url:link};
+    } else clip={kind:'video',url:link,start:0};
+    if(value.clip.start !== undefined && value.clip.start !== '') {
+      const start=Number(value.clip.start);if(!Number.isFinite(start)||start<0||start>86400)throw new Error('Start time must be between 0 and 86400 seconds.');clip.start=Math.floor(start);
+    }
   }
   const banner = url(value.banner, true);
   if (value.banner && !banner) throw new Error('Use an HTTPS banner URL or an uploaded PNG, JPEG or WebP under 70 KB.');
