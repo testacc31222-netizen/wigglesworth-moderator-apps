@@ -991,6 +991,8 @@ app.get('/api/config', configLimit, (req, res) => {
   res.json(publicConfig(loadDB()));
 });
 
+require('./staff-profiles').routes(app, { loadDB, saveDB, isAdmin, adminLimit, audit });
+
 app.post('/api/applications', submitLimit, (req, res) => {
   const db = loadDB();
   const account = accountFromReq(req, db);
@@ -1391,6 +1393,8 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     return res.status(400).json({ error: 'Bad config' });
   }
   const out = {
+    // Profile edits use their own endpoint. A stale general editor must not erase them.
+    staffProfiles: Array.isArray(db.config.staffProfiles) ? db.config.staffProfiles : [],
     title: cleanStr(c.title, 120) || 'WIGGLESWORTH',
     subtitle: cleanStr(c.subtitle, 300),
     announcement: cleanStr(c.announcement, 200),

@@ -99,6 +99,7 @@ async function fetchConfig(){
   setStage(92, 'Polishing pixels…');
 }
 function applyConfig(){
+  if(window.StaffProfiles) window.StaffProfiles.render();
   document.documentElement.style.setProperty('--amber', config.accent || '#A62C35');
   document.body.style.backgroundColor = config.bg || '';
   document.body.style.backgroundImage = config.backgroundImage ? `url("${config.backgroundImage}")` : '';
@@ -639,6 +640,7 @@ function syncImgPreviews(){
   for(const k in map){ const img=$(map[k]); if(!img) continue; if(config[k]){ img.src=config[k]; img.style.display='block'; } else img.style.display='none'; }
 }
 function showEditor(refetch=true){
+  if(window.StaffProfiles) window.StaffProfiles.editor();
   registerCopyDesignTargets();
   $('editor').style.display='block';
   $('e_title').value=config.title;
@@ -681,7 +683,7 @@ async function lockEditor(){
   if(unlocked && editorDirty){
     try{
       collectEditor();
-      const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
+      const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config, (key, value) => key === 'staffProfiles' ? undefined : value)});
       if(!r.ok) throw 0;
       editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode);
       markClean();
@@ -774,7 +776,7 @@ function collectEditor(){
 async function saveConfig(){
   collectEditor();
   if(!config.editCode){ alert('Edit code cannot be empty'); return; }
-  const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
+  const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config, (key, value) => key === 'staffProfiles' ? undefined : value)});
   if(r.status===401){ alert('Edit code changed or wrong — unlock again.'); lockEditor(); return; }
   if(!r.ok){ alert('Save failed.'); return; }
   editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode);
@@ -1226,7 +1228,7 @@ function registerCopyDesignTargets(){
 function dEl(key){ try{ return document.querySelector('[data-dkey="'+CSS.escape(key)+'"]'); }catch{ return null; } }
 function layoutOf(key){ return (config.layout && config.layout[key]) || {}; }
 async function persistConfigQuiet(){
-  await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
+  await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config, (key, value) => key === 'staffProfiles' ? undefined : value)});
 }
 function toggleDesign(){
   if(!unlocked) return;
@@ -1527,7 +1529,7 @@ async function onDragEnd(){
   await saveDecorQuiet();
 }
 async function saveDecorQuiet(){
-  await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config)});
+  await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config, (key, value) => key === 'staffProfiles' ? undefined : value)});
 }
 function addUrlSticker(){
   const v=$('e_decorUrl').value.trim();
@@ -1624,7 +1626,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     if(unlocked && editorDirty){
       try{
         collectEditor();
-        fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config),keepalive:true}).catch(()=>{});
+        fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config, (key, value) => key === 'staffProfiles' ? undefined : value),keepalive:true}).catch(()=>{});
       }catch{}
       e.preventDefault();
     }
