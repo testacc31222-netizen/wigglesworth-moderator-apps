@@ -10171,11 +10171,11 @@
       "kind": "ticket",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T19:55:58.910Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T19:56:00.424Z"
     }
   ]
 }
