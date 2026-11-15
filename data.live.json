@@ -4547,6 +4547,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T14:02:09.736Z",
+      "act": "account_link",
+      "id": "MOD-2YQTWM",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T14:01:52.317Z",
       "act": "account_recover",
       "id": "MOD-2YQTWM",
@@ -5138,12 +5144,6 @@
       "t": "2026-11-12T01:35:58.369Z",
       "act": "account_login",
       "id": "acc_13bece59c8b0831afd02a7f9",
-      "by": ""
-    },
-    {
-      "t": "2026-11-11T18:05:07.519Z",
-      "act": "account_login",
-      "id": "acc_a4e73af5cd3eceefab422bb8",
       "by": ""
     }
   ],
