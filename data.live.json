@@ -3834,7 +3834,9 @@
       "why": "I want to be a moderator to help out more communities because I know lots of VR games have trouble with getting their communities in straight and I know there's a lot of rule breakers so I want to get rid of all the rule breakers by using mod powers in lots of games so I can actually make a dent in the VR community and not just one game because my POV is that if I can handle one game why can't I handle more so I just want to become a moderator to help out communities and get rid of all rule breakers",
       "scenario": "Give them a warning to stop spamming if they don't agree I time them out for 10 minutes",
       "rulebreak": "I have been banned from other games I have never been banned from this game but I've been banned from one game and that game was chimp taggers because I never knew the rules there was no rule board so I casually thought I'm going to click speed boost button because they had that in the game and I didn't see a rule board in sight so when I was using it in tag someone told me to turn it off but right before I could a moderator saw me using it and banned me for 3 days",
-      "receiptAt": "2026-11-14T18:34:08.907Z"
+      "receiptAt": "2026-11-14T18:34:08.907Z",
+      "aiSummary": "Verdict: Weak - applicant is underage and has a prior ban.  \n- Wants to join: Moderator.  \n- Experience: Moderated several VR games (Monke world, Monkey Piece, Cube Tag, Banana Tag, Chimp World, Monke Life).  \n- Availability: CST time zone.  \n- Watch-outs: 13 years old, one prior ban for rule violation.",
+      "aiSummaryAt": "2026-11-15T21:59:20.403Z"
     },
     {
       "appId": "MOD-SCJT9K",
@@ -4679,6 +4681,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T21:59:20.403Z",
+      "act": "ai_summary",
+      "id": "MOD-MTUMQN",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T21:58:38.606Z",
       "act": "ai_summary",
       "id": "MOD-NDSE77",
@@ -5268,12 +5276,6 @@
     },
     {
       "t": "2026-11-13T05:12:08.223Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:04.793Z",
       "act": "config_saved",
       "id": "",
       "by": ""
