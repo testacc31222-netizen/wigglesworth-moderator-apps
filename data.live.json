@@ -12,7 +12,6 @@
         "glowColor": "#c8a90e",
         "photo": "data:image/webp;base64,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",
         "banner": "data:image/webp;base64,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",
-        "clip": null,
         "badges": [
           {
             "label": "Co-Owner",
@@ -104,14 +103,7 @@
         "name": "Addiction",
         "role": "Administrator",
         "bio": "I applied for staff to not only moderate but to help new people, make them feel like they belong, by showing love, kindness, and by having fun.",
-        "details": "",
-        "featured": true,
-        "placement": "team",
-        "cardSize": "standard",
-        "glowColor": "#ff7300",
         "photo": "data:image/webp;base64,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",
-        "banner": "",
-        "clip": null,
         "badges": [
           {
             "label": "Moderator",
@@ -558,9 +550,7 @@
       "t-home-1nqgz4s-0": "Meet the team.",
       "t-home-1s6b0m7-0": "The people helping shape our world, on and off the game.",
       "p-home-ebk782-0": "FounderModerator | https://example.com/badge.png",
-      "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname",
-      "p-home-1cmqn2i-0": "https://youtube.com/watch?v=…",
-      "p-home-1lkngrn-0": "Start of video"
+      "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname"
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -3834,9 +3824,7 @@
       "why": "I want to be a moderator to help out more communities because I know lots of VR games have trouble with getting their communities in straight and I know there's a lot of rule breakers so I want to get rid of all the rule breakers by using mod powers in lots of games so I can actually make a dent in the VR community and not just one game because my POV is that if I can handle one game why can't I handle more so I just want to become a moderator to help out communities and get rid of all rule breakers",
       "scenario": "Give them a warning to stop spamming if they don't agree I time them out for 10 minutes",
       "rulebreak": "I have been banned from other games I have never been banned from this game but I've been banned from one game and that game was chimp taggers because I never knew the rules there was no rule board so I casually thought I'm going to click speed boost button because they had that in the game and I didn't see a rule board in sight so when I was using it in tag someone told me to turn it off but right before I could a moderator saw me using it and banned me for 3 days",
-      "receiptAt": "2026-11-14T18:34:08.907Z",
-      "aiSummary": "Verdict: Weak - applicant is underage and has a prior ban.  \n- Wants to join: Moderator.  \n- Experience: Moderated several VR games (Monke world, Monkey Piece, Cube Tag, Banana Tag, Chimp World, Monke Life).  \n- Availability: CST time zone.  \n- Watch-outs: 13 years old, one prior ban for rule violation.",
-      "aiSummaryAt": "2026-11-15T21:59:20.403Z"
+      "receiptAt": "2026-11-14T18:34:08.907Z"
     },
     {
       "appId": "MOD-SCJT9K",
@@ -3902,12 +3890,12 @@
       "appId": "MOD-NDSE77",
       "type": "moderator",
       "date": "2026-11-15T02:23:41.900Z",
-      "status": "approved",
-      "adminNote": "Congratulations, BRYCEGT! Your experience as a former Head Moderator and Trial Admin really stood out, and we’re excited to have you on board. Our staff will reach out soon with next steps. Welcome to the team!",
+      "status": "pending",
+      "adminNote": "",
       "email": "rszagz2012@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_f6c5479bb79b112d5f17785e",
-      "notifiedStatus": "approved",
+      "notifiedStatus": "",
       "username": "BRYCEGT",
       "discord": "thebrycegt",
       "age": "15",
@@ -3916,10 +3904,7 @@
       "why": "I want to become moderator because I want to make sure that Wigglesworth has the best possible community and make it as fun as possible. I ensure you that every player will following the rules and not ruining the experience for other players. I'd like to also make Staff Justice videos which can grow the games play base a lot as seen in the past. You should choose me because out of all the other applicants you have seen what I have done before and know that I am willing to put in the time and effort to make sure everything is going correctly.",
       "scenario": "The chat has a 5 second slow mode to mostly prevent spam but if I start to see constant repeated messages nonstop then I will ask the person to stop and if they decide to continue then further action will be taken such as timing them out. If a user spams in any other channel that doesn't have a slow mode such as Media then i would most likely instantly time them out because of the mass chat flood it would cause.",
       "rulebreak": "No",
-      "receiptAt": "2026-11-15T02:23:41.901Z",
-      "aiSummary": "Verdict: Mixed - applicant has prior moderation but is under 18 and limited availability.  \n- Wants to join: Moderator role.  \n- Experience: Former Head Moderator, Trial Admin, and game moderator since 2022.  \n- Availability: After 3:39PM CST Tue‑Fri, any time weekends.  \n- Watch‑outs: Under 18, limited weekday hours, no ban history.",
-      "aiSummaryAt": "2026-11-15T21:58:38.606Z",
-      "notifiedAt": "2026-11-15T22:09:49.058Z"
+      "receiptAt": "2026-11-15T02:23:41.901Z"
     },
     {
       "appId": "MOD-NZZPQY",
@@ -3943,130 +3928,6 @@
       "aiSummary": "Verdict: Weak - limited experience and availability, minor concerns.  \n- Wants to join: Moderator  \n- Experience: Tag game, other game, no real moderation history  \n- Availability: 0 hours, no timezone info  \n- Watch-outs: Age 10, no availability, has been banned, simplistic approach to moderation.",
       "aiSummaryAt": "2026-11-15T06:23:38.108Z",
       "notifiedAt": "2026-11-15T06:23:51.856Z"
-    },
-    {
-      "appId": "CC-N89NSY",
-      "type": "creator",
-      "date": "2026-11-15T14:46:30.567Z",
-      "status": "approved",
-      "adminNote": "Hi jjkfan_2! Congratulations, you’re accepted as a Content Creator for Wigglesworth. I loved how you plan to showcase our community’s fun through both long‑form and short‑form content—especially your excitement about making people want to join the challenges. Our staff will reach out soon with next steps. Welcome aboard!",
-      "email": "vr24u69@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_c28835c428c5a2a8427d91ce",
-      "notifiedStatus": "approved",
-      "username": "Snucky_vr",
-      "discord": "jjkfan_2",
-      "age": "14",
-      "why": "So i can make a community happy and they see that people make content and maybe even want to join the challenges. Also i want them to see how fun Wigglesworth is!",
-      "platform": "YouTube",
-      "channel": "http://www.youtube.com/@Sukunafr_2",
-      "schedule": "twice a week",
-      "style": "Long forms and short forms about updates, Challenges, Giveaways, And more.",
-      "strikes": "No i have none",
-      "receiptAt": "2026-11-15T14:46:30.568Z",
-      "notifiedAt": "2026-11-15T15:51:18.014Z"
-    },
-    {
-      "appId": "MOD-CQVCWD",
-      "type": "moderator",
-      "date": "2026-11-15T14:54:37.308Z",
-      "status": "pending",
-      "adminNote": "",
-      "email": "vr24u69@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_c28835c428c5a2a8427d91ce",
-      "notifiedStatus": "",
-      "username": "Snucky_vr",
-      "discord": "jjkfan_2",
-      "age": "14",
-      "timezone": "est 3-5",
-      "experience": "None but i want to gain experience",
-      "why": "So i can make the community happy and do fun things with players",
-      "scenario": "Tell them to stop and if they dont time them out or tell devs about them and see what they think if they do it over and over",
-      "rulebreak": "No i have not",
-      "receiptAt": "2026-11-15T14:54:37.308Z"
-    },
-    {
-      "appId": "CC-MMQJF4",
-      "type": "creator",
-      "date": "2026-11-15T16:05:59.198Z",
-      "status": "approved",
-      "adminNote": "Hi keff0557,\n\nCongratulations on being accepted as a Content Creator for Wigglesworth! We were especially impressed by your commitment to posting twice a week and your enthusiasm for bringing new players into the game. A staff member will reach out shortly with the next steps. Welcome aboard!",
-      "email": "manning.gavin1@icloud.com",
-      "emailUpdates": true,
-      "accountId": "acc_423a1f9a39beaef9ea8e4185",
-      "notifiedStatus": "approved",
-      "username": "@KEFF_84",
-      "discord": "keff0557",
-      "age": "13",
-      "why": "This game clearly has a lot of potential to become popular and i find the game very fun to play.",
-      "platform": "YouTube",
-      "channel": "https://youtube.com/@keff_84?si=ThJIkHJ4o61KmR_r",
-      "schedule": "Ill post two times a week",
-      "style": "I like to make engaging content and attract more players to the games i play. I post long forms short forms and make posts.",
-      "strikes": "I do not believe i have gotten any strikes on my channel.",
-      "receiptAt": "2026-11-15T16:05:59.199Z",
-      "notifiedAt": "2026-11-15T16:27:29.237Z"
-    },
-    {
-      "appId": "MOD-WZZAV2",
-      "type": "moderator",
-      "date": "2026-11-15T20:21:42.503Z",
-      "status": "pending",
-      "adminNote": "",
-      "email": "manning.gavin1@icloud.com",
-      "emailUpdates": true,
-      "accountId": "acc_423a1f9a39beaef9ea8e4185",
-      "notifiedStatus": "",
-      "username": "@KEFF_84",
-      "discord": "keff0557",
-      "age": "13",
-      "timezone": "EST",
-      "experience": "I am not sure if this will be considered experience but im developing my own game on meta.",
-      "why": "I would like to be a moderator to help the community and overall make the game better.",
-      "scenario": "If someone is spamming in chat i would time then out and if they continue i will report it to a larger group",
-      "rulebreak": "I have not been banned from the community.",
-      "receiptAt": "2026-11-15T20:21:42.503Z"
-    },
-    {
-      "appId": "MOD-SYHV7L",
-      "type": "moderator",
-      "date": "2026-11-15T20:37:30.159Z",
-      "status": "pending",
-      "adminNote": "",
-      "email": "crbookreader11@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_c10235092f2e9df99852c815",
-      "notifiedStatus": "",
-      "username": "FutureVR13",
-      "discord": "christianisnew",
-      "age": "13",
-      "timezone": "Est, 4pm to 10 pm",
-      "experience": "Im a very well known experienced moderator in many games, i know whats wrong and what's right. Mod in project apex, mod in crystal tag, co owner in ultra tag, trial mod in coffee tag",
-      "why": "If i got mod or trial mod i would try my best to help the community and make it fun and safe for everyone. I also like to have fun, so I'll have a lot of fun in lobbies and not be toxic. Not be inappropriate, not do anything bad. And also support others who need the support and just help everyone in general and make sure everyone's safe. I don't like toxicity and I don't like inappropriate stuff and I just wanna help prevent that from happening. I have a lot of experience in being moderator I am staff in lots of more games like project apex, crystal tag, and more. I'm also good with following instructions.So if i'm doing something wrong, just tell me and I can be better at it or practice to be better at it. But other than that , i'm really good with instructions, and I know how to follow instructions. I also like to make content so I will make content under game too I don't only wanna be a staff but I also like to make content so I wanna be a content creator in the game too cause i like to make content. I might also invite some people from public codes to be in my video just so I can have some fun and connect more with the community.JusticeIf someone is doing something wrong, I'll either tell them about it. I'll give them like a warning or something and then if they still don't listen I will ban them and make sure that they never do that thing again.If they still do, I'll contact some higher ups to ban them for longer or permanent ban but depending on what they did. Anyway, that's what I'll do if I get moderator I'll do way more fun and cool stuff and maybe even film a justice vid if anyone is online being bad ppl and stuff. You can trust me with moderator because I have lots of experience, i love to have fun. I'm serious about rules and the community i know what's good and what's bad i know what isn't bannable and what is. I am staff in many other games and I wanna help this one too. I also like to be nice, kind, im really responsible and honest if I do something wrong i will admit to it even if I get punished at least im still honest and responsible for my mistakes. I rarely make mistakes because I have experience with being a staff in games but even if I do I will still tell someone. I genuinely care abt this community and the game and i wanna help be a person who helps the staff team too and helps the community stay safe and mature.If there is drama I would obviously try and stop it and organize it, thats a responsibility as a staff and that's what im supposed to do, im staff in many games and i have experience on stopping drama. I wanna help make the game a safe and chill place too. Thanks for reading.",
-      "scenario": "Spamming in the chat is breaking a rule so what I would do is first i would tell that person to stop spamming twice and if they continue I will give them a 1 hour timeout. If they continue after that I will give them a 24 hour timeout and a warning.",
-      "rulebreak": "No, I have not been banned i have been a good person, I love the community. If you think im lying check my account status if that's possible for you.",
-      "receiptAt": "2026-11-15T20:37:30.160Z"
-    },
-    {
-      "appId": "MOD-GJUVF3",
-      "type": "moderator",
-      "date": "2026-11-15T22:23:11.330Z",
-      "status": "pending",
-      "adminNote": "",
-      "email": "koenbrandenburg5@gmail.com",
-      "emailUpdates": true,
-      "accountId": "acc_ac13e2bacee1a30824a5aac4",
-      "notifiedStatus": "",
-      "username": "koko",
-      "discord": "koernthegoat_13569",
-      "age": "15",
-      "timezone": "CST play a lot",
-      "experience": "I've been mod in games like PAV3",
-      "why": "I want to be part of the team. All the moderators and even quantum himself have been really cool.",
-      "scenario": "I would for sure warn them at least twice. If the refuse to cooperate i may kick them or report them to the discord.",
-      "rulebreak": "No 😁",
-      "receiptAt": "2026-11-15T22:23:11.331Z"
     }
   ],
   "tickets": [
@@ -4679,130 +4540,9 @@
           "at": "2026-11-15T06:27:19.554Z"
         }
       ]
-    },
-    {
-      "id": "TKT-Q5XN8H",
-      "name": "Snucky",
-      "subject": "A person who was saying the n-word and swearing",
-      "status": "open",
-      "unread": true,
-      "email": "vr24u69@gmail.com",
-      "accountId": "acc_c28835c428c5a2a8427d91ce",
-      "createdAt": "2026-11-15T19:55:58.909Z",
-      "updatedAt": "2026-11-15T19:55:58.909Z",
-      "replies": [
-        {
-          "by": "user",
-          "name": "Snucky",
-          "text": "I have video proof that someone was saying the n-word and being rude and a picture of there username get back to be when you can. Have a great day!",
-          "at": "2026-11-15T19:55:58.909Z"
-        }
-      ]
     }
   ],
   "audit": [
-    {
-      "t": "2026-11-15T22:17:34.576Z",
-      "act": "account_login",
-      "id": "acc_ac13e2bacee1a30824a5aac4",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T22:09:47.545Z",
-      "act": "ai_approved",
-      "id": "MOD-NDSE77",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T21:59:20.403Z",
-      "act": "ai_summary",
-      "id": "MOD-MTUMQN",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T21:58:38.606Z",
-      "act": "ai_summary",
-      "id": "MOD-NDSE77",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T21:57:32.532Z",
-      "act": "staff_profile_saved",
-      "id": "f4c130ca-5349-406a-831d-c9625dc0adc1",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T20:28:34.154Z",
-      "act": "account_login",
-      "id": "acc_c10235092f2e9df99852c815",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T16:27:27.686Z",
-      "act": "ai_approved",
-      "id": "CC-MMQJF4",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T16:16:10.306Z",
-      "act": "account_link",
-      "id": "CC-N89NSY",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T16:14:40.391Z",
-      "act": "account_login",
-      "id": "acc_c28835c428c5a2a8427d91ce",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T16:00:39.974Z",
-      "act": "account_login",
-      "id": "acc_423a1f9a39beaef9ea8e4185",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T15:51:16.853Z",
-      "act": "ai_approved",
-      "id": "CC-N89NSY",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T14:41:47.472Z",
-      "act": "account_login",
-      "id": "acc_c28835c428c5a2a8427d91ce",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T14:02:09.736Z",
-      "act": "account_link",
-      "id": "MOD-2YQTWM",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T14:01:52.317Z",
-      "act": "account_recover",
-      "id": "MOD-2YQTWM",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T12:31:35.596Z",
-      "act": "account_login",
-      "id": "acc_8e5f5102303f79f8c246f976",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T08:08:24.403Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T08:08:15.859Z",
-      "act": "staff_profile_saved",
-      "id": "15f0045d-9d67-4640-8c74-5b334f0e9da9",
-      "by": ""
-    },
     {
       "t": "2026-11-15T06:35:41.127Z",
       "act": "config_saved",
@@ -5300,6 +5040,108 @@
       "act": "config_saved",
       "id": "",
       "by": ""
+    },
+    {
+      "t": "2026-11-13T05:12:30.841Z",
+      "act": "ticket_deleted",
+      "id": "TKT-6WLBB2",
+      "by": ""
+    },
+    {
+      "t": "2026-11-13T05:12:08.223Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-13T05:12:04.793Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-13T05:12:04.329Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-13T05:12:03.746Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-13T05:12:00.443Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-13T04:45:32.725Z",
+      "act": "account_login",
+      "id": "acc_df9e3f602662e7221d2a1f86",
+      "by": ""
+    },
+    {
+      "t": "2026-11-13T02:08:53.275Z",
+      "act": "account_login",
+      "id": "acc_34ae6fefad9e2f9b4c35c5d3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-12T23:36:35.126Z",
+      "act": "account_login",
+      "id": "acc_0af80c2c357a047b43da202f",
+      "by": ""
+    },
+    {
+      "t": "2026-11-12T17:22:17.037Z",
+      "act": "account_recover",
+      "id": "CC-HMTG6N",
+      "by": ""
+    },
+    {
+      "t": "2026-11-12T13:04:45.006Z",
+      "act": "account_login",
+      "id": "acc_6584150f51f776b906dc5cdf",
+      "by": ""
+    },
+    {
+      "t": "2026-11-12T01:35:58.369Z",
+      "act": "account_login",
+      "id": "acc_13bece59c8b0831afd02a7f9",
+      "by": ""
+    },
+    {
+      "t": "2026-11-11T18:05:07.519Z",
+      "act": "account_login",
+      "id": "acc_a4e73af5cd3eceefab422bb8",
+      "by": ""
+    },
+    {
+      "t": "2026-11-11T02:31:36.809Z",
+      "act": "account_login",
+      "id": "acc_d36a262fcce002b2b84d4e94",
+      "by": ""
+    },
+    {
+      "t": "2026-11-10T19:13:27.139Z",
+      "act": "account_login",
+      "id": "acc_8aab99026de514653f15f93f",
+      "by": ""
+    },
+    {
+      "t": "2026-11-10T01:32:58.367Z",
+      "act": "account_login",
+      "id": "acc_bc25e2b983b44850c790cc99",
+      "by": ""
+    },
+    {
+      "t": "2026-11-10T00:08:27.822Z",
+      "act": "account_login",
+      "id": "acc_f6c5479bb79b112d5f17785e",
+      "by": ""
     }
   ],
   "reports": [
@@ -5316,267 +5158,6 @@
     }
   ],
   "diag": [
-    {
-      "t": "2026-11-15T22:17:38.303Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/156.0.0.38.16.1112015520 C"
-    },
-    {
-      "t": "2026-11-15T22:06:52.526Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-15T22:00:11.033Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T21:57:36.797Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T21:29:38.811Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T21:09:13.275Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T20:28:39.674Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T20:22:55.777Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-15T20:17:31.131Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-15T20:17:27.252Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
-    },
-    {
-      "t": "2026-11-15T19:50:15.641Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-15T17:56:07.136Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Safari/605.1.15"
-    },
-    {
-      "t": "2026-11-15T17:51:23.564Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T17:47:58.194Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Safari/605.1.15"
-    },
-    {
-      "t": "2026-11-15T16:48:41.711Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
-    },
-    {
-      "t": "2026-11-15T16:45:42.399Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
-    },
-    {
-      "t": "2026-11-15T16:27:28.693Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-15T16:26:33.210Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E1"
-    },
-    {
-      "t": "2026-11-15T16:21:22.425Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Safari/605.1.15"
-    },
-    {
-      "t": "2026-11-15T16:20:40.934Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E1"
-    },
-    {
-      "t": "2026-11-15T16:19:40.293Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-15T16:16:19.196Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T16:14:54.815Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T16:14:44.900Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T16:00:44.090Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-15T15:49:26.965Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E1"
-    },
-    {
-      "t": "2026-11-15T14:41:52.005Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T13:21:24.281Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T12:31:40.271Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
-    },
     {
       "t": "2026-11-15T06:46:32.143Z",
       "build": "20261024d",
@@ -5765,6 +5346,267 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
+    },
+    {
+      "t": "2026-11-15T02:40:26.818Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
+      "t": "2026-11-15T02:40:22.895Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "t": "2026-11-15T01:53:26.802Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
+      "t": "2026-11-15T01:26:18.458Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
+    },
+    {
+      "t": "2026-11-15T00:56:25.960Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
+    },
+    {
+      "t": "2026-11-15T00:17:41.757Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
+    },
+    {
+      "t": "2026-11-15T00:17:15.946Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
+      "t": "2026-11-14T23:58:36.856Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
+    },
+    {
+      "t": "2026-11-14T23:24:10.944Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 OP"
+    },
+    {
+      "t": "2026-11-14T22:58:45.821Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/156.0.0.38.16.1112015520 C"
+    },
+    {
+      "t": "2026-11-14T22:04:53.230Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-11-14T21:04:32.790Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-11-14T21:02:49.399Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-11-14T19:02:05.677Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E1"
+    },
+    {
+      "t": "2026-11-14T18:45:15.912Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/156.0.0.38.16.1112015520 C"
+    },
+    {
+      "t": "2026-11-14T18:25:43.118Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-11-14T18:10:17.439Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
+      "t": "2026-11-14T17:48:47.224Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
+    },
+    {
+      "t": "2026-11-14T17:39:20.953Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
+      "t": "2026-11-14T17:09:06.218Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
+      "t": "2026-11-14T17:05:34.282Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E1"
+    },
+    {
+      "t": "2026-11-14T16:26:39.433Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
+      "t": "2026-11-14T16:25:48.855Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
+      "t": "2026-11-14T16:13:46.121Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
+    },
+    {
+      "t": "2026-11-14T16:12:42.273Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
+    },
+    {
+      "t": "2026-11-14T16:12:14.177Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
+    },
+    {
+      "t": "2026-11-14T16:10:27.198Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E1"
+    },
+    {
+      "t": "2026-11-14T16:09:07.481Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
+    },
+    {
+      "t": "2026-11-14T16:07:56.722Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
     }
   ],
   "accounts": [
@@ -6157,33 +5999,17 @@
       "email": "prism1donyt@gmail.com",
       "createdAt": "2026-11-15T05:59:43.008Z",
       "emailUpdates": true
-    },
-    {
-      "id": "acc_c28835c428c5a2a8427d91ce",
-      "email": "vr24u69@gmail.com",
-      "createdAt": "2026-11-15T14:41:47.472Z",
-      "emailUpdates": true
-    },
-    {
-      "id": "acc_423a1f9a39beaef9ea8e4185",
-      "email": "manning.gavin1@icloud.com",
-      "createdAt": "2026-11-15T16:00:39.974Z",
-      "emailUpdates": true
-    },
-    {
-      "id": "acc_c10235092f2e9df99852c815",
-      "email": "crbookreader11@gmail.com",
-      "createdAt": "2026-11-15T20:28:34.154Z",
-      "emailUpdates": true
-    },
-    {
-      "id": "acc_ac13e2bacee1a30824a5aac4",
-      "email": "koenbrandenburg5@gmail.com",
-      "createdAt": "2026-11-15T22:17:34.576Z",
-      "emailUpdates": true
     }
   ],
-  "loginCodes": [],
+  "loginCodes": [
+    {
+      "email": "manning.gavin1@icloud.com",
+      "hash": "1dd1bfb3cdf0c3fe6f40885422a70f5f852c1c366b499597fc85562b51257be5",
+      "exp": 1794783985783,
+      "tries": 0,
+      "created": 1794783385783
+    }
+  ],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
@@ -10102,308 +9928,20 @@
       "sentAt": "2026-11-15T06:27:20.878Z"
     },
     {
-      "id": "mail_c287d994ae753b7320",
-      "key": "signin:durden.isaac@icloud.com:1794745865692",
-      "to": "durden.isaac@icloud.com",
-      "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 887444.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">887444</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "signin",
-      "appId": "",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T12:31:05.737Z",
-      "sentAt": "2026-11-15T12:31:07.252Z"
-    },
-    {
-      "id": "mail_0ce4c58001faf19862",
-      "key": "signin:vr24u69@gmail.com:1794753666751",
-      "to": "vr24u69@gmail.com",
-      "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 950419.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">950419</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "signin",
-      "appId": "",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T14:41:06.753Z",
-      "sentAt": "2026-11-15T14:41:08.288Z"
-    },
-    {
-      "id": "mail_8297b9244d4d309d92",
-      "key": "CC-N89NSY:receipt",
-      "to": "vr24u69@gmail.com",
-      "subject": "We received your Wigglesworth Content Creator application",
-      "text": "Hi jjkfan_2,\n\nYour Content Creator application (CC-N89NSY) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi jjkfan_2,</p><p style=\"margin:0 0 18px\">Your <b>Content Creator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">CC-N89NSY</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "receipt",
-      "appId": "CC-N89NSY",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T14:46:30.568Z",
-      "sentAt": "2026-11-15T14:46:32.012Z"
-    },
-    {
-      "id": "mail_91f4b84837441baf3d",
-      "key": "MOD-CQVCWD:receipt",
-      "to": "vr24u69@gmail.com",
-      "subject": "We received your Wigglesworth Moderator application",
-      "text": "Hi jjkfan_2,\n\nYour Moderator application (MOD-CQVCWD) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi jjkfan_2,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-CQVCWD</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "receipt",
-      "appId": "MOD-CQVCWD",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T14:54:37.308Z",
-      "sentAt": "2026-11-15T14:54:38.862Z"
-    },
-    {
-      "id": "mail_c6490ef92b32e3304e",
-      "key": "CC-N89NSY:approved:1794757876853",
-      "to": "vr24u69@gmail.com",
-      "subject": "You are in — Wigglesworth Content Creator application",
-      "text": "Hi jjkfan_2,\n\nYour Content Creator application (CC-N89NSY) has been reviewed.\n\nResult: Accepted\nNote from staff: Hi jjkfan_2! Congratulations, you’re accepted as a Content Creator for Wigglesworth. I loved how you plan to showcase our community’s fun through both long‑form and short‑form content—especially your excitement about making people want to join the challenges. Our staff will reach out soon with next steps. Welcome aboard!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi jjkfan_2,</p><p style=\"margin:0 0 20px\">Your <b>Content Creator</b> application (<b>CC-N89NSY</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Hi jjkfan_2! Congratulations, you’re accepted as a Content Creator for Wigglesworth. I loved how you plan to showcase our community’s fun through both long‑form and short‑form content—especially your excitement about making people want to join the challenges. Our staff will reach out soon with next steps. Welcome aboard!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">CC-N89NSY</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "decision",
-      "appId": "CC-N89NSY",
-      "decisionStatus": "approved",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T15:51:16.853Z",
-      "sentAt": "2026-11-15T15:51:18.014Z"
-    },
-    {
-      "id": "mail_60f2ed612f7a34ae61",
-      "key": "signin:manning.gavin1@icloud.com:1794758399341",
+      "id": "mail_37ec4748eacd55e829",
+      "key": "signin:manning.gavin1@icloud.com:1794783385783",
       "to": "manning.gavin1@icloud.com",
       "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 332635.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">332635</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "text": "Your Wigglesworth sign-in code is 907375.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">907375</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
+      "status": "queued",
+      "attempts": 0,
       "error": "",
-      "createdAt": "2026-11-15T15:59:59.343Z",
-      "sentAt": "2026-11-15T16:00:00.800Z"
-    },
-    {
-      "id": "mail_a2287cf67c316b7279",
-      "key": "CC-MMQJF4:receipt",
-      "to": "manning.gavin1@icloud.com",
-      "subject": "We received your Wigglesworth Content Creator application",
-      "text": "Hi keff0557,\n\nYour Content Creator application (CC-MMQJF4) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi keff0557,</p><p style=\"margin:0 0 18px\">Your <b>Content Creator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">CC-MMQJF4</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "receipt",
-      "appId": "CC-MMQJF4",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T16:05:59.199Z",
-      "sentAt": "2026-11-15T16:06:00.699Z"
-    },
-    {
-      "id": "mail_2ddc935ecadd94a9bc",
-      "key": "signin:vr24u69@gmail.com:1794759249088",
-      "to": "vr24u69@gmail.com",
-      "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 269134.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">269134</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "signin",
-      "appId": "",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T16:14:09.088Z",
-      "sentAt": "2026-11-15T16:14:10.609Z"
-    },
-    {
-      "id": "mail_abce9c8d51a8d35662",
-      "key": "CC-MMQJF4:approved:1794760047686",
-      "to": "manning.gavin1@icloud.com",
-      "subject": "You are in — Wigglesworth Content Creator application",
-      "text": "Hi keff0557,\n\nYour Content Creator application (CC-MMQJF4) has been reviewed.\n\nResult: Accepted\nNote from staff: Hi keff0557,\n\nCongratulations on being accepted as a Content Creator for Wigglesworth! We were especially impressed by your commitment to posting twice a week and your enthusiasm for bringing new players into the game. A staff member will reach out shortly with the next steps. Welcome aboard!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi keff0557,</p><p style=\"margin:0 0 20px\">Your <b>Content Creator</b> application (<b>CC-MMQJF4</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Hi keff0557,<br><br>Congratulations on being accepted as a Content Creator for Wigglesworth! We were especially impressed by your commitment to posting twice a week and your enthusiasm for bringing new players into the game. A staff member will reach out shortly with the next steps. Welcome aboard!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">CC-MMQJF4</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "decision",
-      "appId": "CC-MMQJF4",
-      "decisionStatus": "approved",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T16:27:27.686Z",
-      "sentAt": "2026-11-15T16:27:29.237Z"
-    },
-    {
-      "id": "mail_5362ca0cd439148d9a",
-      "key": "ticket:TKT-Q5XN8H:opened",
-      "to": "vr24u69@gmail.com",
-      "subject": "We received your Wigglesworth support ticket [TKT-Q5XN8H]",
-      "text": "Hi Snucky,\n\nYour support request has been received and a private ticket is open.\nSubject: A person who was saying the n-word and swearing\nTicket ID: TKT-Q5XN8H\n\nStaff replies will be emailed to vr24u69@gmail.com.\nOpen your ticket: https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-Q5XN8H%23contact\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Ticket received</h1><p style=\"margin:0 0 14px\">Hi Snucky,</p><p style=\"margin:0 0 18px\">Your support request has been received and a private ticket is open.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">TKT-Q5XN8H</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">A person who was saying the n-word and swearing</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Staff replies will be emailed to <b style=\"color:#E6DED4\">vr24u69@gmail.com</b>.</p><a href=\"https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-Q5XN8H%23contact\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Open my ticket</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you opened a support ticket with Wigglesworth.</p></div></td></tr></table></body></html>",
-      "kind": "ticket",
-      "appId": "",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T19:55:58.910Z",
-      "sentAt": "2026-11-15T19:56:00.424Z"
-    },
-    {
-      "id": "mail_d42e46c93a79dcb64d",
-      "key": "MOD-WZZAV2:receipt",
-      "to": "manning.gavin1@icloud.com",
-      "subject": "We received your Wigglesworth Moderator application",
-      "text": "Hi keff0557,\n\nYour Moderator application (MOD-WZZAV2) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi keff0557,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-WZZAV2</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "receipt",
-      "appId": "MOD-WZZAV2",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T20:21:42.503Z",
-      "sentAt": "2026-11-15T20:21:43.970Z"
-    },
-    {
-      "id": "mail_7a7da99550d540280e",
-      "key": "signin:crbookreader11@gmail.com:1794774371817",
-      "to": "crbookreader11@gmail.com",
-      "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 440481.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">440481</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "signin",
-      "appId": "",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T20:26:11.818Z",
-      "sentAt": "2026-11-15T20:26:13.297Z"
-    },
-    {
-      "id": "mail_99e67d5719a7607ae3",
-      "key": "signin:crbookreader11@gmail.com:1794774429650",
-      "to": "crbookreader11@gmail.com",
-      "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 251716.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">251716</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "signin",
-      "appId": "",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T20:27:09.650Z",
-      "sentAt": "2026-11-15T20:27:10.646Z"
-    },
-    {
-      "id": "mail_b50e25eaa0e3fa3427",
-      "key": "MOD-SYHV7L:receipt",
-      "to": "crbookreader11@gmail.com",
-      "subject": "We received your Wigglesworth Moderator application",
-      "text": "Hi christianisnew,\n\nYour Moderator application (MOD-SYHV7L) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi christianisnew,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-SYHV7L</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "receipt",
-      "appId": "MOD-SYHV7L",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T20:37:30.160Z",
-      "sentAt": "2026-11-15T20:37:31.687Z"
-    },
-    {
-      "id": "mail_97a30fa0dbed95bbba",
-      "key": "signin:thegreatestlol25@gmail.com:1794777560941",
-      "to": "thegreatestlol25@gmail.com",
-      "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 750517.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">750517</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "signin",
-      "appId": "",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T21:19:20.944Z",
-      "sentAt": "2026-11-15T21:19:22.299Z"
-    },
-    {
-      "id": "mail_7978e31fc2835f4bd1",
-      "key": "MOD-NDSE77:approved:1794780587544",
-      "to": "rszagz2012@gmail.com",
-      "subject": "You are in — Wigglesworth Moderator application",
-      "text": "Hi thebrycegt,\n\nYour Moderator application (MOD-NDSE77) has been reviewed.\n\nResult: Accepted\nNote from staff: Congratulations, BRYCEGT! Your experience as a former Head Moderator and Trial Admin really stood out, and we’re excited to have you on board. Our staff will reach out soon with next steps. Welcome to the team!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi thebrycegt,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-NDSE77</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Congratulations, BRYCEGT! Your experience as a former Head Moderator and Trial Admin really stood out, and we’re excited to have you on board. Our staff will reach out soon with next steps. Welcome to the team!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-NDSE77</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "decision",
-      "appId": "MOD-NDSE77",
-      "decisionStatus": "approved",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T22:09:47.544Z",
-      "sentAt": "2026-11-15T22:09:49.058Z"
-    },
-    {
-      "id": "mail_67f2035826a2be2e2a",
-      "key": "signin:koenbrandenburg5@gmail.com:1794780929922",
-      "to": "koenbrandenburg5@gmail.com",
-      "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 433293.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">433293</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "signin",
-      "appId": "",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T22:15:29.923Z",
-      "sentAt": "2026-11-15T22:15:31.595Z"
-    },
-    {
-      "id": "mail_714004509c53eacd05",
-      "key": "signin:koenbrandenburg5@gmail.com:1794780993562",
-      "to": "koenbrandenburg5@gmail.com",
-      "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 304553.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">304553</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "signin",
-      "appId": "",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T22:16:33.563Z",
-      "sentAt": "2026-11-15T22:16:35.155Z"
-    },
-    {
-      "id": "mail_dc6d8a1a0b20188252",
-      "key": "MOD-GJUVF3:receipt",
-      "to": "koenbrandenburg5@gmail.com",
-      "subject": "We received your Wigglesworth Moderator application",
-      "text": "Hi koernthegoat_13569,\n\nYour Moderator application (MOD-GJUVF3) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi koernthegoat_13569,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-GJUVF3</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "receipt",
-      "appId": "MOD-GJUVF3",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-15T22:23:11.331Z",
-      "sentAt": "2026-11-15T22:23:12.708Z"
+      "createdAt": "2026-11-15T22:56:25.784Z",
+      "sentAt": ""
     }
   ]
 }
