@@ -1,5 +1,6 @@
 {
   "config": {
+    "staffProfiles": [],
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
     "announcement": "Content Creator Applications are now open.",
@@ -365,7 +366,14 @@
       "t-account-16wwtqu-0": "Wigglesworth / Your account",
       "t-account-rotgzl-0": "Your place",
       "t-account-13pacju-0": "in the story.",
-      "t-account-17cd38z-0": "Apply to the team, follow your progress, and stay in touch."
+      "t-account-17cd38z-0": "Apply to the team, follow your progress, and stay in touch.",
+      "t-home-j3djrr-0": "Highlights from WigglesWorthVR · ",
+      "t-home-6j2cv2-0": "Full video ↗",
+      "t-home-1lzpul-0": "The people behind Wigglesworth",
+      "t-home-1nqgz4s-0": "Meet the team.",
+      "t-home-1s6b0m7-0": "The people helping shape our world, on and off the game.",
+      "p-home-ebk782-0": "FounderModerator | https://example.com/badge.png",
+      "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname"
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -4349,6 +4357,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T05:41:38.398Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T02:45:57.673Z",
       "act": "account_login",
       "id": "acc_d235da1c2e7996fe90c8970d",
@@ -4940,12 +4954,6 @@
       "t": "2026-10-30T18:49:23.877Z",
       "act": "account_login",
       "id": "acc_cb82e153271a266715958498",
-      "by": ""
-    },
-    {
-      "t": "2026-10-30T15:42:22.111Z",
-      "act": "account_login",
-      "id": "acc_3231e49106d7982ef5722ae1",
       "by": ""
     }
   ],
