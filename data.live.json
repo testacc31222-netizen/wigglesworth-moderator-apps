@@ -173,7 +173,7 @@
     ],
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
-    "announcement": "Content Creator Applications are now open.",
+    "announcement": "Moderator and Content Creator applications are now OPEN!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -4550,6 +4550,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-15T06:27:04.653Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-15T06:24:21.643Z",
       "act": "staff_profile_saved",
       "id": "15f0045d-9d67-4640-8c74-5b334f0e9da9",
@@ -5141,12 +5147,6 @@
       "t": "2026-11-03T00:47:20.681Z",
       "act": "account_login",
       "id": "acc_49dddb73e8f2f888a2def2ad",
-      "by": ""
-    },
-    {
-      "t": "2026-11-02T22:08:31.059Z",
-      "act": "account_login",
-      "id": "acc_e152c073300e22241c05751b",
       "by": ""
     }
   ],
