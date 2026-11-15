@@ -3941,7 +3941,7 @@
       "email": "vr24u69@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_c28835c428c5a2a8427d91ce",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Snucky_vr",
       "discord": "jjkfan_2",
       "age": "14",
@@ -3951,7 +3951,8 @@
       "schedule": "twice a week",
       "style": "Long forms and short forms about updates, Challenges, Giveaways, And more.",
       "strikes": "No i have none",
-      "receiptAt": "2026-11-15T14:46:30.568Z"
+      "receiptAt": "2026-11-15T14:46:30.568Z",
+      "notifiedAt": "2026-11-15T15:51:18.014Z"
     },
     {
       "appId": "MOD-CQVCWD",
@@ -10043,11 +10044,11 @@
       "kind": "decision",
       "appId": "CC-N89NSY",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T15:51:16.853Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T15:51:18.014Z"
     }
   ]
 }
