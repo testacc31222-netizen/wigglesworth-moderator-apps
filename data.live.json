@@ -10127,11 +10127,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T16:14:09.088Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T16:14:10.609Z"
     }
   ]
 }
