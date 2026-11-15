@@ -10349,11 +10349,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-15T22:15:29.923Z",
-      "sentAt": ""
+      "sentAt": "2026-11-15T22:15:31.595Z"
     }
   ]
 }
