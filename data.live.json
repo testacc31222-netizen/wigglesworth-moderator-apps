@@ -10143,11 +10143,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-16T01:10:03.522Z",
-      "sentAt": ""
+      "sentAt": "2026-11-16T01:10:04.839Z"
     }
   ]
 }
