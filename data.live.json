@@ -10202,8 +10202,8 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 2,
+      "status": "failed",
+      "attempts": 5,
       "error": "200 Exception: Invalid email: noahlowe-tiggle@.icloud.com",
       "createdAt": "2026-11-16T02:02:33.790Z",
       "sentAt": ""
