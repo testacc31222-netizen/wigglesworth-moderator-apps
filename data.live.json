@@ -10011,11 +10011,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-16T00:05:18.577Z",
-      "sentAt": ""
+      "sentAt": "2026-11-16T00:05:20.639Z"
     }
   ]
 }
