@@ -3922,8 +3922,8 @@
       "appId": "MOD-NDSE77",
       "type": "moderator",
       "date": "2026-11-15T02:23:41.900Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Congratulations, BRYCEGT! Your experience as a former Head Moderator and Trial Admin really stood out. We’re excited to have you on board—staff will reach out soon with next steps.",
       "email": "rszagz2012@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_f6c5479bb79b112d5f17785e",
@@ -3936,7 +3936,15 @@
       "why": "I want to become moderator because I want to make sure that Wigglesworth has the best possible community and make it as fun as possible. I ensure you that every player will following the rules and not ruining the experience for other players. I'd like to also make Staff Justice videos which can grow the games play base a lot as seen in the past. You should choose me because out of all the other applicants you have seen what I have done before and know that I am willing to put in the time and effort to make sure everything is going correctly.",
       "scenario": "The chat has a 5 second slow mode to mostly prevent spam but if I start to see constant repeated messages nonstop then I will ask the person to stop and if they decide to continue then further action will be taken such as timing them out. If a user spams in any other channel that doesn't have a slow mode such as Media then i would most likely instantly time them out because of the mass chat flood it would cause.",
       "rulebreak": "No",
-      "receiptAt": "2026-11-15T02:23:41.901Z"
+      "receiptAt": "2026-11-15T02:23:41.901Z",
+      "discordId": "1385096916198625410",
+      "roleAssignedAt": "2026-11-16T17:01:03.831Z",
+      "roleAssignedRoleIds": [
+        "1551097540227899513",
+        "1551589273264984114"
+      ],
+      "roleAssignedRoleId": "1551097540227899513",
+      "roleError": ""
     },
     {
       "appId": "MOD-NZZPQY",
@@ -4697,6 +4705,18 @@
   ],
   "audit": [
     {
+      "t": "2026-11-16T17:01:03.833Z",
+      "act": "ai_approved",
+      "id": "MOD-NDSE77",
+      "by": ""
+    },
+    {
+      "t": "2026-11-16T17:01:03.832Z",
+      "act": "role_assigned",
+      "id": "MOD-NDSE77",
+      "by": ""
+    },
+    {
       "t": "2026-11-16T10:17:48.987Z",
       "act": "account_link",
       "id": "MOD-776LQS",
@@ -5282,18 +5302,6 @@
       "t": "2026-11-12T23:36:35.126Z",
       "act": "account_login",
       "id": "acc_0af80c2c357a047b43da202f",
-      "by": ""
-    },
-    {
-      "t": "2026-11-12T17:22:17.037Z",
-      "act": "account_recover",
-      "id": "CC-HMTG6N",
-      "by": ""
-    },
-    {
-      "t": "2026-11-12T13:04:45.006Z",
-      "act": "account_login",
-      "id": "acc_6584150f51f776b906dc5cdf",
       "by": ""
     }
   ],
@@ -10311,6 +10319,22 @@
       "error": "",
       "createdAt": "2026-11-16T05:26:01.351Z",
       "sentAt": "2026-11-16T05:26:02.373Z"
+    },
+    {
+      "id": "mail_9ec6f6d41bcf51d0a5",
+      "key": "MOD-NDSE77:approved:1794848463832",
+      "to": "rszagz2012@gmail.com",
+      "subject": "You are in — Wigglesworth Moderator application",
+      "text": "Hi thebrycegt,\n\nYour Moderator application (MOD-NDSE77) has been reviewed.\n\nResult: Accepted\nNote from staff: Congratulations, BRYCEGT! Your experience as a former Head Moderator and Trial Admin really stood out. We’re excited to have you on board—staff will reach out soon with next steps.\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi thebrycegt,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-NDSE77</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Congratulations, BRYCEGT! Your experience as a former Head Moderator and Trial Admin really stood out. We’re excited to have you on board—staff will reach out soon with next steps.</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-NDSE77</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-NDSE77",
+      "decisionStatus": "approved",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-16T17:01:03.833Z",
+      "sentAt": ""
     }
   ]
 }
