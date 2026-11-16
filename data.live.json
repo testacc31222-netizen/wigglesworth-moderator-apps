@@ -707,6 +707,14 @@
             "options": ""
           },
           {
+            "id": "discordId",
+            "label": "Discord User ID",
+            "type": "text",
+            "placeholder": "Right-click your name → Copy User ID",
+            "required": true,
+            "options": ""
+          },
+          {
             "id": "age",
             "label": "Age",
             "type": "number",
@@ -779,6 +787,14 @@
             "label": "Discord Username",
             "type": "text",
             "placeholder": "Your Discord name",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "discordId",
+            "label": "Discord User ID",
+            "type": "text",
+            "placeholder": "Right-click your name → Copy User ID",
             "required": true,
             "options": ""
           },
@@ -867,6 +883,14 @@
             "options": ""
           },
           {
+            "id": "discordId",
+            "label": "Discord User ID",
+            "type": "text",
+            "placeholder": "Right-click your name → Copy User ID",
+            "required": true,
+            "options": ""
+          },
+          {
             "id": "age",
             "label": "Age",
             "type": "number",
@@ -939,6 +963,14 @@
             "label": "Discord Username",
             "type": "text",
             "placeholder": "Your Discord name",
+            "required": true,
+            "options": ""
+          },
+          {
+            "id": "discordId",
+            "label": "Discord User ID",
+            "type": "text",
+            "placeholder": "Right-click your name → Copy User ID",
             "required": true,
             "options": ""
           },
@@ -5280,6 +5312,15 @@
   ],
   "diag": [
     {
+      "t": "2026-11-16T16:50:11.197Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
       "t": "2026-11-16T16:09:53.762Z",
       "build": "20261024d",
       "hero": true,
@@ -5719,15 +5760,6 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-15T00:17:15.946Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
     }
   ],
   "accounts": [
