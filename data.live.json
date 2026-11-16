@@ -10103,11 +10103,11 @@
       "kind": "receipt",
       "appId": "CC-G8E8CT",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-16T00:15:03.643Z",
-      "sentAt": ""
+      "sentAt": "2026-11-16T00:15:05.132Z"
     }
   ]
 }
