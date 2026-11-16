@@ -46,6 +46,21 @@ Add these environment variables on Render:
 - `DISCORD_ROLE_CC` — Content Creator role ID(s)
 - `DISCORD_ROLE_DEV` — Developer role ID(s)
 - `DISCORD_ROLE_EVT` — Event Hoster role ID(s)
+- `DISCORD_ACCEPT_CHANNEL` — channel ID that gets the congratulations ping
+
+When a **moderator** application is approved, the bot posts once in
+`DISCORD_ACCEPT_CHANNEL`:
+
+> 🎉 **Congratulations @name!** Your **Moderator** application was accepted —
+> welcome to the Wigglesworth team.
+
+Only the new member is mentioned (no `@everyone`, no role pings). The post is
+skipped if the channel is unset, if the member isn't in the server yet, or if the
+application was already announced. **Grant role** retries it, so a member who
+joins later still gets congratulated.
+
+Right-click the channel in Discord with Developer Mode on → **Copy Channel ID**.
+The bot needs **View Channel** + **Send Messages** there.
 
 If a type needs more than one role (Moderator usually does), separate the IDs
 with commas: `DISCORD_ROLE_MOD=123456789012345678,987654321098765432`. Every ID

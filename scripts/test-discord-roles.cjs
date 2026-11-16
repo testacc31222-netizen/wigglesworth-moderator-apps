@@ -14,6 +14,7 @@ const ROLE = '222222222222222222';
 const ROLE2 = '666666666666666666';
 const USER = '333333333333333333';
 const USER2 = '555555555555555555';
+const ACCEPT_CHANNEL = '777777777777777777';
 const MOCK_PORT = 45971;
 const SITE_PORT = 45972;
 
@@ -42,6 +43,8 @@ const base = {
       discordId: '', email: '', adminNote: '' },
     { appId: 'MOD-ABC234', type: 'moderator', status: 'pending', discord: 'MockUser',
       discordId: USER2, email: '', adminNote: '' },
+    { appId: 'MOD-GHOST2', type: 'moderator', status: 'pending', discord: 'GhostUser',
+      discordId: '', email: '', adminNote: '' },
   ],
   tickets: [], reports: [], audit: [], accounts: [], loginCodes: [], outbox: [],
 };
@@ -76,7 +79,11 @@ const mock = http.createServer((req, res) => {
       if (denyRole || denyRole2) return send(403, { message: 'Missing Permissions' });
       return send(204);
     }
+    if (req.method === 'POST' && req.url === `/api/v10/channels/${ACCEPT_CHANNEL}/messages`) {
+      return send(200, { id: 'msg-' + calls.length, content: JSON.parse(body || '{}').content || '' });
+    }
     if (req.method === 'GET' && req.url.startsWith(`/api/v10/guilds/${GUILD}/members/search`)) {
+      if (req.url.includes('GhostUser')) return send(200, []);
       return send(200, [{ user: { id: USER, username: 'mockuser', global_name: 'MockUser' } }]);
     }
     send(404, { message: 'mock not found' });
@@ -96,6 +103,7 @@ function env() {
     DISCORD_ROLE_MOD: `${ROLE},${ROLE2}`,
     DISCORD_API_BASE: `http://127.0.0.1:${MOCK_PORT}/api/v10`,
     DISCORD_WEBHOOK_URL: '',
+    DISCORD_ACCEPT_CHANNEL: ACCEPT_CHANNEL,
   };
 }
 
@@ -150,6 +158,9 @@ function assert(cond, msg) {
     assert(row.status === 'approved' && !!row.roleAssignedAt && row.roleAssignedRoleId === ROLE,
       'role assignment is persisted on the application');
 
+    assert(!calls.some(c => c.method === 'POST' && c.url.includes('/channels/')),
+      'creator approvals do not post a congratulations message');
+
     const fallback = await decide('CC-JKL892', { status: 'approved' });
     if (fallback.status !== 200 || !(fallback.body.role && fallback.body.role.assigned)) {
       console.error('fallback response:', fallback.status, JSON.stringify(fallback.body));
@@ -173,6 +184,30 @@ function assert(cond, msg) {
       && savedMod.roleAssignedRoleIds.includes(ROLE)
       && savedMod.roleAssignedRoleIds.includes(ROLE2),
       'both role IDs are persisted on the application');
+
+    const congrats = calls.filter(c => c.method === 'POST'
+      && c.url === `/api/v10/channels/${ACCEPT_CHANNEL}/messages`);
+    assert(congrats.length === 1, 'approving a moderator posts one congratulations message');
+    const congratsBody = JSON.parse(congrats[0].body);
+    assert(/Congratulations/.test(congratsBody.content) && congratsBody.content.includes(`<@${USER2}>`),
+      'the congratulations message mentions the new moderator');
+    assert(congratsBody.allowed_mentions && (congratsBody.allowed_mentions.parse || []).length === 0
+      && congratsBody.allowed_mentions.users.includes(USER2),
+      'only the new moderator can be pinged');
+
+    await decide('MOD-ABC234', { status: 'approved' });
+    const afterRepeat = calls.filter(c => c.method === 'POST'
+      && c.url === `/api/v10/channels/${ACCEPT_CHANNEL}/messages`);
+    assert(afterRepeat.length === 1, 're-approving does not post a second congratulations');
+
+    const ghost = await decide('MOD-GHOST2', { status: 'approved' });
+    assert(ghost.status === 200, 'approval still succeeds when the member cannot be found');
+    const ghostPosts = calls.filter(c => c.method === 'POST'
+      && c.url === `/api/v10/channels/${ACCEPT_CHANNEL}/messages`);
+    assert(ghostPosts.length === 1, 'no congratulations is posted for a member who is not in the server');
+    const savedGhost = JSON.parse(fs.readFileSync(dataFile, 'utf8')).submissions
+      .find(s => s.appId === 'MOD-GHOST2');
+    assert(!!savedGhost.acceptAnnounceError, 'the skipped congratulations is recorded for staff');
 
     denyRole2 = true;
     const retry = await fetch(`http://127.0.0.1:${SITE_PORT}/api/admin/applications/MOD-ABC234/role`, {
@@ -209,3 +244,4 @@ function assert(cond, msg) {
     try { fs.rmSync(tmp, { recursive: true, force: true }); } catch {}
   }
 })();
+

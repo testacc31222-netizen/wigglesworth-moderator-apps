@@ -1,7 +1,7 @@
 let config = null;
 let publicCopyTargets = [];
 let account = null;
-const BUILD = '20261024d';
+const BUILD = '20261116a';
 const DEFAULT_ABOUT = {
   eyebrow:'About', titleA:'Steward the world', titleB:'we build together.',
   lede:'The best communities are made by people who show up with care, judgment, and imagination. Find the work that feels like yours.',
@@ -847,7 +847,7 @@ async function renderSubs(){
     }
     html+=`<div class="qa">`;
     Object.keys(s).forEach(k=>{
-      if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt','email','emailUpdates','notifiedStatus','notifiedAt','receiptAt','accountId','discordId','roleAssignedAt','roleAssignedRoleId','roleAssignedRoleIds','roleError'].includes(k)) return;
+      if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt','email','emailUpdates','notifiedStatus','notifiedAt','receiptAt','accountId','discordId','roleAssignedAt','roleAssignedRoleId','roleAssignedRoleIds','roleError','acceptAnnouncedAt','acceptAnnounceError'].includes(k)) return;
       const lbl = qmap[s.type+':'+k] || k;
       html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
@@ -860,6 +860,14 @@ async function renderSubs(){
         ? `✅ ${roleCount} role${roleCount === 1 ? '' : 's'} assigned ${esc((s.roleAssignedAt||'').slice(0,16).replace('T',' '))}`
         : 'Role not assigned yet. Approving will try automatically.';
     html+=`<p class="hint">${roleLine}</p>`;
+    if(s.status === 'approved' && s.type === 'moderator') {
+      const pingLine = s.acceptAnnounceError
+        ? `⚠️ Congratulations not posted — ${esc(s.acceptAnnounceError)}`
+        : s.acceptAnnouncedAt
+          ? `✅ Congratulated in Discord ${esc((s.acceptAnnouncedAt||'').slice(0,16).replace('T',' '))}`
+          : 'Congratulations not posted yet. Press <b>Grant role</b> to retry.';
+      html+=`<p class="hint">${pingLine}</p>`;
+    }
     html+=`<label>Applicant email (used for the decision):</label><input type="email" value="${esc(s.email||'')}" id="email_${esc(s.appId)}" placeholder="name@example.com">`;
     html+=`<label>Staff note (seen by applicant):</label><input value="${esc(s.adminNote||'')}" id="note_${esc(s.appId)}" placeholder="e.g. Great app, welcome!">`;
     d.innerHTML=html;

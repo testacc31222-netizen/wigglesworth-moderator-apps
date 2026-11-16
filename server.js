@@ -59,6 +59,14 @@ const DISCORD_ROLE_IDS = {
   event: roleList(process.env.DISCORD_ROLE_EVT),
 };
 const discordRoleConfigured = () => !!(DISCORD_BOT_TOKEN && DISCORD_GUILD_ID);
+// Approval congratulations. Moderator only for now; other types fall through.
+const DISCORD_ACCEPT_CHANNEL = (process.env.DISCORD_ACCEPT_CHANNEL || '').replace(/\D/g, '');
+const TYPE_LABELS = {
+  moderator: 'Moderator',
+  creator: 'Content Creator',
+  developer: 'Developer',
+  event: 'Event Team',
+};
 
 // --- Email updates (Google Apps Script, Resend, Brevo, or Gmail/SMTP) ------
 // Set one provider on Render to turn delivery on. Until then, mail is queued
@@ -249,6 +257,37 @@ async function grantRoleForSubmission(sub, { force = false } = {}) {
     assigned: false, partial: assigned.length > 0, userId: who.id,
     roleIds, failed: failed.map(f => f.roleId), error: sub.roleError,
   };
+}
+
+// Congratulate a newly accepted moderator in the configured channel. Never
+// blocks the decision: failures are stored on the application for staff retry.
+async function announceAcceptance(sub, { force = false } = {}) {
+  if (sub.type !== 'moderator') return { posted: false, skipped: 'not moderator' };
+  if (!force && sub.acceptAnnouncedAt) return { posted: false, already: true };
+  if (!DISCORD_ACCEPT_CHANNEL) return { posted: false, error: 'No congratulations channel set (DISCORD_ACCEPT_CHANNEL).' };
+  if (!DISCORD_BOT_TOKEN) return { posted: false, error: 'DISCORD_BOT_TOKEN is not set.' };
+  const who = await resolveDiscordMemberId(sub);
+  if (!who.id) {
+    sub.acceptAnnounceError = cleanStr(who.error || 'Discord member not found.', 300);
+    return { posted: false, error: sub.acceptAnnounceError };
+  }
+  sub.discordId = who.id;
+  const label = TYPE_LABELS[sub.type] || 'Staff';
+  const content = `🎉 **Congratulations <@${who.id}>!** Your **${label}** application was accepted — welcome to the Wigglesworth team.`;
+  const r = await discordApi('POST', `/channels/${DISCORD_ACCEPT_CHANNEL}/messages`, {
+    content,
+    // Ping only the new member: no @everyone, no role pings.
+    allowed_mentions: { parse: [], users: [String(who.id)] },
+  });
+  if (!r.ok) {
+    sub.acceptAnnounceError = r.status === 404
+      ? 'Congratulations channel not found — check DISCORD_ACCEPT_CHANNEL.'
+      : `Discord returned ${r.status || r.error || 'an error'}.`;
+    return { posted: false, error: sub.acceptAnnounceError };
+  }
+  sub.acceptAnnouncedAt = new Date().toISOString();
+  sub.acceptAnnounceError = '';
+  return { posted: true, userId: who.id, messageId: r.data && r.data.id };
 }
 
 let ghPushBusy = false;
@@ -1659,15 +1698,20 @@ app.post('/api/admin/applications/:id/decision', aiLimit, async (req, res) => {
     s.status = decision;
     s.adminNote = note;
     let role = null;
+    let announce = null;
     if (decision === 'approved') {
       role = await grantRoleForSubmission(s);
       audit(db, role.assigned ? 'role_assigned' : 'role_failed', s.appId, req);
+      announce = await announceAcceptance(s).catch(e => {
+        console.error('accept announce error', e.message);
+        return { posted: false, error: e.message };
+      });
     }
     const emailed = queueDecisionEmail(db, s);
     audit(db, 'ai_' + decision, s.appId, req);
     saveDB(db);
     if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
-    res.json({ ok: true, emailed, mailConfigured: mailConfigured(), role });
+    res.json({ ok: true, emailed, mailConfigured: mailConfigured(), role, announce });
   } catch (e) { console.error('ai decision error', e.message); res.status(502).json({ error: 'AI unavailable' }); }
 });
 
@@ -1751,9 +1795,14 @@ app.post('/api/admin/applications/:id/status', adminLimit, async (req, res) => {
     if (em !== s.email) { s.email = em; s.notifiedStatus = ''; }
   }
   let role = null;
+  let announce = null;
   if (s.status === 'approved') {
     role = await grantRoleForSubmission(s);
     audit(db, role.assigned ? 'role_assigned' : 'role_failed', s.appId, req);
+    announce = await announceAcceptance(s).catch(e => {
+      console.error('accept announce error', e.message);
+      return { posted: false, error: e.message };
+    });
   }
   let emailed = false;
   if (s.status !== before && (s.status === 'approved' || s.status === 'denied')) {
@@ -1762,7 +1811,7 @@ app.post('/api/admin/applications/:id/status', adminLimit, async (req, res) => {
   audit(db, 'status_' + s.status, s.appId, req);
   saveDB(db);
   if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
-  res.json({ ok: true, emailed, mailConfigured: mailConfigured(), role });
+  res.json({ ok: true, emailed, mailConfigured: mailConfigured(), role, announce });
 });
 
 // Retry the Discord role without changing the decision. Useful when the member
@@ -1781,8 +1830,13 @@ app.post('/api/admin/applications/:id/role', adminLimit, async (req, res) => {
   }
   const role = await grantRoleForSubmission(s, { force: true });
   audit(db, role.assigned ? 'role_assigned' : 'role_failed', s.appId, req);
+  // Also retries the congratulations post if it never went out.
+  const announce = await announceAcceptance(s).catch(e => {
+    console.error('accept announce error', e.message);
+    return { posted: false, error: e.message };
+  });
   saveDB(db);
-  res.json({ ok: true, role });
+  res.json({ ok: true, role, announce });
 });
 
 // Force a fresh decision email (e.g. staff changed the note after deciding).
@@ -2112,6 +2166,9 @@ async function startServer() {
   console.log(`Discord role sync: ${discordRoleConfigured()
     ? 'ON (guild ' + DISCORD_GUILD_ID + ')'
     : 'OFF (set DISCORD_BOT_TOKEN + DISCORD_GUILD_ID)'}`);
+  console.log(`Discord accept ping: ${DISCORD_ACCEPT_CHANNEL
+    ? 'ON (moderator approvals -> channel ' + DISCORD_ACCEPT_CHANNEL + ')'
+    : 'OFF (set DISCORD_ACCEPT_CHANNEL to a channel ID)'}`);
   console.log(`Applicant email: ${mailConfigured() ? 'ON via ' + mailProvider() + ' (' + MAIL_FROM + ')' : 'OFF (set APPS_SCRIPT_URL + APPS_SCRIPT_SECRET, SMTP_USER + SMTP_PASS, or RESEND_API_KEY / BREVO_API_KEY + MAIL_FROM; mail is queued)'}`);
   // Retry anything queued while the service was asleep, then periodically.
   setTimeout(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 4000);
