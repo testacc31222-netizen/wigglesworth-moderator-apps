@@ -847,16 +847,17 @@ async function renderSubs(){
     }
     html+=`<div class="qa">`;
     Object.keys(s).forEach(k=>{
-      if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt','email','emailUpdates','notifiedStatus','notifiedAt','receiptAt','accountId','discordId','roleAssignedAt','roleAssignedRoleId','roleError'].includes(k)) return;
+      if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt','email','emailUpdates','notifiedStatus','notifiedAt','receiptAt','accountId','discordId','roleAssignedAt','roleAssignedRoleId','roleAssignedRoleIds','roleError'].includes(k)) return;
       const lbl = qmap[s.type+':'+k] || k;
       html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
     html+=`</div>`;
     html+=`<label>Discord User ID (used to assign the role):</label><input value="${esc(s.discordId||'')}" id="discord_${esc(s.appId)}" inputmode="numeric" placeholder="17-20 digit Discord User ID">`;
-    const roleLine = s.roleAssignedAt
-      ? `✅ Role assigned ${esc((s.roleAssignedAt||'').slice(0,16).replace('T',' '))}`
-      : s.roleError
-        ? `⚠️ Role not assigned — ${esc(s.roleError)}`
+    const roleCount = Array.isArray(s.roleAssignedRoleIds) ? s.roleAssignedRoleIds.length : (s.roleAssignedAt ? 1 : 0);
+    const roleLine = s.roleError
+      ? `⚠️ ${roleCount ? `${roleCount} role${roleCount === 1 ? '' : 's'} assigned, the rest failed` : 'Role not assigned'} — ${esc(s.roleError)}`
+      : s.roleAssignedAt
+        ? `✅ ${roleCount} role${roleCount === 1 ? '' : 's'} assigned ${esc((s.roleAssignedAt||'').slice(0,16).replace('T',' '))}`
         : 'Role not assigned yet. Approving will try automatically.';
     html+=`<p class="hint">${roleLine}</p>`;
     html+=`<label>Applicant email (used for the decision):</label><input type="email" value="${esc(s.email||'')}" id="email_${esc(s.appId)}" placeholder="name@example.com">`;

@@ -48,11 +48,15 @@ const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
 const DISCORD_BOT_TOKEN = (process.env.DISCORD_BOT_TOKEN || '').trim();
 const DISCORD_GUILD_ID = (process.env.DISCORD_GUILD_ID || '').replace(/\D/g, '');
 const DISCORD_API_BASE = (process.env.DISCORD_API_BASE || 'https://discord.com/api/v10').replace(/\/$/, '');
+const roleList = (value) => [...new Set(String(value || '')
+  .split(/[\s,;]+/)
+  .map(v => v.replace(/\D/g, ''))
+  .filter(v => v.length >= 17 && v.length <= 20))];
 const DISCORD_ROLE_IDS = {
-  moderator: (process.env.DISCORD_ROLE_MOD || '').replace(/\D/g, ''),
-  creator: (process.env.DISCORD_ROLE_CC || '').replace(/\D/g, ''),
-  developer: (process.env.DISCORD_ROLE_DEV || '').replace(/\D/g, ''),
-  event: (process.env.DISCORD_ROLE_EVT || '').replace(/\D/g, ''),
+  moderator: roleList(process.env.DISCORD_ROLE_MOD),
+  creator: roleList(process.env.DISCORD_ROLE_CC),
+  developer: roleList(process.env.DISCORD_ROLE_DEV),
+  event: roleList(process.env.DISCORD_ROLE_EVT),
 };
 const discordRoleConfigured = () => !!(DISCORD_BOT_TOKEN && DISCORD_GUILD_ID);
 
@@ -139,8 +143,8 @@ function discordNotify(text) {
 function validDiscordId(id) {
   return /^\d{17,20}$/.test(String(id || '').replace(/\D/g, ''));
 }
-function roleIdForType(type) {
-  return DISCORD_ROLE_IDS[type] || '';
+function roleIdsForType(type) {
+  return DISCORD_ROLE_IDS[type] || [];
 }
 async function discordApi(method, apiPath, body) {
   const ctrl = new AbortController();
@@ -189,16 +193,27 @@ async function resolveDiscordMemberId(sub) {
   if (exact.length > 1) return { error: 'More than one member matches that name. Enter their Discord User ID.' };
   return { error: 'That Discord username was not found in the server. Enter their User ID.' };
 }
+function roleFailHint(status) {
+  return status === 404
+    ? 'That user is not in the Discord server.'
+    : status === 403
+      ? 'The bot needs Manage Roles, and its role must be above the role it is assigning.'
+      : status === 401
+        ? 'The Discord bot token is invalid.'
+        : `Discord returned ${status || 'an error'}.`;
+}
 async function grantRoleForSubmission(sub, { force = false } = {}) {
   if (!discordRoleConfigured()) {
     return { assigned: false, error: 'Discord role sync is not configured (set DISCORD_BOT_TOKEN + DISCORD_GUILD_ID).' };
   }
-  const roleId = roleIdForType(sub.type);
-  if (!roleId) {
+  const roleIds = roleIdsForType(sub.type);
+  if (!roleIds.length) {
     return { assigned: false, error: `No Discord role ID configured for ${sub.type || 'this application'}.` };
   }
-  if (!force && sub.roleAssignedAt && sub.roleAssignedRoleId === roleId) {
-    return { assigned: true, already: true, userId: sub.discordId || '' };
+  const saved = Array.isArray(sub.roleAssignedRoleIds) ? sub.roleAssignedRoleIds : [];
+  if (!force && sub.roleAssignedAt && saved.length === roleIds.length
+      && roleIds.every(id => saved.includes(id))) {
+    return { assigned: true, already: true, userId: sub.discordId || '', roleIds };
   }
   const who = await resolveDiscordMemberId(sub);
   if (!who.id) {
@@ -206,23 +221,34 @@ async function grantRoleForSubmission(sub, { force = false } = {}) {
     return { assigned: false, error: sub.roleError };
   }
   sub.discordId = who.id;
-  const r = await discordApi('PUT',
-    `/guilds/${DISCORD_GUILD_ID}/members/${who.id}/roles/${roleId}`);
-  if (r.ok) {
-    sub.roleAssignedAt = new Date().toISOString();
-    sub.roleAssignedRoleId = roleId;
-    sub.roleError = '';
-    return { assigned: true, userId: who.id };
+  const failed = [];
+  const assigned = [];
+  for (const roleId of roleIds) {
+    const r = await discordApi('PUT',
+      `/guilds/${DISCORD_GUILD_ID}/members/${who.id}/roles/${roleId}`);
+    if (r.ok) assigned.push(roleId);
+    else failed.push({ roleId, status: r.status, error: r.error });
   }
-  const hint = r.status === 404
-    ? 'That user is not in the Discord server.'
-    : r.status === 403
-      ? 'The bot needs Manage Roles, and its role must be above the role it is assigning.'
-      : r.status === 401
-        ? 'The Discord bot token is invalid.'
-        : `Discord returned ${r.status || r.error || 'an error'}.`;
-  sub.roleError = cleanStr(hint, 300);
-  return { assigned: false, error: sub.roleError, userId: who.id };
+  if (!failed.length) {
+    sub.roleAssignedAt = new Date().toISOString();
+    sub.roleAssignedRoleIds = roleIds;
+    sub.roleAssignedRoleId = roleIds[0]; // older builds read the single-role field
+    sub.roleError = '';
+    return { assigned: true, userId: who.id, roleIds };
+  }
+  const label = roleIds.length === 1
+    ? `Role ${failed[0].roleId} could not be assigned. `
+    : `${failed.length} of ${roleIds.length} roles could not be assigned. `;
+  sub.roleAssignedRoleIds = assigned;
+  if (assigned.length) {
+    sub.roleAssignedAt = new Date().toISOString();
+    sub.roleAssignedRoleId = assigned[0];
+  }
+  sub.roleError = cleanStr(label + roleFailHint(failed[0].status), 300);
+  return {
+    assigned: false, partial: assigned.length > 0, userId: who.id,
+    roleIds, failed: failed.map(f => f.roleId), error: sub.roleError,
+  };
 }
 
 let ghPushBusy = false;

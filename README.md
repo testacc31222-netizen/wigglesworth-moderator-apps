@@ -42,10 +42,15 @@ Add these environment variables on Render:
 
 - `DISCORD_BOT_TOKEN` — bot token (keep secret)
 - `DISCORD_GUILD_ID` — your server ID
-- `DISCORD_ROLE_MOD` — Moderator role ID
-- `DISCORD_ROLE_CC` — Content Creator role ID
-- `DISCORD_ROLE_DEV` — Developer role ID
-- `DISCORD_ROLE_EVT` — Event Hoster role ID
+- `DISCORD_ROLE_MOD` — Moderator role ID(s)
+- `DISCORD_ROLE_CC` — Content Creator role ID(s)
+- `DISCORD_ROLE_DEV` — Developer role ID(s)
+- `DISCORD_ROLE_EVT` — Event Hoster role ID(s)
+
+If a type needs more than one role (Moderator usually does), separate the IDs
+with commas: `DISCORD_ROLE_MOD=123456789012345678,987654321098765432`. Every ID
+is assigned together, and a partial failure is reported on the card so **Grant
+role** can retry.
 
 The bot needs **Manage Roles**, and its own role must sit **above** every role it
 assigns. If the member has not joined the server yet, approval still succeeds;

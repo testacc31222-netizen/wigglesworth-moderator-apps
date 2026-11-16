@@ -11,7 +11,9 @@ const { spawn } = require('child_process');
 
 const GUILD = '111111111111111111';
 const ROLE = '222222222222222222';
+const ROLE2 = '666666666666666666';
 const USER = '333333333333333333';
+const USER2 = '555555555555555555';
 const MOCK_PORT = 45971;
 const SITE_PORT = 45972;
 
@@ -21,6 +23,10 @@ const base = {
   config: {
     applicationTypes: [{
       id: 'creator', name: 'Content Creator', prefix: 'CC', blurb: '', intro: '',
+      successMessage: 'Thanks', open: true, showApproved: true,
+      questions: [{ id: 'discord', label: 'Discord Username', type: 'text', required: true }],
+    }, {
+      id: 'moderator', name: 'Moderator', prefix: 'MOD', blurb: '', intro: '',
       successMessage: 'Thanks', open: true, showApproved: true,
       questions: [{ id: 'discord', label: 'Discord Username', type: 'text', required: true }],
     }],
@@ -34,12 +40,15 @@ const base = {
       discordId: '', email: '', adminNote: '' },
     { appId: 'CC-JKL892', type: 'creator', status: 'pending', discord: 'MockUser',
       discordId: '', email: '', adminNote: '' },
+    { appId: 'MOD-ABC234', type: 'moderator', status: 'pending', discord: 'MockUser',
+      discordId: USER2, email: '', adminNote: '' },
   ],
   tickets: [], reports: [], audit: [], accounts: [], loginCodes: [], outbox: [],
 };
 fs.writeFileSync(dataFile, JSON.stringify(base, null, 2));
 
 let denyRole = false;
+let denyRole2 = false;
 const calls = [];
 const mock = http.createServer((req, res) => {
   let body = '';
@@ -59,6 +68,14 @@ const mock = http.createServer((req, res) => {
       if (denyRole) return send(403, { message: 'Missing Permissions' });
       return send(404, { message: 'Unknown Member' });
     }
+    if (req.method === 'PUT' && req.url === `/api/v10/guilds/${GUILD}/members/${USER2}/roles/${ROLE}`) {
+      if (denyRole) return send(403, { message: 'Missing Permissions' });
+      return send(204);
+    }
+    if (req.method === 'PUT' && req.url === `/api/v10/guilds/${GUILD}/members/${USER2}/roles/${ROLE2}`) {
+      if (denyRole || denyRole2) return send(403, { message: 'Missing Permissions' });
+      return send(204);
+    }
     if (req.method === 'GET' && req.url.startsWith(`/api/v10/guilds/${GUILD}/members/search`)) {
       return send(200, [{ user: { id: USER, username: 'mockuser', global_name: 'MockUser' } }]);
     }
@@ -76,6 +93,7 @@ function env() {
     DISCORD_BOT_TOKEN: 'test-token',
     DISCORD_GUILD_ID: GUILD,
     DISCORD_ROLE_CC: ROLE,
+    DISCORD_ROLE_MOD: `${ROLE},${ROLE2}`,
     DISCORD_API_BASE: `http://127.0.0.1:${MOCK_PORT}/api/v10`,
     DISCORD_WEBHOOK_URL: '',
   };
@@ -141,6 +159,32 @@ function assert(cond, msg) {
       'username fallback resolves the member and assigns the role');
     assert(calls.some(c => c.method === 'GET' && c.url.includes('/members/search?query=MockUser')),
       'bot searches the guild when no Discord ID is stored');
+
+    // A type can map to more than one role (Moderator has two).
+    const mod = await decide('MOD-ABC234', { status: 'approved' });
+    assert(mod.status === 200 && mod.body.role && mod.body.role.assigned === true,
+      'approval assigns every configured role for the type');
+    const modPuts = calls.filter(c => c.method === 'PUT'
+      && c.url.includes(`/members/${USER2}/roles/`));
+    assert(modPuts.length === 2, 'both moderator roles are sent to Discord');
+    const savedMod = JSON.parse(fs.readFileSync(dataFile, 'utf8')).submissions
+      .find(s => s.appId === 'MOD-ABC234');
+    assert(Array.isArray(savedMod.roleAssignedRoleIds)
+      && savedMod.roleAssignedRoleIds.includes(ROLE)
+      && savedMod.roleAssignedRoleIds.includes(ROLE2),
+      'both role IDs are persisted on the application');
+
+    denyRole2 = true;
+    const retry = await fetch(`http://127.0.0.1:${SITE_PORT}/api/admin/applications/MOD-ABC234/role`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-edit-code': 'test-code' },
+      body: '{}',
+    });
+    const retryBody = await retry.json().catch(() => ({}));
+    assert(retry.status === 200 && retryBody.role && retryBody.role.assigned === false
+      && retryBody.role.partial === true, 'a partial role failure is reported, not hidden');
+    assert(/1 of 2/.test(retryBody.role.error || ''), 'partial failure says how many roles failed');
+    denyRole2 = false;
 
     denyRole = true;
     const bad = await decide('CC-DEF567', { status: 'approved' });
