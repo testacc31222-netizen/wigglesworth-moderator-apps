@@ -3927,7 +3927,7 @@
       "email": "rszagz2012@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_f6c5479bb79b112d5f17785e",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "BRYCEGT",
       "discord": "thebrycegt",
       "age": "15",
@@ -3944,7 +3944,8 @@
         "1551589273264984114"
       ],
       "roleAssignedRoleId": "1551097540227899513",
-      "roleError": ""
+      "roleError": "",
+      "notifiedAt": "2026-11-16T17:01:05.964Z"
     },
     {
       "appId": "MOD-NZZPQY",
@@ -10330,11 +10331,11 @@
       "kind": "decision",
       "appId": "MOD-NDSE77",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-16T17:01:03.833Z",
-      "sentAt": ""
+      "sentAt": "2026-11-16T17:01:05.964Z"
     }
   ]
 }
