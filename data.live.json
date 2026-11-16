@@ -10203,8 +10203,8 @@
       "appId": "",
       "decisionStatus": "",
       "status": "queued",
-      "attempts": 0,
-      "error": "",
+      "attempts": 2,
+      "error": "200 Exception: Invalid email: noahlowe-tiggle@.icloud.com",
       "createdAt": "2026-11-16T02:02:33.790Z",
       "sentAt": ""
     }
