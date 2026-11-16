@@ -4689,22 +4689,34 @@
       "name": "Zxqw",
       "subject": "Zxqw_0",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "email": "thegreatestlol25@gmail.com",
       "accountId": "acc_fe0d3cc1a85e0a33a59fe1f4",
       "createdAt": "2026-11-16T00:09:47.196Z",
-      "updatedAt": "2026-11-16T00:09:47.196Z",
+      "updatedAt": "2026-11-16T22:43:40.372Z",
       "replies": [
         {
           "by": "user",
           "name": "Zxqw",
           "text": "I make content about wigglesworth and soon make content about fear reality and J.O.B.",
           "at": "2026-11-16T00:09:47.196Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "That sounds exciting! If you’d like to apply for the Content Creator role, just fill out the application form and we’ll review it as soon as possible. If you’re also interested in another role, feel free to submit a separate application for that one too. Let us know if you have any questions or need help with the process.",
+          "at": "2026-11-16T22:43:40.372Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-11-16T22:43:40.373Z",
+      "act": "ticket_reply",
+      "id": "TKT-F7CN6L",
+      "by": ""
+    },
     {
       "t": "2026-11-16T19:25:14.951Z",
       "act": "account_link",
@@ -5297,12 +5309,6 @@
       "t": "2026-11-13T04:45:32.725Z",
       "act": "account_login",
       "id": "acc_df9e3f602662e7221d2a1f86",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T02:08:53.275Z",
-      "act": "account_login",
-      "id": "acc_34ae6fefad9e2f9b4c35c5d3",
       "by": ""
     }
   ],
@@ -10336,6 +10342,22 @@
       "error": "",
       "createdAt": "2026-11-16T17:01:03.833Z",
       "sentAt": "2026-11-16T17:01:05.964Z"
+    },
+    {
+      "id": "mail_5254df755231c38d87",
+      "key": "ticket:TKT-F7CN6L:2:2026-11-16T22:43:40.372Z",
+      "to": "thegreatestlol25@gmail.com",
+      "subject": "Re: Zxqw_0 [TKT-F7CN6L]",
+      "text": "Hi Zxqw,\n\nStaff replied to your Wigglesworth ticket TKT-F7CN6L — Zxqw_0:\n\nThat sounds exciting! If you’d like to apply for the Content Creator role, just fill out the application form and we’ll review it as soon as possible. If you’re also interested in another role, feel free to submit a separate application for that one too. Let us know if you have any questions or need help with the process.\n\nOpen the ticket (sign in with thegreatestlol25@gmail.com):\nhttps://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-F7CN6L%23contact\n\nTicket ID: TKT-F7CN6L\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Ticket update</h1><p style=\"margin:0 0 14px\">Hi Zxqw,</p><p style=\"margin:0 0 18px\">Staff replied to your ticket <b>TKT-F7CN6L</b> — Zxqw_0.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:8px\">Staff reply</div><div style=\"color:#E6DED4\">That sounds exciting! If you’d like to apply for the Content Creator role, just fill out the application form and we’ll review it as soon as possible. If you’re also interested in another role, feel free to submit a separate application for that one too. Let us know if you have any questions or need help with the process.</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Sign in with <b style=\"color:#E6DED4\">thegreatestlol25@gmail.com</b> to open the thread. Ticket ID: <b style=\"color:#E6DED4\">TKT-F7CN6L</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-F7CN6L%23contact\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Open my ticket</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you opened a support ticket with Wigglesworth.</p></div></td></tr></table></body></html>",
+      "kind": "ticket",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-16T22:43:40.373Z",
+      "sentAt": "2026-11-16T22:43:41.798Z"
     }
   ]
 }
