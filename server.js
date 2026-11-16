@@ -42,6 +42,20 @@ const COUNTDOWN_PUBLIC_URL = (process.env.COUNTDOWN_PUBLIC_URL || 'https://wiggl
 const DISCORD_WEBHOOK_URL = (process.env.DISCORD_WEBHOOK_URL || '').trim();
 const DISCORD_PING_ID = (process.env.DISCORD_PING_ID || '').replace(/\D/g, '');
 
+// --- Discord role sync ------------------------------------------------------
+// Approving an application adds the matching role through the bot token. The
+// site stays usable when this is unset: the decision saves and staff can retry.
+const DISCORD_BOT_TOKEN = (process.env.DISCORD_BOT_TOKEN || '').trim();
+const DISCORD_GUILD_ID = (process.env.DISCORD_GUILD_ID || '').replace(/\D/g, '');
+const DISCORD_API_BASE = (process.env.DISCORD_API_BASE || 'https://discord.com/api/v10').replace(/\/$/, '');
+const DISCORD_ROLE_IDS = {
+  moderator: (process.env.DISCORD_ROLE_MOD || '').replace(/\D/g, ''),
+  creator: (process.env.DISCORD_ROLE_CC || '').replace(/\D/g, ''),
+  developer: (process.env.DISCORD_ROLE_DEV || '').replace(/\D/g, ''),
+  event: (process.env.DISCORD_ROLE_EVT || '').replace(/\D/g, ''),
+};
+const discordRoleConfigured = () => !!(DISCORD_BOT_TOKEN && DISCORD_GUILD_ID);
+
 // --- Email updates (Google Apps Script, Resend, Brevo, or Gmail/SMTP) ------
 // Set one provider on Render to turn delivery on. Until then, mail is queued
 // in data.live.json and shown to staff, so nothing is lost.
@@ -120,6 +134,95 @@ function discordNotify(text) {
   if (!DISCORD_WEBHOOK_URL) return;
   const body = { content: (DISCORD_PING_ID ? `<@${DISCORD_PING_ID}> ` : '') + text.slice(0, 1800) };
   discordPost(DISCORD_WEBHOOK_URL, body).catch(e => console.error('discord alert error', e.message));
+}
+
+function validDiscordId(id) {
+  return /^\d{17,20}$/.test(String(id || '').replace(/\D/g, ''));
+}
+function roleIdForType(type) {
+  return DISCORD_ROLE_IDS[type] || '';
+}
+async function discordApi(method, apiPath, body) {
+  const ctrl = new AbortController();
+  const to = setTimeout(() => ctrl.abort(), 12000);
+  try {
+    const r = await fetch(DISCORD_API_BASE + apiPath, {
+      method,
+      headers: {
+        Authorization: `Bot ${DISCORD_BOT_TOKEN}`,
+        'Content-Type': 'application/json',
+        'User-Agent': 'wigglesworth-applications',
+      },
+      body: body === undefined ? undefined : JSON.stringify(body),
+      signal: ctrl.signal,
+    });
+    let data = null;
+    try { data = await r.json(); } catch {}
+    return { ok: r.ok, status: r.status, data };
+  } catch (e) {
+    return { ok: false, status: 0, error: e.message || 'network error' };
+  } finally {
+    clearTimeout(to);
+  }
+}
+// Older applications only stored a username. Search the guild for it rather
+// than failing the approval outright.
+async function resolveDiscordMemberId(sub) {
+  const saved = String(sub.discordId || '').replace(/\D/g, '');
+  if (validDiscordId(saved)) return { id: saved };
+  const query = String(sub.discord || '').trim().replace(/^@/, '').split('#')[0];
+  if (!query) return { error: 'No Discord User ID on file.' };
+  const r = await discordApi('GET',
+    `/guilds/${DISCORD_GUILD_ID}/members/search?query=${encodeURIComponent(query)}&limit=10`);
+  if (!r.ok) {
+    return { error: r.status === 403
+      ? 'The bot needs the Server Members intent to look up usernames.'
+      : `Discord lookup failed (${r.status || r.error || 'unknown'}).` };
+  }
+  const members = Array.isArray(r.data) ? r.data : [];
+  const want = query.toLowerCase();
+  const exact = members.filter(m => {
+    const u = m.user || {};
+    return [u.username, u.global_name, m.nick].some(v => String(v || '').toLowerCase() === want);
+  });
+  if (exact.length === 1) return { id: exact[0].user.id };
+  if (exact.length > 1) return { error: 'More than one member matches that name. Enter their Discord User ID.' };
+  return { error: 'That Discord username was not found in the server. Enter their User ID.' };
+}
+async function grantRoleForSubmission(sub, { force = false } = {}) {
+  if (!discordRoleConfigured()) {
+    return { assigned: false, error: 'Discord role sync is not configured (set DISCORD_BOT_TOKEN + DISCORD_GUILD_ID).' };
+  }
+  const roleId = roleIdForType(sub.type);
+  if (!roleId) {
+    return { assigned: false, error: `No Discord role ID configured for ${sub.type || 'this application'}.` };
+  }
+  if (!force && sub.roleAssignedAt && sub.roleAssignedRoleId === roleId) {
+    return { assigned: true, already: true, userId: sub.discordId || '' };
+  }
+  const who = await resolveDiscordMemberId(sub);
+  if (!who.id) {
+    sub.roleError = cleanStr(who.error, 300);
+    return { assigned: false, error: sub.roleError };
+  }
+  sub.discordId = who.id;
+  const r = await discordApi('PUT',
+    `/guilds/${DISCORD_GUILD_ID}/members/${who.id}/roles/${roleId}`);
+  if (r.ok) {
+    sub.roleAssignedAt = new Date().toISOString();
+    sub.roleAssignedRoleId = roleId;
+    sub.roleError = '';
+    return { assigned: true, userId: who.id };
+  }
+  const hint = r.status === 404
+    ? 'That user is not in the Discord server.'
+    : r.status === 403
+      ? 'The bot needs Manage Roles, and its role must be above the role it is assigning.'
+      : r.status === 401
+        ? 'The Discord bot token is invalid.'
+        : `Discord returned ${r.status || r.error || 'an error'}.`;
+  sub.roleError = cleanStr(hint, 300);
+  return { assigned: false, error: sub.roleError, userId: who.id };
 }
 
 let ghPushBusy = false;
@@ -290,6 +393,7 @@ const DEFAULT_TYPES = [
     questions: [
       Q('username', 'In-game Username', 'text', 'Your username', true),
       Q('discord', 'Discord Username', 'text', 'Your Discord name', true),
+      Q('discordId', 'Discord User ID', 'text', 'Right-click your name → Copy User ID', true),
       Q('age', 'Age', 'number', 'e.g. 16', true),
       Q('platform', 'Main Platform', 'select', '', true, 'YouTube, Twitch, TikTok, Other'),
       Q('channel', 'Channel / Profile Link', 'text', 'Paste the link', true),
@@ -412,6 +516,16 @@ function loadDB() {
     if (!t.successMessage) {
       const d = DEFAULT_TYPES.find(x => x.id === t.id);
       t.successMessage = d ? d.successMessage : 'Thanks! Your application was received.';
+    }
+    // Collect the numeric ID once so an approval can assign the Discord role
+    // without staff looking it up. Existing applications stay valid.
+    if (!Array.isArray(t.questions)) t.questions = [];
+    if (!t.questions.some(q => q.id === 'discordId')) {
+      const q = { id: 'discordId', label: 'Discord User ID', type: 'text',
+        placeholder: 'Right-click your name → Copy User ID', required: true, options: '' };
+      const at = t.questions.findIndex(x => x.id === 'discord');
+      if (at >= 0) t.questions.splice(at + 1, 0, q);
+      else t.questions.push(q);
     }
   }
   if (!db.config.applicationTypes.some(t => t.id === 'event')) {
@@ -1007,6 +1121,9 @@ app.post('/api/applications', submitLimit, (req, res) => {
   for (const q of t.questions) {
     const v = cleanStr(answers[q.id], 3000).trim();
     if (q.required && !v) return res.status(400).json({ error: 'Missing: ' + q.label });
+    if (q.id === 'discordId' && v && !validDiscordId(v)) {
+      return res.status(400).json({ error: 'Discord User ID must be the 17-20 digit number from Discord (not your username).' });
+    }
     if ((q.id === 'why' || q.id === 'scenario' || q.id === 'bugscenario') && v.length < 20) {
       return res.status(400).json({ error: q.label + ' is too short.' });
     }
@@ -1515,11 +1632,16 @@ app.post('/api/admin/applications/:id/decision', aiLimit, async (req, res) => {
     if (!note) return res.status(502).json({ error: 'AI unavailable' });
     s.status = decision;
     s.adminNote = note;
+    let role = null;
+    if (decision === 'approved') {
+      role = await grantRoleForSubmission(s);
+      audit(db, role.assigned ? 'role_assigned' : 'role_failed', s.appId, req);
+    }
     const emailed = queueDecisionEmail(db, s);
     audit(db, 'ai_' + decision, s.appId, req);
     saveDB(db);
     if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
-    res.json({ ok: true, emailed, mailConfigured: mailConfigured() });
+    res.json({ ok: true, emailed, mailConfigured: mailConfigured(), role });
   } catch (e) { console.error('ai decision error', e.message); res.status(502).json({ error: 'AI unavailable' }); }
 });
 
@@ -1579,14 +1701,19 @@ app.post('/api/admin/ai-check', aiLimit, async (req, res) => {
   } catch (e) { res.status(502).json({ error: 'Request failed: ' + e.message }); }
 });
 
-app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {
+app.post('/api/admin/applications/:id/status', adminLimit, async (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   if (!validAppId(req.params.id)) return res.status(404).json({ error: 'Not found' });
   const s = db.submissions.find(x => x.appId === req.params.id);
   if (!s) return res.status(404).json({ error: 'Not found' });
-  const { status, adminNote, email } = req.body || {};
+  const { status, adminNote, email, discordId } = req.body || {};
   const before = s.status;
+  if (discordId !== undefined && String(discordId).trim() !== '') {
+    const id = String(discordId).replace(/\D/g, '');
+    if (!validDiscordId(id)) return res.status(400).json({ error: 'Discord User ID must be the 17-20 digit number from Discord.' });
+    s.discordId = id;
+  }
   if (status !== undefined) {
     if (!['pending', 'approved', 'denied'].includes(status)) return res.status(400).json({ error: 'Bad status' });
     s.status = status;
@@ -1597,6 +1724,11 @@ app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {
     if (!em) return res.status(400).json({ error: 'Enter a valid applicant email.' });
     if (em !== s.email) { s.email = em; s.notifiedStatus = ''; }
   }
+  let role = null;
+  if (s.status === 'approved') {
+    role = await grantRoleForSubmission(s);
+    audit(db, role.assigned ? 'role_assigned' : 'role_failed', s.appId, req);
+  }
   let emailed = false;
   if (s.status !== before && (s.status === 'approved' || s.status === 'denied')) {
     emailed = queueDecisionEmail(db, s);
@@ -1604,7 +1736,27 @@ app.post('/api/admin/applications/:id/status', adminLimit, (req, res) => {
   audit(db, 'status_' + s.status, s.appId, req);
   saveDB(db);
   if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
-  res.json({ ok: true, emailed, mailConfigured: mailConfigured() });
+  res.json({ ok: true, emailed, mailConfigured: mailConfigured(), role });
+});
+
+// Retry the Discord role without changing the decision. Useful when the member
+// had not joined yet or the bot permissions were wrong at approval time.
+app.post('/api/admin/applications/:id/role', adminLimit, async (req, res) => {
+  const db = loadDB();
+  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!validAppId(req.params.id)) return res.status(404).json({ error: 'Not found' });
+  const s = db.submissions.find(x => x.appId === req.params.id);
+  if (!s) return res.status(404).json({ error: 'Not found' });
+  if (s.status !== 'approved') return res.status(400).json({ error: 'Approve the application first.' });
+  if (req.body && req.body.discordId !== undefined && String(req.body.discordId).trim() !== '') {
+    const id = String(req.body.discordId).replace(/\D/g, '');
+    if (!validDiscordId(id)) return res.status(400).json({ error: 'Discord User ID must be the 17-20 digit number from Discord.' });
+    s.discordId = id;
+  }
+  const role = await grantRoleForSubmission(s, { force: true });
+  audit(db, role.assigned ? 'role_assigned' : 'role_failed', s.appId, req);
+  saveDB(db);
+  res.json({ ok: true, role });
 });
 
 // Force a fresh decision email (e.g. staff changed the note after deciding).
@@ -1931,6 +2083,9 @@ async function startServer() {
   app.listen(PORT, HOST, () => {
   console.log(`Moderator site on http://${HOST}:${PORT} (bound to ${HOST} only — home IP not exposed)`);
   console.log(`Discord ticket alerts: ${DISCORD_WEBHOOK_URL ? 'ON' : 'OFF (set DISCORD_WEBHOOK_URL)'}`);
+  console.log(`Discord role sync: ${discordRoleConfigured()
+    ? 'ON (guild ' + DISCORD_GUILD_ID + ')'
+    : 'OFF (set DISCORD_BOT_TOKEN + DISCORD_GUILD_ID)'}`);
   console.log(`Applicant email: ${mailConfigured() ? 'ON via ' + mailProvider() + ' (' + MAIL_FROM + ')' : 'OFF (set APPS_SCRIPT_URL + APPS_SCRIPT_SECRET, SMTP_USER + SMTP_PASS, or RESEND_API_KEY / BREVO_API_KEY + MAIL_FROM; mail is queued)'}`);
   // Retry anything queued while the service was asleep, then periodically.
   setTimeout(() => flushOutbox().catch(e => console.error('outbox error', e.message)), 4000);

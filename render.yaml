@@ -15,6 +15,18 @@ services:
         sync: false
       - key: SESSION_SECRET
         sync: false
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: DISCORD_GUILD_ID
+        sync: false
+      - key: DISCORD_ROLE_MOD
+        sync: false
+      - key: DISCORD_ROLE_CC
+        sync: false
+      - key: DISCORD_ROLE_DEV
+        sync: false
+      - key: DISCORD_ROLE_EVT
+        sync: false
       - key: RESEND_API_KEY
         sync: false
       - key: BREVO_API_KEY

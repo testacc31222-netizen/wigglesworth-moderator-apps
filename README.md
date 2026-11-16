@@ -30,6 +30,34 @@ Everyone (phone + PC) uses the Render link. Approvals update live everywhere.
 - `EDIT_CODE` env override so the code isn't stored in git; atomic `data.json` writes, 5000-sub cap
 - Applicant sessions are HMAC-signed `HttpOnly` cookies; login codes are hashed, single-use, expire in 10 minutes, and account endpoints are rate-limited + same-origin checked
 
+## Automatic Discord roles on approval
+
+Approving an application can add the matching Discord role automatically.
+Applicants now provide a **Discord User ID** (Discord → Settings → Advanced →
+Developer Mode, then right-click your name → **Copy User ID**). Older
+applications can be fixed from the staff card: paste the ID and click
+**Grant role**.
+
+Add these environment variables on Render:
+
+- `DISCORD_BOT_TOKEN` — bot token (keep secret)
+- `DISCORD_GUILD_ID` — your server ID
+- `DISCORD_ROLE_MOD` — Moderator role ID
+- `DISCORD_ROLE_CC` — Content Creator role ID
+- `DISCORD_ROLE_DEV` — Developer role ID
+- `DISCORD_ROLE_EVT` — Event Hoster role ID
+
+The bot needs **Manage Roles**, and its own role must sit **above** every role it
+assigns. If the member has not joined the server yet, approval still succeeds;
+the card shows the error and **Grant role** retries later. Older applications
+with only a username fall back to a guild member search.
+
+Run the local regression test with:
+
+```bash
+npm run test:roles
+```
+
 ## Discord ticket alerts (optional)
 New tickets and ticket replies ping you in Discord:
 

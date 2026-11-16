@@ -496,6 +496,7 @@ async function submitApp(e){
     const v = (el.value||'').trim();
     if(q.required && !v){ const step=applicationSections().findIndex(s=>s.contains(el)); if(step>=0) setApplicationStep(step,false); showApplicationError('Please complete “'+q.label+'” before submitting.',el); return false; }
     if((q.id==='why'||q.id==='scenario'||q.id==='bugscenario') && v.length<20){ const step=applicationSections().findIndex(s=>s.contains(el)); if(step>=0) setApplicationStep(step,false); showApplicationError('Please add a little more detail to “'+q.label+'” (at least 20 characters).',el); return false; }
+    if(q.id==='discordId' && v && !/^\d{17,20}$/.test(v.replace(/\D/g,''))){ const step=applicationSections().findIndex(s=>s.contains(el)); if(step>=0) setApplicationStep(step,false); showApplicationError('Enter the 17-20 digit Discord User ID (not your username). Right-click your name in Discord → Copy User ID.',el); return false; }
     answers[q.id]=v;
   }
   const emailEl = $('f_email');
@@ -846,11 +847,18 @@ async function renderSubs(){
     }
     html+=`<div class="qa">`;
     Object.keys(s).forEach(k=>{
-      if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt','email','emailUpdates','notifiedStatus','notifiedAt','receiptAt','accountId'].includes(k)) return;
+      if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt','email','emailUpdates','notifiedStatus','notifiedAt','receiptAt','accountId','discordId','roleAssignedAt','roleAssignedRoleId','roleError'].includes(k)) return;
       const lbl = qmap[s.type+':'+k] || k;
       html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
     html+=`</div>`;
+    html+=`<label>Discord User ID (used to assign the role):</label><input value="${esc(s.discordId||'')}" id="discord_${esc(s.appId)}" inputmode="numeric" placeholder="17-20 digit Discord User ID">`;
+    const roleLine = s.roleAssignedAt
+      ? `✅ Role assigned ${esc((s.roleAssignedAt||'').slice(0,16).replace('T',' '))}`
+      : s.roleError
+        ? `⚠️ Role not assigned — ${esc(s.roleError)}`
+        : 'Role not assigned yet. Approving will try automatically.';
+    html+=`<p class="hint">${roleLine}</p>`;
     html+=`<label>Applicant email (used for the decision):</label><input type="email" value="${esc(s.email||'')}" id="email_${esc(s.appId)}" placeholder="name@example.com">`;
     html+=`<label>Staff note (seen by applicant):</label><input value="${esc(s.adminNote||'')}" id="note_${esc(s.appId)}" placeholder="e.g. Great app, welcome!">`;
     d.innerHTML=html;
@@ -862,6 +870,7 @@ async function renderSubs(){
       mk('Deny','btn-deny',()=>setStatus(s.appId,'denied')),
       mk('Pending','btn-pending',()=>setStatus(s.appId,'pending'))
     );
+    if(s.status === 'approved') bar.append(mk('Grant role','btn-small',()=>grantRole(s.appId)));
     const sumBtn = mk(s.aiSummary?'Re-summarize':'Summarize (AI)','btn-small',()=>summarizeApp(s.appId,sumBtn));
     bar2.append(
       sumBtn,
@@ -870,7 +879,8 @@ async function renderSubs(){
       mk('Save note','btn-small',async()=>{
         const note=document.getElementById('note_'+s.appId).value;
         const emailEl=document.getElementById('email_'+s.appId);
-        const r=await fetch('/api/admin/applications/'+s.appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({adminNote:note,email:emailEl?emailEl.value:undefined})});
+        const discordEl=document.getElementById('discord_'+s.appId);
+        const r=await fetch('/api/admin/applications/'+s.appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({adminNote:note,email:emailEl?emailEl.value:undefined,discordId:discordEl?discordEl.value:undefined})});
         const j=await r.json().catch(()=>({}));
         if(!r.ok){ alert(j.error||'Could not save.'); return; }
         renderSubs();
@@ -886,16 +896,29 @@ async function renderSubs(){
 async function setStatus(appId,st){
   const noteEl = document.getElementById('note_'+appId);
   const emailEl = document.getElementById('email_'+appId);
-  const r = await fetch('/api/admin/applications/'+appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({status:st, adminNote: noteEl?noteEl.value:undefined, email: emailEl?emailEl.value:undefined})});
+  const discordEl = document.getElementById('discord_'+appId);
+  const r = await fetch('/api/admin/applications/'+appId+'/status',{method:'POST',headers:headers(),body:JSON.stringify({status:st, adminNote: noteEl?noteEl.value:undefined, email: emailEl?emailEl.value:undefined, discordId: discordEl?discordEl.value:undefined})});
   const j = await r.json().catch(()=>({}));
   if(!r.ok){ alert(j.error||'Could not save the decision.'); return; }
+  if(j.role && !j.role.assigned) alert('Decision saved, but the Discord role was not assigned:\n\n'+(j.role.error||'Unknown error')+'\n\nFix the ID or bot permissions, then click Grant role.');
   renderSubs(); renderApprovedPublic();
+}
+
+async function grantRole(appId){
+  const el = document.getElementById('discord_'+appId);
+  const r = await fetch('/api/admin/applications/'+appId+'/role',{method:'POST',headers:headers(),body:JSON.stringify({discordId: el ? el.value : undefined})});
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok){ alert(j.error||'Could not assign the role.'); return; }
+  if(j.role && !j.role.assigned) alert('Role not assigned:\n\n'+(j.role.error||'Unknown error'));
+  else alert('Discord role assigned.');
+  renderSubs();
 }
 async function aiDecision(appId, decision){
   try{
     const r = await fetch('/api/admin/applications/'+appId+'/decision',{method:'POST',headers:headers(),body:JSON.stringify({decision})});
     const j = await r.json();
     if(!r.ok) throw new Error(j.error || 'AI unavailable');
+    if(j.role && !j.role.assigned) alert('Decision saved, but the Discord role was not assigned:\n\n'+(j.role.error||'Unknown error')+'\n\nFix the ID or bot permissions, then click Grant role.');
     renderSubs(); renderApprovedPublic();
   }catch(err){ alert(err.message); }
 }
