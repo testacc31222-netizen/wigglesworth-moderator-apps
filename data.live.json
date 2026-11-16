@@ -10238,11 +10238,11 @@
       "kind": "receipt",
       "appId": "MOD-776LQS",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-16T03:30:37.622Z",
-      "sentAt": ""
+      "sentAt": "2026-11-16T03:30:39.069Z"
     }
   ]
 }
