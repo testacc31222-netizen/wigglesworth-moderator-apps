@@ -10476,11 +10476,11 @@
       "kind": "receipt",
       "appId": "MOD-B3UTDJ",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-17T02:09:32.061Z",
-      "sentAt": ""
+      "sentAt": "2026-11-17T02:09:33.744Z"
     }
   ]
 }
