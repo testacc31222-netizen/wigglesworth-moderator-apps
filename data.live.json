@@ -4705,6 +4705,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-17T22:10:25.501Z",
+      "act": "account_login",
+      "id": "acc_9c8230a97d3d9fa10ef519a9",
+      "by": ""
+    },
+    {
       "t": "2026-11-17T13:58:17.584Z",
       "act": "ai_approved",
       "id": "CC-U92G2J",
@@ -5296,12 +5302,6 @@
       "t": "2026-11-13T02:08:53.275Z",
       "act": "account_login",
       "id": "acc_34ae6fefad9e2f9b4c35c5d3",
-      "by": ""
-    },
-    {
-      "t": "2026-11-12T23:36:35.126Z",
-      "act": "account_login",
-      "id": "acc_0af80c2c357a047b43da202f",
       "by": ""
     }
   ],
@@ -6184,17 +6184,15 @@
       "email": "realcoldedits13@gmail.com",
       "createdAt": "2026-11-16T01:12:17.932Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_9c8230a97d3d9fa10ef519a9",
       "email": "jaxsscarlet@outlook.com",
-      "hash": "4285a40f64736fdb72537f8701fec362cedd211ffcedcff9da879837eb435e0b",
-      "exp": 1794953991579,
-      "tries": 0,
-      "created": 1794953391579
+      "createdAt": "2026-11-17T22:10:25.501Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
