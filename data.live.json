@@ -3746,7 +3746,7 @@
       "email": "aaronsmith3952@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_c9ae6553eba5ea3121e78d05",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "AGOOSE",
       "discord": "agoose_.",
       "age": "14",
@@ -3763,7 +3763,8 @@
         "1554491824121319495"
       ],
       "roleAssignedRoleId": "1554491824121319495",
-      "roleError": ""
+      "roleError": "",
+      "notifiedAt": "2026-11-17T13:58:19.182Z"
     },
     {
       "appId": "MOD-F487A6",
@@ -10377,11 +10378,11 @@
       "kind": "decision",
       "appId": "CC-U92G2J",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-17T13:58:17.584Z",
-      "sentAt": ""
+      "sentAt": "2026-11-17T13:58:19.182Z"
     }
   ]
 }
