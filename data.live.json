@@ -550,7 +550,10 @@
       "t-home-1nqgz4s-0": "Meet the team.",
       "t-home-1s6b0m7-0": "The people helping shape our world, on and off the game.",
       "p-home-ebk782-0": "FounderModerator | https://example.com/badge.png",
-      "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname"
+      "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname",
+      "t-home-4e4way-0": "Pause video",
+      "p-home-1cmqn2i-0": "https://youtube.com/watch?v=…",
+      "p-home-1lkngrn-0": "Start of video"
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -4712,6 +4715,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-17T00:12:55.315Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-16T23:54:25.842Z",
       "act": "account_login",
       "id": "acc_53087f64419ee426ab622cf2",
@@ -5301,12 +5310,6 @@
     },
     {
       "t": "2026-11-13T05:12:03.746Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:00.443Z",
       "act": "config_saved",
       "id": "",
       "by": ""
