@@ -10558,11 +10558,11 @@
       "kind": "receipt",
       "appId": "CC-28JN6C",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-17T02:45:49.531Z",
-      "sentAt": ""
+      "sentAt": "2026-11-17T02:45:50.884Z"
     }
   ]
 }
