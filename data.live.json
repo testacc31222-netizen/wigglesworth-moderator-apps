@@ -4756,11 +4756,11 @@
       "name": "Zxqw",
       "subject": "Zxqw_0",
       "status": "open",
-      "unread": false,
+      "unread": true,
       "email": "thegreatestlol25@gmail.com",
       "accountId": "acc_fe0d3cc1a85e0a33a59fe1f4",
       "createdAt": "2026-11-16T00:09:47.196Z",
-      "updatedAt": "2026-11-16T22:43:40.372Z",
+      "updatedAt": "2026-11-17T02:36:20.313Z",
       "replies": [
         {
           "by": "user",
@@ -4773,6 +4773,12 @@
           "name": "Staff",
           "text": "That sounds exciting! If you’d like to apply for the Content Creator role, just fill out the application form and we’ll review it as soon as possible. If you’re also interested in another role, feel free to submit a separate application for that one too. Let us know if you have any questions or need help with the process.",
           "at": "2026-11-16T22:43:40.372Z"
+        },
+        {
+          "by": "user",
+          "name": "Zxqw",
+          "text": "Alright I will definitely apply for cc and might for mod to because I have experience in over 15 servers",
+          "at": "2026-11-17T02:36:20.313Z"
         }
       ]
     }
