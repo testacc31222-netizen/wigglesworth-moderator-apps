@@ -10394,11 +10394,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-17T22:09:51.580Z",
-      "sentAt": ""
+      "sentAt": "2026-11-17T22:09:53.690Z"
     }
   ]
 }
