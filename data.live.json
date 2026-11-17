@@ -10401,11 +10401,11 @@
       "kind": "receipt",
       "appId": "MOD-V3TWSX",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-17T00:16:38.089Z",
-      "sentAt": ""
+      "sentAt": "2026-11-17T00:16:39.482Z"
     }
   ]
 }
