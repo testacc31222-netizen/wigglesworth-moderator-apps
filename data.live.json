@@ -4050,7 +4050,7 @@
       "email": "noahsvr2016@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_6584150f51f776b906dc5cdf",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "MACKVR1",
       "discord": "jovr67_44827",
       "age": "16",
@@ -4059,7 +4059,8 @@
       "why": "To bring justice to the game, take down madas and ban toxic kids.Because that's should not happen to the game.And if it does , I can ban them and get their player , I d to send it to the owners!!!!",
       "scenario": "Time them out or warn them!!!",
       "rulebreak": "No",
-      "receiptAt": "2026-11-18T17:20:26.005Z"
+      "receiptAt": "2026-11-18T17:20:26.005Z",
+      "notifiedAt": "2026-11-18T23:27:00.442Z"
     }
   ],
   "tickets": [
@@ -10470,11 +10471,11 @@
       "kind": "decision",
       "appId": "MOD-FAFQ3X",
       "decisionStatus": "denied",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-18T23:26:58.697Z",
-      "sentAt": ""
+      "sentAt": "2026-11-18T23:27:00.442Z"
     }
   ]
 }
