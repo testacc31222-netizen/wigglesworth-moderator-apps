@@ -4696,6 +4696,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-18T23:49:23.154Z",
+      "act": "account_link",
+      "id": "MOD-776LQS",
+      "by": ""
+    },
+    {
       "t": "2026-11-18T23:26:58.697Z",
       "act": "ai_denied",
       "id": "MOD-FAFQ3X",
@@ -5287,12 +5293,6 @@
       "t": "2026-11-13T21:38:10.759Z",
       "act": "account_login",
       "id": "acc_5f0dec1645ec186ba85069bd",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T14:28:37.221Z",
-      "act": "account_login",
-      "id": "acc_a5a1a9d11aeff3b3ec3e7865",
       "by": ""
     }
   ],
