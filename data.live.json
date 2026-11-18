@@ -701,6 +701,14 @@
             "options": ""
           },
           {
+            "id": "q1795044295615",
+            "label": "How many messages do you have in the discord (50+)",
+            "type": "number",
+            "placeholder": "",
+            "required": true,
+            "options": ""
+          },
+          {
             "id": "discord",
             "label": "Discord Username (.e.g. fernish.gg)",
             "type": "text",
@@ -994,8 +1002,7 @@
           }
         ]
       }
-    ],
-    "discordIdRemoved": true
+    ]
   },
   "submissions": [
     {
@@ -4687,6 +4694,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-18T23:25:37.428Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-18T23:24:41.361Z",
       "act": "ai_summary",
       "id": "MOD-M5Y9TR",
@@ -5276,12 +5289,6 @@
     },
     {
       "t": "2026-11-13T05:14:05.884Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:13:49.542Z",
       "act": "config_saved",
       "id": "",
       "by": ""
