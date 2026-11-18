@@ -180,7 +180,7 @@
     ],
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
-    "announcement": "Moderator and Content Creator applications are now OPEN!",
+    "announcement": "READING APPLICATIONS NOW!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -550,7 +550,9 @@
       "t-home-1nqgz4s-0": "Meet the team.",
       "t-home-1s6b0m7-0": "The people helping shape our world, on and off the game.",
       "p-home-ebk782-0": "FounderModerator | https://example.com/badge.png",
-      "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname"
+      "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname",
+      "p-home-1cmqn2i-0": "https://youtube.com/watch?v=…",
+      "p-home-1lkngrn-0": "Start of video"
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -688,7 +690,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -764,7 +766,7 @@
         "intro": "Creators represent Wigglesworth on their channels. Apply here with your best work.",
         "successMessage": "Thanks! Your creator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -992,8 +994,7 @@
           }
         ]
       }
-    ],
-    "discordIdRemoved": true
+    ]
   },
   "submissions": [
     {
@@ -4694,6 +4695,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-18T23:17:11.669Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-18T17:28:03.872Z",
       "act": "account_link",
       "id": "MOD-FAFQ3X",
@@ -5283,12 +5290,6 @@
     },
     {
       "t": "2026-11-13T05:12:04.329Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:03.746Z",
       "act": "config_saved",
       "id": "",
       "by": ""
