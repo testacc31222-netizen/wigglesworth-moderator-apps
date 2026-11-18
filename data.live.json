@@ -10413,11 +10413,11 @@
       "kind": "receipt",
       "appId": "MOD-FAFQ3X",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-18T17:20:26.005Z",
-      "sentAt": ""
+      "sentAt": "2026-11-18T17:20:27.631Z"
     }
   ]
 }
