@@ -3922,7 +3922,7 @@
       "status": "approved",
       "adminNote": "Congratulations, Prism! Your enthusiasm for keeping the community safe really stood out. We’re excited to have you on board as a Moderator. Our staff will reach out soon with the next steps.",
       "email": "prism1donyt@gmail.com",
-      "emailUpdates": true,
+      "emailUpdates": false,
       "accountId": "acc_eece36503c966b141f167022",
       "notifiedStatus": "approved",
       "username": "Prism",
@@ -6148,7 +6148,7 @@
       "id": "acc_eece36503c966b141f167022",
       "email": "prism1donyt@gmail.com",
       "createdAt": "2026-11-15T05:59:43.008Z",
-      "emailUpdates": true
+      "emailUpdates": false
     },
     {
       "id": "acc_ecc857aac09c43bb676e3a18",
