@@ -550,7 +550,9 @@
       "t-home-1nqgz4s-0": "Meet the team.",
       "t-home-1s6b0m7-0": "The people helping shape our world, on and off the game.",
       "p-home-ebk782-0": "FounderModerator | https://example.com/badge.png",
-      "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname"
+      "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname",
+      "p-home-1cmqn2i-0": "https://youtube.com/watch?v=…",
+      "p-home-1lkngrn-0": "Start of video"
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -992,8 +994,7 @@
           }
         ]
       }
-    ],
-    "discordIdRemoved": true
+    ]
   },
   "submissions": [
     {
@@ -4674,6 +4675,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-18T03:13:49.380Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-18T03:05:37.477Z",
       "act": "account_login",
       "id": "acc_9a2125de6f6eaced21f3f2f9",
@@ -5263,12 +5270,6 @@
     },
     {
       "t": "2026-11-13T05:12:04.329Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:03.746Z",
       "act": "config_saved",
       "id": "",
       "by": ""
