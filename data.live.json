@@ -3875,7 +3875,9 @@
       "why": "Because I want to help out the community and honsetly i just want something to Do during the day",
       "scenario": "If its in discord i will give them a warning and then if they dont stop i will give them a timeout for an hour and if they keep doing it kick them or ban them with permission.",
       "rulebreak": "No. I have never been banned in a game, infact I am often a very nice person to be around",
-      "receiptAt": "2026-11-14T21:10:00.736Z"
+      "receiptAt": "2026-11-14T21:10:00.736Z",
+      "aiSummary": "Verdict: Mixed - limited experience and age concerns  \n- Wants to join: Moderator role  \n- Experience: Moderated several games, unclear depth  \n- Availability: 3‑5 hrs weekends, 2‑3 hrs weekdays after 3pm  \n- Watch‑outs: 13‑year‑old, vague moderation details, potential policy compliance issues.",
+      "aiSummaryAt": "2026-11-18T23:24:41.361Z"
     },
     {
       "appId": "MOD-NDSE77",
@@ -4685,6 +4687,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-18T23:24:41.361Z",
+      "act": "ai_summary",
+      "id": "MOD-M5Y9TR",
+      "by": ""
+    },
+    {
       "t": "2026-11-18T23:24:08.669Z",
       "act": "deleted",
       "id": "MOD-L6BWH6",
@@ -5274,12 +5282,6 @@
     },
     {
       "t": "2026-11-13T05:13:49.542Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:13:33.539Z",
       "act": "config_saved",
       "id": "",
       "by": ""
