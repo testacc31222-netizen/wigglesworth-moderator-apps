@@ -33,10 +33,15 @@ Everyone (phone + PC) uses the Render link. Approvals update live everywhere.
 ## Automatic Discord roles on approval
 
 Approving an application can add the matching Discord role automatically.
-Applicants now provide a **Discord User ID** (Discord → Settings → Advanced →
-Developer Mode, then right-click your name → **Copy User ID**). Older
-applications can be fixed from the staff card: paste the ID and click
-**Grant role**.
+Applicants no longer type a **Discord User ID** — they only give their **Discord
+username**, and the site looks the member up in the server when the application is
+approved. Matching ignores `@`, `#1234` suffixes, capitals, and punctuation, and
+falls back to a partial match when exactly one member fits.
+
+If the lookup fails (username changed, member not in the server, duplicate names),
+the card shows why. Staff can paste the member's **User ID** on the card and press
+**Grant role** to finish. The bot needs the **Server Members** intent enabled in the
+Discord Developer Portal for username lookups.
 
 Add these environment variables on Render:
 
@@ -69,8 +74,8 @@ role** can retry.
 
 The bot needs **Manage Roles**, and its own role must sit **above** every role it
 assigns. If the member has not joined the server yet, approval still succeeds;
-the card shows the error and **Grant role** retries later. Older applications
-with only a username fall back to a guild member search.
+the card shows the error and **Grant role** retries later. Name lookups cover
+every application now, not just older ones.
 
 Run the local regression test with:
 

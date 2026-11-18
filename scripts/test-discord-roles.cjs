@@ -45,6 +45,10 @@ const base = {
       discordId: USER2, email: '', adminNote: '' },
     { appId: 'MOD-GHOST2', type: 'moderator', status: 'pending', discord: 'GhostUser',
       discordId: '', email: '', adminNote: '' },
+    { appId: 'MOD-NOID23', type: 'moderator', status: 'pending', discord: '@MockUser#1234',
+      discordId: '', email: '', adminNote: '' },
+    { appId: 'MOD-FUZZ22', type: 'moderator', status: 'pending', discord: 'mock',
+      discordId: '', email: '', adminNote: '' },
   ],
   tickets: [], reports: [], audit: [], accounts: [], loginCodes: [], outbox: [],
 };
@@ -64,6 +68,10 @@ const mock = http.createServer((req, res) => {
       res.end(obj === undefined ? '' : JSON.stringify(obj));
     };
     if (req.method === 'PUT' && req.url === `/api/v10/guilds/${GUILD}/members/${USER}/roles/${ROLE}`) {
+      if (denyRole) return send(403, { message: 'Missing Permissions' });
+      return send(204);
+    }
+    if (req.method === 'PUT' && req.url === `/api/v10/guilds/${GUILD}/members/${USER}/roles/${ROLE2}`) {
       if (denyRole) return send(403, { message: 'Missing Permissions' });
       return send(204);
     }
@@ -144,8 +152,10 @@ function assert(cond, msg) {
     await waitFor(`http://127.0.0.1:${SITE_PORT}/health`);
 
     const cfg = await (await fetch(`http://127.0.0.1:${SITE_PORT}/api/config`)).json();
-    assert(cfg.applicationTypes[0].questions.some(q => q.id === 'discordId'),
-      'existing application configs gain the Discord User ID field');
+    assert(!cfg.applicationTypes.some(t => t.questions.some(q => q.id === 'discordId')),
+      'applications no longer ask for a Discord User ID');
+    assert(cfg.applicationTypes[0].questions.some(q => q.id === 'discord'),
+      'the Discord username is still collected');
 
     const ok = await decide('CC-ABC234', { status: 'approved' });
     if (ok.status !== 200) console.error('approval response:', ok.status, JSON.stringify(ok.body), '\nserver logs:\n' + logs);
@@ -200,11 +210,27 @@ function assert(cond, msg) {
       && c.url === `/api/v10/channels/${ACCEPT_CHANNEL}/messages`);
     assert(afterRepeat.length === 1, 're-approving does not post a second congratulations');
 
+    const noId = await decide('MOD-NOID23', { status: 'approved' });
+    assert(noId.status === 200 && noId.body.role && noId.body.role.assigned === true,
+      'a moderator with no Discord ID is matched by username');
+    const congratsNoId = calls.filter(c => c.method === 'POST'
+      && c.url === `/api/v10/channels/${ACCEPT_CHANNEL}/messages`)[1];
+    assert(congratsNoId && congratsNoId.body.includes(`<@${USER}>`),
+      'the username lookup still pings the right member');
+    const savedNoId = JSON.parse(fs.readFileSync(dataFile, 'utf8')).submissions
+      .find(s => s.appId === 'MOD-NOID23');
+    assert(savedNoId.discordId === USER, 'the resolved Discord ID is stored on the application');
+
+    const fuzzy = await decide('MOD-FUZZ22', { status: 'approved' });
+    assert(fuzzy.status === 200 && fuzzy.body.role && fuzzy.body.role.assigned === true,
+      'a partial username still resolves to one member');
+
     const ghost = await decide('MOD-GHOST2', { status: 'approved' });
     assert(ghost.status === 200, 'approval still succeeds when the member cannot be found');
     const ghostPosts = calls.filter(c => c.method === 'POST'
       && c.url === `/api/v10/channels/${ACCEPT_CHANNEL}/messages`);
-    assert(ghostPosts.length === 1, 'no congratulations is posted for a member who is not in the server');
+    assert(ghostPosts.length === 3,
+      'no congratulations is posted for a member who is not in the server');
     const savedGhost = JSON.parse(fs.readFileSync(dataFile, 'utf8')).submissions
       .find(s => s.appId === 'MOD-GHOST2');
     assert(!!savedGhost.acceptAnnounceError, 'the skipped congratulations is recorded for staff');

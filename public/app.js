@@ -1,7 +1,7 @@
 let config = null;
 let publicCopyTargets = [];
 let account = null;
-const BUILD = '20261116a';
+const BUILD = '20261117a';
 const DEFAULT_ABOUT = {
   eyebrow:'About', titleA:'Steward the world', titleB:'we build together.',
   lede:'The best communities are made by people who show up with care, judgment, and imagination. Find the work that feels like yours.',
@@ -852,7 +852,7 @@ async function renderSubs(){
       html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
     html+=`</div>`;
-    html+=`<label>Discord User ID (used to assign the role):</label><input value="${esc(s.discordId||'')}" id="discord_${esc(s.appId)}" inputmode="numeric" placeholder="17-20 digit Discord User ID">`;
+    html+=`<label>Discord User ID (optional — only if the username lookup fails):</label><input value="${esc(s.discordId||'')}" id="discord_${esc(s.appId)}" inputmode="numeric" placeholder="17-20 digit Discord User ID">`;
     const roleCount = Array.isArray(s.roleAssignedRoleIds) ? s.roleAssignedRoleIds.length : (s.roleAssignedAt ? 1 : 0);
     const roleLine = s.roleError
       ? `⚠️ ${roleCount ? `${roleCount} role${roleCount === 1 ? '' : 's'} assigned, the rest failed` : 'Role not assigned'} — ${esc(s.roleError)}`

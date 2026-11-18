@@ -177,29 +177,55 @@ async function discordApi(method, apiPath, body) {
     clearTimeout(to);
   }
 }
-// Older applications only stored a username. Search the guild for it rather
-// than failing the approval outright.
+// Applications no longer ask for a Discord User ID: the username on the form is
+// matched against the guild at approval time. Staff can still paste an ID.
+function normDiscordName(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/^@+/, '')
+    .split('#')[0]
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function compactName(value) {
+  return normDiscordName(value).replace(/[^a-z0-9]/g, '');
+}
 async function resolveDiscordMemberId(sub) {
   const saved = String(sub.discordId || '').replace(/\D/g, '');
   if (validDiscordId(saved)) return { id: saved };
-  const query = String(sub.discord || '').trim().replace(/^@/, '').split('#')[0];
-  if (!query) return { error: 'No Discord User ID on file.' };
+  const raw = String(sub.discord || '').trim();
+  const query = raw.replace(/^@+/, '').split('#')[0].trim();
+  if (!query) {
+    return { error: 'No Discord username on file. Paste their Discord User ID on the card.' };
+  }
   const r = await discordApi('GET',
-    `/guilds/${DISCORD_GUILD_ID}/members/search?query=${encodeURIComponent(query)}&limit=10`);
+    `/guilds/${DISCORD_GUILD_ID}/members/search?query=${encodeURIComponent(query)}&limit=100`);
   if (!r.ok) {
     return { error: r.status === 403
-      ? 'The bot needs the Server Members intent to look up usernames.'
+      ? 'The bot needs the Server Members intent to look up usernames. Enter their Discord User ID instead.'
       : `Discord lookup failed (${r.status || r.error || 'unknown'}).` };
   }
   const members = Array.isArray(r.data) ? r.data : [];
-  const want = query.toLowerCase();
-  const exact = members.filter(m => {
+  const names = (m) => {
     const u = m.user || {};
-    return [u.username, u.global_name, m.nick].some(v => String(v || '').toLowerCase() === want);
-  });
+    return [u.username, u.global_name, m.nick].map(normDiscordName).filter(Boolean);
+  };
+  const want = normDiscordName(query);
+  const wantCompact = compactName(query);
+  const exact = members.filter(m =>
+    names(m).some(n => n === want || compactName(n) === wantCompact));
   if (exact.length === 1) return { id: exact[0].user.id };
-  if (exact.length > 1) return { error: 'More than one member matches that name. Enter their Discord User ID.' };
-  return { error: 'That Discord username was not found in the server. Enter their User ID.' };
+  if (exact.length > 1) {
+    return { error: 'More than one member matches that username. Paste their Discord User ID on the card.' };
+  }
+  // Tolerate small differences (spaces, punctuation, display name vs username).
+  const loose = members.filter(m =>
+    names(m).some(n => n.includes(want) || want.includes(n)));
+  if (loose.length === 1) return { id: loose[0].user.id, fuzzy: true };
+  if (loose.length > 1) {
+    return { error: 'That username matches several members. Paste their Discord User ID on the card.' };
+  }
+  return { error: 'No member in the server matches that username. The username may have changed — paste their User ID.' };
 }
 function roleFailHint(status) {
   return status === 404
@@ -439,7 +465,7 @@ const DEFAULT_TYPES = [
     open: true,
     questions: [
       Q('username', 'In-game Username', 'text', 'Your username', true),
-      Q('discord', 'Discord Username', 'text', 'Your Discord name', true),
+      Q('discord', 'Discord Username', 'text', 'Your exact Discord username, e.g. quantummzz', true),
       Q('age', 'Age', 'number', 'e.g. 16', true),
       Q('timezone', 'Timezone / Availability', 'text', 'e.g. EST, 3-5hrs daily', true),
       Q('experience', 'Past Moderation Experience?', 'textarea', 'List experience or write None', true),
@@ -457,8 +483,7 @@ const DEFAULT_TYPES = [
     open: true,
     questions: [
       Q('username', 'In-game Username', 'text', 'Your username', true),
-      Q('discord', 'Discord Username', 'text', 'Your Discord name', true),
-      Q('discordId', 'Discord User ID', 'text', 'Right-click your name → Copy User ID', true),
+      Q('discord', 'Discord Username', 'text', 'Your exact Discord username, e.g. quantummzz', true),
       Q('age', 'Age', 'number', 'e.g. 16', true),
       Q('platform', 'Main Platform', 'select', '', true, 'YouTube, Twitch, TikTok, Other'),
       Q('channel', 'Channel / Profile Link', 'text', 'Paste the link', true),
@@ -477,7 +502,7 @@ const DEFAULT_TYPES = [
     open: true,
     questions: [
       Q('username', 'In-game Username', 'text', 'Your username', true),
-      Q('discord', 'Discord Username', 'text', 'Your Discord name', true),
+      Q('discord', 'Discord Username', 'text', 'Your exact Discord username, e.g. quantummzz', true),
       Q('age', 'Age', 'number', 'e.g. 16', true),
       Q('languages', 'Languages / Engines You Use', 'text', 'e.g. Luau, JS, Unity', true),
       Q('portfolio', 'Portfolio, GitHub, or Past Work Link', 'text', 'Paste the link', true),
@@ -496,7 +521,7 @@ const DEFAULT_TYPES = [
     open: true,
     questions: [
       Q('username', 'In-game Username', 'text', 'Your username', true),
-      Q('discord', 'Discord Username', 'text', 'Your Discord name', true),
+      Q('discord', 'Discord Username', 'text', 'Your exact Discord username, e.g. quantummzz', true),
       Q('age', 'Age', 'number', 'e.g. 16', true),
       Q('timezone', 'Timezone / Availability', 'text', 'e.g. EST, weekends', true),
       Q('experience', 'Any hosting experience?', 'textarea', 'Events run before, or write None', true),
@@ -582,17 +607,24 @@ function loadDB() {
       const d = DEFAULT_TYPES.find(x => x.id === t.id);
       t.successMessage = d ? d.successMessage : 'Thanks! Your application was received.';
     }
-    // Collect the numeric ID once so an approval can assign the Discord role
-    // without staff looking it up. Existing applications stay valid.
-    if (!Array.isArray(t.questions)) t.questions = [];
-    if (!t.questions.some(q => q.id === 'discordId')) {
-      const q = { id: 'discordId', label: 'Discord User ID', type: 'text',
-        placeholder: 'Right-click your name → Copy User ID', required: true, options: '' };
-      const at = t.questions.findIndex(x => x.id === 'discord');
-      if (at >= 0) t.questions.splice(at + 1, 0, q);
-      else t.questions.push(q);
+    // Discord User IDs are no longer asked for on the form. Applications are
+    // matched to server members by username when they are approved; staff can
+    // still paste an ID on the card if the lookup fails. One-time migration so a
+    // staff-added "Discord User ID" question is not stripped on every load.
+    if (!db.config.discordIdRemoved) {
+      if (!Array.isArray(t.questions)) t.questions = [];
+      t.questions = t.questions.filter(q => q.id !== 'discordId');
+      const discordQ = t.questions.find(q => q.id === 'discord');
+      if (discordQ) {
+        discordQ.label = discordQ.label || 'Discord Username';
+        discordQ.required = true;
+        if (!discordQ.placeholder || discordQ.placeholder === 'Your Discord name') {
+          discordQ.placeholder = 'Your exact Discord username, e.g. quantummzz';
+        }
+      }
     }
   }
+  if (!db.config.discordIdRemoved) db.config.discordIdRemoved = true;
   if (!db.config.applicationTypes.some(t => t.id === 'event')) {
     db.config.applicationTypes.push(structuredClone(DEFAULT_TYPES.find(t => t.id === 'event')));
   }
