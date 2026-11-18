@@ -4674,6 +4674,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-18T03:05:37.477Z",
+      "act": "account_login",
+      "id": "acc_9a2125de6f6eaced21f3f2f9",
+      "by": ""
+    },
+    {
       "t": "2026-11-18T02:36:59.326Z",
       "act": "account_login",
       "id": "acc_f12016df2f2f5a386ae6d3d6",
@@ -5263,12 +5269,6 @@
     },
     {
       "t": "2026-11-13T05:12:03.746Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:00.443Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -6165,17 +6165,15 @@
       "email": "nxtkop66745t@gmail.com",
       "createdAt": "2026-11-18T02:36:59.326Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_9a2125de6f6eaced21f3f2f9",
       "email": "hakimstewardjr07@gmail.com",
-      "hash": "cd4766677984e37270dd2b27398747ab6f9a6d25833fdcf29d09ee52ebc5c0f3",
-      "exp": 1794971701748,
-      "tries": 0,
-      "created": 1794971101748
+      "createdAt": "2026-11-18T03:05:37.476Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
