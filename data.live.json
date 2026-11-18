@@ -10481,11 +10481,11 @@
       "kind": "receipt",
       "appId": "MOD-4XVTLU",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-18T12:26:14.785Z",
-      "sentAt": ""
+      "sentAt": "2026-11-18T12:26:16.477Z"
     }
   ]
 }
