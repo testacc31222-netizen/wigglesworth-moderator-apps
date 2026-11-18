@@ -10401,11 +10401,11 @@
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-18T02:36:33.937Z",
-      "sentAt": ""
+      "sentAt": "2026-11-18T02:36:35.809Z"
     }
   ]
 }
