@@ -4049,7 +4049,7 @@
       "email": "graysonajack@icloud.com",
       "emailUpdates": true,
       "accountId": "acc_fb83bd5d46e67e1daced0f6f",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Veno",
       "discord": "yklvr.",
       "age": "14",
@@ -4066,7 +4066,8 @@
         "1551589273264984114"
       ],
       "roleAssignedRoleId": "1551097540227899513",
-      "roleError": ""
+      "roleError": "",
+      "notifiedAt": "2026-11-18T01:19:00.564Z"
     }
   ],
   "tickets": [
@@ -10459,11 +10460,11 @@
       "kind": "decision",
       "appId": "MOD-YHH557",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-18T01:18:58.759Z",
-      "sentAt": ""
+      "sentAt": "2026-11-18T01:19:00.564Z"
     }
   ]
 }
