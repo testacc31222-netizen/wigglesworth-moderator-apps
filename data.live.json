@@ -4694,6 +4694,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-18T01:10:23.088Z",
+      "act": "account_login",
+      "id": "acc_12577acd9025c546a429c9ec",
+      "by": ""
+    },
+    {
       "t": "2026-11-17T22:53:53.977Z",
       "act": "account_login",
       "id": "acc_9c8230a97d3d9fa10ef519a9",
@@ -5285,12 +5291,6 @@
       "t": "2026-11-13T05:12:00.443Z",
       "act": "config_saved",
       "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T04:45:32.725Z",
-      "act": "account_login",
-      "id": "acc_df9e3f602662e7221d2a1f86",
       "by": ""
     }
   ],
@@ -6179,17 +6179,15 @@
       "email": "jaxsscarlet@outlook.com",
       "createdAt": "2026-11-17T22:10:25.501Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_12577acd9025c546a429c9ec",
       "email": "nxtkop66745t@gmail.com",
-      "hash": "06014a6180e2905796cb6b762212c318da2ba3a0ce23147bba48392c4bdd81f9",
-      "exp": 1794964801136,
-      "tries": 0,
-      "created": 1794964201136
+      "createdAt": "2026-11-18T01:10:23.088Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
