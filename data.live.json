@@ -10413,11 +10413,11 @@
       "kind": "receipt",
       "appId": "MOD-YHH557",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-18T00:58:01.485Z",
-      "sentAt": ""
+      "sentAt": "2026-11-18T00:58:03.020Z"
     }
   ]
 }
