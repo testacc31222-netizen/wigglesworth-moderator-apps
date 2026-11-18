@@ -3917,7 +3917,7 @@
       "rulebreak": "No",
       "receiptAt": "2026-11-15T02:23:41.901Z",
       "discordId": "1385096916198625410",
-      "roleAssignedAt": "2026-11-18T23:23:44.694Z",
+      "roleAssignedAt": "2026-11-18T23:23:53.567Z",
       "roleAssignedRoleIds": [
         "1551097540227899513",
         "1551589273264984114"
@@ -4705,6 +4705,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-18T23:23:53.567Z",
+      "act": "role_assigned",
+      "id": "MOD-NDSE77",
+      "by": ""
+    },
+    {
       "t": "2026-11-18T23:23:44.696Z",
       "act": "ai_approved",
       "id": "MOD-NDSE77",
@@ -5296,12 +5302,6 @@
       "t": "2026-11-13T05:12:30.841Z",
       "act": "ticket_deleted",
       "id": "TKT-6WLBB2",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:08.223Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
