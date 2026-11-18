@@ -4039,35 +4039,6 @@
       "scenario": "if someone was spamming in general chat i wouldn't punish him immediately but i will first give him a couple of warnings and ask him to stop before punishing him if he doesnt stop and the punishment would be a timeout",
       "rulebreak": "i have never been banned",
       "receiptAt": "2026-11-16T05:26:01.351Z"
-    },
-    {
-      "appId": "MOD-YHH557",
-      "type": "moderator",
-      "date": "2026-11-18T00:58:01.484Z",
-      "status": "approved",
-      "adminNote": "Congratulations, yklvr.! We’re excited to have you join the team. Your enthusiasm for Cyberpunk and willingness to play with friends really stood out. The staff will reach out soon with next steps. Welcome aboard!",
-      "email": "graysonajack@icloud.com",
-      "emailUpdates": true,
-      "accountId": "acc_fb83bd5d46e67e1daced0f6f",
-      "notifiedStatus": "approved",
-      "username": "Veno",
-      "discord": "yklvr.",
-      "age": "14",
-      "timezone": "Ff",
-      "experience": "G by yhbybyh",
-      "why": "Cyberpunk the new game and I will play with my friend for free I am not going anywhere I’m going on vacation and I’m",
-      "scenario": "Ghost is the only one that I know who has been on my list of people that have had a heart condition",
-      "rulebreak": "Y",
-      "receiptAt": "2026-11-18T00:58:01.485Z",
-      "discordId": "1538563693497815150",
-      "roleAssignedAt": "2026-11-18T01:18:58.758Z",
-      "roleAssignedRoleIds": [
-        "1551097540227899513",
-        "1551589273264984114"
-      ],
-      "roleAssignedRoleId": "1551097540227899513",
-      "roleError": "",
-      "notifiedAt": "2026-11-18T01:19:00.564Z"
     }
   ],
   "tickets": [
@@ -4703,24 +4674,6 @@
   ],
   "audit": [
     {
-      "t": "2026-11-18T01:18:58.759Z",
-      "act": "ai_approved",
-      "id": "MOD-YHH557",
-      "by": ""
-    },
-    {
-      "t": "2026-11-18T01:18:58.758Z",
-      "act": "role_assigned",
-      "id": "MOD-YHH557",
-      "by": ""
-    },
-    {
-      "t": "2026-11-18T01:10:23.088Z",
-      "act": "account_login",
-      "id": "acc_12577acd9025c546a429c9ec",
-      "by": ""
-    },
-    {
       "t": "2026-11-17T22:53:53.977Z",
       "act": "account_login",
       "id": "acc_9c8230a97d3d9fa10ef519a9",
@@ -5301,6 +5254,24 @@
       "act": "config_saved",
       "id": "",
       "by": ""
+    },
+    {
+      "t": "2026-11-13T05:12:03.746Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-13T05:12:00.443Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-13T04:45:32.725Z",
+      "act": "account_login",
+      "id": "acc_df9e3f602662e7221d2a1f86",
+      "by": ""
     }
   ],
   "reports": [
@@ -5317,42 +5288,6 @@
     }
   ],
   "diag": [
-    {
-      "t": "2026-11-18T01:32:16.089Z",
-      "build": "20261117a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 OPR/138."
-    },
-    {
-      "t": "2026-11-18T01:10:27.485Z",
-      "build": "20261117a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-18T00:56:00.888Z",
-      "build": "20261117a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
-    },
-    {
-      "t": "2026-11-18T00:53:28.926Z",
-      "build": "20261117a",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
-    },
     {
       "t": "2026-11-17T22:54:10.507Z",
       "build": "20261024d",
@@ -5766,6 +5701,42 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
+    },
+    {
+      "t": "2026-11-15T02:46:03.594Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
+    },
+    {
+      "t": "2026-11-15T02:44:53.160Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
+    },
+    {
+      "t": "2026-11-15T02:40:26.818Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
+      "t": "2026-11-15T02:40:22.895Z",
+      "build": "20261024d",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
     }
   ],
   "accounts": [
@@ -6188,15 +6159,17 @@
       "email": "jaxsscarlet@outlook.com",
       "createdAt": "2026-11-17T22:10:25.501Z",
       "emailUpdates": true
-    },
-    {
-      "id": "acc_12577acd9025c546a429c9ec",
-      "email": "nxtkop66745t@gmail.com",
-      "createdAt": "2026-11-18T01:10:23.088Z",
-      "emailUpdates": true
     }
   ],
-  "loginCodes": [],
+  "loginCodes": [
+    {
+      "email": "nxtkop66745t@gmail.com",
+      "hash": "b1aee13f8223184f74e20a86ff15e49add8bf4316e5882a97a7a1c40323262ef",
+      "exp": 1794969993911,
+      "tries": 0,
+      "created": 1794969393911
+    }
+  ],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
@@ -10419,52 +10392,20 @@
       "sentAt": "2026-11-17T22:53:42.185Z"
     },
     {
-      "id": "mail_0a64796bf0f393ed10",
-      "key": "MOD-YHH557:receipt",
-      "to": "graysonajack@icloud.com",
-      "subject": "We received your Wigglesworth Moderator application",
-      "text": "Hi yklvr.,\n\nYour Moderator application (MOD-YHH557) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi yklvr.,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-YHH557</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "receipt",
-      "appId": "MOD-YHH557",
-      "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-18T00:58:01.485Z",
-      "sentAt": "2026-11-18T00:58:03.020Z"
-    },
-    {
-      "id": "mail_d2a6d667df977073c0",
-      "key": "signin:nxtkop66745t@gmail.com:1794964201136",
+      "id": "mail_1b92c5e50e5fd4af48",
+      "key": "signin:nxtkop66745t@gmail.com:1794969393911",
       "to": "nxtkop66745t@gmail.com",
       "subject": "Your Wigglesworth sign-in code",
-      "text": "Your Wigglesworth sign-in code is 136891.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">136891</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "text": "Your Wigglesworth sign-in code is 157476.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">157476</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
       "kind": "signin",
       "appId": "",
       "decisionStatus": "",
-      "status": "sent",
-      "attempts": 1,
+      "status": "queued",
+      "attempts": 0,
       "error": "",
-      "createdAt": "2026-11-18T01:10:01.138Z",
-      "sentAt": "2026-11-18T01:10:02.488Z"
-    },
-    {
-      "id": "mail_7bf82f7bd7eaedaf9d",
-      "key": "MOD-YHH557:approved:1794964738759",
-      "to": "graysonajack@icloud.com",
-      "subject": "You are in — Wigglesworth Moderator application",
-      "text": "Hi yklvr.,\n\nYour Moderator application (MOD-YHH557) has been reviewed.\n\nResult: Accepted\nNote from staff: Congratulations, yklvr.! We’re excited to have you join the team. Your enthusiasm for Cyberpunk and willingness to play with friends really stood out. The staff will reach out soon with next steps. Welcome aboard!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
-      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi yklvr.,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-YHH557</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Congratulations, yklvr.! We’re excited to have you join the team. Your enthusiasm for Cyberpunk and willingness to play with friends really stood out. The staff will reach out soon with next steps. Welcome aboard!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-YHH557</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
-      "kind": "decision",
-      "appId": "MOD-YHH557",
-      "decisionStatus": "approved",
-      "status": "sent",
-      "attempts": 1,
-      "error": "",
-      "createdAt": "2026-11-18T01:18:58.759Z",
-      "sentAt": "2026-11-18T01:19:00.564Z"
+      "createdAt": "2026-11-18T02:36:33.937Z",
+      "sentAt": ""
     }
   ]
 }
