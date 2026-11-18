@@ -994,7 +994,8 @@
           }
         ]
       }
-    ]
+    ],
+    "discordIdRemoved": true
   },
   "submissions": [
     {
@@ -5290,6 +5291,15 @@
   ],
   "diag": [
     {
+      "t": "2026-11-18T05:40:27.597Z",
+      "build": "20261117a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157."
+    },
+    {
       "t": "2026-11-18T03:06:23.077Z",
       "build": "20261117a",
       "hero": true,
@@ -5729,15 +5739,6 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
-    },
-    {
-      "t": "2026-11-15T02:46:03.594Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15"
     }
   ],
   "accounts": [
