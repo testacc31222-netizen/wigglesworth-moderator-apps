@@ -3700,12 +3700,12 @@
       "appId": "MOD-2YQTWM",
       "type": "moderator",
       "date": "2026-11-14T12:40:23.235Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator, Thomas. We appreciate your interest in helping the community. If you’d like to try again in the future, gaining more experience in moderation will strengthen your application. Good luck!",
       "email": "durden.isaac@icloud.com",
       "emailUpdates": true,
       "accountId": "acc_8e5f5102303f79f8c246f976",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "awakeingt",
       "discord": "thomasdurden0604",
       "age": "13",
@@ -3714,7 +3714,8 @@
       "why": "i want to be a mod because i want to help the community",
       "scenario": "i report them then call one of the oweners if available or i will report there in game name to the discord but before i will do that i will give them one chance to stop if they dont there getting reported",
       "rulebreak": "no",
-      "receiptAt": "2026-11-14T12:40:23.235Z"
+      "receiptAt": "2026-11-14T12:40:23.235Z",
+      "notifiedAt": "2026-11-19T02:46:08.584Z"
     },
     {
       "appId": "CC-U92G2J",
@@ -3809,12 +3810,12 @@
       "appId": "MOD-T9F4DD",
       "type": "moderator",
       "date": "2026-11-14T16:33:09.421Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Congratulations, r4_real! Your enthusiasm for keeping Wigglesworth fun and safe really stood out—especially your commitment to staying active and gathering reports. We’ll be in touch soon with the next steps. Welcome aboard!",
       "email": "turbobeast2535@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_827ae272f611e3c0da0fae5b",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "R4",
       "discord": "r4_real",
       "age": "14",
@@ -3823,7 +3824,16 @@
       "why": "I want to be a moderator because I have tons of experience in the moderating section of vr and I will devote as much as I can to moderating wiggles worth such as staying on as much as I can, gathering tons of reports and helping players out whether that be in the game or the discord I truly love wiggles worth playing with my friends and having as much fun as I can so it's easy to play long periods of time without realizing.",
       "scenario": "I would start by asking them to stop and if they keep doing it, I'll time them out depending on what their spamming. If it's NSFW or spamming other things that should not be spammed it could go up to a ban or a longer time out. If I could get a higher up to ban the person, I would do that if not I would time them out for a good amount of time",
       "rulebreak": "No",
-      "receiptAt": "2026-11-14T16:33:09.422Z"
+      "receiptAt": "2026-11-14T16:33:09.422Z",
+      "discordId": "1534787518434771056",
+      "roleAssignedAt": "2026-11-19T02:45:55.958Z",
+      "roleAssignedRoleIds": [
+        "1551097540227899513",
+        "1551589273264984114"
+      ],
+      "roleAssignedRoleId": "1551097540227899513",
+      "roleError": "",
+      "notifiedAt": "2026-11-19T02:45:57.519Z"
     },
     {
       "appId": "MOD-MTUMQN",
@@ -4076,12 +4086,12 @@
       "appId": "MOD-ZGW93U",
       "type": "moderator",
       "date": "2026-11-15T23:13:17.813Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your enthusiasm and the experience you’ve shared. We encourage you to keep building your moderation skills and we’ll be happy to consider your application again in the future.",
       "email": "rmatthew31@icloud.com",
       "emailUpdates": true,
       "accountId": "acc_49dddb73e8f2f888a2def2ad",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "ZAKI",
       "discord": "capuhorrorzaki",
       "age": "13",
@@ -4090,7 +4100,8 @@
       "why": "I wanna be moderator bc i really want whats great for the community and not bad for the community so people wont leave the game and i want people to enjoy the game by showing them around in stuff and helping them and being kind and always be open for help when a member needs my help for banning or stuff like that and im mature and wont be immature and also be really respectful in the community and will never make fun of someone’s disorder condition since i am a amazing good person",
       "scenario": "So first i will hit them with a verbal warning second i will warn them and third i would give them a second warning and 4th i will time them our and if they keep going i will let higher ups deal with it",
       "rulebreak": "Yes for calling quantummz the f word since i was mod and i apologize",
-      "receiptAt": "2026-11-15T23:13:17.814Z"
+      "receiptAt": "2026-11-15T23:13:17.814Z",
+      "notifiedAt": "2026-11-19T02:41:38.226Z"
     },
     {
       "appId": "CC-G8E8CT",
@@ -4138,12 +4149,12 @@
       "appId": "MOD-776LQS",
       "type": "moderator",
       "date": "2026-11-16T03:30:37.621Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Hey Zxqw! 🎉 Congratulations on being accepted as a Moderator. Your commitment to keeping the community safe and respectful really stood out. Our staff will reach out soon with the next steps. Looking forward to having you on the team!",
       "email": "thegreatestlol25@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_fe0d3cc1a85e0a33a59fe1f4",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Zxqw",
       "discord": "Zxqw_0",
       "age": "14",
@@ -4152,7 +4163,18 @@
       "why": "I feel like the community needs more helping being safe and respectful",
       "scenario": "I will warn them and if they do not stop I will then have to time them out",
       "rulebreak": "No",
-      "receiptAt": "2026-11-16T03:30:37.622Z"
+      "receiptAt": "2026-11-16T03:30:37.622Z",
+      "aiSummary": "Verdict: Mixed - needs more experience  \n- Wants to join: Moderator  \n- Experience: Mod in metro tag, former mod in thunder tag  \n- Availability: NA 4am‑11pm weekdays, 10am‑12pm weekends  \n- Watch-outs: Only 14 years old, limited moderation experience, no mention of conflict resolution skills.",
+      "aiSummaryAt": "2026-11-19T03:06:55.315Z",
+      "discordId": "1402518069468987492",
+      "roleAssignedAt": "2026-11-19T03:07:06.405Z",
+      "roleAssignedRoleIds": [
+        "1551097540227899513",
+        "1551589273264984114"
+      ],
+      "roleAssignedRoleId": "1551097540227899513",
+      "roleError": "",
+      "notifiedAt": "2026-11-19T03:07:08.141Z"
     },
     {
       "appId": "MOD-AEFJEG",
@@ -4396,12 +4418,12 @@
       "appId": "MOD-8VDXA3",
       "type": "moderator",
       "date": "2026-11-19T02:08:30.666Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Hi Koko,\n\nCongratulations! Your dedication and love for the community really stood out, especially your commitment to enforcing rules and encouraging others to do the same. We’re excited to have you join the moderation team. A staff member will reach out soon with next steps. Welcome aboard!",
       "email": "koenbrandenburg5@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_53087f64419ee426ab622cf2",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Koko",
       "q1795044295615": "66",
       "discord": "koernthegoat1_13569",
@@ -4411,7 +4433,18 @@
       "why": "I've always been a dedicated player and really enjoy the game. I really believe that of all the applications, I have the most dedication. I play the game everyday, talk with the community, have fun, but most of all, I respect rules and encourage others to do so as well. I really believe that if I become moderator, I can help people look up to me as a rule follower, a leader, and a person they would respect. When I get moderator on any game, I always make sure that I remove any bad people from this incredible community. I hope you will seriously consider this application and accept me into your incredible staff program.",
       "scenario": "I will warn them repeatedly. If they are saying bad words (like gilla), I will instantly report them. If they spam something less bad then I may just kick them. This is just my thoughts, but im open to change and respect the decisions of other moderators.",
       "rulebreak": "No, im a very good monkey 🙏",
-      "receiptAt": "2026-11-19T02:08:30.667Z"
+      "receiptAt": "2026-11-19T02:08:30.667Z",
+      "aiSummary": "Verdict: Mixed - applicant shows enthusiasm but limited experience and availability.  \n- Wants to join: Moderator  \n- Experience: Past mod roles in fan games, 66 Discord messages, 15 years old.  \n- Availability: CST, 5–6 hours per day.  \n- Watch‑outs: Young age, vague moderation plan, no specific examples of conflict resolution.",
+      "aiSummaryAt": "2026-11-19T02:39:18.299Z",
+      "discordId": "1456180060662005910",
+      "roleAssignedAt": "2026-11-19T02:41:26.486Z",
+      "roleAssignedRoleIds": [
+        "1551097540227899513",
+        "1551589273264984114"
+      ],
+      "roleAssignedRoleId": "1551097540227899513",
+      "roleError": "",
+      "notifiedAt": "2026-11-19T02:41:27.896Z"
     },
     {
       "appId": "MOD-496Z58",
@@ -4438,12 +4471,12 @@
       "appId": "MOD-N3D7EN",
       "type": "moderator",
       "date": "2026-11-19T02:15:04.716Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Congratulations, Jtg! Your commitment to staying active in the community and your clear desire to help tackle bullying really stood out. We’re excited to have you on board as a Moderator. A staff member will reach out shortly with next steps. Welcome to the team!",
       "email": "hakimstewardjr07@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_9a784d82884d84351937fe4f",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Jtg",
       "q1795044295615": "50",
       "discord": "Jtgmoneysign777",
@@ -4453,7 +4486,81 @@
       "why": "I want to be a Moderator because I'm tired of the bullying and the bad people getting away with it. Also because I want to have a even closer connection to the community.",
       "scenario": "I would tell them to quit politely. If they don't stop I will have a serious talk with them because spamming in the discord is not acceptable or necessary. If they keep going on I will have to take action myself.",
       "rulebreak": "No I have not because I never cause problems with developers or moderators or owners I just play the game how it's supposed to be played.",
-      "receiptAt": "2026-11-19T02:15:04.717Z"
+      "receiptAt": "2026-11-19T02:15:04.717Z",
+      "aiSummary": "Verdict: Weak - lacks experience and age may be a concern  \n- Wants to join: Moderator  \n- Experience: None, first‑time moderator  \n- Availability: ~5-4h daily, weekends, may miss study time  \n- Watch‑outs: Under 18, limited moderation knowledge, availability uncertain, no prior bans but no experience handling conflict.",
+      "aiSummaryAt": "2026-11-19T02:35:36.978Z",
+      "discordId": "1568413196748984474",
+      "roleAssignedAt": "2026-11-19T02:36:16.660Z",
+      "roleAssignedRoleIds": [
+        "1551097540227899513",
+        "1551589273264984114"
+      ],
+      "roleAssignedRoleId": "1551097540227899513",
+      "roleError": "",
+      "notifiedAt": "2026-11-19T02:36:18.107Z"
+    },
+    {
+      "appId": "MOD-GKWCQL",
+      "type": "moderator",
+      "date": "2026-11-19T02:45:15.040Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "manning.gavin1@icloud.com",
+      "emailUpdates": true,
+      "accountId": "acc_ecc857aac09c43bb676e3a18",
+      "notifiedStatus": "",
+      "username": "@KEFF_84",
+      "q1795044295615": "114",
+      "discord": "keff0557",
+      "age": "13",
+      "timezone": "EST",
+      "experience": "No I do not have experience moderation but i can very much help out a community and i have plenty of reasons i should get mod. One is that i would not use the mod tools carelessly, I will handle toxic player well, I can help players in need, I am usually active every day, and I can finally report bugs.",
+      "why": "The reasons i want to be mod is because i can protect the vibe, help the game grow with more players, get closer relationships with others, build leadership and recognition.",
+      "scenario": "Warn them, but if they continue mute or remove them if they keep going.",
+      "rulebreak": "No I have not been banned before.",
+      "receiptAt": "2026-11-19T02:45:15.040Z"
+    },
+    {
+      "appId": "MOD-T4N7TM",
+      "type": "moderator",
+      "date": "2026-11-19T03:05:33.033Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "thegreatestlol25@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_fe0d3cc1a85e0a33a59fe1f4",
+      "notifiedStatus": "",
+      "username": "Zxqw",
+      "q1795044295615": "73",
+      "discord": "Zxqw_0",
+      "age": "14",
+      "timezone": "NA 5pm-11pm",
+      "experience": "I had experience in over 15 different servers and I also am currently mod in metro tag",
+      "why": "I want to help out the community and make sure its safe of toxic people",
+      "scenario": "I would first warn them and if they keep spamming i will eventually have to time them out or kick them if its to extreme",
+      "rulebreak": "Nope",
+      "receiptAt": "2026-11-19T03:05:33.034Z"
+    },
+    {
+      "appId": "CC-K5PWTN",
+      "type": "creator",
+      "date": "2026-11-19T03:35:05.682Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "keegan.todd@icloud.com",
+      "emailUpdates": true,
+      "accountId": "acc_15088d2ebddd9b8640c15f0e",
+      "notifiedStatus": "",
+      "username": "Toddyloddy84",
+      "discord": "cerealkiller",
+      "age": "13",
+      "why": "Its a really good game and it doesn't get boring",
+      "platform": "YouTube",
+      "channel": "https://www.youtube.com/@TheTrueBartyOnVr",
+      "schedule": "Once a week",
+      "style": "Vr but mainly Gorilla tag fan games",
+      "strikes": "No",
+      "receiptAt": "2026-11-19T03:35:05.682Z"
     }
   ],
   "tickets": [
@@ -5108,6 +5215,108 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T03:40:05.734Z",
+      "act": "account_recover",
+      "id": "CC-K5PWTN",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T03:26:19.590Z",
+      "act": "account_login",
+      "id": "acc_15088d2ebddd9b8640c15f0e",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T03:25:11.158Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T03:07:06.405Z",
+      "act": "ai_approved",
+      "id": "MOD-776LQS",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T03:07:06.405Z",
+      "act": "role_assigned",
+      "id": "MOD-776LQS",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T03:06:55.315Z",
+      "act": "ai_summary",
+      "id": "MOD-776LQS",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:46:07.169Z",
+      "act": "ai_denied",
+      "id": "MOD-2YQTWM",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:45:55.959Z",
+      "act": "ai_approved",
+      "id": "MOD-T9F4DD",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:45:55.958Z",
+      "act": "role_assigned",
+      "id": "MOD-T9F4DD",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:41:36.970Z",
+      "act": "ai_denied",
+      "id": "MOD-ZGW93U",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:41:26.488Z",
+      "act": "ai_approved",
+      "id": "MOD-8VDXA3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:41:26.487Z",
+      "act": "role_assigned",
+      "id": "MOD-8VDXA3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:39:18.299Z",
+      "act": "ai_summary",
+      "id": "MOD-8VDXA3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:36:16.661Z",
+      "act": "ai_approved",
+      "id": "MOD-N3D7EN",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:36:16.660Z",
+      "act": "role_assigned",
+      "id": "MOD-N3D7EN",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:35:36.978Z",
+      "act": "ai_summary",
+      "id": "MOD-N3D7EN",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:26:35.938Z",
+      "act": "account_link",
+      "id": "MOD-496Z58",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T01:53:15.821Z",
       "act": "account_login",
       "id": "acc_9a784d82884d84351937fe4f",
@@ -5601,108 +5810,6 @@
     },
     {
       "t": "2026-11-14T06:23:06.037Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T05:22:08.555Z",
-      "act": "ai_approved",
-      "id": "CC-UD6UVF",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T05:21:47.241Z",
-      "act": "ai_denied",
-      "id": "CC-5EHTKF",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T05:21:11.742Z",
-      "act": "ai_approved",
-      "id": "CC-HMRDVY",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T05:20:59.199Z",
-      "act": "ai_approved",
-      "id": "CC-49LXN7",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T05:20:45.541Z",
-      "act": "ai_approved",
-      "id": "CC-DFDU9M",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T05:14:07.302Z",
-      "act": "ticket_reply",
-      "id": "TKT-FNCGNH",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T05:08:42.090Z",
-      "act": "account_login",
-      "id": "acc_847396fd73cdf3ab6d405021",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T01:14:31.952Z",
-      "act": "account_login",
-      "id": "acc_8e5f5102303f79f8c246f976",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T00:25:33.372Z",
-      "act": "account_login",
-      "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T23:54:00.648Z",
-      "act": "account_login",
-      "id": "acc_b4462de131bfbf529d3178e0",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T21:38:10.759Z",
-      "act": "account_login",
-      "id": "acc_5f0dec1645ec186ba85069bd",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T14:28:37.221Z",
-      "act": "account_login",
-      "id": "acc_a5a1a9d11aeff3b3ec3e7865",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:14:05.884Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:13:49.542Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:13:33.539Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:30.841Z",
-      "act": "ticket_deleted",
-      "id": "TKT-6WLBB2",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:08.223Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -6610,6 +6717,12 @@
       "id": "acc_9a784d82884d84351937fe4f",
       "email": "hakimstewardjr07@gmail.com",
       "createdAt": "2026-11-19T01:53:15.821Z",
+      "emailUpdates": true
+    },
+    {
+      "id": "acc_15088d2ebddd9b8640c15f0e",
+      "email": "keegan.todd@icloud.com",
+      "createdAt": "2026-11-19T03:26:19.590Z",
       "emailUpdates": true
     }
   ],
@@ -10962,6 +11075,198 @@
       "error": "",
       "createdAt": "2026-11-19T02:08:30.667Z",
       "sentAt": "2026-11-19T02:08:32.299Z"
+    },
+    {
+      "id": "mail_110e0648a62a02d195",
+      "key": "MOD-496Z58:receipt",
+      "to": "tikofish25@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi zeroz123456,\n\nYour Moderator application (MOD-496Z58) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi zeroz123456,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-496Z58</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-496Z58",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T02:14:57.012Z",
+      "sentAt": "2026-11-19T02:14:58.558Z"
+    },
+    {
+      "id": "mail_53e8eab227caee7279",
+      "key": "MOD-N3D7EN:receipt",
+      "to": "hakimstewardjr07@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi Jtgmoneysign777,\n\nYour Moderator application (MOD-N3D7EN) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi Jtgmoneysign777,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-N3D7EN</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-N3D7EN",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T02:15:04.717Z",
+      "sentAt": "2026-11-19T02:15:06.447Z"
+    },
+    {
+      "id": "mail_698b8b2fdcbc24b531",
+      "key": "MOD-N3D7EN:approved:1795055776661",
+      "to": "hakimstewardjr07@gmail.com",
+      "subject": "You are in — Wigglesworth Moderator application",
+      "text": "Hi Jtgmoneysign777,\n\nYour Moderator application (MOD-N3D7EN) has been reviewed.\n\nResult: Accepted\nNote from staff: Congratulations, Jtg! Your commitment to staying active in the community and your clear desire to help tackle bullying really stood out. We’re excited to have you on board as a Moderator. A staff member will reach out shortly with next steps. Welcome to the team!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi Jtgmoneysign777,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-N3D7EN</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Congratulations, Jtg! Your commitment to staying active in the community and your clear desire to help tackle bullying really stood out. We’re excited to have you on board as a Moderator. A staff member will reach out shortly with next steps. Welcome to the team!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-N3D7EN</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-N3D7EN",
+      "decisionStatus": "approved",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T02:36:16.661Z",
+      "sentAt": "2026-11-19T02:36:18.107Z"
+    },
+    {
+      "id": "mail_b63116791362f9de1f",
+      "key": "MOD-8VDXA3:approved:1795056086487",
+      "to": "koenbrandenburg5@gmail.com",
+      "subject": "You are in — Wigglesworth Moderator application",
+      "text": "Hi koernthegoat1_13569,\n\nYour Moderator application (MOD-8VDXA3) has been reviewed.\n\nResult: Accepted\nNote from staff: Hi Koko,\n\nCongratulations! Your dedication and love for the community really stood out, especially your commitment to enforcing rules and encouraging others to do the same. We’re excited to have you join the moderation team. A staff member will reach out soon with next steps. Welcome aboard!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi koernthegoat1_13569,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-8VDXA3</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Hi Koko,<br><br>Congratulations! Your dedication and love for the community really stood out, especially your commitment to enforcing rules and encouraging others to do the same. We’re excited to have you join the moderation team. A staff member will reach out soon with next steps. Welcome aboard!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-8VDXA3</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-8VDXA3",
+      "decisionStatus": "approved",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T02:41:26.488Z",
+      "sentAt": "2026-11-19T02:41:27.896Z"
+    },
+    {
+      "id": "mail_8609a46c1d9edb87fa",
+      "key": "MOD-ZGW93U:denied:1795056096970",
+      "to": "rmatthew31@icloud.com",
+      "subject": "Update on your Wigglesworth Moderator application",
+      "text": "Hi capuhorrorzaki,\n\nYour Moderator application (MOD-ZGW93U) has been reviewed.\n\nResult: Not accepted\nNote from staff: Thank you for applying to be a moderator. We appreciate your enthusiasm and the experience you’ve shared. We encourage you to keep building your moderation skills and we’ll be happy to consider your application again in the future.\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi capuhorrorzaki,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-ZGW93U</b>) has been reviewed.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#AAA5A0\">Not accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Thank you for applying to be a moderator. We appreciate your enthusiasm and the experience you’ve shared. We encourage you to keep building your moderation skills and we’ll be happy to consider your application again in the future.</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-ZGW93U</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-ZGW93U",
+      "decisionStatus": "denied",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T02:41:36.970Z",
+      "sentAt": "2026-11-19T02:41:38.226Z"
+    },
+    {
+      "id": "mail_98db7f59a0855b945b",
+      "key": "MOD-GKWCQL:receipt",
+      "to": "manning.gavin1@icloud.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi keff0557,\n\nYour Moderator application (MOD-GKWCQL) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi keff0557,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-GKWCQL</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-GKWCQL",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T02:45:15.040Z",
+      "sentAt": "2026-11-19T02:45:16.887Z"
+    },
+    {
+      "id": "mail_02664eda974ed8c07a",
+      "key": "MOD-T9F4DD:approved:1795056355959",
+      "to": "turbobeast2535@gmail.com",
+      "subject": "You are in — Wigglesworth Moderator application",
+      "text": "Hi r4_real,\n\nYour Moderator application (MOD-T9F4DD) has been reviewed.\n\nResult: Accepted\nNote from staff: Congratulations, r4_real! Your enthusiasm for keeping Wigglesworth fun and safe really stood out—especially your commitment to staying active and gathering reports. We’ll be in touch soon with the next steps. Welcome aboard!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi r4_real,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-T9F4DD</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Congratulations, r4_real! Your enthusiasm for keeping Wigglesworth fun and safe really stood out—especially your commitment to staying active and gathering reports. We’ll be in touch soon with the next steps. Welcome aboard!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-T9F4DD</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-T9F4DD",
+      "decisionStatus": "approved",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T02:45:55.959Z",
+      "sentAt": "2026-11-19T02:45:57.519Z"
+    },
+    {
+      "id": "mail_2290f4777895d13ea6",
+      "key": "MOD-2YQTWM:denied:1795056367169",
+      "to": "durden.isaac@icloud.com",
+      "subject": "Update on your Wigglesworth Moderator application",
+      "text": "Hi thomasdurden0604,\n\nYour Moderator application (MOD-2YQTWM) has been reviewed.\n\nResult: Not accepted\nNote from staff: Thank you for applying to be a moderator, Thomas. We appreciate your interest in helping the community. If you’d like to try again in the future, gaining more experience in moderation will strengthen your application. Good luck!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi thomasdurden0604,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-2YQTWM</b>) has been reviewed.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#AAA5A0\">Not accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Thank you for applying to be a moderator, Thomas. We appreciate your interest in helping the community. If you’d like to try again in the future, gaining more experience in moderation will strengthen your application. Good luck!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-2YQTWM</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-2YQTWM",
+      "decisionStatus": "denied",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T02:46:07.169Z",
+      "sentAt": "2026-11-19T02:46:08.584Z"
+    },
+    {
+      "id": "mail_a36a278188e43284de",
+      "key": "MOD-T4N7TM:receipt",
+      "to": "thegreatestlol25@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi Zxqw_0,\n\nYour Moderator application (MOD-T4N7TM) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi Zxqw_0,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-T4N7TM</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-T4N7TM",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T03:05:33.034Z",
+      "sentAt": "2026-11-19T03:05:34.758Z"
+    },
+    {
+      "id": "mail_b57c50375503e8e553",
+      "key": "MOD-776LQS:approved:1795057626405",
+      "to": "thegreatestlol25@gmail.com",
+      "subject": "You are in — Wigglesworth Moderator application",
+      "text": "Hi Zxqw_0,\n\nYour Moderator application (MOD-776LQS) has been reviewed.\n\nResult: Accepted\nNote from staff: Hey Zxqw! 🎉 Congratulations on being accepted as a Moderator. Your commitment to keeping the community safe and respectful really stood out. Our staff will reach out soon with the next steps. Looking forward to having you on the team!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi Zxqw_0,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-776LQS</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Hey Zxqw! 🎉 Congratulations on being accepted as a Moderator. Your commitment to keeping the community safe and respectful really stood out. Our staff will reach out soon with the next steps. Looking forward to having you on the team!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-776LQS</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-776LQS",
+      "decisionStatus": "approved",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T03:07:06.405Z",
+      "sentAt": "2026-11-19T03:07:08.141Z"
+    },
+    {
+      "id": "mail_1a468fd9801df7d75f",
+      "key": "signin:keegan.todd@icloud.com:1795058730368",
+      "to": "keegan.todd@icloud.com",
+      "subject": "Your Wigglesworth sign-in code",
+      "text": "Your Wigglesworth sign-in code is 422448.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">422448</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "signin",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T03:25:30.369Z",
+      "sentAt": "2026-11-19T03:25:31.793Z"
+    },
+    {
+      "id": "mail_4f33a3d45b3d87949d",
+      "key": "CC-K5PWTN:receipt",
+      "to": "keegan.todd@icloud.com",
+      "subject": "We received your Wigglesworth Content Creator application",
+      "text": "Hi cerealkiller,\n\nYour Content Creator application (CC-K5PWTN) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi cerealkiller,</p><p style=\"margin:0 0 18px\">Your <b>Content Creator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">CC-K5PWTN</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "CC-K5PWTN",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-19T03:35:05.682Z",
+      "sentAt": "2026-11-19T03:35:07.382Z"
     }
   ]
 }
