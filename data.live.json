@@ -4101,7 +4101,7 @@
       "email": "koenbrandenburg5@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_53087f64419ee426ab622cf2",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Koko",
       "q1795044295615": "66",
       "discord": "koernthegoat1_13569",
@@ -4121,7 +4121,8 @@
         "1551589273264984114"
       ],
       "roleAssignedRoleId": "1551097540227899513",
-      "roleError": ""
+      "roleError": "",
+      "notifiedAt": "2026-11-19T02:41:27.896Z"
     },
     {
       "appId": "MOD-496Z58",
@@ -10742,11 +10743,11 @@
       "kind": "decision",
       "appId": "MOD-8VDXA3",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T02:41:26.488Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T02:41:27.896Z"
     }
   ]
 }
