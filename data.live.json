@@ -4111,7 +4111,9 @@
       "why": "I've always been a dedicated player and really enjoy the game. I really believe that of all the applications, I have the most dedication. I play the game everyday, talk with the community, have fun, but most of all, I respect rules and encourage others to do so as well. I really believe that if I become moderator, I can help people look up to me as a rule follower, a leader, and a person they would respect. When I get moderator on any game, I always make sure that I remove any bad people from this incredible community. I hope you will seriously consider this application and accept me into your incredible staff program.",
       "scenario": "I will warn them repeatedly. If they are saying bad words (like gilla), I will instantly report them. If they spam something less bad then I may just kick them. This is just my thoughts, but im open to change and respect the decisions of other moderators.",
       "rulebreak": "No, im a very good monkey 🙏",
-      "receiptAt": "2026-11-19T02:08:30.667Z"
+      "receiptAt": "2026-11-19T02:08:30.667Z",
+      "aiSummary": "Verdict: Mixed - applicant shows enthusiasm but limited experience and availability.  \n- Wants to join: Moderator  \n- Experience: Past mod roles in fan games, 66 Discord messages, 15 years old.  \n- Availability: CST, 5–6 hours per day.  \n- Watch‑outs: Young age, vague moderation plan, no specific examples of conflict resolution.",
+      "aiSummaryAt": "2026-11-19T02:39:18.299Z"
     },
     {
       "appId": "MOD-496Z58",
@@ -4819,6 +4821,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T02:39:18.299Z",
+      "act": "ai_summary",
+      "id": "MOD-8VDXA3",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T02:36:16.661Z",
       "act": "ai_approved",
       "id": "MOD-N3D7EN",
@@ -5410,12 +5418,6 @@
       "t": "2026-11-13T14:28:37.221Z",
       "act": "account_login",
       "id": "acc_a5a1a9d11aeff3b3ec3e7865",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:14:05.884Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
