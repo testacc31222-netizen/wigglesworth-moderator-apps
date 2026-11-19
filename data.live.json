@@ -10615,11 +10615,11 @@
       "kind": "receipt",
       "appId": "MOD-8VDXA3",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T02:08:30.667Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T02:08:32.299Z"
     }
   ]
 }
