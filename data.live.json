@@ -690,7 +690,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -774,7 +774,7 @@
         "intro": "Creators represent Wigglesworth on their channels. Apply here with your best work.",
         "successMessage": "Thanks! Your creator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -1002,8 +1002,7 @@
           }
         ]
       }
-    ],
-    "discordIdRemoved": true
+    ]
   },
   "submissions": [
     {
@@ -4703,6 +4702,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T01:21:18.214Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T01:11:23.051Z",
       "act": "account_login",
       "id": "acc_065c1c551a654a4665b54a6b",
@@ -5292,12 +5297,6 @@
     },
     {
       "t": "2026-11-13T05:12:04.329Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:03.746Z",
       "act": "config_saved",
       "id": "",
       "by": ""
