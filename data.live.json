@@ -4724,6 +4724,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T01:53:15.821Z",
+      "act": "account_login",
+      "id": "acc_9a784d82884d84351937fe4f",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T01:52:36.681Z",
       "act": "account_login",
       "id": "acc_0f48d647b104a976e1b744e0",
@@ -5313,12 +5319,6 @@
     },
     {
       "t": "2026-11-13T05:12:08.223Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:04.793Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -6221,17 +6221,15 @@
       "email": "nojo26@icloud.com",
       "createdAt": "2026-11-19T01:52:36.681Z",
       "emailUpdates": true
-    }
-  ],
-  "loginCodes": [
+    },
     {
+      "id": "acc_9a784d82884d84351937fe4f",
       "email": "hakimstewardjr07@gmail.com",
-      "hash": "248d51235175856cc4e6e323792c0b51cf7f2e611dd7db01780125387446cc54",
-      "exp": 1795053770552,
-      "tries": 0,
-      "created": 1795053170552
+      "createdAt": "2026-11-19T01:53:15.821Z",
+      "emailUpdates": true
     }
   ],
+  "loginCodes": [],
   "outbox": [
     {
       "id": "mail_43723abaf8f66cb4b1",
