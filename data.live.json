@@ -4133,6 +4133,27 @@
       "scenario": "Mute them for 5 mins, DM them personally and ask why they were spamming, and if they explain it and it's reasonable I will let the 5 min duration expire and if they do it again they will be muted permanently or until they behave.",
       "rulebreak": "Nope",
       "receiptAt": "2026-11-19T02:14:57.012Z"
+    },
+    {
+      "appId": "MOD-N3D7EN",
+      "type": "moderator",
+      "date": "2026-11-19T02:15:04.716Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "hakimstewardjr07@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_9a784d82884d84351937fe4f",
+      "notifiedStatus": "",
+      "username": "Jtg",
+      "q1795044295615": "50",
+      "discord": "Jtgmoneysign777",
+      "age": "13",
+      "timezone": "Around 5 or  4  depends on what I am doing in the normal day I will try my hardest to get on when I can will be most likely every day and almost every weekend  the times I won't is if I am studying for a test or doing homework.",
+      "experience": "I've had no moderation experience at all but a first time will give me more knowledge and what to think about when people are having troubles with their game or bullying .It Also will help me understand why that leading a community is important, and to also always help others when I can .",
+      "why": "I want to be a Moderator because I'm tired of the bullying and the bad people getting away with it. Also because I want to have a even closer connection to the community.",
+      "scenario": "I would tell them to quit politely. If they don't stop I will have a serious talk with them because spamming in the discord is not acceptable or necessary. If they keep going on I will have to take action myself.",
+      "rulebreak": "No I have not because I never cause problems with developers or moderators or owners I just play the game how it's supposed to be played.",
+      "receiptAt": "2026-11-19T02:15:04.717Z"
     }
   ],
   "tickets": [
@@ -10657,6 +10678,22 @@
       "error": "",
       "createdAt": "2026-11-19T02:14:57.012Z",
       "sentAt": "2026-11-19T02:14:58.558Z"
+    },
+    {
+      "id": "mail_53e8eab227caee7279",
+      "key": "MOD-N3D7EN:receipt",
+      "to": "hakimstewardjr07@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi Jtgmoneysign777,\n\nYour Moderator application (MOD-N3D7EN) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi Jtgmoneysign777,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-N3D7EN</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-N3D7EN",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-19T02:15:04.717Z",
+      "sentAt": ""
     }
   ]
 }
