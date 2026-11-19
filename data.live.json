@@ -10460,11 +10460,11 @@
       "kind": "ticket",
       "appId": "",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T01:12:42.393Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T01:12:44.796Z"
     }
   ]
 }
