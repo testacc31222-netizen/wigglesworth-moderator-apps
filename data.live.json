@@ -690,7 +690,7 @@
         "intro": "Moderators keep the community safe and welcoming. Only apply here if that is the role you want.",
         "successMessage": "Thanks! Your moderator application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": true,
+        "open": false,
         "questions": [
           {
             "id": "username",
@@ -1002,8 +1002,7 @@
           }
         ]
       }
-    ],
-    "discordIdRemoved": true
+    ]
   },
   "submissions": [
     {
@@ -4894,6 +4893,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T03:25:11.158Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T03:07:06.405Z",
       "act": "ai_approved",
       "id": "MOD-776LQS",
@@ -5485,12 +5490,6 @@
       "t": "2026-11-14T05:21:47.241Z",
       "act": "ai_denied",
       "id": "CC-5EHTKF",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T05:21:11.742Z",
-      "act": "ai_approved",
-      "id": "CC-HMRDVY",
       "by": ""
     }
   ],
