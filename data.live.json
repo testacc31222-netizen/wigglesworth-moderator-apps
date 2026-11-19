@@ -3705,7 +3705,7 @@
       "email": "durden.isaac@icloud.com",
       "emailUpdates": true,
       "accountId": "acc_8e5f5102303f79f8c246f976",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "awakeingt",
       "discord": "thomasdurden0604",
       "age": "13",
@@ -3714,7 +3714,8 @@
       "why": "i want to be a mod because i want to help the community",
       "scenario": "i report them then call one of the oweners if available or i will report there in game name to the discord but before i will do that i will give them one chance to stop if they dont there getting reported",
       "rulebreak": "no",
-      "receiptAt": "2026-11-14T12:40:23.235Z"
+      "receiptAt": "2026-11-14T12:40:23.235Z",
+      "notifiedAt": "2026-11-19T02:46:08.584Z"
     },
     {
       "appId": "CC-U92G2J",
@@ -10838,11 +10839,11 @@
       "kind": "decision",
       "appId": "MOD-2YQTWM",
       "decisionStatus": "denied",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T02:46:07.169Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T02:46:08.584Z"
     }
   ]
 }
