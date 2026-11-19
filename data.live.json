@@ -10652,11 +10652,11 @@
       "kind": "receipt",
       "appId": "MOD-496Z58",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T02:14:57.012Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T02:14:58.558Z"
     }
   ]
 }
