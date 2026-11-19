@@ -5278,6 +5278,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T20:29:13.332Z",
+      "act": "account_link",
+      "id": "MOD-2QWBUW",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T19:43:54.682Z",
       "act": "account_login",
       "id": "acc_49dddb73e8f2f888a2def2ad",
@@ -5869,12 +5875,6 @@
       "t": "2026-11-14T07:26:43.740Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
