@@ -10578,11 +10578,11 @@
       "kind": "receipt",
       "appId": "MOD-UF68BU",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T01:57:45.066Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T01:57:46.549Z"
     }
   ]
 }
