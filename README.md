@@ -113,6 +113,24 @@ npm run test:roles
 It also covers the data-safety paths: boot merge, backup-only records surviving
 an autosave, and two approvals clicked at the same time.
 
+### Recovering applications lost before this fix
+
+Applications removed by the old autosave can be rebuilt from the git history of
+`data.live.json`. The tool prints a dry run first and only restores records that
+were not explicitly deleted by staff:
+
+```bash
+# See what would come back (nothing is written)
+node scripts/recover-lost-applications.cjs --since=2026-11-14
+
+# Write them back
+node scripts/recover-lost-applications.cjs --since=2026-11-14 --apply
+```
+
+Use `--all` instead of `--since` to consider every missing application. Live
+repairs should be committed to the `data-backup` branch, not `main`, so the
+running instance picks them up on its next boot merge.
+
 ## Discord ticket alerts (optional)
 New tickets and ticket replies ping you in Discord:
 
