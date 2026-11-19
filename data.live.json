@@ -10797,11 +10797,11 @@
       "kind": "receipt",
       "appId": "MOD-GKWCQL",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T02:45:15.040Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T02:45:16.887Z"
     }
   ]
 }
