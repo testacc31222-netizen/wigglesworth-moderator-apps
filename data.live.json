@@ -4030,7 +4030,7 @@
       "email": "thegreatestlol25@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_fe0d3cc1a85e0a33a59fe1f4",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "Zxqw",
       "discord": "Zxqw_0",
       "age": "14",
@@ -4049,7 +4049,8 @@
         "1551589273264984114"
       ],
       "roleAssignedRoleId": "1551097540227899513",
-      "roleError": ""
+      "roleError": "",
+      "notifiedAt": "2026-11-19T03:07:08.141Z"
     },
     {
       "appId": "MOD-AEFJEG",
@@ -10902,11 +10903,11 @@
       "kind": "decision",
       "appId": "MOD-776LQS",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T03:07:06.405Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T03:07:08.141Z"
     }
   ]
 }
