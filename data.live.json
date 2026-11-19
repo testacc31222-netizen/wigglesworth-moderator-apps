@@ -3957,7 +3957,7 @@
       "email": "rmatthew31@icloud.com",
       "emailUpdates": true,
       "accountId": "acc_49dddb73e8f2f888a2def2ad",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "ZAKI",
       "discord": "capuhorrorzaki",
       "age": "13",
@@ -3966,7 +3966,8 @@
       "why": "I wanna be moderator bc i really want whats great for the community and not bad for the community so people wont leave the game and i want people to enjoy the game by showing them around in stuff and helping them and being kind and always be open for help when a member needs my help for banning or stuff like that and im mature and wont be immature and also be really respectful in the community and will never make fun of someone’s disorder condition since i am a amazing good person",
       "scenario": "So first i will hit them with a verbal warning second i will warn them and third i would give them a second warning and 4th i will time them our and if they keep going i will let higher ups deal with it",
       "rulebreak": "Yes for calling quantummz the f word since i was mod and i apologize",
-      "receiptAt": "2026-11-15T23:13:17.814Z"
+      "receiptAt": "2026-11-15T23:13:17.814Z",
+      "notifiedAt": "2026-11-19T02:41:38.226Z"
     },
     {
       "appId": "CC-G8E8CT",
@@ -10759,11 +10760,11 @@
       "kind": "decision",
       "appId": "MOD-ZGW93U",
       "decisionStatus": "denied",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T02:41:36.970Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T02:41:38.226Z"
     }
   ]
 }
