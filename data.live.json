@@ -3814,7 +3814,7 @@
       "email": "turbobeast2535@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_827ae272f611e3c0da0fae5b",
-      "notifiedStatus": "",
+      "notifiedStatus": "approved",
       "username": "R4",
       "discord": "r4_real",
       "age": "14",
@@ -3831,7 +3831,8 @@
         "1551589273264984114"
       ],
       "roleAssignedRoleId": "1551097540227899513",
-      "roleError": ""
+      "roleError": "",
+      "notifiedAt": "2026-11-19T02:45:57.519Z"
     },
     {
       "appId": "MOD-MTUMQN",
@@ -10821,11 +10822,11 @@
       "kind": "decision",
       "appId": "MOD-T9F4DD",
       "decisionStatus": "approved",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T02:45:55.959Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T02:45:57.519Z"
     }
   ]
 }
