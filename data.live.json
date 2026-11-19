@@ -5509,6 +5509,15 @@
   ],
   "diag": [
     {
+      "t": "2026-11-19T03:11:25.656Z",
+      "build": "20261117a",
+      "hero": true,
+      "gated": false,
+      "token": false,
+      "failed": false,
+      "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.1 Mobile/15"
+    },
+    {
       "t": "2026-11-19T03:03:00.798Z",
       "build": "20261117a",
       "hero": true,
@@ -5948,15 +5957,6 @@
       "token": false,
       "failed": false,
       "ua": "Mozilla/5.0 (X11; Linux x86_64; Quest 3) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/156.0.0.38.16.1112015520 C"
-    },
-    {
-      "t": "2026-11-16T00:13:19.145Z",
-      "build": "20261024d",
-      "hero": true,
-      "gated": false,
-      "token": false,
-      "failed": false,
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
     }
   ],
   "accounts": [
