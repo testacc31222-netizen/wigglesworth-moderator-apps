@@ -4153,7 +4153,9 @@
       "why": "I want to be a Moderator because I'm tired of the bullying and the bad people getting away with it. Also because I want to have a even closer connection to the community.",
       "scenario": "I would tell them to quit politely. If they don't stop I will have a serious talk with them because spamming in the discord is not acceptable or necessary. If they keep going on I will have to take action myself.",
       "rulebreak": "No I have not because I never cause problems with developers or moderators or owners I just play the game how it's supposed to be played.",
-      "receiptAt": "2026-11-19T02:15:04.717Z"
+      "receiptAt": "2026-11-19T02:15:04.717Z",
+      "aiSummary": "Verdict: Weak - lacks experience and age may be a concern  \n- Wants to join: Moderator  \n- Experience: None, first‑time moderator  \n- Availability: ~5-4h daily, weekends, may miss study time  \n- Watch‑outs: Under 18, limited moderation knowledge, availability uncertain, no prior bans but no experience handling conflict.",
+      "aiSummaryAt": "2026-11-19T02:35:36.978Z"
     }
   ],
   "tickets": [
@@ -4808,6 +4810,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T02:35:36.978Z",
+      "act": "ai_summary",
+      "id": "MOD-N3D7EN",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T02:26:35.938Z",
       "act": "account_link",
       "id": "MOD-496Z58",
@@ -5399,12 +5407,6 @@
       "t": "2026-11-13T05:13:33.539Z",
       "act": "config_saved",
       "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T05:12:30.841Z",
-      "act": "ticket_deleted",
-      "id": "TKT-6WLBB2",
       "by": ""
     }
   ],
