@@ -4039,7 +4039,9 @@
       "why": "I feel like the community needs more helping being safe and respectful",
       "scenario": "I will warn them and if they do not stop I will then have to time them out",
       "rulebreak": "No",
-      "receiptAt": "2026-11-16T03:30:37.622Z"
+      "receiptAt": "2026-11-16T03:30:37.622Z",
+      "aiSummary": "Verdict: Mixed - needs more experience  \n- Wants to join: Moderator  \n- Experience: Mod in metro tag, former mod in thunder tag  \n- Availability: NA 4am‑11pm weekdays, 10am‑12pm weekends  \n- Watch-outs: Only 14 years old, limited moderation experience, no mention of conflict resolution skills.",
+      "aiSummaryAt": "2026-11-19T03:06:55.315Z"
     },
     {
       "appId": "MOD-AEFJEG",
@@ -4883,6 +4885,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T03:06:55.315Z",
+      "act": "ai_summary",
+      "id": "MOD-776LQS",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T02:46:07.169Z",
       "act": "ai_denied",
       "id": "MOD-2YQTWM",
@@ -5474,12 +5482,6 @@
       "t": "2026-11-14T05:20:45.541Z",
       "act": "ai_approved",
       "id": "CC-DFDU9M",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T05:14:07.302Z",
-      "act": "ticket_reply",
-      "id": "TKT-FNCGNH",
       "by": ""
     }
   ],
