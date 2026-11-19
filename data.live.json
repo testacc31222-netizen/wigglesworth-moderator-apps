@@ -5236,18 +5236,6 @@
   ],
   "audit": [
     {
-      "t": "2026-11-19T13:51:28.198Z",
-      "act": "account_link",
-      "id": "MOD-6YRNTW",
-      "by": ""
-    },
-    {
-      "t": "2026-11-19T13:37:08.141Z",
-      "act": "account_login",
-      "id": "acc_dc1ec17ea5ad567b0537af3f",
-      "by": ""
-    },
-    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -5833,6 +5821,18 @@
       "t": "2026-11-14T07:26:43.740Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:16:11.447Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T06:23:06.037Z",
+      "act": "config_saved",
+      "id": "",
       "by": ""
     }
   ],
