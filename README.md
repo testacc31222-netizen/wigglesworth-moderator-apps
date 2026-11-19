@@ -77,11 +77,41 @@ assigns. If the member has not joined the server yet, approval still succeeds;
 the card shows the error and **Grant role** retries later. Name lookups cover
 every application now, not just older ones.
 
+## Data safety and backups
+
+Render wipes the local disk on every deploy, so the database is mirrored to
+GitHub. Backups go to a **separate branch** (`data-backup` by default) so autosave
+commits never trigger a Render auto-deploy of `main` — a deploy landing mid-save
+used to restart the service with an older copy of the database.
+
+- The branch is created from `main` automatically the first time a backup runs.
+- On boot, the backup is **merged** into the local file by application ID and
+  ticket/report/account id. A stale copy can only add records, never delete them.
+- Every backup **reads the branch and merges before writing**, so even if the
+  boot restore timed out, a save cannot overwrite recent applications.
+- New applications and decisions are pushed immediately. Routine saves are
+  debounced (5 minutes) so GitHub is not hammered.
+- If GitHub is unreachable at boot, the site still starts and keeps retrying the
+  restore in the background. Backups are skipped until a read succeeds, so the
+  remote copy is never blindly overwritten.
+
+Env vars:
+
+- `GITHUB_TOKEN` — fine-grained token with **Contents: Read and write** on this
+  repo; without it the site runs locally but nothing is backed up
+- `GITHUB_REPO` — `owner/repo` to back up to (defaults to this repo)
+- `GITHUB_DATA_BRANCH` — backup branch name (default `data-backup`)
+- `GITHUB_BACKUP_INTERVAL_MS` — routine autosave debounce (default `300000`, min `30000`)
+- `GITHUB_API_BASE` — API base, for tests only (default `https://api.github.com`)
+
 Run the local regression test with:
 
 ```bash
 npm run test:roles
 ```
+
+It also covers the data-safety paths: boot merge, backup-only records surviving
+an autosave, and two approvals clicked at the same time.
 
 ## Discord ticket alerts (optional)
 New tickets and ticket replies ping you in Discord:

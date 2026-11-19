@@ -31,7 +31,18 @@ const GH_REPO = /^[\w.-]+\/[\w.-]+$/.test(RAW_REPO)
   ? RAW_REPO : 'testacc31222-netizen/wigglesworth-moderator-apps';
 if (GH_REPO !== RAW_REPO) console.error('Bad GITHUB_REPO value, using default repo');
 const GH_BRANCH = process.env.GITHUB_BRANCH || 'main';
+// Data backups go on their own branch so autosave commits never trigger a
+// Render auto-deploy of `main`. Every deploy wipes the local disk, and a
+// deploy landing in the middle of a save used to lose the newest applications.
+const GH_DATA_BRANCH = (process.env.GITHUB_DATA_BRANCH || 'data-backup')
+  .trim().replace(/[^A-Za-z0-9._-]/g, '-') || 'data-backup';
 const GH_PATH = 'data.live.json';
+// Overridable so tests can point at a local mock instead of github.com.
+const GITHUB_API_BASE = (process.env.GITHUB_API_BASE || 'https://api.github.com').replace(/\/$/, '');
+// Routine autosaves are debounced. New applications and decisions push right
+// away so the newest data is never sitting only on Render's ephemeral disk.
+const GH_BACKUP_INTERVAL_MS = Math.max(30_000,
+  Number(process.env.GITHUB_BACKUP_INTERVAL_MS) || 5 * 60 * 1000);
 // Teaser uploads land in the countdown repo so the static site can serve them.
 const GH_CD_REPO = process.env.GITHUB_COUNTDOWN_REPO || 'testacc31222-netizen/wigglesworth-countdown';
 const EVIDENCE_DIR = path.join(__dirname, 'evidence');
@@ -318,30 +329,105 @@ async function announceAcceptance(sub, { force = false } = {}) {
 
 let ghPushBusy = false;
 let ghPushQueued = false;
-// Serialized autosave: overlapping saves queue up instead of racing each other
-// (racing writes used to fail silently and could resurrect old data on restart).
+let ghPushTimer = null;
+let ghPushLastAt = 0;
+const GH_HEADERS = () => ({
+  'User-Agent': 'wigglesworth-apps',
+  Authorization: `Bearer ${GH_TOKEN}`,
+  Accept: 'application/vnd.github+json',
+});
+
+// The backup branch is created from `main` the first time a backup runs, so no
+// manual setup is needed. Pushing there keeps `main` (and Render auto-deploy)
+// untouched.
+async function ensureDataBranch() {
+  if (GH_DATA_BRANCH === GH_BRANCH) return;
+  const base = `${GITHUB_API_BASE}/repos/${GH_REPO}`;
+  const H = GH_HEADERS();
+  try {
+    const head = await fetch(`${base}/branches/${GH_DATA_BRANCH}`, { headers: H });
+    if (head.ok) return;
+    if (head.status !== 404) { console.error('gh data branch check failed', head.status); return; }
+    const ref = await fetch(`${base}/git/ref/heads/${GH_BRANCH}`, { headers: H });
+    if (!ref.ok) { console.error('gh base branch read failed', ref.status); return; }
+    const sha = (await ref.json()).object.sha;
+    const made = await fetch(`${base}/git/refs`, {
+      method: 'POST', headers: { ...H, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ref: `refs/heads/${GH_DATA_BRANCH}`, sha }),
+    });
+    if (made.ok) console.log(`Created GitHub data branch ${GH_DATA_BRANCH}`);
+    else if (made.status !== 422) console.error('gh data branch create failed', made.status);
+  } catch (e) { console.error('gh data branch error', e.message); }
+}
+
+// Read one backup copy. Returns null when the file is not there yet.
+async function readGitHubData(branch) {
+  const api = `${GITHUB_API_BASE}/repos/${GH_REPO}/contents/${GH_PATH}?ref=${encodeURIComponent(branch)}`;
+  const r = await fetch(api, { headers: GH_HEADERS(), signal: AbortSignal.timeout(12000) });
+  if (r.status === 404) return { missing: true, sha: null, data: null };
+  if (!r.ok) throw new Error('GitHub data read HTTP ' + r.status);
+  const file = await r.json();
+  const sha = file.sha || null;
+  let text = null;
+  if (file.encoding === 'base64' && typeof file.content === 'string' && file.content) {
+    text = Buffer.from(file.content.replace(/\s/g, ''), 'base64').toString('utf8');
+  } else {
+    // The JSON form of the contents API stops returning content at 1 MB, and
+    // the database is already larger than that. The raw form handles 100 MB.
+    const raw = await fetch(api, {
+      headers: { ...GH_HEADERS(), Accept: 'application/vnd.github.raw+json' },
+      signal: AbortSignal.timeout(20000),
+    });
+    if (!raw.ok) throw new Error('GitHub data download HTTP ' + raw.status);
+    text = await raw.text();
+  }
+  if (!text) throw new Error('GitHub data backup invalid');
+  return { missing: false, sha, data: JSON.parse(text) };
+}
+
+// Serialized autosave. Every push merges with what is already on GitHub first,
+// so a stale local copy can add records to the backup but can never delete
+// them. Racing writes used to silently drop whole applications.
 async function pushToGitHub() {
   if (!GH_TOKEN) return;
   if (ghPushBusy) { ghPushQueued = true; return; }
   ghPushBusy = true;
   try {
-    const api = `https://api.github.com/repos/${GH_REPO}/contents/${GH_PATH}`;
-    const H = { 'User-Agent': 'wigglesworth-apps', Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json' };
-    let sha = null;
+    await ensureDataBranch();
+    const api = `${GITHUB_API_BASE}/repos/${GH_REPO}/contents/${GH_PATH}`;
+    const H = GH_HEADERS();
     for (let attempt = 0; attempt < 3; attempt++) {
+      let sha = null;
+      let remote = null;
       try {
-        const g = await fetch(`${api}?ref=${GH_BRANCH}`, { headers: H });
-        if (g.ok) sha = (await g.json()).sha;
-        else if (g.status !== 404) { console.error('gh read failed', g.status); return; }
-      } catch (e) { console.error('gh read error', e.message); return; }
-      const content = fs.readFileSync(DATA_FILE, 'utf8');
+        const g = await readGitHubData(GH_DATA_BRANCH);
+        let source = g;
+        // First run on a brand new branch: start from the `main` copy so no
+        // history is dropped. It is copied into the new branch, so the PUT
+        // must not reuse main's file sha.
+        if (g.missing && GH_DATA_BRANCH !== GH_BRANCH) {
+          const fb = await readGitHubData(GH_BRANCH).catch(() => null);
+          if (fb && !fb.missing) source = { missing: true, sha: null, data: fb.data };
+        }
+        sha = source.missing ? null : source.sha;
+        remote = source.data;
+      } catch (e) {
+        // Never write blind after a failed read: that is how recent data dies.
+        console.error('gh read error', e.message);
+        return;
+      }
+      if (sha && !remote) { console.error('gh backup unreadable, refusing to overwrite'); return; }
+      const local = loadDB();
+      const merged = remote ? mergeDatabases(remote, local) : local;
+      const content = JSON.stringify(merged, null, 2);
       if (Buffer.byteLength(content) > 40_000_000) { console.error('gh backup too large, skip'); return; }
       const put = await fetch(api, { method: 'PUT', headers: { ...H, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: 'autosave site data', content: Buffer.from(content).toString('base64'), sha: sha || undefined, branch: GH_BRANCH }) });
-      if (put.ok) return;
+        body: JSON.stringify({ message: 'autosave site data', content: Buffer.from(content).toString('base64'),
+          sha: sha || undefined, branch: GH_DATA_BRANCH }) });
+      if (put.ok) { ghPushLastAt = Date.now(); return; }
       // 409/422 mean the branch moved while we were writing: refetch the sha,
       // re-read the file (it always holds the newest state) and try again.
-      if (put.status === 409 || put.status === 422) { sha = null; continue; }
+      if (put.status === 409 || put.status === 422) continue;
       console.error('gh backup failed', put.status);
       return;
     }
@@ -351,6 +437,24 @@ async function pushToGitHub() {
     ghPushBusy = false;
     if (ghPushQueued) { ghPushQueued = false; pushToGitHub().catch(e => console.error('gh backup error', e.message)); }
   }
+}
+
+// immediate=true is used for new applications and decisions, so the newest
+// data never waits for a debounce window. Routine saves are throttled.
+function scheduleGitHubBackup(immediate = false) {
+  if (!GH_TOKEN) return;
+  if (immediate) {
+    if (ghPushTimer) { clearTimeout(ghPushTimer); ghPushTimer = null; }
+    pushToGitHub().catch(e => console.error('gh backup error', e.message));
+    return;
+  }
+  if (ghPushTimer) return;
+  const wait = Math.max(5000, GH_BACKUP_INTERVAL_MS - (Date.now() - ghPushLastAt));
+  ghPushTimer = setTimeout(() => {
+    ghPushTimer = null;
+    pushToGitHub().catch(e => console.error('gh backup error', e.message));
+  }, wait);
+  if (ghPushTimer.unref) ghPushTimer.unref();
 }
 const ENV_EDIT_CODE = process.env.EDIT_CODE || '';
 
@@ -565,15 +669,28 @@ const DEFAULT_CONFIG = {
   applicationTypes: JSON.parse(JSON.stringify(DEFAULT_TYPES)),
 };
 
+// One shared in-memory database. Before this, every request parsed its own
+// copy of the file and then wrote that whole copy back after a Discord/email
+// await — two approvals at once meant the second write erased the first.
+let cachedDB = null;
+let dbLoaded = false;
+function emptyDB() {
+  return { config: structuredClone(DEFAULT_CONFIG), submissions: [], tickets: [], reports: [],
+    audit: [], accounts: [], loginCodes: [], outbox: [] };
+}
 function loadDB() {
-  let db;
-  try {
-    const raw = fs.readFileSync(DATA_FILE, 'utf8');
-    db = JSON.parse(raw);
-  } catch {
-    db = null;
-  }
-  if (!db || typeof db !== 'object') return { config: structuredClone(DEFAULT_CONFIG), submissions: [], tickets: [], reports: [], audit: [], accounts: [], loginCodes: [], outbox: [] };
+  if (dbLoaded) return cachedDB;
+  let db = null;
+  try { db = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); } catch {}
+  db = normalizeDB(db);
+  cachedDB = db;
+  dbLoaded = true;
+  return db;
+}
+// Fixups for DBs saved before these fields existed. Also applied after a merge
+// so a restored config always has the current question set and defaults.
+function normalizeDB(db) {
+  if (!db || typeof db !== 'object') db = emptyDB();
   if (!db.config || typeof db.config !== 'object') db.config = structuredClone(DEFAULT_CONFIG);
   if (!Array.isArray(db.submissions)) db.submissions = [];
   if (!Array.isArray(db.accounts)) db.accounts = [];
@@ -659,12 +776,106 @@ function loadDB() {
   }
   return db;
 }
-function saveDB(db) {
+function writeDBFile(db) {
   const tmp = DATA_FILE + '.tmp';
   fs.writeFileSync(tmp, JSON.stringify(db, null, 2));
   fs.renameSync(tmp, DATA_FILE);
+}
+function saveDB(db, opts = {}) {
+  // Cache first: even if the disk write fails, the running instance keeps the
+  // mutation instead of falling back to an older copy for the next request.
+  cachedDB = db;
+  dbLoaded = true;
+  writeDBFile(db);
   // persist off the ephemeral disk; never fail the request over it
-  if (GH_TOKEN) pushToGitHub().catch(e => console.error('gh backup error', e.message));
+  scheduleGitHubBackup(opts.immediate === true);
+}
+
+// --- merging two database snapshots ----------------------------------------
+// Restoring or backing up must only ever ADD records. A newer backup and a
+// stale local file are unioned by id, so an old copy cannot delete a recent
+// application and a recent decision cannot be reverted to "pending".
+function mergeKey(item, field) {
+  return String((item && item[field]) || '').trim().toUpperCase();
+}
+function recordVersion(item) {
+  if (!item || typeof item !== 'object') return 0;
+  for (const k of ['updatedAt', 'statusChangedAt', 'decidedAt', 'sentAt',
+    'roleAssignedAt', 'acceptAnnouncedAt', 'aiSummaryAt']) {
+    const t = Date.parse(item[k] || '');
+    if (t) return t;
+  }
+  return Date.parse(item.date || '') || 0;
+}
+function decisionRank(status) {
+  return status === 'approved' || status === 'denied' ? 2 : status === 'pending' ? 1 : 0;
+}
+function mergeRecord(a, b) {
+  if (!a) return b;
+  if (!b) return a;
+  const newer = recordVersion(a) >= recordVersion(b) ? a : b;
+  const older = newer === a ? b : a;
+  const out = { ...older, ...newer };
+  if (decisionRank(older.status) > decisionRank(out.status)) out.status = older.status;
+  // One-off values that an older copy legitimately lacks.
+  for (const k of ['adminNote', 'email', 'discordId', 'roleAssignedAt', 'acceptAnnouncedAt',
+    'acceptAnnounceError', 'aiSummary', 'aiSummaryAt', 'notifiedStatus']) {
+    if (!out[k] && older[k]) out[k] = older[k];
+  }
+  return out;
+}
+function mergeById(remote, local, field) {
+  const map = new Map();
+  const keyless = [];
+  for (const item of [...(local || []), ...(remote || [])]) {
+    if (!item || typeof item !== 'object') continue;
+    const k = mergeKey(item, field);
+    if (!k) { keyless.push(item); continue; }
+    map.set(k, mergeRecord(map.get(k), item));
+  }
+  return [...keyless, ...map.values()];
+}
+function mergeOutbox(remote, local) {
+  const out = mergeById(remote, local, 'id');
+  for (const m of out) {
+    const copies = [...(local || []), ...(remote || [])].filter(x => x && x.id === m.id);
+    const sent = copies.find(x => x.status === 'sent');
+    if (sent) { m.status = 'sent'; if (sent.sentAt) m.sentAt = sent.sentAt; }
+  }
+  return out;
+}
+function mergeConfig(remote, local) {
+  const r = remote && typeof remote === 'object' ? remote : null;
+  const l = local && typeof local === 'object' ? local : null;
+  if (!r) return l || {};
+  if (!l) return r;
+  const rv = Date.parse(r.updatedAt || '') || 0;
+  const lv = Date.parse(l.updatedAt || '') || 0;
+  const out = lv > rv ? { ...r, ...l } : { ...l, ...r };
+  if (!out.editCode) out.editCode = l.editCode || r.editCode;
+  return out;
+}
+function sortSubmissions(list) {
+  return list.slice()
+    .sort((a, b) => (Date.parse(a.date) || 0) - (Date.parse(b.date) || 0))
+    .slice(-5000);
+}
+function mergeDatabases(remote, local) {
+  const r = remote && typeof remote === 'object' ? remote : {};
+  const l = local && typeof local === 'object' ? local : {};
+  return {
+    ...l,
+    ...r,
+    config: mergeConfig(r.config, l.config),
+    submissions: sortSubmissions(mergeById(r.submissions, l.submissions, 'appId')),
+    accounts: mergeById(r.accounts, l.accounts, 'id'),
+    tickets: mergeById(r.tickets, l.tickets, 'id'),
+    reports: mergeById(r.reports, l.reports, 'id'),
+    outbox: mergeOutbox(r.outbox, l.outbox),
+    // Codes are short-lived and belong to the instance that issued them.
+    loginCodes: (l.loginCodes && l.loginCodes.length) ? l.loginCodes : (r.loginCodes || []),
+    audit: [...(l.audit || []), ...(r.audit || [])].slice(0, 100),
+  };
 }
 function genId(prefix) {
   const c = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -709,7 +920,7 @@ function validReportId(id) {
   return /^RPT-[A-Z2-9]{6}$/.test(String(id || '').toUpperCase());
 }
 async function githubPutFile(repo, fpath, buf, message) {
-  const api = `https://api.github.com/repos/${repo}/contents/${fpath}`;
+  const api = `${GITHUB_API_BASE}/repos/${repo}/contents/${fpath}`;
   const H = { 'User-Agent': 'wigglesworth-apps', Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json' };
   try {
     const r = await fetch(api, { method: 'PUT', headers: { ...H, 'Content-Type': 'application/json' },
@@ -1241,7 +1452,7 @@ app.post('/api/applications', submitLimit, (req, res) => {
   db.submissions.push(entry);
   if (db.submissions.length > 5000) db.submissions = db.submissions.slice(-5000);
   queueReceiptEmail(db, entry);
-  saveDB(db);
+  saveDB(db, { immediate: true });
   if (mailConfigured()) flushOutbox().catch(e => console.error('outbox error', e.message));
   res.json({
     appId: entry.appId, type: entry.type, successMessage: t.successMessage || '',
@@ -1687,9 +1898,10 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
     }),
   };
   if (ENV_EDIT_CODE) out.editCode = db.config.editCode;
+  out.updatedAt = new Date().toISOString();
   db.config = out;
   audit(db, 'config_saved', '', req);
-  saveDB(db);
+  saveDB(db, { immediate: true });
   res.json({ ok: true });
 });
 
@@ -1729,6 +1941,7 @@ app.post('/api/admin/applications/:id/decision', aiLimit, async (req, res) => {
     if (!note) return res.status(502).json({ error: 'AI unavailable' });
     s.status = decision;
     s.adminNote = note;
+    s.updatedAt = new Date().toISOString();
     let role = null;
     let announce = null;
     if (decision === 'approved') {
@@ -1741,7 +1954,7 @@ app.post('/api/admin/applications/:id/decision', aiLimit, async (req, res) => {
     }
     const emailed = queueDecisionEmail(db, s);
     audit(db, 'ai_' + decision, s.appId, req);
-    saveDB(db);
+    saveDB(db, { immediate: true });
     if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
     res.json({ ok: true, emailed, mailConfigured: mailConfigured(), role, announce });
   } catch (e) { console.error('ai decision error', e.message); res.status(502).json({ error: 'AI unavailable' }); }
@@ -1840,8 +2053,9 @@ app.post('/api/admin/applications/:id/status', adminLimit, async (req, res) => {
   if (s.status !== before && (s.status === 'approved' || s.status === 'denied')) {
     emailed = queueDecisionEmail(db, s);
   }
+  s.updatedAt = new Date().toISOString();
   audit(db, 'status_' + s.status, s.appId, req);
-  saveDB(db);
+  saveDB(db, { immediate: true });
   if (emailed) flushOutbox().catch(e => console.error('outbox error', e.message));
   res.json({ ok: true, emailed, mailConfigured: mailConfigured(), role, announce });
 });
@@ -1867,7 +2081,8 @@ app.post('/api/admin/applications/:id/role', adminLimit, async (req, res) => {
     console.error('accept announce error', e.message);
     return { posted: false, error: e.message };
   });
-  saveDB(db);
+  s.updatedAt = new Date().toISOString();
+  saveDB(db, { immediate: true });
   res.json({ ok: true, role, announce });
 });
 
@@ -1953,7 +2168,7 @@ app.post('/api/admin/restore', adminLimit, express.json({ limit: '25mb' }), (req
       .slice(-5000);
   }
   audit(db, 'restored', String(db.submissions.length), req);
-  saveDB(db);
+  saveDB(db, { immediate: true });
   res.json({ ok: true, submissions: db.submissions.length });
 });
 
@@ -1963,7 +2178,7 @@ app.get('/api/admin/sync', adminLimit, (req, res) => {
   const db = loadDB();
   if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   res.json({
-    github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH,
+    github: !!GH_TOKEN, repo: GH_REPO, branch: GH_BRANCH, dataBranch: GH_DATA_BRANCH,
     discord: !!DISCORD_WEBHOOK_URL, ai: !!AI_API_KEY, mail: mailStats(db),
   });
 });
@@ -2019,7 +2234,7 @@ app.post('/api/admin/upload-video', uploadLimit, express.raw({ type: ['video/*',
   if (!GH_TOKEN) return res.status(400).json({ error: 'GitHub sync not configured' });
   const name = 'vids/' + Date.now().toString(36) + '-' + crypto.randomInt(46656).toString(36) + '.' + ext;
   try {
-    const api = `https://api.github.com/repos/${GH_CD_REPO}/contents/${name}`;
+    const api = `${GITHUB_API_BASE}/repos/${GH_CD_REPO}/contents/${name}`;
     const H = { 'User-Agent': 'wigglesworth-apps', Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json' };
     const put = await fetch(api, { method: 'PUT', headers: { ...H, 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: 'upload teaser ' + name, content: buf.toString('base64'), branch: GH_BRANCH }) });
@@ -2121,10 +2336,10 @@ app.delete('/api/admin/reports/:id', adminLimit, async (req, res) => {
       if (!/^evidence\/ev-[a-z0-9-]+\.(png|jpg|gif|webp|mp4|webm)$/.test(fp)) continue;
       try {
         const H = { 'User-Agent': 'wigglesworth-apps', Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github+json' };
-        const g = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${fp}?ref=${GH_BRANCH}`, { headers: H });
+        const g = await fetch(`${GITHUB_API_BASE}/repos/${GH_REPO}/contents/${fp}?ref=${GH_BRANCH}`, { headers: H });
         if (!g.ok) continue;
         const sha = (await g.json()).sha;
-        await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${fp}`, { method: 'DELETE',
+        await fetch(`${GITHUB_API_BASE}/repos/${GH_REPO}/contents/${fp}`, { method: 'DELETE',
           headers: { ...H, 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: 'remove report evidence ' + fp, sha, branch: GH_BRANCH }) });
       } catch (e) { console.error('evidence delete error', e.message); }
@@ -2161,39 +2376,78 @@ app.post('/api/clientlog', diagLimit, (req, res) => {
   res.json({ ok: true });
 });
 
-// Render's local filesystem is ephemeral. Restore the newest backed-up state
-// before serving requests, otherwise each deploy can reset queued/sent counts
-// to the older database bundled in the repository deployment.
+// Render's local filesystem is ephemeral, so boot pulls the GitHub backup.
+// The backup is MERGED into the local copy, never pasted over it: whichever
+// side is stale can then only add records, never delete recent applications.
+// A slow/failed GitHub read is retried in the background — and pushes refuse
+// to run while a backup cannot be read, so a stale file cannot clobber it.
+let hydrateRetryTimer = null;
 async function hydrateProductionData() {
-  if (!GH_TOKEN || process.env.PREVIEW_MODE === '1') return;
-  const endpoint = `https://api.github.com/repos/${GH_REPO}/contents/${GH_PATH}?ref=${encodeURIComponent(GH_BRANCH)}`;
-  const response = await fetch(endpoint, { headers: {
-    'User-Agent': 'wigglesworth-apps',
-    Authorization: `Bearer ${GH_TOKEN}`,
-    Accept: 'application/vnd.github+json',
-  }, signal: AbortSignal.timeout(15000) });
-  if (!response.ok) throw new Error('GitHub data restore HTTP ' + response.status);
-  const file = await response.json();
-  if (file.encoding !== 'base64' || typeof file.content !== 'string') throw new Error('GitHub data backup invalid');
-  const decoded = Buffer.from(file.content.replace(/\s/g, ''), 'base64').toString('utf8');
-  const restored = JSON.parse(decoded);
-  if (!restored || typeof restored !== 'object' ||
-      !Array.isArray(restored.submissions) || !Array.isArray(restored.outbox) ||
-      !restored.config || typeof restored.config !== 'object') {
+  if (!GH_TOKEN || process.env.PREVIEW_MODE === '1') return { skipped: true, added: 0 };
+  let source = '';
+  let remote = null;
+  const primary = await readGitHubData(GH_DATA_BRANCH);
+  if (!primary.missing && primary.data) { remote = primary.data; source = GH_DATA_BRANCH; }
+  if (!remote) {
+    // First boot after switching to the backup branch: fall back to `main`.
+    const fallback = await readGitHubData(GH_BRANCH);
+    if (!fallback.missing && fallback.data) { remote = fallback.data; source = GH_BRANCH; }
+  }
+  if (!remote) {
+    console.log('No GitHub data backup found yet; starting from the local file');
+    return { skipped: true, added: 0 };
+  }
+  if (!remote || typeof remote !== 'object'
+      || !Array.isArray(remote.submissions)
+      || !remote.config || typeof remote.config !== 'object') {
     throw new Error('GitHub database backup has unexpected shape');
   }
-  const temp = DATA_FILE + '.startup.tmp';
-  fs.writeFileSync(temp, decoded);
-  fs.renameSync(temp, DATA_FILE);
-  console.log('Restored application data from GitHub backup before accepting requests');
+  const local = loadDB();
+  const before = (local.submissions || []).length;
+  const merged = normalizeDB(mergeDatabases(remote, local));
+  writeDBFile(merged);
+  cachedDB = merged;
+  dbLoaded = true;
+  const added = merged.submissions.length - before;
+  // Applications that exist here but not in the backup also need a push, or
+  // the next restart would only recover them again from this ephemeral disk.
+  const remoteIds = new Set((remote.submissions || []).map(s => mergeKey(s, 'appId')));
+  const onlyLocal = (local.submissions || []).filter(s => {
+    const k = mergeKey(s, 'appId');
+    return k && !remoteIds.has(k);
+  }).length;
+  console.log(`Restored application data from GitHub backup (${source}): `
+    + `${merged.submissions.length} applications`
+    + (added > 0 ? `, ${added} recovered from the backup` : '')
+    + (onlyLocal > 0 ? `, ${onlyLocal} backed up now` : ''));
+  if (added > 0 || onlyLocal > 0) scheduleGitHubBackup(true);
+  return { skipped: false, added, onlyLocal };
+}
+function scheduleHydrateRetry(delay = 20_000) {
+  if (hydrateRetryTimer) return;
+  hydrateRetryTimer = setTimeout(async () => {
+    hydrateRetryTimer = null;
+    try {
+      await hydrateProductionData();
+      console.log('GitHub database restore recovered after a retry');
+    } catch (error) {
+      console.error('GitHub database restore retry failed:', error.message);
+      scheduleHydrateRetry(Math.min(delay * 2, 5 * 60 * 1000));
+    }
+  }, delay);
+  if (hydrateRetryTimer.unref) hydrateRetryTimer.unref();
 }
 async function startServer() {
   try { await hydrateProductionData(); }
   catch (error) {
     console.error('GitHub database restore unsuccessful; using local file:', error.message);
+    scheduleHydrateRetry();
   }
   app.listen(PORT, HOST, () => {
   console.log(`Moderator site on http://${HOST}:${PORT} (bound to ${HOST} only — home IP not exposed)`);
+  console.log(`Data backups: ${GH_TOKEN
+    ? `ON (branch ${GH_DATA_BRANCH}, debounce ${Math.round(GH_BACKUP_INTERVAL_MS / 1000)}s)`
+    : 'OFF (set GITHUB_TOKEN)'}`);
   console.log(`Discord ticket alerts: ${DISCORD_WEBHOOK_URL ? 'ON' : 'OFF (set DISCORD_WEBHOOK_URL)'}`);
   console.log(`Discord role sync: ${discordRoleConfigured()
     ? 'ON (guild ' + DISCORD_GUILD_ID + ')'

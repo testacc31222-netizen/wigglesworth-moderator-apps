@@ -1,7 +1,7 @@
 let config = null;
 let publicCopyTargets = [];
 let account = null;
-const BUILD = '20261117a';
+const BUILD = '20261118a';
 const DEFAULT_ABOUT = {
   eyebrow:'About', titleA:'Steward the world', titleB:'we build together.',
   lede:'The best communities are made by people who show up with care, judgment, and imagination. Find the work that feels like yours.',
