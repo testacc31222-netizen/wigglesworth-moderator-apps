@@ -5320,6 +5320,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T22:44:48.170Z",
+      "act": "account_recover",
+      "id": "CC-42FRXN",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T22:31:18.841Z",
       "act": "account_link",
       "id": "CC-KSUYHK",
@@ -5911,12 +5917,6 @@
       "t": "2026-11-14T14:48:00.655Z",
       "act": "account_login",
       "id": "acc_c9ae6553eba5ea3121e78d05",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:26:43.740Z",
-      "act": "account_login",
-      "id": "acc_6f4cdda9c2a8413e10e97599",
       "by": ""
     }
   ],
@@ -11783,11 +11783,11 @@
       "kind": "receipt",
       "appId": "CC-42FRXN",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T22:43:08.797Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T22:43:10.355Z"
     }
   ]
 }
