@@ -10497,11 +10497,11 @@
       "kind": "receipt",
       "appId": "MOD-6YZ6VL",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T01:26:35.009Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T01:26:36.765Z"
     }
   ]
 }
