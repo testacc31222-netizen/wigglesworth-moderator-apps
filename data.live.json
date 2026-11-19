@@ -4096,8 +4096,8 @@
       "appId": "MOD-8VDXA3",
       "type": "moderator",
       "date": "2026-11-19T02:08:30.666Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "approved",
+      "adminNote": "Hi Koko,\n\nCongratulations! Your dedication and love for the community really stood out, especially your commitment to enforcing rules and encouraging others to do the same. We’re excited to have you join the moderation team. A staff member will reach out soon with next steps. Welcome aboard!",
       "email": "koenbrandenburg5@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_53087f64419ee426ab622cf2",
@@ -4113,7 +4113,15 @@
       "rulebreak": "No, im a very good monkey 🙏",
       "receiptAt": "2026-11-19T02:08:30.667Z",
       "aiSummary": "Verdict: Mixed - applicant shows enthusiasm but limited experience and availability.  \n- Wants to join: Moderator  \n- Experience: Past mod roles in fan games, 66 Discord messages, 15 years old.  \n- Availability: CST, 5–6 hours per day.  \n- Watch‑outs: Young age, vague moderation plan, no specific examples of conflict resolution.",
-      "aiSummaryAt": "2026-11-19T02:39:18.299Z"
+      "aiSummaryAt": "2026-11-19T02:39:18.299Z",
+      "discordId": "1456180060662005910",
+      "roleAssignedAt": "2026-11-19T02:41:26.486Z",
+      "roleAssignedRoleIds": [
+        "1551097540227899513",
+        "1551589273264984114"
+      ],
+      "roleAssignedRoleId": "1551097540227899513",
+      "roleError": ""
     },
     {
       "appId": "MOD-496Z58",
@@ -4821,6 +4829,18 @@
   ],
   "audit": [
     {
+      "t": "2026-11-19T02:41:26.488Z",
+      "act": "ai_approved",
+      "id": "MOD-8VDXA3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-19T02:41:26.487Z",
+      "act": "role_assigned",
+      "id": "MOD-8VDXA3",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T02:39:18.299Z",
       "act": "ai_summary",
       "id": "MOD-8VDXA3",
@@ -5406,18 +5426,6 @@
       "t": "2026-11-13T23:54:00.648Z",
       "act": "account_login",
       "id": "acc_b4462de131bfbf529d3178e0",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T21:38:10.759Z",
-      "act": "account_login",
-      "id": "acc_5f0dec1645ec186ba85069bd",
-      "by": ""
-    },
-    {
-      "t": "2026-11-13T14:28:37.221Z",
-      "act": "account_login",
-      "id": "acc_a5a1a9d11aeff3b3ec3e7865",
       "by": ""
     }
   ],
@@ -10723,6 +10731,22 @@
       "error": "",
       "createdAt": "2026-11-19T02:36:16.661Z",
       "sentAt": "2026-11-19T02:36:18.107Z"
+    },
+    {
+      "id": "mail_b63116791362f9de1f",
+      "key": "MOD-8VDXA3:approved:1795056086487",
+      "to": "koenbrandenburg5@gmail.com",
+      "subject": "You are in — Wigglesworth Moderator application",
+      "text": "Hi koernthegoat1_13569,\n\nYour Moderator application (MOD-8VDXA3) has been reviewed.\n\nResult: Accepted\nNote from staff: Hi Koko,\n\nCongratulations! Your dedication and love for the community really stood out, especially your commitment to enforcing rules and encouraging others to do the same. We’re excited to have you join the moderation team. A staff member will reach out soon with next steps. Welcome aboard!\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi koernthegoat1_13569,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-8VDXA3</b>) has been reviewed.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#E6DED4\">Accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Hi Koko,<br><br>Congratulations! Your dedication and love for the community really stood out, especially your commitment to enforcing rules and encouraging others to do the same. We’re excited to have you join the moderation team. A staff member will reach out soon with next steps. Welcome aboard!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-8VDXA3</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-8VDXA3",
+      "decisionStatus": "approved",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-19T02:41:26.488Z",
+      "sentAt": ""
     }
   ]
 }
