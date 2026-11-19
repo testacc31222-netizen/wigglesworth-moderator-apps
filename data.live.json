@@ -11511,11 +11511,11 @@
       "kind": "receipt",
       "appId": "MOD-6YRNTW",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T13:42:14.776Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T13:42:16.455Z"
     }
   ]
 }
