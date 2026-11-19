@@ -11586,11 +11586,11 @@
       "kind": "receipt",
       "appId": "MOD-H33UJJ",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-19T16:02:27.390Z",
-      "sentAt": ""
+      "sentAt": "2026-11-19T16:02:29.142Z"
     }
   ]
 }
