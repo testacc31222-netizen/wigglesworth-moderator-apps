@@ -11858,11 +11858,11 @@
       "kind": "receipt",
       "appId": "MOD-HSFVAL",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-20T01:56:54.512Z",
-      "sentAt": ""
+      "sentAt": "2026-11-20T01:56:55.922Z"
     }
   ]
 }
