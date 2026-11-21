@@ -5425,6 +5425,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-21T22:42:30.313Z",
+      "act": "account_login",
+      "id": "acc_8a1da17ee17a1c94ef7b4c48",
+      "by": ""
+    },
+    {
       "t": "2026-11-21T22:12:11.735Z",
       "act": "account_login",
       "id": "acc_e943131590ead625e0abc610",
@@ -6016,12 +6022,6 @@
       "t": "2026-11-14T07:26:43.740Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
@@ -6982,6 +6982,12 @@
       "email": "lucianpenuelaz@gmail.com",
       "createdAt": "2026-11-21T22:12:11.735Z",
       "emailUpdates": true
+    },
+    {
+      "id": "acc_8a1da17ee17a1c94ef7b4c48",
+      "email": "rypearson3@gmail.com",
+      "createdAt": "2026-11-21T22:42:30.313Z",
+      "emailUpdates": true
     }
   ],
   "loginCodes": [
@@ -6991,13 +6997,6 @@
       "exp": 1795301172099,
       "tries": 0,
       "created": 1795300572099
-    },
-    {
-      "email": "rypearson3@gmail.com",
-      "hash": "8a1db187689ef825b6da20db552538a9b00a785fbb6c30cb9ce8b3436e573310",
-      "exp": 1795301491624,
-      "tries": 0,
-      "created": 1795300891624
     }
   ],
   "outbox": [
