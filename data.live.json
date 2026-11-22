@@ -180,7 +180,7 @@
     ],
     "title": "WIGGLESWORTH",
     "subtitle": "Not everyone is picked..",
-    "announcement": "READING APPLICATIONS NOW!",
+    "announcement": "Moderator Applications will be read, and 2 are being picked, make sure to be active in the discord!!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -1003,7 +1003,8 @@
         ]
       }
     ],
-    "discordIdRemoved": true
+    "discordIdRemoved": true,
+    "updatedAt": "2026-11-22T06:26:20.777Z"
   },
   "submissions": [
     {
@@ -5488,6 +5489,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-22T06:26:20.777Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6077,12 +6084,6 @@
     },
     {
       "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T06:23:06.037Z",
       "act": "config_saved",
       "id": "",
       "by": ""
