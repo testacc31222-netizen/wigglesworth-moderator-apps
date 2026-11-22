@@ -5489,6 +5489,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-22T21:46:08.710Z",
+      "act": "account_login",
+      "id": "acc_df1b05d976bbe147f01201f3",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6078,12 +6084,6 @@
     },
     {
       "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T06:23:06.037Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -7064,6 +7064,12 @@
       "email": "jz026848@gmail.com",
       "createdAt": "2026-11-22T18:28:14.807Z",
       "emailUpdates": true
+    },
+    {
+      "id": "acc_df1b05d976bbe147f01201f3",
+      "email": "lucianogarcia0815@gmail.com",
+      "createdAt": "2026-11-22T21:46:08.710Z",
+      "emailUpdates": true
     }
   ],
   "loginCodes": [
@@ -7073,13 +7079,6 @@
       "exp": 1795384215809,
       "tries": 0,
       "created": 1795383615809
-    },
-    {
-      "email": "lucianogarcia0815@gmail.com",
-      "hash": "cb30265cbfcdd2c750fee47c6c83f27a706eddb8300f1d4fb613cae69f5e7332",
-      "exp": 1795384369052,
-      "tries": 0,
-      "created": 1795383769052
     }
   ],
   "outbox": [
