@@ -4800,7 +4800,7 @@
       "status": "pending",
       "adminNote": "",
       "email": "brooklyndilday@gmail.com",
-      "emailUpdates": true,
+      "emailUpdates": false,
       "accountId": "acc_318de374f086fa8b24a2eeb8",
       "notifiedStatus": "",
       "username": "polo",
@@ -7035,7 +7035,7 @@
       "id": "acc_318de374f086fa8b24a2eeb8",
       "email": "brooklyndilday@gmail.com",
       "createdAt": "2026-11-22T00:38:24.461Z",
-      "emailUpdates": true
+      "emailUpdates": false
     }
   ],
   "loginCodes": [
