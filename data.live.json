@@ -13100,11 +13100,11 @@
       "kind": "receipt",
       "appId": "MOD-HULFSU",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-23T22:00:08.148Z",
-      "sentAt": ""
+      "sentAt": "2026-11-23T22:00:10.079Z"
     }
   ]
 }
