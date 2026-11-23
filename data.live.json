@@ -5615,6 +5615,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-23T22:15:09.965Z",
+      "act": "account_recover",
+      "id": "MOD-CBBHQD",
+      "by": ""
+    },
+    {
       "t": "2026-11-23T22:09:49.734Z",
       "act": "config_saved",
       "id": "",
@@ -6206,12 +6212,6 @@
       "t": "2026-11-14T16:10:53.969Z",
       "act": "ticket_reply",
       "id": "TKT-D6S8YC",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T14:48:00.655Z",
-      "act": "account_login",
-      "id": "acc_c9ae6553eba5ea3121e78d05",
       "by": ""
     }
   ],
