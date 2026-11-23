@@ -4919,6 +4919,27 @@
       "scenario": "Give them a warning to stop and if continued I will give them a time out.",
       "rulebreak": "No",
       "receiptAt": "2026-11-23T19:54:29.526Z"
+    },
+    {
+      "appId": "MOD-JTWKC4",
+      "type": "moderator",
+      "date": "2026-11-23T20:24:16.723Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "uam75299@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_39a177e20e77b03b048a08ae",
+      "notifiedStatus": "",
+      "username": "Current user: Pst | Meta user: Pstbeh1ndy0u",
+      "q1795044295615": "70",
+      "discord": "Pstbeh1ndy0u",
+      "age": "14",
+      "timezone": "EST time, School days: 3-4 Hours | Weekends: 4-5 Hours.",
+      "experience": "I have made my way up to Co-Owner in a gtag copy that used to have 1k plus but now only 715 plus. (Dm me for proof)",
+      "why": "First, I want to be mod because I have a lot of experience. Second I want to be mod because I like helping people in or out of game. Lastly I want to be mod because I like the feeling of moderating people who break rules. Thats why I would like to be a mod.",
+      "scenario": "If someone was spamming in chat I would time them out for spamming because it clearly states it in the rules channel.",
+      "rulebreak": "No, I have never been banned.",
+      "receiptAt": "2026-11-23T20:24:16.724Z"
     }
   ],
   "tickets": [
@@ -13009,6 +13030,22 @@
       "error": "",
       "createdAt": "2026-11-23T19:54:29.526Z",
       "sentAt": "2026-11-23T19:54:30.825Z"
+    },
+    {
+      "id": "mail_faba8c86ac82cdc524",
+      "key": "MOD-JTWKC4:receipt",
+      "to": "uam75299@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi Pstbeh1ndy0u,\n\nYour Moderator application (MOD-JTWKC4) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi Pstbeh1ndy0u,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-JTWKC4</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-JTWKC4",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-23T20:24:16.724Z",
+      "sentAt": "2026-11-23T20:24:18.075Z"
     }
   ]
 }
