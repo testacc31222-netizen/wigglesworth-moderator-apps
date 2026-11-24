@@ -5611,9 +5611,34 @@
           "at": "2026-11-19T01:12:42.392Z"
         }
       ]
+    },
+    {
+      "id": "TKT-98WHQE",
+      "name": "Veryveryverydisc",
+      "subject": "I want to be a mod",
+      "status": "open",
+      "unread": true,
+      "email": "zombrobrandee@gmail.com",
+      "accountId": "acc_9d73429d8e7e2895b5d88b51",
+      "createdAt": "2026-11-24T05:18:40.976Z",
+      "updatedAt": "2026-11-24T05:18:40.976Z",
+      "replies": [
+        {
+          "by": "user",
+          "name": "Veryveryverydisc",
+          "text": "Can i pls be mod",
+          "at": "2026-11-24T05:18:40.976Z"
+        }
+      ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-11-24T05:17:05.576Z",
+      "act": "account_login",
+      "id": "acc_9d73429d8e7e2895b5d88b51",
+      "by": ""
+    },
     {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
@@ -6204,12 +6229,6 @@
     },
     {
       "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T06:23:06.037Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -7237,6 +7256,12 @@
       "id": "acc_ce00b1c0001c6fd7bed2f041",
       "email": "farhanhydari89@gmail.com",
       "createdAt": "2026-11-24T01:11:39.155Z",
+      "emailUpdates": true
+    },
+    {
+      "id": "acc_9d73429d8e7e2895b5d88b51",
+      "email": "zombrobrandee@gmail.com",
+      "createdAt": "2026-11-24T05:17:05.576Z",
       "emailUpdates": true
     }
   ],
@@ -13236,6 +13261,38 @@
       "error": "",
       "createdAt": "2026-11-24T01:54:42.059Z",
       "sentAt": "2026-11-24T01:54:43.572Z"
+    },
+    {
+      "id": "mail_e641f63104e7214f76",
+      "key": "signin:zombrobrandee@gmail.com:1795497386808",
+      "to": "zombrobrandee@gmail.com",
+      "subject": "Your Wigglesworth sign-in code",
+      "text": "Your Wigglesworth sign-in code is 945960.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">945960</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "signin",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-24T05:16:26.809Z",
+      "sentAt": "2026-11-24T05:16:27.987Z"
+    },
+    {
+      "id": "mail_43531ba3ec6bafbb2f",
+      "key": "ticket:TKT-98WHQE:opened",
+      "to": "zombrobrandee@gmail.com",
+      "subject": "We received your Wigglesworth support ticket [TKT-98WHQE]",
+      "text": "Hi Veryveryverydisc,\n\nYour support request has been received and a private ticket is open.\nSubject: I want to be a mod\nTicket ID: TKT-98WHQE\n\nStaff replies will be emailed to zombrobrandee@gmail.com.\nOpen your ticket: https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-98WHQE%23contact\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Ticket received</h1><p style=\"margin:0 0 14px\">Hi Veryveryverydisc,</p><p style=\"margin:0 0 18px\">Your support request has been received and a private ticket is open.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">TKT-98WHQE</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">I want to be a mod</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Staff replies will be emailed to <b style=\"color:#E6DED4\">zombrobrandee@gmail.com</b>.</p><a href=\"https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-98WHQE%23contact\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Open my ticket</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you opened a support ticket with Wigglesworth.</p></div></td></tr></table></body></html>",
+      "kind": "ticket",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-24T05:18:40.976Z",
+      "sentAt": "2026-11-24T05:18:42.389Z"
     }
   ]
 }
