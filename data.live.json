@@ -5739,6 +5739,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-24T20:45:05.893Z",
+      "act": "account_login",
+      "id": "acc_27d98cf9657c91ef7f7a1a74",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6328,12 +6334,6 @@
     },
     {
       "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T06:23:06.037Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -7379,6 +7379,12 @@
       "id": "acc_7cac30f09785d91f2b362be2",
       "email": "verycooltobibobi@gmail.com",
       "createdAt": "2026-11-24T16:35:32.113Z",
+      "emailUpdates": true
+    },
+    {
+      "id": "acc_27d98cf9657c91ef7f7a1a74",
+      "email": "phoenixfam25611@gmail.com",
+      "createdAt": "2026-11-24T20:45:05.893Z",
       "emailUpdates": true
     }
   ],
@@ -13563,6 +13569,22 @@
       "error": "",
       "createdAt": "2026-11-24T18:51:32.352Z",
       "sentAt": "2026-11-24T18:51:33.779Z"
+    },
+    {
+      "id": "mail_2b5e6a761b21c06465",
+      "key": "signin:phoenixfam25611@gmail.com:1795553071317",
+      "to": "phoenixfam25611@gmail.com",
+      "subject": "Your Wigglesworth sign-in code",
+      "text": "Your Wigglesworth sign-in code is 059004.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">059004</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "signin",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-24T20:44:31.318Z",
+      "sentAt": "2026-11-24T20:44:32.383Z"
     }
   ]
 }
