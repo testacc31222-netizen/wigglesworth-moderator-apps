@@ -13362,11 +13362,11 @@
       "kind": "receipt",
       "appId": "CC-VEXMCM",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-24T12:58:52.372Z",
-      "sentAt": ""
+      "sentAt": "2026-11-24T12:58:54.137Z"
     }
   ]
 }
