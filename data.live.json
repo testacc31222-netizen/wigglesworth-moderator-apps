@@ -13676,11 +13676,11 @@
       "kind": "receipt",
       "appId": "CC-46QKQU",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-25T00:03:53.640Z",
-      "sentAt": ""
+      "sentAt": "2026-11-25T00:03:55.310Z"
     }
   ]
 }
