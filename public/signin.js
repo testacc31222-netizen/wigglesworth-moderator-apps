@@ -81,25 +81,26 @@ function statusWord(status) {
 }
 
 function setMode(next, focusInput = true) {
-  mode = next === 'id' ? 'id' : 'email';
-  const emailTab = $('tabEmail');
-  const idTab = $('tabId');
-  const emailForm = $('emailForm');
-  const idForm = $('idForm');
-  if (!emailForm || !idForm) return;
-  emailTab.classList.toggle('active', mode === 'email');
-  idTab.classList.toggle('active', mode === 'id');
-  emailTab.setAttribute('aria-selected', mode === 'email' ? 'true' : 'false');
-  idTab.setAttribute('aria-selected', mode === 'id' ? 'true' : 'false');
-  emailTab.tabIndex = mode === 'email' ? 0 : -1;
-  idTab.tabIndex = mode === 'id' ? 0 : -1;
-  emailForm.hidden = mode !== 'email';
-  idForm.hidden = mode !== 'id';
+  mode = next === 'id' ? 'id' : next === 'staff' ? 'staff' : 'email';
+  const tabs = { email: $('tabEmail'), id: $('tabId'), staff: $('tabStaff') };
+  const forms = { email: $('emailForm'), id: $('idForm'), staff: $('staffForm') };
+  if (!forms.email || !forms.id || !forms.staff) return;
+  Object.keys(tabs).forEach(key => {
+    const tab = tabs[key];
+    if (!tab) return;
+    const on = mode === key;
+    tab.classList.toggle('active', on);
+    tab.setAttribute('aria-selected', on ? 'true' : 'false');
+    tab.tabIndex = on ? 0 : -1;
+  });
+  Object.keys(forms).forEach(key => { forms[key].hidden = mode !== key; });
   setMsg('authMsg', '');
   if (mode === 'id') {
     const e = ($('email').value || '').trim();
     if (e && !$('recEmail').value) $('recEmail').value = e;
     if (focusInput) setTimeout(() => { const el = $('recEmail'); if (el && !el.value) el.focus(); }, 30);
+  } else if (mode === 'staff') {
+    if (focusInput) setTimeout(() => { const el = $('staffUser'); if (el && !el.value) el.focus(); }, 30);
   } else {
     if (focusInput) setTimeout(() => { const el = $('email'); if (el && !$('codeStep').hidden) $('code').focus(); else if (el) el.focus(); }, 30);
   }
@@ -336,6 +337,40 @@ async function savePrefs() {
   } catch {
     setMsg('dashMsg', 'Could not reach the server.', 'err');
     $('updatesPref').checked = !on;
+  }
+}
+
+async function staffSignIn(e) {
+  e.preventDefault();
+  const username = ($('staffUser').value || '').trim().toLowerCase();
+  const password = $('staffPass').value || '';
+  if (!username || !password) {
+    setMsg('authMsg', 'Enter your username and password.', 'err');
+    (!username ? $('staffUser') : $('staffPass')).focus();
+    return;
+  }
+  const btn = $('staffBtn');
+  busy(btn, true, 'Signing in…');
+  setMsg('authMsg', 'Checking your staff account…', 'busy');
+  try {
+    const r = await fetch('/api/staff/signin', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) {
+      setMsg('authMsg', j.error || 'Wrong username or password.', 'err');
+      $('staffPass').value = '';
+      $('staffPass').focus();
+      return;
+    }
+    try { sessionStorage.setItem('staff_name', j.username || username); } catch {}
+    setMsg('authMsg', 'Signed in. Opening the staff site…', 'ok');
+    setTimeout(() => location.replace('/?staff=1'), 280);
+  } catch {
+    setMsg('authMsg', 'Could not reach the server. Try again.', 'err');
+  } finally {
+    busy(btn, false);
   }
 }
 

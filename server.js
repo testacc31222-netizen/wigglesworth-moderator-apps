@@ -510,6 +510,7 @@ app.use((req, res, next) => {
   if (req.query.staff === '1') return next();
   const db = loadDB();
   if (accountFromReq(req, db)) return next();
+  if (staffFromReq(req, db)) return next();
   const nextPath = req.originalUrl && req.originalUrl.startsWith('/') ? req.originalUrl : (pathname === '/' ? '/' : '/index.html');
   res.set('Cache-Control', 'no-store');
   return res.redirect(302, '/signin?next=' + encodeURIComponent(nextPath));
@@ -532,6 +533,7 @@ const configLimit = rateLimit({ windowMs: 60 * 1000, max: 40 });
 const accountLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, message: { error: 'Too many sign-in emails. Wait a few minutes.' } });
 const verifyLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 30, message: { error: 'Too many code attempts. Wait a few minutes.' } });
 const recoverLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 12, message: { error: 'Too many attempts. Wait a few minutes.' } });
+const staffLoginLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 15, message: { error: 'Too many staff sign-in attempts. Wait a few minutes.' } });
 const ticketLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 8, message: { error: 'Too many tickets, try again later.' } });
 // Blunt, tiny abuse filter for public text (matches stay staff-side).
 const SLURS = [/\bnigg?[ae]rs?\b/i, /\bf+ag+g+o+t+s?\b/i, /\bkike?s?\b/i, /\bch[i1]nks?\b/i, /\bspi+c+s?\b/i, /\btrann(y|ies)\b/i];
@@ -672,11 +674,50 @@ const DEFAULT_CONFIG = {
 // One shared in-memory database. Before this, every request parsed its own
 // copy of the file and then wrote that whole copy back after a Discord/email
 // await — two approvals at once meant the second write erased the first.
+// ---- staff accounts (username + password sign-in) --------------------------
+const STAFF_SESSION_DAYS = 30;
+const STAFF_MIN_PASSWORD = 8;
+function hashStaffPassword(password, saltHex) {
+  const salt = Buffer.from(saltHex, 'hex');
+  return crypto.scryptSync(String(password), salt, 64).toString('hex');
+}
+function makeStaffAccount(username, password, role = 'staff', createdBy = '') {
+  const salt = crypto.randomBytes(16).toString('hex');
+  return {
+    id: 'stf_' + crypto.randomBytes(10).toString('hex'),
+    username: String(username || '').trim().toLowerCase(),
+    role: role === 'owner' ? 'owner' : 'staff',
+    salt,
+    hash: hashStaffPassword(password, salt),
+    active: true,
+    createdAt: new Date().toISOString(),
+    createdBy: String(createdBy || ''),
+    lastLoginAt: '',
+  };
+}
+function setStaffPassword(acct, password) {
+  acct.salt = crypto.randomBytes(16).toString('hex');
+  acct.hash = hashStaffPassword(password, acct.salt);
+}
+function verifyStaffPassword(acct, password) {
+  if (!acct || !acct.salt || !acct.hash) return false;
+  let got;
+  try { got = hashStaffPassword(password, acct.salt); } catch { return false; }
+  return safeEq(got, acct.hash);
+}
+function publicStaffAccount(a) {
+  return {
+    id: a.id, username: a.username, role: a.role,
+    active: a.active !== false, createdAt: a.createdAt || '',
+    createdBy: a.createdBy || '', lastLoginAt: a.lastLoginAt || '',
+  };
+}
+
 let cachedDB = null;
 let dbLoaded = false;
 function emptyDB() {
   return { config: structuredClone(DEFAULT_CONFIG), submissions: [], tickets: [], reports: [],
-    audit: [], accounts: [], loginCodes: [], outbox: [] };
+    audit: [], accounts: [], loginCodes: [], outbox: [], staffAccounts: [] };
 }
 function loadDB() {
   if (dbLoaded) return cachedDB;
@@ -717,6 +758,16 @@ function normalizeDB(db) {
   }
   if (!Array.isArray(db.tickets)) db.tickets = [];
   if (!Array.isArray(db.reports)) db.reports = [];
+  // Staff sign-in accounts. Seeded once with the site owner so the Staff tab
+  // always has a way in. Passwords are salted-scrypt hashes, never plain text.
+  if (!Array.isArray(db.staffAccounts) || !db.staffAccounts.length) {
+    db.staffAccounts = [makeStaffAccount('khamari', 'wigglesworthrules', 'owner', 'system')];
+  }
+  for (const a of db.staffAccounts) {
+    if (typeof a.username !== 'string') a.username = '';
+    if (typeof a.role !== 'string' || !a.role) a.role = 'staff';
+    if (a.active === undefined) a.active = true;
+  }
   // fixups for DBs saved before these fields existed
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
   for (const t of db.config.applicationTypes) {
@@ -895,8 +946,9 @@ function safeEq(a, b) {
 const effectiveCode = db => ENV_EDIT_CODE || db.config.editCode;
 function isAdmin(req, db) {
   const got = req.headers['x-edit-code'];
-  if (!got) return false;
-  return safeEq(got, effectiveCode(db));
+  if (got && safeEq(got, effectiveCode(db))) return true;
+  // Staff who signed in at /signin carry a signed httpOnly cookie instead.
+  return !!staffFromReq(req, db);
 }
 function publicConfig(db) {
   const { editCode, ...rest } = db.config;
@@ -978,6 +1030,50 @@ function setAccountCookie(req, res, id) {
 }
 function clearAccountCookie(res) {
   res.clearCookie('ws_account', { path: '/' });
+}
+
+// Separate signed cookie for staff tools. It only carries the account id, so a
+// stolen cookie cannot reveal a username or password hash.
+function staffSessionKey() {
+  return crypto.createHash('sha256').update(
+    'ws-staff|' + (process.env.SESSION_SECRET || '') + '|' + GH_TOKEN + '|' + ENV_EDIT_CODE
+  ).digest();
+}
+function staffSessionSign(id, exp) {
+  const payload = id + '.' + exp;
+  return payload + '.' + crypto.createHmac('sha256', staffSessionKey()).update(payload).digest('base64url');
+}
+function staffSessionRead(req) {
+  const raw = parseCookies(req).ws_staff;
+  if (!raw) return null;
+  const bits = raw.split('.');
+  if (bits.length !== 3) return null;
+  const [id, exp, sig] = bits;
+  if (!/^stf_[a-f0-9]{16,32}$/.test(id)) return null;
+  if (!/^\d{10,16}$/.test(exp) || +exp < Date.now()) return null;
+  const want = crypto.createHmac('sha256', staffSessionKey()).update(id + '.' + exp).digest('base64url');
+  return safeEq(sig, want) ? id : null;
+}
+function setStaffCookie(req, res, id) {
+  const exp = Date.now() + STAFF_SESSION_DAYS * 86400000;
+  res.cookie('ws_staff', staffSessionSign(id, exp), {
+    httpOnly: true, sameSite: 'lax', secure: !!req.secure,
+    maxAge: STAFF_SESSION_DAYS * 86400000, path: '/',
+  });
+}
+function clearStaffCookie(res) {
+  res.clearCookie('ws_staff', { path: '/' });
+}
+function staffFromReq(req, db) {
+  const id = staffSessionRead(req);
+  if (!id) return null;
+  const acct = (db.staffAccounts || []).find(a => a.id === id && a.active !== false);
+  return acct || null;
+}
+function staffOwner(req, db) {
+  if (req.headers['x-edit-code'] && safeEq(req.headers['x-edit-code'], effectiveCode(db))) return true;
+  const acct = staffFromReq(req, db);
+  return !!(acct && acct.role === 'owner');
 }
 function sameOrigin(req) {
   const o = req.headers.origin;
@@ -1405,6 +1501,9 @@ function audit(db, act, id, req) {
   if (!Array.isArray(db.audit)) db.audit = [];
   let by = '';
   try { by = cleanStr(req && req.headers && req.headers['x-staff'], 40).replace(/[<>&"']/g, ''); } catch {}
+  if (!by && req) {
+    try { const acct = staffFromReq(req, db); if (acct) by = acct.username; } catch {}
+  }
   db.audit.unshift({ t: new Date().toISOString(), act, id: cleanStr(id, 40), by });
   if (db.audit.length > 100) db.audit = db.audit.slice(0, 100);
 }
@@ -1608,6 +1707,107 @@ app.post('/api/account/prefs', statusLimit, (req, res) => {
 app.post('/api/account/signout', (req, res) => {
   if (!sameOrigin(req)) return res.status(403).json({ error: 'Bad origin' });
   clearAccountCookie(res);
+  res.json({ ok: true });
+});
+
+// --- staff sign-in (username + password) -----------------------------------
+const STAFF_USERNAME_RE = /^[a-z0-9][a-z0-9_.-]{2,31}$/;
+function cleanUsername(v) {
+  return String(v || '').trim().toLowerCase();
+}
+app.post('/api/staff/signin', staffLoginLimit, (req, res) => {
+  if (!sameOrigin(req)) return res.status(403).json({ error: 'Bad origin' });
+  const db = loadDB();
+  const b = req.body && typeof req.body === 'object' ? req.body : {};
+  const username = cleanUsername(b.username);
+  const password = String(b.password || '');
+  if (!username || !password) return res.status(400).json({ error: 'Enter your username and password.' });
+  const acct = (db.staffAccounts || []).find(a =>
+    a.active !== false && a.username === username);
+  if (!acct || !verifyStaffPassword(acct, password)) {
+    return res.status(401).json({ error: 'Wrong username or password.' });
+  }
+  acct.lastLoginAt = new Date().toISOString();
+  audit(db, 'staff_signin', acct.id, req);
+  saveDB(db);
+  setStaffCookie(req, res, acct.id);
+  res.json({ ok: true, username: acct.username, role: acct.role });
+});
+app.post('/api/staff/signout', (req, res) => {
+  if (!sameOrigin(req)) return res.status(403).json({ error: 'Bad origin' });
+  clearStaffCookie(res);
+  res.json({ ok: true });
+});
+app.get('/api/staff/session', (req, res) => {
+  const db = loadDB();
+  const acct = staffFromReq(req, db);
+  if (!acct) return res.status(401).json({ error: 'Not signed in.' });
+  res.set('Cache-Control', 'no-store');
+  res.json({ staff: true, username: acct.username, role: acct.role });
+});
+
+// Owner-only staff management. The legacy edit code also counts as owner so the
+// existing unlock flow keeps working.
+function requireOwner(req, res, db) {
+  if (!isAdmin(req, db)) { res.status(401).json({ error: 'Sign in first.' }); return false; }
+  if (!staffOwner(req, db)) { res.status(403).json({ error: 'Only the owner can manage staff accounts.' }); return false; }
+  return true;
+}
+app.get('/api/admin/staff', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!requireOwner(req, res, db)) return;
+  res.json({ accounts: (db.staffAccounts || []).map(publicStaffAccount) });
+});
+app.post('/api/admin/staff', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!requireOwner(req, res, db)) return;
+  const b = req.body && typeof req.body === 'object' ? req.body : {};
+  const username = cleanUsername(b.username);
+  const password = String(b.password || '');
+  const role = b.role === 'owner' ? 'owner' : 'staff';
+  if (!STAFF_USERNAME_RE.test(username)) {
+    return res.status(400).json({ error: 'Username must be 3–32 characters: letters, numbers, _ . -' });
+  }
+  if (password.length < STAFF_MIN_PASSWORD) {
+    return res.status(400).json({ error: 'Password must be at least ' + STAFF_MIN_PASSWORD + ' characters.' });
+  }
+  if ((db.staffAccounts || []).some(a => a.username === username)) {
+    return res.status(409).json({ error: 'That username already exists.' });
+  }
+  const actor = staffFromReq(req, db);
+  const acct = makeStaffAccount(username, password, role, actor ? actor.username : 'owner');
+  db.staffAccounts.push(acct);
+  audit(db, 'staff_account_add', acct.username, req);
+  saveDB(db);
+  res.json({ ok: true, account: publicStaffAccount(acct) });
+});
+app.post('/api/admin/staff/:id/password', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!requireOwner(req, res, db)) return;
+  const acct = (db.staffAccounts || []).find(a => a.id === req.params.id);
+  if (!acct) return res.status(404).json({ error: 'No such staff account.' });
+  const password = String((req.body && req.body.password) || '');
+  if (password.length < STAFF_MIN_PASSWORD) {
+    return res.status(400).json({ error: 'Password must be at least ' + STAFF_MIN_PASSWORD + ' characters.' });
+  }
+  setStaffPassword(acct, password);
+  audit(db, 'staff_account_password', acct.username, req);
+  saveDB(db);
+  res.json({ ok: true, account: publicStaffAccount(acct) });
+});
+app.delete('/api/admin/staff/:id', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!requireOwner(req, res, db)) return;
+  const idx = (db.staffAccounts || []).findIndex(a => a.id === req.params.id);
+  if (idx < 0) return res.status(404).json({ error: 'No such staff account.' });
+  const target = db.staffAccounts[idx];
+  const owners = db.staffAccounts.filter(a => a.role === 'owner' && a.active !== false);
+  if (target.role === 'owner' && owners.length <= 1) {
+    return res.status(400).json({ error: 'Keep at least one owner account.' });
+  }
+  db.staffAccounts.splice(idx, 1);
+  audit(db, 'staff_account_remove', target.username, req);
+  saveDB(db);
   res.json({ ok: true });
 });
 

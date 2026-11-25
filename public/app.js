@@ -31,6 +31,7 @@ let selectedDecor = null;
 let dragState = null;
 let inlineDataUrl = '';
 let adminCache = [];
+let staffSession = null;
 
 const $ = id => document.getElementById(id);
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -583,6 +584,26 @@ async function renderApprovedPublic(){
 }
 
 // ---- editor auth ----
+async function initStaffSession(){
+  try{
+    const r = await fetch('/api/staff/session',{cache:'no-store'});
+    if(!r.ok) return;
+    const j = await r.json().catch(()=>({}));
+    if(!j || !j.staff) return;
+    staffSession = j;
+    if(j.username) sessionStorage.setItem('staff_name', j.username);
+    unlocked = true;
+    editCode = '';
+  }catch{}
+}
+function applyStaffTabVisibility(){
+  const btn = $('tabBtnStaffAccounts');
+  if(!btn) return;
+  const isOwner = !!(staffSession && staffSession.role === 'owner');
+  // The legacy edit code also unlocks owner-only tools.
+  const legacyOwner = !staffSession && !!editCode;
+  btn.style.display = (isOwner || legacyOwner) ? '' : 'none';
+}
 function openCodeModal(){
   if(unlocked){ showEditor(); return; }
   $('codeModal').style.display='flex'; $('codeError').textContent=''; $('codeInput').value='';
@@ -599,7 +620,75 @@ async function checkCode(){
     unlocked = true; closeCodeModal(); showEditor();
   }catch{ $('codeError').textContent='Wrong code.'; }
 }
+// ---- owner: staff sign-in accounts ----
+async function renderStaffAccounts(){
+  const list = $('staffAccountList');
+  if(!list) return;
+  list.innerHTML = '<p class="hint">Loading staff accounts…</p>';
+  try{
+    const r = await fetch('/api/admin/staff',{headers:headers()});
+    if(r.status === 403){ list.innerHTML = '<p class="hint">Only the owner can manage staff accounts.</p>'; return; }
+    if(!r.ok) throw 0;
+    const j = await r.json();
+    const accounts = j.accounts || [];
+    if(!accounts.length){ list.innerHTML = '<p class="hint">No staff accounts yet.</p>'; return; }
+    list.innerHTML = accounts.map(a=>{
+      const last = a.lastLoginAt ? new Date(a.lastLoginAt).toLocaleString() : 'never';
+      return `<div class="staff-account-item">`
+        + `<div><b>${esc(a.username)}</b> <span class="hint">${a.role === 'owner' ? 'Owner' : 'Staff'}${a.active === false ? ' · disabled' : ''}</span>`
+        + `<br><span class="hint">Added ${esc(String(a.createdAt || '').slice(0,10))} · last sign-in ${esc(last)}</span></div>`
+        + `<div class="row" style="margin:0"><button type="button" class="btn-small" onclick="resetStaffPassword('${esc(a.id)}')">Set password</button>`
+        + `<button type="button" class="btn-small" onclick="removeStaffAccount('${esc(a.id)}')">Remove</button></div>`
+        + `</div>`;
+    }).join('');
+  }catch{ list.innerHTML = '<p class="hint">Could not load staff accounts. Try again.</p>'; }
+}
+async function addStaffAccount(e){
+  e.preventDefault();
+  const msg = $('staffAccountMsg');
+  const username = ($('staffNewUser').value || '').trim().toLowerCase();
+  const password = $('staffNewPass').value || '';
+  const role = $('staffNewRole').value === 'owner' ? 'owner' : 'staff';
+  if(!username || password.length < 8){
+    msg.textContent = 'Enter a username and a password of at least 8 characters.';
+    return;
+  }
+  msg.textContent = 'Adding…';
+  try{
+    const r = await fetch('/api/admin/staff',{method:'POST',headers:headers(),body:JSON.stringify({username,password,role})});
+    const j = await r.json().catch(()=>({}));
+    if(!r.ok){ msg.textContent = j.error || 'Could not add that account.'; return; }
+    $('staffNewUser').value = ''; $('staffNewPass').value = ''; $('staffNewRole').value = 'staff';
+    msg.textContent = 'Added ' + (j.account ? j.account.username : username) + '. They can sign in at /signin → Staff.';
+    renderStaffAccounts();
+  }catch{ msg.textContent = 'Could not reach the server. Try again.'; }
+}
+async function resetStaffPassword(id){
+  const password = prompt('New password for this staff account (at least 8 characters):');
+  if(password === null) return;
+  const msg = $('staffAccountMsg');
+  if(password.length < 8){ msg.textContent = 'Password must be at least 8 characters.'; return; }
+  try{
+    const r = await fetch('/api/admin/staff/' + encodeURIComponent(id) + '/password',{method:'POST',headers:headers(),body:JSON.stringify({password})});
+    const j = await r.json().catch(()=>({}));
+    if(!r.ok){ msg.textContent = j.error || 'Could not change that password.'; return; }
+    msg.textContent = 'Password updated.';
+    renderStaffAccounts();
+  }catch{ msg.textContent = 'Could not reach the server. Try again.'; }
+}
+async function removeStaffAccount(id){
+  if(!confirm('Remove this staff account? They will be signed out everywhere.')) return;
+  const msg = $('staffAccountMsg');
+  try{
+    const r = await fetch('/api/admin/staff/' + encodeURIComponent(id),{method:'DELETE',headers:headers()});
+    const j = await r.json().catch(()=>({}));
+    if(!r.ok){ msg.textContent = j.error || 'Could not remove that account.'; return; }
+    msg.textContent = 'Staff account removed.';
+    renderStaffAccounts();
+  }catch{ msg.textContent = 'Could not reach the server. Try again.'; }
+}
 function switchTab(name,btn){
+  if(name === 'staffaccounts') renderStaffAccounts();
   document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.tabpane').forEach(p=>p.classList.remove('active'));
@@ -641,6 +730,7 @@ function syncImgPreviews(){
   for(const k in map){ const img=$(map[k]); if(!img) continue; if(config[k]){ img.src=config[k]; img.style.display='block'; } else img.style.display='none'; }
 }
 function showEditor(refetch=true){
+  applyStaffTabVisibility();
   if(window.StaffProfiles) window.StaffProfiles.editor();
   registerCopyDesignTargets();
   $('editor').style.display='block';
@@ -651,7 +741,8 @@ function showEditor(refetch=true){
   $('e_cdTitle').value=(config.countdown && config.countdown.title)||'';
   $('e_cdTarget').value=isoToLocal(config.countdown && config.countdown.target);
   $('e_cdVideo').value=(config.countdown && config.countdown.endVideo)||'';
-  $('e_code').value=editCode;
+  $('e_code').value = staffSession ? '' : editCode;
+  $('e_code').placeholder = staffSession ? 'Leave blank to keep the current code' : 'Set a private edit code';
   $('e_showApproved').checked=config.showApproved!==false;
   $('e_approvedTitle').value=config.approvedTitle||'';
   $('e_accent').value=config.accent||'#A62C35';
@@ -686,9 +777,14 @@ async function lockEditor(){
       collectEditor();
       const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config, (key, value) => key === 'staffProfiles' ? undefined : value)});
       if(!r.ok) throw 0;
-      editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode);
+      if(config.editCode){ editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode); }
       markClean();
     }catch{ alert('Auto-save failed — check connection, then lock again.'); return; }
+  }
+  if(staffSession){
+    try{ await fetch('/api/staff/signout',{method:'POST',headers:{'Content-Type':'application/json'}}); }catch{}
+    staffSession = null;
+    sessionStorage.removeItem('staff_name');
   }
   unlocked=false; editCode=''; sessionStorage.removeItem('mod_edit_code'); selectedDecor=null; designOn=false;
   if(window.__refT){ clearInterval(window.__refT); window.__refT = null; }
@@ -776,11 +872,11 @@ function collectEditor(){
 }
 async function saveConfig(){
   collectEditor();
-  if(!config.editCode){ alert('Edit code cannot be empty'); return; }
+  if(!config.editCode && !staffSession){ alert('Edit code cannot be empty'); return; }
   const r = await fetch('/api/admin/config',{method:'POST',headers:headers(),body:JSON.stringify(config, (key, value) => key === 'staffProfiles' ? undefined : value)});
-  if(r.status===401){ alert('Edit code changed or wrong — unlock again.'); lockEditor(); return; }
+  if(r.status===401){ alert('Your staff session expired — sign in again.'); lockEditor(); return; }
   if(!r.ok){ alert('Save failed.'); return; }
-  editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode);
+  if(config.editCode){ editCode = config.editCode; sessionStorage.setItem('mod_edit_code', config.editCode); }
   markClean();
   await fetchConfig();
   const check = config.applicationTypes.map(t=>t.id+':'+(t.open!==false?'open':'closed')).join(', ');
@@ -1664,7 +1760,9 @@ window.addEventListener('DOMContentLoaded', ()=>{
     }
   });
   fetchAccount();
-  fetchConfig().then(()=>{ pageReady = true; maybeOpenLoader(); openTicketFromUrl(); })
+  initStaffSession()
+    .then(()=>fetchConfig())
+    .then(()=>{ pageReady = true; maybeOpenLoader(); openTicketFromUrl(); })
     .catch(()=>{ pageReady = true; setTimeout(()=>sendDiag(true), 2500); maybeOpenLoader(); });
   try{
     // Clear any stale Discord-link leftovers from the old build.

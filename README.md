@@ -29,6 +29,7 @@ Everyone (phone + PC) uses the Render link. Approvals update live everywhere.
 - Server-side validation + length caps + control-char stripping on all inputs, ID format checks
 - `EDIT_CODE` env override so the code isn't stored in git; atomic `data.json` writes, 5000-sub cap
 - Applicant sessions are HMAC-signed `HttpOnly` cookies; login codes are hashed, single-use, expire in 10 minutes, and account endpoints are rate-limited + same-origin checked
+- Staff passwords are salted scrypt hashes (never stored in plain text), staff sessions are signed `HttpOnly` cookies, and staff sign-in is rate-limited + same-origin checked
 
 ## Automatic Discord roles on approval
 
@@ -170,8 +171,15 @@ email, read the staff note, and choose whether decisions are emailed.
   "Add an older application" box for the rest.
 - Staff can force a fresh decision email from Applications → **Re-email
   decision**, and see delivery state in Editor → General → **Applicant emails**.
-- Staff can reach the editor shell at `/?staff=1` and unlock it with the edit
-  code. Applicant actions still require an email account.
+- Staff sign in at `/signin` → **Staff** with a username and password. The
+  session is a signed `HttpOnly` cookie that lasts 30 days, and the editor opens
+  automatically when a staff session is present. The older `/?staff=1` edit-code
+  unlock still works as a fallback.
+- The first owner account is seeded as **khamari** / **wigglesworthrules** —
+  change it immediately in Editor → **Staff accounts** → **Set password**.
+  The owner can create staff accounts there and remove them at any time; staff
+  can edit the site and review applications, but only owners manage accounts.
+- Applicant actions still require an email account.
 
 ### Ticket replies by email
 

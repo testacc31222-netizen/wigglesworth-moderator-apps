@@ -286,6 +286,7 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
         <div class="tabs" role="tablist" aria-label="Sign in method">
           <button type="button" id="tabEmail" class="active" role="tab" aria-selected="true" onclick="setMode('email')">Email code</button>
           <button type="button" id="tabId" role="tab" aria-selected="false" onclick="setMode('id')">Application ID</button>
+          <button type="button" id="tabStaff" role="tab" aria-selected="false" onclick="setMode('staff')">Staff</button>
         </div>
 
         <div id="mailOffNotice" class="notice" hidden>
@@ -325,6 +326,21 @@ footer{max-width:1180px;border-top-color:rgba(190,177,166,.12);padding-top:21px;
           </div>
           <button class="primary" id="recoverBtn" type="submit">Sign in</button>
           <p class="hint">Use the ID from your submission confirmation. Signing in also links older applications to this account.</p>
+        </form>
+
+        <form id="staffForm" onsubmit="staffSignIn(event)" hidden novalidate>
+          <div class="field">
+            <label for="staffUser">Staff username</label>
+            <input id="staffUser" name="username" type="text" autocomplete="username"
+                   autocapitalize="none" spellcheck="false" placeholder="username" required>
+          </div>
+          <div class="field">
+            <label for="staffPass">Password</label>
+            <input id="staffPass" name="password" type="password" autocomplete="current-password"
+                   placeholder="Your password" required>
+          </div>
+          <button class="primary" id="staffBtn" type="submit">Sign in as staff</button>
+          <p class="hint">Staff accounts are created by the site owner. You stay signed in on this device for 30 days.</p>
         </form>
 
         <div id="authMsg" class="msg" role="status" aria-live="polite"></div>

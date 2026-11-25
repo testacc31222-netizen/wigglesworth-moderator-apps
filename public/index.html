@@ -270,6 +270,7 @@ body.design-on [data-dkey]{outline:1.5px dashed rgba(193,74,84,.65);outline-offs
 #dtoolbar .btn-small{padding:6px 10px;font-size:12px}
 .dflash{box-shadow:0 0 0 3px rgba(193,74,84,.8)!important}
 .type-item{background:#0d0d10;border:1px solid var(--line-soft);border-radius:6px;padding:14px;margin:12px 0}
+.staff-account-item{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:10px 0;padding:12px;border:1px solid var(--line-soft);border-radius:6px;background:#0d0d10}
 .copy-editor-group{margin:18px 0;padding:14px;border:1px solid var(--line-soft);border-radius:6px;background:#0d0d10}
 .copy-editor-group summary{cursor:pointer;color:var(--ivory);font-family:var(--font-display);font-size:14px;letter-spacing:.04em}
 .copy-editor-item{margin:12px 0;padding:10px 0;border-bottom:1px solid var(--line-soft)}
@@ -1053,6 +1054,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <button data-tab="tickets" onclick="switchTab('tickets',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="12" height="9" rx="1.5"/><path d="M2.5 5.5L8 9.5l5.5-4"/></svg>Tickets <span id="ticketBadge"></span></button>
       <button data-tab="reports" onclick="switchTab('reports',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14V2m0 1h8l-2 3 2 3H4"/></svg>Reports <span id="reportBadge"></span></button>
       <button data-tab="apps" onclick="switchTab('apps',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5L4 4h8l2 5.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><path d="M2 9.5h12"/></svg>Applications</button>
+      <button data-tab="staffaccounts" id="tabBtnStaffAccounts" style="display:none" onclick="switchTab('staffaccounts',this)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="5" r="2.5"/><path d="M3 13.5c.6-2.8 2.6-4.2 5-4.2s4.4 1.4 5 4.2"/><path d="M12.5 9.5v3M11 11h3"/></svg>Staff accounts</button>
     </div>
 
     <div class="editor-content">
@@ -1232,6 +1234,22 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       </div>
       <h3>Submissions (<span id="subCount">0</span>)</h3>
       <div id="subs"></div>
+    </div>
+
+    <div id="tab-staffaccounts" class="tabpane">
+      <h3>Staff sign-in accounts</h3>
+      <p class="hint">Create a username and password for someone you trust. They sign in at <b>/signin</b> → <b>Staff</b> and can edit the site and review applications. Only the owner can manage these accounts.</p>
+      <div id="staffAccountList"></div>
+      <form id="staffAccountForm" onsubmit="addStaffAccount(event)" style="margin-top:16px">
+        <label for="staffNewUser">New staff username</label>
+        <input id="staffNewUser" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="e.g. alex">
+        <label for="staffNewPass">Password (at least 8 characters)</label>
+        <input id="staffNewPass" type="password" autocomplete="new-password" placeholder="Choose a password">
+        <label for="staffNewRole">Access level</label>
+        <select id="staffNewRole"><option value="staff">Staff — edit site + review applications</option><option value="owner">Owner — also manage staff accounts</option></select>
+        <div class="row"><button type="submit" class="btn-confirm">Add staff account</button></div>
+      </form>
+      <p id="staffAccountMsg" class="hint" role="status" aria-live="polite"></p>
     </div>
 
     <div class="row">
