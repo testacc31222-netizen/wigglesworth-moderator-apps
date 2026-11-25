@@ -13960,5 +13960,18 @@
       "createdAt": "2026-11-25T22:31:33.655Z",
       "sentAt": "2026-11-25T22:31:35.126Z"
     }
+  ],
+  "staffAccounts": [
+    {
+      "id": "stf_425eedd7ce16b6d18f7f",
+      "username": "khamari",
+      "role": "owner",
+      "salt": "a75aa98ff439a0e38905f670221dce07",
+      "hash": "584d441b68ad73c3797326fb534ad0744863483635c8783b82be893459e92ba337c427d1d0c9d0ebbb71eb827cecff1ca6a4c1fdee1a8895efb9f1dcf3be6952",
+      "active": true,
+      "createdAt": "2026-11-25T23:20:24.276Z",
+      "createdBy": "system",
+      "lastLoginAt": ""
+    }
   ]
 }
