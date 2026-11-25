@@ -552,7 +552,16 @@
       "p-home-ebk782-0": "FounderModerator | https://example.com/badge.png",
       "p-home-1g68wq9-0": "YouTube | https://youtube.com/@yournameTikTok | https://tiktok.com/@yourname",
       "p-home-1cmqn2i-0": "https://youtube.com/watch?v=…",
-      "p-home-1lkngrn-0": "Start of video"
+      "p-home-1lkngrn-0": "Start of video",
+      "p-home-1n3qktt-0": "e.g. alex",
+      "p-home-1nqntbo-0": "Choose a password",
+      "t-account-3murn5-0": "Staff",
+      "t-account-6pge2r-0": "Staff username",
+      "t-account-cf437c-0": "Password",
+      "t-account-132uuun-0": "Sign in as staff",
+      "t-account-dhpuxm-0": "Staff accounts are created by the site owner. You stay signed in on this device for 30 days.",
+      "p-account-lty9ix-0": "username",
+      "p-account-5v7pz7-0": "Your password"
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -1004,7 +1013,7 @@
       }
     ],
     "discordIdRemoved": true,
-    "updatedAt": "2026-11-23T22:09:49.734Z"
+    "updatedAt": "2026-11-25T23:42:54.931Z"
   },
   "submissions": [
     {
@@ -5843,6 +5852,30 @@
   ],
   "audit": [
     {
+      "t": "2026-11-25T23:42:54.931Z",
+      "act": "config_saved",
+      "id": "",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-25T23:42:46.651Z",
+      "act": "staff_account_add",
+      "id": "prism",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-25T23:42:04.364Z",
+      "act": "staff_signin",
+      "id": "stf_425eedd7ce16b6d18f7f",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-25T23:39:26.254Z",
+      "act": "staff_signin",
+      "id": "stf_425eedd7ce16b6d18f7f",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6416,30 +6449,6 @@
       "t": "2026-11-14T16:10:53.969Z",
       "act": "ticket_reply",
       "id": "TKT-D6S8YC",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T14:48:00.655Z",
-      "act": "account_login",
-      "id": "acc_c9ae6553eba5ea3121e78d05",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:26:43.740Z",
-      "act": "account_login",
-      "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T06:23:06.037Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
