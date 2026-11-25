@@ -596,6 +596,7 @@ async function initStaffSession(){
     editCode = '';
   }catch{}
 }
+function isViewer(){ return !!(staffSession && staffSession.role === 'viewer'); }
 function applyStaffTabVisibility(){
   const btn = $('tabBtnStaffAccounts');
   if(!btn) return;
@@ -603,6 +604,25 @@ function applyStaffTabVisibility(){
   // The legacy edit code also unlocks owner-only tools.
   const legacyOwner = !staffSession && !!editCode;
   btn.style.display = (isOwner || legacyOwner) ? '' : 'none';
+}
+function applyStaffRoleUI(){
+  const viewer = isViewer();
+  document.querySelectorAll('#editor .tabs button[data-tab]').forEach(b=>{
+    b.style.display = viewer && b.getAttribute('data-tab') !== 'apps' ? 'none' : '';
+  });
+  const saveButtons = '#editor button[onclick="saveConfig()"], #editor button[onclick="resetConfig()"]';
+  document.querySelectorAll(saveButtons).forEach(b=>{ b.style.display = viewer ? 'none' : ''; });
+  ['exportCSV()','backupAll()','clearSubs()'].forEach(fn=>{
+    document.querySelectorAll('#editor button[onclick="'+fn+'"]').forEach(b=>{ b.style.display = viewer ? 'none' : ''; });
+  });
+  const restoreBtn = document.querySelector('#editor button[onclick*="restoreFile"]');
+  if(restoreBtn) restoreBtn.style.display = viewer ? 'none' : '';
+  const dirty = $('dirtyDot');
+  if(dirty) dirty.style.display = viewer ? 'none' : '';
+  if(viewer){
+    const btn = document.querySelector('#editor .tabs button[data-tab="apps"]');
+    if(btn && !btn.classList.contains('active')) switchTab('apps', btn);
+  }
 }
 function openCodeModal(){
   if(unlocked){ showEditor(); return; }
@@ -634,10 +654,14 @@ async function renderStaffAccounts(){
     if(!accounts.length){ list.innerHTML = '<p class="hint">No staff accounts yet.</p>'; return; }
     list.innerHTML = accounts.map(a=>{
       const last = a.lastLoginAt ? new Date(a.lastLoginAt).toLocaleString() : 'never';
+      const roleLabel = a.role === 'owner' ? 'Owner' : a.role === 'viewer' ? 'Viewer (read-only)' : 'Staff';
+      const opt = (value, label) => `<option value="${value}"${a.role === value ? ' selected' : ''}>${label}</option>`;
       return `<div class="staff-account-item">`
-        + `<div><b>${esc(a.username)}</b> <span class="hint">${a.role === 'owner' ? 'Owner' : 'Staff'}${a.active === false ? ' · disabled' : ''}</span>`
+        + `<div><b>${esc(a.username)}</b> <span class="hint">${roleLabel}${a.active === false ? ' · disabled' : ''}</span>`
         + `<br><span class="hint">Added ${esc(String(a.createdAt || '').slice(0,10))} · last sign-in ${esc(last)}</span></div>`
-        + `<div class="row" style="margin:0"><button type="button" class="btn-small" onclick="resetStaffPassword('${esc(a.id)}')">Set password</button>`
+        + `<div class="row" style="margin:0"><select aria-label="Access level for ${esc(a.username)}" onchange="setStaffRole('${esc(a.id)}', this.value)">`
+        + opt('staff','Staff — edit + decide') + opt('viewer','Viewer — read-only') + opt('owner','Owner')
+        + `</select><button type="button" class="btn-small" onclick="resetStaffPassword('${esc(a.id)}')">Set password</button>`
         + `<button type="button" class="btn-small" onclick="removeStaffAccount('${esc(a.id)}')">Remove</button></div>`
         + `</div>`;
     }).join('');
@@ -648,7 +672,7 @@ async function addStaffAccount(e){
   const msg = $('staffAccountMsg');
   const username = ($('staffNewUser').value || '').trim().toLowerCase();
   const password = $('staffNewPass').value || '';
-  const role = $('staffNewRole').value === 'owner' ? 'owner' : 'staff';
+  const role = ['owner','viewer'].includes($('staffNewRole').value) ? $('staffNewRole').value : 'staff';
   if(!username || password.length < 8){
     msg.textContent = 'Enter a username and a password of at least 8 characters.';
     return;
@@ -660,6 +684,16 @@ async function addStaffAccount(e){
     if(!r.ok){ msg.textContent = j.error || 'Could not add that account.'; return; }
     $('staffNewUser').value = ''; $('staffNewPass').value = ''; $('staffNewRole').value = 'staff';
     msg.textContent = 'Added ' + (j.account ? j.account.username : username) + '. They can sign in at /signin → Staff.';
+    renderStaffAccounts();
+  }catch{ msg.textContent = 'Could not reach the server. Try again.'; }
+}
+async function setStaffRole(id, role){
+  const msg = $('staffAccountMsg');
+  try{
+    const r = await fetch('/api/admin/staff/' + encodeURIComponent(id) + '/role',{method:'POST',headers:headers(),body:JSON.stringify({role})});
+    const j = await r.json().catch(()=>({}));
+    if(!r.ok){ msg.textContent = j.error || 'Could not change that access level.'; renderStaffAccounts(); return; }
+    msg.textContent = 'Access updated.';
     renderStaffAccounts();
   }catch{ msg.textContent = 'Could not reach the server. Try again.'; }
 }
@@ -731,6 +765,7 @@ function syncImgPreviews(){
 }
 function showEditor(refetch=true){
   applyStaffTabVisibility();
+  applyStaffRoleUI();
   if(window.StaffProfiles) window.StaffProfiles.editor();
   registerCopyDesignTargets();
   $('editor').style.display='block';
@@ -908,11 +943,12 @@ async function renderSubs(){
   const qr=($('appSearch').value||'');
   const q=qr.toLowerCase();
   const f=$('appFilter').value, tf=$('appTypeFilter').value;
+  const readOnly = isViewer();
   const r = await fetch('/api/admin/applications',{headers:{'x-edit-code':editCode}});
-  if(r.status===401){ $('subs').innerHTML='<p class="hint">Wrong code — lock and unlock again.</p>'; return; }
+  if(r.status===401 || r.status===403){ $('subs').innerHTML='<p class="hint">Your staff session expired — sign in again.</p>'; return; }
   let subs = await r.json();
   adminCache = subs;
-  renderAudit();
+  if(!readOnly) renderAudit();
   const shown = subs.filter(s=>{
     if(f && s.status!==f) return false;
     if(tf && s.type!==tf) return false;
@@ -948,7 +984,6 @@ async function renderSubs(){
       html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
     });
     html+=`</div>`;
-    html+=`<label>Discord User ID (optional — only if the username lookup fails):</label><input value="${esc(s.discordId||'')}" id="discord_${esc(s.appId)}" inputmode="numeric" placeholder="17-20 digit Discord User ID">`;
     const roleCount = Array.isArray(s.roleAssignedRoleIds) ? s.roleAssignedRoleIds.length : (s.roleAssignedAt ? 1 : 0);
     const roleLine = s.roleError
       ? `⚠️ ${roleCount ? `${roleCount} role${roleCount === 1 ? '' : 's'} assigned, the rest failed` : 'Role not assigned'} — ${esc(s.roleError)}`
@@ -964,6 +999,15 @@ async function renderSubs(){
           : 'Congratulations not posted yet. Press <b>Grant role</b> to retry.';
       html+=`<p class="hint">${pingLine}</p>`;
     }
+    if(readOnly){
+      if(s.email) html+=`<p class="hint"><b>Applicant email:</b> ${esc(s.email)}</p>`;
+      if(s.adminNote) html+=`<p class="hint"><b>Staff note:</b> ${esc(s.adminNote)}</p>`;
+      html+=`<p class="hint">Read-only access — you can view applications but not change them.</p>`;
+      d.innerHTML=html;
+      w.appendChild(d);
+      return;
+    }
+    html+=`<label>Discord User ID (optional — only if the username lookup fails):</label><input value="${esc(s.discordId||'')}" id="discord_${esc(s.appId)}" inputmode="numeric" placeholder="17-20 digit Discord User ID">`;
     html+=`<label>Applicant email (used for the decision):</label><input type="email" value="${esc(s.email||'')}" id="email_${esc(s.appId)}" placeholder="name@example.com">`;
     html+=`<label>Staff note (seen by applicant):</label><input value="${esc(s.adminNote||'')}" id="note_${esc(s.appId)}" placeholder="e.g. Great app, welcome!">`;
     d.innerHTML=html;

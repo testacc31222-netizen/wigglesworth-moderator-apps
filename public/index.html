@@ -1246,7 +1246,7 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
         <label for="staffNewPass">Password (at least 8 characters)</label>
         <input id="staffNewPass" type="password" autocomplete="new-password" placeholder="Choose a password">
         <label for="staffNewRole">Access level</label>
-        <select id="staffNewRole"><option value="staff">Staff — edit site + review applications</option><option value="owner">Owner — also manage staff accounts</option></select>
+        <select id="staffNewRole"><option value="staff">Staff — edit site + accept/deny applications</option><option value="viewer">Viewer — see applications only (no accept/deny)</option><option value="owner">Owner — also manage staff accounts</option></select>
         <div class="row"><button type="submit" class="btn-confirm">Add staff account</button></div>
       </form>
       <p id="staffAccountMsg" class="hint" role="status" aria-live="polite"></p>

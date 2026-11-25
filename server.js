@@ -681,12 +681,16 @@ function hashStaffPassword(password, saltHex) {
   const salt = Buffer.from(saltHex, 'hex');
   return crypto.scryptSync(String(password), salt, 64).toString('hex');
 }
+const STAFF_ROLES = ['owner', 'staff', 'viewer'];
+function cleanStaffRole(role) {
+  return STAFF_ROLES.includes(role) ? role : 'staff';
+}
 function makeStaffAccount(username, password, role = 'staff', createdBy = '') {
   const salt = crypto.randomBytes(16).toString('hex');
   return {
     id: 'stf_' + crypto.randomBytes(10).toString('hex'),
     username: String(username || '').trim().toLowerCase(),
-    role: role === 'owner' ? 'owner' : 'staff',
+    role: cleanStaffRole(role),
     salt,
     hash: hashStaffPassword(password, salt),
     active: true,
@@ -766,6 +770,7 @@ function normalizeDB(db) {
   for (const a of db.staffAccounts) {
     if (typeof a.username !== 'string') a.username = '';
     if (typeof a.role !== 'string' || !a.role) a.role = 'staff';
+    if (!STAFF_ROLES.includes(a.role)) a.role = 'staff';
     if (a.active === undefined) a.active = true;
   }
   // fixups for DBs saved before these fields existed
@@ -944,11 +949,21 @@ function safeEq(a, b) {
   return crypto.timingSafeEqual(x, y);
 }
 const effectiveCode = db => ENV_EDIT_CODE || db.config.editCode;
-function isAdmin(req, db) {
+function staffRole(req, db) {
   const got = req.headers['x-edit-code'];
-  if (got && safeEq(got, effectiveCode(db))) return true;
-  // Staff who signed in at /signin carry a signed httpOnly cookie instead.
-  return !!staffFromReq(req, db);
+  if (got && safeEq(got, effectiveCode(db))) return 'owner';
+  const acct = staffFromReq(req, db);
+  return acct ? cleanStaffRole(acct.role) : '';
+}
+// Full staff tools: edit the site, decide applications, manage tickets/reports.
+// Read-only viewers are deliberately excluded.
+function isAdmin(req, db) {
+  const role = staffRole(req, db);
+  return role === 'owner' || role === 'staff';
+}
+// Viewers may list/read applications but cannot change anything.
+function canViewApplications(req, db) {
+  return !!staffRole(req, db);
 }
 function publicConfig(db) {
   const { editCode, ...rest } = db.config;
@@ -1764,7 +1779,7 @@ app.post('/api/admin/staff', adminLimit, (req, res) => {
   const b = req.body && typeof req.body === 'object' ? req.body : {};
   const username = cleanUsername(b.username);
   const password = String(b.password || '');
-  const role = b.role === 'owner' ? 'owner' : 'staff';
+  const role = cleanStaffRole(b.role);
   if (!STAFF_USERNAME_RE.test(username)) {
     return res.status(400).json({ error: 'Username must be 3–32 characters: letters, numbers, _ . -' });
   }
@@ -1792,6 +1807,22 @@ app.post('/api/admin/staff/:id/password', adminLimit, (req, res) => {
   }
   setStaffPassword(acct, password);
   audit(db, 'staff_account_password', acct.username, req);
+  saveDB(db);
+  res.json({ ok: true, account: publicStaffAccount(acct) });
+});
+app.post('/api/admin/staff/:id/role', adminLimit, (req, res) => {
+  const db = loadDB();
+  if (!requireOwner(req, res, db)) return;
+  const acct = (db.staffAccounts || []).find(a => a.id === req.params.id);
+  if (!acct) return res.status(404).json({ error: 'No such staff account.' });
+  const role = String((req.body && req.body.role) || '');
+  if (!STAFF_ROLES.includes(role)) return res.status(400).json({ error: 'Unknown access level.' });
+  const owners = db.staffAccounts.filter(a => a.role === 'owner' && a.active !== false);
+  if (acct.role === 'owner' && role !== 'owner' && owners.length <= 1) {
+    return res.status(400).json({ error: 'Keep at least one owner account.' });
+  }
+  acct.role = role;
+  audit(db, 'staff_account_role', acct.username, req);
   saveDB(db);
   res.json({ ok: true, account: publicStaffAccount(acct) });
 });
@@ -1963,7 +1994,7 @@ app.delete('/api/admin/tickets/:id', adminLimit, (req, res) => {
 });
 app.get('/api/admin/applications', adminLimit, (req, res) => {
   const db = loadDB();
-  if (!isAdmin(req, db)) return res.status(401).json({ error: 'Unauthorized' });
+  if (!canViewApplications(req, db)) return res.status(401).json({ error: 'Unauthorized' });
   res.set('Cache-Control', 'no-store');
   res.json(db.submissions.slice().reverse().slice(0, 1000));
 });
