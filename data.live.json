@@ -561,7 +561,14 @@
       "t-account-132uuun-0": "Sign in as staff",
       "t-account-dhpuxm-0": "Staff accounts are created by the site owner. You stay signed in on this device for 30 days.",
       "p-account-lty9ix-0": "username",
-      "p-account-5v7pz7-0": "Your password"
+      "p-account-5v7pz7-0": "Your password",
+      "p-home-ij52gf-0": "https://…/update-ambience.mp3",
+      "p-home-k4ql8q-0": "day {d} left.",
+      "p-home-i4osxu-0": "{h}h {m}m {s}s left.",
+      "p-home-p0rj6-0": "{h}h {m}m {s}s to go",
+      "p-home-1csptri-0": "The update is live!",
+      "p-home-te0bow-0": "That was it.",
+      "p-home-19adr2s-0": "soon."
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -587,8 +594,8 @@
       }
     ],
     "countdown": {
-      "show": false,
-      "title": "👀",
+      "show": true,
+      "title": "🗺️",
       "endVideo": "",
       "ambience": "https://wigglesworth-countdown.onrender.com/vids/muryeq4q-rik.mp3",
       "daysLine": "day {d} left till the show.",
@@ -597,7 +604,7 @@
       "completedLine": "completed, day 3 soon.",
       "endCardLine": "that was it, get ready for day 3",
       "soonLine": "soon.",
-      "target": ""
+      "target": "2026-12-01T15:00:00.000Z"
     },
     "layout": {
       "foot": {
@@ -1013,7 +1020,7 @@
       }
     ],
     "discordIdRemoved": true,
-    "updatedAt": "2026-11-25T23:42:54.931Z"
+    "updatedAt": "2026-11-26T00:19:32.674Z"
   },
   "submissions": [
     {
@@ -5852,6 +5859,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-26T00:19:32.674Z",
+      "act": "config_saved",
+      "id": "",
+      "by": "khamari"
+    },
+    {
       "t": "2026-11-26T00:02:41.154Z",
       "act": "staff_signin",
       "id": "stf_425eedd7ce16b6d18f7f",
@@ -6443,12 +6456,6 @@
       "t": "2026-11-14T07:26:43.740Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
