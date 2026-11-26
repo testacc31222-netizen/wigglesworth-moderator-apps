@@ -180,7 +180,7 @@
     ],
     "title": "Wigglesworth",
     "subtitle": "Not everyone is picked..",
-    "announcement": "Moderator Applications are on HOLD, We are full on staff and wont be accepting them for 2 Months+ ",
+    "announcement": "MODERATOR APPLICATIONS OPEN!!",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
     "accent": "#a62c35",
     "bg": "#080809",
@@ -874,7 +874,7 @@
         "intro": "Developers ship real things for players. Show us what you have built.",
         "successMessage": "Thanks! Your developer application was received. Save your Application ID and check your decision below.",
         "showApproved": true,
-        "open": false,
+        "open": true,
         "questions": [
           {
             "id": "username",
@@ -1020,7 +1020,7 @@
       }
     ],
     "discordIdRemoved": true,
-    "updatedAt": "2026-11-26T02:22:42.499Z"
+    "updatedAt": "2026-11-26T23:22:53.548Z"
   },
   "submissions": [
     {
@@ -5877,6 +5877,18 @@
   ],
   "audit": [
     {
+      "t": "2026-11-26T23:22:53.548Z",
+      "act": "config_saved",
+      "id": "",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-26T23:20:00.823Z",
+      "act": "cleared_all",
+      "id": "",
+      "by": "khamari"
+    },
+    {
       "t": "2026-11-26T23:14:43.590Z",
       "act": "ai_denied",
       "id": "MOD-SG2UHW",
@@ -6462,18 +6474,6 @@
       "t": "2026-11-14T18:25:38.947Z",
       "act": "account_login",
       "id": "acc_ef404cc0a2659a84415bfb1c",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T16:10:53.969Z",
-      "act": "ticket_reply",
-      "id": "TKT-D6S8YC",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T14:48:00.655Z",
-      "act": "account_login",
-      "id": "acc_c9ae6553eba5ea3121e78d05",
       "by": ""
     }
   ],
