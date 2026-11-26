@@ -5318,6 +5318,27 @@
       "scenario": "Delete the spam messages,  time out or ban the person. And report spam to the Discord.",
       "rulebreak": "No I have not been banned before.",
       "receiptAt": "2026-11-26T23:42:07.403Z"
+    },
+    {
+      "appId": "MOD-68CBQ8",
+      "type": "moderator",
+      "date": "2026-11-26T23:44:59.503Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "rmatthew31@icloud.com",
+      "emailUpdates": true,
+      "accountId": "acc_49dddb73e8f2f888a2def2ad",
+      "notifiedStatus": "",
+      "username": "ZAKI",
+      "q1795044295615": "1595",
+      "discord": "capuhorrorzaki",
+      "age": "13",
+      "timezone": "EST 3-7 hours",
+      "experience": "Sleepy core old t mod(3.1k members)Appalachian apes admin(2.5k members)Gummy tag rev playfab manager(1k members)I forgot the rest",
+      "why": "I wanna be a moderator so i can show what is good for the community and not bad for the community since i want this game to be good and have great players and not bad players and i will help out the players of the game and i will be very kind to people and i would be really active and asking people how their day was and always check up on them and if they are doing bad i will try to make their day better by supporting them with some words and more.i will never ever be toxic and will never make fun of people for their things and stuff.",
+      "scenario": "So if they were spamming in chat first thing is i would tell them to stop and if they dont i will give them a verbal warning second if they keep going after the verbal warning i will give them a official warning and at last if they keep going after the warning i will time them out for a few minutes",
+      "rulebreak": "Yes since i was in a bad mood and called quantumz the f word but i apologized",
+      "receiptAt": "2026-11-26T23:44:59.503Z"
     }
   ],
   "tickets": [
@@ -14559,6 +14580,22 @@
       "error": "",
       "createdAt": "2026-11-26T23:42:07.403Z",
       "sentAt": "2026-11-26T23:42:08.380Z"
+    },
+    {
+      "id": "mail_a806a2e87ca18c4067",
+      "key": "MOD-68CBQ8:receipt",
+      "to": "rmatthew31@icloud.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi capuhorrorzaki,\n\nYour Moderator application (MOD-68CBQ8) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi capuhorrorzaki,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-68CBQ8</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-68CBQ8",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-26T23:44:59.503Z",
+      "sentAt": "2026-11-26T23:45:00.866Z"
     }
   ],
   "staffAccounts": [
