@@ -735,6 +735,13 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 </nav>
 <div class="container">
   <main class="main" id="main" tabindex="-1">
+  <div class="panel reveal countdown-panel" id="countCard" style="display:none">
+    <div class="eyebrow">Update countdown</div><h2 id="cdTitle" style="margin:4px 0 10px"></h2>
+    <div class="cd-grid"><div class="cd-cell"><b id="cdD">–</b><span>days</span></div><div class="cd-cell"><b id="cdH">–</b><span>hrs</span></div><div class="cd-cell"><b id="cdM">–</b><span>min</span></div><div class="cd-cell"><b id="cdS">–</b><span>sec</span></div></div>
+    <p class="hint" id="cdNote" style="text-align:center"></p>
+    <div id="cdEnd" hidden><iframe id="cdEndFrame" allowfullscreen loading="lazy"></iframe><video id="cdEndVideo" controls playsinline preload="metadata"></video></div>
+    <audio id="cdAmbience" loop muted preload="none"></audio>
+  </div>
 
 
 
