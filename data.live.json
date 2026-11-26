@@ -1019,8 +1019,8 @@
         ]
       }
     ],
-    "discordIdRemoved": true,
-    "updatedAt": "2026-11-26T02:12:05.752Z"
+    "updatedAt": "2026-11-26T02:12:05.752Z",
+    "discordIdRemoved": true
   },
   "submissions": [
     {
@@ -5871,6 +5871,18 @@
   ],
   "audit": [
     {
+      "t": "2026-11-26T02:14:07.104Z",
+      "act": "staff_signin",
+      "id": "stf_e26af9784429cab6c6bc",
+      "by": ""
+    },
+    {
+      "t": "2026-11-26T02:13:29.994Z",
+      "act": "staff_signin",
+      "id": "stf_e26af9784429cab6c6bc",
+      "by": ""
+    },
+    {
       "t": "2026-11-26T02:12:05.752Z",
       "act": "config_saved",
       "id": "",
@@ -6454,18 +6466,6 @@
     },
     {
       "t": "2026-11-15T02:45:57.673Z",
-      "act": "account_login",
-      "id": "acc_d235da1c2e7996fe90c8970d",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T23:58:32.877Z",
-      "act": "account_login",
-      "id": "acc_d235da1c2e7996fe90c8970d",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T22:58:41.859Z",
       "act": "account_login",
       "id": "acc_d235da1c2e7996fe90c8970d",
       "by": ""
