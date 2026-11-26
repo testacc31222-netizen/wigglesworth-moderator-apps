@@ -4877,12 +4877,12 @@
       "appId": "MOD-SG2UHW",
       "type": "moderator",
       "date": "2026-11-23T17:03:17.934Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a Moderator, Mocaitea. We appreciate your interest and the time you put into your application. At this time we’ve decided to move forward with other candidates, but we encourage you to keep contributing to the community and consider applying again in the future.",
       "email": "wbunn61@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_2b7a476cd421ffe37363f9eb",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "Mocaitea",
       "q1795044295615": "50",
       "discord": "Mocaitea",
@@ -4892,7 +4892,9 @@
       "why": "Bc i thinkk ill help the comunity",
       "scenario": "Mute them and time them out",
       "rulebreak": "No",
-      "receiptAt": "2026-11-23T17:03:17.935Z"
+      "receiptAt": "2026-11-23T17:03:17.935Z",
+      "updatedAt": "2026-11-26T23:14:43.589Z",
+      "notifiedAt": "2026-11-26T23:14:44.687Z"
     },
     {
       "appId": "CC-NGTCFP",
@@ -5875,6 +5877,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-26T23:14:43.590Z",
+      "act": "ai_denied",
+      "id": "MOD-SG2UHW",
+      "by": "khamari"
+    },
+    {
       "t": "2026-11-26T23:12:19.120Z",
       "act": "ai_summary",
       "id": "MOD-JTWKC4",
@@ -6466,12 +6474,6 @@
       "t": "2026-11-14T14:48:00.655Z",
       "act": "account_login",
       "id": "acc_c9ae6553eba5ea3121e78d05",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:26:43.740Z",
-      "act": "account_login",
-      "id": "acc_6f4cdda9c2a8413e10e97599",
       "by": ""
     }
   ],
@@ -14173,6 +14175,22 @@
       "error": "",
       "createdAt": "2026-11-26T23:12:00.205Z",
       "sentAt": "2026-11-26T23:12:01.863Z"
+    },
+    {
+      "id": "mail_7df610d277af16549c",
+      "key": "MOD-SG2UHW:denied:1795734883590",
+      "to": "wbunn61@gmail.com",
+      "subject": "Update on your Wigglesworth Moderator application",
+      "text": "Hi Mocaitea,\n\nYour Moderator application (MOD-SG2UHW) has been reviewed.\n\nResult: Not accepted\nNote from staff: Thank you for applying to be a Moderator, Mocaitea. We appreciate your interest and the time you put into your application. At this time we’ve decided to move forward with other candidates, but we encourage you to keep contributing to the community and consider applying again in the future.\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi Mocaitea,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-SG2UHW</b>) has been reviewed.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#AAA5A0\">Not accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Thank you for applying to be a Moderator, Mocaitea. We appreciate your interest and the time you put into your application. At this time we’ve decided to move forward with other candidates, but we encourage you to keep contributing to the community and consider applying again in the future.</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-SG2UHW</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-SG2UHW",
+      "decisionStatus": "denied",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-26T23:14:43.590Z",
+      "sentAt": "2026-11-26T23:14:44.687Z"
     }
   ],
   "staffAccounts": [
