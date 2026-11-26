@@ -4955,7 +4955,9 @@
       "why": "First, I want to be mod because I have a lot of experience. Second I want to be mod because I like helping people in or out of game. Lastly I want to be mod because I like the feeling of moderating people who break rules. Thats why I would like to be a mod.",
       "scenario": "If someone was spamming in chat I would time them out for spamming because it clearly states it in the rules channel.",
       "rulebreak": "No, I have never been banned.",
-      "receiptAt": "2026-11-23T20:24:16.724Z"
+      "receiptAt": "2026-11-23T20:24:16.724Z",
+      "aiSummary": "Verdict: Mixed - limited age and proof needed  \n- Wants to join: Moderator  \n- Experience: Co‑Owner in a large gtag copy, 70 Discord messages  \n- Availability: 3‑4 hrs weekdays, 4‑5 hrs weekends (EST)  \n- Watch‑outs: 14 years old, claims proof via DM, no ban history, minimal detail on moderation style.",
+      "aiSummaryAt": "2026-11-26T23:12:19.120Z"
     },
     {
       "appId": "MOD-HULFSU",
@@ -4966,7 +4968,7 @@
       "email": "jongarnergarrett@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_8d14b052819e4be069ab4021",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "idk",
       "q1795044295615": "0",
       "discord": "neonpurple_vr",
@@ -4977,7 +4979,8 @@
       "scenario": "time them out for 15-30 min depending how serious it is",
       "rulebreak": "absolutly not",
       "receiptAt": "2026-11-23T22:00:08.148Z",
-      "updatedAt": "2026-11-26T23:12:00.204Z"
+      "updatedAt": "2026-11-26T23:12:00.204Z",
+      "notifiedAt": "2026-11-26T23:12:01.863Z"
     },
     {
       "appId": "CC-FG3FCZ",
@@ -5872,6 +5875,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-26T23:12:19.120Z",
+      "act": "ai_summary",
+      "id": "MOD-JTWKC4",
+      "by": "khamari"
+    },
+    {
       "t": "2026-11-26T23:12:00.205Z",
       "act": "ai_denied",
       "id": "MOD-HULFSU",
@@ -6463,12 +6472,6 @@
       "t": "2026-11-14T07:26:43.740Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
@@ -14165,11 +14168,11 @@
       "kind": "decision",
       "appId": "MOD-HULFSU",
       "decisionStatus": "denied",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-26T23:12:00.205Z",
-      "sentAt": ""
+      "sentAt": "2026-11-26T23:12:01.863Z"
     }
   ],
   "staffAccounts": [
