@@ -178,7 +178,7 @@
         "id": "9c7785f4-f964-42ad-b3eb-81a06a136796"
       }
     ],
-    "title": "WIGGLESWORTH",
+    "title": "Wigglesworth",
     "subtitle": "Not everyone is picked..",
     "announcement": "Moderator Applications are on HOLD, We are full on staff and wont be accepting them for 2 Months+ ",
     "rules": "• Must be 13+• One role per application — pick the closest fit• Be honest — lying = instant deny• Spamming applications = blacklist",
@@ -1020,7 +1020,7 @@
       }
     ],
     "discordIdRemoved": true,
-    "updatedAt": "2026-11-26T02:07:41.215Z"
+    "updatedAt": "2026-11-26T02:07:57.758Z"
   },
   "submissions": [
     {
@@ -5859,6 +5859,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-26T02:07:57.758Z",
+      "act": "config_saved",
+      "id": "",
+      "by": "khamari"
+    },
+    {
       "t": "2026-11-26T02:07:41.215Z",
       "act": "config_saved",
       "id": "",
@@ -6450,12 +6456,6 @@
       "t": "2026-11-14T07:26:43.740Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
