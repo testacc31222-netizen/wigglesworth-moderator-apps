@@ -1019,7 +1019,7 @@
         ]
       }
     ],
-    "updatedAt": "2026-11-26T02:12:05.752Z",
+    "updatedAt": "2026-11-26T02:22:34.991Z",
     "discordIdRemoved": true
   },
   "submissions": [
@@ -5871,6 +5871,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-26T02:22:34.991Z",
+      "act": "config_saved",
+      "id": "",
+      "by": "khamari"
+    },
+    {
       "t": "2026-11-26T02:14:07.104Z",
       "act": "staff_signin",
       "id": "stf_e26af9784429cab6c6bc",
@@ -6462,12 +6468,6 @@
       "t": "2026-11-15T05:41:38.398Z",
       "act": "config_saved",
       "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-15T02:45:57.673Z",
-      "act": "account_login",
-      "id": "acc_d235da1c2e7996fe90c8970d",
       "by": ""
     }
   ],
