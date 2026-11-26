@@ -1020,7 +1020,7 @@
       }
     ],
     "discordIdRemoved": true,
-    "updatedAt": "2026-11-26T02:07:57.758Z"
+    "updatedAt": "2026-11-26T02:12:05.752Z"
   },
   "submissions": [
     {
@@ -5823,17 +5823,23 @@
       "name": "Icewolf",
       "subject": "The dev app is full",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "email": "tikofish25@gmail.com",
       "accountId": "acc_065c1c551a654a4665b54a6b",
       "createdAt": "2026-11-19T01:12:42.392Z",
-      "updatedAt": "2026-11-19T01:12:42.392Z",
+      "updatedAt": "2026-11-26T02:11:07.957Z",
       "replies": [
         {
           "by": "user",
           "name": "Icewolf",
           "text": "I want to become a dev because I am experienced dev for map building and bug fixing without the use of ai!",
           "at": "2026-11-19T01:12:42.392Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Thanks for reaching out! Could you tell me a bit more about the specific map‑building and bug‑fixing experience you have? That’ll help us match you with the right role.",
+          "at": "2026-11-26T02:11:07.957Z"
         }
       ]
     },
@@ -5842,22 +5848,58 @@
       "name": "Veryveryverydisc",
       "subject": "I want to be a mod",
       "status": "open",
-      "unread": true,
+      "unread": false,
       "email": "zombrobrandee@gmail.com",
       "accountId": "acc_9d73429d8e7e2895b5d88b51",
       "createdAt": "2026-11-24T05:18:40.976Z",
-      "updatedAt": "2026-11-24T05:18:40.976Z",
+      "updatedAt": "2026-11-26T02:10:48.452Z",
       "replies": [
         {
           "by": "user",
           "name": "Veryveryverydisc",
           "text": "Can i pls be mod",
           "at": "2026-11-24T05:18:40.976Z"
+        },
+        {
+          "by": "staff",
+          "name": "Staff",
+          "text": "Hey there! Thanks for your interest in becoming a moderator. If you’re 13 or older, you can apply right now—no prior experience needed. Just fill out the application form and we’ll review it within a few hours or days. Let me know if you need help getting started!",
+          "at": "2026-11-26T02:10:48.452Z"
         }
       ]
     }
   ],
   "audit": [
+    {
+      "t": "2026-11-26T02:12:05.752Z",
+      "act": "config_saved",
+      "id": "",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-26T02:12:03.831Z",
+      "act": "staff_account_role",
+      "id": "prism",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-26T02:11:58.200Z",
+      "act": "staff_account_add",
+      "id": "prism",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-26T02:11:07.957Z",
+      "act": "ticket_reply",
+      "id": "TKT-C2DCHD",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-26T02:10:48.453Z",
+      "act": "ticket_reply",
+      "id": "TKT-98WHQE",
+      "by": "khamari"
+    },
     {
       "t": "2026-11-26T02:07:57.758Z",
       "act": "config_saved",
@@ -6426,36 +6468,6 @@
       "t": "2026-11-14T22:58:41.859Z",
       "act": "account_login",
       "id": "acc_d235da1c2e7996fe90c8970d",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T21:02:45.766Z",
-      "act": "account_login",
-      "id": "acc_bc9472f64e82b3269669d325",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T18:25:38.947Z",
-      "act": "account_login",
-      "id": "acc_ef404cc0a2659a84415bfb1c",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T16:10:53.969Z",
-      "act": "ticket_reply",
-      "id": "TKT-D6S8YC",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T14:48:00.655Z",
-      "act": "account_login",
-      "id": "acc_c9ae6553eba5ea3121e78d05",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:26:43.740Z",
-      "act": "account_login",
-      "id": "acc_6f4cdda9c2a8413e10e97599",
       "by": ""
     }
   ],
@@ -13975,6 +13987,38 @@
       "error": "",
       "createdAt": "2026-11-25T22:31:33.655Z",
       "sentAt": "2026-11-25T22:31:35.126Z"
+    },
+    {
+      "id": "mail_46121cb90711592746",
+      "key": "ticket:TKT-98WHQE:2:2026-11-26T02:10:48.452Z",
+      "to": "zombrobrandee@gmail.com",
+      "subject": "Re: I want to be a mod [TKT-98WHQE]",
+      "text": "Hi Veryveryverydisc,\n\nStaff replied to your Wigglesworth ticket TKT-98WHQE — I want to be a mod:\n\nHey there! Thanks for your interest in becoming a moderator. If you’re 13 or older, you can apply right now—no prior experience needed. Just fill out the application form and we’ll review it within a few hours or days. Let me know if you need help getting started!\n\nOpen the ticket (sign in with zombrobrandee@gmail.com):\nhttps://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-98WHQE%23contact\n\nTicket ID: TKT-98WHQE\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Ticket update</h1><p style=\"margin:0 0 14px\">Hi Veryveryverydisc,</p><p style=\"margin:0 0 18px\">Staff replied to your ticket <b>TKT-98WHQE</b> — I want to be a mod.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:8px\">Staff reply</div><div style=\"color:#E6DED4\">Hey there! Thanks for your interest in becoming a moderator. If you’re 13 or older, you can apply right now—no prior experience needed. Just fill out the application form and we’ll review it within a few hours or days. Let me know if you need help getting started!</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Sign in with <b style=\"color:#E6DED4\">zombrobrandee@gmail.com</b> to open the thread. Ticket ID: <b style=\"color:#E6DED4\">TKT-98WHQE</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-98WHQE%23contact\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Open my ticket</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you opened a support ticket with Wigglesworth.</p></div></td></tr></table></body></html>",
+      "kind": "ticket",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-26T02:10:48.452Z",
+      "sentAt": "2026-11-26T02:10:49.587Z"
+    },
+    {
+      "id": "mail_9add59e057d331c893",
+      "key": "ticket:TKT-C2DCHD:2:2026-11-26T02:11:07.957Z",
+      "to": "tikofish25@gmail.com",
+      "subject": "Re: The dev app is full [TKT-C2DCHD]",
+      "text": "Hi Icewolf,\n\nStaff replied to your Wigglesworth ticket TKT-C2DCHD — The dev app is full:\n\nThanks for reaching out! Could you tell me a bit more about the specific map‑building and bug‑fixing experience you have? That’ll help us match you with the right role.\n\nOpen the ticket (sign in with tikofish25@gmail.com):\nhttps://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-C2DCHD%23contact\n\nTicket ID: TKT-C2DCHD\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Ticket update</h1><p style=\"margin:0 0 14px\">Hi Icewolf,</p><p style=\"margin:0 0 18px\">Staff replied to your ticket <b>TKT-C2DCHD</b> — The dev app is full.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:8px\">Staff reply</div><div style=\"color:#E6DED4\">Thanks for reaching out! Could you tell me a bit more about the specific map‑building and bug‑fixing experience you have? That’ll help us match you with the right role.</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Sign in with <b style=\"color:#E6DED4\">tikofish25@gmail.com</b> to open the thread. Ticket ID: <b style=\"color:#E6DED4\">TKT-C2DCHD</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin?next=%2F%3Fticket%3DTKT-C2DCHD%23contact\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Open my ticket</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you opened a support ticket with Wigglesworth.</p></div></td></tr></table></body></html>",
+      "kind": "ticket",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-26T02:11:07.957Z",
+      "sentAt": "2026-11-26T02:11:09.360Z"
     }
   ],
   "staffAccounts": [
