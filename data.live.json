@@ -1012,8 +1012,8 @@
         ]
       }
     ],
-    "updatedAt": "2026-11-25T23:42:54.931Z",
-    "discordIdRemoved": true
+    "discordIdRemoved": true,
+    "updatedAt": "2026-11-25T23:42:54.931Z"
   },
   "submissions": [
     {
@@ -5852,54 +5852,6 @@
   ],
   "audit": [
     {
-      "t": "2026-11-25T23:56:05.261Z",
-      "act": "staff_signin",
-      "id": "stf_425eedd7ce16b6d18f7f",
-      "by": "prism"
-    },
-    {
-      "t": "2026-11-25T23:51:52.559Z",
-      "act": "staff_signin",
-      "id": "stf_2c52ada26fcf500ebf37",
-      "by": ""
-    },
-    {
-      "t": "2026-11-25T23:50:35.661Z",
-      "act": "staff_signin",
-      "id": "stf_2c52ada26fcf500ebf37",
-      "by": ""
-    },
-    {
-      "t": "2026-11-25T23:43:05.565Z",
-      "act": "staff_signin",
-      "id": "stf_2c52ada26fcf500ebf37",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-25T23:42:54.931Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-25T23:42:46.651Z",
-      "act": "staff_account_add",
-      "id": "prism",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-25T23:42:04.364Z",
-      "act": "staff_signin",
-      "id": "stf_425eedd7ce16b6d18f7f",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-25T23:39:26.254Z",
-      "act": "staff_signin",
-      "id": "stf_425eedd7ce16b6d18f7f",
-      "by": ""
-    },
-    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6449,6 +6401,54 @@
       "t": "2026-11-14T23:58:32.877Z",
       "act": "account_login",
       "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T22:58:41.859Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T21:02:45.766Z",
+      "act": "account_login",
+      "id": "acc_bc9472f64e82b3269669d325",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T18:25:38.947Z",
+      "act": "account_login",
+      "id": "acc_ef404cc0a2659a84415bfb1c",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T16:10:53.969Z",
+      "act": "ticket_reply",
+      "id": "TKT-D6S8YC",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T14:48:00.655Z",
+      "act": "account_login",
+      "id": "acc_c9ae6553eba5ea3121e78d05",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:26:43.740Z",
+      "act": "account_login",
+      "id": "acc_6f4cdda9c2a8413e10e97599",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:16:11.447Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T06:23:06.037Z",
+      "act": "config_saved",
+      "id": "",
       "by": ""
     }
   ],
