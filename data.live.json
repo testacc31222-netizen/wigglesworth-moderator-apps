@@ -5871,12 +5871,6 @@
   ],
   "audit": [
     {
-      "t": "2026-11-26T20:48:28.611Z",
-      "act": "account_login",
-      "id": "acc_71b8691ea64f8bdbd0faa4e1",
-      "by": ""
-    },
-    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6466,6 +6460,12 @@
     },
     {
       "t": "2026-11-14T07:16:11.447Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T06:23:06.037Z",
       "act": "config_saved",
       "id": "",
       "by": ""
