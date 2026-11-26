@@ -255,6 +255,19 @@ mark{background:rgba(166,44,53,.45);color:inherit;border-radius:3px;padding:0 1p
 .cd-cell{background:#0d0d10;border:1px solid var(--line-soft);border-radius:6px;padding:13px 6px;text-align:center}
 .cd-cell b{display:block;font-family:var(--font-display);font-weight:700;font-size:31px;line-height:1;color:var(--ivory)}
 .cd-cell span{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.countdown-panel{position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(116,27,36,.20),rgba(13,13,16,.92) 58%);border:1px solid var(--line-red-soft);border-radius:6px;padding:clamp(18px,3vw,30px);box-shadow:0 18px 50px rgba(0,0,0,.35),inset 0 0 70px rgba(116,27,36,.07)}
+.countdown-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,rgba(166,44,53,.16),transparent 60%);pointer-events:none}
+.countdown-panel>*{position:relative}
+.countdown-panel .eyebrow{letter-spacing:.36em}
+.countdown-panel #cdTitle{font-family:var(--font-display);font-size:clamp(24px,4.5vw,44px);letter-spacing:.05em;color:var(--ivory);margin:10px 0 14px}
+.countdown-panel .cd-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:10px}
+.countdown-panel .cd-cell{background:linear-gradient(180deg,rgba(116,27,36,.12),rgba(13,13,16,.85));border:1px solid var(--line-red-soft);border-radius:6px;padding:clamp(12px,2vw,18px) 6px;text-align:center;box-shadow:inset 0 0 26px rgba(116,27,36,.08)}
+.countdown-panel .cd-cell b{display:block;font-family:var(--font-display);font-weight:700;font-size:clamp(26px,5.5vw,42px);line-height:1;color:var(--amber);text-shadow:0 0 22px rgba(166,44,53,.35);font-variant-numeric:tabular-nums}
+.countdown-panel .cd-cell span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.countdown-panel #cdNote{margin:14px 0 0;color:var(--muted);text-align:center;font-size:13px}
+#cdEnd{position:relative;margin-top:16px}
+#cdEnd iframe,#cdEnd video{display:none;width:100%;max-height:320px;border:1px solid var(--line-red-soft);border-radius:6px;background:#000}
+#cdAmbience{position:relative;display:none;width:100%;margin-top:12px}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:#2b1a1d;border-radius:99px}::-webkit-scrollbar-track{background:transparent}
 #stickerLayer{position:fixed;inset:0;z-index:5;pointer-events:none;overflow:hidden}
 .sticker{position:absolute;pointer-events:none;user-select:none;line-height:1.2;filter:drop-shadow(0 10px 20px rgba(0,0,0,.5))}
@@ -413,7 +426,7 @@ body.design-on [data-dkey]{outline:1.5px dashed rgba(193,74,84,.65);outline-offs
   .approved-list .arow{grid-template-columns:1fr}
   .approved-list .arow .meta{white-space:normal}
   input,textarea,select{font-size:16px}
-  .cd-cell b{font-size:24px}
+  .cd-cell b{font-size:22px}
   .row button{min-width:100px}
   .dlg{padding:22px}
 }
@@ -900,6 +913,8 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
     <div class="eyebrow">Update countdown</div><h2 id="cdTitle" style="margin:4px 0 10px"></h2>
     <div class="cd-grid"><div class="cd-cell"><b id="cdD">–</b><span>days</span></div><div class="cd-cell"><b id="cdH">–</b><span>hrs</span></div><div class="cd-cell"><b id="cdM">–</b><span>min</span></div><div class="cd-cell"><b id="cdS">–</b><span>sec</span></div></div>
     <p class="hint" id="cdNote" style="text-align:center"></p>
+    <div id="cdEnd" hidden><iframe id="cdEndFrame" allowfullscreen loading="lazy"></iframe><video id="cdEndVideo" controls playsinline preload="metadata"></video></div>
+    <audio id="cdAmbience" loop muted preload="none"></audio>
   </div>
 
 <section class="support-stage portal-section portal-support" aria-labelledby="supportHeading">
@@ -1068,6 +1083,13 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
       <label for="e_cdTitle">Countdown title</label><input id="e_cdTitle" placeholder="e.g. Update 2.0 drops in">
       <label for="e_cdTarget">Countdown date &amp; time (your timezone)</label><input id="e_cdTarget" type="datetime-local">
       <label for="e_cdVideo">End video — plays when it hits zero (YouTube or .mp4 link, empty for none)</label><input id="e_cdVideo" placeholder="e.g. https://www.youtube.com/watch?v=…">
+      <label for="e_cdAmbience">End ambience audio — URL (empty for none)</label><input id="e_cdAmbience" type="url" placeholder="https://…/update-ambience.mp3">
+      <label for="e_cdDaysLine">Countdown copy — days left (placeholder: day {d} left.)</label><input id="e_cdDaysLine" maxlength="200" placeholder="day {d} left.">
+      <label for="e_cdFinalLine">Countdown copy — final (placeholder: {h}h {m}m {s}s left.)</label><input id="e_cdFinalLine" maxlength="300" placeholder="{h}h {m}m {s}s left.">
+      <label for="e_cdSubLine">Countdown copy — sub-line while running (placeholder: {h}h {m}m {s}s to go)</label><input id="e_cdSubLine" maxlength="300" placeholder="{h}h {m}m {s}s to go">
+      <label for="e_cdCompletedLine">Countdown copy — completed</label><input id="e_cdCompletedLine" maxlength="300" placeholder="The update is live!">
+      <label for="e_cdEndCardLine">Countdown copy — end card</label><input id="e_cdEndCardLine" maxlength="300" placeholder="That was it.">
+      <label for="e_cdSoonLine">Countdown copy — soon</label><input id="e_cdSoonLine" maxlength="300" placeholder="soon.">
       <p class="hint">All countdown words + spooky ambience are edited on the countdown page itself (tiny edit link, bottom-right).</p>
       <label>Edit Code — used to unlock this editor</label>
       <input id="e_code" type="password" placeholder="Set a private edit code">

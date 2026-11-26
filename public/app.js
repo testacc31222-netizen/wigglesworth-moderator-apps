@@ -224,27 +224,65 @@ function renderCountdown(){
   const c = config.countdown || {};
   const card = $('countCard');
   const t = Date.parse(c.target || '');
-  if(!c.show || !t){ card.style.display = 'none'; if(cdTimer){ clearInterval(cdTimer); cdTimer = null; } return; }
+  const pad = n => String(n).padStart(2, '0');
+  const endWrap = $('cdEnd');
+  const endFrame = $('cdEndFrame');
+  const endVideo = $('cdEndVideo');
+  const amb = $('cdAmbience');
+  const ytUrl = v => /^https?:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//i.test(String(v || ''));
+  function renderEndState(live){
+    const v = String(c.endVideo || '').trim();
+    if(endWrap) endWrap.hidden = live;
+    if(endFrame){
+      const yt = ytUrl(v);
+      endFrame.hidden = live || !v;
+      if(v && !yt) endFrame.removeAttribute('src');
+      if(v && yt){ const m = v.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{6,})/); endFrame.src = 'https://www.youtube.com/embed/' + (m ? m[1] : '') + '?autoplay=1&muted=1'; }
+    }
+    if(endVideo){
+      const yt = ytUrl(v);
+      endVideo.hidden = live || yt;
+      if(v && !yt){ endVideo.src = v; endVideo.hidden = false; endVideo.play().catch(()=>{}); }
+    }
+    if(amb){
+      const a = String(c.ambience || '').trim();
+      if(!live){ amb.removeAttribute('src'); amb.pause(); amb.hidden = true; return; }
+      amb.src = a; amb.hidden = false; amb.play().catch(()=>{});
+    }
+  }
+  if(!c.show || !t){ card.style.display = 'none'; if(cdTimer){ clearInterval(cdTimer); cdTimer = null; } renderEndState(false); return; }
   card.style.display = 'block';
   $('cdTitle').textContent = c.title || 'Update drops in';
-  const pad = n => String(n).padStart(2, '0');
   const tick = ()=>{
-    let ms = t - Date.now();
+    const ms = t - Date.now();
+    const d = Math.floor(ms / 86400000);
+    const totalHours = Math.floor(ms / 3600000);
+    const h = pad(totalHours % 24);
+    const m = pad(Math.floor(ms / 60000) % 60);
+    const s = pad(Math.floor(ms / 1000) % 60);
+    const vals = { d, h: totalHours, m: Math.floor(ms / 60000), s: Math.floor(ms / 1000) };
+    const token = str => String(str || '').replace(/\{(d|h|m|s)\}/g, (_, k) => String(vals[k] ?? ''));
+    if(ms > 0){
+      $('cdD').textContent = String(d);
+      $('cdH').textContent = h;
+      $('cdM').textContent = m;
+      $('cdS').textContent = s;
+      $('cdNote').textContent = token(c.subLine || 'Until {h}h {m}m {s}s left.');
+    } else {
+      $('cdD').textContent = String(d);
+      $('cdH').textContent = h;
+      $('cdM').textContent = m;
+      $('cdS').textContent = s;
+      $('cdNote').textContent = String(c.completedLine || 'The update is live!');
+    }
+    renderEndState(ms > 0);
     if(ms <= 0){
-      $('cdD').textContent = $('cdH').textContent = $('cdM').textContent = $('cdS').textContent = '0';
-      $('cdNote').textContent = 'The update is live!';
       if(cdTimer){ clearInterval(cdTimer); cdTimer = null; }
       return;
     }
-    $('cdD').textContent = Math.floor(ms / 86400000);
-    $('cdH').textContent = pad(Math.floor(ms / 3600000) % 24);
-    $('cdM').textContent = pad(Math.floor(ms / 60000) % 60);
-    $('cdS').textContent = pad(Math.floor(ms / 1000) % 60);
-    $('cdNote').textContent = 'Until ' + new Date(t).toLocaleString();
   };
   tick();
-  if(cdTimer) clearInterval(cdTimer);
-  cdTimer = setInterval(tick, 1000);
+  if(!cdTimer) cdTimer = setInterval(tick, 1000);
 }
 function renderTypeCards(){
   const w = $('roleCards'); w.innerHTML = '';
@@ -776,6 +814,13 @@ function showEditor(refetch=true){
   $('e_cdTitle').value=(config.countdown && config.countdown.title)||'';
   $('e_cdTarget').value=isoToLocal(config.countdown && config.countdown.target);
   $('e_cdVideo').value=(config.countdown && config.countdown.endVideo)||'';
+  $('e_cdAmbience').value=(config.countdown && config.countdown.ambience)||'';
+  $('e_cdDaysLine').value=(config.countdown && config.countdown.daysLine)||'day {d} left.';
+  $('e_cdFinalLine').value=(config.countdown && config.countdown.finalLine)||'{h}h {m}m {s}s left.';
+  $('e_cdSubLine').value=(config.countdown && config.countdown.subLine)||'{h}h {m}m {s}s to go';
+  $('e_cdCompletedLine').value=(config.countdown && config.countdown.completedLine)||'The update is live!';
+  $('e_cdEndCardLine').value=(config.countdown && config.countdown.endCardLine)||'That was it.';
+  $('e_cdSoonLine').value=(config.countdown && config.countdown.soonLine)||'soon.';
   $('e_code').value = staffSession ? '' : editCode;
   $('e_code').placeholder = staffSession ? 'Leave blank to keep the current code' : 'Set a private edit code';
   $('e_showApproved').checked=config.showApproved!==false;
@@ -887,6 +932,13 @@ function collectEditor(){
     title: $('e_cdTitle').value,
     target: localToIso($('e_cdTarget').value),
     endVideo: $('e_cdVideo').value.trim(),
+    ambience: $('e_cdAmbience').value.trim(),
+    daysLine: $('e_cdDaysLine').value,
+    finalLine: $('e_cdFinalLine').value,
+    subLine: $('e_cdSubLine').value,
+    completedLine: $('e_cdCompletedLine').value,
+    endCardLine: $('e_cdEndCardLine').value,
+    soonLine: $('e_cdSoonLine').value,
   });
   config.showApproved = $('e_showApproved').checked;
   config.approvedTitle = $('e_approvedTitle').value;
