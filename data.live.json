@@ -5255,6 +5255,27 @@
       "scenario": "1st Verbal Warning - “Stop Spamming or i will time you out for 5 minutes”If they continue i will time them out for 5 minutes and if they keep doing it i will keep increasing the time out until a day.",
       "rulebreak": "Yes, “Toxicity”",
       "receiptAt": "2026-11-26T23:35:26.353Z"
+    },
+    {
+      "appId": "MOD-D6WYS9",
+      "type": "moderator",
+      "date": "2026-11-26T23:37:41.447Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "pastlikesboys@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_a1cf687ef2c0ec2c77c21424",
+      "notifiedStatus": "",
+      "username": "past",
+      "q1795044295615": "20",
+      "discord": "zval",
+      "age": "15",
+      "timezone": "est, 2-4h a day",
+      "experience": "i have mod experience in other vr games, like gorilla tag copies.",
+      "why": "i want to be a moderator because i want to start coming back to vr, i havent played in a while, so i feel like being moderator in a game will be a fresh start for me, i can learn the things that i forgot back when i was a mod for other games. i will work hard in the server and in the game, by reporting bad people and timing out people who break the rules of the discord server. i still remember some things from back when i was mod in other games. by being mod in this game, it will help me remember more and refresh my memory.",
+      "scenario": "if someone is spamming in the chat, i will politely ask them to stop. if they don't stop they will have to get timed out for a certain amount of time.",
+      "rulebreak": "nope",
+      "receiptAt": "2026-11-26T23:37:41.447Z"
     }
   ],
   "tickets": [
@@ -14434,10 +14455,26 @@
       "kind": "receipt",
       "appId": "MOD-82VCW4",
       "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-26T23:35:26.353Z",
+      "sentAt": "2026-11-26T23:35:27.846Z"
+    },
+    {
+      "id": "mail_67c38d963338512091",
+      "key": "MOD-D6WYS9:receipt",
+      "to": "pastlikesboys@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi zval,\n\nYour Moderator application (MOD-D6WYS9) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi zval,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-D6WYS9</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-D6WYS9",
+      "decisionStatus": "",
       "status": "queued",
       "attempts": 0,
       "error": "",
-      "createdAt": "2026-11-26T23:35:26.353Z",
+      "createdAt": "2026-11-26T23:37:41.447Z",
       "sentAt": ""
     }
   ],
