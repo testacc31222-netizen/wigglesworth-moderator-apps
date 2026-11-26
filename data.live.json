@@ -1019,8 +1019,8 @@
         ]
       }
     ],
-    "updatedAt": "2026-11-26T02:22:42.499Z",
-    "discordIdRemoved": true
+    "discordIdRemoved": true,
+    "updatedAt": "2026-11-26T02:22:42.499Z"
   },
   "submissions": [
     {
@@ -5871,78 +5871,6 @@
   ],
   "audit": [
     {
-      "t": "2026-11-26T02:22:42.499Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T02:22:39.422Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T02:22:34.991Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T02:14:07.104Z",
-      "act": "staff_signin",
-      "id": "stf_e26af9784429cab6c6bc",
-      "by": ""
-    },
-    {
-      "t": "2026-11-26T02:13:29.994Z",
-      "act": "staff_signin",
-      "id": "stf_e26af9784429cab6c6bc",
-      "by": ""
-    },
-    {
-      "t": "2026-11-26T02:12:05.752Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T02:12:03.831Z",
-      "act": "staff_account_role",
-      "id": "prism",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T02:11:58.200Z",
-      "act": "staff_account_add",
-      "id": "prism",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T02:11:07.957Z",
-      "act": "ticket_reply",
-      "id": "TKT-C2DCHD",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T02:10:48.453Z",
-      "act": "ticket_reply",
-      "id": "TKT-98WHQE",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T02:07:57.758Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T02:07:41.215Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6468,6 +6396,78 @@
       "t": "2026-11-15T05:42:31.719Z",
       "act": "staff_profile_saved",
       "id": "72836ed9-b8bc-4083-af2a-d978c13662b3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T05:42:09.162Z",
+      "act": "staff_profile_saved",
+      "id": "72836ed9-b8bc-4083-af2a-d978c13662b3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T05:41:38.398Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T02:45:57.673Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T23:58:32.877Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T22:58:41.859Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T21:02:45.766Z",
+      "act": "account_login",
+      "id": "acc_bc9472f64e82b3269669d325",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T18:25:38.947Z",
+      "act": "account_login",
+      "id": "acc_ef404cc0a2659a84415bfb1c",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T16:10:53.969Z",
+      "act": "ticket_reply",
+      "id": "TKT-D6S8YC",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T14:48:00.655Z",
+      "act": "account_login",
+      "id": "acc_c9ae6553eba5ea3121e78d05",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:26:43.740Z",
+      "act": "account_login",
+      "id": "acc_6f4cdda9c2a8413e10e97599",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:16:11.447Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T06:23:06.037Z",
+      "act": "config_saved",
+      "id": "",
       "by": ""
     }
   ],
