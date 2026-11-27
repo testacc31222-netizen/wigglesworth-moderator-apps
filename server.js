@@ -754,6 +754,12 @@ function normalizeDB(db) {
     if (!STAFF_ROLES.includes(a.role)) a.role = 'staff';
     if (a.active === undefined) a.active = true;
   }
+  // Event Hoster is permanently retired. Strip it from every data source
+  // (local file, GitHub backup, or a staff-saved config) on every load so it
+  // can never be re-introduced by a backup merge or an old cached config.
+  if (Array.isArray(db.config.applicationTypes)) {
+    db.config.applicationTypes = db.config.applicationTypes.filter(t => t && t.id !== 'event');
+  }
   // fixups for DBs saved before these fields existed
   for (const t of db.config.applicationTypes) if (t.open === undefined) t.open = true;
   for (const t of db.config.applicationTypes) {
@@ -2097,7 +2103,7 @@ app.post('/api/admin/config', adminLimit, express.json({ limit: '8mb' }), (req, 
       o: Math.min(1, Math.max(0.2, Number(d.o ?? 1))),
       z: Math.min(100, Math.max(1, Number(d.z) || 5)),
     })) : [],
-    applicationTypes: c.applicationTypes.map(t => {
+    applicationTypes: c.applicationTypes.filter(t => t && t.id !== 'event').map(t => {
       const clean = cleanType(t);
       const old = db.config.applicationTypes.find(x => x.id === clean.id);
       // the public config hides successMessage, so an editor working from it

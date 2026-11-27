@@ -310,8 +310,7 @@ function renderTypeCards(){
     const emblems = {
       moderator:'M12 3 20 6v6c0 4-4 7-8 9-4-2-8-5-8-9V6ZM8 12l3 3 5-6',
       content:'M4 5h16v14H4ZM10 9l5 3-5 3Z',
-      developer:'m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18',
-      event:'M4 5h16v16H4ZM4 10h16M8 2v6m8-6v6M8 14h2m4 0h2'
+      developer:'m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18'
     };
     const emblemKey = Object.keys(emblems).find(key => `${t.id} ${t.name}`.toLowerCase().includes(key));
     const emblem = document.createElement('span');
