@@ -5471,6 +5471,27 @@
       "scenario": "I would like to put them in a 1h or 10m time out",
       "rulebreak": "i got banned for no reason by an old mod",
       "receiptAt": "2026-11-27T18:19:23.987Z"
+    },
+    {
+      "appId": "MOD-GY8YEV",
+      "type": "moderator",
+      "date": "2026-11-27T21:34:38.815Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "bullmaximillianojose@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_b64bcf7ce987d9ffab35b020",
+      "notifiedStatus": "",
+      "username": "Maxvr49",
+      "q1795044295615": "20",
+      "discord": "Max_vr",
+      "age": "13",
+      "timezone": "Central standard time",
+      "experience": "The last test scary baboon big scary",
+      "why": "I want to help the community and the game from bullying sexual talks and other",
+      "scenario": "I tell them nicely to stop but if they don’t I warn them a bit the if they continue I mute them or ask owner",
+      "rulebreak": "No I have not because I have been nice to everybody",
+      "receiptAt": "2026-11-27T21:34:38.816Z"
     }
   ],
   "tickets": [
@@ -15248,6 +15269,22 @@
       "error": "",
       "createdAt": "2026-11-27T21:28:59.802Z",
       "sentAt": "2026-11-27T21:29:01.144Z"
+    },
+    {
+      "id": "mail_c3979bbb5a7bd73841",
+      "key": "MOD-GY8YEV:receipt",
+      "to": "bullmaximillianojose@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi Max_vr,\n\nYour Moderator application (MOD-GY8YEV) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi Max_vr,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-GY8YEV</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-GY8YEV",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-27T21:34:38.816Z",
+      "sentAt": "2026-11-27T21:34:39.944Z"
     }
   ],
   "staffAccounts": [
