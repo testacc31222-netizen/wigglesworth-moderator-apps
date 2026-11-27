@@ -5200,12 +5200,12 @@
       "appId": "MOD-QASKWG",
       "type": "moderator",
       "date": "2026-11-26T23:34:29.205Z",
-      "status": "pending",
-      "adminNote": "",
+      "status": "denied",
+      "adminNote": "Thank you for applying to be a moderator. We appreciate your enthusiasm and willingness to help keep our community safe. We encourage you to gain some moderation experience and reapply in the future.",
       "email": "vr24u69@gmail.com",
       "emailUpdates": true,
       "accountId": "acc_199a5e977a76fe0be3be4660",
-      "notifiedStatus": "",
+      "notifiedStatus": "denied",
       "username": "FROZEN SNUCKY",
       "q1795044295615": "169",
       "discord": "jjkfan_2",
@@ -5215,7 +5215,9 @@
       "why": "Because i want to make sure the game and discord server is safe!",
       "scenario": "Time them out for 3 minutes then if they keep spamming report it to the higher ups.",
       "rulebreak": "No",
-      "receiptAt": "2026-11-26T23:34:29.205Z"
+      "receiptAt": "2026-11-26T23:34:29.205Z",
+      "updatedAt": "2026-11-27T17:19:46.404Z",
+      "notifiedAt": "2026-11-27T17:19:47.794Z"
     },
     {
       "appId": "MOD-82VCW4",
@@ -5320,7 +5322,9 @@
       "why": "I wanna be a moderator so i can show what is good for the community and not bad for the community since i want this game to be good and have great players and not bad players and i will help out the players of the game and i will be very kind to people and i would be really active and asking people how their day was and always check up on them and if they are doing bad i will try to make their day better by supporting them with some words and more.i will never ever be toxic and will never make fun of people for their things and stuff.",
       "scenario": "So if they were spamming in chat first thing is i would tell them to stop and if they dont i will give them a verbal warning second if they keep going after the verbal warning i will give them a official warning and at last if they keep going after the warning i will time them out for a few minutes",
       "rulebreak": "Yes since i was in a bad mood and called quantumz the f word but i apologized",
-      "receiptAt": "2026-11-26T23:44:59.503Z"
+      "receiptAt": "2026-11-26T23:44:59.503Z",
+      "aiSummary": "Verdict: Mixed - strong activity but age and limited experience raise concerns  \n- Wants to join: Moderator role  \n- Experience: 3+ prior mods, 1595 Discord messages, 13 years old  \n- Availability: EST, 3‑7 hours daily  \n- Watch‑outs: Under 18, past ban for profanity, vague past roles, limited detail on moderation skills.",
+      "aiSummaryAt": "2026-11-27T17:17:38.470Z"
     },
     {
       "appId": "MOD-SYCD7Y",
@@ -5362,7 +5366,9 @@
       "why": "If i got mod or trial mod i would try my best to help the community and make it fun and safe for everyone. I also like to have fun, so I'll have a lot of fun and lobbies and not be toxic. Not be inappropriate, not do anything bad. And also support others who need the support and just help everyone in general and make sure everyone's safe. I don't like toxicity and I don't like inappropriate stuff and I just wanna help prevent that from happening. I have a lot of experience in being moderator I am staff in lots of more games like project apex, crystal tag, and more. I'm also good with following instructions.So if i'm doing something wrong, just tell me and I can be better at it or practice to be better at it. But other than that , i'm really good with instructions, and I know how to follow instructions. I also like to make content so I will make content under game too I don't only wanna be at staff but I also like to make content so I wanna be a content creator in the game too cause i like to make content. I might also invite some people from public codes to be in my video just so I can have some fun and connect more with the community.JusticeIf someone is doing something wrong, I'll either tell them about it. I'll give them like a warning or something and then if they still don't listen I will ban them and make sure that they never do that thing again.If they still do, I'll contact some higher ups to ban them for longer or permanent ban but depending on what they did. Anyway, that's what I'll do if I get moderator I'll do way more fun and cool stuff and maybe even film a justice vid if anyone is online being bad ppl and stuff. If there is drama I would obviously try and stop it snd organize it, thats a responsibility as a staff and that's what im supposed to do, im staff in many games and i have experience on stopping drama. I wanna help make the game a safe and chill place too. If there is drama I would obviously try and stop it snd organize it, thats a responsibility as a staff and that's what im supposed to do, im staff in many games and i have experience on stopping drama. I wanna help make the game a safe and chill place too.",
       "scenario": "First is usually a warning, second time another warning third time muted for an hour.",
       "rulebreak": "No",
-      "receiptAt": "2026-11-27T00:16:22.152Z"
+      "receiptAt": "2026-11-27T00:16:22.152Z",
+      "aiSummary": "Verdict: Mixed - applicant shows enthusiasm but lacks formal experience and is underage.  \n- Wants to join: Moderator role.  \n- Experience: Claims staff in several games, but details unclear.  \n- Availability: EST, 4pm–12am.  \n- Watch‑outs: 13years old, no formal moderation record, vague past roles.",
+      "aiSummaryAt": "2026-11-27T17:17:11.125Z"
     },
     {
       "appId": "MOD-XCEJMP",
@@ -6199,6 +6205,24 @@
   ],
   "audit": [
     {
+      "t": "2026-11-27T17:19:46.404Z",
+      "act": "ai_denied",
+      "id": "MOD-QASKWG",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-27T17:17:38.470Z",
+      "act": "ai_summary",
+      "id": "MOD-68CBQ8",
+      "by": "khamari"
+    },
+    {
+      "t": "2026-11-27T17:17:11.125Z",
+      "act": "ai_summary",
+      "id": "MOD-A64XSE",
+      "by": "khamari"
+    },
+    {
       "t": "2026-11-27T17:16:45.675Z",
       "act": "ai_denied",
       "id": "MOD-XCEJMP",
@@ -6778,24 +6802,6 @@
       "t": "2026-11-14T21:02:45.766Z",
       "act": "account_login",
       "id": "acc_bc9472f64e82b3269669d325",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T18:25:38.947Z",
-      "act": "account_login",
-      "id": "acc_ef404cc0a2659a84415bfb1c",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T16:10:53.969Z",
-      "act": "ticket_reply",
-      "id": "TKT-D6S8YC",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T14:48:00.655Z",
-      "act": "account_login",
-      "id": "acc_c9ae6553eba5ea3121e78d05",
       "by": ""
     }
   ],
@@ -15151,6 +15157,22 @@
       "error": "",
       "createdAt": "2026-11-27T17:16:45.675Z",
       "sentAt": "2026-11-27T17:16:47.012Z"
+    },
+    {
+      "id": "mail_8849bdaf5b6f020035",
+      "key": "MOD-QASKWG:denied:1795799986404",
+      "to": "vr24u69@gmail.com",
+      "subject": "Update on your Wigglesworth Moderator application",
+      "text": "Hi jjkfan_2,\n\nYour Moderator application (MOD-QASKWG) has been reviewed.\n\nResult: Not accepted\nNote from staff: Thank you for applying to be a moderator. We appreciate your enthusiasm and willingness to help keep our community safe. We encourage you to gain some moderation experience and reapply in the future.\n\nYou can sign in any time to view your application:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application update</h1><p style=\"margin:0 0 14px\">Hi jjkfan_2,</p><p style=\"margin:0 0 20px\">Your <b>Moderator</b> application (<b>MOD-QASKWG</b>) has been reviewed.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:18px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Result</div><div style=\"font-family:Georgia,serif;font-size:22px;color:#AAA5A0\">Not accepted</div><div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #2b2b31\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:5px\">Note from staff</div>Thank you for applying to be a moderator. We appreciate your enthusiasm and willingness to help keep our community safe. We encourage you to gain some moderation experience and reapply in the future.</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">Save your Application ID: <b style=\"color:#E6DED4\">MOD-QASKWG</b></p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">View my application</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "decision",
+      "appId": "MOD-QASKWG",
+      "decisionStatus": "denied",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-27T17:19:46.404Z",
+      "sentAt": "2026-11-27T17:19:47.794Z"
     }
   ],
   "staffAccounts": [
