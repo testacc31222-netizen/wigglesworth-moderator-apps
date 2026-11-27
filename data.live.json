@@ -6156,6 +6156,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-27T20:51:54.624Z",
+      "act": "account_login",
+      "id": "acc_37f4e3a656d78b10d62c4f00",
+      "by": ""
+    },
+    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6745,12 +6751,6 @@
     },
     {
       "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T06:23:06.037Z",
       "act": "config_saved",
       "id": "",
       "by": ""
@@ -7874,6 +7874,12 @@
       "id": "acc_7ce324f586d73da5512748ab",
       "email": "ttrbluelime@gmail.com",
       "createdAt": "2026-11-27T18:05:39.696Z",
+      "emailUpdates": true
+    },
+    {
+      "id": "acc_37f4e3a656d78b10d62c4f00",
+      "email": "lommo9985@gmail.com",
+      "createdAt": "2026-11-27T20:51:54.624Z",
       "emailUpdates": true
     }
   ],
