@@ -67,8 +67,7 @@ const DISCORD_ROLE_IDS = {
   moderator: roleList(process.env.DISCORD_ROLE_MOD),
   creator: roleList(process.env.DISCORD_ROLE_CC),
   developer: roleList(process.env.DISCORD_ROLE_DEV),
-  event: roleList(process.env.DISCORD_ROLE_EVT),
-};
+  };
 const discordRoleConfigured = () => !!(DISCORD_BOT_TOKEN && DISCORD_GUILD_ID);
 // Approval congratulations. Moderator only for now; other types fall through.
 const DISCORD_ACCEPT_CHANNEL = (process.env.DISCORD_ACCEPT_CHANNEL || '').replace(/\D/g, '');
@@ -76,8 +75,7 @@ const TYPE_LABELS = {
   moderator: 'Moderator',
   creator: 'Content Creator',
   developer: 'Developer',
-  event: 'Event Team',
-};
+  };
 
 // --- Email updates (Google Apps Script, Resend, Brevo, or Gmail/SMTP) ------
 // Set one provider on Render to turn delivery on. Until then, mail is queued
@@ -618,24 +616,7 @@ const DEFAULT_TYPES = [
       Q('teamwork', 'Do you prefer solo or team work?', 'text', 'Either is fine', false),
     ],
   },
-  {
-    id: 'event', name: 'Event Hoster', prefix: 'EVT',
-    blurb: 'Run game nights, tournaments, and community events.',
-    intro: 'Event Hosters run the fun stuff. Show us you can hype a crowd and handle chaos.',
-    successMessage: 'Thanks! Your event hoster application was received. Save your Application ID and check your decision below.',
-    showApproved: true,
-    open: true,
-    questions: [
-      Q('username', 'In-game Username', 'text', 'Your username', true),
-      Q('discord', 'Discord Username', 'text', 'Your exact Discord username, e.g. quantummzz', true),
-      Q('age', 'Age', 'number', 'e.g. 16', true),
-      Q('timezone', 'Timezone / Availability', 'text', 'e.g. EST, weekends', true),
-      Q('experience', 'Any hosting experience?', 'textarea', 'Events run before, or write None', true),
-      Q('eventidea', 'Describe an event you would host', 'textarea', 'Game, format, how it runs', true),
-      Q('chaos', '30 players show up and the game breaks mid-event. What do you do?', 'textarea', 'Explain step-by-step', true),
-      Q('reliable', 'Can you commit to a regular slot?', 'text', 'e.g. Saturdays 5pm EST', true),
-    ],
-  },
+  // Event Hoster type removed
 ];
 
 const DEFAULT_CONFIG = {
@@ -798,9 +779,6 @@ function normalizeDB(db) {
     }
   }
   if (!db.config.discordIdRemoved) db.config.discordIdRemoved = true;
-  if (!db.config.applicationTypes.some(t => t.id === 'event')) {
-    db.config.applicationTypes.push(structuredClone(DEFAULT_TYPES.find(t => t.id === 'event')));
-  }
   if (!Array.isArray(db.config.faq)) db.config.faq = structuredClone(DEFAULT_CONFIG.faq);
   if (!db.config.copy || typeof db.config.copy !== 'object' || Array.isArray(db.config.copy)) db.config.copy = {};
   if (!db.config.about || typeof db.config.about !== 'object') db.config.about = structuredClone(DEFAULT_CONFIG.about);

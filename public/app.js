@@ -377,7 +377,7 @@ function questionChapter(q, index){
   const id = String(q.id || '').toLowerCase();
   if(['username','discord','age','timezone'].includes(id) || index < 3) return 'Your place in the community';
   if(['experience','platform','channel','schedule','style','languages','portfolio'].includes(id)) return 'Your experience & craft';
-  if(['why','scenario','bugscenario','eventidea','chaos','rulebreak','strikes','reliable'].includes(id)) return 'Your judgment & intent';
+  if(['why','scenario','bugscenario','rulebreak','strikes','reliable'].includes(id)) return 'Your judgment & intent';
   if(id==='teamwork') return 'Your approach to collaboration';
   return index < 4 ? 'Your place in the community' : index < 7 ? 'Your experience & craft' : 'Your judgment & intent';
 }
@@ -775,6 +775,7 @@ function switchTab(name,btn){
   btn.classList.add('active');
   document.querySelectorAll('.tabpane').forEach(p=>p.classList.remove('active'));
   $('tab-'+name).classList.add('active');
+  if(name === 'apps') markLongAnswers($('subs'));
 }
 async function loadMailStatus(){
   const box=$('mailStatus'); if(!box) return;
@@ -1051,7 +1052,7 @@ async function renderSubs(){
     Object.keys(s).forEach(k=>{
       if(['appId','type','date','status','adminNote','aiSummary','aiSummaryAt','email','emailUpdates','notifiedStatus','notifiedAt','receiptAt','accountId','discordId','roleAssignedAt','roleAssignedRoleId','roleAssignedRoleIds','roleError','acceptAnnouncedAt','acceptAnnounceError'].includes(k)) return;
       const lbl = qmap[s.type+':'+k] || k;
-      html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><span class="ans" onclick="this.classList.toggle('open')">${hi(s[k]||'-',qr)}</span></div>`;
+      html+=`<div class="qa-row"><span>${hi(lbl,qr)}</span><div class="ans-cell"><span class="ans" tabindex="0" role="button" aria-expanded="false" onclick="toggleAnswer(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleAnswer(this)}">${hi(s[k]||'-',qr)}</span><button type="button" class="ans-toggle" hidden onclick="toggleAnswer(this.previousElementSibling)">See more</button></div></div>`;
     });
     html+=`</div>`;
     const roleCount = Array.isArray(s.roleAssignedRoleIds) ? s.roleAssignedRoleIds.length : (s.roleAssignedAt ? 1 : 0);
@@ -1075,6 +1076,7 @@ async function renderSubs(){
       html+=`<p class="hint">Read-only access — you can view applications but not change them.</p>`;
       d.innerHTML=html;
       w.appendChild(d);
+      markLongAnswers(d);
       return;
     }
     html+=`<label>Discord User ID (optional — only if the username lookup fails):</label><input value="${esc(s.discordId||'')}" id="discord_${esc(s.appId)}" inputmode="numeric" placeholder="17-20 digit Discord User ID">`;
@@ -1110,6 +1112,27 @@ async function renderSubs(){
       bar2.insertBefore(mk('Re-email decision','btn-small',()=>notifyApp(s.appId)), bar2.lastChild);
     }
     d.appendChild(bar); d.appendChild(bar2); w.appendChild(d);
+    markLongAnswers(d);
+  });
+}
+function toggleAnswer(ans){
+  if(!ans) return;
+  ans.classList.toggle('open');
+  const open = ans.classList.contains('open');
+  ans.setAttribute('aria-expanded', open ? 'true' : 'false');
+  const btn = ans.parentElement && ans.parentElement.querySelector('.ans-toggle');
+  if(btn){ btn.textContent = open ? 'See less' : 'See more'; btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+}
+function markLongAnswers(root){
+  if(!root) return;
+  root.querySelectorAll('.qa-row').forEach(row=>{
+    const ans = row.querySelector('.ans');
+    const btn = row.querySelector('.ans-toggle');
+    if(!ans || !btn) return;
+    const text = (ans.textContent || '').trim();
+    // Show the toggle when the answer is clipped to the 4-line preview or is simply long.
+    const clipped = ans.scrollHeight > ans.clientHeight + 2;
+    btn.hidden = !(clipped || text.length > 260);
   });
 }
 async function setStatus(appId,st){
