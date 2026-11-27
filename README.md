@@ -51,7 +51,7 @@ Add these environment variables on Render:
 - `DISCORD_ROLE_MOD` — Moderator role ID(s)
 - `DISCORD_ROLE_CC` — Content Creator role ID(s)
 - `DISCORD_ROLE_DEV` — Developer role ID(s)
-- (removed) `DISCORD_ROLE_EVT` — Event Hoster role ID(s)
+
 - `DISCORD_ACCEPT_CHANNEL` — channel ID that gets the congratulations ping
 
 When a **moderator** application is approved, the bot posts once in

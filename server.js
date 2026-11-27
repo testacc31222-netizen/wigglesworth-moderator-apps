@@ -616,7 +616,7 @@ const DEFAULT_TYPES = [
       Q('teamwork', 'Do you prefer solo or team work?', 'text', 'Either is fine', false),
     ],
   },
-  // Event Hoster type removed
+  
 ];
 
 const DEFAULT_CONFIG = {
