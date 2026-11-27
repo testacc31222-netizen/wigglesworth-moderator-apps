@@ -549,7 +549,8 @@
       "p-home-p0rj6-0": "{h}h {m}m {s}s to go",
       "p-home-1csptri-0": "The update is live!",
       "p-home-te0bow-0": "That was it.",
-      "p-home-19adr2s-0": "soon."
+      "p-home-19adr2s-0": "soon.",
+      "p-home-1v8tw3m-0": "Name, ID, or any answer word"
     },
     "bannerImage": "https://wigglesworth-applications.onrender.com/banner.png",
     "logoImage": "",
@@ -1000,7 +1001,7 @@
         ]
       }
     ],
-    "updatedAt": "2026-11-27T03:27:43.231Z",
+    "updatedAt": "2026-11-27T04:09:19.686Z",
     "discordIdRemoved": true
   },
   "submissions": [
@@ -6131,6 +6132,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-27T04:09:19.687Z",
+      "act": "config_saved",
+      "id": "",
+      "by": "khamari"
+    },
+    {
       "t": "2026-11-27T03:27:43.231Z",
       "act": "config_saved",
       "id": "",
@@ -6722,12 +6729,6 @@
       "t": "2026-11-14T16:10:53.969Z",
       "act": "ticket_reply",
       "id": "TKT-D6S8YC",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T14:48:00.655Z",
-      "act": "account_login",
-      "id": "acc_c9ae6553eba5ea3121e78d05",
       "by": ""
     }
   ],
