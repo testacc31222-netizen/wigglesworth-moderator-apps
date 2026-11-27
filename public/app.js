@@ -220,6 +220,10 @@ function isoToLocal(iso){
   return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + 'T' + p(d.getHours()) + ':' + p(d.getMinutes());
 }
 function localToIso(v){ const d = new Date(v); return isNaN(d) ? '' : d.toISOString(); }
+const MST_OFFSET_MS = -7 * 60 * 60 * 1000;
+function toMST(iso){ const d = new Date(iso); if(isNaN(d)) return null; return new Date(d.getTime() + MST_OFFSET_MS); }
+function mstDateStr(iso){ const d = toMST(iso); if(!d) return ''; const p=n=>String(n).padStart(2,'0'); return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate()); }
+function fmtMST(iso){ const d = toMST(iso); if(!d) return (iso||'').slice(0,16).replace('T',' '); const p=n=>String(n).padStart(2,'0'); return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate())+' '+p(d.getUTCHours())+':'+p(d.getUTCMinutes())+' MST'; }
 function renderCountdown(){
   const c = config.countdown || {};
   const card = $('countCard');
@@ -1001,10 +1005,17 @@ async function renderSubs(){
   let subs = await r.json();
   adminCache = subs;
   if(!readOnly) renderAudit();
-  const shown = subs.filter(s=>{
+  if($('appDateFrom')?.value || $('appDateTo')?.value) window.__newestLimit = 0;
+  let shown = subs.filter(s=>{
     if(f && s.status!==f) return false;
     if(tf && s.type!==tf) return false;
     if(q && !JSON.stringify(s).toLowerCase().includes(q)) return false;
+    const from = $('appDateFrom')?.value, to = $('appDateTo')?.value;
+    if(from || to){
+      const d = mstDateStr(s.date);
+      if(from && d < from) return false;
+      if(to && d > to) return false;
+    }
     return true;
   });
   const oldest = $('appSort')?.value === 'oldest';
@@ -1013,6 +1024,7 @@ async function renderSubs(){
     const delta = time(a.date)-time(b.date);
     return oldest ? delta : -delta;
   });
+  if(window.__newestLimit && window.__newestLimit > 0){ shown = shown.slice(0, window.__newestLimit); }
   const overview = $('staffOverview');
   if(overview) overview.textContent = `${subs.length} applications · ${subs.filter(s=>s.status==='pending').length} awaiting review · ${subs.filter(s=>s.status==='approved').length} accepted · ${subs.filter(s=>s.status==='denied').length} denied`;
   $('subCount').textContent = shown.length + ' of ' + subs.length;
@@ -1023,7 +1035,7 @@ async function renderSubs(){
     const name = dispName(s);
     const d=document.createElement('div'); d.className='submission';
     let html=`<div class="sub-head"><div class="avatar">${esc(name.slice(0,1).toUpperCase()||'?')}</div>`
-      +`<div class="who"><b>${hi(name,qr)}</b><span class="hint">${hi(s.appId||'',qr)} · ${hi(typeName(s.type),qr)} · ${hi((s.date||'').slice(0,16).replace('T',' '),qr)}</span>`
+      +`<div class="who"><b>${hi(name,qr)}</b><span class="hint">${hi(s.appId||'',qr)} · ${hi(typeName(s.type),qr)} · ${hi(fmtMST(s.date),qr)}</span>`
       +`<span class="hint">${s.email?hi(s.email,qr):'<i>no email on file</i>'}${s.email&&s.emailUpdates===false?' · email updates off':''}${s.notifiedAt?' · decision email logged '+(s.notifiedAt||'').slice(0,10):''}</span></div>`
       +`<span class="status ${s.status}">${(s.status||'pending').toUpperCase()}</span></div>`;
     if(s.aiSummary){
@@ -1136,6 +1148,25 @@ async function summarizeApp(appId, btn){
 async function delSub(appId){
   await fetch('/api/admin/applications/'+appId,{method:'DELETE',headers:{'x-edit-code':editCode}});
   renderSubs(); renderApprovedPublic();
+}
+function setAppDateRange(mode){
+  const from = $('appDateFrom'), to = $('appDateTo');
+  if(!from || !to) return;
+  const today = mstDateStr(new Date().toISOString());
+  const addDays = (d, n) => { const x = new Date(d + 'T00:00:00Z'); x.setUTCDate(x.getUTCDate() + n); const p=v=>String(v).padStart(2,'0'); return x.getUTCFullYear()+'-'+p(x.getUTCMonth()+1)+'-'+p(x.getUTCDate()); };
+  if(mode === 'all'){ from.value = ''; to.value = ''; }
+  else if(mode === 'today'){ from.value = today; to.value = today; }
+  else if(mode === '7d'){ from.value = addDays(today, -6); to.value = today; }
+  else if(mode === '30d'){ from.value = addDays(today, -29); to.value = today; }
+  else if(mode === 'newest25'){ from.value = ''; to.value = ''; $('appSort').value = 'newest'; }
+  renderSubs();
+  if(mode === 'newest25'){
+    // limit display to newest 25 by trimming after sort (handled in renderSubs via a flag)
+    window.__newestLimit = 25;
+    renderSubs();
+  } else {
+    window.__newestLimit = 0;
+  }
 }
 async function clearSubs(){
   if(!confirm('Delete ALL submissions?')) return;
