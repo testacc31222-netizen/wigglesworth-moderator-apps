@@ -910,8 +910,8 @@
         ]
       }
     ],
-    "updatedAt": "2026-11-27T21:37:41.888Z",
-    "discordIdRemoved": true
+    "discordIdRemoved": true,
+    "updatedAt": "2026-11-27T21:37:41.888Z"
   },
   "submissions": [
     {
@@ -6162,42 +6162,6 @@
   ],
   "audit": [
     {
-      "t": "2026-11-27T21:37:41.888Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T21:37:39.208Z",
-      "act": "staff_profile_deleted",
-      "id": "9c7785f4-f964-42ad-b3eb-81a06a136796",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T21:37:34.121Z",
-      "act": "staff_profiles_reordered",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T21:35:26.943Z",
-      "act": "account_recover",
-      "id": "MOD-GY8YEV",
-      "by": ""
-    },
-    {
-      "t": "2026-11-27T21:29:18.108Z",
-      "act": "account_login",
-      "id": "acc_b64bcf7ce987d9ffab35b020",
-      "by": ""
-    },
-    {
-      "t": "2026-11-27T20:51:54.624Z",
-      "act": "account_login",
-      "id": "acc_37f4e3a656d78b10d62c4f00",
-      "by": ""
-    },
-    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6759,6 +6723,42 @@
       "t": "2026-11-14T21:02:45.766Z",
       "act": "account_login",
       "id": "acc_bc9472f64e82b3269669d325",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T18:25:38.947Z",
+      "act": "account_login",
+      "id": "acc_ef404cc0a2659a84415bfb1c",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T16:10:53.969Z",
+      "act": "ticket_reply",
+      "id": "TKT-D6S8YC",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T14:48:00.655Z",
+      "act": "account_login",
+      "id": "acc_c9ae6553eba5ea3121e78d05",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:26:43.740Z",
+      "act": "account_login",
+      "id": "acc_6f4cdda9c2a8413e10e97599",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:16:11.447Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T06:23:06.037Z",
+      "act": "config_saved",
+      "id": "",
       "by": ""
     }
   ],
