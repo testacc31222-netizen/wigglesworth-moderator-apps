@@ -1001,8 +1001,8 @@
         ]
       }
     ],
-    "updatedAt": "2026-11-27T04:09:19.686Z",
-    "discordIdRemoved": true
+    "discordIdRemoved": true,
+    "updatedAt": "2026-11-27T04:09:19.686Z"
   },
   "submissions": [
     {
@@ -6153,30 +6153,6 @@
   ],
   "audit": [
     {
-      "t": "2026-11-27T04:09:19.687Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T03:27:43.231Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T03:22:55.098Z",
-      "act": "account_link",
-      "id": "MOD-DU5488",
-      "by": ""
-    },
-    {
-      "t": "2026-11-27T03:16:10.993Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6750,6 +6726,30 @@
       "t": "2026-11-14T16:10:53.969Z",
       "act": "ticket_reply",
       "id": "TKT-D6S8YC",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T14:48:00.655Z",
+      "act": "account_login",
+      "id": "acc_c9ae6553eba5ea3121e78d05",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:26:43.740Z",
+      "act": "account_login",
+      "id": "acc_6f4cdda9c2a8413e10e97599",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:16:11.447Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T06:23:06.037Z",
+      "act": "config_saved",
+      "id": "",
       "by": ""
     }
   ],
