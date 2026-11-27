@@ -15005,11 +15005,11 @@
       "kind": "receipt",
       "appId": "MOD-CCK7KC",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-27T04:11:00.222Z",
-      "sentAt": ""
+      "sentAt": "2026-11-27T04:11:02.027Z"
     }
   ],
   "staffAccounts": [
