@@ -6211,60 +6211,6 @@
   ],
   "audit": [
     {
-      "t": "2026-11-27T17:24:05.498Z",
-      "act": "ai_denied",
-      "id": "MOD-KH973V",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T17:20:17.001Z",
-      "act": "ai_denied",
-      "id": "MOD-7RJ6TJ",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T17:19:56.434Z",
-      "act": "ai_summary",
-      "id": "MOD-7RJ6TJ",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T17:19:46.404Z",
-      "act": "ai_denied",
-      "id": "MOD-QASKWG",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T17:17:38.470Z",
-      "act": "ai_summary",
-      "id": "MOD-68CBQ8",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T17:17:11.125Z",
-      "act": "ai_summary",
-      "id": "MOD-A64XSE",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T17:16:45.675Z",
-      "act": "ai_denied",
-      "id": "MOD-XCEJMP",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T17:16:40.965Z",
-      "act": "ai_denied",
-      "id": "MOD-DU5488",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-27T17:13:06.498Z",
-      "act": "staff_profile_deleted",
-      "id": "9c7785f4-f964-42ad-b3eb-81a06a136796",
-      "by": "khamari"
-    },
-    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6808,6 +6754,60 @@
       "t": "2026-11-15T02:45:57.673Z",
       "act": "account_login",
       "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T23:58:32.877Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T22:58:41.859Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T21:02:45.766Z",
+      "act": "account_login",
+      "id": "acc_bc9472f64e82b3269669d325",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T18:25:38.947Z",
+      "act": "account_login",
+      "id": "acc_ef404cc0a2659a84415bfb1c",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T16:10:53.969Z",
+      "act": "ticket_reply",
+      "id": "TKT-D6S8YC",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T14:48:00.655Z",
+      "act": "account_login",
+      "id": "acc_c9ae6553eba5ea3121e78d05",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:26:43.740Z",
+      "act": "account_login",
+      "id": "acc_6f4cdda9c2a8413e10e97599",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:16:11.447Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T06:23:06.037Z",
+      "act": "config_saved",
+      "id": "",
       "by": ""
     }
   ],
