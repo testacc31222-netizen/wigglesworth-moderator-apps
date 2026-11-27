@@ -1000,7 +1000,7 @@
         ]
       }
     ],
-    "updatedAt": "2026-11-27T03:16:10.993Z",
+    "updatedAt": "2026-11-27T03:27:43.231Z",
     "discordIdRemoved": true
   },
   "submissions": [
@@ -6131,6 +6131,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-27T03:27:43.231Z",
+      "act": "config_saved",
+      "id": "",
+      "by": "khamari"
+    },
+    {
       "t": "2026-11-27T03:22:55.098Z",
       "act": "account_link",
       "id": "MOD-DU5488",
@@ -6722,12 +6728,6 @@
       "t": "2026-11-14T14:48:00.655Z",
       "act": "account_login",
       "id": "acc_c9ae6553eba5ea3121e78d05",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:26:43.740Z",
-      "act": "account_login",
-      "id": "acc_6f4cdda9c2a8413e10e97599",
       "by": ""
     }
   ],
@@ -14967,11 +14967,11 @@
       "kind": "receipt",
       "appId": "MOD-DCT5D4",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-27T03:27:28.011Z",
-      "sentAt": ""
+      "sentAt": "2026-11-27T03:27:29.553Z"
     }
   ],
   "staffAccounts": [
