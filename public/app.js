@@ -223,7 +223,13 @@ function localToIso(v){ const d = new Date(v); return isNaN(d) ? '' : d.toISOStr
 const MST_OFFSET_MS = -7 * 60 * 60 * 1000;
 function toMST(iso){ const d = new Date(iso); if(isNaN(d)) return null; return new Date(d.getTime() + MST_OFFSET_MS); }
 function mstDateStr(iso){ const d = toMST(iso); if(!d) return ''; const p=n=>String(n).padStart(2,'0'); return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate()); }
-function fmtMST(iso){ const d = toMST(iso); if(!d) return (iso||'').slice(0,16).replace('T',' '); const p=n=>String(n).padStart(2,'0'); return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate())+' '+p(d.getUTCHours())+':'+p(d.getUTCMinutes())+' MST'; }
+function fmtMST(iso){
+  const d = toMST(iso); if(!d) return (iso||'').slice(0,16).replace('T',' ');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  let h = d.getUTCHours(); const ampm = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+  const m = String(d.getUTCMinutes()).padStart(2,'0');
+  return months[d.getUTCMonth()] + ' ' + d.getUTCDate() + ', ' + d.getUTCFullYear() + ' · ' + h + ':' + m + ' ' + ampm + ' MST';
+}
 function renderCountdown(){
   const c = config.countdown || {};
   const card = $('countCard');

@@ -225,10 +225,21 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .approved-list{display:grid;gap:10px}
 .approved-list div{background:rgba(77,122,95,.07);border:1px solid rgba(77,122,95,.35);border-left:3px solid rgba(77,122,95,.7);padding:11px 14px;border-radius:6px;font-size:14px}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.staff-datebar{align-items:center}
-.staff-date-label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
-.staff-date-label input{min-width:140px}
-.staff-quick-filters{display:flex;gap:6px;flex-wrap:wrap}
+.staff-audit{margin-bottom:10px}
+.apps-controls{display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0 18px}
+.apps-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.apps-field>span{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.apps-field input,.apps-field select{width:100%;min-width:0}
+.apps-filter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.apps-quick-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line)}
+.apps-quick-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.apps-spacer{flex:1 1 0;min-width:0}
+.apps-list-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:20px 0 10px}
+.apps-list-head h3{margin:0}
+.apps-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.apps-actions .btn-danger{border-color:rgba(166,44,53,.5);color:#f0a0a0}
+.apps-actions .btn-danger:hover{background:rgba(116,27,36,.3);color:#fff}
+@media(max-width:640px){.apps-controls{padding:14px}.apps-spacer{display:none}.apps-quick-row{gap:6px}}
 input[type=color]{height:48px;padding:5px;cursor:pointer}
 input[type=range]{accent-color:var(--crimson-bright);height:28px;padding:0}
 input[type=file]{padding:10px;font-size:13px;color:var(--muted)}
@@ -1243,35 +1254,54 @@ setTimeout(function(){if(!window.__booted)window.__showFatal('Taking too long to
 
     <div id="tab-apps" class="tabpane">
       <p id="staffOverview" class="staff-overview" role="status"></p>
-      <div id="auditLog" style="margin-bottom:10px"></div>
-      <div class="toolbar">
-        <input id="appSearch" placeholder="Find someone — name, ID, any answer word…" oninput="renderSubs()" style="flex:1;min-width:220px">
-        <button type="button" class="btn-small" onclick="document.getElementById('appFilter').value='pending';renderSubs()">Needs review</button>
-        <button type="button" class="btn-small" onclick="document.getElementById('appSearch').value='';document.getElementById('appFilter').value='';document.getElementById('appTypeFilter').value='';document.getElementById('appDateFrom').value='';document.getElementById('appDateTo').value='';window.__newestLimit=0;renderSubs()">Clear</button>
-      </div>
-      <div class="toolbar">
-        <select id="appTypeFilter" onchange="renderSubs()" style="flex:1"><option value="">All roles</option></select>
-        <label class="staff-sort" for="appSort">Order<select id="appSort" onchange="renderSubs()"><option value="newest">Newest</option><option value="oldest">Oldest</option></select></label><select id="appFilter" onchange="renderSubs()" style="flex:1"><option value="">All statuses</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="denied">Denied</option></select>
-      </div>
-      <div class="toolbar staff-datebar">
-        <label class="staff-date-label" for="appDateFrom">From (MST)<input id="appDateFrom" type="date" onchange="renderSubs()"></label>
-        <label class="staff-date-label" for="appDateTo">To (MST)<input id="appDateTo" type="date" onchange="renderSubs()"></label>
-        <div class="staff-quick-filters">
+      <div id="auditLog" class="staff-audit"></div>
+
+      <div class="apps-controls">
+        <label class="apps-field" for="appSearch"><span>Search</span>
+          <input id="appSearch" placeholder="Name, ID, or any answer word" oninput="renderSubs()">
+        </label>
+
+        <div class="apps-filter-grid">
+          <label class="apps-field" for="appTypeFilter"><span>Role</span>
+            <select id="appTypeFilter" onchange="renderSubs()"><option value="">All roles</option></select>
+          </label>
+          <label class="apps-field" for="appFilter"><span>Status</span>
+            <select id="appFilter" onchange="renderSubs()"><option value="">All statuses</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="denied">Denied</option></select>
+          </label>
+          <label class="apps-field" for="appSort"><span>Sort by date</span>
+            <select id="appSort" onchange="renderSubs()"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select>
+          </label>
+          <label class="apps-field" for="appDateFrom"><span>From (MST)</span>
+            <input id="appDateFrom" type="date" onchange="renderSubs()">
+          </label>
+          <label class="apps-field" for="appDateTo"><span>To (MST)</span>
+            <input id="appDateTo" type="date" onchange="renderSubs()">
+          </label>
+        </div>
+
+        <div class="apps-quick-row">
+          <span class="apps-quick-label">Quick dates</span>
           <button type="button" class="btn-small" onclick="setAppDateRange('all')">All</button>
           <button type="button" class="btn-small" onclick="setAppDateRange('today')">Today</button>
           <button type="button" class="btn-small" onclick="setAppDateRange('7d')">Last 7 days</button>
           <button type="button" class="btn-small" onclick="setAppDateRange('30d')">Last 30 days</button>
           <button type="button" class="btn-small" onclick="setAppDateRange('newest25')">Newest 25</button>
+          <span class="apps-spacer"></span>
+          <button type="button" class="btn-small" onclick="document.getElementById('appFilter').value='pending';renderSubs()">Needs review</button>
+          <button type="button" class="btn-small" onclick="document.getElementById('appSearch').value='';document.getElementById('appFilter').value='';document.getElementById('appTypeFilter').value='';document.getElementById('appDateFrom').value='';document.getElementById('appDateTo').value='';window.__newestLimit=0;renderSubs()">Clear filters</button>
         </div>
       </div>
-      <div class="toolbar">
-        <button class="btn-small" onclick="exportCSV()">Export CSV</button>
-        <button class="btn-small" onclick="backupAll()">Backup</button>
-        <button class="btn-small" onclick="document.getElementById('restoreFile').click()">Restore</button>
-        <input type="file" id="restoreFile" accept=".json" style="display:none">
-        <button class="btn-small" onclick="clearSubs()">Clear All</button>
+
+      <div class="apps-list-head">
+        <h3>Submissions (<span id="subCount">0</span>)</h3>
+        <div class="apps-actions">
+          <button class="btn-small" onclick="exportCSV()">Export CSV</button>
+          <button class="btn-small" onclick="backupAll()">Backup</button>
+          <button class="btn-small" onclick="document.getElementById('restoreFile').click()">Restore</button>
+          <input type="file" id="restoreFile" accept=".json" style="display:none">
+          <button class="btn-small btn-danger" onclick="clearSubs()">Clear all</button>
+        </div>
       </div>
-      <h3>Submissions (<span id="subCount">0</span>)</h3>
       <div id="subs"></div>
     </div>
 
