@@ -15079,11 +15079,11 @@
       "kind": "receipt",
       "appId": "MOD-F63EEX",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-27T05:00:28.724Z",
-      "sentAt": ""
+      "sentAt": "2026-11-27T05:00:30.504Z"
     }
   ],
   "staffAccounts": [
