@@ -6110,6 +6110,12 @@
   ],
   "audit": [
     {
+      "t": "2026-11-27T03:22:55.098Z",
+      "act": "account_link",
+      "id": "MOD-DU5488",
+      "by": ""
+    },
+    {
       "t": "2026-11-27T03:16:10.993Z",
       "act": "config_saved",
       "id": "",
@@ -6701,12 +6707,6 @@
       "t": "2026-11-14T07:26:43.740Z",
       "act": "account_login",
       "id": "acc_6f4cdda9c2a8413e10e97599",
-      "by": ""
-    },
-    {
-      "t": "2026-11-14T07:16:11.447Z",
-      "act": "config_saved",
-      "id": "",
       "by": ""
     }
   ],
@@ -14930,11 +14930,11 @@
       "kind": "receipt",
       "appId": "MOD-DU5488",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-27T03:21:44.433Z",
-      "sentAt": ""
+      "sentAt": "2026-11-27T03:21:46.133Z"
     }
   ],
   "staffAccounts": [
