@@ -1000,8 +1000,8 @@
         ]
       }
     ],
-    "updatedAt": "2026-11-26T23:54:15.652Z",
-    "discordIdRemoved": true
+    "discordIdRemoved": true,
+    "updatedAt": "2026-11-26T23:54:15.652Z"
   },
   "submissions": [
     {
@@ -6068,108 +6068,6 @@
   ],
   "audit": [
     {
-      "t": "2026-11-27T00:23:08.180Z",
-      "act": "account_login",
-      "id": "acc_66ad7c3f9d327fd89f5326cd",
-      "by": ""
-    },
-    {
-      "t": "2026-11-27T00:20:16.250Z",
-      "act": "account_login",
-      "id": "acc_c0a3370ea0cbe26b7121c7d6",
-      "by": ""
-    },
-    {
-      "t": "2026-11-27T00:08:47.825Z",
-      "act": "account_login",
-      "id": "acc_07ba6ad1eb8868cd9a06deb4",
-      "by": ""
-    },
-    {
-      "t": "2026-11-26T23:54:15.652Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:46:40.757Z",
-      "act": "staff_signin",
-      "id": "stf_425eedd7ce16b6d18f7f",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:46:36.965Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:30:52.299Z",
-      "act": "staff_profile_saved",
-      "id": "11e13507-3019-49c5-b802-722df2aaff04",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:30:28.869Z",
-      "act": "staff_profile_deleted",
-      "id": "72836ed9-b8bc-4083-af2a-d978c13662b3",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:30:08.318Z",
-      "act": "account_login",
-      "id": "acc_a1cf687ef2c0ec2c77c21424",
-      "by": ""
-    },
-    {
-      "t": "2026-11-26T23:27:31.342Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:26:11.146Z",
-      "act": "account_login",
-      "id": "acc_f1693e13c710a510b0f3652d",
-      "by": ""
-    },
-    {
-      "t": "2026-11-26T23:25:39.611Z",
-      "act": "account_login",
-      "id": "acc_925b7f1a3501cacb57991139",
-      "by": ""
-    },
-    {
-      "t": "2026-11-26T23:22:53.548Z",
-      "act": "config_saved",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:20:00.823Z",
-      "act": "cleared_all",
-      "id": "",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:14:43.590Z",
-      "act": "ai_denied",
-      "id": "MOD-SG2UHW",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:12:19.120Z",
-      "act": "ai_summary",
-      "id": "MOD-JTWKC4",
-      "by": "khamari"
-    },
-    {
-      "t": "2026-11-26T23:12:00.205Z",
-      "act": "ai_denied",
-      "id": "MOD-HULFSU",
-      "by": "khamari"
-    },
-    {
       "t": "2026-11-19T03:40:05.734Z",
       "act": "account_recover",
       "id": "CC-K5PWTN",
@@ -6665,6 +6563,108 @@
       "t": "2026-11-15T05:49:22.185Z",
       "act": "staff_profile_saved",
       "id": "9c7785f4-f964-42ad-b3eb-81a06a136796",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T05:48:27.441Z",
+      "act": "staff_profile_saved",
+      "id": "ca40c56b-37d6-4f77-9cd3-f8e12dcb6127",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T05:46:48.179Z",
+      "act": "staff_profile_saved",
+      "id": "ba9099d6-9cb7-421f-9b39-36cea1ad443e",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T05:46:00.069Z",
+      "act": "staff_profile_saved",
+      "id": "72836ed9-b8bc-4083-af2a-d978c13662b3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T05:45:11.833Z",
+      "act": "staff_profile_saved",
+      "id": "f4c130ca-5349-406a-831d-c9625dc0adc1",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T05:42:31.719Z",
+      "act": "staff_profile_saved",
+      "id": "72836ed9-b8bc-4083-af2a-d978c13662b3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T05:42:09.162Z",
+      "act": "staff_profile_saved",
+      "id": "72836ed9-b8bc-4083-af2a-d978c13662b3",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T05:41:38.398Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-15T02:45:57.673Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T23:58:32.877Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T22:58:41.859Z",
+      "act": "account_login",
+      "id": "acc_d235da1c2e7996fe90c8970d",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T21:02:45.766Z",
+      "act": "account_login",
+      "id": "acc_bc9472f64e82b3269669d325",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T18:25:38.947Z",
+      "act": "account_login",
+      "id": "acc_ef404cc0a2659a84415bfb1c",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T16:10:53.969Z",
+      "act": "ticket_reply",
+      "id": "TKT-D6S8YC",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T14:48:00.655Z",
+      "act": "account_login",
+      "id": "acc_c9ae6553eba5ea3121e78d05",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:26:43.740Z",
+      "act": "account_login",
+      "id": "acc_6f4cdda9c2a8413e10e97599",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T07:16:11.447Z",
+      "act": "config_saved",
+      "id": "",
+      "by": ""
+    },
+    {
+      "t": "2026-11-14T06:23:06.037Z",
+      "act": "config_saved",
+      "id": "",
       "by": ""
     }
   ],
