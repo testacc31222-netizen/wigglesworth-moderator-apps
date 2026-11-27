@@ -5320,6 +5320,27 @@
       "scenario": "So if they were spamming in chat first thing is i would tell them to stop and if they dont i will give them a verbal warning second if they keep going after the verbal warning i will give them a official warning and at last if they keep going after the warning i will time them out for a few minutes",
       "rulebreak": "Yes since i was in a bad mood and called quantumz the f word but i apologized",
       "receiptAt": "2026-11-26T23:44:59.503Z"
+    },
+    {
+      "appId": "MOD-SYCD7Y",
+      "type": "moderator",
+      "date": "2026-11-27T00:15:08.124Z",
+      "status": "pending",
+      "adminNote": "",
+      "email": "orangemine67@gmail.com",
+      "emailUpdates": true,
+      "accountId": "acc_07ba6ad1eb8868cd9a06deb4",
+      "notifiedStatus": "",
+      "username": "Vex",
+      "q1795044295615": "1204",
+      "discord": "daysvr.",
+      "age": "13",
+      "timezone": "7 hours a day time zone GMT",
+      "experience": "Yeah in wigglesworth",
+      "why": "I want to help the community (without arguing this time) and help clean the wigglesworth community of toxic homophobic and racist people ,and cheaters, not just in game but in the server aswell i will make sure every user that breaks a rule will go down the correct path for what they did and there is no unfair bans.",
+      "scenario": "I warn them if they dont stop time them out",
+      "rulebreak": "No",
+      "receiptAt": "2026-11-27T00:15:08.125Z"
     }
   ],
   "tickets": [
@@ -7711,10 +7732,10 @@
   "loginCodes": [
     {
       "email": "exclusiveaiden1@gmail.com",
-      "hash": "cafbd3f88de07f3579ab312d6389c045429fa0fa05ace428a549333291c391ab",
-      "exp": 1795739050634,
+      "hash": "f3ecf4b4f62fa7cdd14a80c45bbc114b9e2514be5a3bb596df4ce6ba74b74325",
+      "exp": 1795739095878,
       "tries": 0,
-      "created": 1795738450634
+      "created": 1795738495878
     }
   ],
   "outbox": [
@@ -14657,6 +14678,38 @@
       "error": "",
       "createdAt": "2026-11-27T00:14:10.634Z",
       "sentAt": "2026-11-27T00:14:11.902Z"
+    },
+    {
+      "id": "mail_584a46879e2cc169e1",
+      "key": "signin:exclusiveaiden1@gmail.com:1795738495878",
+      "to": "exclusiveaiden1@gmail.com",
+      "subject": "Your Wigglesworth sign-in code",
+      "text": "Your Wigglesworth sign-in code is 236242.\n\nIt expires in 10 minutes. If you did not request it, ignore this email.",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Sign in</h1><p style=\"margin:0 0 18px\">Use this code to open your applications. It expires in 10 minutes.</p><div style=\"border:1px solid #A62C35;background:#111114;padding:20px;text-align:center;margin:0 0 18px;font-family:Georgia,serif;font-size:34px;letter-spacing:.35em;color:#E6DED4\">236242</div><p style=\"margin:0;color:#AAA5A0;font-size:13px\">If you did not request this, you can ignore this email.</p><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "signin",
+      "appId": "",
+      "decisionStatus": "",
+      "status": "sent",
+      "attempts": 1,
+      "error": "",
+      "createdAt": "2026-11-27T00:14:55.879Z",
+      "sentAt": "2026-11-27T00:14:57.409Z"
+    },
+    {
+      "id": "mail_84ca2df5e2c7cc1e92",
+      "key": "MOD-SYCD7Y:receipt",
+      "to": "orangemine67@gmail.com",
+      "subject": "We received your Wigglesworth Moderator application",
+      "text": "Hi daysvr.,\n\nYour Moderator application (MOD-SYCD7Y) is in the queue.\n\nWe will email you again as soon as there is a decision.\nYou can sign in any time to check its status:\nhttps://wigglesworth-applications.onrender.com/signin\n\n— Wigglesworth Staff",
+      "html": "<!doctype html><html><body style=\"margin:0;padding:0;background:#080809\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#080809\"><tr><td align=\"center\" style=\"padding:0\"><div style=\"width:100%;max-width:560px;margin:0 auto;padding:34px 24px;background:#080809;color:#E6DED4;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:15px;line-height:1.65\"><div style=\"font-family:Georgia,serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#AAA5A0\">Wigglesworth</div><div style=\"height:1px;background:#381217;margin:18px 0 26px\"></div><h1 style=\"font-family:Georgia,serif;font-weight:400;font-size:26px;line-height:1.25;margin:0 0 18px;color:#F1ECE6\">Application received</h1><p style=\"margin:0 0 14px\">Hi daysvr.,</p><p style=\"margin:0 0 18px\">Your <b>Moderator</b> application is in the queue and will be read by a human.</p><div style=\"border:1px solid #2b2b31;background:#111114;padding:16px 20px;margin:0 0 20px\"><div style=\"font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#AAA5A0;margin-bottom:6px\">Application ID</div><div style=\"font-family:Georgia,serif;font-size:20px;color:#E6DED4\">MOD-SYCD7Y</div></div><p style=\"margin:0 0 18px;color:#AAA5A0;font-size:13px\">We will email you again when there is a decision. Nothing else is needed from you right now.</p><a href=\"https://wigglesworth-applications.onrender.com/signin\" style=\"display:inline-block;background:#741B24;color:#fff;text-decoration:none;padding:12px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase\">Sign in to track it</a><div style=\"height:1px;background:#381217;margin:28px 0 16px\"></div><p style=\"margin:0;font-size:12px;color:#7d7873\">You are receiving this because you applied to join the Wigglesworth staff team.</p></div></td></tr></table></body></html>",
+      "kind": "receipt",
+      "appId": "MOD-SYCD7Y",
+      "decisionStatus": "",
+      "status": "queued",
+      "attempts": 0,
+      "error": "",
+      "createdAt": "2026-11-27T00:15:08.125Z",
+      "sentAt": ""
     }
   ],
   "staffAccounts": [
