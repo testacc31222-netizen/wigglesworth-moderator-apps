@@ -8,7 +8,7 @@ Concept-specific requirements:
 
 - Sign-in: full desktop screen, crystal brand and Back to applications header; left purple moonlit gate artwork and Welcome back; right Email code/Application ID form, Email address, Send a sign-in code, code-expiry note. No arch, background words or essay.
 - Community: announcement plus Join the Wigglesworth team; left three crystal illustrations for community/experiences/impact; right open requirements list; bottom three-step process and Explore roles. No Roman numerals or chapter labels.
-- Roles: Find your role; four horizontal rows with shield, clapperboard, tools and banner emblems; accurate Moderator/Content Creator/Developer/Event Hoster state; one role open; Apply action and status link. No four equal cards or illegible closed text.
+- Roles: Find your role; four horizontal rows with shield, clapperboard, tools and banner emblems; accurate Moderator/Content Creator/Developer state; one role open; Apply action and status link. No four equal cards or illegible closed text.
 - Support: Contact the team; left Ask a question/Report a staff member options and existing ticket lookup; right private message form. No duplicated long forms, red/teal surfaces or Q-number badges.
 - Status/FAQ: full-width Check your application band with scroll/seal illustration and lookup; four full-width FAQ accordion rows; useful footer links. No tiny floating card or unused right-hand space.
 
