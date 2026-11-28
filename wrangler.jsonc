@@ -1,0 +1,83 @@
+{
+  // Cloudflare Workers deployment for the Wigglesworth moderator site.
+  // This file contains NON-SECRET defaults ported from server.js / render.yaml.
+  // Secrets (EDIT_CODE, SESSION_SECRET, GITHUB_TOKEN, Discord/email/AI keys,
+  // MAIL_FROM, MAIL_REPLY_TO, PUBLIC_URL override, ...) must be set with
+  // `wrangler secret put NAME` — see docs/MIGRATION.md. Never paste secret
+  // values here: this file is committed to source control.
+  "$schema": "node_modules/wrangler/config-schema.json",
+
+  "name": "wigglesworth-applications",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-20",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // The whole public/ tree is copied verbatim (no frontend edits in this port).
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    // The account-only gate and security headers must run even for index.html.
+    // Without this, the asset binding serves index.html before our Worker.
+    "run_worker_first": true
+  },
+
+  // Single-row-per-record store. See migrations/0001_schema.sql.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "wigglesworth-db",
+      "database_id": "07f87659-17a8-421f-b8d2-e3ff611ca3a1"
+    }
+  ],
+
+  // Media (evidence, videos, offloaded config images) is stored in the
+  // existing GitHub repository via the GITHUB_TOKEN secret. Workers can use
+  // R2 when a MEDIA binding is present, but the binding is optional so the
+  // deployment stays entirely on the free plan without a payment method.
+
+  "durable_objects": {
+    "bindings": [
+      { "name": "RATE_LIMITER", "class_name": "RateLimiter" },
+      { "name": "STORE_LOCK", "class_name": "StoreLock" }
+    ]
+  },
+  // Free-plan Durable Objects must be created with SQLite-backed classes.
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["RateLimiter", "StoreLock"] }
+  ],
+
+  // Both queues are produced and consumed by this worker's queue() handler.
+  "queues": {
+    "producers": [
+      { "queue": "wigglesworth-mail-jobs", "binding": "MAIL_JOBS" },
+      { "queue": "wigglesworth-discord-jobs", "binding": "DISCORD_JOBS" }
+    ],
+    "consumers": [
+      { "queue": "wigglesworth-mail-jobs", "max_batch_size": 10, "max_batch_timeout": 5 },
+      { "queue": "wigglesworth-discord-jobs", "max_batch_size": 10, "max_batch_timeout": 5 }
+    ]
+  },
+
+  // Replaces setInterval(flushOutbox, 5 * 60 * 1000) in server.js.
+  "triggers": {
+    "crons": ["*/5 * * * *"]
+  },
+
+  // Non-secret defaults from server.js. Override per environment with secrets
+  // or `wrangler deploy --var KEY:VALUE`. Keep this list under 64 entries.
+  "vars": {
+    "GITHUB_REPO": "testacc31222-netizen/wigglesworth-moderator-apps",
+    "GITHUB_BRANCH": "main",
+    "GITHUB_DATA_BRANCH": "data-backup",
+    "GITHUB_API_BASE": "https://api.github.com",
+    "GITHUB_BACKUP_INTERVAL_MS": "300000",
+    "GITHUB_COUNTDOWN_REPO": "testacc31222-netizen/wigglesworth-countdown",
+    "COUNTDOWN_PUBLIC_URL": "https://wigglesworth-countdown.onrender.com",
+    "AI_BASE_URL": "https://api.groq.com/openai/v1",
+    "AI_MODEL": "openai/gpt-oss-20b",
+    "DISCORD_API_BASE": "https://discord.com/api/v10",
+    "MAIL_PROVIDER": "apps_script",
+    "PUBLIC_URL": "https://wigglesworth-applications.testacc31222.workers.dev",
+    "PREVIEW_MODE": "0"
+  }
+}
