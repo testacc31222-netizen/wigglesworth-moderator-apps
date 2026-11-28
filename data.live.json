@@ -15360,11 +15360,11 @@
       "kind": "receipt",
       "appId": "MOD-TNVSGQ",
       "decisionStatus": "",
-      "status": "queued",
-      "attempts": 0,
+      "status": "sent",
+      "attempts": 1,
       "error": "",
       "createdAt": "2026-11-28T04:27:07.579Z",
-      "sentAt": ""
+      "sentAt": "2026-11-28T04:27:09.393Z"
     }
   ],
   "staffAccounts": [
