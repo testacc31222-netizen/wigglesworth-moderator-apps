@@ -1,0 +1,12 @@
+node_modules
+.git
+.gitignore
+.env
+.env.*
+data.json
+data.live.json
+data.live.json.bak
+evidence
+docs
+*.log
+npm-debug.log*
